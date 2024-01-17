@@ -1,0 +1,610 @@
+### atril 1.24.0
+
+  * update translations
+  * thumbnailer: Fix memory leak
+  * Fix year 2038 issue with signed 32-bit integers
+
+### atril 1.23.2
+
+  * update translations
+  * Fix atril.desktop file
+  * Fix memory leak ev_sidebar_thumbnails_document_changed_cb()
+  * pdf: Fix memory leak when adding new text annotations
+  * Update Copyright year
+  * libview: fixing memory leak
+  * Revert "First page should not reloaded"
+  * avoid redundant redeclarations
+  * libview: Reset `pressed_button` when starting Drag and Drop
+  * show SyncTeX version in about dialog
+  * add hint for translators
+  * migrate from intltool to gettext
+  * Added accelerator 'o' for toggling Odd Pages Left.
+  * Added accelerator 't' for toggling visibility of the toolbar.
+  * remove 'synctex' internally, work with external library instead
+  * remove -Wunused-but-set-variable warning
+  * ephy-zoom-control.c:274:20: warning: variable ‘tool_item_class’ set but not used [-Wunused-but-set-
+  * build: require webkit2gtk-4.0 >= 2.6.0
+  * build: drop fallback check for webkit2gtk-3.0
+  * End the va_list before returning from _synctex_merge_strings
+  * build: Use synctex system library if available
+  * Remove synctex warning
+  * Bump synctex to 1.21
+  * fixed greek translation for user guide
+
+### atril 1.23.1
+
+  * update translations
+  * tx: sync with transifex
+  * Travis CI: 'cppcheck' with '-D__cplusplus'
+  * ev-view: Remove unused variables and assignment
+  * ev-page-action: avoid 'g_type_class_add_private'
+  * tiff: Handle failure from TIFFReadRGBAImageOriented
+  * view-presentation: Use monitor instead of screen
+  * shell: Use monitor instead of screen to determine window size
+  * ev-link: avoid 'g_type_class_add_private'
+  * ev-document: avoid 'g_type_class_add_private'
+  * ev-link-action: avoid 'g_type_class_add_private'
+  * ev-attachment: avoid 'g_type_class_add_private'
+  * ev-image: avoid 'g_type_class_add_private'
+  * ev-layer: avoid 'g_type_class_add_private'
+  * ev-link-dest: avoid 'g_type_class_add_private'
+  * ev-transition-effect: avoid 'g_type_class_add_private'
+  * egg-editable-toolbar: avoid 'g_type_class_add_private'
+  * egg-toolbar-editor: avoid 'g_type_class_add_private'
+  * egg-toolbars-model: avoid 'g_type_class_add_private'
+  * ev-link-accessible: avoid 'g_type_class_add_private'
+  * ev-timeline: avoid 'g_type_class_add_private'
+  * ev-form-field-accessible: avoid 'g_type_class_add_private'
+  * ev-image-accessible: avoid 'g_type_class_add_private'
+  * ev-transition-animation: avoid 'g_type_class_add_private'
+  * ev-page-accessible: avoid 'g_type_class_add_private'
+  * ev-view-accessible: avoid 'g_type_class_add_private'
+  * ev-sidebar-bookmarks: avoid 'g_type_class_add_private'
+  * ev-history: avoid 'g_type_class_add_private'
+  * ev-sidebar-layers: avoid 'g_type_class_add_private'
+  * eggfindbar: avoid 'g_type_class_add_private'
+  * ev-sidebar-links: avoid 'g_type_class_add_private'
+  * ev-sidebar-thumbnails: avoid 'g_type_class_add_private'
+  * ev-sidebar: avoid 'g_type_class_add_private'
+  * ev-sidebar-attachments: avoid 'g_type_class_add_private'
+  * ev-sidebar-annotations: avoid 'g_type_class_add_private'
+  * ev-progress-message-area: avoid 'g_type_class_add_private'
+  * ev-password-view: avoid 'g_type_class_add_private'
+  * ev-window: avoid 'g_type_class_add_private'
+  * ev-navigation-action: avoid 'g_type_class_add_private'
+  * ev-file-monitor: avoid 'g_type_class_add_private'
+  * ev-message-area: avoid 'g_type_class_add_private'
+  * shell: fix get_monitor_dpi when widget’s window is not realized
+  * DPI: compute monitor resolution or get screen resolution
+  * prevent segfaults when no document loaded
+  * require GLib 2.54.0
+  * Fix build warning on marshalling
+  * previewer-window: suppress GtkAction warnings
+  * sidebar-bookmarks: suppress GtkAction warnings
+  * ev-window: suppress GtkAction warnings
+  * ev-open-recent-action: suppress GtkAction warnings
+  * ev-navigation-action: suppress GtkAction warnings
+  * ev-bookmark-action: suppress GtkAction warnings
+  * ev-page-action: suppress GtkAction warnings
+  * egg-toolbar-editor: suppress GtkAction warnings
+  * egg-editable-toolbar: suppress GtkAction warnings
+  * egg-toolbar-editor{c/h}: tabs to spaces
+  * egg-editable-toolbar{c/h}: tabs to spaces
+  * ephy-zoom-action: suppress GtkAction warnings
+  * document: Replace deprecated gdk_color_equal
+  * Fix buffer overflow in backend/tiff-document.c
+
+### atril 1.23.0
+
+  * update translations
+  * Remove trailing whitespaces
+  * test: get focus on frame
+  * let test7.py can works
+  * force get focus on atril when testing
+  * migrate to python3 for test cases
+  * Bump Cairo version to 1.14.0
+  * Change url project's website
+  * [ci] Add cppcheck html report
+  * [ci] Enable Clang Static Analyzer
+  * help: update copyright
+  * Add documenters to translation resource
+  * Use program-name and title in gtk_show_about_dialog call
+  * Update copyright in about dialog
+  * Use g_strjoin to build license text in about dialog
+
+### atril 1.22.0
+
+  * update translations
+  * Add update-authors.pl script which helps to update atril.about
+  * Read authors (updated) from atril.about gresource
+  * Initialize Travis CI support
+  * Update Documenters
+  * [ephy-zoom-control] Avoid deprecated g_type_class_add_private
+  * [ephy-zoom-action] Avoid deprecated g_type_class_add_private
+  * Add pixbuf, tiff and xps TypeDescription to POTFILES.in
+  * eggsmclient: avoid deprecated 'g_type_class_add_private'
+  * move appdata to metainfo directory
+  * message-area: set a11y object name from actual icon name
+  * shell: remove duplicate condition check
+  * tiff: fix possible NULL pointer dereference
+  * pdf: add missing break statement
+  * libdocument: drop useless freeing of NULL pointer
+  * comics: fix incorrect mimetype saying to open and thumbnail all rarfiles
+  * disable deprecation warnings for distcheck
+
+### atril 1.21.1
+
+  * update translations
+  * Use make functions for HELP_LINGUAS
+  * comics: support application/vnd.rar MIME type
+  * shell: Save document to the same path it was opened from
+  * Reduce the chattiness of atril daemon
+  * EvView: Fix cursor movement when logical and visual line order differs
+  * Update atril_start_window.png
+  * moveable (older spelling) -> movable
+  * Update Catalan screenshot
+  * presentation: avoid deprecated 'gtk_style_context_set_background'
+  * ev-sidebar-bookmarks: use NULL instead of uninitialized variable
+  * navigation-action-widget: replace deprecated gtk_menu_popup function
+  * shell: replace deprecated gtk_menu_popup function
+  * ev-sidebar-links: replace deprecated gtk_menu_popup function
+  * ev-sidebar-bookmarks: replace deprecated gtk_menu_popup function
+  * ev-sidebar: replace deprecated gtk_menu_popup function
+  * editable-toolbar: replace deprecated gtk_menu_popup function
+  * libview: replace deprecated gdk_flush
+  * disable StartPresentation action in fullscreen if document has no pages
+  * disable ViewPresentation action if document has no pages
+  * libdocument: Use gdk_pixbuf_get_from_surface()
+  * thumbnailer: Remove unused code
+  * view: Fix page background rendering while loading
+  * libdocument: Deprecate misc_get_page_border_size()
+  * view: Use a rendered frame instead of custom border
+  * a11y: Return correct start and end offsets
+  * a11y: Fix crash with Orca screen reader
+  * libview: drop deprecated unneeded code
+  * ev-loading-message: Remove unused variables
+  * libview: fix text selection with mouse in annotation window
+  * libview: fix build without epub
+
+### atril 1.21.0
+
+  * shell: Don't dist generated files
+  * Disable view presentation if there is no document.
+  * Allow changing the page of a presentation
+  * libview: Fix goto window in presentation mode
+  * libview: avoid deprecated gdk_screen_get_monitor
+  * EvPresentationView: Render correctly on hi-dpi displays
+  * libview: Fix g_return condition in set_device_scale_on_surface()
+  * EvView: render correctly on hi-dpi displays
+  * libview: use css to draw the background of presentations
+  * shell: Use GResource for data files
+  * toolbar-editor: Add methods to load from GResource
+  * previewer: Use GResource for data files
+  * build: Add configure check for glib-compile-resources
+  * update resource for translations
+  * libview: Check number of pages when processing button events
+  * libview: Add check for pageless documents to ev_view_accessible_focus_changed
+  * libview: Check number of pages on ev_view_document_changed_cb
+  * Use GtkOverlay to show the loading message
+  * shell: Remove unused marshalers
+  * thumbnailer: Send error messages to stderr
+  * shell: Use GtkApplication to inhibit the screensaver
+  * shell: Port to GtkApplication
+  * shell: Use g_printerr instead of g_warning
+  * daemon: Port to GApplication
+  * daemon: Use gdbus-codegen for the org.mate.atril.Daemon interface
+  * shell: Use gdbus-codegen for the org.mate.atril.Window interface
+  * shell: Use gdbus-codegen for the org.mate.atril.Application interface
+  * libview: save inverted colors in a document
+  * Save/restore context when getting colors for a different state
+  * epub: allow to save epub documents
+  * epub:  fix loading epub thumbnails
+  * Check legal boundaries of accessible pages
+  * shell: fix menu-accel for inverted colors
+  * shell: add keypad accels for zoom_reset
+  * Add zoom reset
+  * avoid deprecated GtkStock
+
+### atril 1.20.0
+
+  * Translations update
+  * require GTK+ 3.22 and GLib 2.50
+  * build: remove pre-GTK+3 option (how did I miss that?)
+  * epub: make minizip support more BSD variants
+  * update copyright year to 2018
+
+### atril 1.19.6
+
+  * Translations update
+  * Revert "libview: Update the current page also when pending scroll is to find a location"
+  * previewer: add style class atril-previewer-window
+  * WidthOfScreen and HeightOfScreen implementation
+
+### atril 1.19.5
+
+  * Translations update
+  * shell: show caret navigation in menu
+  * ev-link-accessible: Improve efficiency of methods to get start and end indices
+  * Expose form fields as AtkObject children of the page
+  * Expose images as AtkObject children of the page
+  * Expose links as AtkObject children of the page
+  * ev-view-accessible: Add a method to determine if a given doc rect is showing
+  * ev-page-cache: Add method to check if a given page has been cached
+  * libview: Update the caret cursor when jumping to a find result
+  * libview: Update ATK_STATE_SHOWING when the visible page range changes
+  * libview: Implement AtkComponent for pages
+  * libview: Fix shift+click text selection
+  * a11y: ensure text cached when you request an EvPageAccessible
+  * a11y: managing atk states on EvPageAccessible
+  * a11y: add if applies ATK_RELATION_FLOWS_TO/FROM on EvPageAccessible
+  * a11y: move AtkHyperText implementation from EvViewAccessible to EvPageAccessible
+  * a11y: move AtkText implementation from EvViewAccessible to EvPageAccessible
+  * a11y: expose EvPageAccessible as children of EvViewAccessible
+  * a11y: new EvPageAccessible
+  * libview: Fix some broken aspects EvViewAccessible text support
+  * libview: Take caret navigation into account when getting AtkHyperlink indices
+  * a11y: cleaning implementation for atk_text_get_caret_offset
+  * a11y: fixing implementation for atk_text_set_caret_offset
+  * view: set_caret_cursor_position should emit "cursor-moved" if applies
+  * Remove support for deprecated atk_text_get_text_{before,after}_offset()
+  * a11y: implement AtkDocument on EvViewAccessible
+  * a11y: with caret navigation enabled, accessibility current page is cursor page
+  * ev-view-accessible: call document_changed_cb when setting the model
+  * Some text fixes for caret message area
+  * ev-view-accessible: Fix a crash in ev_view_accessible_get_link
+  * ev-view-accessible: Clear the cached data when the current page
+  * shell: remove view_actions_focus_out_cb
+  * shell: Remove ev_window_set_view_accels_sensitivity
+  * shell: forward accels to the focused widget
+  * Use a global array for view accel action
+  * fix crash when selecting text in djvu documents
+
+### atril 1.19.4
+
+  * Translations update
+  * shell: fix stock item for message area
+  * docs: libview: Re-add type builtins section
+  * Fix crashes of epub documents with caret-navigation
+  * Store the caret cursor position in document metadata
+  * libview: Add ev_view_set_caret_cursor_position
+  * libview: Update the current page also when pending scroll is to find a location
+  * libview: Do not schedule a redraw when enabling/disabling caret navigation
+  * libview: Stop caret cursor blinking when cursor is not in a visible page
+  * shell: Enable/disable the caret navigation with F7
+  * libview: Add ev_view_supports_caret_navigation()
+  * ev-link-accesible: Return the index/offset after the last character in the link
+  * help: Remove references to removed selection mode
+  * libview: Fix selections starting/ending in page margins
+  * libview: Reduce the pages to scan for selections
+  * libview: Remove unused rectangle selection mode
+  * libview: Rework ev_view_accessible_get_selection
+  * libview: do not redraw the whole view when caret cursor moves
+  * libview: Update the cursor area after positioning the cursor when moving between lines
+  * ev-view-accessible: Fix ev_view_accesssible_get_n_selections
+  * ev-view-accessibl: Fix get_caret_offset when the caret navigation is enabled
+  * libview: Use error bell and return early when moving between lines fails
+  * libview: do not schedule a resize in ensure_rectangle_is_visible
+  * libview: Stop the cursor blink when there are selections active
+  * libview: Deprecate ev_view_scroll in favor of g_signal_emit_by_name
+  * ev-window: Use g_signal_emit_by name instead of ev_view_scroll
+  * previewer: Remove scroll accelerators
+  * ev-window: Remove scroll accelerators
+  * libview: Add more scroll key bindings to EvView
+  * libview: Fix second parameter type of scroll signal for h, j, k and l bindings
+  * libview: Use merge_selection_region passing NULL to clear the selections
+  * ev-pixbuf-cache: Clear the selection region also when clearing the job selection
+  * ev-pixbuf-cache: fix the condition for when a new selection is needed
+  * ev-view-accessible: Rewrite get_run_attributes to return the text attributes from the document
+  * pdf: Implement ev_document_text_get_text_attrs()
+  * libview: Get text attributes from backend and save them in page cache
+  * libdocument: Add ev_document_text_get_text_attrs()
+  * libview: Emit the AtkText text-caret-moved and text-selection-changed signals
+  * libview: clear the selection when cursor is moved
+  * libview: Do not show the caret cursor when there are active selections
+  * libview: Return NULL instead of empty regions from the pixbuf cache
+  * libview: Don't draw the caret cursor when the view is not focused
+  * libview: Fix moving caret cursor between lines in multicolumn documents
+  * libview: Pre-cache some prev/next pages to the current page range.
+  * ev-pixbuf-cache: schedule prev or next jobs first depending on the scroll direction
+  * ev-pixbuf-cache: Schedule jobs to render previous pages in inverse order
+  * libview: Added 'cursor-moved' signal to notify when the caret cursor has been moved.
+  * libview: Avoid unnecessary region copies when selecting text
+  * libview: Use a larger damage area to redraw selections
+  * libview: Don't queue a redraw when damaged region hasn't changed
+  * libview: Invalidate union of old and new selection
+  * libview: Move the caret cursor when clicking outside a selection
+  * libview: Remove unused in_selection member from SelectionInfo struct
+  * libview: Keep the offset inside a line when moving the caret between lines
+  * libview: Position the caret cursor at beginning/end of the line
+  * libview: Do not schedule a redraw when selecting all text
+  * libview: Use prepend + reverse instead of append to create selections  list
+  * libview: Use GSlice to allocate EvViewSelection
+  * libview: Text selection using the caret cursor.
+  * libview: Update the caret cursor after selecting text with the mouse
+  * libview: Take page border into account when computing selections
+  * libview: Fix a crash when selecting more than one page
+  * libview: Make sure the cursor blinks after moving it by a click
+  * libview: merge get_caret_cursor_rect_from_offset and get_caret_cursor_area
+  * libview: Notify about caret navigation errors using the error bell.
+  * libview: Do not redraw after a click if cursor position hasn't changed
+  * libview: Use GtkBindings for caret navigation
+  * libview: Rename EvView::binding-activated signal as EvView::scroll
+  * libview: Position the caret cursor by clicking
+  * libview: Use EvPixbufCache to find selection region
+  * libview: Split ev_pixbuf_cache_get_selection_surface into two functions
+  * libview: Draw selection highlight from region
+  * libview: Fix the damage area used to redraw the caret cursor
+  * libview: Actually update the page when moving the care from a different page
+  * libview: Avoid to update the current page and scroll to the cursor position,
+             if the caret cursor was not updated
+  * libview: Make caret cursor blink
+  * libview: Use logical attributes instead text layout to move the caret cursor
+  * libview: Add a way to get the text logical attributes from the page cache
+  * libview: Initial implementation of caret navigation
+  * libview: Refactor code for drawing page and selection surfaces
+
+### atril 1.19.3
+
+  * Translations update
+  * shell: disable ViewDualOddLeft in menus for epubs
+  * libview: only access the relevant page cache for the height request
+  * Activate shortcut keys for dual and continuous layout
+  * ev-view: Forward key events to the focused form field
+  * Add shortcut keys for fit-page and fit-width options
+  * shell: Do not open single page pdfs in dual mode by default
+  * libview: Don't update current_page to negative number
+  * libview: Make page layout a mode
+  * libview: Add new zoom mode that optimizes for readability
+  * Rename Fit Page Width as Fit Width
+  * Rename Best Fit mode as Fit Page
+  * Move dual page with odd pages left to the view menu
+  * libview: drop deprecated usage of gtk_container_set_resize_mode
+
+### atril 1.19.2
+
+  * Translations update
+  * shell: Check if doc implements Annotations interface before cast
+  * Refreshing annotations' sidebar upon deletion
+  * libdocument: Make ev_mapping_list_remove void
+  * page-cache: Add flags parameter to ev_page_cache_mark_dirty()
+  * pdf: Reset the annotation mapping when there are no more annotations
+  * Add an option to remove annotations to the view popup menu
+  * libview: add ev_view_remove_annotation
+  * pdf: Implement remove_annotation virtual func
+  * libdocument: add ev_mapping_list_remove
+  * libdocument: Add remove_annotation to DocumentAnnotations.
+  * pdf: Make annotation names unique
+  * pdf: Add support for adding other types of annotations
+  * libview: Rename ev_view_set_focused_element and make it public internally
+  * Change the opacity of the annotation window
+  * Change color of annotation window
+  * libview: Grab focus for form fields and links on mouse press
+  * libdocument: Added ev_mapping_list_get
+  * pdf: Add activation link for Fields that have it.
+  * libview: Handle activation link of a Form Field  if present
+  * libdocument: Add activation_link to EvFormField struct
+  * ev-properties-licence: don't use deprecated GtkAlignment
+  * libview: : avoid deprecated gtk_adjustment_changed
+  * ev-job-find: mark two methods as skip
+  * ev-jobs: have ev_job_failed_from_error shadow ev_job_failed
+  * libview: add missing transfer and element-type annotations
+  * ev-mapping-list: make a boxed type
+  * libdocument: add missing transfer and element-type annotations
+  * gtk 3.22: avoid deprecated gdk_screen_get_monitor... functions:
+  * avoid gdk_screen_get_primary_monitor/gdk_screen_get_monitor_scale_factor
+  * ev-document-misc.c: avoid deprecated gdk_screen_get_width/height_mm
+  * dvi: Mitigate command injection attacks by quoting filename
+  * mdvi-lib: Fix compilation warning (const-correctness)
+  * libmisc: set width chars for page label
+  * libview: Scroll small pages in non-continuous mode
+  * libview: Enable GDK_SMOOTH_SCROLL events for view
+  * libview: Ctrl+mouse wheel zoom should be pointer-centered, not window-centered
+  * ev-view: Add pan gesture to switch page
+  * ev-view: explicitly require a GtkScrolledWindow as the parent widget
+  * ev-view: Add pinch/zoom gesture to handle document zooming
+
+### atril 1.19.1
+
+  * sidebar-thumbnails: fix unwanted move to start after fullscreen
+  * sidebar-thumbnails: preload one extra visible range while scrolling
+  * sidebar-thumbnails: keep thumbnails already rendered
+  * sidebar-thumbnails: fix clunky scrolling
+  * update copyright year in Caja extension
+  * annotations-sidebar: Clean up the styling
+  * ev-annotation-window: Fix setting the color of the window border
+  * libview: fix annotation window focus change after creation
+  * libview: Fix focus on ev_annotation_window
+  * libview: Don't change the font color of the annotation window
+  * shell: Use GdkRGBA for annotations
+  * libdocument: Add EvAnnotation API using GdkRGBA
+  * libdocument: Use the new deprecation macros
+  * Add deprecation macros
+  * fix runtime warnings caused by previous HDPI commit
+  * Take monitor scale factor into account when calculating zoom.
+  * Add hi-dpi support for main view.
+  * shell: Ditch gimpcellrenderertoggle
+  * sidebar-layers: Make it actually usable and fix a runtime warning
+  * libview: setting annotation window icons sizes
+  * libview: save changes to a dropdown in an embedded form
+  * libdocument: adjust rendering of shadow for active and inactive pages
+  * avoid deprecated gdk_screen_make_display_name
+  * ev-window: remove deprecated GtkToolbar-shadow-type
+  * annotation-properties-dialog: don't use a headerbar
+  * avoid deprecated gdk_display_get_screen and gdk_display_get_n_screens
+  * ev-window: don't use deprecated gtk_show_uri
+  * Translations update
+  * avoid deprecated gdk_screen_get_number
+  * Restore Polish translation credits from GNOME
+
+### atril 1.19.0
+
+  * Translations update
+  * update copyright year to 2017
+  * build: properly clean the generated .caja-extension file
+  * build: require cairo >= 1.10.0 and drop some old code
+  * shell: remove unused code from utils
+  * ev-view: avoid deprecated gtk_drag_begin
+  * egg-editable-toolbar: avoid deprecated gtk_drag_begin
+  * message-area: replace some GtkStock deprecations
+  * ev-sidebar: avoid deprecated GTK_STOCK_CLOSE icon
+  * password-view: replace some GtkStock deprecations
+  * password-view: don't use deprecated GtkAlignment
+  * toolbar-editor: don't use deprecated GtkAlignment
+
+### atril 1.18.0
+
+  * NEWS: use consistent, project wide, markdown-like formatting to make
+    generating release announcements easier
+  * Build: require caja >= 1.17.1
+  * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-gtk
+    build option
+  * [comics] add support for unarchiver (unar and lsar)
+  * [libview] increase page cache size to reduce number of page reloads
+  * Remove metadata migration code
+  * Force X11 backend
+  * Fix lots of GTK+ deprecations
+  * Fix some a11y issues
+  * Some more fixes and cleanups
+  * Translations update
+
+### atril 1.16.1
+
+  * Build: require poppler 0.22.0 (for case-sensitive search in PDFs)
+  * [comics] fix MIME type comparisons
+  * [comics] support application/vnd.comicbook+zip MIME type
+  * [djvu] support image/vnd.djvu+multipage MIME type
+  * [pdf] fix case-sensitive search
+  * thumbnailer: skip epub files (thumbnail generation never worked
+    there and caused segfaults)
+  * Some code cleanups
+  * Translations update
+
+### atril 1.16.0
+
+  * Build: require poppler 0.18.0
+  * Use GtkAboutDialog instead of MateAboutDialog
+  * Drop dependency on libmate-desktop and --without-matedesktop
+    build option
+  * Update toolbar-editor from libegg
+  * Update synctex to 1.18
+  * Split dual mode option into dual mode with odd and even pages
+    on the left
+  * Add Ctrl+Up/Down keybindings for previous/next search result
+  * Add caja-sendto support for sending current document by email,
+    to removable device, etc.
+  * Improve named destinations support with --named-dest command line
+    argument and dbus support
+  * [dvi] Use t1 font mapping files
+  * GTK+3: add style class for view
+  * GTK+3: fix possible crash when building with introspection enabled
+  * GTK+3: fix lots of deprecations
+  * Some more fixes and cleanups
+  * Translations update
+
+### atril 1.14.2
+
+  * Add setting to set page cache size
+  * Add setting to disable auto-reload
+  * Fix some issues with rotated documents
+  * Some more fixes and cleanups
+  * Translations update
+  * Make distcheck use currently selected GTK+ version
+
+### atril 1.14.1
+
+  * Translations update
+  * fix several random webview related crashes
+
+### atril 1.14.0
+
+  * Drop MateConf migration script
+  * Update copyrights, mention MATE team in Caja extension
+  * Use org.gnome.SessionManager DBus name to inhibit screensaver
+  * GTK+3: add atril-window style class to top level
+  * GTK+3: add css name EggToolbarEditor for 3.20
+  * Some more fixes and cleanups
+  * Translations update
+  * Fix Changelog generation
+
+### atril 1.12.2
+
+  * [epub] Fix crash when accessibility is enabled
+
+### atril 1.12.1
+
+  * [dvi] Fix crash due to regression
+  * Translations update
+
+### atril 1.12.0
+
+  * Drop support for win32/osx/hildon
+  * Drop useless mate-icon-theme dependency
+  * Make smclient mandatory
+  * [epub] drop embedded MathJax in favor of using distro-packaged one
+  * Retrieve strings directly from gschema (requires intltool 0.50.1)
+  * Several code cleanups
+
+### atril 1.10.2
+
+  * Fix several command line options
+  * Fix several findbar issues
+  * Make libmatedesktop optional
+  * [pdf] Fix saving annotations added to different pages
+
+### atril 1.10.1
+
+  * Fix crash when pressing Esc with no document opened
+  * Gtk3: Add webkit2gtk-4.0 and prefer it over 3.0
+  * Help fixes
+
+### atril 1.10.0
+
+  * Fix some crashes
+  * comics backend: add support for bsdtar
+  * Add ini file for caja extension
+  * Add appdata file
+  * Many fixed memory leaks from monsta
+  * sidebar-thumbnails: connect to job finished signal before scheduling the job
+  * zero-init all signals arrays
+  * Add support for external links to EvViewPresentation
+  * Save zoom factor in default settings when sizing mode is free
+  * [pdf] Add support for OCG State actions
+  * [pdf] Update to poppler api changes
+  * [pdf] Do not resolve named destinations in the backend
+  * [pdf] Bump poppler requirements to 0.16.0
+  * [pdf] Implement document_links_find_link_page()
+  * [djvu] Implement document_links_find_link_page()
+  * [libdocument] Use find_link_page() instead of find_link_dest() in get_dest_page()
+  * GDK_KEY_* keys are Gtk+2 as well.
+  * [shell] Add timestamp parameter to SyncView
+  * [shell] Use new methods to get page and page label from a link
+  * [libview] The updated GtkComboBox api is in Gtk+2.24
+  * [dvi] Fix drawing glyphs with transparency
+  * [shell] Send the URI of the input file instead of the filename in SyncSource
+  * [libdocument] Add xz compression support
+  * [pdf] Support .pdf.xz files
+  * [shell] Add EvBookmarks to handle internal document bookmarks
+  * [backends] Fix several security issues in the dvi-backend
+  * Small a11y fixes
+  * Remember the current page when document is reloaded in presentation mode
+  * presentation: Allow to change rotation in presentation mode
+  * Rotate with CTRL+Left/Right in presentation mode too
+  * Add .png extension when saving images using DnD
+  * Gtk3: Use gtk_paned_new() instead gtk_[h|v]paned_new()
+  * Gtk3: Add GtkStyleContect support
+  * Gtk3: Don't use gdk_cursor_unref()
+  * Gtk3: Use gtk_widget_render_icon_pixbuf()
+  * Gtk3: presentation: Make sure background window is black by default in presentation mode
+  * Add epub support (part of GSoC 2014).
+  * Use MateAboutDialog from libmate-desktop.
+
+### atril 1.8.0
+
+  * Drop libmatekeyring and use libsecret.
+  * Move from mate-doc-utils to yelp-tools.
+  * Better sort files by name in commic book archives.
+  * Enable case sensitive search (not available on all backends).
+  * Move Atril to "Offcie" in the menu.
+  * Show "filename (title)" in the window title.
+  * Gtk+3, add support to build against Gtk+3, still unsupported.
+  * Add Gtk3 primary toolbar style.

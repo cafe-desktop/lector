@@ -1,0 +1,5 @@
+[Atril Backend]
+Module=pdfdocument
+Resident=true
+TypeDescription=PDF Documents
+MimeType=application/pdf;application/x-bzpdf;application/x-gzpdf;application/x-xzpdf;application/x-ext-pdf;

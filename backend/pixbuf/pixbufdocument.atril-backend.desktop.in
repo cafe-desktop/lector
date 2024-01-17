@@ -1,0 +1,4 @@
+[Atril Backend]
+Module=pixbufdocument
+TypeDescription=Images
+MimeType=image/*;

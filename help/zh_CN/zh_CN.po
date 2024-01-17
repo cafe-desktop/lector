@@ -1,0 +1,1446 @@
+# Translators:
+# Mingcong Bai <jeffbai@aosc.xyz>, 2018
+# liushuyu011 <liushuyu011@gmail.com>, 2018
+# Stefano Karapetsas <stefano@karapetsas.com>, 2018
+# 玉堂白鹤 <yjwork@qq.com>, 2018
+# Wolfgang Ulbrich <mate@raveit.de>, 2018
+# biqiu-ssw <shenshuaiwen@gmail.com>, 2018
+# CNAmira <forucial@icloud.com>, 2018
+# zhineng404 <zhinengge@gmail.com>, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2020-01-10 10:49+0100\n"
+"PO-Revision-Date: 2018-09-18 09:08+0000\n"
+"Last-Translator: zhineng404 <zhinengge@gmail.com>, 2019\n"
+"Language-Team: Chinese (China) (https://www.transifex.com/mate/teams/13566/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr ""
+"Christopher Meng <i@cicku.me>, 2012-2013\n"
+"ravix <dr.neemous@gmail.com>, 2013\n"
+"Dianjin Wang <1132321739qq@gmail.com>, 2012\n"
+"Cravix <dr.neemous@gmail.com>, 2013\n"
+"nyanyh <rebuilty@gmail.com>, 2013\n"
+"liulitchi <xingzuo88@qq.com>, 2013\n"
+"玉堂白鹤 <yjwork@qq.com>, 2015\n"
+"Mingye Wang <arthur200126@gmail.com>, 2015-2016\n"
+"白铭骢 <jeffbai@aosc.xyz>, 2015-2016\n"
+"刘子兴 <liushuyu@aosc.xyz>, 2015-2016\n"
+"比丘<shenshuaiwen@gmail.com>,2018-2019"
+
+#. (itstool) path: articleinfo/title
+#: C/index.docbook:25
+msgid "Atril Document Viewer Manual"
+msgstr "Atril文档查看器手册"
+
+#. (itstool) path: abstract/para
+#: C/index.docbook:27
+msgid ""
+"The Atril Document Viewer application enables you to view documents of "
+"various formats like Portable Document Format (PDF) files and PostScript "
+"files"
+msgstr "Atril Document Viewer应用程序使您可以查看各种格式的文档，如可移植文档格式（PDF）文件和PostScript文件"
+
+#. (itstool) path: articleinfo/copyright
+#: C/index.docbook:32
+msgid "<year>2020</year> <holder>MATE Documentation Project</holder>"
+msgstr ""
+
+#. (itstool) path: articleinfo/copyright
+#: C/index.docbook:36
+msgid "<year>2005</year> <holder>Nickolay V. Shmyrev</holder>"
+msgstr "<year>2005</year> <holder>Nickolay V. Shmyrev</holder>"
+
+#. (itstool) path: articleinfo/copyright
+#: C/index.docbook:40
+msgid "<year>2004</year> <holder>Sun Microsystems</holder>"
+msgstr "<year>2004</year> <holder>Sun Microsystems</holder>"
+
+#. (itstool) path: publisher/publishername
+#. (itstool) path: revdescription/para
+#: C/index.docbook:53 C/index.docbook:104
+msgid "MATE Documentation Project"
+msgstr "MATE 文档项目"
+
+#. (itstool) path: publisher/publishername
+#. (itstool) path: revdescription/para
+#: C/index.docbook:56 C/index.docbook:113 C/index.docbook:121
+msgid "GNOME Documentation Project"
+msgstr "GNOME 文档项目"
+
+#. (itstool) path: legalnotice/para
+#: C/index.docbook:2
+msgid ""
+"Permission is granted to copy, distribute and/or modify this document under "
+"the terms of the GNU Free Documentation License (GFDL), Version 1.1 or any "
+"later version published by the Free Software Foundation with no Invariant "
+"Sections, no Front-Cover Texts, and no Back-Cover Texts. You can find a copy"
+" of the GFDL at this <ulink type=\"help\" url=\"help:fdl\">link</ulink> or "
+"in the file COPYING-DOCS distributed with this manual."
+msgstr ""
+"对于本文档的复制、分发和／或修改必须遵循自由软件基金会 (Free Software Foundation) 发布的 GNU 自由文档许可证 "
+"(GFDL) 版本 1.1 或更高版本，该许可证没有固定的部分、没有封面和背页文本。您可以在此<ulink type=\"help\" "
+"url=\"help:fdl\">链接</ulink>上或在随本手册一起分发的 COPYING-DOCS 文件中找到 GFDL 的副本。"
+
+#. (itstool) path: legalnotice/para
+#: C/index.docbook:12 C/legal.xml:12
+msgid ""
+"This manual is part of a collection of MATE manuals distributed under the "
+"GFDL. If you want to distribute this manual separately from the collection, "
+"you can do so by adding a copy of the license to the manual, as described in"
+" section 6 of the license."
+msgstr ""
+"本手册是在 GFDL 许可之下分发的 MATE 手册集合的一部分。如果想要单独分发此手册，可以在手册中添加该许可证的一份副本然后分发，如该许可证的第 6"
+" 部分所述。"
+
+#. (itstool) path: legalnotice/para
+#: C/index.docbook:19 C/legal.xml:19
+msgid ""
+"Many of the names used by companies to distinguish their products and "
+"services are claimed as trademarks. Where those names appear in any MATE "
+"documentation, and the members of the MATE Documentation Project are made "
+"aware of those trademarks, then the names are in capital letters or initial "
+"capital letters."
+msgstr ""
+"各个公司使用的许多用于区别它们产品和服务的名称都声明为商标。在所有的 MATE 文档以及 MATE "
+"文档项目的成员中，这些名称都是以全大写字母或首字母大写显示，从而表明它们是商标。"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:35 C/legal.xml:35
+msgid ""
+"DOCUMENT IS PROVIDED ON AN \"AS IS\" BASIS, WITHOUT WARRANTY OF ANY KIND, "
+"EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION, WARRANTIES THAT "
+"THE DOCUMENT OR MODIFIED VERSION OF THE DOCUMENT IS FREE OF DEFECTS "
+"MERCHANTABLE, FIT FOR A PARTICULAR PURPOSE OR NON-INFRINGING. THE ENTIRE "
+"RISK AS TO THE QUALITY, ACCURACY, AND PERFORMANCE OF THE DOCUMENT OR "
+"MODIFIED VERSION OF THE DOCUMENT IS WITH YOU. SHOULD ANY DOCUMENT OR "
+"MODIFIED VERSION PROVE DEFECTIVE IN ANY RESPECT, YOU (NOT THE INITIAL "
+"WRITER, AUTHOR OR ANY CONTRIBUTOR) ASSUME THE COST OF ANY NECESSARY "
+"SERVICING, REPAIR OR CORRECTION. THIS DISCLAIMER OF WARRANTY CONSTITUTES AN "
+"ESSENTIAL PART OF THIS LICENSE. NO USE OF ANY DOCUMENT OR MODIFIED VERSION "
+"OF THE DOCUMENT IS AUTHORIZED HEREUNDER EXCEPT UNDER THIS DISCLAIMER; AND"
+msgstr ""
+"文档按“原样”提供，不提供任何明示或暗示的保证，包括但不限于：文档或文档的修改版本没有适销性方面的缺陷、适合特定目的的适用性，以及没有侵权行为。您将自行承担本文档以及文档修改版本的质量、准确性以及性能方面的风险。如果任何文档或文档修改版本存在缺陷，您(而不是最初的编写者、作者或撰写人)将承担所有必需的服务、维修或更正的费用。此免责声明是本许可证的重要组成部分。如果不接受此免责声明，那么您就没有权利使用任何文档或文档的修改版本；并且"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:55 C/legal.xml:55
+msgid ""
+"UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER IN TORT (INCLUDING"
+" NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL THE AUTHOR, INITIAL WRITER, ANY "
+"CONTRIBUTOR, OR ANY DISTRIBUTOR OF THE DOCUMENT OR MODIFIED VERSION OF THE "
+"DOCUMENT, OR ANY SUPPLIER OF ANY OF SUCH PARTIES, BE LIABLE TO ANY PERSON "
+"FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF "
+"ANY CHARACTER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF GOODWILL, "
+"WORK STOPPAGE, COMPUTER FAILURE OR MALFUNCTION, OR ANY AND ALL OTHER DAMAGES"
+" OR LOSSES ARISING OUT OF OR RELATING TO USE OF THE DOCUMENT AND MODIFIED "
+"VERSIONS OF THE DOCUMENT, EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF THE"
+" POSSIBILITY OF SUCH DAMAGES."
+msgstr ""
+"无论在任何情况以及在任何法律理论下，本文档或文档修改版本的作者、最初的编写者、任何撰写人或任何分发者，或者任意这些方的任何提供者都不对任何人由于使用本文档或文档修改版本引起或带来的任何直接的、间接的、特殊的、偶然的或继发的损失承担任何民事(包括疏忽)、合同或其它方面的责任，这些损失包括但不限于信誉损失、工作停止、计算机失败或故障，或任何以及所有其它损失或由此引发的或与之相关的损失，即使这些方已被告知存在出现此类损失的可能性时也是如此。"
+
+#. (itstool) path: legalnotice/para
+#: C/index.docbook:28 C/legal.xml:28
+msgid ""
+"DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED UNDER THE TERMS "
+"OF THE GNU FREE DOCUMENTATION LICENSE WITH THE FURTHER UNDERSTANDING THAT: "
+"<_:orderedlist-1/>"
+msgstr "本文档和文档是根据 GNU 免费文档许可协议的条款提供的，并且还有进一步的阐述: <_:orderedlist-1/>"
+
+#. (itstool) path: authorgroup/author
+#: C/index.docbook:65
+msgid ""
+"<firstname>MATE Documentation Project</firstname> <surname/> "
+"<affiliation><orgname>MATE Desktop</orgname></affiliation>"
+msgstr ""
+"<firstname>MATE 文档项目</firstname> <surname/> <affiliation><orgname>MATE "
+"桌面</orgname></affiliation>"
+
+#. (itstool) path: authorgroup/author
+#: C/index.docbook:70
+msgid ""
+"<firstname>Sun</firstname> <surname>GNOME Documentation Team</surname> "
+"<affiliation><orgname>Sun Microsystems</orgname></affiliation>"
+msgstr ""
+"<firstname>Sun</firstname> <surname>GNOME 文档团队</surname> <affiliation> "
+"<orgname>Sun Microsystems</orgname> </affiliation>"
+
+#. (itstool) path: authorgroup/author
+#: C/index.docbook:75
+msgid ""
+"<firstname>Nickolay V. </firstname> <surname>Shmyrev</surname> <affiliation>"
+" <orgname>GNOME Documentation Project</orgname> <address> "
+"<email>nshmyrev@yandex.ru</email> </address> </affiliation>"
+msgstr ""
+"<firstname>Nickolay V. </firstname> <surname>Shmyrev</surname> <affiliation>"
+" <orgname>GNOME 文档项目</orgname> <address> <email>nshmyrev@yandex.ru</email> "
+"</address> </affiliation>"
+
+#. (itstool) path: revdescription/para
+#: C/index.docbook:103
+msgid "MATE Documentation Team"
+msgstr "MATE 文档团队"
+
+#. (itstool) path: revhistory/revision
+#: C/index.docbook:99
+msgid ""
+"<revnumber>Atril Document Viewer Manual V1.2</revnumber> <date>July "
+"2015</date> <_:revdescription-1/>"
+msgstr ""
+"<revnumber>Atril文档查看器手册 V1.2</revnumber> <date>July 2015</date> "
+"<_:revdescription-1/>"
+
+#. (itstool) path: revdescription/para
+#: C/index.docbook:111
+msgid "Niels Giesen"
+msgstr "Niels Giesen"
+
+#. (itstool) path: revdescription/para
+#: C/index.docbook:112
+msgid "Claude Paroz"
+msgstr "Claude Paroz"
+
+#. (itstool) path: revhistory/revision
+#: C/index.docbook:107
+msgid ""
+"<revnumber>Atril Document Viewer Manual V1.1</revnumber> "
+"<date>2008-04-05</date> <_:revdescription-1/>"
+msgstr ""
+"<revnumber>Atril文档查看器手册 V1.1</revnumber> <date>2008-04-05</date> "
+"<_:revdescription-1/>"
+
+#. (itstool) path: revdescription/para
+#: C/index.docbook:120
+msgid "Nickolay V. Shmyrev"
+msgstr "Nickolay V. Shmyrev"
+
+#. (itstool) path: revhistory/revision
+#: C/index.docbook:116
+msgid ""
+"<revnumber>Atril Document Viewer Manual V1.0</revnumber> "
+"<date>2005-04-06</date> <_:revdescription-1/>"
+msgstr ""
+"<revnumber>Atril文档查看器手册 V1.0</revnumber> <date>2005-04-06</date> "
+"<_:revdescription-1/>"
+
+#. (itstool) path: articleinfo/releaseinfo
+#: C/index.docbook:126
+msgid "This manual describes version 1.10.1 of Atril Document Viewer"
+msgstr "本手册介绍了Atril 文档查看器的1.10.1版"
+
+#. (itstool) path: legalnotice/title
+#: C/index.docbook:129
+msgid "Feedback"
+msgstr "反馈"
+
+#. (itstool) path: legalnotice/para
+#: C/index.docbook:130
+msgid ""
+"To report a bug or make a suggestion regarding the Atril Document Viewer "
+"application or this manual, follow the directions in the <ulink url=\"help"
+":mate-user-guide/feedback\" type=\"help\">MATE Feedback Page</ulink>."
+msgstr ""
+"要报告有关Atril 文档查看器应用程序或本手册的错误或提出建议，请按照<ulink url=\"help:mate-user-"
+"guide/feedback\" type=\"help\">MATE反馈页面</ulink>中的说明进行操作。"
+
+#. (itstool) path: article/indexterm
+#: C/index.docbook:136
+msgid "<primary>Atril Document Viewer</primary>"
+msgstr "<primary>Atril 文档查看器</primary>"
+
+#. (itstool) path: article/indexterm
+#: C/index.docbook:139
+msgid "<primary>atril</primary>"
+msgstr "<primary>atril</primary>"
+
+#. (itstool) path: sect1/title
+#: C/index.docbook:148
+msgid "Introduction"
+msgstr "介绍"
+
+#. (itstool) path: sect1/para
+#: C/index.docbook:149
+msgid ""
+"The <application>Atril Document Viewer</application> application enables you"
+" to view documents of various formats like Portable Document Format (PDF) "
+"files and PostScript files. <application>Atril Document Viewer</application>"
+" follows Freedesktop.org and MATE standards to provide integration with "
+"Desktop Environment."
+msgstr ""
+"<application>Atril "
+"文档查看</application>应用程序让您可以查看各种格式的文档，如可移植文档格式（PDF）文件和PostScript文件.<application>Atril"
+" 文档查看遵循</application>Freedesktop.org和MATE标准，提供与桌面环境的集成。"
+
+#. (itstool) path: sect1/title
+#: C/index.docbook:156
+msgid "Getting Started"
+msgstr "入门"
+
+#. (itstool) path: sect2/title
+#: C/index.docbook:159
+msgid "To Start Atril Document Viewer"
+msgstr "开始尝试 Atril 文档查看器"
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:160
+msgid ""
+"<application>Atril Document Viewer</application> starts when you open a "
+"document such as a PDF or PostScript file."
+msgstr "<application>Atril 文档查看</application>打开文档（如PDF或PostScript文件）时启动。"
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:161
+msgid ""
+"Alternatively, you can start <application>Atril Document "
+"Viewer</application> from the command line, with the command: "
+"<command>atril</command>."
+msgstr ""
+"或者，您可以从命令行启动<application>Atril "
+"文档查看器</application>，命令为：<command>atril</command>。"
+
+#. (itstool) path: sect2/title
+#: C/index.docbook:166
+msgid "When You Start Atril Document Viewer"
+msgstr "当您启动Atril文档查看器时"
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:167
+msgid ""
+"When you start <application>Atril Document Viewer</application>, the "
+"following window is displayed."
+msgstr "当您启动<application>Atril 文档查看器</application>时，将显示以下窗口。"
+
+#. (itstool) path: figure/title
+#: C/index.docbook:171
+msgid "Atril Document Viewer Window"
+msgstr "Atril 文档查看器窗口"
+
+#. (itstool) path: imageobject/imagedata
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/index.docbook:175
+msgctxt "_"
+msgid ""
+"external ref='figures/atril_start_window.png' "
+"md5='475a06bdb579c94e4f07d99ae3098e9c'"
+msgstr ""
+"external ref='figures/atril_start_window.png' "
+"md5='475a06bdb579c94e4f07d99ae3098e9c'"
+
+#. (itstool) path: screenshot/mediaobject
+#: C/index.docbook:173
+msgid ""
+"<imageobject><imagedata fileref=\"figures/atril_start_window.png\" "
+"format=\"PNG\"/> </imageobject> <textobject> <phrase>Shows Atril Document "
+"Viewer main window. Contains titlebar, menubar, toolbar and display area. "
+"Menubar contains File, Edit, View, Go and Help menus. </phrase> "
+"</textobject>"
+msgstr ""
+"<imageobject><imagedata fileref=\"figures/atril_start_window.png\" "
+"format=\"PNG\"/> </imageobject> <textobject> "
+"<phrase>显示Atril文档查看器主窗口。包含标题栏，菜单栏，工具栏和显示区域。菜单栏包含文件，编辑，查看，转到和帮助菜单。 </phrase> "
+"</textobject>"
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:184
+msgid ""
+"The <application>Atril Document Viewer</application> window contains the "
+"following elements:"
+msgstr "<application>Atril文档查看器</application>窗口包含以下元素："
+
+#. (itstool) path: varlistentry/term
+#. (itstool) path: entry/para
+#: C/index.docbook:188 C/index.docbook:236
+msgid "Menubar"
+msgstr "菜单栏"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:190
+msgid ""
+"The menus on the menubar contain all of the commands that you need to work "
+"with documents in <application>Atril Document Viewer</application>."
+msgstr "菜单栏上的菜单包含在<application>Atril文档查看器</application>中处理文档所需的所有命令。"
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:194
+msgid "Toolbar"
+msgstr "工具栏"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:196
+msgid ""
+"The toolbar contains a subset of the commands that you can access from the "
+"menubar."
+msgstr "工具栏包含您可以从菜单栏访问的命令的子集。"
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:200
+msgid "Display area"
+msgstr "显示区域"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:202
+msgid "The display area displays the document."
+msgstr "显示区域显示文档。"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:216
+msgid "UI Component"
+msgstr "界面部件"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:218 C/index.docbook:666
+msgid "Action"
+msgstr "动作"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:223
+msgid "Window"
+msgstr "窗口"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:227
+msgid ""
+"Drag a file into the <application>Atril Document Viewer</application> window"
+" from another application such as a file manager."
+msgstr "将文件从另一个应用程序如文件管理器拖到<application>Atril 文档查看器</application>窗口中。"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:230
+msgid "Double-click on the file name in the file manager"
+msgstr "双击文件管理器中的文件名"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:237
+msgid ""
+"Choose "
+"<menuchoice><guimenu>File</guimenu><guimenuitem>Open</guimenuitem></menuchoice>."
+msgstr ""
+"点击 "
+"<menuchoice><guimenu>文件</guimenu><guimenuitem>打开</guimenuitem></menuchoice>。"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:241
+msgid "Shortcut keys"
+msgstr "快捷键"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:242
+msgid "Press <keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo>."
+msgstr "按 <keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo>."
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:207
+msgid ""
+"In <application>Atril Document Viewer</application>, you can perform the "
+"same action in several ways. For example, you can open a document in the "
+"following ways: <_:informaltable-1/>"
+msgstr ""
+"在<application>Atril "
+"文档查看器</application>中，您可以通过多种方式执行相同的操作。例如，您可以通过以下方式打开文档：<_:informaltable-1/>"
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:248
+msgid "This manual documents functionality from the menubar."
+msgstr "本手册记录了菜单栏的功能。"
+
+#. (itstool) path: sect1/title
+#: C/index.docbook:256
+msgid "Usage"
+msgstr "用法"
+
+#. (itstool) path: sect2/title
+#: C/index.docbook:260
+msgid "To Open A Document"
+msgstr "打开文档"
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:261
+msgid "To open a document, perform the following steps:"
+msgstr "要打开文档，请执行以下步骤："
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:264
+msgid ""
+"Choose <menuchoice> <guimenu>File</guimenu><guimenuitem>Open</guimenuitem> "
+"</menuchoice>."
+msgstr ""
+"点击 "
+"<menuchoice><guimenu>文件</guimenu><guimenuitem>打开</guimenuitem></menuchoice>。"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:268
+msgid ""
+"In the <guilabel>Open Document</guilabel> dialog, select the file you want "
+"to open."
+msgstr "在<guilabel>打开文档</guilabel>对话框中，选择要打开的文件。"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:273
+msgid ""
+"Click <guibutton>Open</guibutton>. <application>Atril Document "
+"Viewer</application> displays the name of the document in the titlebar of "
+"the window."
+msgstr ""
+"单击<guibutton>打开</guibutton>。<application>Atril "
+"文档查看器</application>在窗口的标题栏中显示文档的名称。"
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:278
+msgid ""
+"To open another document, choose <menuchoice> "
+"<guimenu>File</guimenu><guimenuitem>Open</guimenuitem> </menuchoice> again. "
+"<application>Atril Document Viewer</application> opens each file in a new "
+"window."
+msgstr ""
+"要打开另一个文档，请再次选择<menuchoice> "
+"<guimenu>文件</guimenu><guimenuitem>打开</guimenuitem> </menuchoice> "
+"<application>Atril 文档查看器</application>会在一个新窗口中打开文件。"
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:281
+msgid ""
+"If you try to open a document with format that <application>Atril Document "
+"Viewer</application> does not recognize, the application displays an error "
+"message."
+msgstr "如果您尝试打开<application>Atril 文档查看器</application>无法识别的格式的文档，应用程序将显示错误消息。"
+
+#. (itstool) path: sect2/title
+#: C/index.docbook:287
+msgid "To Navigate Through a Document"
+msgstr "浏览文档"
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:288
+msgid "You can navigate through a file as follows:"
+msgstr "您可以按如下方式浏览文件："
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:291
+msgid ""
+"To view the next page, choose <menuchoice> <guimenu>Go</guimenu> "
+"<guimenuitem>Next Page</guimenuitem> </menuchoice>."
+msgstr ""
+"要查看下一页，请选择<menuchoice> <guimenu>转到</guimenu> <guimenuitem>下一页</guimenuitem> "
+"</menuchoice>."
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:295
+msgid ""
+"To view the previous page, choose <menuchoice> <guimenu>Go</guimenu> "
+"<guimenuitem>Previous Page</guimenuitem> </menuchoice>."
+msgstr ""
+"要查看下一页，请选择<menuchoice> <guimenu>转到</guimenu> <guimenuitem>上一页</guimenuitem> "
+"</menuchoice>."
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:299
+msgid ""
+"To view the first page in the document, choose <menuchoice> "
+"<guimenu>Go</guimenu> <guimenuitem>First Page</guimenuitem> </menuchoice>."
+msgstr ""
+"要查看第一页，请选择<menuchoice> <guimenu>转到</guimenu> <guimenuitem>第一页</guimenuitem> "
+"</menuchoice>."
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:303
+msgid ""
+"To view the last page in the document, choose <menuchoice> "
+"<guimenu>Go</guimenu> <guimenuitem>Last Page</guimenuitem> </menuchoice>."
+msgstr ""
+"要查看最后一页，请选择<menuchoice> <guimenu>转到</guimenu> "
+"<guimenuitem>最后一页</guimenuitem> </menuchoice>."
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:307
+msgid ""
+"To view a particular page, enter the page number or page label in the text "
+"box on the toolbar, then press <keycap>Return</keycap>."
+msgstr "要查看特定页面，请在工具栏上的文本框中输入页码或页面标签，然后按 <keycap>回车键</keycap>."
+
+#. (itstool) path: sect2/title
+#: C/index.docbook:314
+msgid "To Scroll a Page"
+msgstr "滚动页面"
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:315
+msgid ""
+"To display the page contents that are not currently displayed in the display"
+" area, use the following methods:"
+msgstr "要显示当前未在显示区域中显示的页面内容，请使用以下方法："
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:318
+msgid "Use the arrow keys or space key on the keyboard."
+msgstr "使用键盘上的箭头键或空格键。"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:321
+msgid ""
+"Drag the display area by clicking with the middle mouse button somewhere in "
+"the document and then moving the mouse. For example, to scroll down the "
+"page, drag the display area upwards in the window."
+msgstr "通过单击文档中某处的鼠标中键然后移动鼠标来拖动显示区域。例如，要向下滚动页面，请在窗口中向上拖动显示区域。"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:324
+msgid "Use the scrollbars on the window."
+msgstr "使用窗口上的滚动条。"
+
+#. (itstool) path: sect2/title
+#: C/index.docbook:331
+msgid "To Change the Page Size"
+msgstr "更改页面大小"
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:332
+msgid ""
+"You can use the following methods to resize a page in the <application>Atril"
+" Document Viewer</application> display area:"
+msgstr "您可以使用以下方法在<application>Atril文档查看器</application>显示区域中调整页面大小"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:337
+msgid ""
+"To increase the page size, choose <menuchoice> <guimenu>View</guimenu> "
+"<guimenuitem>Zoom In</guimenuitem> </menuchoice>."
+msgstr ""
+"要在视图窗口中放大页面，点击 "
+"<menuchoice><guimenu>查看</guimenu><guimenuitem>放大</guimenuitem></menuchoice>。"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:342
+msgid ""
+"To decrease the page size, choose <menuchoice> <guimenu>View</guimenu> "
+"<guimenuitem>Zoom Out</guimenuitem> </menuchoice>."
+msgstr ""
+"要在视图窗口中缩小页面，点击 "
+"<menuchoice><guimenu>查看</guimenu><guimenuitem>缩小</guimenuitem></menuchoice>。"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:347
+msgid ""
+"To resize a page to have the same width as the <application>Atril Document "
+"Viewer</application> display area, choose <menuchoice> "
+"<guimenu>View</guimenu> <guimenuitem>Fit page width</guimenuitem> "
+"</menuchoice>."
+msgstr ""
+"要将页面调整为与<application>Atril文档查看器</application>显示区域具有相同的宽度，请选择<menuchoice><guimenu>查看</guimenu><guimenuitem>适合页面宽度</guimenuitem></menuchoice>。"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:352
+msgid ""
+"To resize a page to fit within the <application>Atril Document "
+"Viewer</application> display area, choose <menuchoice> "
+"<guimenu>View</guimenu> <guimenuitem>Best Fit</guimenuitem> </menuchoice>."
+msgstr ""
+"调整页面大小以适应与<application>Atril文档查看器</application>显示区域，请选择<menuchoice><guimenu>查看</guimenu><guimenuitem>最适应</guimenuitem></menuchoice>。"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:357
+msgid ""
+"To resize the <application>Atril Document Viewer</application> window to "
+"have the same width and height as the screen, choose <menuchoice> "
+"<guimenu>View</guimenu> <guimenuitem>Full Screen</guimenuitem> "
+"</menuchoice>. To resize the <application>Atril Document "
+"Viewer</application> window to the original size, click on the "
+"<guibutton>Exit Full Screen</guibutton> button."
+msgstr ""
+"To resize the Atril Document Viewer window to have the same width and height"
+" as the screen, choose  View Full Screen . To resize the Atril Document "
+"Viewer window to the original size, click on the Exit Full Screen button."
+
+#. (itstool) path: sect2/title
+#: C/index.docbook:365
+msgid "To View Pages or Document Structure"
+msgstr "查看页面或文档结构"
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:366
+msgid "To view bookmarks or pages, perform the following steps:"
+msgstr "要查看书签或页面，请执行以下步骤："
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:370
+msgid ""
+"Choose <menuchoice> <guimenu>View</guimenu> "
+"<guimenuitem>Sidebar</guimenuitem> </menuchoice> or press "
+"<keycap>F9</keycap>."
+msgstr ""
+"选择<menuchoice> <guimenu>查看</guimenu> <guimenuitem>侧边栏</guimenuitem> "
+"</menuchoice> 或者按<keycap>F9</keycap>."
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:375
+msgid ""
+"Use the drop-down list in the side-pane header to select whether to display "
+"document structure or pages in the side pane."
+msgstr "使用侧窗格标题中的下拉列表选择是否在侧窗格中显示文档结构或页面。"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:380
+msgid ""
+"Use the side-pane scrollbars to display the required item or page in the "
+"side pane."
+msgstr "使用侧窗格滚动条在侧窗格中显示所需的项目或页面。"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:385
+msgid ""
+"Click on an entry to navigate to that location in the document. Click on a "
+"page to navigate to that page in the document."
+msgstr "单击条目以导航到文档中的该位置。单击页面以导航到文档中的该页面。"
+
+#. (itstool) path: sect2/title
+#: C/index.docbook:391
+msgid "To View the Properties of a Document"
+msgstr "查看文档的属性"
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:392
+msgid ""
+"To view the properties of a document, choose <menuchoice> "
+"<guimenu>File</guimenu> <guimenuitem>Properties</guimenuitem> </menuchoice>."
+msgstr ""
+"要查看文档的属性，请选择<menuchoice> <guimenu>文件</guimenu> <guimenuitem>属性</guimenuitem>"
+" </menuchoice>."
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:398
+msgid ""
+"The <guilabel>Properties</guilabel> dialog displays all information "
+"available"
+msgstr "<guilabel>属性</guilabel>对话框显示所有可用信息"
+
+#. (itstool) path: sect2/title
+#: C/index.docbook:404
+msgid "To Print a Document"
+msgstr "打印文档"
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:405
+msgid ""
+"To print a Document, choose <menuchoice> <guimenu>File</guimenu> "
+"<guimenuitem>Print</guimenuitem> </menuchoice>."
+msgstr ""
+"要打印文档，请选择<menuchoice> <guimenu>文件</guimenu> <guimenuitem>打印</guimenuitem> "
+"</menuchoice>."
+
+#. (itstool) path: note/para
+#: C/index.docbook:409
+msgid ""
+"If you cannot choose the <guimenuitem>Print</guimenuitem> menu item, the "
+"author of the document has disabled the print option for this document. To "
+"enable the print option, you must enter the master password when you open "
+"the document. See <xref linkend=\"atril-password\"/> for more information "
+"about password-protected files."
+msgstr ""
+"如果您无法选择<guimenuitem>打印</guimenuitem>菜单项，则文档的作者已禁用此文档的打印选项。要启用打印选项，您必须在打开文档时输入主密码。有关受密码保护的文件的详细信息，请参阅<xref"
+" linkend=\"atril-password\"/>。"
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:413
+msgid ""
+"The <guilabel>Print</guilabel> dialog has the following tabbed sections:"
+msgstr "<guilabel>打印</guilabel>对话框具有以下选项卡部分："
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:418
+msgid "<link linkend=\"print-dialog-job\">Job</link>"
+msgstr "<link linkend=\"print-dialog-job\">工作</link>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:423
+msgid "<link linkend=\"print-dialog-printer\">Printer</link>"
+msgstr "<link linkend=\"print-dialog-printer\">打印机</link>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:428
+msgid "<link linkend=\"print-dialog-paper\">Paper</link>"
+msgstr "<link linkend=\"print-dialog-paper\">纸张</link>"
+
+#. (itstool) path: sect3/title
+#: C/index.docbook:435
+msgid "Job"
+msgstr "工作"
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:437
+msgid "<guilabel>Print range</guilabel>"
+msgstr "<guilabel>打印范围</guilabel>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:439
+msgid ""
+"Select one of the following options to determine how many pages to print:"
+msgstr "选择以下选项之一以确定要打印的页数："
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:442
+msgid "<guilabel>All</guilabel>"
+msgstr "<guilabel>全部</guilabel>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:443
+msgid "Select this option to print all of the pages in the document."
+msgstr "选择此选项可打印文档中的所有页面。"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:446
+msgid "<guilabel>Pages From</guilabel>"
+msgstr "<guilabel>页面来自</guilabel>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:447
+msgid ""
+"Select this option to print the selected range of pages in the document. Use"
+" the spin boxes to specify the first page and last page of the range."
+msgstr "选择此选项可在文档中打印选定的页面范围。使用旋转框指定范围的第一页和最后一页。"
+
+#. (itstool) path: sect3/title
+#: C/index.docbook:457
+msgid "Printer"
+msgstr "打印机"
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:459
+msgid "<guilabel>Printer</guilabel>"
+msgstr "<guilabel>打印机</guilabel>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:461
+msgid ""
+"Use this drop-down list to select the printer to which you want to print the"
+" document."
+msgstr "使用此下拉列表选择要将文档打印到的打印机。"
+
+#. (itstool) path: note/para
+#: C/index.docbook:463
+msgid ""
+"The <guilabel>Create a PDF document</guilabel> option is not supported in "
+"this version of <application>Atril Document Viewer</application>."
+msgstr ""
+"此版本的<application>Atril文档查看器</application>不支持<guilabel>创建PDF文档</guilabel>选项。"
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:469
+msgid "<guilabel>Settings</guilabel>"
+msgstr "<guilabel>设置</guilabel>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:471
+msgid "Use this drop-down list to select the printer settings."
+msgstr "使用此下拉列表选择打印机设置。"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:473
+msgid ""
+"To configure the printer, click <guibutton>Configure</guibutton>. For "
+"example, you can enable or disable duplex printing, or schedule delayed "
+"printing, if this functionality is supported by the printer."
+msgstr ""
+"要配置打印机，请单击<guibutton>配置</guibutton>。例如，如果打印机支持此功能，则可以启用或禁用双面打印，或计划延迟打印。"
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:477
+msgid "<guilabel>Location</guilabel>"
+msgstr "<guilabel>定位</guilabel>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:479
+msgid ""
+"Use this drop-down list to select one of the following print destinations:"
+msgstr "使用此下拉列表选择以下打印目标之一："
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:484
+msgid "<guilabel>CUPS</guilabel>"
+msgstr "<guilabel>常见的UNIX打印系统</guilabel>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:486
+msgid "Print the document to a CUPS printer."
+msgstr "将文档打印到 CUPS 打印机"
+
+#. (itstool) path: note/para
+#: C/index.docbook:490
+msgid ""
+"If the selected printer is a CUPS printer, <guilabel>CUPS</guilabel> is the "
+"only entry in this drop-down list."
+msgstr "如果所选打印机是CUPS打印机, <guilabel>CUPS</guilabel> 是此下拉列表中的唯一条目。"
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:497
+msgid "<guilabel>lpr</guilabel>"
+msgstr "<guilabel>按行打印</guilabel>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:499
+msgid "Print the document to a printer."
+msgstr "将文档打印到打印机。"
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:505
+msgid "<guilabel>File</guilabel>"
+msgstr "<guilabel>文件</guilabel>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:507
+msgid "Print the document to a PostScript file."
+msgstr "将文档打印到PostScript文件。"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:510
+msgid ""
+"Click <guibutton>Save As</guibutton> to display a dialog where you specify "
+"the name and location of the PostScript file."
+msgstr "单击<guibutton>另存为</guibutton>以显示一个对话框，您可以在其中指定PostScript文件的名称和位置。"
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:516
+msgid "<guilabel>Custom</guilabel>"
+msgstr "<guilabel>自定义</guilabel>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:518
+msgid "Use the specified command to print the document."
+msgstr "使用指定的命令打印文档。"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:521
+msgid ""
+"Type the name of the command in the text box. Include all command-line "
+"arguments."
+msgstr "在文本框中键入命令的名称。包括所有命令行参数。"
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:529
+msgid "<guilabel>State</guilabel>"
+msgstr "<guilabel>状态</guilabel>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:531 C/index.docbook:537 C/index.docbook:543
+msgid ""
+"This functionality is not supported in this version of <application>Atril "
+"Document Viewer</application>."
+msgstr "此 <application>Atril 文档查看器</application>版本不支持此功能."
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:535
+msgid "<guilabel>Type</guilabel>"
+msgstr "<guilabel>类型</guilabel>"
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:541
+msgid "<guilabel>Comment</guilabel>"
+msgstr "<guilabel>注释</guilabel>"
+
+#. (itstool) path: sect3/title
+#: C/index.docbook:551
+msgid "Paper"
+msgstr "纸张"
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:553
+msgid "<guilabel>Paper size</guilabel>"
+msgstr "<guilabel>纸张大小</guilabel>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:555
+msgid ""
+"Use this drop-down list to select the size of the paper to which you want to"
+" print the document."
+msgstr "使用此下拉列表选择要将文档打印到的纸张大小。"
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:558
+msgid "<guilabel>Width</guilabel>"
+msgstr "<guilabel>宽度</guilabel>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:560
+msgid ""
+"Use this spin box to specify the width of the paper. Use the adjacent drop-"
+"down list to change the measurement unit."
+msgstr "使用此旋转框指定纸张的宽度。使用相邻的下拉列表更改测量单位。"
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:563
+msgid "<guilabel>Height</guilabel>"
+msgstr "<guilabel>高度</guilabel>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:565
+msgid "Use this spin box to specify the height of the paper."
+msgstr "使用此旋转框指定纸张的高度。"
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:568
+msgid "<guilabel>Feed orientation</guilabel>"
+msgstr "<guilabel>进纸方向</guilabel>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:570
+msgid ""
+"Use this drop-down list to select the orientation of the paper in the "
+"printer."
+msgstr "使用此下拉列表选择打印机中纸张的方向。"
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:573
+msgid "<guilabel>Page orientation</guilabel>"
+msgstr "<guilabel>页面方向</guilabel>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:575
+msgid "Use this drop-down list to select the page orientation."
+msgstr "使用此下拉列表选择页面方向。"
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:578
+msgid "<guilabel>Layout</guilabel>"
+msgstr "<guilabel>布局</guilabel>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:580
+msgid ""
+"Use this drop-down list to select the page layout. A preview of each layout "
+"that you select is displayed in the <guilabel>Preview</guilabel> area."
+msgstr "使用此下拉列表选择页面布局。您选择的每个布局的预览显示在<guilabel>预览</guilabel>区域中。"
+
+#. (itstool) path: varlistentry/term
+#: C/index.docbook:583
+msgid "<guilabel>Paper Tray</guilabel>"
+msgstr "<guilabel>纸盘</guilabel>"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:585
+msgid "Use this drop-down list to select the paper tray."
+msgstr "使用此下拉列表选择纸盘。"
+
+#. (itstool) path: sect2/title
+#: C/index.docbook:595
+msgid "To Copy a Document"
+msgstr "复制文档"
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:596
+msgid "To copy a file, perform the following steps:"
+msgstr "要复制文件，请执行以下步骤："
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:600
+msgid ""
+"Choose <menuchoice> <guimenu>File</guimenu> <guimenuitem>Save a "
+"Copy</guimenuitem> </menuchoice>."
+msgstr ""
+"选择<menuchoice> <guimenu>文件</guimenu> <guimenuitem>保存为副本</guimenuitem> "
+"</menuchoice>."
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:605
+msgid ""
+"Type the new filename in the <guilabel>Filename</guilabel> text box in the "
+"<guilabel>Save a Copy</guilabel> dialog."
+msgstr "在<guilabel>保存副本</guilabel>对话框的<guilabel>文件名</guilabel>文本框中键入新文件名。"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:608
+msgid ""
+"If necessary, specify the location of the copied document. By default, "
+"copies are saved in your home directory."
+msgstr "如有必要，请指定副本文档的位置。默认情况下，副本将保存在主目录中。"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:613
+msgid "Click <guibutton>Save</guibutton>."
+msgstr "点击 <guibutton>保存</guibutton>."
+
+#. (itstool) path: sect2/title
+#: C/index.docbook:622
+msgid "To Work With Password-Protected Documents"
+msgstr "使用受密码保护的文档"
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:623
+msgid "An author can use the following password levels to protect a document:"
+msgstr "作者可以使用以下密码级别来保护文档："
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:628
+msgid "User password that allows others only to read the document."
+msgstr "用户密码，仅允许其他人读取文档。"
+
+#. (itstool) path: listitem/para
+#: C/index.docbook:632
+msgid ""
+"Master password that allows others to perform additional actions, such as "
+"print the document."
+msgstr "主密码，允许其他人执行其他操作，例如打印文档。"
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:636
+msgid ""
+"When you try to open a password-protected document, <application>Atril "
+"Document Viewer</application> displays a security dialog. Type either the "
+"user password or the master password in the <guilabel>Enter document "
+"password</guilabel> text box, then click <guibutton>Open "
+"Document</guibutton>."
+msgstr ""
+"当您尝试打开受密码保护的文档时，<application>Atril "
+"文档查看器</application>会显示一个安全对话框。在<guilabel>输入文档密码</guilabel>文本框中键入用户密码或主密码，然后单击<guibutton>打开文档</guibutton>。"
+
+#. (itstool) path: sect2/title
+#: C/index.docbook:643
+msgid "To Close a Document"
+msgstr "关闭文档"
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:644
+msgid ""
+"To close a document, choose <menuchoice> <guimenu>File</guimenu> "
+"<guimenuitem>Close</guimenuitem> </menuchoice>."
+msgstr ""
+"要关闭文档，请选择<menuchoice> <guimenu>文件</guimenu> <guimenuitem>关闭</guimenuitem> "
+"</menuchoice>."
+
+#. (itstool) path: sect2/para
+#: C/index.docbook:646
+msgid ""
+"If the window is the last <application>Atril Document Viewer</application> "
+"window open, the application exits."
+msgstr "如果窗口是最后一个<application>Atril文档查看器</application>窗口，则退出该应用程序。"
+
+#. (itstool) path: sect1/title
+#: C/index.docbook:655
+msgid "Shortcuts"
+msgstr "快捷键"
+
+#. (itstool) path: sect1/para
+#: C/index.docbook:656
+msgid ""
+"Below is a list of all shortcuts present in <application>Atril Document "
+"Viewer</application>:"
+msgstr "以下是<application>Atril 文档查看器</application>目前所有快捷方式的列表"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:664
+msgid "Shortcut"
+msgstr "快捷键"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:671
+msgid "<keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo>"
+msgstr "<keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:672
+msgid "Open an existing document"
+msgstr "打开已有文档"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:675
+msgid "<keycombo><keycap>Ctrl</keycap><keycap>S</keycap></keycombo>"
+msgstr "<keycombo><keycap>Ctrl</keycap><keycap>S</keycap></keycombo>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:676
+msgid "Save a copy of the current document"
+msgstr "保存当前文档的副本"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:679
+msgid "<keycombo><keycap>Ctrl</keycap><keycap>P</keycap></keycombo>"
+msgstr "<keycombo><keycap>Ctrl</keycap><keycap>P</keycap></keycombo>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:680
+msgid "Print document"
+msgstr "打印文档"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:683
+msgid "<keycombo><keycap>Ctrl</keycap><keycap>W</keycap></keycombo>"
+msgstr "<keycombo><keycap>Ctrl</keycap><keycap>W</keycap></keycombo>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:684
+msgid "Close window"
+msgstr "关闭窗口"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:687
+msgid "<keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo>"
+msgstr "<keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:688
+msgid "Copy selection"
+msgstr "复制选择"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:691
+msgid "<keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo>"
+msgstr "<keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:692
+msgid "Select All"
+msgstr "全选"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:696
+msgid "<keycombo><keycap>Ctrl</keycap><keycap>F</keycap></keycombo>"
+msgstr "<keycombo><keycap>Ctrl</keycap><keycap>F</keycap></keycombo>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:697
+msgid "<keycap>/</keycap> (slash)"
+msgstr "<keycap>/</keycap> (斜杠)"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:699
+msgid "Find a word or phrase in the document"
+msgstr "在文档中查找单词或短语"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:703
+msgid "<keycombo><keycap>Ctrl</keycap><keycap>G</keycap></keycombo>"
+msgstr "<keycombo><keycap>Ctrl</keycap><keycap>G</keycap></keycombo>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:704
+msgid "<keycap>F3</keycap>"
+msgstr "<keycap>F3</keycap>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:706
+msgid "Find next"
+msgstr "查找下一个"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:710
+msgid ""
+"<keycombo><keycap>Ctrl</keycap><keycap>+</keycap></keycombo> (plus sign)"
+msgstr "<keycombo><keycap>Ctrl</keycap><keycap>+</keycap></keycombo> (+号)"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:711
+msgid "<keycap>+</keycap>"
+msgstr "<keycap>+</keycap>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:712
+msgid "<keycap>=</keycap>"
+msgstr "<keycap>=</keycap>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:714
+msgid "Zoom in"
+msgstr "放大"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:718
+msgid ""
+"<keycombo><keycap>Ctrl</keycap><keycap>-</keycap></keycombo> (minus sign)"
+msgstr "<keycombo><keycap>Ctrl</keycap><keycap>-</keycap></keycombo> ( - 号键)"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:719
+msgid "<keycap>-</keycap>"
+msgstr "<keycap>-</keycap>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:721
+msgid "Zoom out"
+msgstr "缩小"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:724
+msgid "<keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo>"
+msgstr "<keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:725
+msgid "Reload the document"
+msgstr "重新载入文档"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:729
+msgid "<keycap>Page Up</keycap>"
+msgstr "<keycap>Page Up</keycap>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:730
+msgid "Go to the previous page"
+msgstr "转到上一页"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:733
+msgid "<keycap>Page Down</keycap>"
+msgstr "<keycap>下一页</keycap>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:734
+msgid "Go to the next page"
+msgstr "转到下一页"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:738
+msgid "<keycap>Space</keycap>"
+msgstr "<keycap>空格</keycap>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:739
+msgid "<keycombo><keycap>Shift</keycap><keycap>Backspace</keycap></keycombo>"
+msgstr "<keycombo><keycap>Shift</keycap><keycap>Backspace</keycap></keycombo>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:740
+msgid "<keycap>Return</keycap>"
+msgstr "<keycap>回车键</keycap>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:742
+msgid "Scroll forward"
+msgstr "向前滚动"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:746
+msgid "<keycombo><keycap>Shift</keycap><keycap>Space</keycap></keycombo>"
+msgstr "<keycombo><keycap>Shift</keycap><keycap>空格键</keycap></keycombo>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:747
+msgid "<keycap>Backspace</keycap>"
+msgstr "<keycap>退格键</keycap>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:748
+msgid "<keycombo><keycap>Shift</keycap><keycap>Return</keycap></keycombo>"
+msgstr "<keycombo><keycap>Shift</keycap><keycap>回车键</keycap></keycombo>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:750
+msgid "Scroll backward"
+msgstr "向后滚动"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:754
+msgid "<keycombo><keycap>Shift</keycap><keycap>Page Up</keycap></keycombo>"
+msgstr "<keycombo><keycap>Shift</keycap><keycap>Page Up</keycap></keycombo>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:755
+msgid "Go a bunch of pages up"
+msgstr "去上一页面"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:758
+msgid "<keycombo><keycap>Shift</keycap><keycap>Page Down</keycap></keycombo>"
+msgstr "<keycombo><keycap>Shift</keycap><keycap>Page Down</keycap></keycombo>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:759
+msgid "Go a bunch of pages down"
+msgstr "持续滚向下面页面"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:762
+msgid "<keycap>Home</keycap>"
+msgstr "<keycap>主页</keycap>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:763
+msgid "Go to the first page"
+msgstr "转到第一页"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:766
+msgid "<keycap>End</keycap>"
+msgstr "<keycap>End</keycap>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:767
+msgid "Go to the last page"
+msgstr "转到最后一页"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:770
+msgid "<keycombo><keycap>Ctrl</keycap><keycap>L</keycap></keycombo>"
+msgstr "<keycombo><keycap>Ctrl</keycap><keycap>L</keycap></keycombo>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:771
+msgid "Go to page by number or label"
+msgstr "按编号或标签转到页面"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:774
+msgid "<keycap>F1</keycap>"
+msgstr "<keycap>F1</keycap>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:775
+msgid "Help"
+msgstr "帮助"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:778
+msgid "<keycap>F5</keycap>"
+msgstr "<keycap>F5</keycap>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:779
+msgid "Run document as presentation"
+msgstr "以演示文稿方式运行文档"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:782
+msgid "<keycap>F9</keycap>"
+msgstr "<keycap>F9</keycap>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:783
+msgid "Show or hide the side pane"
+msgstr "显示或隐藏侧边栏"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:786
+msgid "<keycap>F11</keycap>"
+msgstr "<keycap>F11</keycap>"
+
+#. (itstool) path: entry/para
+#: C/index.docbook:787
+msgid "Toggle fullscreen mode"
+msgstr "切换全屏模式"
+
+#. (itstool) path: para/ulink
+#: C/legal.xml:9
+msgid "link"
+msgstr "链接"
+
+#. (itstool) path: legalnotice/para
+#: C/legal.xml:2
+msgid ""
+"Permission is granted to copy, distribute and/or modify this document under "
+"the terms of the GNU Free Documentation License (GFDL), Version 1.1 or any "
+"later version published by the Free Software Foundation with no Invariant "
+"Sections, no Front-Cover Texts, and no Back-Cover Texts. You can find a copy"
+" of the GFDL at this <_:ulink-1/> or in the file COPYING-DOCS distributed "
+"with this manual."
+msgstr ""
+"对于本文档的复制、分发和／或修改必须遵循自由软件基金会 (Free Software Foundation) 发布的 GNU 自由文档许可证 "
+"(GFDL) 版本 1.1 或更高版本，该许可证没有固定的部分、没有封面和背页文本。您可以在此 <_:ulink-1/> 或者随本文档一并发行的 "
+"COPYING-DOCS 中找到 GFDL 的副本。"
