@@ -1,12 +1,12 @@
 <schemalist>
 
-  <enum id="org.mate.Atril.SizingMode">
+  <enum id="org.mate.Lector.SizingMode">
     <value nick="fit-page" value="0"/>
     <value nick="fit-width" value="1"/>
     <value nick="free" value="2"/>
   </enum>
 
-  <schema id="org.mate.Atril" path="/org/mate/lector/" gettext-domain="lector">
+  <schema id="org.mate.Lector" path="/org/mate/lector/" gettext-domain="lector">
     <key name="override-restrictions" type="b">
       <default>true</default>
       <summary>Override document restrictions</summary>
@@ -34,10 +34,10 @@
       <default>true</default>
       <summary>Show a dialog to confirm that the user wants to activate the caret navigation.</summary>
     </key>
-    <child name="default" schema="org.mate.Atril.Default"/>
+    <child name="default" schema="org.mate.Lector.Default"/>
   </schema>
 
-  <schema id="org.mate.Atril.Default" path="/org/mate/lector/default/" gettext-domain="lector">
+  <schema id="org.mate.Lector.Default" path="/org/mate/lector/default/" gettext-domain="lector">
     <key name="show-toolbar" type="b">
       <default>true</default>
     </key>
@@ -47,7 +47,7 @@
     <key name="window-ratio" type="(dd)">
       <default>(0., 0.)</default>
     </key>
-    <key name="sizing-mode" enum="org.mate.Atril.SizingMode">
+    <key name="sizing-mode" enum="org.mate.Lector.SizingMode">
       <default>'fit-width'</default>
     </key>
     <key name="zoom" type="d">

@@ -17,9 +17,9 @@
     A copy of the license is included in the COPYING file.
     -->
   <bookinfo>
-    <title>Atril Document Library Reference Manual</title>
+    <title>Lector Document Library Reference Manual</title>
     <releaseinfo>
-      For Atril version &version;.
+      For Lector version &version;.
       The latest version of this documentation can be found on-line at the
       <ulink role="online-location" url="http://library.mate.org/devel/libevdocument/index.html">MATE Library</ulink>.
     </releaseinfo>
@@ -70,7 +70,7 @@
     <title>Document Interfaces</title>
     <partintro>
       <para>
-        Provides support for writing Atril backends.
+        Provides support for writing Lector backends.
       </para>
     </partintro>
 

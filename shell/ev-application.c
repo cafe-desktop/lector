@@ -6,12 +6,12 @@
  *  Author:
  *    Martin Kretzschmar <martink@gnome.org>
  *
- * Atril is free software; you can redistribute it and/or modify it
+ * Lector is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Atril is distributed in the hope that it will be useful, but
+ * Lector is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
@@ -51,7 +51,7 @@ struct _EvApplication {
 	gchar *dot_dir;
 
 #ifdef ENABLE_DBUS
-	EvAtrilApplication *skeleton;
+	EvLectorApplication *skeleton;
 	EvMediaPlayerKeys *keys;
 	gboolean doc_registered;
 #endif
@@ -66,7 +66,7 @@ struct _EvApplicationClass {
 G_DEFINE_TYPE (EvApplication, ev_application, GTK_TYPE_APPLICATION)
 
 #ifdef ENABLE_DBUS
-#define APPLICATION_DBUS_OBJECT_PATH "/org/mate/lector/Atril"
+#define APPLICATION_DBUS_OBJECT_PATH "/org/mate/lector/Lector"
 #define APPLICATION_DBUS_INTERFACE   "org.mate.lector.Application"
 
 #define ATRIL_DAEMON_SERVICE        "org.mate.lector.Daemon"
@@ -124,7 +124,7 @@ ev_application_load_session (EvApplication *application)
 	} else
 		return FALSE;
 
-	uri = g_key_file_get_string (state_file, "Atril", "uri", NULL);
+	uri = g_key_file_get_string (state_file, "Lector", "uri", NULL);
 	if (!uri)
 		return FALSE;
 
@@ -146,7 +146,7 @@ smclient_save_state_cb (EggSMClient   *client,
 	if (!application->uri)
 		return;
 
-	g_key_file_set_string (state_file, "Atril", "uri", application->uri);
+	g_key_file_set_string (state_file, "Lector", "uri", application->uri);
 }
 
 static void
@@ -706,7 +706,7 @@ ev_application_open_window (EvApplication *application,
 
 #ifdef ENABLE_DBUS
 static gboolean
-handle_get_window_list_cb (EvAtrilApplication    *object,
+handle_get_window_list_cb (EvLectorApplication    *object,
                            GDBusMethodInvocation *invocation,
                            EvApplication         *application)
 {
@@ -733,7 +733,7 @@ handle_get_window_list_cb (EvAtrilApplication    *object,
 }
 
 static gboolean
-handle_reload_cb (EvAtrilApplication   *object,
+handle_reload_cb (EvLectorApplication   *object,
                   GDBusMethodInvocation *invocation,
                   GVariant              *args,
                   guint                  timestamp,
@@ -909,7 +909,7 @@ ev_application_dbus_register (GApplication    *gapplication,
                               GError         **error)
 {
         EvApplication *application = EV_APPLICATION (gapplication);
-        EvAtrilApplication *skeleton;
+        EvLectorApplication *skeleton;
 
         if (!G_APPLICATION_CLASS (ev_application_parent_class)->dbus_register (gapplication,
                                                                                connection,

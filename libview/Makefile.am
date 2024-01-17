@@ -59,7 +59,7 @@ liblectorview_la_SOURCES = 			\
 
 liblectorview_la_CPPFLAGS = \
 	-DATRILDATADIR=\"$(pkgdatadir)\"	\
-	-DG_LOG_DOMAIN=\"AtrilView\"		\
+	-DG_LOG_DOMAIN=\"LectorView\"		\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
 	-DATRIL_COMPILATION			\
 	-I$(top_srcdir)				\
@@ -128,9 +128,9 @@ EXTRA_DIST = \
 
 if ENABLE_INTROSPECTION
 
-AtrilView-$(EV_API_VERSION).gir: liblectorview.la Makefile $(INST_H_FILES) $(filter %.c,$(liblectorview_la_SOURCES))
+LectorView-$(EV_API_VERSION).gir: liblectorview.la Makefile $(INST_H_FILES) $(filter %.c,$(liblectorview_la_SOURCES))
 	$(AM_V_GEN) PKG_CONFIG_PATH=$(top_builddir):$$PKG_CONFIG_PATH \
-	$(G_IR_SCANNER) -v --namespace AtrilView \
+	$(G_IR_SCANNER) -v --namespace LectorView \
 	--add-include-path=$(top_builddir)/libdocument \
 	--strip-prefix=Ev \
 	--nsversion=$(EV_API_VERSION) \
@@ -140,7 +140,7 @@ AtrilView-$(EV_API_VERSION).gir: liblectorview.la Makefile $(INST_H_FILES) $(fil
 	--include=Gdk-3.0 \
 	--include=GdkPixbuf-2.0 \
 	--include=Gtk-3.0 \
-	--include=AtrilDocument-$(EV_API_VERSION) \
+	--include=LectorDocument-$(EV_API_VERSION) \
 	--library=lectorview \
 	--libtool="$(LIBTOOL)" \
 	--output $@ \
@@ -154,10 +154,10 @@ AtrilView-$(EV_API_VERSION).gir: liblectorview.la Makefile $(INST_H_FILES) $(fil
 	$(filter %.c,$^)
 
 girdir = $(GIRDIR)
-gir_DATA = AtrilView-$(EV_API_VERSION).gir
+gir_DATA = LectorView-$(EV_API_VERSION).gir
 
 typelibsdir = $(GIRTYPELIBDIR)
-typelibs_DATA = AtrilView-$(EV_API_VERSION).typelib
+typelibs_DATA = LectorView-$(EV_API_VERSION).typelib
 
 EXTRA_DIST += $(gir_DATA)
 CLEANFILES += $(gir_DATA) $(typelibs_DATA)

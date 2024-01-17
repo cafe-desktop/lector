@@ -459,8 +459,8 @@ msgstr "6400%"
 
 #: data/lector.appdata.xml.in:7 data/lector.desktop.in.in:3
 #: shell/ev-window.c:5445
-msgid "Atril Document Viewer"
-msgstr "Atril 文件檢視器"
+msgid "Lector Document Viewer"
+msgstr "Lector 文件檢視器"
 
 #: data/lector.appdata.xml.in:8
 msgid "A Document Viewer for the MATE desktop environment"
@@ -468,23 +468,23 @@ msgstr "適用於 MATE 桌面環境的文件檢視器"
 
 #: data/lector.appdata.xml.in:10
 msgid ""
-"Atril is a simple multi-page document viewer. It can display and print "
+"Lector is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
 "Document Format (PDF) files, as well as comic book archive files. When "
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks."
 msgstr ""
-"Atril 是一個簡單的多頁面文件檢視器。它可以顯示並列印 PostScript (PS)、Encapsulated PostScript "
+"Lector 是一個簡單的多頁面文件檢視器。它可以顯示並列印 PostScript (PS)、Encapsulated PostScript "
 "(EPS)、DJVU、DVI、XPS 及 Portable Document Format (PDF) "
 "檔案，甚至是漫畫書的檔案格式都可以。如果文件支援的話，它就可以搜尋文字、複製文字到剪貼簿、超文字傳輸及目錄式的書籤。"
 
 #: data/lector.appdata.xml.in:18
 msgid ""
-"Atril is a fork of Evince and part of the MATE Desktop Environment. If you "
-"would like to know more about MATE and Atril, please visit the project's "
+"Lector is a fork of Evince and part of the MATE Desktop Environment. If you "
+"would like to know more about MATE and Lector, please visit the project's "
 "home page."
 msgstr ""
-"Atril 是 Evince 的衍生產品，且為 MATE 桌面環境的一部份。如果您想要知道關於 MATE 及 Atril 的更多消息，請參觀專案的首頁。"
+"Lector 是 Evince 的衍生產品，且為 MATE 桌面環境的一部份。如果您想要知道關於 MATE 及 Lector 的更多消息，請參觀專案的首頁。"
 
 #: data/lector.desktop.in.in:4 shell/ev-window.c:5375
 #: shell/ev-window-title.c:157
@@ -508,41 +508,41 @@ msgstr "lector"
 msgid "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 msgstr "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 
-#: data/org.mate.Atril.gschema.xml:12
+#: data/org.mate.Lector.gschema.xml:12
 msgid "Override document restrictions"
 msgstr "覆寫文件的限制"
 
-#: data/org.mate.Atril.gschema.xml:13
+#: data/org.mate.Lector.gschema.xml:13
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "覆寫文件的限制，像是複製或列印的限制。"
 
-#: data/org.mate.Atril.gschema.xml:17
+#: data/org.mate.Lector.gschema.xml:17
 msgid "Automatically reload the document"
 msgstr "自動重新載入文件"
 
-#: data/org.mate.Atril.gschema.xml:18
+#: data/org.mate.Lector.gschema.xml:18
 msgid "Whether the document is automatically reloaded on file change."
 msgstr "檔案變更時是否自動重新載入文件。"
 
-#: data/org.mate.Atril.gschema.xml:22
+#: data/org.mate.Lector.gschema.xml:22
 msgid "The URI of the directory last used to open or save a document."
 msgstr "最後用於開啟或是儲存文件的目錄的 URI。"
 
-#: data/org.mate.Atril.gschema.xml:26
+#: data/org.mate.Lector.gschema.xml:26
 msgid "The URI of the directory last used to save a picture."
 msgstr "最後用於儲存圖片的目錄的 URI。"
 
-#: data/org.mate.Atril.gschema.xml:30
+#: data/org.mate.Lector.gschema.xml:30
 msgid "Page cache size in MiB"
 msgstr "以 MiB 計的頁面快取"
 
-#: data/org.mate.Atril.gschema.xml:31
+#: data/org.mate.Lector.gschema.xml:31
 msgid ""
 "The maximum size that will be used to cache rendered pages, limits maximum "
 "zoom level."
 msgstr "將會用於快取已繪製過的頁面的最大大小，限制最大縮放等級。"
 
-#: data/org.mate.Atril.gschema.xml:35
+#: data/org.mate.Lector.gschema.xml:35
 msgid ""
 "Show a dialog to confirm that the user wants to activate the caret "
 "navigation."
@@ -731,12 +731,12 @@ msgid "%s, Landscape (%s)"
 msgstr "%s, 橫向 (%s)"
 
 #: properties/liblector-properties-page.caja-extension.desktop.in:5
-msgid "Atril properties"
-msgstr "Atril 屬性"
+msgid "Lector properties"
+msgstr "Lector 屬性"
 
 #: properties/liblector-properties-page.caja-extension.desktop.in:6
-msgid "Shows details for Atril documents"
-msgstr "顯示 Atril 整份文件的詳細資訊"
+msgid "Shows details for Lector documents"
+msgstr "顯示 Lector 整份文件的詳細資訊"
 
 #: libmisc/ev-page-action-widget.c:64
 #, c-format
@@ -1361,35 +1361,35 @@ msgstr "GNOME 文件團隊"
 
 #: shell/ev-window.c:5394
 msgid ""
-"Atril is free software; you can redistribute it and/or modify it under the "
+"Lector is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version."
 msgstr ""
-"Atril 為自由軟體；您可依據自由軟體基金會所發表的 GNU "
+"Lector 為自由軟體；您可依據自由軟體基金會所發表的 GNU "
 "通用公共授權條款規定，就本程式再為散布與／或修改；無論您依據的是本授權的第二版或（您自行選擇的）任一日後發行的版本。"
 
 #: shell/ev-window.c:5398
 msgid ""
-"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Lector is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details."
 msgstr ""
-"Atril 係基於使用目的而加以散布，然而不負任何擔保責任；亦無對適售性或特定目的適用性所為的默示性擔保。詳情請參照 GNU 通用公共授權。"
+"Lector 係基於使用目的而加以散布，然而不負任何擔保責任；亦無對適售性或特定目的適用性所為的默示性擔保。詳情請參照 GNU 通用公共授權。"
 
 #: shell/ev-window.c:5402
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+" Lector; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA"
 msgstr ""
-"您應該已收到附於 Atril 的 GNU 通用公共授權的副本。如果沒有，請寫信至：Free Software Foundation, Inc., 51 "
+"您應該已收到附於 Lector 的 GNU 通用公共授權的副本。如果沒有，請寫信至：Free Software Foundation, Inc., 51 "
 "Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA"
 
 #: shell/ev-window.c:5447
-msgid "About Atril Document Viewer"
-msgstr "關於 Atril 文件檢視器"
+msgid "About Lector Document Viewer"
+msgstr "關於 Lector 文件檢視器"
 
 #: shell/ev-window.c:5448
 msgid ""

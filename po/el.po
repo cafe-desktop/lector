@@ -479,8 +479,8 @@ msgstr "6400%"
 
 #: data/lector.appdata.xml.in:7 data/lector.desktop.in.in:3
 #: shell/ev-window.c:5445
-msgid "Atril Document Viewer"
-msgstr "Εφαρμογή προβολής εγγράφων Atril"
+msgid "Lector Document Viewer"
+msgstr "Εφαρμογή προβολής εγγράφων Lector"
 
 #: data/lector.appdata.xml.in:8
 msgid "A Document Viewer for the MATE desktop environment"
@@ -488,7 +488,7 @@ msgstr "Πρόγραμμα προβολής εγγράφων για το γρα�
 
 #: data/lector.appdata.xml.in:10
 msgid ""
-"Atril is a simple multi-page document viewer. It can display and print "
+"Lector is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
 "Document Format (PDF) files, as well as comic book archive files. When "
 "supported by the document, it also allows searching for text, copying text "
@@ -497,8 +497,8 @@ msgstr ""
 
 #: data/lector.appdata.xml.in:18
 msgid ""
-"Atril is a fork of Evince and part of the MATE Desktop Environment. If you "
-"would like to know more about MATE and Atril, please visit the project's "
+"Lector is a fork of Evince and part of the MATE Desktop Environment. If you "
+"would like to know more about MATE and Lector, please visit the project's "
 "home page."
 msgstr ""
 
@@ -524,43 +524,43 @@ msgstr ""
 msgid "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 msgstr ""
 
-#: data/org.mate.Atril.gschema.xml:12
+#: data/org.mate.Lector.gschema.xml:12
 msgid "Override document restrictions"
 msgstr "Παράκαμψη των περιορισμών του εγγράφου"
 
-#: data/org.mate.Atril.gschema.xml:13
+#: data/org.mate.Lector.gschema.xml:13
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Παράκαμψη των περιορισμών του εγγράφου, όπως περιορισμών εκτύπωσης ή "
 "αντιγραφής."
 
-#: data/org.mate.Atril.gschema.xml:17
+#: data/org.mate.Lector.gschema.xml:17
 msgid "Automatically reload the document"
 msgstr "Αυτόματη επαναφόρτωση του εγγράφου"
 
-#: data/org.mate.Atril.gschema.xml:18
+#: data/org.mate.Lector.gschema.xml:18
 msgid "Whether the document is automatically reloaded on file change."
 msgstr ""
 "Σας επιτρέπει να επιλέξεετε εάν το έγγραφο θα πρέπει να επαναφορτώνεται "
 "αυτόματα σε κάθε αλλαγή του αρχείου."
 
-#: data/org.mate.Atril.gschema.xml:22
+#: data/org.mate.Lector.gschema.xml:22
 msgid "The URI of the directory last used to open or save a document."
 msgstr ""
 "Η τοποθεσία του καταλόγου που χρησιμοποιήθηκε τελευταία φορά για άνοιγμα ή "
 "αποθήκευση ενός αρχείου."
 
-#: data/org.mate.Atril.gschema.xml:26
+#: data/org.mate.Lector.gschema.xml:26
 msgid "The URI of the directory last used to save a picture."
 msgstr ""
 "Η τοποθεσία του καταλόγου που χρησιμοποιήθηκε τελευταία φορά για αποθήκευση "
 "μιας εικόνας."
 
-#: data/org.mate.Atril.gschema.xml:30
+#: data/org.mate.Lector.gschema.xml:30
 msgid "Page cache size in MiB"
 msgstr "Μέγεθος cache σελίδας σε MiB"
 
-#: data/org.mate.Atril.gschema.xml:31
+#: data/org.mate.Lector.gschema.xml:31
 msgid ""
 "The maximum size that will be used to cache rendered pages, limits maximum "
 "zoom level."
@@ -568,7 +568,7 @@ msgstr ""
 "Το μέγιστο μέγεθος που θα χρησιμοποιηθεί για προσωρινή αποθήκευση "
 "σχεδιασμένων σελίδων, περιορίζει το μέγιστο επίπεδο ζουμ."
 
-#: data/org.mate.Atril.gschema.xml:35
+#: data/org.mate.Lector.gschema.xml:35
 msgid ""
 "Show a dialog to confirm that the user wants to activate the caret "
 "navigation."
@@ -760,12 +760,12 @@ msgid "%s, Landscape (%s)"
 msgstr "%s, Ορισζόντιο (%s)"
 
 #: properties/liblector-properties-page.caja-extension.desktop.in:5
-msgid "Atril properties"
-msgstr "Προτιμήσεις Atril"
+msgid "Lector properties"
+msgstr "Προτιμήσεις Lector"
 
 #: properties/liblector-properties-page.caja-extension.desktop.in:6
-msgid "Shows details for Atril documents"
-msgstr "Εμφάνιση λεπτομερειών για τα έγγραφα του Atril"
+msgid "Shows details for Lector documents"
+msgstr "Εμφάνιση λεπτομερειών για τα έγγραφα του Lector"
 
 #: libmisc/ev-page-action-widget.c:64
 #, c-format
@@ -1405,24 +1405,24 @@ msgstr "Ομάδα τεκμηρίωσης GNOME"
 
 #: shell/ev-window.c:5394
 msgid ""
-"Atril is free software; you can redistribute it and/or modify it under the "
+"Lector is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version."
 msgstr ""
-"Το Atril είναι ελεύθερο λογισμικό. Μπορείτε να το αναδιανέμετε και/ή να το "
+"Το Lector είναι ελεύθερο λογισμικό. Μπορείτε να το αναδιανέμετε και/ή να το "
 "τροποποιήσετε υπό τους όρους της Γενική Δημόσιας Άδειας GNU όπως αυτή "
 "δημοσιεύεται από το Ίδρυμα Ελεύθερου Λογισμικού. Επιλέξτε είτε την έκδοση 2 "
 "της Άδειας ή οποιαδήποτε άλλη προηγούμενη έκδοσή της."
 
 #: shell/ev-window.c:5398
 msgid ""
-"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Lector is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details."
 msgstr ""
-"Το Atril διανέμεται με την ελπίδα να φανεί χρήσιμο αλλά ΧΩΡΙΣ ΤΗΝ "
+"Το Lector διανέμεται με την ελπίδα να φανεί χρήσιμο αλλά ΧΩΡΙΣ ΤΗΝ "
 "ΟΠΟΙΑΔΗΠΟΤΕ ΕΓΓΥΗΣΗ. Ούτε καν την υπαινισσόμενη εγγύηση ΕΜΠΟΡΕΥΣΙΜΟΤΗΤΑ ή "
 "ΚΑΤΑΛΛΗΛΟΤΗΤΑ ΓΙΑ ΕΝΑΝ ΣΥΓΚΕΚΡΙΜΕΝΟ ΣΚΟΠΟ. Για περισσότερες λεπτομέρειες "
 "δείτε την Γενική Δημόσια Άδεια GNU."
@@ -1430,15 +1430,15 @@ msgstr ""
 #: shell/ev-window.c:5402
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+" Lector; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA"
 msgstr ""
 "Θα πρέπει να έχετε λάβει ένα αντίγραφο της Γενική Δημόσιας Άδειας GNU μαζί "
-"με το Atril. Αν όχι, αλληλογραφήστε με το \"Ίδρυμα Ελεύθερου Λογισμικού "
+"με το Lector. Αν όχι, αλληλογραφήστε με το \"Ίδρυμα Ελεύθερου Λογισμικού "
 "Α.Ε.\" Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA."
 
 #: shell/ev-window.c:5447
-msgid "About Atril Document Viewer"
+msgid "About Lector Document Viewer"
 msgstr "Σχετικά με Πρόγραμμα Προβολή Εγγράφων Αtril."
 
 #: shell/ev-window.c:5448

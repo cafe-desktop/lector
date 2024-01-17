@@ -465,18 +465,18 @@ msgstr ""
 
 #: ../data/lector.appdata.xml.in.h:2
 msgid ""
-"<p> Atril is a simple multi-page document viewer. It can display and print "
+"<p> Lector is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
 "Document Format (PDF) files, as well as comic book archive files. When "
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
-" <p> Atril is a fork of Evince and part of the MATE Desktop Environment. If "
-"you would like to know more about MATE and Atril, please visit the project's"
+" <p> Lector is a fork of Evince and part of the MATE Desktop Environment. If "
+"you would like to know more about MATE and Lector, please visit the project's"
 " home page. </p>"
 msgstr ""
 
 #: ../data/lector.desktop.in.in.h:1
-msgid "Atril Document Viewer"
+msgid "Lector Document Viewer"
 msgstr ""
 
 #: ../data/lector.desktop.in.in.h:2 ../shell/ev-window.c:5278
@@ -489,41 +489,41 @@ msgstr ""
 msgid "View multi-page documents"
 msgstr ""
 
-#: ../data/org.mate.Atril.gschema.xml.h:1
+#: ../data/org.mate.Lector.gschema.xml.h:1
 msgid "Override document restrictions"
 msgstr ""
 
-#: ../data/org.mate.Atril.gschema.xml.h:2
+#: ../data/org.mate.Lector.gschema.xml.h:2
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 
-#: ../data/org.mate.Atril.gschema.xml.h:3
+#: ../data/org.mate.Lector.gschema.xml.h:3
 msgid "Automatically reload the document"
 msgstr ""
 
-#: ../data/org.mate.Atril.gschema.xml.h:4
+#: ../data/org.mate.Lector.gschema.xml.h:4
 msgid "Whether the document is automatically reloaded on file change."
 msgstr ""
 
-#: ../data/org.mate.Atril.gschema.xml.h:5
+#: ../data/org.mate.Lector.gschema.xml.h:5
 msgid "The URI of the directory last used to open or save a document."
 msgstr ""
 
-#: ../data/org.mate.Atril.gschema.xml.h:6
+#: ../data/org.mate.Lector.gschema.xml.h:6
 msgid "The URI of the directory last used to save a picture."
 msgstr ""
 
-#: ../data/org.mate.Atril.gschema.xml.h:7
+#: ../data/org.mate.Lector.gschema.xml.h:7
 msgid "Page cache size in MiB"
 msgstr ""
 
-#: ../data/org.mate.Atril.gschema.xml.h:8
+#: ../data/org.mate.Lector.gschema.xml.h:8
 msgid ""
 "The maximum size that will be used to cache rendered pages, limits maximum "
 "zoom level."
 msgstr ""
 
-#: ../data/org.mate.Atril.gschema.xml.h:9
+#: ../data/org.mate.Lector.gschema.xml.h:9
 msgid ""
 "Show a dialog to confirm that the user wants to activate the caret "
 "navigation."
@@ -731,11 +731,11 @@ msgid "%s, Landscape (%s)"
 msgstr ""
 
 #: ../properties/liblector-properties-page.caja-extension.in.h:1
-msgid "Atril properties"
+msgid "Lector properties"
 msgstr ""
 
 #: ../properties/liblector-properties-page.caja-extension.in.h:2
-msgid "Shows details for Atril documents"
+msgid "Shows details for Lector documents"
 msgstr ""
 
 #: ../libmisc/ev-page-action-widget.c:68
@@ -1357,7 +1357,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:5309
 msgid ""
-"Atril is free software; you can redistribute it and/or modify it under the "
+"Lector is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version.\n"
@@ -1365,7 +1365,7 @@ msgstr ""
 
 #: ../shell/ev-window.c:5313
 msgid ""
-"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Lector is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details.\n"
@@ -1374,12 +1374,12 @@ msgstr ""
 #: ../shell/ev-window.c:5317
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+" Lector; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA\n"
 msgstr ""
 
 #: ../shell/ev-window.c:5342
-msgid "Atril"
+msgid "Lector"
 msgstr ""
 
 #: ../shell/ev-window.c:5345

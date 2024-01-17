@@ -164,7 +164,7 @@
 	* reference/lector.types:
 	* reference/version.xml.in:
 	
-	Added gtk-doc based documentation for Atril.
+	Added gtk-doc based documentation for Lector.
 	Still in initial state but I hope it will
 	grow.
 
@@ -263,7 +263,7 @@
 2006-03-09 Joachim Noreiko <jnoreiko@yahoo.com>
 
 	* C/lector.xml:
-	Removed incorrect information about launching Atril from the Applications menu
+	Removed incorrect information about launching Lector from the Applications menu
 
 2006-02-28  Nickolay V. Shmyrev <nshmyrev@yandex.ru>
 

@@ -1,6 +1,6 @@
 /*
  * ev-module.c
- * This file is part of Atril
+ * This file is part of Lector
  *
  * Copyright (C) 2005 - Paolo Maggi
  *

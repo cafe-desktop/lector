@@ -17,9 +17,9 @@
     A copy of the license is included in the COPYING file.
     -->
   <bookinfo>
-    <title>Atril View Library Reference Manual</title>
+    <title>Lector View Library Reference Manual</title>
     <releaseinfo>
-      For Atril version &version;.
+      For Lector version &version;.
       The latest version of this documentation can be found on-line at the
       <ulink role="online-location" url="http://library.mate.org/devel/libevview/index.html">MATE Library</ulink>.
     </releaseinfo>
@@ -67,7 +67,7 @@
   </bookinfo>
 
   <part id="view-view">
-    <title>Atril View</title>
+    <title>Lector View</title>
     <partintro>
       <para>
       </para>

@@ -53,7 +53,7 @@ $(appdata_DATA): $(appdata_in_files)
 #
 # GSettings schema
 #
-gsettings_SCHEMAS = org.mate.Atril.gschema.xml
+gsettings_SCHEMAS = org.mate.Lector.gschema.xml
 
 .PRECIOUS: $(gsettings_SCHEMAS)
 

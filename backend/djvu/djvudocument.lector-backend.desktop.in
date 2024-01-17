@@ -1,4 +1,4 @@
-[Atril Backend]
+[Lector Backend]
 Module=djvudocument
 TypeDescription=DjVu Documents
 MimeType=image/vnd.djvu;image/vnd.djvu+multipage

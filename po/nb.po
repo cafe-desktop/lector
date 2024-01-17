@@ -468,8 +468,8 @@ msgstr "6400%"
 
 #: data/lector.appdata.xml.in:7 data/lector.desktop.in.in:3
 #: shell/ev-window.c:5445
-msgid "Atril Document Viewer"
-msgstr "Dokumentfremviseren Atril"
+msgid "Lector Document Viewer"
+msgstr "Dokumentfremviseren Lector"
 
 #: data/lector.appdata.xml.in:8
 msgid "A Document Viewer for the MATE desktop environment"
@@ -477,13 +477,13 @@ msgstr "En dokumentfremviser for skrivebordsmiljøet MATE"
 
 #: data/lector.appdata.xml.in:10
 msgid ""
-"Atril is a simple multi-page document viewer. It can display and print "
+"Lector is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
 "Document Format (PDF) files, as well as comic book archive files. When "
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks."
 msgstr ""
-"Atril er en enkel dokumentfremviser med støtte for flere sider. Den kan vise"
+"Lector er en enkel dokumentfremviser med støtte for flere sider. Den kan vise"
 " og skrive ut filer i PostScript (PS), innebygd PostScript (EPS), DJVU, DVI,"
 " XPS og bærbart dokumentformat (PDF); i tillegg til tegneseriearkiv. Når "
 "dokumentet støtter det kan den også søke etter tekst, kopiere til "
@@ -492,12 +492,12 @@ msgstr ""
 
 #: data/lector.appdata.xml.in:18
 msgid ""
-"Atril is a fork of Evince and part of the MATE Desktop Environment. If you "
-"would like to know more about MATE and Atril, please visit the project's "
+"Lector is a fork of Evince and part of the MATE Desktop Environment. If you "
+"would like to know more about MATE and Lector, please visit the project's "
 "home page."
 msgstr ""
-" Atril er avledet fra Evince og del av skrivebordsmiljøet MATE. Hvis du vil "
-"vite mer om MATE og Atril kan du besøke hjemmesiden til prosjektet."
+" Lector er avledet fra Evince og del av skrivebordsmiljøet MATE. Hvis du vil "
+"vite mer om MATE og Lector kan du besøke hjemmesiden til prosjektet."
 
 #: data/lector.desktop.in.in:4 shell/ev-window.c:5375
 #: shell/ev-window-title.c:157
@@ -521,37 +521,37 @@ msgstr "lector"
 msgid "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 msgstr "MATE;dokument;visning;pdf;dvi;ps;xps;tiff;pixbuf;djvu;tegneserier;"
 
-#: data/org.mate.Atril.gschema.xml:12
+#: data/org.mate.Lector.gschema.xml:12
 msgid "Override document restrictions"
 msgstr "Overstyr dokumentbegrensninger"
 
-#: data/org.mate.Atril.gschema.xml:13
+#: data/org.mate.Lector.gschema.xml:13
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Overstyr dokumentbegrensninger som f.eks mulighet til å kopiere eller skrive"
 " ut."
 
-#: data/org.mate.Atril.gschema.xml:17
+#: data/org.mate.Lector.gschema.xml:17
 msgid "Automatically reload the document"
 msgstr "Gjeninnlast dokumentet automatisk"
 
-#: data/org.mate.Atril.gschema.xml:18
+#: data/org.mate.Lector.gschema.xml:18
 msgid "Whether the document is automatically reloaded on file change."
 msgstr "Hvorvidt dokumentet skal gjeninnlastes automatisk ved filendring."
 
-#: data/org.mate.Atril.gschema.xml:22
+#: data/org.mate.Lector.gschema.xml:22
 msgid "The URI of the directory last used to open or save a document."
 msgstr "URI-en til mappa sist brukt til å åpne eller lagre et dokument."
 
-#: data/org.mate.Atril.gschema.xml:26
+#: data/org.mate.Lector.gschema.xml:26
 msgid "The URI of the directory last used to save a picture."
 msgstr "URI-en til mappa som sist ble brukt til å lagre et bilde."
 
-#: data/org.mate.Atril.gschema.xml:30
+#: data/org.mate.Lector.gschema.xml:30
 msgid "Page cache size in MiB"
 msgstr "Sidehurtiglagerstørrelse i MiB"
 
-#: data/org.mate.Atril.gschema.xml:31
+#: data/org.mate.Lector.gschema.xml:31
 msgid ""
 "The maximum size that will be used to cache rendered pages, limits maximum "
 "zoom level."
@@ -559,7 +559,7 @@ msgstr ""
 "Maksimal størrelse som brukes for å hurtiglagre opptegnede sider, begrenser "
 "maksimalt forstørrelsesnivå."
 
-#: data/org.mate.Atril.gschema.xml:35
+#: data/org.mate.Lector.gschema.xml:35
 msgid ""
 "Show a dialog to confirm that the user wants to activate the caret "
 "navigation."
@@ -750,12 +750,12 @@ msgid "%s, Landscape (%s)"
 msgstr "%s, landskap (%s)"
 
 #: properties/liblector-properties-page.caja-extension.desktop.in:5
-msgid "Atril properties"
-msgstr "Egenskaper for Atril"
+msgid "Lector properties"
+msgstr "Egenskaper for Lector"
 
 #: properties/liblector-properties-page.caja-extension.desktop.in:6
-msgid "Shows details for Atril documents"
-msgstr "Viser detaljer for Atril-dokumenter"
+msgid "Shows details for Lector documents"
+msgstr "Viser detaljer for Lector-dokumenter"
 
 #: libmisc/ev-page-action-widget.c:64
 #, c-format
@@ -1399,40 +1399,40 @@ msgstr "GNOME-dokumentasjonslaget"
 
 #: shell/ev-window.c:5394
 msgid ""
-"Atril is free software; you can redistribute it and/or modify it under the "
+"Lector is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version."
 msgstr ""
-"Atril er fri programvare; du kan redistribuere programmet og eller endre det"
+"Lector er fri programvare; du kan redistribuere programmet og eller endre det"
 " i henhold til betingelsene gitt i GNU General Public License som publisert "
 "av Free Software Foundation; enten versjon 2 av lisensen, eller (hvis du "
 "ønsker) enhver senere versjon."
 
 #: shell/ev-window.c:5398
 msgid ""
-"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Lector is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details."
 msgstr ""
-"Atril distribueres i håp om at programmet vil være nyttig, men UTEN NOEN "
+"Lector distribueres i håp om at programmet vil være nyttig, men UTEN NOEN "
 "GARANTI; selv ikke en implisitt garanti for at det er SALGBART eller PASSER "
 "ET SPESIELT FORMÅL. Se Gnu General Public License for flere detaljer."
 
 #: shell/ev-window.c:5402
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+" Lector; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA"
 msgstr ""
-"Du skal ha mottatt en kopi av GNU General Public License sammen med Atril; "
+"Du skal ha mottatt en kopi av GNU General Public License sammen med Lector; "
 "hvis ikke kan du skrive til Free Software Foundation, Inc.,51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
 
 #: shell/ev-window.c:5447
-msgid "About Atril Document Viewer"
-msgstr "Om dokumentfremviseren Atril"
+msgid "About Lector Document Viewer"
+msgstr "Om dokumentfremviseren Lector"
 
 #: shell/ev-window.c:5448
 msgid ""

@@ -11,12 +11,12 @@
  *  Author:
  *    Martin Kretzschmar <martink@gnome.org>
  *
- * Atril is free software; you can redistribute it and/or modify it
+ * Lector is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * Atril is distributed in the hope that it will be useful, but
+ * Lector is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
@@ -231,7 +231,7 @@ struct _EvWindowPrivate {
 	GSettings        *lockdown_settings;
 #ifdef ENABLE_DBUS
 	/* DBus */
-	EvAtrilWindow *skeleton;
+	EvLectorWindow *skeleton;
 	gchar          *dbus_object_path;
 #endif
 
@@ -260,7 +260,7 @@ struct _EvWindowPrivate {
 #define EV_WINDOW_DBUS_INTERFACE   "org.mate.lector.Window"
 #endif
 
-#define GS_SCHEMA_NAME           "org.mate.Atril"
+#define GS_SCHEMA_NAME           "org.mate.Lector"
 #define GS_OVERRIDE_RESTRICTIONS "override-restrictions"
 #define GS_PAGE_CACHE_SIZE       "page-cache-size"
 #define GS_AUTO_RELOAD           "auto-reload"
@@ -5393,16 +5393,16 @@ ev_window_cmd_help_about (GtkAction *action, EvWindow *ev_window)
 	};
 
 	const char *license[] = {
-		N_("Atril is free software; you can redistribute it and/or modify "
+		N_("Lector is free software; you can redistribute it and/or modify "
 		   "it under the terms of the GNU General Public License as published by "
 		   "the Free Software Foundation; either version 2 of the License, or "
 		   "(at your option) any later version."),
-		N_("Atril is distributed in the hope that it will be useful, "
+		N_("Lector is distributed in the hope that it will be useful, "
 		   "but WITHOUT ANY WARRANTY; without even the implied warranty of "
 		   "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the "
 		   "GNU General Public License for more details."),
 		N_("You should have received a copy of the GNU General Public License "
-		   "along with Atril; if not, write to the Free Software Foundation, Inc., "
+		   "along with Lector; if not, write to the Free Software Foundation, Inc., "
 		   "51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA")
 	};
 
@@ -5444,9 +5444,9 @@ ev_window_cmd_help_about (GtkAction *action, EvWindow *ev_window)
 
 	gtk_show_about_dialog (
 		GTK_WINDOW (ev_window),
-		"program-name", _("Atril Document Viewer"),
+		"program-name", _("Lector Document Viewer"),
 		"version", VERSION,
-		"title", _("About Atril Document Viewer"),
+		"title", _("About Lector Document Viewer"),
 		"copyright", _("Copyright \xc2\xa9 1996–2009 The Evince authors\n"
 		               "Copyright \xc2\xa9 2012–2020 The MATE developers"),
 		"license", license_trans,
@@ -7136,7 +7136,7 @@ do_action_named (EvWindow *window, EvLinkAction *action)
 		ev_window_cmd_file_print (NULL, window);
 	} else {
 		g_warning ("Unimplemented named action: %s, please post a "
-		           "bug report on Atril bug tracker "
+		           "bug report on Lector bug tracker "
 		           "(https://github.com/mate-desktop/lector/issues) with a testcase.",
 			   name);
 	}
@@ -7752,7 +7752,7 @@ ev_window_emit_doc_loaded (EvWindow *window)
 }
 
 static gboolean
-handle_sync_view_cb (EvAtrilWindow        *object,
+handle_sync_view_cb (EvLectorWindow        *object,
                      GDBusMethodInvocation *invocation,
                      const gchar           *source_file,
                      GVariant              *source_point,
@@ -7821,7 +7821,7 @@ ev_window_init (EvWindow *ev_window)
 #ifdef ENABLE_DBUS
 	connection = g_application_get_dbus_connection (g_application_get_default ());
         if (connection) {
-                EvAtrilWindow *skeleton;
+                EvLectorWindow *skeleton;
 
                 ev_window->priv->dbus_object_path = g_strdup_printf (EV_WINDOW_DBUS_OBJECT_PATH, window_id++);
 

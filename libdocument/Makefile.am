@@ -92,7 +92,7 @@ liblectordocument_la_SOURCES=			\
 	$(INST_H_FILES)
 
 liblectordocument_la_CPPFLAGS = \
-	-DG_LOG_DOMAIN=\"AtrilDocument\"		\
+	-DG_LOG_DOMAIN=\"LectorDocument\"		\
 	-DATRIL_UIDIR=\"$(pkgdatadir)\"		\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"		\
 	-DEV_BACKENDSDIR=\"$(backenddir)\"		\
@@ -153,9 +153,9 @@ EXTRA_DIST = \
 
 if ENABLE_INTROSPECTION
 
-AtrilDocument-$(EV_API_VERSION).gir: liblectordocument.la Makefile $(INST_H_FILES) $(filter %.c,$(liblectordocument_la_SOURCES))
+LectorDocument-$(EV_API_VERSION).gir: liblectordocument.la Makefile $(INST_H_FILES) $(filter %.c,$(liblectordocument_la_SOURCES))
 	$(AM_V_GEN) PKG_CONFIG_PATH=$(top_builddir):$$PKG_CONFIG_PATH \
-	$(G_IR_SCANNER) -v --namespace AtrilDocument \
+	$(G_IR_SCANNER) -v --namespace LectorDocument \
 	--strip-prefix=Ev \
 	--nsversion=$(EV_API_VERSION) \
 	--include=GLib-2.0 \
@@ -176,10 +176,10 @@ AtrilDocument-$(EV_API_VERSION).gir: liblectordocument.la Makefile $(INST_H_FILE
 	$(filter %.c,$^)
 
 girdir = $(GIRDIR)
-gir_DATA = AtrilDocument-$(EV_API_VERSION).gir
+gir_DATA = LectorDocument-$(EV_API_VERSION).gir
 
 typelibsdir = $(GIRTYPELIBDIR)
-typelibs_DATA = AtrilDocument-$(EV_API_VERSION).typelib
+typelibs_DATA = LectorDocument-$(EV_API_VERSION).typelib
 
 EXTRA_DIST += $(gir_DATA)
 CLEANFILES += $(gir_DATA) $(typelibs_DATA)

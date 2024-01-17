@@ -26,7 +26,7 @@ cut-n-paste/toolbar-editor/egg-toolbar-editor.c
 cut-n-paste/zoom-control/ephy-zoom.h
 data/lector.appdata.xml.in
 data/lector.desktop.in.in
-data/org.mate.Atril.gschema.xml
+data/org.mate.Lector.gschema.xml
 previewer/ev-previewer.c
 previewer/ev-previewer-window.c
 properties/ev-properties-main.c

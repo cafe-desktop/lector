@@ -5,8 +5,8 @@
   <!ENTITY appversion "1.10.1">
   <!ENTITY manrevision "1.2">
   <!ENTITY date "July 2015">
-  <!ENTITY app "<application>Atril Document Viewer</application>">
-  <!ENTITY appname "Atril Document Viewer">
+  <!ENTITY app "<application>Lector Document Viewer</application>">
+  <!ENTITY appname "Lector Document Viewer">
 ]>
 
 <!-- 
@@ -25,7 +25,7 @@
     <title>&appname; Manual </title>       
     <abstract role="description">
       <para> 
-         The Atril Document Viewer application enables you to view documents of various formats like Portable 
+         The Lector Document Viewer application enables you to view documents of various formats like Portable 
          Document Format (PDF) files and PostScript files
       </para>
     </abstract>

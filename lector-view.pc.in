@@ -3,7 +3,7 @@ exec_prefix=@exec_prefix@
 libdir=@libdir@
 includedir=@includedir@/lector/@EV_API_VERSION@
 
-Name: Atril View
+Name: Lector View
 Description: MATE document viewer view library
 Version: @VERSION@
 Requires: lector-document-@EV_API_VERSION@ = @VERSION@ gthread-2.0
