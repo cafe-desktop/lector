@@ -1,6 +1,6 @@
 /*
  * ev-module.h
- * This file is part of Atril
+ * This file is part of Lector
  *
  * Copyright (C) 2005 - Paolo Maggi
  *
@@ -36,7 +36,7 @@
  * $Id: gedit-module.h 5263 2006-10-08 14:26:02Z pborelli $
  */
 
-/* Modified by Atril Team */
+/* Modified by Lector Team */
 
 #if !defined (ATRIL_COMPILATION)
 #error "This is a private header."

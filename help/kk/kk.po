@@ -22,13 +22,13 @@ msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
 
 #. (itstool) path: articleinfo/title
 #: C/index.docbook:25
-msgid "Atril Document Viewer Manual"
+msgid "Lector Document Viewer Manual"
 msgstr ""
 
 #. (itstool) path: abstract/para
 #: C/index.docbook:27
 msgid ""
-"The Atril Document Viewer application enables you to view documents of "
+"The Lector Document Viewer application enables you to view documents of "
 "various formats like Portable Document Format (PDF) files and PostScript "
 "files"
 msgstr ""
@@ -159,7 +159,7 @@ msgstr ""
 #. (itstool) path: revhistory/revision
 #: C/index.docbook:99
 msgid ""
-"<revnumber>Atril Document Viewer Manual V1.2</revnumber> <date>July "
+"<revnumber>Lector Document Viewer Manual V1.2</revnumber> <date>July "
 "2015</date> <_:revdescription-1/>"
 msgstr ""
 
@@ -176,7 +176,7 @@ msgstr ""
 #. (itstool) path: revhistory/revision
 #: C/index.docbook:107
 msgid ""
-"<revnumber>Atril Document Viewer Manual V1.1</revnumber> "
+"<revnumber>Lector Document Viewer Manual V1.1</revnumber> "
 "<date>2008-04-05</date> <_:revdescription-1/>"
 msgstr ""
 
@@ -188,13 +188,13 @@ msgstr ""
 #. (itstool) path: revhistory/revision
 #: C/index.docbook:116
 msgid ""
-"<revnumber>Atril Document Viewer Manual V1.0</revnumber> "
+"<revnumber>Lector Document Viewer Manual V1.0</revnumber> "
 "<date>2005-04-06</date> <_:revdescription-1/>"
 msgstr ""
 
 #. (itstool) path: articleinfo/releaseinfo
 #: C/index.docbook:126
-msgid "This manual describes version 1.10.1 of Atril Document Viewer"
+msgid "This manual describes version 1.10.1 of Lector Document Viewer"
 msgstr ""
 
 #. (itstool) path: legalnotice/title
@@ -205,14 +205,14 @@ msgstr ""
 #. (itstool) path: legalnotice/para
 #: C/index.docbook:130
 msgid ""
-"To report a bug or make a suggestion regarding the Atril Document Viewer "
+"To report a bug or make a suggestion regarding the Lector Document Viewer "
 "application or this manual, follow the directions in the <ulink url=\"help"
 ":mate-user-guide/feedback\" type=\"help\">MATE Feedback Page</ulink>."
 msgstr ""
 
 #. (itstool) path: article/indexterm
 #: C/index.docbook:136
-msgid "<primary>Atril Document Viewer</primary>"
+msgid "<primary>Lector Document Viewer</primary>"
 msgstr ""
 
 #. (itstool) path: article/indexterm
@@ -228,9 +228,9 @@ msgstr "Басы"
 #. (itstool) path: sect1/para
 #: C/index.docbook:149
 msgid ""
-"The <application>Atril Document Viewer</application> application enables you"
+"The <application>Lector Document Viewer</application> application enables you"
 " to view documents of various formats like Portable Document Format (PDF) "
-"files and PostScript files. <application>Atril Document Viewer</application>"
+"files and PostScript files. <application>Lector Document Viewer</application>"
 " follows Freedesktop.org and MATE standards to provide integration with "
 "Desktop Environment."
 msgstr ""
@@ -242,39 +242,39 @@ msgstr ""
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:159
-msgid "To Start Atril Document Viewer"
+msgid "To Start Lector Document Viewer"
 msgstr ""
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:160
 msgid ""
-"<application>Atril Document Viewer</application> starts when you open a "
+"<application>Lector Document Viewer</application> starts when you open a "
 "document such as a PDF or PostScript file."
 msgstr ""
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:161
 msgid ""
-"Alternatively, you can start <application>Atril Document "
+"Alternatively, you can start <application>Lector Document "
 "Viewer</application> from the command line, with the command: "
 "<command>lector</command>."
 msgstr ""
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:166
-msgid "When You Start Atril Document Viewer"
+msgid "When You Start Lector Document Viewer"
 msgstr ""
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:167
 msgid ""
-"When you start <application>Atril Document Viewer</application>, the "
+"When you start <application>Lector Document Viewer</application>, the "
 "following window is displayed."
 msgstr ""
 
 #. (itstool) path: figure/title
 #: C/index.docbook:171
-msgid "Atril Document Viewer Window"
+msgid "Lector Document Viewer Window"
 msgstr ""
 
 #. (itstool) path: imageobject/imagedata
@@ -293,7 +293,7 @@ msgstr ""
 #: C/index.docbook:173
 msgid ""
 "<imageobject><imagedata fileref=\"figures/lector_start_window.png\" "
-"format=\"PNG\"/> </imageobject> <textobject> <phrase>Shows Atril Document "
+"format=\"PNG\"/> </imageobject> <textobject> <phrase>Shows Lector Document "
 "Viewer main window. Contains titlebar, menubar, toolbar and display area. "
 "Menubar contains File, Edit, View, Go and Help menus. </phrase> "
 "</textobject>"
@@ -302,7 +302,7 @@ msgstr ""
 #. (itstool) path: sect2/para
 #: C/index.docbook:184
 msgid ""
-"The <application>Atril Document Viewer</application> window contains the "
+"The <application>Lector Document Viewer</application> window contains the "
 "following elements:"
 msgstr ""
 
@@ -316,7 +316,7 @@ msgstr ""
 #: C/index.docbook:190
 msgid ""
 "The menus on the menubar contain all of the commands that you need to work "
-"with documents in <application>Atril Document Viewer</application>."
+"with documents in <application>Lector Document Viewer</application>."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -359,7 +359,7 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:227
 msgid ""
-"Drag a file into the <application>Atril Document Viewer</application> window"
+"Drag a file into the <application>Lector Document Viewer</application> window"
 " from another application such as a file manager."
 msgstr ""
 
@@ -388,7 +388,7 @@ msgstr ""
 #. (itstool) path: sect2/para
 #: C/index.docbook:207
 msgid ""
-"In <application>Atril Document Viewer</application>, you can perform the "
+"In <application>Lector Document Viewer</application>, you can perform the "
 "same action in several ways. For example, you can open a document in the "
 "following ways: <_:informaltable-1/>"
 msgstr ""
@@ -430,7 +430,7 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:273
 msgid ""
-"Click <guibutton>Open</guibutton>. <application>Atril Document "
+"Click <guibutton>Open</guibutton>. <application>Lector Document "
 "Viewer</application> displays the name of the document in the titlebar of "
 "the window."
 msgstr ""
@@ -440,14 +440,14 @@ msgstr ""
 msgid ""
 "To open another document, choose <menuchoice> "
 "<guimenu>File</guimenu><guimenuitem>Open</guimenuitem> </menuchoice> again. "
-"<application>Atril Document Viewer</application> opens each file in a new "
+"<application>Lector Document Viewer</application> opens each file in a new "
 "window."
 msgstr ""
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:281
 msgid ""
-"If you try to open a document with format that <application>Atril Document "
+"If you try to open a document with format that <application>Lector Document "
 "Viewer</application> does not recognize, the application displays an error "
 "message."
 msgstr ""
@@ -535,7 +535,7 @@ msgstr ""
 #. (itstool) path: sect2/para
 #: C/index.docbook:332
 msgid ""
-"You can use the following methods to resize a page in the <application>Atril"
+"You can use the following methods to resize a page in the <application>Lector"
 " Document Viewer</application> display area:"
 msgstr ""
 
@@ -556,7 +556,7 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:347
 msgid ""
-"To resize a page to have the same width as the <application>Atril Document "
+"To resize a page to have the same width as the <application>Lector Document "
 "Viewer</application> display area, choose <menuchoice> "
 "<guimenu>View</guimenu> <guimenuitem>Fit page width</guimenuitem> "
 "</menuchoice>."
@@ -565,7 +565,7 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:352
 msgid ""
-"To resize a page to fit within the <application>Atril Document "
+"To resize a page to fit within the <application>Lector Document "
 "Viewer</application> display area, choose <menuchoice> "
 "<guimenu>View</guimenu> <guimenuitem>Best Fit</guimenuitem> </menuchoice>."
 msgstr ""
@@ -573,10 +573,10 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:357
 msgid ""
-"To resize the <application>Atril Document Viewer</application> window to "
+"To resize the <application>Lector Document Viewer</application> window to "
 "have the same width and height as the screen, choose <menuchoice> "
 "<guimenu>View</guimenu> <guimenuitem>Full Screen</guimenuitem> "
-"</menuchoice>. To resize the <application>Atril Document "
+"</menuchoice>. To resize the <application>Lector Document "
 "Viewer</application> window to the original size, click on the "
 "<guibutton>Exit Full Screen</guibutton> button."
 msgstr ""
@@ -741,7 +741,7 @@ msgstr ""
 #: C/index.docbook:463
 msgid ""
 "The <guilabel>Create a PDF document</guilabel> option is not supported in "
-"this version of <application>Atril Document Viewer</application>."
+"this version of <application>Lector Document Viewer</application>."
 msgstr ""
 
 #. (itstool) path: varlistentry/term
@@ -842,7 +842,7 @@ msgstr ""
 #. (itstool) path: listitem/para
 #: C/index.docbook:531 C/index.docbook:537 C/index.docbook:543
 msgid ""
-"This functionality is not supported in this version of <application>Atril "
+"This functionality is not supported in this version of <application>Lector "
 "Document Viewer</application>."
 msgstr ""
 
@@ -1000,7 +1000,7 @@ msgstr ""
 #. (itstool) path: sect2/para
 #: C/index.docbook:636
 msgid ""
-"When you try to open a password-protected document, <application>Atril "
+"When you try to open a password-protected document, <application>Lector "
 "Document Viewer</application> displays a security dialog. Type either the "
 "user password or the master password in the <guilabel>Enter document "
 "password</guilabel> text box, then click <guibutton>Open "
@@ -1022,7 +1022,7 @@ msgstr ""
 #. (itstool) path: sect2/para
 #: C/index.docbook:646
 msgid ""
-"If the window is the last <application>Atril Document Viewer</application> "
+"If the window is the last <application>Lector Document Viewer</application> "
 "window open, the application exits."
 msgstr ""
 
@@ -1034,7 +1034,7 @@ msgstr ""
 #. (itstool) path: sect1/para
 #: C/index.docbook:656
 msgid ""
-"Below is a list of all shortcuts present in <application>Atril Document "
+"Below is a list of all shortcuts present in <application>Lector Document "
 "Viewer</application>:"
 msgstr ""
 

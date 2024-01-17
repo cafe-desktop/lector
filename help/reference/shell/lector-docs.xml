@@ -17,9 +17,9 @@
     A copy of the license is included in the COPYING file.
     -->
   <bookinfo>
-    <title>Atril Programmer's Reference Manual</title>
+    <title>Lector Programmer's Reference Manual</title>
     <releaseinfo>
-      For Atril version &version;.
+      For Lector version &version;.
       The latest version of this documentation can be found on-line at the
       <ulink role="online-location" url="http://library.mate.org/devel/lector/index.html">MATE Library</ulink>.
     </releaseinfo>
@@ -70,7 +70,7 @@
     <title>Frontend</title>
     <partintro>
       <para>
-        Atril frontend.
+        Lector frontend.
       </para>
     </partintro>
 

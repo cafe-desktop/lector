@@ -1,4 +1,4 @@
-[Atril Backend]
+[Lector Backend]
 Module=epubdocument
 TypeDescription=epub Documents
 MimeType=application/epub+zip;

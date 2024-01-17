@@ -1,8 +1,8 @@
 [Caja Extension]
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=lector
-Name=Atril properties
-Description=Shows details for Atril documents
+Name=Lector properties
+Description=Shows details for Lector documents
 Version=@VERSION@
 Author=Andrew Sobala <aes@gnome.org>;Bastien Nocera <hadess@hadess.net>
 Website=https://mate-desktop.org/

@@ -1,4 +1,4 @@
-[Atril Backend]
+[Lector Backend]
 Module=pdfdocument
 Resident=true
 TypeDescription=PDF Documents

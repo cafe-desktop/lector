@@ -79,9 +79,9 @@
 
 
 ========== bn.po ==========
-# Bangla translation of Atril.
-# Copyright (C) 1996-2006 The Atril authors.
-# This file is distributed under the same license as the Atril package.
+# Bangla translation of Lector.
+# Copyright (C) 1996-2006 The Lector authors.
+# This file is distributed under the same license as the Lector package.
 # Progga <progga@BengaLinux.Org>, 2005-2006.
 # Jamil Ahmed <jamil@bengalinux.org>, 2006
 # Khandakar Mujahidul Islam <suzan@bengalinux.org>, 2006
@@ -94,9 +94,9 @@
 
 ========== bn_IN.po ==========
 # translation of bn_IN.po to Bengali INDIA
-# Bengali India translation of Atril.
-# Copyright (C) 1996-2006 The Atril authors.
-# This file is distributed under the same license as the Atril package.
+# Bengali India translation of Lector.
+# Copyright (C) 1996-2006 The Lector authors.
+# This file is distributed under the same license as the Lector package.
 #
 # Progga <progga@BengaLinux.Org>, 2005-2006.
 # Runa Bhattacharjee <runabh@gmail.com>, 2006.
@@ -107,7 +107,7 @@
 
 
 ========== br.po ==========
-# Breton translation for Atril
+# Breton translation for Lector
 # Copyright (C) 2006 Free Software Foundation, Inc.
 # This file is distributed under the GNU General Public License Version 2.
 # Jérémy Ar Floc'h <jeremy.lefloch@gmail.com>, 2006
@@ -182,7 +182,7 @@
 
 ========== de.po ==========
 # Copyright (C) Martin Kretzschmar
-# This file is distributed under the same license as the Atril package.
+# This file is distributed under the same license as the Lector package.
 #
 # Based on German GPdf and GGv translations.
 #
@@ -233,7 +233,7 @@
 # Shavian translation for lector.
 # Copyright (C) 2009-2010 The Mate Foundation.
 # Thomas Thurman <tthurman@gnome.org>, 2010.
-# Transliterate Atril as ·𐑦𐑝𐑦𐑯𐑕
+# Transliterate Lector as ·𐑦𐑝𐑦𐑯𐑕
 
 
 
@@ -273,9 +273,9 @@
 
 ========== es.po ==========
 # translation of lector.HEAD.po to Español
-# Traducción de Atril al español.
-# Copyright (C) Spanish translation for Atril
-# This file is distributed under the same license as the Atril package.
+# Traducción de Lector al español.
+# Copyright (C) Spanish translation for Lector
+# This file is distributed under the same license as the Lector package.
 #
 # Antonio Ognio <gnrfan@gnrfan.org, 2004, 2005.
 # Daniel Fernandez <dfdez@ya.com>, 2005.
@@ -288,8 +288,8 @@
 
 
 ========== et.po ==========
-# Atril'i eesti keele tõlge.
-# Estonian translation of Atril.
+# Lector'i eesti keele tõlge.
+# Estonian translation of Lector.
 #
 # Copyright (C) 2005, 2006 Free Software Foundation, Inc.
 # Copyright (C) 2007–2010 The MATE Project
@@ -439,9 +439,9 @@
 
 
 ========== id.po ==========
-# translation of Atril into Indonesian
-# Copyright (C) 2005 THE Atril'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the Atril package.
+# translation of Lector into Indonesian
+# Copyright (C) 2005 THE Lector'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the Lector package.
 #
 # Ahmad Riza H Nst <rizahnst@gnome.org>, 2006.
 # Mdamt <mdamt@gnome.org>, 2005.
@@ -452,9 +452,9 @@
 
 
 ========== it.po ==========
-# Italian translations of Atril package.
-# Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010 the Atril'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the Atril package.
+# Italian translations of Lector package.
+# Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010 the Lector'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the Lector package.
 # Francesco Marletta <francesco.marletta@tiscali.it>, 2005, 2006, 2007, 2008, 2009, 2010.
 #
 
@@ -514,7 +514,7 @@
 # 새로 번역하시는 분은 아래 translator-credits에 추가해 주세요.
 #
 # 주의:
-# - Atril는 "에빈스"로 음역
+# - Lector는 "에빈스"로 음역
 #
 
 
@@ -544,9 +544,9 @@
 
 ========== lt.po ==========
 # translation of lt.po to Lithuanian
-# Lithuanian translation of Atril.
+# Lithuanian translation of Lector.
 # Copyright (C) 2005-2009 The MATE Foundation.
-# This file is distributed under the same license as the Atril package.
+# This file is distributed under the same license as the Lector package.
 #
 #
 # Žygimantas Beručka <zygis@gnome.org>, 2005-2006, 2009.
@@ -559,7 +559,7 @@
 
 ========== lv.po ==========
 # translation of lv.po to Latvian
-# Latvian translation for Atril.
+# Latvian translation for Lector.
 # Copyright © 2006 Mate i18n Project for Latvian.
 #
 # Raivis Dejus <orvils@gmail.com>, 2006.
@@ -614,7 +614,7 @@
 
 
 ========== mn.po ==========
-# Atril Document Viewer
+# Lector Document Viewer
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Urangua <urangua@adsolux.com>, 2009, 2010.
@@ -682,9 +682,9 @@
 
 
 ========== nl.po ==========
-# Dutch translation for Atril
+# Dutch translation for Lector
 #
-# This file is distributed under the same license as the Atril package.
+# This file is distributed under the same license as the Lector package.
 #
 # Tino Meinen <a.t.meinen@chello.nl>, 2005, 2006
 # Reinout van Schouwen <reinout@cs.vu.nl>, 2005, 2009
@@ -782,8 +782,8 @@
 
 
 ========== pt_BR.po ==========
-# Brazilian Portuguese translation of Atril.
-# Copyright (C) 2004-2009 the Atril authors.
+# Brazilian Portuguese translation of Lector.
+# Copyright (C) 2004-2009 the Lector authors.
 # This file is distributed under the same license as the lector package.
 # Raphael Higino <In Memoriam>, 2004-2005, 2007.
 # Licio Fernando <liciofernando@gmail.com>, ?.
@@ -868,7 +868,7 @@
 
 
 ========== sl.po ==========
-# Slovenian translations of Atril.
+# Slovenian translations of Lector.
 # Copyright (C) 2006-2007 Free Software Foundation, Inc.
 # This file is distributed under the same license as the lector package.
 #
@@ -882,7 +882,7 @@
 
 ========== sq.po ==========
 # Përkthimi i mesazheve të lector në shqip.
-# This file is distributed under the same license as the Atril package.
+# This file is distributed under the same license as the Lector package.
 # Copyright (C) 2006, 2007, 2008 Free Software Foundation, Inc.
 #
 # Laurent Dhima <laurenti@alblinux.net>, 2005-2008.
@@ -994,7 +994,7 @@
 
 
 ========== vi.po ==========
-# Vietnamese translation for Atril.
+# Vietnamese translation for Lector.
 # Copyright © 2009 MATE i18n Project for Vietnamese.
 # Clytie Siddall <clytie@riverland.net.au>, 2005-2009.
 # Nguyễn Thái Ngọc Duy <pclouds@gmail.com>, 2008.

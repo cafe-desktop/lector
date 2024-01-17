@@ -1,4 +1,4 @@
-[Atril Backend]
+[Lector Backend]
 Module=dvidocument
 TypeDescription=DVI Documents
 MimeType=application/x-dvi;application/x-bzdvi;application/x-gzdvi

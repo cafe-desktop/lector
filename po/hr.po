@@ -465,8 +465,8 @@ msgstr "6400%"
 
 #: data/lector.appdata.xml.in:7 data/lector.desktop.in.in:3
 #: shell/ev-window.c:5445
-msgid "Atril Document Viewer"
-msgstr "Atril preglednik dokumenata"
+msgid "Lector Document Viewer"
+msgstr "Lector preglednik dokumenata"
 
 #: data/lector.appdata.xml.in:8
 msgid "A Document Viewer for the MATE desktop environment"
@@ -474,7 +474,7 @@ msgstr "Preglednik dokumenata za MATE radno okruženje"
 
 #: data/lector.appdata.xml.in:10
 msgid ""
-"Atril is a simple multi-page document viewer. It can display and print "
+"Lector is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
 "Document Format (PDF) files, as well as comic book archive files. When "
 "supported by the document, it also allows searching for text, copying text "
@@ -483,8 +483,8 @@ msgstr ""
 
 #: data/lector.appdata.xml.in:18
 msgid ""
-"Atril is a fork of Evince and part of the MATE Desktop Environment. If you "
-"would like to know more about MATE and Atril, please visit the project's "
+"Lector is a fork of Evince and part of the MATE Desktop Environment. If you "
+"would like to know more about MATE and Lector, please visit the project's "
 "home page."
 msgstr ""
 
@@ -510,37 +510,37 @@ msgstr ""
 msgid "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 msgstr ""
 
-#: data/org.mate.Atril.gschema.xml:12
+#: data/org.mate.Lector.gschema.xml:12
 msgid "Override document restrictions"
 msgstr "Zaobiđi ograničenja dokumenta"
 
-#: data/org.mate.Atril.gschema.xml:13
+#: data/org.mate.Lector.gschema.xml:13
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "Zaobiđi ograničenja dokumenta, poput zabrane kopiranja ili ispisa."
 
-#: data/org.mate.Atril.gschema.xml:17
+#: data/org.mate.Lector.gschema.xml:17
 msgid "Automatically reload the document"
 msgstr "Automatski ponovno učitaj dokument"
 
-#: data/org.mate.Atril.gschema.xml:18
+#: data/org.mate.Lector.gschema.xml:18
 msgid "Whether the document is automatically reloaded on file change."
 msgstr ""
 
-#: data/org.mate.Atril.gschema.xml:22
+#: data/org.mate.Lector.gschema.xml:22
 msgid "The URI of the directory last used to open or save a document."
 msgstr ""
 "URI direktorija koji je posljednji korišten za otvaranje ili spremanje "
 "dokumenta."
 
-#: data/org.mate.Atril.gschema.xml:26
+#: data/org.mate.Lector.gschema.xml:26
 msgid "The URI of the directory last used to save a picture."
 msgstr "URI direktorija koji je posljednji korišten za spremanje fotografije."
 
-#: data/org.mate.Atril.gschema.xml:30
+#: data/org.mate.Lector.gschema.xml:30
 msgid "Page cache size in MiB"
 msgstr "Veličina međuspremnika stranice u MiB"
 
-#: data/org.mate.Atril.gschema.xml:31
+#: data/org.mate.Lector.gschema.xml:31
 msgid ""
 "The maximum size that will be used to cache rendered pages, limits maximum "
 "zoom level."
@@ -548,7 +548,7 @@ msgstr ""
 "Najveća veličina koja će biti rabljena za međuspremnik renderiranih "
 "stranica, što ograničava najveći nivo povećavanja stranice."
 
-#: data/org.mate.Atril.gschema.xml:35
+#: data/org.mate.Lector.gschema.xml:35
 msgid ""
 "Show a dialog to confirm that the user wants to activate the caret "
 "navigation."
@@ -739,12 +739,12 @@ msgid "%s, Landscape (%s)"
 msgstr "%s, Krajolik (%s)"
 
 #: properties/liblector-properties-page.caja-extension.desktop.in:5
-msgid "Atril properties"
-msgstr "Atril svojstva"
+msgid "Lector properties"
+msgstr "Lector svojstva"
 
 #: properties/liblector-properties-page.caja-extension.desktop.in:6
-msgid "Shows details for Atril documents"
-msgstr "Pokaži pojedinosti za Atril dokumente"
+msgid "Shows details for Lector documents"
+msgstr "Pokaži pojedinosti za Lector dokumente"
 
 #: libmisc/ev-page-action-widget.c:64
 #, c-format
@@ -1370,7 +1370,7 @@ msgstr "GNOME dokumentacijski tim"
 
 #: shell/ev-window.c:5394
 msgid ""
-"Atril is free software; you can redistribute it and/or modify it under the "
+"Lector is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version."
@@ -1378,7 +1378,7 @@ msgstr ""
 
 #: shell/ev-window.c:5398
 msgid ""
-"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Lector is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details."
@@ -1387,7 +1387,7 @@ msgstr ""
 #: shell/ev-window.c:5402
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+" Lector; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA"
 msgstr ""
 "Trebali ste primiti primjerak GNU-ove opće javne licencije uz ovaj program;\n"
@@ -1395,8 +1395,8 @@ msgstr ""
 "Fifth Floor, Boston, MA 02110-1301, USA."
 
 #: shell/ev-window.c:5447
-msgid "About Atril Document Viewer"
-msgstr "O Atril pregledniku dokumenata"
+msgid "About Lector Document Viewer"
+msgstr "O Lector pregledniku dokumenata"
 
 #: shell/ev-window.c:5448
 msgid ""

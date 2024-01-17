@@ -467,8 +467,8 @@ msgstr "6400%"
 
 #: data/lector.appdata.xml.in:7 data/lector.desktop.in.in:3
 #: shell/ev-window.c:5445
-msgid "Atril Document Viewer"
-msgstr "Visualitzador de documents Atril"
+msgid "Lector Document Viewer"
+msgstr "Visualitzador de documents Lector"
 
 #: data/lector.appdata.xml.in:8
 msgid "A Document Viewer for the MATE desktop environment"
@@ -476,7 +476,7 @@ msgstr "Un visualitzador de documents per a l'entorn d'escriptori MATE"
 
 #: data/lector.appdata.xml.in:10
 msgid ""
-"Atril is a simple multi-page document viewer. It can display and print "
+"Lector is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
 "Document Format (PDF) files, as well as comic book archive files. When "
 "supported by the document, it also allows searching for text, copying text "
@@ -485,8 +485,8 @@ msgstr ""
 
 #: data/lector.appdata.xml.in:18
 msgid ""
-"Atril is a fork of Evince and part of the MATE Desktop Environment. If you "
-"would like to know more about MATE and Atril, please visit the project's "
+"Lector is a fork of Evince and part of the MATE Desktop Environment. If you "
+"would like to know more about MATE and Lector, please visit the project's "
 "home page."
 msgstr ""
 
@@ -512,43 +512,43 @@ msgstr ""
 msgid "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 msgstr ""
 
-#: data/org.mate.Atril.gschema.xml:12
+#: data/org.mate.Lector.gschema.xml:12
 msgid "Override document restrictions"
 msgstr "No faces cas de les restriccions del document"
 
-#: data/org.mate.Atril.gschema.xml:13
+#: data/org.mate.Lector.gschema.xml:13
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "No faces cas de les restriccions del document, com ara les de còpia o "
 "d'impressió."
 
-#: data/org.mate.Atril.gschema.xml:17
+#: data/org.mate.Lector.gschema.xml:17
 msgid "Automatically reload the document"
 msgstr "Recarrega automàticament el document"
 
-#: data/org.mate.Atril.gschema.xml:18
+#: data/org.mate.Lector.gschema.xml:18
 msgid "Whether the document is automatically reloaded on file change."
 msgstr ""
 "Si el document es recarrega automàticament quan es produeix una modificació "
 "al fitxer."
 
-#: data/org.mate.Atril.gschema.xml:22
+#: data/org.mate.Lector.gschema.xml:22
 msgid "The URI of the directory last used to open or save a document."
 msgstr ""
 "L'URI del directori que es va utilitzar l'última vegada per a obrir o "
 "guardar un document."
 
-#: data/org.mate.Atril.gschema.xml:26
+#: data/org.mate.Lector.gschema.xml:26
 msgid "The URI of the directory last used to save a picture."
 msgstr ""
 "L'URI del directori que es va utilitzar l'última vegada per a guardar una "
 "imatge."
 
-#: data/org.mate.Atril.gschema.xml:30
+#: data/org.mate.Lector.gschema.xml:30
 msgid "Page cache size in MiB"
 msgstr "Mida de la pàgina de memòria cau, en MiB"
 
-#: data/org.mate.Atril.gschema.xml:31
+#: data/org.mate.Lector.gschema.xml:31
 msgid ""
 "The maximum size that will be used to cache rendered pages, limits maximum "
 "zoom level."
@@ -556,7 +556,7 @@ msgstr ""
 "La mida màxima que s'utilitzarà per a guardar en la memòria cau les pàgines "
 "renderitzades, limita el nivell d'ampliació màxim."
 
-#: data/org.mate.Atril.gschema.xml:35
+#: data/org.mate.Lector.gschema.xml:35
 msgid ""
 "Show a dialog to confirm that the user wants to activate the caret "
 "navigation."
@@ -747,12 +747,12 @@ msgid "%s, Landscape (%s)"
 msgstr "%s, apaïsat (%s)"
 
 #: properties/liblector-properties-page.caja-extension.desktop.in:5
-msgid "Atril properties"
-msgstr "Propietats de l'Atril"
+msgid "Lector properties"
+msgstr "Propietats de l'Lector"
 
 #: properties/liblector-properties-page.caja-extension.desktop.in:6
-msgid "Shows details for Atril documents"
-msgstr "Mostra els detalls per als documents de l'Atril"
+msgid "Shows details for Lector documents"
+msgstr "Mostra els detalls per als documents de l'Lector"
 
 #: libmisc/ev-page-action-widget.c:64
 #, c-format
@@ -1392,7 +1392,7 @@ msgstr ""
 
 #: shell/ev-window.c:5394
 msgid ""
-"Atril is free software; you can redistribute it and/or modify it under the "
+"Lector is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version."
@@ -1400,7 +1400,7 @@ msgstr ""
 
 #: shell/ev-window.c:5398
 msgid ""
-"Atril is distributed in the hope that it will be useful, but WITHOUT ANY "
+"Lector is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details."
@@ -1409,12 +1409,12 @@ msgstr ""
 #: shell/ev-window.c:5402
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
-" Atril; if not, write to the Free Software Foundation, Inc., 51 Franklin "
+" Lector; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA"
 msgstr ""
 
 #: shell/ev-window.c:5447
-msgid "About Atril Document Viewer"
+msgid "About Lector Document Viewer"
 msgstr ""
 
 #: shell/ev-window.c:5448
@@ -1855,7 +1855,7 @@ msgstr "NÚMERO"
 
 #: shell/main.c:68
 msgid "Run lector in fullscreen mode"
-msgstr "Executa l'Atril en mode de pantalla completa"
+msgstr "Executa l'Lector en mode de pantalla completa"
 
 #: shell/main.c:69
 msgid "Named destination to display."
@@ -1867,11 +1867,11 @@ msgstr "DEST"
 
 #: shell/main.c:70
 msgid "Run lector in presentation mode"
-msgstr "Executa l'Atril en mode presentació"
+msgstr "Executa l'Lector en mode presentació"
 
 #: shell/main.c:71
 msgid "Run lector as a previewer"
-msgstr "Executa l'Atril com a previsualitzador"
+msgstr "Executa l'Lector com a previsualitzador"
 
 #: shell/main.c:72
 msgid "The word or phrase to find in the document"
