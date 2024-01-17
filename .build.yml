@@ -5,10 +5,12 @@ requires:
   debian:
     # Useful URL: https://github.com/mate-desktop/debian-packages
     # Useful URL: https://salsa.debian.org/debian-mate-team/atril
+    - aptitude
     - autopoint
     - clang
     - clang-tools
     - cppcheck
+    - expect #required for unbuffer
     - git
     - gobject-introspection
     - libcaja-extension-dev
