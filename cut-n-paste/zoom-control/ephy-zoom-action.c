@@ -54,9 +54,7 @@ enum
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 G_DEFINE_TYPE_WITH_PRIVATE (EphyZoomAction, ephy_zoom_action, GTK_TYPE_ACTION)
-G_GNUC_END_IGNORE_DEPRECATIONS;
 
 static void
 zoom_to_level_cb (EphyZoomControl *control,
@@ -104,9 +102,7 @@ connect_proxy (GtkAction *action, GtkWidget *proxy)
 		g_signal_connect (proxy, "zoom_to_level",
 				  G_CALLBACK (zoom_to_level_cb), action);
 	}
-	G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 	GTK_ACTION_CLASS (ephy_zoom_action_parent_class)->connect_proxy (action, proxy);
-	G_GNUC_END_IGNORE_DEPRECATIONS;
 }
 
 static void
@@ -163,9 +159,7 @@ create_menu_item (GtkAction *action)
 
 	gtk_widget_show (menu);
 
-	G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
         menu_item = GTK_ACTION_CLASS (ephy_zoom_action_parent_class)->create_menu_item (action);
-	G_GNUC_END_IGNORE_DEPRECATIONS;
 
 	gtk_menu_item_set_submenu (GTK_MENU_ITEM (menu_item), menu);
 
@@ -226,9 +220,7 @@ static void
 ephy_zoom_action_class_init (EphyZoomActionClass *class)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (class);
-	G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 	GtkActionClass *action_class = GTK_ACTION_CLASS (class);
-	G_GNUC_END_IGNORE_DEPRECATIONS;
 
 	object_class->set_property = ephy_zoom_action_set_property;
 	object_class->get_property = ephy_zoom_action_get_property;

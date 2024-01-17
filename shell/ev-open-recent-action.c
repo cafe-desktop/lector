@@ -32,9 +32,7 @@ enum {
 
 static guint action_signals[N_SIGNALS] = { 0 };
 
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 G_DEFINE_TYPE (EvOpenRecentAction, ev_open_recent_action, GTK_TYPE_ACTION)
-G_GNUC_END_IGNORE_DEPRECATIONS;
 
 static void
 recent_chooser_item_activated (GtkRecentChooser *chooser,
@@ -83,9 +81,7 @@ static void
 ev_open_recent_action_class_init (EvOpenRecentActionClass *class)
 {
 	GObjectClass   *object_class = G_OBJECT_CLASS (class);
-	G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 	GtkActionClass *action_class = GTK_ACTION_CLASS (class);
-	G_GNUC_END_IGNORE_DEPRECATIONS;
 
 	action_class->toolbar_item_type = GTK_TYPE_MENU_TOOL_BUTTON;
 	action_class->create_tool_item = ev_open_recent_action_create_tool_item;

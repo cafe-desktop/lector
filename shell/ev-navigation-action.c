@@ -40,9 +40,7 @@ struct _EvNavigationActionPrivate
 	EvHistory *history;
 };
 
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 G_DEFINE_TYPE_WITH_PRIVATE (EvNavigationAction, ev_navigation_action, GTK_TYPE_ACTION)
-G_GNUC_END_IGNORE_DEPRECATIONS;
 
 #define MAX_LABEL_LENGTH 48
 
@@ -52,10 +50,8 @@ ev_navigation_action_history_changed (EvHistory *history,
 {
 	EvNavigationAction *action = EV_NAVIGATION_ACTION (data);
 
-	G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 	gtk_action_set_sensitive (GTK_ACTION (action),
 				  ev_history_get_n_links (history) > 0);
-	G_GNUC_END_IGNORE_DEPRECATIONS;
 }
 
 void
@@ -169,9 +165,7 @@ connect_proxy (GtkAction *action, GtkWidget *proxy)
 				  G_CALLBACK (menu_activated_cb), action);
 	}
 
-	G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 	GTK_ACTION_CLASS (ev_navigation_action_parent_class)->connect_proxy (action, proxy);
-	G_GNUC_END_IGNORE_DEPRECATIONS;
 }
 
 static GtkWidget *
@@ -193,9 +187,7 @@ create_menu_item (GtkAction *action)
 
 	menu = build_menu (EV_NAVIGATION_ACTION (action));
 
-	G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
         menu_item = GTK_ACTION_CLASS (ev_navigation_action_parent_class)->create_menu_item (action);
-	G_GNUC_END_IGNORE_DEPRECATIONS;
 
 	gtk_menu_item_set_submenu (GTK_MENU_ITEM (menu_item), menu);
 
@@ -228,9 +220,7 @@ static void
 ev_navigation_action_class_init (EvNavigationActionClass *class)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (class);
-	G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 	GtkActionClass *action_class = GTK_ACTION_CLASS (class);
-	G_GNUC_END_IGNORE_DEPRECATIONS;
 
 	object_class->finalize = ev_navigation_action_finalize;
 
