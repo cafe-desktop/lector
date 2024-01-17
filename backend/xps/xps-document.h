@@ -1,4 +1,4 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of lector, a mate document viewer
  *
  * Copyright (C) 2010 Carlos Garcia Campos <carlosgc@gnome.org>
  *               2012 Leandro Vital <leandro.vital@yahoo.com.br>
@@ -36,7 +36,7 @@ typedef struct _XPSDocumentClass XPSDocumentClass;
 
 GType                 xps_document_get_type   (void) G_GNUC_CONST;
 
-G_MODULE_EXPORT GType register_atril_backend (GTypeModule *module);
+G_MODULE_EXPORT GType register_lector_backend (GTypeModule *module);
 
 G_END_DECLS
 

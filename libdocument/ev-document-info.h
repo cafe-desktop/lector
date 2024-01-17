@@ -19,7 +19,7 @@
  */
 
 #if !defined (__EV_ATRIL_DOCUMENT_H_INSIDE__) && !defined (ATRIL_COMPILATION)
-#error "Only <atril-document.h> can be included directly."
+#error "Only <lector-document.h> can be included directly."
 #endif
 
 #ifndef EV_DOCUMENT_INFO_H

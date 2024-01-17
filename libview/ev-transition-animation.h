@@ -1,5 +1,5 @@
 /* ev-transition-animation.h
- *  this file is part of atril, a mate document viewer
+ *  this file is part of lector, a mate document viewer
  *
  * Copyright (C) 2007 Carlos Garnacho <carlos@imendio.com>
  *
@@ -26,7 +26,7 @@
 #ifndef __EV_TRANSITION_ANIMATION_H__
 #define __EV_TRANSITION_ANIMATION_H__
 
-#include <atril-document.h>
+#include <lector-document.h>
 #include "ev-timeline.h"
 #include "ev-transition-effect.h"
 

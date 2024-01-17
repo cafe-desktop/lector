@@ -7,7 +7,7 @@ install-data-local: update-icon-cache
 # man file
 #
 
-man_MANS=atril.1
+man_MANS=lector.1
 
 #
 # UI descriptions
@@ -21,7 +21,7 @@ ui_DATA =				\
 # Desktop file
 #
 
-DESKTOP_IN_FILES = atril.desktop.in
+DESKTOP_IN_FILES = lector.desktop.in
 DESKTOP_FILES = $(DESKTOP_IN_FILES:.desktop.in=.desktop)
 
 desktopdir = $(datadir)/applications
@@ -34,7 +34,7 @@ $(desktop_DATA): $(DESKTOP_IN_FILES)
 #
 if ENABLE_DBUS
 servicedir = $(datadir)/dbus-1/services
-service_in_files = org.mate.atril.Daemon.service.in
+service_in_files = org.mate.lector.Daemon.service.in
 service_DATA = $(service_in_files:.service.in=.service)
 
 $(service_DATA): $(service_in_files) Makefile
@@ -45,7 +45,7 @@ endif
 # App data file
 #
 appdatadir = $(datadir)/metainfo
-appdata_in_files = atril.appdata.xml.in
+appdata_in_files = lector.appdata.xml.in
 appdata_DATA = $(appdata_in_files:.xml.in=.xml)
 $(appdata_DATA): $(appdata_in_files)
 	$(AM_V_GEN) $(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
@@ -89,7 +89,7 @@ EXTRA_DIST =					\
 	$(DESKTOP_IN_FILES)			\
 	$(appdata_in_files)			\
 	$(gsettings_SCHEMAS)			\
-	org.mate.atril.Daemon.service.in	\
+	org.mate.lector.Daemon.service.in	\
 	$(man_MANS)				\
 	$(NULL)
 
@@ -98,7 +98,7 @@ EXTRA_DIST =					\
 #
 
 CLEANFILES = \
-	atril.appdata.xml
+	lector.appdata.xml
 
 DISTCLEANFILES = \
 	$(DESKTOP_FILES)	\

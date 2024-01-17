@@ -5,7 +5,7 @@
   <!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
   <!ENTITY version SYSTEM "version.xml">
 ]>
-<book id="atril">
+<book id="lector">
   <!--
     Copyright © 2009, 2010 Christian Persch
 
@@ -21,7 +21,7 @@
     <releaseinfo>
       For Atril version &version;.
       The latest version of this documentation can be found on-line at the
-      <ulink role="online-location" url="http://library.mate.org/devel/atril/index.html">MATE Library</ulink>.
+      <ulink role="online-location" url="http://library.mate.org/devel/lector/index.html">MATE Library</ulink>.
     </releaseinfo>
 
     <copyright>
@@ -66,7 +66,7 @@
     </legalnotice>
   </bookinfo>
 
-  <part id="atril-frontend">
+  <part id="lector-frontend">
     <title>Frontend</title>
     <partintro>
       <para>

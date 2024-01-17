@@ -23,9 +23,9 @@ if os.path.isfile(recent_used):
 if os.path.exists(ps_file):
     os.unlink(ps_file)
 
-run('atril', arguments=' '+srcdir+'/test-page-labels.pdf')
+run('lector', arguments=' '+srcdir+'/test-page-labels.pdf')
 
-focus.application('atril')
+focus.application('lector')
 click('File', roleName='menu')
 click('Print…', roleName='menu item')
 
@@ -38,8 +38,8 @@ if statinfo.st_size > 100000:
     exit(1)
 os.unlink (ps_file)
 
-# Close atril
-focus.application('atril')
+# Close lector
+focus.application('lector')
 click('File', roleName='menu')
 click('Close', roleName='menu item')
 

@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR MATE Desktop Environment team
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
@@ -11,7 +11,7 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: atril 1.23.1\n"
+"Project-Id-Version: lector 1.23.1\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2020-01-10 10:49+0100\n"
 "PO-Revision-Date: 2018-03-11 14:35+0000\n"
@@ -80,7 +80,7 @@ msgstr "“%s” ಅನ್ನು ಅಳಿಸುವಲ್ಲಿ ಒಂದು ದ
 msgid "Error %s"
 msgstr "ದೋಷ %s"
 
-#: backend/comics/comicsdocument.atril-backend.desktop.in:4
+#: backend/comics/comicsdocument.lector-backend.desktop.in:4
 msgid "Comic Books"
 msgstr "ಕಾಮಿಕ್ ಪುಸ್ತಕಗಳು"
 
@@ -96,7 +96,7 @@ msgstr ""
 "ದಸ್ತಾವೇಜು ಹಲವಾರು ಕಡತಗಳಿಂದ ಮಾಡಲ್ಪಟ್ಟಿದೆ. ಒಂದು ಅಥವ ಒಂದಕ್ಕಿಂತ ಹೆಚ್ಚಿನ ಇಂತಹ "
 "ಕಡತಗಳನ್ನು ನಿಲುಕಿಸಿಕೊಳ್ಳಲಾಗುತ್ತಿಲ್ಲ."
 
-#: backend/djvu/djvudocument.atril-backend.desktop.in:4
+#: backend/djvu/djvudocument.lector-backend.desktop.in:4
 msgid "DjVu Documents"
 msgstr "Djvu ದಸ್ತಾವೇಜುಗಳು"
 
@@ -104,7 +104,7 @@ msgstr "Djvu ದಸ್ತಾವೇಜುಗಳು"
 msgid "DVI document has incorrect format"
 msgstr "DVI ದಸ್ತಾವೇಜು ಸರಿಯಲ್ಲದ ವಿನ್ಯಾಸವನ್ನು ಹೊಂದಿದೆ"
 
-#: backend/dvi/dvidocument.atril-backend.desktop.in:4
+#: backend/dvi/dvidocument.lector-backend.desktop.in:4
 msgid "DVI Documents"
 msgstr "DVI ದಸ್ತಾವೇಜುಗಳು"
 
@@ -164,7 +164,7 @@ msgstr ""
 msgid "Could not set up document tree for loading, some files missing"
 msgstr ""
 
-#: backend/epub/epubdocument.atril-backend.desktop.in:4
+#: backend/epub/epubdocument.lector-backend.desktop.in:4
 msgid "epub Documents"
 msgstr "epub ದಸ್ತಾವೇಜುಗಳು"
 
@@ -228,11 +228,11 @@ msgstr "ಅಡಕಗೊಳಿಸಲಾದ"
 msgid "Not embedded"
 msgstr "ಅಡಕಗೊಳಿಸದೆ ಇರುವ"
 
-#: backend/pdf/pdfdocument.atril-backend.desktop.in:5
+#: backend/pdf/pdfdocument.lector-backend.desktop.in:5
 msgid "PDF Documents"
 msgstr "PDF ದಸ್ತಾವೇಜುಗಳು"
 
-#: backend/pixbuf/pixbufdocument.atril-backend.desktop.in:4
+#: backend/pixbuf/pixbufdocument.lector-backend.desktop.in:4
 msgid "Images"
 msgstr "ಚಿತ್ರಗಳು"
 
@@ -246,7 +246,7 @@ msgstr "“%s” ದಸ್ತಾವೇಜನ್ನು ಲೋಡ್ ಮಾಡಲ�
 msgid "Failed to save document “%s”"
 msgstr "“%s” ದಸ್ತಾವೇಜನ್ನು ಉಳಿಸಲು ವಿಫಲಗೊಂಡಿದೆ"
 
-#: backend/ps/psdocument.atril-backend.desktop.in:5
+#: backend/ps/psdocument.lector-backend.desktop.in:5
 msgid "PostScript Documents"
 msgstr "ಪೋಸ್ಟ್‍ಸ್ಕ್ರಿಪ್ಟ್ ದಸ್ತಾವೇಜುಗಳು"
 
@@ -254,11 +254,11 @@ msgstr "ಪೋಸ್ಟ್‍ಸ್ಕ್ರಿಪ್ಟ್ ದಸ್ತಾವ�
 msgid "Invalid document"
 msgstr "ಅಮಾನ್ಯ ದಸ್ತಾವೇಜು"
 
-#: backend/tiff/tiffdocument.atril-backend.desktop.in:4
+#: backend/tiff/tiffdocument.lector-backend.desktop.in:4
 msgid "Tiff Documents"
 msgstr ""
 
-#: backend/xps/xpsdocument.atril-backend.desktop.in:5
+#: backend/xps/xpsdocument.lector-backend.desktop.in:5
 msgid "XPS Documents"
 msgstr ""
 
@@ -461,16 +461,16 @@ msgstr "3200%"
 msgid "6400%"
 msgstr "6400%"
 
-#: data/atril.appdata.xml.in:7 data/atril.desktop.in.in:3
+#: data/lector.appdata.xml.in:7 data/lector.desktop.in.in:3
 #: shell/ev-window.c:5445
 msgid "Atril Document Viewer"
 msgstr "Atril ದಸ್ತಾವೇಜು ವೀಕ್ಷಕ"
 
-#: data/atril.appdata.xml.in:8
+#: data/lector.appdata.xml.in:8
 msgid "A Document Viewer for the MATE desktop environment"
 msgstr "MATE ಗಣಕತೆರೆ ಪರಿಸರಕ್ಕೆ ಒಂದು ದಸ್ತಾವೇಜು ವೀಕ್ಷಕ"
 
-#: data/atril.appdata.xml.in:10
+#: data/lector.appdata.xml.in:10
 msgid ""
 "Atril is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
@@ -479,32 +479,32 @@ msgid ""
 "to the clipboard, hypertext navigation and table-of-contents bookmarks."
 msgstr ""
 
-#: data/atril.appdata.xml.in:18
+#: data/lector.appdata.xml.in:18
 msgid ""
 "Atril is a fork of Evince and part of the MATE Desktop Environment. If you "
 "would like to know more about MATE and Atril, please visit the project's "
 "home page."
 msgstr ""
 
-#: data/atril.desktop.in.in:4 shell/ev-window.c:5375
+#: data/lector.desktop.in.in:4 shell/ev-window.c:5375
 #: shell/ev-window-title.c:157
 msgid "Document Viewer"
 msgstr "ದಸ್ತಾವೇಜು ವೀಕ್ಷಕ"
 
-#: data/atril.desktop.in.in:5
+#: data/lector.desktop.in.in:5
 msgid "View multi-page documents"
 msgstr "ಬಹು-ಪುಟದ ದಸ್ತಾವೇಜನ್ನು ವೀಕ್ಷಿಸು"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon
 #. file name)!
-#: data/atril.desktop.in.in:12
-#: properties/libatril-properties-page.caja-extension.desktop.in:4
-msgid "atril"
+#: data/lector.desktop.in.in:12
+#: properties/liblector-properties-page.caja-extension.desktop.in:4
+msgid "lector"
 msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
-#: data/atril.desktop.in.in:20
+#: data/lector.desktop.in.in:20
 msgid "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 msgstr ""
 
@@ -730,11 +730,11 @@ msgstr "%s, ಭಾವಚಿತ್ರ (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, ಪ್ರಕೃತಿಚಿತ್ರ (%s)"
 
-#: properties/libatril-properties-page.caja-extension.desktop.in:5
+#: properties/liblector-properties-page.caja-extension.desktop.in:5
 msgid "Atril properties"
 msgstr ""
 
-#: properties/libatril-properties-page.caja-extension.desktop.in:6
+#: properties/liblector-properties-page.caja-extension.desktop.in:6
 msgid "Shows details for Atril documents"
 msgstr ""
 
@@ -1824,7 +1824,7 @@ msgid "NUMBER"
 msgstr "ಸಂಖ್ಯೆ"
 
 #: shell/main.c:68
-msgid "Run atril in fullscreen mode"
+msgid "Run lector in fullscreen mode"
 msgstr "ಎವಿನ್ಸನ್ನು ಪೂರ್ಣತೆರೆ ವಿಧಾನದಲ್ಲಿ ಚಲಾಯಿಸು"
 
 #: shell/main.c:69
@@ -1836,11 +1836,11 @@ msgid "DEST"
 msgstr "DEST"
 
 #: shell/main.c:70
-msgid "Run atril in presentation mode"
+msgid "Run lector in presentation mode"
 msgstr "ಎವಿನ್ಸನ್ನು ಪ್ರದರ್ಶನ ವಿಧಾನದಲ್ಲಿ ಚಲಾಯಿಸು"
 
 #: shell/main.c:71
-msgid "Run atril as a previewer"
+msgid "Run lector as a previewer"
 msgstr "ಎವಿನ್ಸನ್ನು ಒಂದು ಪೂರ್ವವೀಕ್ಷಕವಾಗಿ(ಪ್ರಿವೀವರ್) ಚಲಾಯಿಸು"
 
 #: shell/main.c:72

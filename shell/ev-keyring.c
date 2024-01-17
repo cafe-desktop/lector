@@ -1,5 +1,5 @@
 /* ev-keyring.c
- *  this file is part of atril, a mate document viewer
+ *  this file is part of lector, a mate document viewer
  *
  * Copyright (C) 2008 Carlos Garcia Campos <carlosgc@gnome.org>
  *

@@ -7,7 +7,7 @@ AUTOMAKE_OPTIONS = 1.10
 # of using the various options.
 
 # The name of the module, e.g. 'glib'.
-DOC_MODULE = libatrilview
+DOC_MODULE = liblectorview
 
 # Uncomment for versioned docs and specify the version of the module, e.g. '2'.
 DOC_MODULE_VERSION = $(EV_API_VERSION)
@@ -115,8 +115,8 @@ GTKDOC_CFLAGS = \
 	$(DISABLE_DEPRECATED)
 
 GTKDOC_LIBS = \
-	$(top_builddir)/libdocument/libatrildocument.la \
-	$(top_builddir)/libview/libatrilview.la \
+	$(top_builddir)/libdocument/liblectordocument.la \
+	$(top_builddir)/libview/liblectorview.la \
 	$(LIBDOCUMENT_LIBS)						\
 	$(WEBKIT_LIBS)
 

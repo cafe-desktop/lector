@@ -1,4 +1,4 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of lector, a mate document viewer
  *
  *  Copyright (C) 2008 Carlos Garcia Campos <carlosgc@gnome.org>
  *
@@ -875,7 +875,7 @@ export_print_done (EvPrintOperationExport *export)
 
 			quoted_filename = g_shell_quote (export->temp_file);
 			quoted_settings_filename = g_shell_quote (print_settings_file);
-			cmd = g_strdup_printf ("atril-previewer --unlink-tempfile --print-settings %s %s",
+			cmd = g_strdup_printf ("lector-previewer --unlink-tempfile --print-settings %s %s",
 					       quoted_settings_filename, quoted_filename);
 
 			g_free (quoted_filename);
@@ -1179,7 +1179,7 @@ ev_print_operation_export_print_dialog_response_cb (GtkDialog              *dial
 
 	file_format = gtk_print_settings_get (print_settings, GTK_PRINT_SETTINGS_OUTPUT_FILE_FORMAT);
 
-	filename = g_strdup_printf ("atril_print.%s.XXXXXX", file_format != NULL ? file_format : "");
+	filename = g_strdup_printf ("lector_print.%s.XXXXXX", file_format != NULL ? file_format : "");
 	export->fd = g_file_open_tmp (filename, &export->temp_file, &error);
 	g_free (filename);
 	if (export->fd <= -1) {
@@ -1522,9 +1522,9 @@ typedef enum {
 	EV_SCALE_FIT_TO_PRINTABLE_AREA
 } EvPrintScale;
 
-#define EV_PRINT_SETTING_PAGE_SCALE "atril-print-setting-page-scale"
-#define EV_PRINT_SETTING_AUTOROTATE "atril-print-setting-page-autorotate"
-#define EV_PRINT_SETTING_PAGE_SIZE  "atril-print-setting-page-size"
+#define EV_PRINT_SETTING_PAGE_SCALE "lector-print-setting-page-scale"
+#define EV_PRINT_SETTING_AUTOROTATE "lector-print-setting-page-autorotate"
+#define EV_PRINT_SETTING_PAGE_SIZE  "lector-print-setting-page-size"
 
 struct _EvPrintOperationPrint {
 	EvPrintOperation parent;

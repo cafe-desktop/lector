@@ -13,9 +13,9 @@ srcdir = os.environ['srcdir']
 
 from dogtail.procedural import *
 
-run('atril', arguments=' '+srcdir+'/test-page-labels.pdf')
+run('lector', arguments=' '+srcdir+'/test-page-labels.pdf')
 
-focus.application('atril')
+focus.application('lector')
 focus.frame('test-page-labels.pdf')
 click('File', roleName='menu')
 click('Print…', roleName='menu item')
@@ -30,7 +30,7 @@ click('Odd sheets', roleName='menu item')
 click('Preview', roleName='push button')
 keyCombo('<Alt><F4>')
 
-# Close atril
-focus.application('atril')
+# Close lector
+focus.application('lector')
 click('File', roleName='menu')
 click('Close', roleName='menu item')

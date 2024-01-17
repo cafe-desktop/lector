@@ -2,16 +2,16 @@
 Name=Atril Document Viewer
 GenericName=Document Viewer
 Comment=View multi-page documents
-TryExec=atril
-Exec=atril %U
+TryExec=lector
+Exec=lector %U
 StartupNotify=true
 Terminal=false
 Type=Application
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-Icon=atril
+Icon=lector
 X-MATE-DocPath=
 X-MATE-Bugzilla-Bugzilla=MATE
-X-MATE-Bugzilla-Product=atril
+X-MATE-Bugzilla-Product=lector
 X-MATE-Bugzilla-Component=BugBuddyBugs
 X-MATE-Bugzilla-Version=@VERSION@
 Categories=GTK;Office;Viewer;

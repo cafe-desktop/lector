@@ -21,7 +21,7 @@
  */
 
 #if !defined (__EV_ATRIL_DOCUMENT_H_INSIDE__) && !defined (ATRIL_COMPILATION)
-#error "Only <atril-document.h> can be included directly."
+#error "Only <lector-document.h> can be included directly."
 #endif
 
 #ifndef EV_DOCUMENT_H
@@ -82,7 +82,7 @@ struct _EvDocument
 	EvDocumentPrivate *priv;
 	/*
 	 * Since we can only access the members of this structure from the window frontend,
-	 * we need a flag to detemine whether to replace the atril-view with a web-view.
+	 * we need a flag to detemine whether to replace the lector-view with a web-view.
 	 */
 	gboolean iswebdocument;
 	const gchar *synctex_version;
@@ -263,7 +263,7 @@ static void     backend_name##_class_intern_init (gpointer klass)		\
 }										\
 										\
 G_MODULE_EXPORT GType								\
-register_atril_backend (GTypeModule *module)					\
+register_lector_backend (GTypeModule *module)					\
 {										\
 	const GTypeInfo our_info = {  				                \
 		sizeof (BackendName##Class),					\

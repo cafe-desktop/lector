@@ -1,5 +1,5 @@
 /* ev-sidebar-attachments.c
- *  this file is part of atril, a mate document viewer
+ *  this file is part of lector, a mate document viewer
  *
  * Copyright (C) 2006 Carlos Garcia Campos
  *

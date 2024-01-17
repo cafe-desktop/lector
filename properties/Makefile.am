@@ -16,22 +16,22 @@ libevproperties_la_SOURCES=			\
 
 if ENABLE_CAJA
 
-cajaextension_LTLIBRARIES = libatril-properties-page.la
+cajaextension_LTLIBRARIES = liblector-properties-page.la
 
-libatril_properties_page_la_CFLAGS = -I$(top_srcdir)
-libatril_properties_page_la_SOURCES = 	\
+liblector_properties_page_la_CFLAGS = -I$(top_srcdir)
+liblector_properties_page_la_SOURCES = 	\
 	ev-properties-main.c
 
-libatril_properties_page_la_LIBADD = 		\
+liblector_properties_page_la_LIBADD = 		\
 	libevproperties.la			\
-	$(top_builddir)/libdocument/libatrildocument.la	\
+	$(top_builddir)/libdocument/liblectordocument.la	\
 	$(FRONTEND_LIBS)			\
 	$(CAJA_LIBS)
 
-libatril_properties_page_la_LDFLAGS = -module -avoid-version -no-undefined
+liblector_properties_page_la_LDFLAGS = -module -avoid-version -no-undefined
 
 extensiondir = $(datadir)/caja/extensions
-extension_in_files = libatril-properties-page.caja-extension.desktop.in
+extension_in_files = liblector-properties-page.caja-extension.desktop.in
 extension_DATA = $(extension_in_files:.caja-extension.desktop.in=.caja-extension)
 $(extension_DATA): $(extension_in_files)
 	$(AM_V_GEN) $(MSGFMT) --desktop --keyword=Description --template $< -d $(top_srcdir)/po -o $@

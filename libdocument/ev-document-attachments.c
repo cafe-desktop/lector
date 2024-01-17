@@ -1,5 +1,5 @@
 /* ev-document-attachments.c
- *  this file is part of atril, a mate document_links viewer
+ *  this file is part of lector, a mate document_links viewer
  *
  * Copyright (C) 2009 Carlos Garcia Campos  <carlosgc@gnome.org>
  *

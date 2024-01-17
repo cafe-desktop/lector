@@ -1,5 +1,5 @@
 /* ev-sidebar-annotations.h
- *  this file is part of atril, a mate document viewer
+ *  this file is part of lector, a mate document viewer
  *
  * Copyright (C) 2010 Carlos Garcia Campos  <carlosgc@gnome.org>
  *

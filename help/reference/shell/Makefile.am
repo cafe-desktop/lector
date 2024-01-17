@@ -7,7 +7,7 @@ AUTOMAKE_OPTIONS = 1.10
 # of using the various options.
 
 # The name of the module, e.g. 'glib'.
-DOC_MODULE = atril
+DOC_MODULE = lector
 
 # Uncomment for versioned docs and specify the version of the module, e.g. '2'.
 # DOC_MODULE_VERSION = $(EV_API_VERSION)
@@ -17,7 +17,7 @@ DOC_MAIN_SGML_FILE = $(DOC_MODULE)-docs.xml
 
 # The directory containing the source code. Relative to $(srcdir).
 # gtk-doc will search all .c & .h files beneath here for inline comments
-# atriling the functions and macros.
+# lectoring the functions and macros.
 # e.g. DOC_SOURCE_DIR=../../../gtk
 DOC_SOURCE_DIR = $(top_srcdir)/shell
 
@@ -57,7 +57,7 @@ CFILE_GLOB = $(top_srcdir)/shell/*.c
 
 # Extra header to include when scanning, which are not under DOC_SOURCE_DIR
 # e.g. EXTRA_HFILES=$(top_srcdir}/contrib/extra.h
-# EXTRA_HFILES = $(top_builddir)/atril/ev-version.h
+# EXTRA_HFILES = $(top_builddir)/lector/ev-version.h
 EXTRA_HFILES =
 
 # Header files to ignore when scanning. Use base file name, no paths
@@ -110,16 +110,16 @@ GTKDOC_CFLAGS = \
 
 FILTER_OUT = \
 	$(top_builddir)/shell/main.o			\
-	$(top_builddir)/shell/atrild-ev-daemon.o \
-	$(top_builddir)/shell/atrild-ev-daemon-gdbus-generated.o
+	$(top_builddir)/shell/lectord-ev-daemon.o \
+	$(top_builddir)/shell/lectord-ev-daemon-gdbus-generated.o
 
 GTKDOC_LIBS = \
 	$(top_builddir)/cut-n-paste/zoom-control/libephyzoom.la		\
 	$(top_builddir)/cut-n-paste/toolbar-editor/libtoolbareditor.la	\
 	$(top_builddir)/cut-n-paste/smclient/libsmclient.la		\
 	$(top_builddir)/properties/libevproperties.la			\
-	$(top_builddir)/libdocument/libatrildocument.la			\
-	$(top_builddir)/libview/libatrilview.la				\
+	$(top_builddir)/libdocument/liblectordocument.la			\
+	$(top_builddir)/libview/liblectorview.la				\
 	$(top_builddir)/libmisc/libevmisc.la				\
 	$(SHELL_LIBS)							\
 	$(GTK_PRINT_LIBS)						\

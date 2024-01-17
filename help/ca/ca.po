@@ -281,8 +281,8 @@ msgstr "<primary>Visualitzador de documents Atril</primary>"
 
 #. (itstool) path: article/indexterm
 #: C/index.docbook:139
-msgid "<primary>atril</primary>"
-msgstr "<primary>atril</primary>"
+msgid "<primary>lector</primary>"
+msgstr "<primary>lector</primary>"
 
 #. (itstool) path: sect1/title
 #: C/index.docbook:148
@@ -328,11 +328,11 @@ msgstr ""
 msgid ""
 "Alternatively, you can start <application>Atril Document "
 "Viewer</application> from the command line, with the command: "
-"<command>atril</command>."
+"<command>lector</command>."
 msgstr ""
 "Alternativament, podeu iniciar el <application>visualitzador de documents "
 "Atril</application> des de la línia d'ordres, amb l'ordre: "
-"<command>atril</command>."
+"<command>lector</command>."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:166
@@ -361,22 +361,22 @@ msgstr "Finestra del visualitzador de documents Atril"
 #: C/index.docbook:175
 msgctxt "_"
 msgid ""
-"external ref='figures/atril_start_window.png' "
+"external ref='figures/lector_start_window.png' "
 "md5='475a06bdb579c94e4f07d99ae3098e9c'"
 msgstr ""
-"external ref='figures/atril_start_window.png' "
+"external ref='figures/lector_start_window.png' "
 "md5='475a06bdb579c94e4f07d99ae3098e9c'"
 
 #. (itstool) path: screenshot/mediaobject
 #: C/index.docbook:173
 msgid ""
-"<imageobject><imagedata fileref=\"figures/atril_start_window.png\" "
+"<imageobject><imagedata fileref=\"figures/lector_start_window.png\" "
 "format=\"PNG\"/> </imageobject> <textobject> <phrase>Shows Atril Document "
 "Viewer main window. Contains titlebar, menubar, toolbar and display area. "
 "Menubar contains File, Edit, View, Go and Help menus. </phrase> "
 "</textobject>"
 msgstr ""
-"<imageobject><imagedata fileref=\"figures/atril_start_window.png\" "
+"<imageobject><imagedata fileref=\"figures/lector_start_window.png\" "
 "format=\"PNG\"/> </imageobject> <textobject> <phrase>Mostra la finestra "
 "principal del visualitzador de documents Atril. Conté la barra de títol, la "
 "barra de menús, la barra d'eines i l'àrea de visualització. La barra de "
@@ -830,14 +830,14 @@ msgid ""
 "If you cannot choose the <guimenuitem>Print</guimenuitem> menu item, the "
 "author of the document has disabled the print option for this document. To "
 "enable the print option, you must enter the master password when you open "
-"the document. See <xref linkend=\"atril-password\"/> for more information "
+"the document. See <xref linkend=\"lector-password\"/> for more information "
 "about password-protected files."
 msgstr ""
 "Si no podeu seleccionar l'element de menú "
 "<guimenuitem>Imprimeix</guimenuitem>, l'autor del document ha inhabilitat "
 "l'opció d'impressió per aquest document. Per habilitar l'opció d'impressió, "
 "heu d'introduir la contrasenya mestra quan obriu el document. Consulteu "
-"<xref linkend=\"atril-password\"/> per a més informació quant als fitxers "
+"<xref linkend=\"lector-password\"/> per a més informació quant als fitxers "
 "protegits per contrasenya."
 
 #. (itstool) path: sect2/para

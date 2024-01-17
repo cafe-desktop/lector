@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2014 MATE team <mate-dev@ml.mate-desktop.org> -->
 <component type="desktop">
- <id>atril.desktop</id>
+ <id>lector.desktop</id>
  <metadata_license>CC0-1.0</metadata_license>
  <project_license>GPL-2.0+</project_license>
  <name>Atril Document Viewer</name>
@@ -24,17 +24,17 @@
  <screenshots>
   <screenshot type="default">
    <image width="960" height="540">
-    https://alexpl.fedorapeople.org/AppData/atril/screens/atril_01.png
+    https://alexpl.fedorapeople.org/AppData/lector/screens/lector_01.png
    </image>
   </screenshot>
   <screenshot>
    <image width="960" height="540">
-    https://alexpl.fedorapeople.org/AppData/atril/screens/atril_02.png
+    https://alexpl.fedorapeople.org/AppData/lector/screens/lector_02.png
    </image>
   </screenshot>
   <screenshot>
    <image width="960" height="540">
-    https://alexpl.fedorapeople.org/AppData/atril/screens/atril_03.png
+    https://alexpl.fedorapeople.org/AppData/lector/screens/lector_03.png
    </image>
   </screenshot>
  </screenshots>

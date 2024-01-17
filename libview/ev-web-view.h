@@ -1,7 +1,7 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of lector, a mate document viewer
  *
  *  Copyright (C) 2014 Avishkar Gupta
- *  Based on ev-view.h, also a part of atril, a mate document viewer
+ *  Based on ev-view.h, also a part of lector, a mate document viewer
  *
  * Atril is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
  */
 
 #if !defined (__EV_ATRIL_VIEW_H_INSIDE__) && !defined (ATRIL_COMPILATION)
-#error "Only <atril-view.h> can be included directly."
+#error "Only <lector-view.h> can be included directly."
 #endif
 
 #include "config.h"
@@ -29,7 +29,7 @@
 
 #include <gtk/gtk.h>
 
-#include <atril-document.h>
+#include <lector-document.h>
 #include "ev-jobs.h"
 #include "ev-document-model.h"
 #include <glib-object.h>

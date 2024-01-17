@@ -24,7 +24,7 @@
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
-#include <atril-document.h>
+#include <lector-document.h>
 #include "ev-page-action.h"
 #include "ev-page-action-widget.h"
 

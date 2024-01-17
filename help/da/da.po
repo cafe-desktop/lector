@@ -280,8 +280,8 @@ msgstr "<primary>Atril - dockmentfremviser</primary>"
 
 #. (itstool) path: article/indexterm
 #: C/index.docbook:139
-msgid "<primary>atril</primary>"
-msgstr "<primary>atril</primary>"
+msgid "<primary>lector</primary>"
+msgstr "<primary>lector</primary>"
 
 #. (itstool) path: sect1/title
 #: C/index.docbook:148
@@ -327,11 +327,11 @@ msgstr ""
 msgid ""
 "Alternatively, you can start <application>Atril Document "
 "Viewer</application> from the command line, with the command: "
-"<command>atril</command>."
+"<command>lector</command>."
 msgstr ""
 "Alternativt kan du starte <application>Atril - "
 "dokumentfremviser</application> fra kommandolinjen, med kommandoen: "
-"<command>atril</command>."
+"<command>lector</command>."
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:166
@@ -360,22 +360,22 @@ msgstr "Atrils vindue"
 #: C/index.docbook:175
 msgctxt "_"
 msgid ""
-"external ref='figures/atril_start_window.png' "
+"external ref='figures/lector_start_window.png' "
 "md5='475a06bdb579c94e4f07d99ae3098e9c'"
 msgstr ""
-"external ref='figures/atril_start_window.png' "
+"external ref='figures/lector_start_window.png' "
 "md5='475a06bdb579c94e4f07d99ae3098e9c'"
 
 #. (itstool) path: screenshot/mediaobject
 #: C/index.docbook:173
 msgid ""
-"<imageobject><imagedata fileref=\"figures/atril_start_window.png\" "
+"<imageobject><imagedata fileref=\"figures/lector_start_window.png\" "
 "format=\"PNG\"/> </imageobject> <textobject> <phrase>Shows Atril Document "
 "Viewer main window. Contains titlebar, menubar, toolbar and display area. "
 "Menubar contains File, Edit, View, Go and Help menus. </phrase> "
 "</textobject>"
 msgstr ""
-"<imageobject><imagedata fileref=\"figures/atril_start_window.png\" "
+"<imageobject><imagedata fileref=\"figures/lector_start_window.png\" "
 "format=\"PNG\"/> </imageobject> <textobject> <phrase>Viser Atrils "
 "hovedvindue. Indeholder titellinje, værktøjslinje og visningsområdet. "
 "Menulinjen indeholder menupunkterne Fil, Rediger, Vis, Gå og Hjælp</phrase> "
@@ -816,13 +816,13 @@ msgid ""
 "If you cannot choose the <guimenuitem>Print</guimenuitem> menu item, the "
 "author of the document has disabled the print option for this document. To "
 "enable the print option, you must enter the master password when you open "
-"the document. See <xref linkend=\"atril-password\"/> for more information "
+"the document. See <xref linkend=\"lector-password\"/> for more information "
 "about password-protected files."
 msgstr ""
 "Hvis du ikke kan vælge menuelementet <guimenuitem>Udskriv</guimenuitem>, så "
 "har forfatteren af dokumentet deaktiveret udskrivningsmuligheden for dette "
 "dokument. For at aktivere udskrivningsmuligheden, så skal du indtaste "
-"adgangskoden, når du åbner dokumentet. Se <xref linkend=\"atril-password\"/>"
+"adgangskoden, når du åbner dokumentet. Se <xref linkend=\"lector-password\"/>"
 " for yderligere information om filer beskyttet med adgangskode."
 
 #. (itstool) path: sect2/para

@@ -1,4 +1,4 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of lector, a mate document viewer
  *
  *  Copyright (C) 2008 Carlos Garcia Campos <carlosgc@gnome.org>
  *
@@ -18,7 +18,7 @@
  */
 
 #if !defined (__EV_ATRIL_VIEW_H_INSIDE__) && !defined (ATRIL_COMPILATION)
-#error "Only <atril-view.h> can be included directly."
+#error "Only <lector-view.h> can be included directly."
 #endif
 
 #ifndef __EV_PRINT_OPERATION_H__
@@ -27,7 +27,7 @@
 #include <gtk/gtk.h>
 #include <glib-object.h>
 
-#include <atril-document.h>
+#include <lector-document.h>
 
 G_BEGIN_DECLS
 

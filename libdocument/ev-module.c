@@ -36,7 +36,7 @@
  * $Id: gedit-module.c 5367 2006-12-17 14:29:49Z pborelli $
  */
 
-/* Modified by atril team */
+/* Modified by lector team */
 
 #include "config.h"
 
@@ -79,7 +79,7 @@ ev_module_load (GTypeModule *gmodule)
         }
 
         /* extract symbols from the lib */
-        if (!g_module_symbol (module->library, "register_atril_backend",
+        if (!g_module_symbol (module->library, "register_lector_backend",
                               (void *) &register_func)) {
                 g_warning ("%s", g_module_error ());
                 g_module_close (module->library);
@@ -90,7 +90,7 @@ ev_module_load (GTypeModule *gmodule)
         /* symbol can still be NULL even though g_module_symbol
          * returned TRUE */
         if (!register_func) {
-                g_warning ("Symbol 'register_atril_backend' should not be NULL");
+                g_warning ("Symbol 'register_lector_backend' should not be NULL");
                 g_module_close (module->library);
 
                 return FALSE;
@@ -99,7 +99,7 @@ ev_module_load (GTypeModule *gmodule)
         module->type = register_func (gmodule);
 
         if (module->type == 0) {
-                g_warning ("Invalid atril backend contained by module %s", module->path);
+                g_warning ("Invalid lector backend contained by module %s", module->path);
 
                 return FALSE;
         }

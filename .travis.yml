@@ -63,7 +63,7 @@ env:
 ##########################################################
 requires:
   archlinux:
-    # Useful URL: https://git.archlinux.org/svntogit/community.git/tree/atril
+    # Useful URL: https://git.archlinux.org/svntogit/community.git/tree/lector
     - clang
     - caja
     - djvulibre
@@ -82,7 +82,7 @@ requires:
 
   debian:
     # Useful URL: https://github.com/mate-desktop/debian-packages
-    # Useful URL: https://salsa.debian.org/debian-mate-team/atril
+    # Useful URL: https://salsa.debian.org/debian-mate-team/lector
     - autopoint
     - clang
     - clang-tools
@@ -114,7 +114,7 @@ requires:
     - zlib1g-dev
 
   fedora:
-    # Useful URL: https://src.fedoraproject.org/cgit/rpms/atril.git
+    # Useful URL: https://src.fedoraproject.org/cgit/rpms/lector.git
     - cairo-gobject-devel
     - caja-devel
     - clang
@@ -213,7 +213,7 @@ after_scripts:
   - if [ ${DISTRO_NAME} == "fedora" ];then
   -   cppcheck --xml --output-file=cppcheck.xml --enable=warning,style,performance,portability,information,missingInclude --force -D__cplusplus .
   -   cppcheck-htmlreport --title=${REPO_NAME} --file=cppcheck.xml --report-dir=cppcheck-htmlreport
-  -   ./gen-index -l 20 -i https://github.com/${OWNER_NAME}/atril/raw/master/data/icons/16x16/apps/atril.png
+  -   ./gen-index -l 20 -i https://github.com/${OWNER_NAME}/lector/raw/master/data/icons/16x16/apps/lector.png
   - fi
   - make distcheck
 
@@ -222,7 +222,7 @@ releases:
   prerelease: false
   checksum: true
   file_glob: true
-  files: atril-*.tar.xz
+  files: lector-*.tar.xz
   github_release:
     tags: true
     overwrite: true

@@ -1,5 +1,5 @@
 /* ev-document-annotations.c
- *  this file is part of atril, a mate document viewer
+ *  this file is part of lector, a mate document viewer
  *
  * Copyright (C) 2009 Carlos Garcia Campos <carlosgc@gnome.org>
  * Copyright (C) 2007 Iñigo Martinez <inigomartinez@gmail.com>

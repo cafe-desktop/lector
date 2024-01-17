@@ -49,7 +49,7 @@ sub ReplaceAuthors {
 
 sub GetCurrentAuthors {
   my @authors;
-  open(FILE,"shell/atril.about") or die "Can't open shell/atril.about";
+  open(FILE,"shell/lector.about") or die "Can't open shell/lector.about";
   while (<FILE>) {
     if (/^Authors=*(.+)$/) {
       @authors=split(";",$1);

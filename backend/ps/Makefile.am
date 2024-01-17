@@ -16,12 +16,12 @@ libpsdocument_la_SOURCES = 	\
 
 libpsdocument_la_LDFLAGS = $(BACKEND_LIBTOOL_FLAGS)
 libpsdocument_la_LIBADD = 				\
-	$(top_builddir)/libdocument/libatrildocument.la	\
+	$(top_builddir)/libdocument/liblectordocument.la	\
 	$(BACKEND_LIBS)					\
 	$(SPECTRE_LIBS)
 
-backend_in_files = psdocument.atril-backend.desktop.in
-backend_DATA = $(backend_in_files:.atril-backend.desktop.in=.atril-backend)
+backend_in_files = psdocument.lector-backend.desktop.in
+backend_DATA = $(backend_in_files:.lector-backend.desktop.in=.lector-backend)
 
 $(backend_DATA): $(backend_in_files)
 	$(AM_V_GEN) $(MSGFMT) --desktop --keyword=TypeDescription --template $< -d $(top_srcdir)/po -o $@

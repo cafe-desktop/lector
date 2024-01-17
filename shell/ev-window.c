@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; c-indent-level: 8 -*- */
-/* this file is part of atril, a mate document viewer
+/* this file is part of lector, a mate document viewer
  *
  *  Copyright (C) 2009 Juanjo Marín <juanj.marin@juntadeandalucia.es>
  *  Copyright (C) 2008 Carlos Garcia Campos
@@ -256,8 +256,8 @@ struct _EvWindowPrivate {
 #define MATE_INTERFACE_TB_STYLE    "toolbar-style"
 
 #ifdef ENABLE_DBUS
-#define EV_WINDOW_DBUS_OBJECT_PATH "/org/mate/atril/Window/%d"
-#define EV_WINDOW_DBUS_INTERFACE   "org.mate.atril.Window"
+#define EV_WINDOW_DBUS_OBJECT_PATH "/org/mate/lector/Window/%d"
+#define EV_WINDOW_DBUS_INTERFACE   "org.mate.lector.Window"
 #endif
 
 #define GS_SCHEMA_NAME           "org.mate.Atril"
@@ -279,13 +279,13 @@ struct _EvWindowPrivate {
 #define EV_PRINT_SETTINGS_GROUP "Print Settings"
 #define EV_PAGE_SETUP_GROUP     "Page Setup"
 
-#define EV_TOOLBARS_FILENAME "atril-toolbar.xml"
+#define EV_TOOLBARS_FILENAME "lector-toolbar.xml"
 
 #define MIN_SCALE 0.05409
 
 #define MAX_RECENT_ITEM_LEN (40)
 
-#define TOOLBAR_RESOURCE_PATH "/org/mate/atril/shell/ui/toolbar.xml"
+#define TOOLBAR_RESOURCE_PATH "/org/mate/lector/shell/ui/toolbar.xml"
 
 static const gchar *document_print_settings[] = {
 	GTK_PRINT_SETTINGS_N_COPIES,
@@ -1784,7 +1784,7 @@ ev_window_set_document (EvWindow *ev_window, EvDocument *document)
 	if (document->iswebdocument == TRUE &&
 	    ev_window->priv->view != NULL)
 	{
-		/*We have encountered a web document, replace the atril view with a web view, if the web view is not already loaded.*/
+		/*We have encountered a web document, replace the lector view with a web view, if the web view is not already loaded.*/
 		gtk_container_remove (GTK_CONTAINER(ev_window->priv->scrolled_window),
 		                      ev_window->priv->view);
 		ev_view_disconnect_handlers(EV_VIEW(ev_window->priv->view));
@@ -2853,10 +2853,10 @@ static gint
 compare_recent_items (GtkRecentInfo *a, GtkRecentInfo *b)
 {
 	gboolean     has_ev_a, has_ev_b;
-	const gchar *atril = g_get_application_name ();
+	const gchar *lector = g_get_application_name ();
 
-	has_ev_a = gtk_recent_info_has_application (a, atril);
-	has_ev_b = gtk_recent_info_has_application (b, atril);
+	has_ev_a = gtk_recent_info_has_application (a, lector);
+	has_ev_b = gtk_recent_info_has_application (b, lector);
 
 	if (has_ev_a && has_ev_b) {
 		time_t time_a, time_b;
@@ -2938,7 +2938,7 @@ ev_window_setup_recent (EvWindow *ev_window)
 {
 	GList        *items, *l;
 	guint         n_items = 0;
-	const gchar  *atril = g_get_application_name ();
+	const gchar  *lector = g_get_application_name ();
 	static guint  i = 0;
 
 	if (ev_window->priv->recent_ui_id > 0) {
@@ -2976,7 +2976,7 @@ ev_window_setup_recent (EvWindow *ev_window)
 
 		info = (GtkRecentInfo *) l->data;
 
-		if (!gtk_recent_info_has_application (info, atril) ||
+		if (!gtk_recent_info_has_application (info, lector) ||
 		    (gtk_recent_info_is_local (info) && !gtk_recent_info_exists (info)))
 			continue;
 
@@ -4771,7 +4771,7 @@ ev_window_cmd_edit_toolbar_cb (GtkDialog *dialog,
         egg_editable_toolbar_set_edit_mode (toolbar, FALSE);
 
 	toolbars_file = g_build_filename (ev_application_get_dot_dir (EV_APP, TRUE),
-					  "atril_toolbar.xml", NULL);
+					  "lector_toolbar.xml", NULL);
 	egg_toolbars_model_save_toolbars (egg_editable_toolbar_get_model (toolbar),
 					  toolbars_file, "1.0");
 	g_free (toolbars_file);
@@ -5098,7 +5098,7 @@ ev_window_cmd_view_autoscroll (GtkAction *action, EvWindow *ev_window)
 	}
 }
 
-#define EV_HELP "help:atril"
+#define EV_HELP "help:lector"
 
 static void
 ev_window_cmd_help_contents (GtkAction *action, EvWindow *ev_window)
@@ -5415,7 +5415,7 @@ ev_window_cmd_help_about (GtkAction *action, EvWindow *ev_window)
 	char **authors;
 	gsize n_authors = 0, i;
 
-	bytes = g_resources_lookup_data ("/org/mate/atril/shell/atril.about", G_RESOURCE_LOOKUP_FLAGS_NONE, &error);
+	bytes = g_resources_lookup_data ("/org/mate/lector/shell/lector.about", G_RESOURCE_LOOKUP_FLAGS_NONE, &error);
 	g_assert_no_error (error);
 
 	data = g_bytes_get_data (bytes, &data_len);
@@ -5455,7 +5455,7 @@ ev_window_cmd_help_about (GtkAction *action, EvWindow *ev_window)
 		"authors", authors,
 		"documenters", documenters,
 		"translator-credits", _("translator-credits"),
-		"logo-icon-name", "atril",
+		"logo-icon-name", "lector",
 		"wrap-license", TRUE,
 		NULL);
 
@@ -7137,7 +7137,7 @@ do_action_named (EvWindow *window, EvLinkAction *action)
 	} else {
 		g_warning ("Unimplemented named action: %s, please post a "
 		           "bug report on Atril bug tracker "
-		           "(https://github.com/mate-desktop/atril/issues) with a testcase.",
+		           "(https://github.com/mate-desktop/lector/issues) with a testcase.",
 			   name);
 	}
 }
@@ -7653,7 +7653,7 @@ get_toolbars_model (void)
 	toolbars_model = egg_toolbars_model_new ();
 
 	toolbars_file = g_build_filename (ev_application_get_dot_dir (EV_APP, FALSE),
-					  "atril_toolbar.xml", NULL);
+					  "lector_toolbar.xml", NULL);
 	egg_toolbars_model_load_names_from_resource (toolbars_model, TOOLBAR_RESOURCE_PATH);
 
 	if (!egg_toolbars_model_load_toolbars (toolbars_model, toolbars_file)) {
@@ -7720,7 +7720,7 @@ ev_window_sync_source (EvWindow     *window,
 	uri_input = g_file_get_uri (input_gfile);
 	g_object_unref (input_gfile);
 
-        ev_atril_window_emit_sync_source (window->priv->skeleton,
+        ev_lector_window_emit_sync_source (window->priv->skeleton,
                                            uri_input,
                                            g_variant_new ("(ii)", link->line, link->col),
                                            timestamp);
@@ -7733,7 +7733,7 @@ ev_window_emit_closed (EvWindow *window)
 	if (window->priv->skeleton == NULL)
 		return;
 
-        ev_atril_window_emit_closed (window->priv->skeleton);
+        ev_lector_window_emit_closed (window->priv->skeleton);
 
 	/* If this is the last window call g_dbus_connection_flush_sync()
 	 * to make sure the signal is emitted.
@@ -7748,7 +7748,7 @@ ev_window_emit_doc_loaded (EvWindow *window)
         if (window->priv->skeleton == NULL)
                 return;
 
-        ev_atril_window_emit_document_loaded (window->priv->skeleton, window->priv->uri);
+        ev_lector_window_emit_document_loaded (window->priv->skeleton, window->priv->uri);
 }
 
 static gboolean
@@ -7767,7 +7767,7 @@ handle_sync_view_cb (EvAtrilWindow        *object,
 		gtk_window_present_with_time (GTK_WINDOW (window), timestamp);
 	}
 
-	ev_atril_window_complete_sync_view (object, invocation);
+	ev_lector_window_complete_sync_view (object, invocation);
 
 	return TRUE;
 }
@@ -7825,7 +7825,7 @@ ev_window_init (EvWindow *ev_window)
 
                 ev_window->priv->dbus_object_path = g_strdup_printf (EV_WINDOW_DBUS_OBJECT_PATH, window_id++);
 
-                skeleton = ev_atril_window_skeleton_new ();
+                skeleton = ev_lector_window_skeleton_new ();
                 if (g_dbus_interface_skeleton_export (G_DBUS_INTERFACE_SKELETON (skeleton),
                                                       connection,
                                                       ev_window->priv->dbus_object_path,
@@ -7858,7 +7858,7 @@ ev_window_init (EvWindow *ev_window)
 	GtkStyleContext *context;
 
 	context = gtk_widget_get_style_context (GTK_WIDGET (ev_window));
-	gtk_style_context_add_class (context, "atril-window");
+	gtk_style_context_add_class (context, "lector-window");
 
 	ev_window->priv->main_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 	gtk_container_add (GTK_CONTAINER (ev_window), ev_window->priv->main_box);
@@ -7908,13 +7908,13 @@ ev_window_init (EvWindow *ev_window)
 					    action_group, 0);
 
 	gtk_ui_manager_add_ui_from_resource (ev_window->priv->ui_manager,
-	                                     "/org/mate/atril/shell/ui/atril.xml",
+	                                     "/org/mate/lector/shell/ui/lector.xml",
 	                                     &error);
 	g_assert_no_error (error);
 
 	css_provider = gtk_css_provider_new ();
 	_gtk_css_provider_load_from_resource (css_provider,
-					      "/org/mate/atril/shell/ui/atril.css",
+					      "/org/mate/lector/shell/ui/lector.css",
 					      &error);
 	g_assert_no_error (error);
 	gtk_style_context_add_provider_for_screen (gtk_widget_get_screen (GTK_WIDGET (ev_window)),
@@ -8097,7 +8097,7 @@ ev_window_init (EvWindow *ev_window)
 
 	ev_window->priv->view = ev_view_new ();
 
-#if ENABLE_EPUB /*The webview, we won't add it now but it will replace the atril-view if a web(epub) document is encountered.*/
+#if ENABLE_EPUB /*The webview, we won't add it now but it will replace the lector-view if a web(epub) document is encountered.*/
 	ev_window->priv->webview = ev_web_view_new();
 	ev_web_view_set_model(EV_WEB_VIEW(ev_window->priv->webview),ev_window->priv->model);
 #endif

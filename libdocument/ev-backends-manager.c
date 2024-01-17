@@ -1,4 +1,4 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of lector, a mate document viewer
  *
  *  Copyright (C) 2007 Carlos Garcia Campos <carlosgc@gnome.org>
  *
@@ -40,7 +40,7 @@ struct _EvBackendInfo {
 };
 
 #define EV_BACKENDS_GROUP     "Atril Backend"
-#define EV_BACKENDS_EXTENSION ".atril-backend"
+#define EV_BACKENDS_EXTENSION ".lector-backend"
 
 static gchar *backendsdir = NULL;
 
@@ -90,7 +90,7 @@ ev_backends_manager_load_backend (const gchar *file)
 	info->module_name = g_key_file_get_string (backend_file, EV_BACKENDS_GROUP,
 						   "Module", NULL);
 	if (!info->module_name) {
-		g_warning ("Bad atril backend file %s: Could not find 'Module'",
+		g_warning ("Bad lector backend file %s: Could not find 'Module'",
 			   file);
 		ev_backend_info_free (info);
 		g_key_file_free (backend_file);
@@ -104,7 +104,7 @@ ev_backends_manager_load_backend (const gchar *file)
 	info->type_desc = g_key_file_get_locale_string (backend_file, EV_BACKENDS_GROUP,
 							"TypeDescription", NULL, NULL);
 	if (!info->type_desc) {
-		g_warning ("Bad atril backend file %s: Could not find 'TypeDescription'",
+		g_warning ("Bad lector backend file %s: Could not find 'TypeDescription'",
 			   file);
 		ev_backend_info_free (info);
 		g_key_file_free (backend_file);
@@ -115,7 +115,7 @@ ev_backends_manager_load_backend (const gchar *file)
 	info->mime_types = g_key_file_get_string_list (backend_file, EV_BACKENDS_GROUP,
 						       "MimeType", NULL, NULL);
 	if (!info->mime_types) {
-		g_warning ("Bad atril backend file %s: Could not find 'MimeType'",
+		g_warning ("Bad lector backend file %s: Could not find 'MimeType'",
 			   file);
 		ev_backend_info_free (info);
 		g_key_file_free (backend_file);
@@ -168,7 +168,7 @@ ev_backends_manager_load (void)
 /*
  * _ev_backends_manager_init:
  *
- * Initializes the atril backends manager.
+ * Initializes the lector backends manager.
  *
  * Returns: %TRUE if there were any backends found; %FALSE otherwise
  */
@@ -184,7 +184,7 @@ _ev_backends_manager_init (void)
 /*
  * _ev_backends_manager_shutdown:
  *
- * Shuts the atril backends manager down.
+ * Shuts the lector backends manager down.
  */
 void
 _ev_backends_manager_shutdown (void)

@@ -16,14 +16,14 @@ libpdfdocument_la_SOURCES =			\
 
 libpdfdocument_la_LDFLAGS = $(BACKEND_LIBTOOL_FLAGS)
 libpdfdocument_la_LIBADD =				\
-	$(top_builddir)/libdocument/libatrildocument.la	\
+	$(top_builddir)/libdocument/liblectordocument.la	\
 	$(BACKEND_LIBS)					\
 	$(POPPLER_LIBS)					\
 	$(CAIRO_PDF_LIBS)				\
 	$(CAIRO_PS_LIBS)
 
-backend_in_files = pdfdocument.atril-backend.desktop.in
-backend_DATA = $(backend_in_files:.atril-backend.desktop.in=.atril-backend)
+backend_in_files = pdfdocument.lector-backend.desktop.in
+backend_DATA = $(backend_in_files:.lector-backend.desktop.in=.lector-backend)
 
 EXTRA_DIST = $(backend_in_files)
 

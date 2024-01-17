@@ -18,7 +18,7 @@
 
 #include <config.h>
 
-#include <atril-document.h>
+#include <lector-document.h>
 
 #include <gio/gio.h>
 
@@ -91,7 +91,7 @@ delete_temp_file (GFile *file)
 }
 
 static EvDocument *
-atril_thumbnailer_get_document (GFile *file)
+lector_thumbnailer_get_document (GFile *file)
 {
 	EvDocument *document = NULL;
 	gchar      *uri;
@@ -156,7 +156,7 @@ atril_thumbnailer_get_document (GFile *file)
 }
 
 static gboolean
-atril_thumbnail_pngenc_get (EvDocument *document, const char *thumbnail, int size)
+lector_thumbnail_pngenc_get (EvDocument *document, const char *thumbnail, int size)
 {
 	EvRenderContext *rc;
 	double width, height;
@@ -186,10 +186,10 @@ atril_thumbnail_pngenc_get (EvDocument *document, const char *thumbnail, int siz
 }
 
 static gpointer
-atril_thumbnail_pngenc_get_async (struct AsyncData *data)
+lector_thumbnail_pngenc_get_async (struct AsyncData *data)
 {
 	ev_document_doc_mutex_lock ();
-	data->success = atril_thumbnail_pngenc_get (data->document,
+	data->success = lector_thumbnail_pngenc_get (data->document,
 						     data->output,
 						     data->size);
 	ev_document_doc_mutex_unlock ();
@@ -260,7 +260,7 @@ main (int argc, char *argv[])
 	}
 
 	file = g_file_new_for_commandline_arg (input);
-	document = atril_thumbnailer_get_document (file);
+	document = lector_thumbnailer_get_document (file);
 	g_object_unref (file);
 
 	if (!document) {
@@ -291,7 +291,7 @@ main (int argc, char *argv[])
 		data.size = size;
 
 		g_thread_new ("EvThumbnailerAsyncRenderer",
-				(GThreadFunc) atril_thumbnail_pngenc_get_async,
+				(GThreadFunc) lector_thumbnail_pngenc_get_async,
 				&data);
 
 		gtk_main ();
@@ -303,7 +303,7 @@ main (int argc, char *argv[])
 		return data.success ? 0 : -2;
 	}
 
-	if (!atril_thumbnail_pngenc_get (document, output, size)) {
+	if (!lector_thumbnail_pngenc_get (document, output, size)) {
 		g_object_unref (document);
 		ev_shutdown ();
 		g_strfreev (file_arguments);

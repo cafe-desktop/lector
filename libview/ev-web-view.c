@@ -1,7 +1,7 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of lector, a mate document viewer
  *
  *  Copyright (C) 2014 Avishkar Gupta
- *  Based on ev-view.c, also a part of atril, a mate document viewer.
+ *  Based on ev-view.c, also a part of lector, a mate document viewer.
  *
  * Atril is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
