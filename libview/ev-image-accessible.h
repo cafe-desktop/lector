@@ -19,7 +19,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#if !defined (ATRIL_COMPILATION)
+#if !defined (LECTOR_COMPILATION)
 #error "This is a private header."
 #endif
 

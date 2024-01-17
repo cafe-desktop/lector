@@ -16,10 +16,10 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#ifndef ATRIL_DOCUMENT_H
-#define ATRIL_DOCUMENT_H
+#ifndef LECTOR_DOCUMENT_H
+#define LECTOR_DOCUMENT_H
 
-#define __EV_ATRIL_DOCUMENT_H_INSIDE__
+#define __EV_LECTOR_DOCUMENT_H_INSIDE__
 
 #include <libdocument/ev-annotation.h>
 #include <libdocument/ev-async-renderer.h>
@@ -58,6 +58,6 @@
 #include <libdocument/ev-version.h>
 #include <libdocument/ev-macros.h>
 
-#undef __EV_ATRIL_DOCUMENT_H_INSIDE__
+#undef __EV_LECTOR_DOCUMENT_H_INSIDE__
 
-#endif /* !ATRIL_DOCUMENT_H */
+#endif /* !LECTOR_DOCUMENT_H */

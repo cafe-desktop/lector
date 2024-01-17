@@ -38,7 +38,7 @@
 
 /* Modified by Lector Team */
 
-#if !defined (ATRIL_COMPILATION)
+#if !defined (LECTOR_COMPILATION)
 #error "This is a private header."
 #endif
 

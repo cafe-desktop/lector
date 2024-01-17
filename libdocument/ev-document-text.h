@@ -19,7 +19,7 @@
  *  $Id$
  */
 
-#if !defined (__EV_ATRIL_DOCUMENT_H_INSIDE__) && !defined (ATRIL_COMPILATION)
+#if !defined (__EV_LECTOR_DOCUMENT_H_INSIDE__) && !defined (LECTOR_COMPILATION)
 #error "Only <lector-document.h> can be included directly."
 #endif
 

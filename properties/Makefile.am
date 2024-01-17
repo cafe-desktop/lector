@@ -1,5 +1,5 @@
 AM_CPPFLAGS=					\
-	-DATRILDATADIR=\"$(pkgdatadir)\"	\
+	-DLECTORDATADIR=\"$(pkgdatadir)\"	\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
 	-I$(top_srcdir)				\
 	-I$(top_builddir)			\

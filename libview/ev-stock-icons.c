@@ -95,7 +95,7 @@ ev_stock_icons_init (void)
 	GtkIconSource *source;
 	gint i;
 
-	ev_icons_path = g_build_filename (ATRILDATADIR, "icons", NULL);
+	ev_icons_path = g_build_filename (LECTORDATADIR, "icons", NULL);
 
         factory = gtk_icon_factory_new ();
         gtk_icon_factory_add_default (factory);

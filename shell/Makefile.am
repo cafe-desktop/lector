@@ -1,5 +1,5 @@
 AM_CPPFLAGS=							\
-	-DATRILDATADIR=\"$(pkgdatadir)\"				\
+	-DLECTORDATADIR=\"$(pkgdatadir)\"				\
 	-DMATEDATADIR=\"$(datadir)\"				\
 	-I$(top_srcdir)						\
 	-I$(top_builddir)					\
@@ -15,7 +15,7 @@ AM_CPPFLAGS=							\
 	-DMATEICONDIR=\""$(datadir)/pixmaps"\" 		\
 	-DBINDIR=\""$(bindir)"\"				\
 	-DLIBEXECDIR=\""$(libexecdir)"\"			\
-	-DATRIL_COMPILATION					\
+	-DLECTOR_COMPILATION					\
 	$(SHELL_CFLAGS)						\
 	$(WARN_CFLAGS)						\
 	$(DISABLE_DEPRECATED)
@@ -137,12 +137,12 @@ nodist_lectord_SOURCES = \
 	$(NULL)
 
 lectord_CFLAGS=				\
-	-DATRILDATADIR=\"$(pkgdatadir)\"			\
+	-DLECTORDATADIR=\"$(pkgdatadir)\"			\
 	-DMATEDATADIR=\"$(datadir)\"				\
 	-I$(top_srcdir)						\
 	-I$(top_builddir)					\
 	-DLIBEXECDIR=\""$(libexecdir)"\"			\
-	-DATRIL_COMPILATION					\
+	-DLECTOR_COMPILATION					\
 	$(EV_DAEMON_CFLAGS)					\
 	$(WARN_CFLAGS)						\
 	$(DISABLE_DEPRECATED)

@@ -98,11 +98,11 @@ GTKDOC_CFLAGS = \
 	-I$(top_srcdir)/libmisc				\
 	-I$(top_builddir)/libview			\
 	-I$(top_srcdir)/properties			\
-	-DATRILDATADIR=\"$(pkgdatadir)\"		\
+	-DLECTORDATADIR=\"$(pkgdatadir)\"		\
 	-DMATEDATADIR=\"$(datadir)\"			\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"		\
 	-DMATEICONDIR=\""$(datadir)/pixmaps"\" 	\
-	-DATRIL_COMPILATION				\
+	-DLECTOR_COMPILATION				\
 	$(SHELL_CFLAGS)					\
 	$(WARN_CFLAGS)					\
 	$(DISABLE_DEPRECATED)				\

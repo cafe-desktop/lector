@@ -5,7 +5,7 @@ AM_CPPFLAGS = 		       			\
 	-I$(top_srcdir)/libdocument		\
 	-I$(srcdir)/minizip			\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
-	-DATRIL_COMPILATION			\
+	-DLECTOR_COMPILATION			\
 	$(BACKEND_CFLAGS)			\
 	$(WARN_CXXFLAGS)			\
 	$(EPUB_CFLAGS)			\
