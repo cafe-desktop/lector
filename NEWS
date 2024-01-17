@@ -1,13 +1,13 @@
-### atril 1.24.0
+### lector 1.24.0
 
   * update translations
   * thumbnailer: Fix memory leak
   * Fix year 2038 issue with signed 32-bit integers
 
-### atril 1.23.2
+### lector 1.23.2
 
   * update translations
-  * Fix atril.desktop file
+  * Fix lector.desktop file
   * Fix memory leak ev_sidebar_thumbnails_document_changed_cb()
   * pdf: Fix memory leak when adding new text annotations
   * Update Copyright year
@@ -31,7 +31,7 @@
   * Bump synctex to 1.21
   * fixed greek translation for user guide
 
-### atril 1.23.1
+### lector 1.23.1
 
   * update translations
   * tx: sync with transifex
@@ -94,13 +94,13 @@
   * document: Replace deprecated gdk_color_equal
   * Fix buffer overflow in backend/tiff-document.c
 
-### atril 1.23.0
+### lector 1.23.0
 
   * update translations
   * Remove trailing whitespaces
   * test: get focus on frame
   * let test7.py can works
-  * force get focus on atril when testing
+  * force get focus on lector when testing
   * migrate to python3 for test cases
   * Bump Cairo version to 1.14.0
   * Change url project's website
@@ -112,11 +112,11 @@
   * Update copyright in about dialog
   * Use g_strjoin to build license text in about dialog
 
-### atril 1.22.0
+### lector 1.22.0
 
   * update translations
-  * Add update-authors.pl script which helps to update atril.about
-  * Read authors (updated) from atril.about gresource
+  * Add update-authors.pl script which helps to update lector.about
+  * Read authors (updated) from lector.about gresource
   * Initialize Travis CI support
   * Update Documenters
   * [ephy-zoom-control] Avoid deprecated g_type_class_add_private
@@ -132,15 +132,15 @@
   * comics: fix incorrect mimetype saying to open and thumbnail all rarfiles
   * disable deprecation warnings for distcheck
 
-### atril 1.21.1
+### lector 1.21.1
 
   * update translations
   * Use make functions for HELP_LINGUAS
   * comics: support application/vnd.rar MIME type
   * shell: Save document to the same path it was opened from
-  * Reduce the chattiness of atril daemon
+  * Reduce the chattiness of lector daemon
   * EvView: Fix cursor movement when logical and visual line order differs
-  * Update atril_start_window.png
+  * Update lector_start_window.png
   * moveable (older spelling) -> movable
   * Update Catalan screenshot
   * presentation: avoid deprecated 'gtk_style_context_set_background'
@@ -166,7 +166,7 @@
   * libview: fix text selection with mouse in annotation window
   * libview: fix build without epub
 
-### atril 1.21.0
+### lector 1.21.0
 
   * shell: Don't dist generated files
   * Disable view presentation if there is no document.
@@ -192,9 +192,9 @@
   * shell: Port to GtkApplication
   * shell: Use g_printerr instead of g_warning
   * daemon: Port to GApplication
-  * daemon: Use gdbus-codegen for the org.mate.atril.Daemon interface
-  * shell: Use gdbus-codegen for the org.mate.atril.Window interface
-  * shell: Use gdbus-codegen for the org.mate.atril.Application interface
+  * daemon: Use gdbus-codegen for the org.mate.lector.Daemon interface
+  * shell: Use gdbus-codegen for the org.mate.lector.Window interface
+  * shell: Use gdbus-codegen for the org.mate.lector.Application interface
   * libview: save inverted colors in a document
   * Save/restore context when getting colors for a different state
   * epub: allow to save epub documents
@@ -205,7 +205,7 @@
   * Add zoom reset
   * avoid deprecated GtkStock
 
-### atril 1.20.0
+### lector 1.20.0
 
   * Translations update
   * require GTK+ 3.22 and GLib 2.50
@@ -213,14 +213,14 @@
   * epub: make minizip support more BSD variants
   * update copyright year to 2018
 
-### atril 1.19.6
+### lector 1.19.6
 
   * Translations update
   * Revert "libview: Update the current page also when pending scroll is to find a location"
-  * previewer: add style class atril-previewer-window
+  * previewer: add style class lector-previewer-window
   * WidthOfScreen and HeightOfScreen implementation
 
-### atril 1.19.5
+### lector 1.19.5
 
   * Translations update
   * shell: show caret navigation in menu
@@ -259,7 +259,7 @@
   * Use a global array for view accel action
   * fix crash when selecting text in djvu documents
 
-### atril 1.19.4
+### lector 1.19.4
 
   * Translations update
   * shell: fix stock item for message area
@@ -343,7 +343,7 @@
   * libview: Initial implementation of caret navigation
   * libview: Refactor code for drawing page and selection surfaces
 
-### atril 1.19.3
+### lector 1.19.3
 
   * Translations update
   * shell: disable ViewDualOddLeft in menus for epubs
@@ -360,7 +360,7 @@
   * Move dual page with odd pages left to the view menu
   * libview: drop deprecated usage of gtk_container_set_resize_mode
 
-### atril 1.19.2
+### lector 1.19.2
 
   * Translations update
   * shell: Check if doc implements Annotations interface before cast
@@ -403,7 +403,7 @@
   * ev-view: explicitly require a GtkScrolledWindow as the parent widget
   * ev-view: Add pinch/zoom gesture to handle document zooming
 
-### atril 1.19.1
+### lector 1.19.1
 
   * sidebar-thumbnails: fix unwanted move to start after fullscreen
   * sidebar-thumbnails: preload one extra visible range while scrolling
@@ -436,7 +436,7 @@
   * avoid deprecated gdk_screen_get_number
   * Restore Polish translation credits from GNOME
 
-### atril 1.19.0
+### lector 1.19.0
 
   * Translations update
   * update copyright year to 2017
@@ -451,7 +451,7 @@
   * password-view: don't use deprecated GtkAlignment
   * toolbar-editor: don't use deprecated GtkAlignment
 
-### atril 1.18.0
+### lector 1.18.0
 
   * NEWS: use consistent, project wide, markdown-like formatting to make
     generating release announcements easier
@@ -467,7 +467,7 @@
   * Some more fixes and cleanups
   * Translations update
 
-### atril 1.16.1
+### lector 1.16.1
 
   * Build: require poppler 0.22.0 (for case-sensitive search in PDFs)
   * [comics] fix MIME type comparisons
@@ -479,7 +479,7 @@
   * Some code cleanups
   * Translations update
 
-### atril 1.16.0
+### lector 1.16.0
 
   * Build: require poppler 0.18.0
   * Use GtkAboutDialog instead of MateAboutDialog
@@ -501,7 +501,7 @@
   * Some more fixes and cleanups
   * Translations update
 
-### atril 1.14.2
+### lector 1.14.2
 
   * Add setting to set page cache size
   * Add setting to disable auto-reload
@@ -510,32 +510,32 @@
   * Translations update
   * Make distcheck use currently selected GTK+ version
 
-### atril 1.14.1
+### lector 1.14.1
 
   * Translations update
   * fix several random webview related crashes
 
-### atril 1.14.0
+### lector 1.14.0
 
   * Drop MateConf migration script
   * Update copyrights, mention MATE team in Caja extension
   * Use org.gnome.SessionManager DBus name to inhibit screensaver
-  * GTK+3: add atril-window style class to top level
+  * GTK+3: add lector-window style class to top level
   * GTK+3: add css name EggToolbarEditor for 3.20
   * Some more fixes and cleanups
   * Translations update
   * Fix Changelog generation
 
-### atril 1.12.2
+### lector 1.12.2
 
   * [epub] Fix crash when accessibility is enabled
 
-### atril 1.12.1
+### lector 1.12.1
 
   * [dvi] Fix crash due to regression
   * Translations update
 
-### atril 1.12.0
+### lector 1.12.0
 
   * Drop support for win32/osx/hildon
   * Drop useless mate-icon-theme dependency
@@ -544,20 +544,20 @@
   * Retrieve strings directly from gschema (requires intltool 0.50.1)
   * Several code cleanups
 
-### atril 1.10.2
+### lector 1.10.2
 
   * Fix several command line options
   * Fix several findbar issues
   * Make libmatedesktop optional
   * [pdf] Fix saving annotations added to different pages
 
-### atril 1.10.1
+### lector 1.10.1
 
   * Fix crash when pressing Esc with no document opened
   * Gtk3: Add webkit2gtk-4.0 and prefer it over 3.0
   * Help fixes
 
-### atril 1.10.0
+### lector 1.10.0
 
   * Fix some crashes
   * comics backend: add support for bsdtar
@@ -598,7 +598,7 @@
   * Add epub support (part of GSoC 2014).
   * Use MateAboutDialog from libmate-desktop.
 
-### atril 1.8.0
+### lector 1.8.0
 
   * Drop libmatekeyring and use libsecret.
   * Move from mate-doc-utils to yelp-tools.

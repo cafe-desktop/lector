@@ -1,5 +1,5 @@
 /* ev-previewer-window.h:
- *  this file is part of atril, a mate document viewer
+ *  this file is part of lector, a mate document viewer
  *
  * Copyright (C) 2009 Carlos Garcia Campos <carlosgc@gnome.org>
  *
@@ -23,8 +23,8 @@
 
 #include <gtk/gtk.h>
 
-#include <atril-document.h>
-#include <atril-view.h>
+#include <lector-document.h>
+#include <lector-view.h>
 
 G_BEGIN_DECLS
 

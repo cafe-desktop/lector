@@ -1,4 +1,4 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of lector, a mate document viewer
  *
  *  Copyright (C) 2004 Martin Kretzschmar
  *
@@ -21,7 +21,7 @@
  */
 
 #if !defined (__EV_ATRIL_DOCUMENT_H_INSIDE__) && !defined (ATRIL_COMPILATION)
-#error "Only <atril-document.h> can be included directly."
+#error "Only <lector-document.h> can be included directly."
 #endif
 
 #ifndef EV_FILE_EXPORTER_H

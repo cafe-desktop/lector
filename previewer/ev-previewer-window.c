@@ -1,5 +1,5 @@
 /* ev-previewer-window.c:
- *  this file is part of atril, a mate document viewer
+ *  this file is part of lector, a mate document viewer
  *
  * Copyright (C) 2009 Carlos Garcia Campos <carlosgc@gnome.org>
  *
@@ -24,7 +24,7 @@
 #include <gtk/gtkunixprint.h>
 #endif
 #include <glib/gi18n.h>
-#include <atril-view.h>
+#include <lector-view.h>
 #include "ev-page-action.h"
 
 #include "ev-previewer-window.h"
@@ -488,7 +488,7 @@ ev_previewer_window_init (EvPreviewerWindow *window)
 	GtkStyleContext *context;
 
 	context = gtk_widget_get_style_context (GTK_WIDGET (window));
-	gtk_style_context_add_class (context, "atril-previewer-window");
+	gtk_style_context_add_class (context, "lector-previewer-window");
 
 	gtk_window_set_default_size (GTK_WINDOW (window), 600, 600);
 }
@@ -578,7 +578,7 @@ ev_previewer_window_constructor (GType                  type,
 	gtk_window_add_accel_group (GTK_WINDOW (window),
 				    gtk_ui_manager_get_accel_group (window->ui_manager));
 
-	gtk_ui_manager_add_ui_from_resource (window->ui_manager, "/org/mate/atril/previewer/ui/previewer.xml", &error);
+	gtk_ui_manager_add_ui_from_resource (window->ui_manager, "/org/mate/lector/previewer/ui/previewer.xml", &error);
 	g_assert_no_error (error);
 
 	/* GTKUIManager connects actions accels only for menu items,

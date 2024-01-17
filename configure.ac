@@ -8,7 +8,7 @@ m4_define([ev_micro_version], [0])
 m4_define([ev_extra_version], [])
 m4_define([ev_version], [ev_major_version.ev_minor_version.ev_micro_version()ev_extra_version])
 
-# The atril API version
+# The lector API version
 m4_define([ev_api_version], [1.5.0])
 
 # Libtool versioning. The backend and view libraries have separate versions.
@@ -40,7 +40,7 @@ m4_define([ev_binary_version], [ev_document_lt_current])
 # *****************************************************************************
 
 AC_PREREQ([2.57])
-AC_INIT([atril], [ev_version], [https://mate-desktop.org/], [atril])
+AC_INIT([lector], [ev_version], [https://mate-desktop.org/], [lector])
 AM_INIT_AUTOMAKE([1.10 foreign tar-ustar dist-xz no-dist-gzip check-news])
 
 AC_CONFIG_HEADERS([config.h])
@@ -72,12 +72,12 @@ AM_GNU_GETTEXT_VERSION([0.19.8])
 AM_GNU_GETTEXT_REQUIRE_VERSION([0.19.8])
 AM_GNU_GETTEXT([external])
 
-GETTEXT_PACKAGE=atril
+GETTEXT_PACKAGE=lector
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["$GETTEXT_PACKAGE"], [Gettext package])
 
 m4_pattern_allow([AM_V_GEN])dnl Make autoconf not complain about the rule below
-EV_INTLTOOL_ATRIL_BACKEND_RULE='%.atril-backend:   %.atril-backend.in   $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(AM_V_GEN) LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< [$]@'
+EV_INTLTOOL_ATRIL_BACKEND_RULE='%.lector-backend:   %.lector-backend.in   $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(AM_V_GEN) LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< [$]@'
 AC_SUBST([EV_INTLTOOL_ATRIL_BACKEND_RULE])
 
 GLIB_GSETTINGS
@@ -229,7 +229,7 @@ dnl Debug mode
 
 AC_ARG_ENABLE([debug],
     AS_HELP_STRING([--enable-debug],
-                   [Turn on atril debug mode]),
+                   [Turn on lector debug mode]),
     [enable_debug=$enableval],
     [enable_debug=no])
 
@@ -663,7 +663,7 @@ AC_SUBST([GTK_PREFIX], [$($PKG_CONFIG --variable=prefix gtk+-3.0)])
 # Backends directory
 # ******************
 
-AC_SUBST([backenddir],"\$(libdir)/atril/ev_binary_version/backends")
+AC_SUBST([backenddir],"\$(libdir)/lector/ev_binary_version/backends")
 AC_SUBST([backend_binary_version], "ev_binary_version")
 
 # **********
@@ -703,7 +703,7 @@ cut-n-paste/Makefile
 cut-n-paste/smclient/Makefile
 cut-n-paste/toolbar-editor/Makefile
 cut-n-paste/zoom-control/Makefile
-data/atril.desktop.in
+data/lector.desktop.in
 data/Makefile
 data/icons/Makefile
 data/icons/16x16/Makefile
@@ -743,15 +743,15 @@ libview/Makefile
 Makefile
 po/Makefile.in
 previewer/Makefile
-properties/libatril-properties-page.caja-extension.desktop.in
+properties/liblector-properties-page.caja-extension.desktop.in
 properties/Makefile
 shell/Makefile
 test/Makefile
 thumbnailer/Makefile
 ])
 
-AC_CONFIG_FILES(atril-document-[]ev_api_version[].pc:atril-document.pc.in)
-AC_CONFIG_FILES(atril-view-[]ev_api_version[].pc:atril-view.pc.in)
+AC_CONFIG_FILES(lector-document-[]ev_api_version[].pc:lector-document.pc.in)
+AC_CONFIG_FILES(lector-view-[]ev_api_version[].pc:lector-view.pc.in)
 
 AC_OUTPUT
 

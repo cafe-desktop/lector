@@ -1,4 +1,4 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of lector, a mate document viewer
  *
  *  Copyright (C) 2005 Red Hat, Inc
  *
@@ -22,7 +22,7 @@
  */
 
 #if !defined (__EV_ATRIL_VIEW_H_INSIDE__) && !defined (ATRIL_COMPILATION)
-#error "Only <atril-view.h> can be included directly."
+#error "Only <lector-view.h> can be included directly."
 #endif
 
 #ifndef __EV_PIXBUF_CACHE_H__
@@ -30,8 +30,8 @@
 
 #include <gtk/gtk.h>
 
-#include <atril-document.h>
-#include <atril-view.h>
+#include <lector-document.h>
+#include <lector-view.h>
 
 G_BEGIN_DECLS
 

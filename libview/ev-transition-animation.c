@@ -1,5 +1,5 @@
 /* ev-transition-animation.c
- *  this file is part of atril, a mate document viewer
+ *  this file is part of lector, a mate document viewer
  *
  * Copyright (C) 2007 Carlos Garnacho <carlos@imendio.com>
  *
@@ -589,7 +589,7 @@ ev_transition_animation_paint (EvTransitionAnimation *animation,
 
 		g_warning ("Unimplemented transition animation: '%s', "
 			   "please post a bug report on Atril bug tracker "
-			   "(https://github.com/mate-desktop/atril/issues) with a testcase.",
+			   "(https://github.com/mate-desktop/lector/issues) with a testcase.",
 			   enum_value->value_nick);
 
 		/* just paint the destination slide */

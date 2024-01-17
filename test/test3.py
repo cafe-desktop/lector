@@ -8,9 +8,9 @@ srcdir = os.environ['srcdir']
 
 from dogtail.procedural import *
 
-run('atril', arguments=' '+srcdir+'/test-mime.bin')
+run('lector', arguments=' '+srcdir+'/test-mime.bin')
 
-# Close atril
-focus.application('atril')
+# Close lector
+focus.application('lector')
 click('File', roleName='menu')
 click('Close', roleName='menu item')

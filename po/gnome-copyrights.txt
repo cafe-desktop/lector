@@ -9,7 +9,7 @@
 
 
 ========== ar.po ==========
-# translation of atril.HEAD.po to Arabic
+# translation of lector.HEAD.po to Arabic
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Yousef Raffah <yousef@raffah.com>, 2006.
@@ -32,18 +32,18 @@
 
 
 ========== ast.po ==========
-# Asturian translation for atril.
-# Copyright (C) 2009 atril's COPYRIGHT HOLDER
-# This file is distributed under the same license as the atril package.
+# Asturian translation for lector.
+# Copyright (C) 2009 lector's COPYRIGHT HOLDER
+# This file is distributed under the same license as the lector package.
 # Xandru Armesto <xandru@softastur.org>, 2010.
 
 
 
 
 ========== be.po ==========
-# Belarusian translation of atril.
-# Copyright (C) 2005 THE atril'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the atril package.
+# Belarusian translation of lector.
+# Copyright (C) 2005 THE lector'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the lector package.
 # Ales Nyakhaychyk <nab@mail.by>, 2005, 2008
 # Ihar Hrachyshka <ihar.hrachyshka@gmail.com>, 2006.
 #
@@ -52,9 +52,9 @@
 
 
 ========== be@latin.po ==========
-# Biełaruski pierakład atril
+# Biełaruski pierakład lector
 # Copyright (C) 2007 Ihar Hrachyshka
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # Ihar Hrachyshka <ihar.hrachyshka@gmail.com>, 2007.
 #
 
@@ -62,10 +62,10 @@
 
 
 ========== bg.po ==========
-# Bulgarian translation of atril po-file.
+# Bulgarian translation of lector po-file.
 # Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010 Free Software Foundation, Inc.
 # Copyright (C) 2009 Krasimir "Bfaf" Chonov <mk2616@abv.bg>.
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # Rostislav "zbrox" Raykov <zbrox@i-space.org>, 2005.
 # Vladimir "kaladan" Petkov <kaladan@gmail.com>, 2005, 2006, 2007.
 # Alexander Shopov <ash@kambanaria.org>, 2006, 2007, 2008, 2009.
@@ -118,9 +118,9 @@
 
 
 ========== ca.po ==========
-# Catalan translation of atril.
+# Catalan translation of lector.
 # Copyright © 2005, 2006 Free Software Foundation, Inc.
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # Gil Forcada <gilforcada@guifi.net>, 2005, 2006, 2007, 2008, 2009, 2010.
 #
 
@@ -128,9 +128,9 @@
 
 
 ========== ca@valencia.po ==========
-# Catalan translation of atril.
+# Catalan translation of lector.
 # Copyright © 2005, 2006 Free Software Foundation, Inc.
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # Gil Forcada <gilforcada@guifi.net>, 2005, 2006, 2007, 2008, 2009, 2010.
 #
 
@@ -138,11 +138,11 @@
 
 
 ========== cs.po ==========
-# Czech translation of atril.
-# Copyright (C) 2005, 2006, 2008, 2009, 2010 the author(s) of atril.
+# Czech translation of lector.
+# Copyright (C) 2005, 2006, 2008, 2009, 2010 the author(s) of lector.
 # Copyright (C) 2005, 2006 Miloslav Trmac <mitr@volny.cz>.
 # Copyright (C) 2009 Martin Picek <picek.martin@mate-cesko.cz>.
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # Miloslav Trmac <mitr@volny.cz>, 2005, 2006.
 # Jakub Friedl <jfriedl@suse.cz>, 2006, 2007.
 # Kamil Páral <ripper42@gmail.com>, 2008.
@@ -158,10 +158,10 @@
 
 
 ========== cy.po ==========
-# Cyfieithiad o atril i'r Gymraeg
-# Translation of atril to Welsh
+# Cyfieithiad o lector i'r Gymraeg
+# Translation of lector to Welsh
 # Copyright (C) 2005 Gareth Bowker
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # Gareth Bowker <tgb@tgb.org.uk>, 2005.
 # Rhys Jones <rhys@sucs.org>, 2006.
 #
@@ -170,9 +170,9 @@
 
 
 ========== da.po ==========
-# Danish translation of atril.
+# Danish translation of lector.
 # Copyright (C) 2005-2009 Free Software Foundation, Inc.
-# This file is distributed under the same licence as the atril package.
+# This file is distributed under the same licence as the lector package.
 # Ole Laursen <olau@hardworking.dk>, 2005, 06.
 # Peter Bach <bach.peter@gmail.com>, 2007.
 # Kenneth Nielsen <k.nielsen81@gmail.com>, 2008-2010, 2010.
@@ -205,7 +205,7 @@
 
 
 ========== dz.po ==========
-# Dzongkha translation of atril
+# Dzongkha translation of lector
 # Copyright @ 2006 Free Software Foundation,Inc.
 # Mindu Dorji
 #
@@ -214,8 +214,8 @@
 
 
 ========== el.po ==========
-# translation of atril.HEAD.po to Greek
-# MATE atril Greek translation.
+# translation of lector.HEAD.po to Greek
+# MATE lector Greek translation.
 # Copyright (C) 2000, 2001,2003, 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
 #
 # Stylianos Papanastasiou <stelios@dcs.gla.ac.uk>, 2005.
@@ -230,7 +230,7 @@
 
 
 ========== en@shaw.po ==========
-# Shavian translation for atril.
+# Shavian translation for lector.
 # Copyright (C) 2009-2010 The Mate Foundation.
 # Thomas Thurman <tthurman@gnome.org>, 2010.
 # Transliterate Atril as ·𐑦𐑝𐑦𐑯𐑕
@@ -239,9 +239,9 @@
 
 
 ========== en_CA.po ==========
-# Canadian English translation for atril
+# Canadian English translation for lector
 # Copyright (C) 2004-2005 Adam Weinberger and the MATE Foundation
-# This file is distributed under the same licence as the atril package.
+# This file is distributed under the same licence as the lector package.
 # Adam Weinberger <adamw@gnome.org>, 2004, 2005.
 #
 #
@@ -250,9 +250,9 @@
 
 
 ========== en_GB.po ==========
-# English (British) translation for atril
+# English (British) translation for lector
 # Copyright (C) 2005 The Mate Foundation
-# This file is distributed under the same licence as the atril package.
+# This file is distributed under the same licence as the lector package.
 # David Lodge <dave@cirt.net>, 2005, 2009.
 # Philip Withnall <philip@tecnocode.co.uk>, 2009–2010.
 # Bruce Cowan <bruce@bcowan.me.uk>, 2010.
@@ -261,9 +261,9 @@
 
 
 ========== eo.po ==========
-# Esperanto translation for atril
+# Esperanto translation for lector
 # Copyright (c) (c) 2005 Canonical Ltd, and Rosetta Contributors 2005
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # Dominique PELLÉ <dominique.pelle@free.fr>, 2005.
 # Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2010.
 #
@@ -272,7 +272,7 @@
 
 
 ========== es.po ==========
-# translation of atril.HEAD.po to Español
+# translation of lector.HEAD.po to Español
 # Traducción de Atril al español.
 # Copyright (C) Spanish translation for Atril
 # This file is distributed under the same license as the Atril package.
@@ -293,7 +293,7 @@
 #
 # Copyright (C) 2005, 2006 Free Software Foundation, Inc.
 # Copyright (C) 2007–2010 The MATE Project
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 #
 # Sven Sapelson <sven.sapelson gmail com>, 2005.
 # Ivar Smolin <okul linux ee>, 2005–2010.
@@ -306,9 +306,9 @@
 
 ========== eu.po ==========
 # translation of eu_to_be_translate.po to Basque
-# Basque translation of atril.
+# Basque translation of lector.
 # Copyright (C) 2005 Mikel Olasagasti
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 #
 # Mikel Olasagasti <hey_neken@mundurat.net>, 2005.
 # Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2005, 2006, 2007, 2008, 2009, 2010.
@@ -318,9 +318,9 @@
 
 
 ========== fa.po ==========
-# Persian translation of atril.
+# Persian translation of lector.
 # Copyright (C) 2003, 2004, 2005, 2006 Sharif FarsiWeb, Inc.
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # Roozbeh Pournader <roozbeh@farsiweb.info>, 2003, 2004, 2005, 2006.
 # Meelad Zakaria <meelad@farsiweb.info>, 2004, 2005, 2006.
 # Elnaz Sarbar <elnaz@farsiweb.info>, 2006.
@@ -330,9 +330,9 @@
 
 
 ========== fi.po ==========
-# Finnish translations for atril package.
+# Finnish translations for lector package.
 # Copyright (C) 2005-2010 Free Software Foundation, Inc.
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # Tommi Vainikainen <Tommi.Vainikainen@iki.fi>, 2005, 2009-2010.
 # Ilkka Tuohela <hile@iki.fi>, 2005-2009.
 #
@@ -341,7 +341,7 @@
 
 
 ========== fr.po ==========
-# French translation of atril.
+# French translation of lector.
 # Copyright (C) 2005-2010 The Free Software Foundation, Inc.
 # This file is distributed under the GNU General Public License Version 2.
 #
@@ -363,9 +363,9 @@
 
 
 ========== ga.po ==========
-# Irish translations for atril package.
+# Irish translations for lector package.
 # Copyright (C) 2007-2009 Free Software Foundation, Inc.
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # Seán de Búrca <leftmostcat@gmail.com>, 2007-2009.
 #
 
@@ -373,7 +373,7 @@
 
 
 ========== gl.po ==========
-# translation of atril-master-po-gl-7620.po to Galician
+# translation of lector-master-po-gl-7620.po to Galician
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
@@ -391,7 +391,7 @@
 
 
 ========== gu.po ==========
-# translation of atril.master.gu.po to Gujarati
+# translation of lector.master.gu.po to Gujarati
 # Ankit Patel <ankit644@yahoo.com>, 2005, 2006.
 # Ankit Patel <ankit@redhat.com>, 2007, 2008.
 # Sweta Kothari <swkothar@redhat.com>, 2008, 2009, 2010.
@@ -400,7 +400,7 @@
 
 
 ========== he.po ==========
-# translation of atril.HEAD.he.po to Hebrew
+# translation of lector.HEAD.he.po to Hebrew
 # translation of he.po to Hebrew
 # translation of gpdf.HEAD.he.po to Hebrew
 # translation of xpdf.HEAD.po to Hebrew
@@ -419,7 +419,7 @@
 
 
 ========== hi.po ==========
-# translation of atril.HEAD.hi.po to Hindi
+# translation of lector.HEAD.hi.po to Hindi
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
@@ -429,8 +429,8 @@
 
 
 ========== hu.po ==========
-# Hungarian translation of atril
-# This file is distributed under the same license as the atril package.
+# Hungarian translation of lector
+# This file is distributed under the same license as the lector package.
 # Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010, Free Software Foundation, Inc.
 #
 # Gabor Kelemen <kelemeng at mate dot hu>, 2005, 2006, 2007, 2008, 2009, 2010.
@@ -462,9 +462,9 @@
 
 
 ========== ja.po ==========
-# Japanese messages catalogue for atril - PS/PDF viewer for MATE
-# Copyright (C) 2005-2010 THE atril's COPYRIGHT HOLDER
-# This file is distributed under the same license as the atril package.
+# Japanese messages catalogue for lector - PS/PDF viewer for MATE
+# Copyright (C) 2005-2010 THE lector's COPYRIGHT HOLDER
+# This file is distributed under the same license as the lector package.
 # Satoru SATOH <ss@mate.gr.jp>, 2005, 2006.
 # Takeshi AIHANA <takshi.aihana@gmail.com>, 2005-2009.
 # Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2009.
@@ -476,7 +476,7 @@
 
 
 ========== ka.po ==========
-# translation of atril.HEAD.po to Georgian
+# translation of lector.HEAD.po to Georgian
 # Copyright (C) 2006 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Vladimer Sichinava <alinux@siena.linux.it>, 2006.
@@ -486,9 +486,9 @@
 
 
 ========== kk.po ==========
-# atril to kazakh.
+# lector to kazakh.
 # Copyright (C) 2010 HZ
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010.
 #
 
@@ -496,7 +496,7 @@
 
 
 ========== kn.po ==========
-# translation of atril.master.kn.po to Kannada
+# translation of lector.master.kn.po to Kannada
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
@@ -506,8 +506,8 @@
 
 
 ========== ko.po ==========
-# atril korean translation
-# This file is distributed under the same license as the atril package.
+# lector korean translation
+# This file is distributed under the same license as the lector package.
 # Young-Ho Cha <ganadist at mizi dot com>, 2005
 # Changwoo Ryu <cwryu@debian.org>, 2006, 2007, 2008, 2009, 2010.
 #
@@ -521,7 +521,7 @@
 
 
 ========== ks.po ==========
-# translation of atril.HEAD.po to Kashmiri
+# translation of lector.HEAD.po to Kashmiri
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 # Rakesh Pandit <rakesh.pandit@gmail.com>, 2008.
@@ -531,10 +531,10 @@
 
 
 ========== ku.po ==========
-# translation of atril.mate-2-12.po to Kurdish
-# Kurdish translation for atril
+# translation of lector.mate-2-12.po to Kurdish
+# Kurdish translation for lector
 # Copyright (c) (c) 2005 Canonical Ltd, and Rosetta Contributors 2005
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2005.
 # Erdal Ronahi <erdal.ronahi@gmail.com>, 2005.
 #
@@ -569,7 +569,7 @@
 
 
 ========== mai.po ==========
-# translation of atril.HEAD.po to Maithili
+# translation of lector.HEAD.po to Maithili
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
@@ -590,7 +590,7 @@
 
 ========== mk.po ==========
 # translation of mk.po to Macedonian
-# translation of atril.HEAD.po to
+# translation of lector.HEAD.po to
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER.
 #
@@ -603,10 +603,10 @@
 
 ========== ml.po ==========
 # translation of ml.po to
-# translation of atril.master.ml.po to
-# translation of atril.HEAD.ml.po to
-# This file is distributed under the same license as the atril package.
-# Copyright (C) 2006-2008 atril'S COPYRIGHT HOLDER.
+# translation of lector.master.ml.po to
+# translation of lector.HEAD.ml.po to
+# This file is distributed under the same license as the lector package.
+# Copyright (C) 2006-2008 lector'S COPYRIGHT HOLDER.
 # Ani Peter <apeter@redhat.com>, 2006, 2009.
 # Santhosh Thottingal <santhosh.thottingal@gmail.com> , 2008
 
@@ -637,9 +637,9 @@
 
 
 ========== ms.po ==========
-# Malay translation for atril.
-# Copyright (C) 2010 atril's COPYRIGHT HOLDER
-# This file is distributed under the same license as the atril package.
+# Malay translation for lector.
+# Copyright (C) 2010 lector's COPYRIGHT HOLDER
+# This file is distributed under the same license as the lector package.
 # Umarzuki Bin Mochlis Moktar <umar@umarzuki.org>, 2010.
 #
 
@@ -647,7 +647,7 @@
 
 
 ========== nb.po ==========
-# Norwegian translation of atril (bokmål dialect).
+# Norwegian translation of lector (bokmål dialect).
 # Copyright (C) 2000-2003, 2005 Free Software Foundation, Inc.
 # Kjartan Maraas <kmaraas@gnome.org>, 2000-2010.
 # Terance Edward Sola <terance@lyse.net>, 2005.
@@ -658,9 +658,9 @@
 
 
 ========== nds.po ==========
-# Low German translation for atril.
-# Copyright (C) 2009 atril's COPYRIGHT HOLDER
-# This file is distributed under the same license as the atril package.
+# Low German translation for lector.
+# Copyright (C) 2009 lector's COPYRIGHT HOLDER
+# This file is distributed under the same license as the lector package.
 # Nils-Christoph Fiedler <fiedler@medienkompanie.de>, 2009.
 #
 
@@ -668,7 +668,7 @@
 
 
 ========== ne.po ==========
-# translation of atril.HEAD.ne.po to Nepali
+# translation of lector.HEAD.ne.po to Nepali
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
@@ -713,7 +713,7 @@
 
 ========== oc.po ==========
 # Translation of oc.po to Occitan
-# Occitan translation of atril.
+# Occitan translation of lector.
 # Copyright (C) 2007 The Free Software Foundation, Inc.
 # This file is distributed under the GNU General Public License Version 2.
 #
@@ -725,7 +725,7 @@
 
 
 ========== or.po ==========
-# translation of atril.master.or.po to Oriya
+# translation of lector.master.or.po to Oriya
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
@@ -736,7 +736,7 @@
 
 
 ========== pa.po ==========
-# translation of atril.HEAD.po to Punjabi
+# translation of lector.HEAD.po to Punjabi
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 # Amanpreet Singh Alam <aalam@users.sf.net>, 2005,2006,2007,2008, 2009.
@@ -772,9 +772,9 @@
 
 
 ========== pt.po ==========
-# atril's Portuguese translation.
-# Copyright © 2005, 2006, 2007, 2008, 2009, 2010 atril
-# This file is distributed under the same license as the atril package.
+# lector's Portuguese translation.
+# Copyright © 2005, 2006, 2007, 2008, 2009, 2010 lector
+# This file is distributed under the same license as the lector package.
 # Duarte Loreto <happyguy_pt@hotmail.com>, 2005, 2006, 2007, 2008, 2009, 2010.
 #
 
@@ -784,7 +784,7 @@
 ========== pt_BR.po ==========
 # Brazilian Portuguese translation of Atril.
 # Copyright (C) 2004-2009 the Atril authors.
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # Raphael Higino <In Memoriam>, 2004-2005, 2007.
 # Licio Fernando <liciofernando@gmail.com>, ?.
 # Leonardo Ferreira Fontenelle <leonardof@gnome.org>, 2006-2008.
@@ -803,9 +803,9 @@
 
 
 ========== ro.po ==========
-# Romanian translation for atril.
+# Romanian translation for lector.
 # Copyright (C) 2005 - 2009 Free Software Foundation, Inc.
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # Eugen Paiuc <eug_paiuc@bluewin.ch>, 2005.
 # Mișu Moldovan <dumol@mate.ro>, 2005 - 2009.
 # Lucian Adrian Grijincu <lucian.grijincu@gmail.com>, 2009, 2010.
@@ -814,10 +814,10 @@
 
 
 ========== ru.po ==========
-# translation of atril-master-po-ru-9768.merged.po to Russian
-# Russian translation of atril.
+# translation of lector-master-po-ru-9768.merged.po to Russian
+# Russian translation of lector.
 # Copyright (C) 2005-2009, 2010 The Free Software Foundation, Inc.
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 #
 # Nickolay V. Shmyrev <nshmyrev@yandex.ru>, 2005.
 # Yuri Kozlov <yuray@komyakino.ru>, 2010.
@@ -826,9 +826,9 @@
 
 
 ========== rw.po ==========
-# translation of atril to Kinyarwanda.
+# translation of lector to Kinyarwanda.
 # Copyright (C) 2005 Free Software Foundation, Inc.
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # Steve Murphy <murf@e-tools.com>, 2005
 # Steve performed initial rough translation from compendium built from translations provided by the following translators:
 # Philibert Ndandali  <ndandali@yahoo.fr>, 2005.
@@ -855,9 +855,9 @@
 
 ========== sk.po ==========
 # translation of sk.po to Slovak
-# Slovak translation of atril.
+# Slovak translation of lector.
 # Copyright (C) 2005, 2007 Free Software Foundation, Inc.
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 #
 # $Id: sk.po,v 1.1 2005/06/25 23:45:27 marcel Exp $
 #
@@ -870,7 +870,7 @@
 ========== sl.po ==========
 # Slovenian translations of Atril.
 # Copyright (C) 2006-2007 Free Software Foundation, Inc.
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 #
 # Matic Žgur <mr.zgur@gmail.com>, 2006.
 # Matjaž Horvat <m@owca.info>, 2006.
@@ -881,7 +881,7 @@
 
 
 ========== sq.po ==========
-# Përkthimi i mesazheve të atril në shqip.
+# Përkthimi i mesazheve të lector në shqip.
 # This file is distributed under the same license as the Atril package.
 # Copyright (C) 2006, 2007, 2008 Free Software Foundation, Inc.
 #
@@ -891,10 +891,10 @@
 
 
 ========== sr.po ==========
-# Serbian translation of atril
+# Serbian translation of lector
 # Courtesy of Prevod.org team (http://prevod.org/) -- 2005-2009.
 #
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 #
 # Maintainer: Данило Шеган <danilo@gnome.org>
 # Reviewed on 2005-09-03 by: Данило Шеган <danilo@gnome.org>
@@ -906,10 +906,10 @@
 
 
 ========== sr@latin.po ==========
-# Serbian translation of atril
+# Serbian translation of lector
 # Courtesy of Prevod.org team (http://prevod.org/) -- 2005-2009.
 #
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 #
 # Maintainer: Danilo Šegan <danilo@gnome.org>
 # Reviewed on 2005-09-03 by: Danilo Šegan <danilo@gnome.org>
@@ -921,7 +921,7 @@
 
 
 ========== sv.po ==========
-# Swedish messages for atril.
+# Swedish messages for lector.
 # Copyright (C) 2004-2010 Free Software Foundation, Inc.
 # Christian Rose <menthos@menthos.com>, 2004, 2005.
 # Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010.
@@ -934,7 +934,7 @@
 
 
 ========== ta.po ==========
-# translation of atril.master.ta.po to Tamil
+# translation of lector.master.ta.po to Tamil
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) 2008 THE PACKAGE'S COPYRIGHT HOLDER.
 #
@@ -950,9 +950,9 @@
 
 ========== te.po ==========
 # translation of te.po to Telugu
-# Telugu translation of atril.
+# Telugu translation of lector.
 # Copyright (C) 2007 Swecha Telugu Localisation Team
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 #
 # Bharat Kumar <jonnalagaddabharat@gmail.com>, 2007.
 # Krishna Babu K <kkrothap@redhat.com>, 2009, 2010.
@@ -961,9 +961,9 @@
 
 
 ========== th.po ==========
-# Thai translation for atril
+# Thai translation for lector
 # Copyright (C) 2005-2010 Free Software Foundation, Inc.
-# This file is distributed under the same licence as the atril package.
+# This file is distributed under the same licence as the lector package.
 # Isriya Paireepairit <markpeak@gmail.com>, 2005.
 # Theppitak Karoonboonyanan <thep@linux.thai.net>, 2005-2010.
 #
@@ -972,9 +972,9 @@
 
 
 ========== tr.po ==========
-# Turkish translation for atril
+# Turkish translation for lector
 # Copyright (C) 2005 The Mate Foundation
-# This file is distributed under the same licence as the atril package.
+# This file is distributed under the same licence as the lector package.
 #
 # Bülent ŞENER <bsener@inonu.edu.tr>, 2005.
 # Baris Cicek <baris@teamforce.name.tr>, 2005, 2006.
@@ -984,9 +984,9 @@
 
 
 ========== uk.po ==========
-# Ukrainian translation of atril.
+# Ukrainian translation of lector.
 # Copyright (C) 2005 Free Software Foundation ,Inc
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # Maxim Dziumanenko <dziumanenko@gmail.com>, 2005-2010.
 #
 
@@ -1015,9 +1015,9 @@
 
 
 ========== zh_CN.po ==========
-# Simplified Chinese translation to atril
+# Simplified Chinese translation to lector
 # Copyright (C) 2009 Free Software Foundation, Inc.
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # Funda Wang <fundawang@linux.net.cn>, 2004, 2005.
 # 甘露(Gan Lu) <rhythm.gan@gmail.com>, 2009.
 # Deng Xiyue <manphiz@gmail.com>, 2009.
@@ -1034,9 +1034,9 @@
 
 
 ========== zh_HK.po ==========
-# Chinese (Hong Kong) Translation for atril.
+# Chinese (Hong Kong) Translation for lector.
 # Copyright (C) 2004-07 Free Software Foundation, Inc.
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # Funda Wang <fundawang@linux.net.cn>, 2004
 # Abel Cheung <maddog@linuxhall.org>, 2005
 # Wei-Lun Chao <chaoweilun@pcmail.com.tw>, 2005
@@ -1047,9 +1047,9 @@
 
 
 ========== zh_TW.po ==========
-# Chinese (Taiwan) Translation for atril.
+# Chinese (Taiwan) Translation for lector.
 # Copyright (C) 2004-07 Free Software Foundation, Inc.
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # Funda Wang <fundawang@linux.net.cn>, 2004
 # Abel Cheung <maddog@linuxhall.org>, 2005
 # Wei-Lun Chao <chaoweilun@pcmail.com.tw>, 2005

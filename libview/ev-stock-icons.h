@@ -22,7 +22,7 @@
  */
 
 #if !defined (__EV_ATRIL_VIEW_H_INSIDE__) && !defined (ATRIL_COMPILATION)
-#error "Only <atril-view.h> can be included directly."
+#error "Only <lector-view.h> can be included directly."
 #endif
 
 #ifndef __EV_STOCK_ICONS_H__

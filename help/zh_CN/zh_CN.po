@@ -258,8 +258,8 @@ msgstr "<primary>Atril 文档查看器</primary>"
 
 #. (itstool) path: article/indexterm
 #: C/index.docbook:139
-msgid "<primary>atril</primary>"
-msgstr "<primary>atril</primary>"
+msgid "<primary>lector</primary>"
+msgstr "<primary>lector</primary>"
 
 #. (itstool) path: sect1/title
 #: C/index.docbook:148
@@ -301,10 +301,10 @@ msgstr "<application>Atril 文档查看</application>打开文档（如PDF或Pos
 msgid ""
 "Alternatively, you can start <application>Atril Document "
 "Viewer</application> from the command line, with the command: "
-"<command>atril</command>."
+"<command>lector</command>."
 msgstr ""
 "或者，您可以从命令行启动<application>Atril "
-"文档查看器</application>，命令为：<command>atril</command>。"
+"文档查看器</application>，命令为：<command>lector</command>。"
 
 #. (itstool) path: sect2/title
 #: C/index.docbook:166
@@ -331,22 +331,22 @@ msgstr "Atril 文档查看器窗口"
 #: C/index.docbook:175
 msgctxt "_"
 msgid ""
-"external ref='figures/atril_start_window.png' "
+"external ref='figures/lector_start_window.png' "
 "md5='475a06bdb579c94e4f07d99ae3098e9c'"
 msgstr ""
-"external ref='figures/atril_start_window.png' "
+"external ref='figures/lector_start_window.png' "
 "md5='475a06bdb579c94e4f07d99ae3098e9c'"
 
 #. (itstool) path: screenshot/mediaobject
 #: C/index.docbook:173
 msgid ""
-"<imageobject><imagedata fileref=\"figures/atril_start_window.png\" "
+"<imageobject><imagedata fileref=\"figures/lector_start_window.png\" "
 "format=\"PNG\"/> </imageobject> <textobject> <phrase>Shows Atril Document "
 "Viewer main window. Contains titlebar, menubar, toolbar and display area. "
 "Menubar contains File, Edit, View, Go and Help menus. </phrase> "
 "</textobject>"
 msgstr ""
-"<imageobject><imagedata fileref=\"figures/atril_start_window.png\" "
+"<imageobject><imagedata fileref=\"figures/lector_start_window.png\" "
 "format=\"PNG\"/> </imageobject> <textobject> "
 "<phrase>显示Atril文档查看器主窗口。包含标题栏，菜单栏，工具栏和显示区域。菜单栏包含文件，编辑，查看，转到和帮助菜单。 </phrase> "
 "</textobject>"
@@ -743,11 +743,11 @@ msgid ""
 "If you cannot choose the <guimenuitem>Print</guimenuitem> menu item, the "
 "author of the document has disabled the print option for this document. To "
 "enable the print option, you must enter the master password when you open "
-"the document. See <xref linkend=\"atril-password\"/> for more information "
+"the document. See <xref linkend=\"lector-password\"/> for more information "
 "about password-protected files."
 msgstr ""
 "如果您无法选择<guimenuitem>打印</guimenuitem>菜单项，则文档的作者已禁用此文档的打印选项。要启用打印选项，您必须在打开文档时输入主密码。有关受密码保护的文件的详细信息，请参阅<xref"
-" linkend=\"atril-password\"/>。"
+" linkend=\"lector-password\"/>。"
 
 #. (itstool) path: sect2/para
 #: C/index.docbook:413

@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR MATE Desktop Environment team
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
@@ -15,7 +15,7 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: atril 1.23.1\n"
+"Project-Id-Version: lector 1.23.1\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2020-01-10 10:49+0100\n"
 "PO-Revision-Date: 2018-03-11 14:35+0000\n"
@@ -81,7 +81,7 @@ msgstr "Med brisanjem “%s” je prišlo do napake."
 msgid "Error %s"
 msgstr "Napaka %s"
 
-#: backend/comics/comicsdocument.atril-backend.desktop.in:4
+#: backend/comics/comicsdocument.lector-backend.desktop.in:4
 msgid "Comic Books"
 msgstr "Stripi"
 
@@ -97,7 +97,7 @@ msgstr ""
 "Dokument je sestavljen iz več datotek. Dostop do ene ali več teh datotek ni "
 "mogoč."
 
-#: backend/djvu/djvudocument.atril-backend.desktop.in:4
+#: backend/djvu/djvudocument.lector-backend.desktop.in:4
 msgid "DjVu Documents"
 msgstr "Dokumenti DjVu"
 
@@ -105,7 +105,7 @@ msgstr "Dokumenti DjVu"
 msgid "DVI document has incorrect format"
 msgstr "Dokument DVI ima nepravilen zapis"
 
-#: backend/dvi/dvidocument.atril-backend.desktop.in:4
+#: backend/dvi/dvidocument.lector-backend.desktop.in:4
 msgid "DVI Documents"
 msgstr "Dokumenti DVI"
 
@@ -167,7 +167,7 @@ msgstr ""
 "Nisem mogel vzpostaviti drevesne strukture za nalaganje, ker manjkajo "
 "nekatere datoteke"
 
-#: backend/epub/epubdocument.atril-backend.desktop.in:4
+#: backend/epub/epubdocument.lector-backend.desktop.in:4
 msgid "epub Documents"
 msgstr "Dokumenti epub"
 
@@ -231,11 +231,11 @@ msgstr "Vgrajeno"
 msgid "Not embedded"
 msgstr "Ni vgrajeno"
 
-#: backend/pdf/pdfdocument.atril-backend.desktop.in:5
+#: backend/pdf/pdfdocument.lector-backend.desktop.in:5
 msgid "PDF Documents"
 msgstr "Dokumenti PDF"
 
-#: backend/pixbuf/pixbufdocument.atril-backend.desktop.in:4
+#: backend/pixbuf/pixbufdocument.lector-backend.desktop.in:4
 msgid "Images"
 msgstr "Slike"
 
@@ -249,7 +249,7 @@ msgstr "Nalaganje dokumenta \"%s\" je spodletelo"
 msgid "Failed to save document “%s”"
 msgstr "Napaka med shranjevanjem dokumenta “%s”"
 
-#: backend/ps/psdocument.atril-backend.desktop.in:5
+#: backend/ps/psdocument.lector-backend.desktop.in:5
 msgid "PostScript Documents"
 msgstr "Dokumenti PostScript"
 
@@ -257,11 +257,11 @@ msgstr "Dokumenti PostScript"
 msgid "Invalid document"
 msgstr "Neveljaven dokument"
 
-#: backend/tiff/tiffdocument.atril-backend.desktop.in:4
+#: backend/tiff/tiffdocument.lector-backend.desktop.in:4
 msgid "Tiff Documents"
 msgstr "Tiff dokumenti"
 
-#: backend/xps/xpsdocument.atril-backend.desktop.in:5
+#: backend/xps/xpsdocument.lector-backend.desktop.in:5
 msgid "XPS Documents"
 msgstr "XPS dokumenti"
 
@@ -465,16 +465,16 @@ msgstr "3200%"
 msgid "6400%"
 msgstr "6400%"
 
-#: data/atril.appdata.xml.in:7 data/atril.desktop.in.in:3
+#: data/lector.appdata.xml.in:7 data/lector.desktop.in.in:3
 #: shell/ev-window.c:5445
 msgid "Atril Document Viewer"
 msgstr "Atril pregledovalnik dokumentov"
 
-#: data/atril.appdata.xml.in:8
+#: data/lector.appdata.xml.in:8
 msgid "A Document Viewer for the MATE desktop environment"
 msgstr "Pregledovalnik dokumentov za namizno okolje MATE"
 
-#: data/atril.appdata.xml.in:10
+#: data/lector.appdata.xml.in:10
 msgid ""
 "Atril is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
@@ -488,7 +488,7 @@ msgstr ""
 "če dokument to podpira, omogoča tudi iskanje teksta, kopiranje teksta na "
 "odložišče, navigacijo preko hiperteksta in zaznamke v kazalu vsebine."
 
-#: data/atril.appdata.xml.in:18
+#: data/lector.appdata.xml.in:18
 msgid ""
 "Atril is a fork of Evince and part of the MATE Desktop Environment. If you "
 "would like to know more about MATE and Atril, please visit the project's "
@@ -497,25 +497,25 @@ msgstr ""
 "Atril je priredba programa Evince in je del MATE namiznega okolja. Če želite"
 " izvedeti več o MATE in Atrilu, obiščite domačo stran projekta."
 
-#: data/atril.desktop.in.in:4 shell/ev-window.c:5375
+#: data/lector.desktop.in.in:4 shell/ev-window.c:5375
 #: shell/ev-window-title.c:157
 msgid "Document Viewer"
 msgstr "Pregledovalnik dokumentov"
 
-#: data/atril.desktop.in.in:5
+#: data/lector.desktop.in.in:5
 msgid "View multi-page documents"
 msgstr "Poglejte večstranske dokumente"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon
 #. file name)!
-#: data/atril.desktop.in.in:12
-#: properties/libatril-properties-page.caja-extension.desktop.in:4
-msgid "atril"
-msgstr "atril"
+#: data/lector.desktop.in.in:12
+#: properties/liblector-properties-page.caja-extension.desktop.in:4
+msgid "lector"
+msgstr "lector"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
-#: data/atril.desktop.in.in:20
+#: data/lector.desktop.in.in:20
 msgid "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 msgstr "MATE;dokumenti;pregledovalnik;pdf;dvi;ps;xps;tiff;pixbuf;djvu;stripi;"
 
@@ -748,11 +748,11 @@ msgstr "%s, pokončno (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, ležeče (%s)"
 
-#: properties/libatril-properties-page.caja-extension.desktop.in:5
+#: properties/liblector-properties-page.caja-extension.desktop.in:5
 msgid "Atril properties"
 msgstr "Atril lastnosti"
 
-#: properties/libatril-properties-page.caja-extension.desktop.in:6
+#: properties/liblector-properties-page.caja-extension.desktop.in:6
 msgid "Shows details for Atril documents"
 msgstr "Pokaži podrobnosti za Atril dokumente"
 
@@ -1873,8 +1873,8 @@ msgid "NUMBER"
 msgstr "ŠTEVILKA"
 
 #: shell/main.c:68
-msgid "Run atril in fullscreen mode"
-msgstr "Zaženi atril v celozaslonskem načinu"
+msgid "Run lector in fullscreen mode"
+msgstr "Zaženi lector v celozaslonskem načinu"
 
 #: shell/main.c:69
 msgid "Named destination to display."
@@ -1885,12 +1885,12 @@ msgid "DEST"
 msgstr "DEST"
 
 #: shell/main.c:70
-msgid "Run atril in presentation mode"
-msgstr "Zaženi atril v predstavitvenem načinu"
+msgid "Run lector in presentation mode"
+msgstr "Zaženi lector v predstavitvenem načinu"
 
 #: shell/main.c:71
-msgid "Run atril as a previewer"
-msgstr "Zaženi atril v predoglednem načinu"
+msgid "Run lector as a previewer"
+msgstr "Zaženi lector v predoglednem načinu"
 
 #: shell/main.c:72
 msgid "The word or phrase to find in the document"

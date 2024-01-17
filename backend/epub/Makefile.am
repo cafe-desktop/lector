@@ -19,14 +19,14 @@ libepubdocument_la_SOURCES =	\
 
 libepubdocument_la_LDFLAGS = $(BACKEND_LIBTOOL_FLAGS)
 libepubdocument_la_LIBADD =				\
-	$(top_builddir)/libdocument/libatrildocument.la	\
+	$(top_builddir)/libdocument/liblectordocument.la	\
 	minizip/libminizip.la				\
 	$(EPUB_LIBS)					\
 	$(BACKEND_LIBS)
 
 
-backend_in_files = epubdocument.atril-backend.desktop.in
-backend_DATA = $(backend_in_files:.atril-backend.desktop.in=.atril-backend)
+backend_in_files = epubdocument.lector-backend.desktop.in
+backend_DATA = $(backend_in_files:.lector-backend.desktop.in=.lector-backend)
 
 $(backend_DATA): $(backend_in_files)
 	$(AM_V_GEN) $(MSGFMT) --desktop --keyword=TypeDescription --template $< -d $(top_srcdir)/po -o $@

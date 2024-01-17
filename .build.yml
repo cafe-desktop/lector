@@ -4,7 +4,7 @@
 requires:
   debian:
     # Useful URL: https://github.com/mate-desktop/debian-packages
-    # Useful URL: https://salsa.debian.org/debian-mate-team/atril
+    # Useful URL: https://salsa.debian.org/debian-mate-team/lector
     - aptitude
     - autopoint
     - clang
@@ -46,4 +46,4 @@ build_scripts:
   - ./after-build
 
 after_scripts:
-  - if [ -f "gen-index" ]; then ./gen-index -l 20 -i https://github.com/${OWNER_NAME}/atril/raw/master/data/icons/16x16/apps/atril.png; fi
+  - if [ -f "gen-index" ]; then ./gen-index -l 20 -i https://github.com/${OWNER_NAME}/lector/raw/master/data/icons/16x16/apps/lector.png; fi

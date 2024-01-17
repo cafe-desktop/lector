@@ -1,5 +1,5 @@
 /* ev-metadata.c
- *  this file is part of atril, a mate document viewer
+ *  this file is part of lector, a mate document viewer
  *
  * Copyright (C) 2009 Carlos Garcia Campos  <carlosgc@gnome.org>
  *
@@ -37,7 +37,7 @@ struct _EvMetadataClass {
 
 G_DEFINE_TYPE (EvMetadata, ev_metadata, G_TYPE_OBJECT)
 
-#define EV_METADATA_NAMESPACE "metadata::atril"
+#define EV_METADATA_NAMESPACE "metadata::lector"
 
 static void
 ev_metadata_finalize (GObject *object)

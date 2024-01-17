@@ -6,7 +6,7 @@
     <value nick="free" value="2"/>
   </enum>
 
-  <schema id="org.mate.Atril" path="/org/mate/atril/" gettext-domain="atril">
+  <schema id="org.mate.Atril" path="/org/mate/lector/" gettext-domain="lector">
     <key name="override-restrictions" type="b">
       <default>true</default>
       <summary>Override document restrictions</summary>
@@ -37,7 +37,7 @@
     <child name="default" schema="org.mate.Atril.Default"/>
   </schema>
 
-  <schema id="org.mate.Atril.Default" path="/org/mate/atril/default/" gettext-domain="atril">
+  <schema id="org.mate.Atril.Default" path="/org/mate/lector/default/" gettext-domain="lector">
     <key name="show-toolbar" type="b">
       <default>true</default>
     </key>

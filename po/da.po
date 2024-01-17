@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR MATE Desktop Environment team
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
@@ -11,7 +11,7 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: atril 1.23.1\n"
+"Project-Id-Version: lector 1.23.1\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2020-01-10 10:49+0100\n"
 "PO-Revision-Date: 2018-03-11 14:35+0000\n"
@@ -80,7 +80,7 @@ msgstr "Der opstod en fejl under sletning af »%s«."
 msgid "Error %s"
 msgstr "Fejl %s"
 
-#: backend/comics/comicsdocument.atril-backend.desktop.in:4
+#: backend/comics/comicsdocument.lector-backend.desktop.in:4
 msgid "Comic Books"
 msgstr "Tegneserier"
 
@@ -96,7 +96,7 @@ msgstr ""
 "Dokumentet er sammensat af adskillige filer. En eller flere af disse filer "
 "kan ikke tilgås."
 
-#: backend/djvu/djvudocument.atril-backend.desktop.in:4
+#: backend/djvu/djvudocument.lector-backend.desktop.in:4
 msgid "DjVu Documents"
 msgstr "DjVu-dokumenter"
 
@@ -104,7 +104,7 @@ msgstr "DjVu-dokumenter"
 msgid "DVI document has incorrect format"
 msgstr "DVI-dokument har ugyldigt format"
 
-#: backend/dvi/dvidocument.atril-backend.desktop.in:4
+#: backend/dvi/dvidocument.lector-backend.desktop.in:4
 msgid "DVI Documents"
 msgstr "DVI-dokumenter"
 
@@ -164,7 +164,7 @@ msgstr "epub-fil har intet manifest"
 msgid "Could not set up document tree for loading, some files missing"
 msgstr "Kunne ikke opsætte dokumenttræ til indlæsning, nogle filer mangler"
 
-#: backend/epub/epubdocument.atril-backend.desktop.in:4
+#: backend/epub/epubdocument.lector-backend.desktop.in:4
 msgid "epub Documents"
 msgstr "epub-dokumenter"
 
@@ -228,11 +228,11 @@ msgstr "Indlejret"
 msgid "Not embedded"
 msgstr "Ikke indlejret"
 
-#: backend/pdf/pdfdocument.atril-backend.desktop.in:5
+#: backend/pdf/pdfdocument.lector-backend.desktop.in:5
 msgid "PDF Documents"
 msgstr "PDF-dokumenter"
 
-#: backend/pixbuf/pixbufdocument.atril-backend.desktop.in:4
+#: backend/pixbuf/pixbufdocument.lector-backend.desktop.in:4
 msgid "Images"
 msgstr "Billeder"
 
@@ -246,7 +246,7 @@ msgstr "Kunne ikke indlæse dokumentet »%s«"
 msgid "Failed to save document “%s”"
 msgstr "Kunne ikke gemme dokumentet »%s«"
 
-#: backend/ps/psdocument.atril-backend.desktop.in:5
+#: backend/ps/psdocument.lector-backend.desktop.in:5
 msgid "PostScript Documents"
 msgstr "Postscript-dokumenter"
 
@@ -254,11 +254,11 @@ msgstr "Postscript-dokumenter"
 msgid "Invalid document"
 msgstr "Ugyldig dokument"
 
-#: backend/tiff/tiffdocument.atril-backend.desktop.in:4
+#: backend/tiff/tiffdocument.lector-backend.desktop.in:4
 msgid "Tiff Documents"
 msgstr "Tiff-dokumenter"
 
-#: backend/xps/xpsdocument.atril-backend.desktop.in:5
+#: backend/xps/xpsdocument.lector-backend.desktop.in:5
 msgid "XPS Documents"
 msgstr "XPS-dokumenter"
 
@@ -461,16 +461,16 @@ msgstr "3200%"
 msgid "6400%"
 msgstr "6400%"
 
-#: data/atril.appdata.xml.in:7 data/atril.desktop.in.in:3
+#: data/lector.appdata.xml.in:7 data/lector.desktop.in.in:3
 #: shell/ev-window.c:5445
 msgid "Atril Document Viewer"
 msgstr "Atril - dokumentfremviser"
 
-#: data/atril.appdata.xml.in:8
+#: data/lector.appdata.xml.in:8
 msgid "A Document Viewer for the MATE desktop environment"
 msgstr "En dokumentfremviser for skrivebordsmiljøet MATE"
 
-#: data/atril.appdata.xml.in:10
+#: data/lector.appdata.xml.in:10
 msgid ""
 "Atril is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
@@ -484,7 +484,7 @@ msgstr ""
 "understøttet af dokumentet, kan det også søge efter tekst, kopiere tekst til"
 " udklipsholderen, navigere via hypertekst og indholdsfortegnelsesbogmærker."
 
-#: data/atril.appdata.xml.in:18
+#: data/lector.appdata.xml.in:18
 msgid ""
 "Atril is a fork of Evince and part of the MATE Desktop Environment. If you "
 "would like to know more about MATE and Atril, please visit the project's "
@@ -493,25 +493,25 @@ msgstr ""
 "Atril er en forgrening af Evince og en del af skrivebordsmiljøet MATE. Hvis "
 "du ønsker at vide mere om MATE og Atril, så besøg projektets hjemmeside."
 
-#: data/atril.desktop.in.in:4 shell/ev-window.c:5375
+#: data/lector.desktop.in.in:4 shell/ev-window.c:5375
 #: shell/ev-window-title.c:157
 msgid "Document Viewer"
 msgstr "Dokumentfremviser"
 
-#: data/atril.desktop.in.in:5
+#: data/lector.desktop.in.in:5
 msgid "View multi-page documents"
 msgstr "Vis dokumenter med flere sider"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon
 #. file name)!
-#: data/atril.desktop.in.in:12
-#: properties/libatril-properties-page.caja-extension.desktop.in:4
-msgid "atril"
-msgstr "atril"
+#: data/lector.desktop.in.in:12
+#: properties/liblector-properties-page.caja-extension.desktop.in:4
+msgid "lector"
+msgstr "lector"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
-#: data/atril.desktop.in.in:20
+#: data/lector.desktop.in.in:20
 msgid "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 msgstr ""
 "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;dokument;fremviser;tegneserier;"
@@ -744,11 +744,11 @@ msgstr "%s, Portræt (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, Landskab (%s)"
 
-#: properties/libatril-properties-page.caja-extension.desktop.in:5
+#: properties/liblector-properties-page.caja-extension.desktop.in:5
 msgid "Atril properties"
 msgstr "Atril-egenskaber"
 
-#: properties/libatril-properties-page.caja-extension.desktop.in:6
+#: properties/liblector-properties-page.caja-extension.desktop.in:6
 msgid "Shows details for Atril documents"
 msgstr "Vis detaljer for Atril-dokumenter"
 
@@ -1869,8 +1869,8 @@ msgid "NUMBER"
 msgstr "NUMMER"
 
 #: shell/main.c:68
-msgid "Run atril in fullscreen mode"
-msgstr "Start atril i fuldskærmstilstand"
+msgid "Run lector in fullscreen mode"
+msgstr "Start lector i fuldskærmstilstand"
 
 #: shell/main.c:69
 msgid "Named destination to display."
@@ -1881,12 +1881,12 @@ msgid "DEST"
 msgstr "DEST"
 
 #: shell/main.c:70
-msgid "Run atril in presentation mode"
-msgstr "Start atril i præsentationstilstand"
+msgid "Run lector in presentation mode"
+msgstr "Start lector i præsentationstilstand"
 
 #: shell/main.c:71
-msgid "Run atril as a previewer"
-msgstr "Start atril som forhåndsvisning"
+msgid "Run lector as a previewer"
+msgstr "Start lector som forhåndsvisning"
 
 #: shell/main.c:72
 msgid "The word or phrase to find in the document"

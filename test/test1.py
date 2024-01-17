@@ -10,29 +10,29 @@ dogtail.config.config.logDebugToFile = False
 from dogtail.procedural import *
 
 os.environ['LANG']='C'
-run('atril')
+run('lector')
 
 # Test file->open
-focus.application('atril')
+focus.application('lector')
 click('File', roleName='menu')
 click('Open…', roleName='menu item')
 click('Cancel', roleName='push button')
 
 # Toolbar editor
-focus.application('atril')
+focus.application('lector')
 click('Edit', roleName='menu')
 click('Toolbar', roleName='menu item')
 click('Close', roleName='push button')
 
 # About dialog
-focus.application('atril')
+focus.application('lector')
 click('Help', roleName='menu')
 click('About', roleName='menu item')
 click('Credits', roleName='toggle button')
 click('Credits', roleName='toggle button')
 click('Close', roleName='push button')
 
-# Close atril
-focus.application('atril')
+# Close lector
+focus.application('lector')
 click.menu('File')
 click('Close', roleName='menu item')

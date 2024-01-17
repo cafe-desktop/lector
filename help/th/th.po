@@ -258,7 +258,7 @@ msgstr ""
 
 #. (itstool) path: article/indexterm
 #: C/index.docbook:139
-msgid "<primary>atril</primary>"
+msgid "<primary>lector</primary>"
 msgstr ""
 
 #. (itstool) path: sect1/title
@@ -298,7 +298,7 @@ msgstr ""
 msgid ""
 "Alternatively, you can start <application>Atril Document "
 "Viewer</application> from the command line, with the command: "
-"<command>atril</command>."
+"<command>lector</command>."
 msgstr ""
 
 #. (itstool) path: sect2/title
@@ -326,14 +326,14 @@ msgstr ""
 #: C/index.docbook:175
 msgctxt "_"
 msgid ""
-"external ref='figures/atril_start_window.png' "
+"external ref='figures/lector_start_window.png' "
 "md5='475a06bdb579c94e4f07d99ae3098e9c'"
 msgstr ""
 
 #. (itstool) path: screenshot/mediaobject
 #: C/index.docbook:173
 msgid ""
-"<imageobject><imagedata fileref=\"figures/atril_start_window.png\" "
+"<imageobject><imagedata fileref=\"figures/lector_start_window.png\" "
 "format=\"PNG\"/> </imageobject> <textobject> <phrase>Shows Atril Document "
 "Viewer main window. Contains titlebar, menubar, toolbar and display area. "
 "Menubar contains File, Edit, View, Go and Help menus. </phrase> "
@@ -698,7 +698,7 @@ msgid ""
 "If you cannot choose the <guimenuitem>Print</guimenuitem> menu item, the "
 "author of the document has disabled the print option for this document. To "
 "enable the print option, you must enter the master password when you open "
-"the document. See <xref linkend=\"atril-password\"/> for more information "
+"the document. See <xref linkend=\"lector-password\"/> for more information "
 "about password-protected files."
 msgstr ""
 

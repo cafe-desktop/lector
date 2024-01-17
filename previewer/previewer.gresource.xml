@@ -16,7 +16,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <gresources>
-  <gresource prefix="/org/mate/atril/previewer">
+  <gresource prefix="/org/mate/lector/previewer">
     <file alias="ui/previewer.xml" compressed="true" preprocess="xml-stripblanks">previewer-ui.xml</file>
   </gresource>
 </gresources>

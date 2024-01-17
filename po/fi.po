@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR MATE Desktop Environment team
-# This file is distributed under the same license as the atril package.
+# This file is distributed under the same license as the lector package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
@@ -15,7 +15,7 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: atril 1.23.1\n"
+"Project-Id-Version: lector 1.23.1\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
 "POT-Creation-Date: 2020-01-10 10:49+0100\n"
 "PO-Revision-Date: 2018-03-11 14:35+0000\n"
@@ -82,7 +82,7 @@ msgstr "Tapahtui virhe poistaessa ”%s”."
 msgid "Error %s"
 msgstr "Virhe %s"
 
-#: backend/comics/comicsdocument.atril-backend.desktop.in:4
+#: backend/comics/comicsdocument.lector-backend.desktop.in:4
 msgid "Comic Books"
 msgstr "Sarjakuvakirjat"
 
@@ -98,7 +98,7 @@ msgstr ""
 "Asiakirja koostuu useista tiedostoista, mutta yhtä tai useampia näistä "
 "tiedostoista ei voitu avata."
 
-#: backend/djvu/djvudocument.atril-backend.desktop.in:4
+#: backend/djvu/djvudocument.lector-backend.desktop.in:4
 msgid "DjVu Documents"
 msgstr "DjVu-asiakirjat"
 
@@ -106,7 +106,7 @@ msgstr "DjVu-asiakirjat"
 msgid "DVI document has incorrect format"
 msgstr "DVI-asiakirjassa on virheellisiä muotoiluja"
 
-#: backend/dvi/dvidocument.atril-backend.desktop.in:4
+#: backend/dvi/dvidocument.lector-backend.desktop.in:4
 msgid "DVI Documents"
 msgstr "DVI-asiakirjat"
 
@@ -168,7 +168,7 @@ msgstr ""
 "Asiakirjojen hakemistopuuta ei voitu määrittää lataamista varten, jotkin "
 "tiedostot puuttuvat"
 
-#: backend/epub/epubdocument.atril-backend.desktop.in:4
+#: backend/epub/epubdocument.lector-backend.desktop.in:4
 msgid "epub Documents"
 msgstr "ePub-asiakirjat"
 
@@ -232,11 +232,11 @@ msgstr "Upotettu"
 msgid "Not embedded"
 msgstr "Ei upotettu"
 
-#: backend/pdf/pdfdocument.atril-backend.desktop.in:5
+#: backend/pdf/pdfdocument.lector-backend.desktop.in:5
 msgid "PDF Documents"
 msgstr "PDF-asiakirjat"
 
-#: backend/pixbuf/pixbufdocument.atril-backend.desktop.in:4
+#: backend/pixbuf/pixbufdocument.lector-backend.desktop.in:4
 msgid "Images"
 msgstr "Kuvat"
 
@@ -250,7 +250,7 @@ msgstr "Asiakirjan ”%s” lataaminen epäonnistui"
 msgid "Failed to save document “%s”"
 msgstr "Asiakirjan ”%s” tallennus epäonnistui"
 
-#: backend/ps/psdocument.atril-backend.desktop.in:5
+#: backend/ps/psdocument.lector-backend.desktop.in:5
 msgid "PostScript Documents"
 msgstr "PostScript-asiakirjat"
 
@@ -258,11 +258,11 @@ msgstr "PostScript-asiakirjat"
 msgid "Invalid document"
 msgstr "Virheellinen asiakirja"
 
-#: backend/tiff/tiffdocument.atril-backend.desktop.in:4
+#: backend/tiff/tiffdocument.lector-backend.desktop.in:4
 msgid "Tiff Documents"
 msgstr "TIFF-dokumentit"
 
-#: backend/xps/xpsdocument.atril-backend.desktop.in:5
+#: backend/xps/xpsdocument.lector-backend.desktop.in:5
 msgid "XPS Documents"
 msgstr "XPS-dokumentit"
 
@@ -466,16 +466,16 @@ msgstr "3200%"
 msgid "6400%"
 msgstr "6400%"
 
-#: data/atril.appdata.xml.in:7 data/atril.desktop.in.in:3
+#: data/lector.appdata.xml.in:7 data/lector.desktop.in.in:3
 #: shell/ev-window.c:5445
 msgid "Atril Document Viewer"
 msgstr "Atril-asiakirjakatselin"
 
-#: data/atril.appdata.xml.in:8
+#: data/lector.appdata.xml.in:8
 msgid "A Document Viewer for the MATE desktop environment"
 msgstr "Asiakirjakatselin MATE-työpöytäympäristölle."
 
-#: data/atril.appdata.xml.in:10
+#: data/lector.appdata.xml.in:10
 msgid ""
 "Atril is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
@@ -484,32 +484,32 @@ msgid ""
 "to the clipboard, hypertext navigation and table-of-contents bookmarks."
 msgstr ""
 
-#: data/atril.appdata.xml.in:18
+#: data/lector.appdata.xml.in:18
 msgid ""
 "Atril is a fork of Evince and part of the MATE Desktop Environment. If you "
 "would like to know more about MATE and Atril, please visit the project's "
 "home page."
 msgstr ""
 
-#: data/atril.desktop.in.in:4 shell/ev-window.c:5375
+#: data/lector.desktop.in.in:4 shell/ev-window.c:5375
 #: shell/ev-window-title.c:157
 msgid "Document Viewer"
 msgstr "Asiakirjakatselin"
 
-#: data/atril.desktop.in.in:5
+#: data/lector.desktop.in.in:5
 msgid "View multi-page documents"
 msgstr "Katsele monisivuisia asiakirjoja"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon
 #. file name)!
-#: data/atril.desktop.in.in:12
-#: properties/libatril-properties-page.caja-extension.desktop.in:4
-msgid "atril"
+#: data/lector.desktop.in.in:12
+#: properties/liblector-properties-page.caja-extension.desktop.in:4
+msgid "lector"
 msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
-#: data/atril.desktop.in.in:20
+#: data/lector.desktop.in.in:20
 msgid "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 msgstr ""
 
@@ -741,11 +741,11 @@ msgstr "%s, pysty (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, vaaka (%s)"
 
-#: properties/libatril-properties-page.caja-extension.desktop.in:5
+#: properties/liblector-properties-page.caja-extension.desktop.in:5
 msgid "Atril properties"
 msgstr "Atrilin ominaisuudet"
 
-#: properties/libatril-properties-page.caja-extension.desktop.in:6
+#: properties/liblector-properties-page.caja-extension.desktop.in:6
 msgid "Shows details for Atril documents"
 msgstr "Näyttää Atril-asiakirjojen tiedot"
 
@@ -1849,8 +1849,8 @@ msgid "NUMBER"
 msgstr "NUMERO"
 
 #: shell/main.c:68
-msgid "Run atril in fullscreen mode"
-msgstr "Suorita atril kokoruututilassa"
+msgid "Run lector in fullscreen mode"
+msgstr "Suorita lector kokoruututilassa"
 
 #: shell/main.c:69
 msgid "Named destination to display."
@@ -1861,12 +1861,12 @@ msgid "DEST"
 msgstr ""
 
 #: shell/main.c:70
-msgid "Run atril in presentation mode"
-msgstr "Suorita atril esitystilassa"
+msgid "Run lector in presentation mode"
+msgstr "Suorita lector esitystilassa"
 
 #: shell/main.c:71
-msgid "Run atril as a previewer"
-msgstr "Suorita atril esikatselimena"
+msgid "Run lector as a previewer"
+msgstr "Suorita lector esikatselimena"
 
 #: shell/main.c:72
 msgid "The word or phrase to find in the document"

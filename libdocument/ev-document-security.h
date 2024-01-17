@@ -1,5 +1,5 @@
 /* ev-document-security.h
- *  this file is part of atril, a mate pdf viewer
+ *  this file is part of lector, a mate pdf viewer
  *
  * Copyright (C) 2005 Red Hat, Inc.
  *
@@ -22,7 +22,7 @@
  */
 
 #if !defined (__EV_ATRIL_DOCUMENT_H_INSIDE__) && !defined (ATRIL_COMPILATION)
-#error "Only <atril-document.h> can be included directly."
+#error "Only <lector-document.h> can be included directly."
 #endif
 
 #ifndef EV_DOCUMENT_SECURITY_H

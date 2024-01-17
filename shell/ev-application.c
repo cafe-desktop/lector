@@ -1,4 +1,4 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of lector, a mate document viewer
  *
  *  Copyright (C) 2004 Martin Kretzschmar
  *  Copyright © 2010, 2012 Christian Persch
@@ -66,12 +66,12 @@ struct _EvApplicationClass {
 G_DEFINE_TYPE (EvApplication, ev_application, GTK_TYPE_APPLICATION)
 
 #ifdef ENABLE_DBUS
-#define APPLICATION_DBUS_OBJECT_PATH "/org/mate/atril/Atril"
-#define APPLICATION_DBUS_INTERFACE   "org.mate.atril.Application"
+#define APPLICATION_DBUS_OBJECT_PATH "/org/mate/lector/Atril"
+#define APPLICATION_DBUS_INTERFACE   "org.mate.lector.Application"
 
-#define ATRIL_DAEMON_SERVICE        "org.mate.atril.Daemon"
-#define ATRIL_DAEMON_OBJECT_PATH    "/org/mate/atril/Daemon"
-#define ATRIL_DAEMON_INTERFACE      "org.mate.atril.Daemon"
+#define ATRIL_DAEMON_SERVICE        "org.mate.lector.Daemon"
+#define ATRIL_DAEMON_OBJECT_PATH    "/org/mate/lector/Daemon"
+#define ATRIL_DAEMON_INTERFACE      "org.mate.lector.Daemon"
 #endif
 
 static const gchar *userdir = NULL;
@@ -215,7 +215,7 @@ ev_spawn (const char     *uri,
 	GError  *error = NULL;
 
 	cmd = g_string_new (NULL);
-	path = g_build_filename (BINDIR, "atril", NULL);
+	path = g_build_filename (BINDIR, "lector", NULL);
 	g_string_append_printf (cmd, " %s", path);
 	g_free (path);
 
@@ -278,7 +278,7 @@ ev_spawn (const char     *uri,
 		g_object_unref (ctx);
 	}
 	if (error != NULL) {
-		g_printerr ("Error launching atril %s: %s\n", uri, error->message);
+		g_printerr ("Error launching lector %s: %s\n", uri, error->message);
 		g_error_free (error);
 	}
 
@@ -483,7 +483,7 @@ on_register_uri_cb (GObject      *source_object,
  * @search_string:
  * @timestamp:
  *
- * Registers @uri with atril-daemon.
+ * Registers @uri with lector-daemon.
  *
  */
 static void
@@ -655,7 +655,7 @@ ev_application_open_uri_at_dest (EvApplication  *application,
 	g_return_if_fail (uri != NULL);
 
 	if (application->uri && strcmp (application->uri, uri) != 0) {
-		/* spawn a new atril process */
+		/* spawn a new lector process */
 		ev_spawn (uri, screen, dest, mode, search_string, timestamp);
 		return;
 	} else if (!application->uri) {
@@ -724,7 +724,7 @@ handle_get_window_list_cb (EvAtrilApplication    *object,
         }
 
         g_ptr_array_add (paths, NULL);
-        ev_atril_application_complete_get_window_list (object, invocation,
+        ev_lector_application_complete_get_window_list (object, invocation,
                                                         (const char * const *) paths->pdata);
 
         g_ptr_array_free (paths, TRUE);
@@ -787,7 +787,7 @@ handle_reload_cb (EvAtrilApplication   *object,
         if (dest)
                 g_object_unref (dest);
 
-        ev_atril_application_complete_reload (object, invocation);
+        ev_lector_application_complete_reload (object, invocation);
 
         return TRUE;
 }
@@ -816,11 +816,11 @@ static void ev_application_accel_map_save(EvApplication* application)
 
 	if (userdir)
 	{
-		accel_map_file = g_build_filename(userdir, "atril", "accels", NULL);
+		accel_map_file = g_build_filename(userdir, "lector", "accels", NULL);
 	}
 	else
 	{
-		accel_map_file = g_build_filename(g_get_user_config_dir(), "accels", "atril", NULL);
+		accel_map_file = g_build_filename(g_get_user_config_dir(), "accels", "lector", NULL);
 	}
 
 	tmp_filename = g_strdup_printf("%s.XXXXXX", accel_map_file);
@@ -853,11 +853,11 @@ static void ev_application_accel_map_load(EvApplication* application)
 
 	if (userdir)
 	{
-		accel_map_file = g_build_filename(userdir, "accels", "atril", NULL);
+		accel_map_file = g_build_filename(userdir, "accels", "lector", NULL);
 	}
 	else
 	{
-		accel_map_file = g_build_filename(g_get_user_config_dir(), "atril", "accels", NULL);
+		accel_map_file = g_build_filename(g_get_user_config_dir(), "lector", "accels", NULL);
 	}
 
 	gtk_accel_map_load(accel_map_file);
@@ -917,7 +917,7 @@ ev_application_dbus_register (GApplication    *gapplication,
                                                                                error))
                 return FALSE;
 
-        skeleton = ev_atril_application_skeleton_new ();
+        skeleton = ev_lector_application_skeleton_new ();
         if (!g_dbus_interface_skeleton_export (G_DBUS_INTERFACE_SKELETON (skeleton),
                                                connection,
                                                APPLICATION_DBUS_OBJECT_PATH,
@@ -982,11 +982,11 @@ static void ev_application_init(EvApplication* ev_application)
 
 	if (userdir)
 	{
-		ev_application->dot_dir = g_build_filename(userdir, "atril", NULL);
+		ev_application->dot_dir = g_build_filename(userdir, "lector", NULL);
 	}
 	else
 	{
-		ev_application->dot_dir = g_build_filename(g_get_user_config_dir(), "atril", NULL);
+		ev_application->dot_dir = g_build_filename(g_get_user_config_dir(), "lector", NULL);
 	}
 
 	ev_application_init_session (ev_application);

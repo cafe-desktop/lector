@@ -73,7 +73,7 @@ msgstr ""
 msgid "Error %s"
 msgstr ""
 
-#: ../backend/comics/comicsdocument.atril-backend.in.h:1
+#: ../backend/comics/comicsdocument.lector-backend.in.h:1
 msgid "Comic Books"
 msgstr ""
 
@@ -87,7 +87,7 @@ msgid ""
 " be accessed."
 msgstr ""
 
-#: ../backend/djvu/djvudocument.atril-backend.in.h:1
+#: ../backend/djvu/djvudocument.lector-backend.in.h:1
 msgid "DjVu Documents"
 msgstr ""
 
@@ -95,7 +95,7 @@ msgstr ""
 msgid "DVI document has incorrect format"
 msgstr ""
 
-#: ../backend/dvi/dvidocument.atril-backend.in.h:1
+#: ../backend/dvi/dvidocument.lector-backend.in.h:1
 msgid "DVI Documents"
 msgstr ""
 
@@ -155,7 +155,7 @@ msgstr ""
 msgid "Could not set up document tree for loading, some files missing"
 msgstr ""
 
-#: ../backend/epub/epubdocument.atril-backend.in.h:1
+#: ../backend/epub/epubdocument.lector-backend.in.h:1
 msgid "epub Documents"
 msgstr ""
 
@@ -221,7 +221,7 @@ msgstr ""
 msgid "Not embedded"
 msgstr ""
 
-#: ../backend/pdf/pdfdocument.atril-backend.in.h:1
+#: ../backend/pdf/pdfdocument.lector-backend.in.h:1
 msgid "PDF Documents"
 msgstr ""
 
@@ -235,7 +235,7 @@ msgstr ""
 msgid "Failed to save document “%s”"
 msgstr ""
 
-#: ../backend/ps/psdocument.atril-backend.in.h:1
+#: ../backend/ps/psdocument.lector-backend.in.h:1
 msgid "PostScript Documents"
 msgstr ""
 
@@ -455,11 +455,11 @@ msgstr ""
 msgid "6400%"
 msgstr ""
 
-#: ../data/atril.appdata.xml.in.h:1
+#: ../data/lector.appdata.xml.in.h:1
 msgid "A Document Viewer for the MATE desktop environment"
 msgstr ""
 
-#: ../data/atril.appdata.xml.in.h:2
+#: ../data/lector.appdata.xml.in.h:2
 msgid ""
 "<p> Atril is a simple multi-page document viewer. It can display and print "
 "PostScript (PS), Encapsulated PostScript (EPS), DJVU, DVI, XPS and Portable "
@@ -471,17 +471,17 @@ msgid ""
 " home page. </p>"
 msgstr ""
 
-#: ../data/atril.desktop.in.in.h:1
+#: ../data/lector.desktop.in.in.h:1
 msgid "Atril Document Viewer"
 msgstr ""
 
-#: ../data/atril.desktop.in.in.h:2 ../shell/ev-window.c:5194
+#: ../data/lector.desktop.in.in.h:2 ../shell/ev-window.c:5194
 #: ../shell/ev-window-title.c:157
 #, c-format
 msgid "Document Viewer"
 msgstr ""
 
-#: ../data/atril.desktop.in.in.h:3
+#: ../data/lector.desktop.in.in.h:3
 msgid "View multi-page documents"
 msgstr ""
 
@@ -709,11 +709,11 @@ msgstr ""
 msgid "%s, Landscape (%s)"
 msgstr ""
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:1
+#: ../properties/liblector-properties-page.caja-extension.in.h:1
 msgid "Atril properties"
 msgstr ""
 
-#: ../properties/libatril-properties-page.caja-extension.in.h:2
+#: ../properties/liblector-properties-page.caja-extension.in.h:2
 msgid "Shows details for Atril documents"
 msgstr ""
 
@@ -1783,7 +1783,7 @@ msgid "NUMBER"
 msgstr ""
 
 #: ../shell/main.c:68
-msgid "Run atril in fullscreen mode"
+msgid "Run lector in fullscreen mode"
 msgstr ""
 
 #: ../shell/main.c:69
@@ -1795,11 +1795,11 @@ msgid "DEST"
 msgstr ""
 
 #: ../shell/main.c:70
-msgid "Run atril in presentation mode"
+msgid "Run lector in presentation mode"
 msgstr ""
 
 #: ../shell/main.c:71
-msgid "Run atril as a previewer"
+msgid "Run lector as a previewer"
 msgstr ""
 
 #: ../shell/main.c:72

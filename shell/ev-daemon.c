@@ -1,5 +1,5 @@
 /* ev-daemon.c
- *  this file is part of atril, a mate document viewer
+ *  this file is part of lector, a mate document viewer
  *
  * Copyright (C) 2009 Carlos Garcia Campos  <carlosgc@gnome.org>
  * Copyright © 2010, 2012 Christian Persch
@@ -34,11 +34,11 @@
 
 #include "ev-daemon-gdbus-generated.h"
 
-#define EV_DBUS_DAEMON_NAME             "org.mate.atril.Daemon"
-#define EV_DBUS_DAEMON_INTERFACE_NAME   "org.mate.atril.Daemon"
-#define EV_DBUS_DAEMON_OBJECT_PATH      "/org/mate/atril/Daemon"
+#define EV_DBUS_DAEMON_NAME             "org.mate.lector.Daemon"
+#define EV_DBUS_DAEMON_INTERFACE_NAME   "org.mate.lector.Daemon"
+#define EV_DBUS_DAEMON_OBJECT_PATH      "/org/mate/lector/Daemon"
 
-#define EV_DBUS_WINDOW_INTERFACE_NAME   "org.mate.atril.Window"
+#define EV_DBUS_WINDOW_INTERFACE_NAME   "org.mate.lector.Window"
 
 #define DAEMON_TIMEOUT (30) /* seconds */
 
@@ -109,21 +109,21 @@ ev_daemon_application_find_doc (EvDaemonApplication *application,
 }
 
 static gboolean
-spawn_atril (const gchar *uri)
+spawn_lector (const gchar *uri)
 {
 	gchar   *argv[3];
 	gboolean retval;
 	GError  *error = NULL;
 
 	/* TODO Check that the uri exists */
-	argv[0] = g_build_filename (BINDIR, "atril", NULL);
+	argv[0] = g_build_filename (BINDIR, "lector", NULL);
 	argv[1] = (gchar *) uri;
 	argv[2] = NULL;
 
 	retval = g_spawn_async (NULL /* wd */, argv, NULL /* env */,
 				0, NULL, NULL, NULL, &error);
 	if (!retval) {
-		g_printerr ("Error spawning atril for uri %s: %s\n", uri, error->message);
+		g_printerr ("Error spawning lector for uri %s: %s\n", uri, error->message);
 		g_error_free (error);
 	}
 	g_free (argv[0]);
@@ -341,11 +341,11 @@ handle_find_document_cb (EvDaemon              *object,
 
                 if (uri_invocations == NULL) {
                         /* Only spawn once. */
-                        ret_val = spawn_atril (uri);
+                        ret_val = spawn_lector (uri);
                 }
 
                 if (ret_val) {
-                        /* Only defer DBUS answer if atril was succesfully spawned */
+                        /* Only defer DBUS answer if lector was succesfully spawned */
                         uri_invocations = g_list_prepend (uri_invocations, invocation);
                         g_hash_table_insert (application->pending_invocations,
                                              g_strdup (uri),
@@ -460,7 +460,7 @@ main (gint argc, gchar **argv)
         GError *error = NULL;
         int status;
 
-        g_set_prgname ("atril-daemon");
+        g_set_prgname ("lector-daemon");
 
         application = g_object_new (EV_TYPE_DAEMON_APPLICATION,
                                     "application-id", EV_DBUS_DAEMON_NAME,

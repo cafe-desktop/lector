@@ -1,5 +1,5 @@
 /* ev-document-forms.h
- *  this file is part of atril, a mate document viewer
+ *  this file is part of lector, a mate document viewer
  *
  * Copyright (C) 2007 Carlos Garcia Campos <carlosgc@gnome.org>
  *
@@ -19,7 +19,7 @@
  */
 
 #if !defined (__EV_ATRIL_DOCUMENT_H_INSIDE__) && !defined (ATRIL_COMPILATION)
-#error "Only <atril-document.h> can be included directly."
+#error "Only <lector-document.h> can be included directly."
 #endif
 
 #ifndef EV_DOCUMENT_FORMS_H

@@ -4418,7 +4418,7 @@
 
 2004-12-22  Martin Kretzschmar  <martink@gnome.org>
 
-	* atril.pot: remove from cvs.
+	* lector.pot: remove from cvs.
 	* de.po: update a little.
 	* POTFILES.in: update.
 	* .cvsignore: add *.mo, *.pot.

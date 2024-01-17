@@ -1,4 +1,4 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of lector, a mate document viewer
  *
  *  Copyright (C) 2009 Carlos Garcia Campos
  *
@@ -18,14 +18,14 @@
  */
 
 #if !defined (__EV_ATRIL_VIEW_H_INSIDE__) && !defined (ATRIL_COMPILATION)
-#error "Only <atril-view.h> can be included directly."
+#error "Only <lector-view.h> can be included directly."
 #endif
 
 #ifndef __EV_DOCUMENT_MODEL_H__
 #define __EV_DOCUMENT_MODEL_H__
 
 #include <glib-object.h>
-#include <atril-document.h>
+#include <lector-document.h>
 
 G_BEGIN_DECLS
 
@@ -82,7 +82,7 @@ void             ev_document_model_set_rotation      (EvDocumentModel *model,
 gint             ev_document_model_get_rotation      (EvDocumentModel *model);
 void             ev_document_model_set_inverted_colors (EvDocumentModel *model,
 						      gboolean         inverted_colors);
-void			atril_web_document_set_inverted_colors(EvDocumentModel *model,
+void			lector_web_document_set_inverted_colors(EvDocumentModel *model,
 						      gboolean         inverted_colors);
 gboolean       ev_document_model_get_inverted_colors (EvDocumentModel *model);
 void             ev_document_model_set_continuous    (EvDocumentModel *model,

@@ -1,4 +1,4 @@
-lib_LTLIBRARIES = libatrildocument.la
+lib_LTLIBRARIES = liblectordocument.la
 
 NOINST_H_FILES =				\
 	ev-debug.h				\
@@ -47,10 +47,10 @@ INST_H_FILES = 					\
 	$(INST_H_SRC_FILES)			\
 	ev-document-type-builtins.h
 
-headerdir = $(includedir)/atril/$(EV_API_VERSION)/libdocument
+headerdir = $(includedir)/lector/$(EV_API_VERSION)/libdocument
 header_DATA = $(INST_H_FILES)
 
-libatrildocument_la_SOURCES=			\
+liblectordocument_la_SOURCES=			\
 	ev-annotation.c				\
 	ev-async-renderer.c			\
 	ev-attachment.c				\
@@ -91,7 +91,7 @@ libatrildocument_la_SOURCES=			\
 	$(NOINST_H_FILES)			\
 	$(INST_H_FILES)
 
-libatrildocument_la_CPPFLAGS = \
+liblectordocument_la_CPPFLAGS = \
 	-DG_LOG_DOMAIN=\"AtrilDocument\"		\
 	-DATRIL_UIDIR=\"$(pkgdatadir)\"		\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"		\
@@ -100,20 +100,20 @@ libatrildocument_la_CPPFLAGS = \
 	-DATRIL_COMPILATION				\
 	$(AM_CPPFLAGS)
 
-libatrildocument_la_CFLAGS = \
+liblectordocument_la_CFLAGS = \
 	$(LIBDOCUMENT_CFLAGS)			\
 	$(SYNCTEX_CFLAGS)			\
 	$(WARN_CFLAGS)				\
 	$(DISABLE_DEPRECATED)			\
 	$(AM_CFLAGS)
 
-libatrildocument_la_LDFLAGS = \
+liblectordocument_la_LDFLAGS = \
 	-version-info $(EV_DOCUMENT_LT_VERSION_INFO)	\
 	-no-undefined	\
 	-export-symbols-regex "^ev_*"	\
 	$(AM_LDFLAGS)
 
-libatrildocument_la_LIBADD = \
+liblectordocument_la_LIBADD = \
 	$(LIBDOCUMENT_LIBS)	\
 	$(GMODULE_LIBS)		\
 	$(SYNCTEX_LIBS)		\
@@ -153,7 +153,7 @@ EXTRA_DIST = \
 
 if ENABLE_INTROSPECTION
 
-AtrilDocument-$(EV_API_VERSION).gir: libatrildocument.la Makefile $(INST_H_FILES) $(filter %.c,$(libatrildocument_la_SOURCES))
+AtrilDocument-$(EV_API_VERSION).gir: liblectordocument.la Makefile $(INST_H_FILES) $(filter %.c,$(liblectordocument_la_SOURCES))
 	$(AM_V_GEN) PKG_CONFIG_PATH=$(top_builddir):$$PKG_CONFIG_PATH \
 	$(G_IR_SCANNER) -v --namespace AtrilDocument \
 	--strip-prefix=Ev \
@@ -163,10 +163,10 @@ AtrilDocument-$(EV_API_VERSION).gir: libatrildocument.la Makefile $(INST_H_FILES
 	--include=Gdk-3.0 \
 	--include=GdkPixbuf-2.0 \
 	--include=Gtk-3.0 \
-	--library=atrildocument \
+	--library=lectordocument \
 	--libtool="$(LIBTOOL)" \
 	--output $@ \
-	--pkg atril-document-$(EV_API_VERSION) \
+	--pkg lector-document-$(EV_API_VERSION) \
 	-I$(top_srcdir) \
 	-I$(top_builddir) \
 	-I$(srcdir) \

@@ -20,13 +20,13 @@ AM_CPPFLAGS=							\
 	$(WARN_CFLAGS)						\
 	$(DISABLE_DEPRECATED)
 
-bin_PROGRAMS=atril
+bin_PROGRAMS=lector
 
 if ENABLE_DBUS
-libexec_PROGRAMS = atrild
+libexec_PROGRAMS = lectord
 endif
 
-atril_SOURCES=				\
+lector_SOURCES=				\
 	eggfindbar.c			\
 	eggfindbar.h			\
 	ev-annotation-properties-dialog.h \
@@ -89,30 +89,30 @@ atril_SOURCES=				\
 	ev-sidebar-thumbnails.h		\
 	main.c
 
-nodist_atril_SOURCES = \
+nodist_lector_SOURCES = \
 	ev-resources.c \
 	$(NULL)
 
 if ENABLE_DBUS
-atril_SOURCES += \
+lector_SOURCES += \
 	ev-media-player-keys.c \
 	ev-media-player-keys.h \
  	$(NULL)
-nodist_atril_SOURCES += \
+nodist_lector_SOURCES += \
 	ev-gdbus-generated.c \
 	ev-gdbus-generated.h \
 	$(NULL)
 endif
 
-atril_LDFLAGS = $(AM_LDFLAGS)
+lector_LDFLAGS = $(AM_LDFLAGS)
 
-atril_LDADD=										\
+lector_LDADD=										\
 	$(top_builddir)/cut-n-paste/zoom-control/libephyzoom.la				\
 	$(top_builddir)/cut-n-paste/toolbar-editor/libtoolbareditor.la			\
 	$(top_builddir)/cut-n-paste/smclient/libsmclient.la				\
 	$(top_builddir)/properties/libevproperties.la					\
-	$(top_builddir)/libdocument/libatrildocument.la					\
-	$(top_builddir)/libview/libatrilview.la						\
+	$(top_builddir)/libdocument/liblectordocument.la					\
+	$(top_builddir)/libview/liblectorview.la						\
 	$(top_builddir)/libmisc/libevmisc.la						\
 	$(SHELL_LIBS)
 
@@ -128,15 +128,15 @@ BUILT_SOURCES += \
 endif
 
 if ENABLE_DBUS
-atrild_SOURCES=			\
+lectord_SOURCES=			\
 	ev-daemon.c \
  	$(NULL)
-nodist_atrild_SOURCES = \
+nodist_lectord_SOURCES = \
 	ev-daemon-gdbus-generated.c \
 	ev-daemon-gdbus-generated.h
 	$(NULL)
 
-atrild_CFLAGS=				\
+lectord_CFLAGS=				\
 	-DATRILDATADIR=\"$(pkgdatadir)\"			\
 	-DMATEDATADIR=\"$(datadir)\"				\
 	-I$(top_srcdir)						\
@@ -147,23 +147,23 @@ atrild_CFLAGS=				\
 	$(WARN_CFLAGS)						\
 	$(DISABLE_DEPRECATED)
 
-atrild_LDADD=				\
+lectord_LDADD=				\
 	$(EV_DAEMON_LIBS)
 endif
 
 EXTRA_DIST = \
-	atril.about \
-	atril.css \
-	atril-ui.xml \
-	atril-toolbar.xml \
-	atril.gresource.xml \
+	lector.about \
+	lector.css \
+	lector-ui.xml \
+	lector-toolbar.xml \
+	lector.gresource.xml \
 	ev-gdbus.xml \
 	ev-daemon-gdbus.xml
 
 
 ev-gdbus-generated.c ev-gdbus-generated.h: ev-gdbus.xml Makefile
 	$(AM_V_GEN) $(GDBUS_CODEGEN) \
-			--interface-prefix=org.mate.atril \
+			--interface-prefix=org.mate.lector \
 			--c-namespace=Ev \
 			--c-generate-object-manager \
 			--generate-c-code ev-gdbus-generated \
@@ -171,13 +171,13 @@ ev-gdbus-generated.c ev-gdbus-generated.h: ev-gdbus.xml Makefile
 
 ev-daemon-gdbus-generated.c ev-daemon-gdbus-generated.h: ev-daemon-gdbus.xml Makefile
 	$(AM_V_GEN) $(GDBUS_CODEGEN) \
-			--interface-prefix=org.mate.atril \
+			--interface-prefix=org.mate.lector \
 			--c-namespace=Ev \
 			--c-generate-object-manager \
 			--generate-c-code ev-daemon-gdbus-generated \
 			$<
 
-ev-resources.c: atril.gresource.xml Makefile $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir $(srcdir) $(srcdir)/atril.gresource.xml)
+ev-resources.c: lector.gresource.xml Makefile $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir $(srcdir) $(srcdir)/lector.gresource.xml)
 	$(AM_V_GEN) XMLLINT=$(XMLLINT) $(GLIB_COMPILE_RESOURCES) --target $@ --sourcedir $(srcdir) --generate-source --c-name ev $<
 
 DISTCLEANFILES = $(BUILT_SOURCES)

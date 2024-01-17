@@ -1,5 +1,5 @@
 /* ev-annotation-properties-dialog.h
- *  this file is part of atril, a mate document viewer
+ *  this file is part of lector, a mate document viewer
  *
  * Copyright (C) 2010 Carlos Garcia Campos  <carlosgc@gnome.org>
  *
@@ -24,7 +24,7 @@
 #include <gtk/gtk.h>
 #include <glib-object.h>
 
-#include <atril-document.h>
+#include <lector-document.h>
 
 G_BEGIN_DECLS
 

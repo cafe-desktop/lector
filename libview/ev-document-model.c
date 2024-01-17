@@ -1,4 +1,4 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of lector, a mate document viewer
  *
  *  Copyright (C) 2009 Carlos Garcia Campos
  *  Copyright (C) 2005 Red Hat, Inc

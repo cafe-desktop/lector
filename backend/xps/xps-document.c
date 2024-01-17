@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; c-indent-level: 8 -*- */
-/* this file is part of atril, a mate document viewer
+/* this file is part of lector, a mate document viewer
  *
  * Copyright (C) 2010 Carlos Garcia Campos <carlosgc@gnome.org>
  *               2012 Leandro Vital <leandro.vital@yahoo.com.br>

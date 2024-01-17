@@ -1,4 +1,4 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of lector, a mate document viewer
  *
  *  Copyright (C) 2014 Avishkar Gupta
  *
@@ -1546,7 +1546,7 @@ epub_document_check_add_night_sheet(EvDocument *document)
                         font-style:italic;\
                         font-weight:bold;}";
 
-        gchar *csspath = g_strdup_printf("%s/atrilnightstyle.css",epub_document->documentdir);
+        gchar *csspath = g_strdup_printf("%s/lectornightstyle.css",epub_document->documentdir);
 
 
         GFile *styles = g_file_new_for_path (csspath);

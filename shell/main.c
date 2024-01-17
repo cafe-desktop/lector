@@ -65,10 +65,10 @@ static const GOptionEntry goption_options[] =
 {
 	{ "page-label", 'p', 0, G_OPTION_ARG_STRING, &ev_page_label, N_("The page label of the document to display."), N_("PAGE")},
 	{ "page-index", 'i', 0, G_OPTION_ARG_INT, &ev_page_index, N_("The page number of the document to display."), N_("NUMBER")},
-	{ "fullscreen", 'f', 0, G_OPTION_ARG_NONE, &fullscreen_mode, N_("Run atril in fullscreen mode"), NULL },
+	{ "fullscreen", 'f', 0, G_OPTION_ARG_NONE, &fullscreen_mode, N_("Run lector in fullscreen mode"), NULL },
 	{ "named-dest", 'n', 0, G_OPTION_ARG_STRING, &ev_named_dest, N_("Named destination to display."), N_("DEST")},
-	{ "presentation", 's', 0, G_OPTION_ARG_NONE, &presentation_mode, N_("Run atril in presentation mode"), NULL },
-	{ "preview", 'w', 0, G_OPTION_ARG_NONE, &preview_mode, N_("Run atril as a previewer"), NULL },
+	{ "presentation", 's', 0, G_OPTION_ARG_NONE, &presentation_mode, N_("Run lector in presentation mode"), NULL },
+	{ "preview", 'w', 0, G_OPTION_ARG_NONE, &preview_mode, N_("Run lector as a previewer"), NULL },
 	{ "find", 'l', 0, G_OPTION_ARG_STRING, &ev_find_string, N_("The word or phrase to find in the document"), N_("STRING")},
 	{ "unlink-tempfile", 'u', G_OPTION_FLAG_HIDDEN, G_OPTION_ARG_NONE, &unlink_temp_file, NULL, NULL },
 	{ "print-settings", 't', G_OPTION_FLAG_HIDDEN, G_OPTION_ARG_FILENAME, &print_settings, NULL, NULL },
@@ -89,7 +89,7 @@ launch_previewer (void)
 	 * not supported by the previewer and taking only
 	 * the first path given
 	 */
-	cmd_str = g_string_new ("atril-previewer");
+	cmd_str = g_string_new ("lector-previewer");
 
 	if (print_settings) {
 		gchar *quoted;
@@ -266,7 +266,7 @@ main (int argc, char *argv[])
 
 	ev_stock_icons_init ();
 
-	egg_set_desktop_file (MATEDATADIR "/applications/atril.desktop");
+	egg_set_desktop_file (MATEDATADIR "/applications/lector.desktop");
 
 	application = ev_application_new ();
 	if (!g_application_register (G_APPLICATION (application), NULL, &error)) {

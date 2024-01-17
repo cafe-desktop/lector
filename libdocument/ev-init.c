@@ -1,4 +1,4 @@
-/* this file is part of atril, a mate document viewer
+/* this file is part of lector, a mate document viewer
  *
  * Copyright © 2009 Christian Persch
  *
@@ -38,10 +38,10 @@ ev_get_locale_dir (void)
 /**
  * ev_init:
  *
- * Initializes the atril document library, and binds the atril
+ * Initializes the lector document library, and binds the lector
  * gettext domain.
  *
- * You must call this before calling any other function in the atril
+ * You must call this before calling any other function in the lector
  * document library.
  *
  * Returns: %TRUE if any backends were found; %FALSE otherwise
@@ -68,7 +68,7 @@ ev_init (void)
 /**
  * ev_shutdown:
  *
- * Shuts the atril document library down.
+ * Shuts the lector document library down.
  */
 void
 ev_shutdown (void)
@@ -86,7 +86,7 @@ ev_shutdown (void)
 /*
  * _ev_is_initialized:
  *
- * Returns: %TRUE if the atril document library has been initialized
+ * Returns: %TRUE if the lector document library has been initialized
  */
 gboolean
 _ev_is_initialized (void)

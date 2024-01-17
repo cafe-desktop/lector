@@ -23,8 +23,8 @@
 
 #include <gtk/gtk.h>
 
-#include <atril-document.h>
-#include <atril-view.h>
+#include <lector-document.h>
+#include <lector-view.h>
 
 G_BEGIN_DECLS
 
