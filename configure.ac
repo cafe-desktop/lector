@@ -77,8 +77,8 @@ AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], ["$GETTEXT_PACKAGE"], [Gettext package])
 
 m4_pattern_allow([AM_V_GEN])dnl Make autoconf not complain about the rule below
-EV_INTLTOOL_ATRIL_BACKEND_RULE='%.lector-backend:   %.lector-backend.in   $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(AM_V_GEN) LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< [$]@'
-AC_SUBST([EV_INTLTOOL_ATRIL_BACKEND_RULE])
+EV_INTLTOOL_LECTOR_BACKEND_RULE='%.lector-backend:   %.lector-backend.in   $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; $(AM_V_GEN) LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< [$]@'
+AC_SUBST([EV_INTLTOOL_LECTOR_BACKEND_RULE])
 
 GLIB_GSETTINGS
 
@@ -615,34 +615,34 @@ dnl ================== End of EPUB checks ======================================
 dnl =================== Mime types list ====================================================
 
 if test "x$enable_pdf" = "xyes" ; then
-    ATRIL_MIME_TYPES="application/pdf;application/x-bzpdf;application/x-gzpdf;application/x-xzpdf;"
+    LECTOR_MIME_TYPES="application/pdf;application/x-bzpdf;application/x-gzpdf;application/x-xzpdf;"
 fi
 if test "x$enable_ps" = "xyes" ; then
-    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/postscript;application/x-bzpostscript;application/x-gzpostscript;image/x-eps;image/x-bzeps;image/x-gzeps;"
+    LECTOR_MIME_TYPES="${LECTOR_MIME_TYPES}application/postscript;application/x-bzpostscript;application/x-gzpostscript;image/x-eps;image/x-bzeps;image/x-gzeps;"
 fi
 if test "x$enable_dvi" = "xyes"; then
-    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/x-dvi;application/x-bzdvi;application/x-gzdvi;"
+    LECTOR_MIME_TYPES="${LECTOR_MIME_TYPES}application/x-dvi;application/x-bzdvi;application/x-gzdvi;"
 fi
 if test "x$enable_djvu" = "xyes"; then
-    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}image/vnd.djvu;image/vnd.djvu+multipage;"
+    LECTOR_MIME_TYPES="${LECTOR_MIME_TYPES}image/vnd.djvu;image/vnd.djvu+multipage;"
 fi
 if test "x$enable_tiff" = "xyes"; then
-    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}image/tiff;"
+    LECTOR_MIME_TYPES="${LECTOR_MIME_TYPES}image/tiff;"
 fi
 if test "x$enable_comics" = "xyes"; then
-    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/x-cbr;application/x-cbz;application/x-cb7;application/x-cbt;application/vnd.comicbook+zip;application/vnd-comicbook.rar;"
+    LECTOR_MIME_TYPES="${LECTOR_MIME_TYPES}application/x-cbr;application/x-cbz;application/x-cb7;application/x-cbt;application/vnd.comicbook+zip;application/vnd-comicbook.rar;"
 fi
 if test "x$enable_pixbuf" = "xyes"; then
-    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}image/*;"
+    LECTOR_MIME_TYPES="${LECTOR_MIME_TYPES}image/*;"
 fi
 if test "x$enable_xps" = "xyes"; then
-    ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/oxps;application/vnd.ms-xpsdocument;"
+    LECTOR_MIME_TYPES="${LECTOR_MIME_TYPES}application/oxps;application/vnd.ms-xpsdocument;"
 fi
 if test "x$have_webkit" = "xyes"; then
-	ATRIL_MIME_TYPES="${ATRIL_MIME_TYPES}application/epub+zip;"
+	LECTOR_MIME_TYPES="${LECTOR_MIME_TYPES}application/epub+zip;"
 fi
 
-AC_SUBST(ATRIL_MIME_TYPES)
+AC_SUBST(LECTOR_MIME_TYPES)
 
 # *****************
 # Help files

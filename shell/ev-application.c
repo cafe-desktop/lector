@@ -69,9 +69,9 @@ G_DEFINE_TYPE (EvApplication, ev_application, GTK_TYPE_APPLICATION)
 #define APPLICATION_DBUS_OBJECT_PATH "/org/mate/lector/Lector"
 #define APPLICATION_DBUS_INTERFACE   "org.mate.lector.Application"
 
-#define ATRIL_DAEMON_SERVICE        "org.mate.lector.Daemon"
-#define ATRIL_DAEMON_OBJECT_PATH    "/org/mate/lector/Daemon"
-#define ATRIL_DAEMON_INTERFACE      "org.mate.lector.Daemon"
+#define LECTOR_DAEMON_SERVICE        "org.mate.lector.Daemon"
+#define LECTOR_DAEMON_OBJECT_PATH    "/org/mate/lector/Daemon"
+#define LECTOR_DAEMON_INTERFACE      "org.mate.lector.Daemon"
 #endif
 
 static const gchar *userdir = NULL;
@@ -528,9 +528,9 @@ ev_application_register_uri (EvApplication  *application,
 	data->timestamp = timestamp;
 
         g_dbus_connection_call (g_application_get_dbus_connection (G_APPLICATION (application)),
-				ATRIL_DAEMON_SERVICE,
-				ATRIL_DAEMON_OBJECT_PATH,
-				ATRIL_DAEMON_INTERFACE,
+				LECTOR_DAEMON_SERVICE,
+				LECTOR_DAEMON_OBJECT_PATH,
+				LECTOR_DAEMON_INTERFACE,
 				"RegisterDocument",
 				g_variant_new ("(s)", uri),
 				G_VARIANT_TYPE ("(s)"),
@@ -558,9 +558,9 @@ ev_application_unregister_uri (EvApplication *application,
 	 */
         value = g_dbus_connection_call_sync (
 		g_application_get_dbus_connection (G_APPLICATION (application)),
-		ATRIL_DAEMON_SERVICE,
-		ATRIL_DAEMON_OBJECT_PATH,
-		ATRIL_DAEMON_INTERFACE,
+		LECTOR_DAEMON_SERVICE,
+		LECTOR_DAEMON_OBJECT_PATH,
+		LECTOR_DAEMON_INTERFACE,
 		"UnregisterDocument",
 		g_variant_new ("(s)", uri),
 		NULL,

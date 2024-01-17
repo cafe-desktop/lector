@@ -21,7 +21,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#if !defined (__EV_ATRIL_DOCUMENT_H_INSIDE__) && !defined (ATRIL_COMPILATION)
+#if !defined (__EV_LECTOR_DOCUMENT_H_INSIDE__) && !defined (LECTOR_COMPILATION)
 #error "Only <lector-document.h> can be included directly."
 #endif
 

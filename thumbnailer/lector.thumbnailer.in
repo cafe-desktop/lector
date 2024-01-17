@@ -1,6 +1,6 @@
 [Thumbnailer Entry]
 TryExec=lector-thumbnailer
 Exec=lector-thumbnailer -s %s %u %o
-MimeType=@ATRIL_MIME_TYPES@
+MimeType=@LECTOR_MIME_TYPES@
 
 

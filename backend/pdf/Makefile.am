@@ -2,7 +2,7 @@ AM_CPPFLAGS =					\
 	-I$(top_srcdir)				\
 	-I$(top_srcdir)/libdocument		\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"  \
-	-DATRIL_COMPILATION			\
+	-DLECTOR_COMPILATION			\
 	$(BACKEND_CFLAGS)			\
 	$(POPPLER_CFLAGS)                       \
 	$(WARN_CXXFLAGS)			\

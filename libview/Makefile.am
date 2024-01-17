@@ -58,10 +58,10 @@ liblectorview_la_SOURCES = 			\
 	$(INST_H_FILES)
 
 liblectorview_la_CPPFLAGS = \
-	-DATRILDATADIR=\"$(pkgdatadir)\"	\
+	-DLECTORDATADIR=\"$(pkgdatadir)\"	\
 	-DG_LOG_DOMAIN=\"LectorView\"		\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
-	-DATRIL_COMPILATION			\
+	-DLECTOR_COMPILATION			\
 	-I$(top_srcdir)				\
 	-I$(top_srcdir)/libdocument		\
 	-I$(top_builddir)			\
@@ -149,7 +149,7 @@ LectorView-$(EV_API_VERSION).gir: liblectorview.la Makefile $(INST_H_FILES) $(fi
 	-L$(top_builddir)/libdocument/ \
 	-I$(top_srcdir) \
 	-I$(top_builddir) \
-	-DATRIL_COMPILATION \
+	-DLECTOR_COMPILATION \
 	$(filter %.h,$^) \
 	$(filter %.c,$^)
 

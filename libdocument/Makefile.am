@@ -93,11 +93,11 @@ liblectordocument_la_SOURCES=			\
 
 liblectordocument_la_CPPFLAGS = \
 	-DG_LOG_DOMAIN=\"LectorDocument\"		\
-	-DATRIL_UIDIR=\"$(pkgdatadir)\"		\
+	-DLECTOR_UIDIR=\"$(pkgdatadir)\"		\
 	-DMATELOCALEDIR=\"$(datadir)/locale\"		\
 	-DEV_BACKENDSDIR=\"$(backenddir)\"		\
 	-DEV_BACKENDSBINARYVERSION=\"$(backend_binary_version)\"	\
-	-DATRIL_COMPILATION				\
+	-DLECTOR_COMPILATION				\
 	$(AM_CPPFLAGS)
 
 liblectordocument_la_CFLAGS = \
@@ -171,7 +171,7 @@ LectorDocument-$(EV_API_VERSION).gir: liblectordocument.la Makefile $(INST_H_FIL
 	-I$(top_builddir) \
 	-I$(srcdir) \
 	-I$(builddir) \
-	-DATRIL_COMPILATION \
+	-DLECTOR_COMPILATION \
 	$(filter %.h,$^) \
 	$(filter %.c,$^)
 

@@ -579,7 +579,7 @@
 
 
 ========== mg.po ==========
-# Malagasy translation of ATRIL.
+# Malagasy translation of LECTOR.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Fano Rajaonarisoa <fano@isvtec.com>, 2006

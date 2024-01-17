@@ -29,7 +29,7 @@ thumbnailer_DATA = $(thumbnailer_in_files:.thumbnailer.in=.thumbnailer)
 
 lector.thumbnailer: $(thumbnailer_in_files)
 	$(AM_V_GEN)sed \
-		-e "s|\@ATRIL_MIME_TYPES\@|$(ATRIL_MIME_TYPES)|" \
+		-e "s|\@LECTOR_MIME_TYPES\@|$(LECTOR_MIME_TYPES)|" \
 		-e "s|application/epub+zip;||" \
 		$< > $@
 
