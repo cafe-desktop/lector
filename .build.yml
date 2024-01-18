@@ -32,13 +32,16 @@ requires:
     - libxml2-dev
     - lsb-release
     - make
-    - cafe-common
     - xsltproc
     - yelp-tools
     - zlib1g-dev
 
+    #required for cafe-common
+    - autoconf
+
 before_scripts:
   - ./html-cppcheck
+  - ./install-from-git https://github.com/cafe-desktop/cafe-common master
 
 build_scripts:
   - ./before-build
