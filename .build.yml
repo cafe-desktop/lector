@@ -12,6 +12,7 @@ requires:
     - clang-tools
     - cppcheck
     - expect #required for unbuffer
+    - gettext
     - git
     - gobject-introspection
     - gtk-doc-tools
