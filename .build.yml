@@ -23,6 +23,7 @@ requires:
     - libgxps-dev
     - libkpathsea-dev
     - libsynctex-dev
+    - libtool
     - libpoppler-glib-dev
     - libsecret-1-dev
     - libsm-dev
