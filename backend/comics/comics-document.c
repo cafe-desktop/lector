@@ -986,7 +986,7 @@ extract_argv (EvDocument *document, gint page)
 	if (g_strrstr (comics_document->page_names->pdata[page], "--checkpoint-action="))
 	{
 		g_warning ("File unsupported\n");
-		gtk_main_quit ();
+		g_application_quit (g_application_get_default ());
 	}
 
         if (page >= comics_document->page_names->len)
