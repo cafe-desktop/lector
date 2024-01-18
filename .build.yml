@@ -13,6 +13,7 @@ requires:
     - expect #required for unbuffer
     - git
     - gobject-introspection
+    - gtk-doc-tools
     - libcaja-extension-dev
     - libdjvulibre-dev
     - libgail-3-dev
