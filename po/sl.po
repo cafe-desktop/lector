@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the lector package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -471,8 +471,8 @@ msgid "Lector Document Viewer"
 msgstr "Lector pregledovalnik dokumentov"
 
 #: data/lector.appdata.xml.in:8
-msgid "A Document Viewer for the MATE desktop environment"
-msgstr "Pregledovalnik dokumentov za namizno okolje MATE"
+msgid "A Document Viewer for the CAFE desktop environment"
+msgstr "Pregledovalnik dokumentov za namizno okolje CAFE"
 
 #: data/lector.appdata.xml.in:10
 msgid ""
@@ -490,12 +490,12 @@ msgstr ""
 
 #: data/lector.appdata.xml.in:18
 msgid ""
-"Lector is a fork of Evince and part of the MATE Desktop Environment. If you "
-"would like to know more about MATE and Lector, please visit the project's "
+"Lector is a fork of Evince and part of the CAFE Desktop Environment. If you "
+"would like to know more about CAFE and Lector, please visit the project's "
 "home page."
 msgstr ""
-"Lector je priredba programa Evince in je del MATE namiznega okolja. Če želite"
-" izvedeti več o MATE in Lectoru, obiščite domačo stran projekta."
+"Lector je priredba programa Evince in je del CAFE namiznega okolja. Če želite"
+" izvedeti več o CAFE in Lectoru, obiščite domačo stran projekta."
 
 #: data/lector.desktop.in.in:4 shell/ev-window.c:5375
 #: shell/ev-window-title.c:157
@@ -516,8 +516,8 @@ msgstr "lector"
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/lector.desktop.in.in:20
-msgid "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
-msgstr "MATE;dokumenti;pregledovalnik;pdf;dvi;ps;xps;tiff;pixbuf;djvu;stripi;"
+msgid "CAFE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
+msgstr "CAFE;dokumenti;pregledovalnik;pdf;dvi;ps;xps;tiff;pixbuf;djvu;stripi;"
 
 #: data/org.cafe.Lector.gschema.xml:12
 msgid "Override document restrictions"
@@ -575,8 +575,8 @@ msgid "Print settings file"
 msgstr "Natisni datoteko nastavitev"
 
 #: previewer/ev-previewer.c:107 previewer/ev-previewer.c:141
-msgid "MATE Document Previewer"
-msgstr "Pregledovalnik dokumentov za MATE"
+msgid "CAFE Document Previewer"
+msgstr "Pregledovalnik dokumentov za CAFE"
 
 #: previewer/ev-previewer-window.c:96 shell/ev-window.c:3640
 msgid "Failed to print document"
@@ -1393,8 +1393,8 @@ msgid ""
 msgstr ""
 
 #: shell/ev-window.c:5388
-msgid "MATE Documentation Team"
-msgstr "MATE skupina za dokumente"
+msgid "CAFE Documentation Team"
+msgstr "CAFE skupina za dokumente"
 
 #: shell/ev-window.c:5389
 msgid "GNOME Documentation Team"
@@ -1440,7 +1440,7 @@ msgstr "O programu Lector pregledovalnik dokumentov"
 #: shell/ev-window.c:5448
 msgid ""
 "Copyright © 1996–2009 The Evince authors\n"
-"Copyright © 2012–2020 The MATE developers"
+"Copyright © 2012–2020 The CAFE developers"
 msgstr ""
 
 #: shell/ev-window.c:5455
@@ -1853,8 +1853,8 @@ msgid "By extension"
 msgstr "Po končnici"
 
 #: shell/main.c:58 shell/main.c:241
-msgid "MATE Document Viewer"
-msgstr "Pregledovalnik dokumentov za MATE"
+msgid "CAFE Document Viewer"
+msgstr "Pregledovalnik dokumentov za CAFE"
 
 #: shell/main.c:66
 msgid "The page label of the document to display."

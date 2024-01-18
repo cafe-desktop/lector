@@ -103,9 +103,9 @@ GTKDOC_CFLAGS = \
 	-I$(top_builddir)/libdocument                   \
 	-I$(top_builddir)/libview			\
 	-DLECTORDATADIR=\"$(pkgdatadir)\"		\
-	-DMATEDATADIR=\"$(datadir)\"			\
+	-DCAFEDATADIR=\"$(datadir)\"			\
 	-DLECTOR_UIDIR=\"$(pkgdatadir)\" 		\
-	-DMATELOCALEDIR=\"$(datadir)/locale\"		\
+	-DCAFELOCALEDIR=\"$(datadir)/locale\"		\
 	-DEV_BACKENDSDIR=\"$(backenddir)\"		\
 	-DLECTOR_COMPILATION				\
 	$(AM_CFLAGS)					\

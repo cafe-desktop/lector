@@ -25,7 +25,7 @@ msgstr ""
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
-"Ελληνική μεταφραστική ομάδα MATE\n"
+"Ελληνική μεταφραστική ομάδα CAFE\n"
 " Αλέξανδρος Μουχτσής <alexandros@gnugr.org>\n"
 "\n"
 "Για περισσότερες πληροφορίες, επισκεφθείτε την σελίδα http://www.cafe.gr/"
@@ -47,7 +47,7 @@ msgstr ""
 
 #. (itstool) path: articleinfo/copyright
 #: C/index.docbook:32
-msgid "<year>2020</year> <holder>MATE Documentation Project</holder>"
+msgid "<year>2020</year> <holder>CAFE Documentation Project</holder>"
 msgstr ""
 
 #. (itstool) path: articleinfo/copyright
@@ -63,8 +63,8 @@ msgstr "<year>2004</year> <holder>Sun Microsystems</holder>"
 #. (itstool) path: publisher/publishername
 #. (itstool) path: revdescription/para
 #: C/index.docbook:53 C/index.docbook:104
-msgid "MATE Documentation Project"
-msgstr "Έργο Τεκμηρίωσης MATE"
+msgid "CAFE Documentation Project"
+msgstr "Έργο Τεκμηρίωσης CAFE"
 
 #. (itstool) path: publisher/publishername
 #. (itstool) path: revdescription/para
@@ -93,12 +93,12 @@ msgstr ""
 #. (itstool) path: legalnotice/para
 #: C/index.docbook:12 C/legal.xml:12
 msgid ""
-"This manual is part of a collection of MATE manuals distributed under the "
+"This manual is part of a collection of CAFE manuals distributed under the "
 "GFDL. If you want to distribute this manual separately from the collection, "
 "you can do so by adding a copy of the license to the manual, as described in"
 " section 6 of the license."
 msgstr ""
-"Αυτή η τεκμηρίωση είναι μέρος της συλλογής τεκμηρίωσης του MATE όπως "
+"Αυτή η τεκμηρίωση είναι μέρος της συλλογής τεκμηρίωσης του CAFE όπως "
 "διανέμεται υπό τους όρους του GFDL. Εάν επιθυμείτε να διανείμετε αυτή την "
 "τεκμηρίωση ξεχωριστά από την συλλογή, μπορείτε να το κάνετε εάν η τεκμηρίωση"
 " συνοδεύεται από αντίγραφο της άδειας (GFDL) όπως περιγράφεται στον τομέα 6 "
@@ -108,14 +108,14 @@ msgstr ""
 #: C/index.docbook:19 C/legal.xml:19
 msgid ""
 "Many of the names used by companies to distinguish their products and "
-"services are claimed as trademarks. Where those names appear in any MATE "
-"documentation, and the members of the MATE Documentation Project are made "
+"services are claimed as trademarks. Where those names appear in any CAFE "
+"documentation, and the members of the CAFE Documentation Project are made "
 "aware of those trademarks, then the names are in capital letters or initial "
 "capital letters."
 msgstr ""
 "Πολλά από τα ονόματα που χρησιμοποιούνται από εταιρίες για να ξεχωρίσουν τα "
 "προϊόντα και τις υπηρεσίες είναι σήματα κατατεθέν. Όπου αυτά τα ονόματα "
-"εμφανίζονται στην τεκμηρίωση MATE, και τα μέλη της ομάδας τεκμηρίωσης MATE "
+"εμφανίζονται στην τεκμηρίωση CAFE, και τα μέλη της ομάδας τεκμηρίωσης CAFE "
 "έχουν γνώση αυτών, τότε αυτά αναγράφονται με κεφαλαίους χαρακτήρες ή με "
 "αρχικούς κεφαλαίους χαρακτήρες."
 
@@ -179,12 +179,12 @@ msgstr ""
 #. (itstool) path: authorgroup/author
 #: C/index.docbook:65
 msgid ""
-"<firstname>MATE Documentation Project</firstname> <surname/> "
-"<affiliation><orgname>MATE Desktop</orgname></affiliation>"
+"<firstname>CAFE Documentation Project</firstname> <surname/> "
+"<affiliation><orgname>CAFE Desktop</orgname></affiliation>"
 msgstr ""
 "<firstname>Έργο Τεκμηρίωσης "
-"MATE</firstname><surname/><affiliation><orgname>Επιφάνεια εργασίας "
-"MATE</orgname></affiliation>"
+"CAFE</firstname><surname/><affiliation><orgname>Επιφάνεια εργασίας "
+"CAFE</orgname></affiliation>"
 
 #. (itstool) path: authorgroup/author
 #: C/index.docbook:70
@@ -208,8 +208,8 @@ msgstr ""
 
 #. (itstool) path: revdescription/para
 #: C/index.docbook:103
-msgid "MATE Documentation Team"
-msgstr "Ομάδα τεκμηρίωσης MATE"
+msgid "CAFE Documentation Team"
+msgstr "Ομάδα τεκμηρίωσης CAFE"
 
 #. (itstool) path: revhistory/revision
 #: C/index.docbook:99
@@ -269,12 +269,12 @@ msgstr "Ανάδραση"
 msgid ""
 "To report a bug or make a suggestion regarding the Lector Document Viewer "
 "application or this manual, follow the directions in the <ulink url=\"help"
-":cafe-user-guide/feedback\" type=\"help\">MATE Feedback Page</ulink>."
+":cafe-user-guide/feedback\" type=\"help\">CAFE Feedback Page</ulink>."
 msgstr ""
 "Για να αναφέρετε σφάλματα ή για να υποβάλλετε προτάσεις σχετικά με το "
 "Πρόγραμμα Προβολή Εγγράφων Lector ή το σχετικά με το παρόν εγχειρίδιο, "
 "ακολουθήστε τις οδηγίες στην <ulink url=\"help:cafe-user-guide/feedback\" "
-"type=\"help\">Σελίδα ανάδραση του MATE</ulink>."
+"type=\"help\">Σελίδα ανάδραση του CAFE</ulink>."
 
 #. (itstool) path: article/indexterm
 #: C/index.docbook:136
@@ -297,13 +297,13 @@ msgid ""
 "The <application>Lector Document Viewer</application> application enables you"
 " to view documents of various formats like Portable Document Format (PDF) "
 "files and PostScript files. <application>Lector Document Viewer</application>"
-" follows Freedesktop.org and MATE standards to provide integration with "
+" follows Freedesktop.org and CAFE standards to provide integration with "
 "Desktop Environment."
 msgstr ""
 "Η εφαρμογή <application>Προβολή Εγγράφων Lector</application> σας επιτρέπει "
 "να προβάλλετε έγγραφα διαφόρων τύπων όπως αρχεία Portable Document Format "
 "(PDF) και αρχεία PostScript. Η<application>Προβολή Εγγράφων "
-"Lector</application> ακολουθεί τα στάνταρ των Freedesktop.org και MATE ώστε "
+"Lector</application> ακολουθεί τα στάνταρ των Freedesktop.org και CAFE ώστε "
 "να παρέχει ενσωμάτωση στο Περιβάλλον Εργασίας."
 
 #. (itstool) path: sect1/title

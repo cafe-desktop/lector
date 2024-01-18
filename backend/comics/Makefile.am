@@ -1,7 +1,7 @@
 AM_CPPFLAGS =                      		\
 	-I$(top_srcdir)				\
 	-I$(top_srcdir)/libdocument 		\
-	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
+	-DCAFELOCALEDIR=\"$(datadir)/locale\"	\
 	-DLECTOR_COMPILATION			\
 	$(BACKEND_CFLAGS)			\
 	$(LIB_CFLAGS)				\

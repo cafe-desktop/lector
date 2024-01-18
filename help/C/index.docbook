@@ -11,7 +11,7 @@
 
 <!-- 
       (Do not remove this comment block.)
-  Maintained by the MATE Documentation Project
+  Maintained by the CAFE Documentation Project
   http://wiki.cafe-desktop.org/dev-doc:doc-team-guide
   Template version: 2.0 beta
   Template last modified Apr 11, 2002
@@ -31,7 +31,7 @@
     </abstract>
     <copyright>
       <year>2020</year>
-      <holder>MATE Documentation Project</holder>
+      <holder>CAFE Documentation Project</holder>
     </copyright>
     <copyright>
       <year>2005</year>
@@ -50,7 +50,7 @@
 -->
 
     <publisher> 
-      <publishername> MATE Documentation Project </publishername> 
+      <publishername> CAFE Documentation Project </publishername> 
     </publisher>
     <publisher>
       <publishername> GNOME Documentation Project </publishername>
@@ -63,9 +63,9 @@
 
     <authorgroup> 
       <author role="maintainer">
-        <firstname>MATE Documentation Project</firstname>
+        <firstname>CAFE Documentation Project</firstname>
         <surname></surname>
-        <affiliation><orgname>MATE Desktop</orgname></affiliation>
+        <affiliation><orgname>CAFE Desktop</orgname></affiliation>
       </author>
       <author>
         <firstname>Sun</firstname>
@@ -100,8 +100,8 @@
         <revnumber>&appname; Manual V&manrevision;</revnumber>
 	<date>July 2015</date>
         <revdescription>
-          <para role="author">MATE Documentation Team</para>
-          <para role="publisher">MATE Documentation Project</para>
+          <para role="author">CAFE Documentation Team</para>
+          <para role="publisher">CAFE Documentation Project</para>
         </revdescription>
       </revision>
       <revision>
@@ -127,7 +127,7 @@
     </releaseinfo> 
     <legalnotice> 
       <title>Feedback</title> 
-      <para>To report a bug or make a suggestion regarding the &appname; application or this manual, follow the directions in the <ulink url="help:cafe-user-guide/feedback" type="help">MATE Feedback Page</ulink>.
+      <para>To report a bug or make a suggestion regarding the &appname; application or this manual, follow the directions in the <ulink url="help:cafe-user-guide/feedback" type="help">CAFE Feedback Page</ulink>.
       </para>
 <!-- Translators may also add here feedback address for translations -->
     </legalnotice> 
@@ -146,7 +146,7 @@
      the application is and what it does. -->
   <sect1 id="lector-introduction"> 
     <title>Introduction</title> 
-    <para>The &app; application enables you to view documents of various formats like Portable Document Format (PDF) files and PostScript files.  &app; follows Freedesktop.org and MATE standards to provide integration with Desktop Environment.
+    <para>The &app; application enables you to view documents of various formats like Portable Document Format (PDF) files and PostScript files.  &app; follows Freedesktop.org and CAFE standards to provide integration with Desktop Environment.
     </para>
   </sect1>
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2014 MATE team <cafe-dev@ml.cafe-desktop.org> -->
+<!-- Copyright 2014 CAFE team <cafe-dev@ml.cafe-desktop.org> -->
 <component type="desktop">
  <id>lector.desktop</id>
  <metadata_license>CC0-1.0</metadata_license>
  <project_license>GPL-2.0+</project_license>
  <name>Lector Document Viewer</name>
- <summary>A Document Viewer for the MATE desktop environment</summary>
+ <summary>A Document Viewer for the CAFE desktop environment</summary>
  <description>
   <p>
    Lector is a simple multi-page document viewer. It can display and
@@ -16,8 +16,8 @@
    and table-of-contents bookmarks.
   </p>
   <p>
-   Lector is a fork of Evince and part of the MATE Desktop Environment.
-   If you would like to know more about MATE and Lector, please visit the
+   Lector is a fork of Evince and part of the CAFE Desktop Environment.
+   If you would like to know more about CAFE and Lector, please visit the
    project's home page.
   </p>
  </description>
@@ -40,5 +40,5 @@
  </screenshots>
  <url type="homepage">https://cafe-desktop.org</url>
  <updatecontact>cafe-dev@ml.cafe-desktop.org</updatecontact>
- <project_group>MATE</project_group>
+ <project_group>CAFE</project_group>
 </component>

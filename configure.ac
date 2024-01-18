@@ -60,9 +60,9 @@ AC_STDC_HEADERS
 AM_PROG_LIBTOOL
 AC_PROG_SED
 
-MATE_MAINTAINER_MODE_DEFINES
-MATE_COMPILE_WARNINGS
-MATE_CXX_WARNINGS
+CAFE_MAINTAINER_MODE_DEFINES
+CAFE_COMPILE_WARNINGS
+CAFE_CXX_WARNINGS
 
 dnl FIXME: remove this when required gtk+ >= 2.19.7
 DISABLE_DEPRECATED=
@@ -297,7 +297,7 @@ AM_CONDITIONAL([ENABLE_CAJA],[test "$enable_caja" = "yes"])
 
 AC_ARG_ENABLE([thumbnailer],
   [AS_HELP_STRING([--disable-thumbnailer],
-                  [Disable MATE thumbnailer])],
+                  [Disable CAFE thumbnailer])],
   [],
   [enable_thumbnailer=yes])
 
@@ -309,7 +309,7 @@ AM_CONDITIONAL([ENABLE_THUMBNAILER],[test "$enable_thumbnailer" = "yes"])
 
 AC_ARG_ENABLE([previewer],
   [AS_HELP_STRING([--disable-previewer],
-                  [Disable the MATE Document Previewer])],
+                  [Disable the CAFE Document Previewer])],
   [],
   [enable_previewer=yes])
 

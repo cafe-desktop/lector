@@ -55,7 +55,7 @@ option_version_cb (const gchar *option_name,
                    gpointer     data,
                    GError     **error)
 {
-  g_print ("%s %s\n", _("MATE Document Viewer"), VERSION);
+  g_print ("%s %s\n", _("CAFE Document Viewer"), VERSION);
 
   exit (0);
   return FALSE;
@@ -238,7 +238,7 @@ main (int argc, char *argv[])
 
 	gdk_set_allowed_backends ("x11");
 
-	context = g_option_context_new (N_("MATE Document Viewer"));
+	context = g_option_context_new (N_("CAFE Document Viewer"));
 	g_option_context_set_translation_domain(context, GETTEXT_PACKAGE);
 	g_option_context_add_main_entries (context, goption_options, GETTEXT_PACKAGE);
 	g_option_context_add_group (context, egg_sm_client_get_option_group ());
@@ -266,7 +266,7 @@ main (int argc, char *argv[])
 
 	ev_stock_icons_init ();
 
-	egg_set_desktop_file (MATEDATADIR "/applications/lector.desktop");
+	egg_set_desktop_file (CAFEDATADIR "/applications/lector.desktop");
 
 	application = ev_application_new ();
 	if (!g_application_register (G_APPLICATION (application), NULL, &error)) {

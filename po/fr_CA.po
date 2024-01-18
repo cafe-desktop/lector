@@ -5,12 +5,12 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
+"Project-Id-Version: CAFE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-09 17:53+0300\n"
 "PO-Revision-Date: 2018-01-09 14:54+0000\n"
 "Last-Translator: Vlad Orlov <monsta@inbox.ru>\n"
-"Language-Team: French (Canada) (http://www.transifex.com/cafe/MATE/language/fr_CA/)\n"
+"Language-Team: French (Canada) (http://www.transifex.com/cafe/CAFE/language/fr_CA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -456,7 +456,7 @@ msgid "6400%"
 msgstr ""
 
 #: ../data/lector.appdata.xml.in.h:1
-msgid "A Document Viewer for the MATE desktop environment"
+msgid "A Document Viewer for the CAFE desktop environment"
 msgstr ""
 
 #: ../data/lector.appdata.xml.in.h:2
@@ -466,8 +466,8 @@ msgid ""
 "Document Format (PDF) files, as well as comic book archive files. When "
 "supported by the document, it also allows searching for text, copying text "
 "to the clipboard, hypertext navigation and table-of-contents bookmarks. </p>"
-" <p> Lector is a fork of Evince and part of the MATE Desktop Environment. If "
-"you would like to know more about MATE and Lector, please visit the project's"
+" <p> Lector is a fork of Evince and part of the CAFE Desktop Environment. If "
+"you would like to know more about CAFE and Lector, please visit the project's"
 " home page. </p>"
 msgstr ""
 
@@ -534,7 +534,7 @@ msgid "Print settings file"
 msgstr ""
 
 #: ../previewer/ev-previewer.c:107 ../previewer/ev-previewer.c:141
-msgid "MATE Document Previewer"
+msgid "CAFE Document Previewer"
 msgstr ""
 
 #: ../previewer/ev-previewer-window.c:103 ../shell/ev-window.c:3537
@@ -1356,7 +1356,7 @@ msgstr ""
 #: ../shell/ev-window.c:5261
 msgid ""
 "© 1996–2009 The Evince authors\n"
-"© 2012–2018 The MATE developers"
+"© 2012–2018 The CAFE developers"
 msgstr ""
 
 #: ../shell/ev-window.c:5267
@@ -1763,7 +1763,7 @@ msgid "By extension"
 msgstr ""
 
 #: ../shell/main.c:58 ../shell/main.c:239
-msgid "MATE Document Viewer"
+msgid "CAFE Document Viewer"
 msgstr ""
 
 #: ../shell/main.c:66

@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the lector package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -463,7 +463,7 @@ msgid "Lector Document Viewer"
 msgstr ""
 
 #: data/lector.appdata.xml.in:8
-msgid "A Document Viewer for the MATE desktop environment"
+msgid "A Document Viewer for the CAFE desktop environment"
 msgstr ""
 
 #: data/lector.appdata.xml.in:10
@@ -477,8 +477,8 @@ msgstr ""
 
 #: data/lector.appdata.xml.in:18
 msgid ""
-"Lector is a fork of Evince and part of the MATE Desktop Environment. If you "
-"would like to know more about MATE and Lector, please visit the project's "
+"Lector is a fork of Evince and part of the CAFE Desktop Environment. If you "
+"would like to know more about CAFE and Lector, please visit the project's "
 "home page."
 msgstr ""
 
@@ -501,7 +501,7 @@ msgstr ""
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/lector.desktop.in.in:20
-msgid "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
+msgid "CAFE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 msgstr ""
 
 #: data/org.cafe.Lector.gschema.xml:12
@@ -553,7 +553,7 @@ msgid "Print settings file"
 msgstr ""
 
 #: previewer/ev-previewer.c:107 previewer/ev-previewer.c:141
-msgid "MATE Document Previewer"
+msgid "CAFE Document Previewer"
 msgstr ""
 
 #: previewer/ev-previewer-window.c:96 shell/ev-window.c:3640
@@ -1340,7 +1340,7 @@ msgid ""
 msgstr ""
 
 #: shell/ev-window.c:5388
-msgid "MATE Documentation Team"
+msgid "CAFE Documentation Team"
 msgstr ""
 
 #: shell/ev-window.c:5389
@@ -1377,7 +1377,7 @@ msgstr ""
 #: shell/ev-window.c:5448
 msgid ""
 "Copyright © 1996–2009 The Evince authors\n"
-"Copyright © 2012–2020 The MATE developers"
+"Copyright © 2012–2020 The CAFE developers"
 msgstr ""
 
 #: shell/ev-window.c:5455
@@ -1787,7 +1787,7 @@ msgid "By extension"
 msgstr ""
 
 #: shell/main.c:58 shell/main.c:241
-msgid "MATE Document Viewer"
+msgid "CAFE Document Viewer"
 msgstr ""
 
 #: shell/main.c:66

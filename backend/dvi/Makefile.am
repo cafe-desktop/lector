@@ -4,7 +4,7 @@ AM_CPPFLAGS = 					\
 	-I$(top_srcdir)				\
 	-I$(top_srcdir)/libdocument		\
 	-I$(srcdir)/mdvi-lib			\
-	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
+	-DCAFELOCALEDIR=\"$(datadir)/locale\"	\
 	-DLECTOR_COMPILATION			\
 	$(WARN_CFLAGS)				\
 	$(BACKEND_CFLAGS)			\

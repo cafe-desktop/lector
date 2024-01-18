@@ -107,7 +107,7 @@
 2007-09-11  Luca Ferretti  <elle.uca@libero.it>
 
 	* it/it.po: Updated Italian translation.
-	* it/figures/lector_start_window.png: Updated to new MATE
+	* it/figures/lector_start_window.png: Updated to new CAFE
 	default theme.
 
 2007-08-22  Satoru SATOH <ss@cafe.gr.jp>
@@ -222,7 +222,7 @@
 2006-09-21  Luca Ferretti  <elle.uca@libero.it>
 
 	* it/it.po: Updated Italian translation.
-	* it/figures/lector_start_window.png: Updated to match MATE 2.16
+	* it/figures/lector_start_window.png: Updated to match CAFE 2.16
 	default theme.
 
 2006-09-16  Tommi Vainikainen  <thv@iki.fi>
