@@ -482,7 +482,7 @@
 ### lector 1.16.0
 
   * Build: require poppler 0.18.0
-  * Use GtkAboutDialog instead of MateAboutDialog
+  * Use GtkAboutDialog instead of CafeAboutDialog
   * Drop dependency on libcafe-desktop and --without-cafedesktop
     build option
   * Update toolbar-editor from libegg
@@ -517,7 +517,7 @@
 
 ### lector 1.14.0
 
-  * Drop MateConf migration script
+  * Drop CafeConf migration script
   * Update copyrights, mention CAFE team in Caja extension
   * Use org.gnome.SessionManager DBus name to inhibit screensaver
   * GTK+3: add lector-window style class to top level
@@ -596,7 +596,7 @@
   * Gtk3: Use gtk_widget_render_icon_pixbuf()
   * Gtk3: presentation: Make sure background window is black by default in presentation mode
   * Add epub support (part of GSoC 2014).
-  * Use MateAboutDialog from libcafe-desktop.
+  * Use CafeAboutDialog from libcafe-desktop.
 
 ### lector 1.8.0
 

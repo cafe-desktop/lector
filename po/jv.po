@@ -325,7 +325,7 @@ msgstr "Sanes barang sing saged dilakokna"
 
 #: cut-n-paste/smclient/eggsmclient.c:221
 msgid "Disable connection to session manager"
-msgstr "Mateni sambungan menyang manager sesi"
+msgstr "Cafeni sambungan menyang manager sesi"
 
 #: cut-n-paste/smclient/eggsmclient.c:224
 msgid "Specify file containing saved configuration"
