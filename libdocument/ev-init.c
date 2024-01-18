@@ -32,7 +32,7 @@ static int ev_init_count;
 const gchar *
 ev_get_locale_dir (void)
 {
-	return MATELOCALEDIR;
+	return CAFELOCALEDIR;
 }
 
 /**

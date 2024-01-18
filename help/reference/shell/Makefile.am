@@ -99,9 +99,9 @@ GTKDOC_CFLAGS = \
 	-I$(top_builddir)/libview			\
 	-I$(top_srcdir)/properties			\
 	-DLECTORDATADIR=\"$(pkgdatadir)\"		\
-	-DMATEDATADIR=\"$(datadir)\"			\
-	-DMATELOCALEDIR=\"$(datadir)/locale\"		\
-	-DMATEICONDIR=\""$(datadir)/pixmaps"\" 	\
+	-DCAFEDATADIR=\"$(datadir)\"			\
+	-DCAFELOCALEDIR=\"$(datadir)/locale\"		\
+	-DCAFEICONDIR=\""$(datadir)/pixmaps"\" 	\
 	-DLECTOR_COMPILATION				\
 	$(SHELL_CFLAGS)					\
 	$(WARN_CFLAGS)					\

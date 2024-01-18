@@ -60,7 +60,7 @@ liblectorview_la_SOURCES = 			\
 liblectorview_la_CPPFLAGS = \
 	-DLECTORDATADIR=\"$(pkgdatadir)\"	\
 	-DG_LOG_DOMAIN=\"LectorView\"		\
-	-DMATELOCALEDIR=\"$(datadir)/locale\"	\
+	-DCAFELOCALEDIR=\"$(datadir)/locale\"	\
 	-DLECTOR_COMPILATION			\
 	-I$(top_srcdir)				\
 	-I$(top_srcdir)/libdocument		\

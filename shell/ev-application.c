@@ -978,7 +978,7 @@ static void ev_application_class_init(EvApplicationClass* ev_application_class)
 
 static void ev_application_init(EvApplication* ev_application)
 {
-	userdir = g_getenv("MATE22_USER_DIR");
+	userdir = g_getenv("CAFE22_USER_DIR");
 
 	if (userdir)
 	{

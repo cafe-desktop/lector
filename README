@@ -13,7 +13,7 @@ This software is licensed under the GPL
 
 Lector Requirements
 ==================================================
-MATE Platform libraries [ https://github.com/cafe-desktop/ ]
+CAFE Platform libraries [ https://github.com/cafe-desktop/ ]
 Poppler for PDF viewing [ http://poppler.freedesktop.org/ ]
 GhostScript for Postscript viewing [ http://www.cs.wisc.edu/~ghost/ ]
 

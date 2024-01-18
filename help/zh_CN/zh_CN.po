@@ -52,7 +52,7 @@ msgstr "Lector Document Viewer应用程序使您可以查看各种格式的文�
 
 #. (itstool) path: articleinfo/copyright
 #: C/index.docbook:32
-msgid "<year>2020</year> <holder>MATE Documentation Project</holder>"
+msgid "<year>2020</year> <holder>CAFE Documentation Project</holder>"
 msgstr ""
 
 #. (itstool) path: articleinfo/copyright
@@ -68,8 +68,8 @@ msgstr "<year>2004</year> <holder>Sun Microsystems</holder>"
 #. (itstool) path: publisher/publishername
 #. (itstool) path: revdescription/para
 #: C/index.docbook:53 C/index.docbook:104
-msgid "MATE Documentation Project"
-msgstr "MATE 文档项目"
+msgid "CAFE Documentation Project"
+msgstr "CAFE 文档项目"
 
 #. (itstool) path: publisher/publishername
 #. (itstool) path: revdescription/para
@@ -94,24 +94,24 @@ msgstr ""
 #. (itstool) path: legalnotice/para
 #: C/index.docbook:12 C/legal.xml:12
 msgid ""
-"This manual is part of a collection of MATE manuals distributed under the "
+"This manual is part of a collection of CAFE manuals distributed under the "
 "GFDL. If you want to distribute this manual separately from the collection, "
 "you can do so by adding a copy of the license to the manual, as described in"
 " section 6 of the license."
 msgstr ""
-"本手册是在 GFDL 许可之下分发的 MATE 手册集合的一部分。如果想要单独分发此手册，可以在手册中添加该许可证的一份副本然后分发，如该许可证的第 6"
+"本手册是在 GFDL 许可之下分发的 CAFE 手册集合的一部分。如果想要单独分发此手册，可以在手册中添加该许可证的一份副本然后分发，如该许可证的第 6"
 " 部分所述。"
 
 #. (itstool) path: legalnotice/para
 #: C/index.docbook:19 C/legal.xml:19
 msgid ""
 "Many of the names used by companies to distinguish their products and "
-"services are claimed as trademarks. Where those names appear in any MATE "
-"documentation, and the members of the MATE Documentation Project are made "
+"services are claimed as trademarks. Where those names appear in any CAFE "
+"documentation, and the members of the CAFE Documentation Project are made "
 "aware of those trademarks, then the names are in capital letters or initial "
 "capital letters."
 msgstr ""
-"各个公司使用的许多用于区别它们产品和服务的名称都声明为商标。在所有的 MATE 文档以及 MATE "
+"各个公司使用的许多用于区别它们产品和服务的名称都声明为商标。在所有的 CAFE 文档以及 CAFE "
 "文档项目的成员中，这些名称都是以全大写字母或首字母大写显示，从而表明它们是商标。"
 
 #. (itstool) path: listitem/para
@@ -158,10 +158,10 @@ msgstr "本文档和文档是根据 GNU 免费文档许可协议的条款提供�
 #. (itstool) path: authorgroup/author
 #: C/index.docbook:65
 msgid ""
-"<firstname>MATE Documentation Project</firstname> <surname/> "
-"<affiliation><orgname>MATE Desktop</orgname></affiliation>"
+"<firstname>CAFE Documentation Project</firstname> <surname/> "
+"<affiliation><orgname>CAFE Desktop</orgname></affiliation>"
 msgstr ""
-"<firstname>MATE 文档项目</firstname> <surname/> <affiliation><orgname>MATE "
+"<firstname>CAFE 文档项目</firstname> <surname/> <affiliation><orgname>CAFE "
 "桌面</orgname></affiliation>"
 
 #. (itstool) path: authorgroup/author
@@ -186,8 +186,8 @@ msgstr ""
 
 #. (itstool) path: revdescription/para
 #: C/index.docbook:103
-msgid "MATE Documentation Team"
-msgstr "MATE 文档团队"
+msgid "CAFE Documentation Team"
+msgstr "CAFE 文档团队"
 
 #. (itstool) path: revhistory/revision
 #: C/index.docbook:99
@@ -246,10 +246,10 @@ msgstr "反馈"
 msgid ""
 "To report a bug or make a suggestion regarding the Lector Document Viewer "
 "application or this manual, follow the directions in the <ulink url=\"help"
-":cafe-user-guide/feedback\" type=\"help\">MATE Feedback Page</ulink>."
+":cafe-user-guide/feedback\" type=\"help\">CAFE Feedback Page</ulink>."
 msgstr ""
 "要报告有关Lector 文档查看器应用程序或本手册的错误或提出建议，请按照<ulink url=\"help:cafe-user-"
-"guide/feedback\" type=\"help\">MATE反馈页面</ulink>中的说明进行操作。"
+"guide/feedback\" type=\"help\">CAFE反馈页面</ulink>中的说明进行操作。"
 
 #. (itstool) path: article/indexterm
 #: C/index.docbook:136
@@ -272,12 +272,12 @@ msgid ""
 "The <application>Lector Document Viewer</application> application enables you"
 " to view documents of various formats like Portable Document Format (PDF) "
 "files and PostScript files. <application>Lector Document Viewer</application>"
-" follows Freedesktop.org and MATE standards to provide integration with "
+" follows Freedesktop.org and CAFE standards to provide integration with "
 "Desktop Environment."
 msgstr ""
 "<application>Lector "
 "文档查看</application>应用程序让您可以查看各种格式的文档，如可移植文档格式（PDF）文件和PostScript文件.<application>Lector"
-" 文档查看遵循</application>Freedesktop.org和MATE标准，提供与桌面环境的集成。"
+" 文档查看遵循</application>Freedesktop.org和CAFE标准，提供与桌面环境的集成。"
 
 #. (itstool) path: sect1/title
 #: C/index.docbook:156

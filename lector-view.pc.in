@@ -4,7 +4,7 @@ libdir=@libdir@
 includedir=@includedir@/lector/@EV_API_VERSION@
 
 Name: Lector View
-Description: MATE document viewer view library
+Description: CAFE document viewer view library
 Version: @VERSION@
 Requires: lector-document-@EV_API_VERSION@ = @VERSION@ gthread-2.0
 Libs: -L${libdir} -llectorview

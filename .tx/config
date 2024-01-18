@@ -1,14 +1,14 @@
 [main]
 host = https://www.transifex.com
  
-[MATE.master--lector]
+[CAFE.master--lector]
 file_filter = po/<lang>.po
 source_file = lector.pot
 source_lang = en
 type = PO
 minimum_perc = 2
 
-[MATE.master--lector-user-guide]
+[CAFE.master--lector-user-guide]
 file_filter = help/<lang>/<lang>.po
 source_file = help/lector.pot
 source_lang = en

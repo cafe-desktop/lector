@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the lector package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -476,8 +476,8 @@ msgid "Lector Document Viewer"
 msgstr "Lector Documentweergave"
 
 #: data/lector.appdata.xml.in:8
-msgid "A Document Viewer for the MATE desktop environment"
-msgstr "Documentweergave voor de MATE-werkomgeving"
+msgid "A Document Viewer for the CAFE desktop environment"
+msgstr "Documentweergave voor de CAFE-werkomgeving"
 
 #: data/lector.appdata.xml.in:10
 msgid ""
@@ -496,12 +496,12 @@ msgstr ""
 
 #: data/lector.appdata.xml.in:18
 msgid ""
-"Lector is a fork of Evince and part of the MATE Desktop Environment. If you "
-"would like to know more about MATE and Lector, please visit the project's "
+"Lector is a fork of Evince and part of the CAFE Desktop Environment. If you "
+"would like to know more about CAFE and Lector, please visit the project's "
 "home page."
 msgstr ""
-"Lector is een vork van Evince en maakt deel uit van de werkomgeving MATE. Als"
-" u meer wilt weten over MATE en Lector, bezoek dan a.u.b. de thuispagina van "
+"Lector is een vork van Evince en maakt deel uit van de werkomgeving CAFE. Als"
+" u meer wilt weten over CAFE en Lector, bezoek dan a.u.b. de thuispagina van "
 "het project."
 
 #: data/lector.desktop.in.in:4 shell/ev-window.c:5375
@@ -523,8 +523,8 @@ msgstr "lector"
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/lector.desktop.in.in:20
-msgid "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
-msgstr "MATE;document;kijker;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
+msgid "CAFE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
+msgstr "CAFE;document;kijker;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 
 #: data/org.cafe.Lector.gschema.xml:12
 msgid "Override document restrictions"
@@ -581,8 +581,8 @@ msgid "Print settings file"
 msgstr "Het instellingenbestand afdrukken"
 
 #: previewer/ev-previewer.c:107 previewer/ev-previewer.c:141
-msgid "MATE Document Previewer"
-msgstr "MATE Documentvoorbeeldweergave"
+msgid "CAFE Document Previewer"
+msgstr "CAFE Documentvoorbeeldweergave"
 
 #: previewer/ev-previewer-window.c:96 shell/ev-window.c:3640
 msgid "Failed to print document"
@@ -1399,8 +1399,8 @@ msgstr ""
 "en SyncTeX %s"
 
 #: shell/ev-window.c:5388
-msgid "MATE Documentation Team"
-msgstr "Documentatieploeg van MATE"
+msgid "CAFE Documentation Team"
+msgstr "Documentatieploeg van CAFE"
 
 #: shell/ev-window.c:5389
 msgid "GNOME Documentation Team"
@@ -1448,10 +1448,10 @@ msgstr "Over Lector Documentkijker"
 #: shell/ev-window.c:5448
 msgid ""
 "Copyright © 1996–2009 The Evince authors\n"
-"Copyright © 2012–2020 The MATE developers"
+"Copyright © 2012–2020 The CAFE developers"
 msgstr ""
 "Auteursrecht © 1996–2009 De makers van Evince\n"
-"Auteursrecht © 2012-2020 MATE-ontwikkelaars"
+"Auteursrecht © 2012-2020 CAFE-ontwikkelaars"
 
 #: shell/ev-window.c:5455
 msgid "translator-credits"
@@ -1873,8 +1873,8 @@ msgid "By extension"
 msgstr "Op extensie"
 
 #: shell/main.c:58 shell/main.c:241
-msgid "MATE Document Viewer"
-msgstr "MATE Documentweergave"
+msgid "CAFE Document Viewer"
+msgstr "CAFE Documentweergave"
 
 #: shell/main.c:66
 msgid "The page label of the document to display."

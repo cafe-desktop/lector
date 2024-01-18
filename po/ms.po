@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the lector package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -468,8 +468,8 @@ msgid "Lector Document Viewer"
 msgstr "Pelihat Dokumen Lector"
 
 #: data/lector.appdata.xml.in:8
-msgid "A Document Viewer for the MATE desktop environment"
-msgstr "Pelihat Dokumen untuk persekitaran desktop MATE"
+msgid "A Document Viewer for the CAFE desktop environment"
+msgstr "Pelihat Dokumen untuk persekitaran desktop CAFE"
 
 #: data/lector.appdata.xml.in:10
 msgid ""
@@ -487,12 +487,12 @@ msgstr ""
 
 #: data/lector.appdata.xml.in:18
 msgid ""
-"Lector is a fork of Evince and part of the MATE Desktop Environment. If you "
-"would like to know more about MATE and Lector, please visit the project's "
+"Lector is a fork of Evince and part of the CAFE Desktop Environment. If you "
+"would like to know more about CAFE and Lector, please visit the project's "
 "home page."
 msgstr ""
 "Lector merupakan cabang Evince dan sebahagian dari Persekitaran Atas Meja "
-"MATE. Jika anda mahu ketahui lebih lanjut mengenai MATE dan Lector, sila "
+"CAFE. Jika anda mahu ketahui lebih lanjut mengenai CAFE dan Lector, sila "
 "lawati laman sesawang projek."
 
 #: data/lector.desktop.in.in:4 shell/ev-window.c:5375
@@ -514,8 +514,8 @@ msgstr "lector"
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/lector.desktop.in.in:20
-msgid "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
-msgstr "MATE;dokumen;pelihat;pdf;dvi;ps;xps;tiff;pixbuf;djvu;komik;"
+msgid "CAFE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
+msgstr "CAFE;dokumen;pelihat;pdf;dvi;ps;xps;tiff;pixbuf;djvu;komik;"
 
 #: data/org.cafe.Lector.gschema.xml:12
 msgid "Override document restrictions"
@@ -569,8 +569,8 @@ msgid "Print settings file"
 msgstr "Cetak fail tetapan"
 
 #: previewer/ev-previewer.c:107 previewer/ev-previewer.c:141
-msgid "MATE Document Previewer"
-msgstr "Prapapar Dokumen MATE"
+msgid "CAFE Document Previewer"
+msgstr "Prapapar Dokumen CAFE"
 
 #: previewer/ev-previewer-window.c:96 shell/ev-window.c:3640
 msgid "Failed to print document"
@@ -1377,8 +1377,8 @@ msgid ""
 msgstr ""
 
 #: shell/ev-window.c:5388
-msgid "MATE Documentation Team"
-msgstr "Pasukan Dokumentasi MATE"
+msgid "CAFE Documentation Team"
+msgstr "Pasukan Dokumentasi CAFE"
 
 #: shell/ev-window.c:5389
 msgid "GNOME Documentation Team"
@@ -1425,7 +1425,7 @@ msgstr "Perihal Pelihat Dokumen Lector"
 #: shell/ev-window.c:5448
 msgid ""
 "Copyright © 1996–2009 The Evince authors\n"
-"Copyright © 2012–2020 The MATE developers"
+"Copyright © 2012–2020 The CAFE developers"
 msgstr ""
 
 #: shell/ev-window.c:5455
@@ -1836,8 +1836,8 @@ msgid "By extension"
 msgstr "Mengikut sambungan"
 
 #: shell/main.c:58 shell/main.c:241
-msgid "MATE Document Viewer"
-msgstr "Pelihat Dokumen MATE"
+msgid "CAFE Document Viewer"
+msgstr "Pelihat Dokumen CAFE"
 
 #: shell/main.c:66
 msgid "The page label of the document to display."

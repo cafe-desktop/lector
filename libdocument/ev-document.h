@@ -278,7 +278,7 @@ register_lector_backend (GTypeModule *module)					\
 	};									\
 										\
 	/* Initialise the i18n stuff */						\
-	bindtextdomain (GETTEXT_PACKAGE, MATELOCALEDIR);			\
+	bindtextdomain (GETTEXT_PACKAGE, CAFELOCALEDIR);			\
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");			\
                                                                                 \
 	g_define_type_id = g_type_module_register_type (module,		        \

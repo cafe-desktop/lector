@@ -247,13 +247,13 @@ struct _EvWindowPrivate {
 #define ZOOM_CONTROL_ACTION	"ViewZoom"
 #define NAVIGATION_ACTION	"Navigation"
 
-#define MATE_LOCKDOWN_SCHEMA       "org.cafe.lockdown"
-#define MATE_LOCKDOWN_SAVE         "disable-save-to-disk"
-#define MATE_LOCKDOWN_PRINT        "disable-printing"
-#define MATE_LOCKDOWN_PRINT_SETUP  "disable-print-setup"
+#define CAFE_LOCKDOWN_SCHEMA       "org.cafe.lockdown"
+#define CAFE_LOCKDOWN_SAVE         "disable-save-to-disk"
+#define CAFE_LOCKDOWN_PRINT        "disable-printing"
+#define CAFE_LOCKDOWN_PRINT_SETUP  "disable-print-setup"
 
-#define MATE_INTERFACE_SCHEMA      "org.cafe.interface"
-#define MATE_INTERFACE_TB_STYLE    "toolbar-style"
+#define CAFE_INTERFACE_SCHEMA      "org.cafe.interface"
+#define CAFE_INTERFACE_TB_STYLE    "toolbar-style"
 
 #ifdef ENABLE_DBUS
 #define EV_WINDOW_DBUS_OBJECT_PATH "/org/cafe/lector/Window/%d"
@@ -469,12 +469,12 @@ ev_window_setup_action_sensitivity (EvWindow *ev_window)
 		ok_to_print = FALSE;
 
 	if (has_document && ev_window->priv->lockdown_settings &&
-	    g_settings_get_boolean (ev_window->priv->lockdown_settings, MATE_LOCKDOWN_SAVE)) {
+	    g_settings_get_boolean (ev_window->priv->lockdown_settings, CAFE_LOCKDOWN_SAVE)) {
 		ok_to_copy = FALSE;
 	}
 
 	if (has_document && ev_window->priv->lockdown_settings &&
-	    g_settings_get_boolean (ev_window->priv->lockdown_settings, MATE_LOCKDOWN_PRINT)) {
+	    g_settings_get_boolean (ev_window->priv->lockdown_settings, CAFE_LOCKDOWN_PRINT)) {
 		ok_to_print = FALSE;
 	}
 
@@ -1616,7 +1616,7 @@ ev_window_setup_toolbar_flags (EvWindow *ev_window)
 	EggTbModelFlags flags = egg_toolbars_model_get_flags(ev_window->priv->toolbars_model, 0);
 	char *style;
 	if (ev_window->priv->interface_settings &&
-	    (style = g_settings_get_string (ev_window->priv->interface_settings, MATE_INTERFACE_TB_STYLE))) {
+	    (style = g_settings_get_string (ev_window->priv->interface_settings, CAFE_INTERFACE_TB_STYLE))) {
 		flags &= ~EGG_TB_MODEL_STYLES_MASK;
 		if (!strcmp (style, "both")) {
 			flags |= EGG_TB_MODEL_BOTH;
@@ -1694,12 +1694,12 @@ ev_window_setup_document (EvWindow *ev_window)
 
         ev_window_ensure_settings (ev_window);
 
-	GSettingsSchema *schema_cafe_lockdown_schema = g_settings_schema_source_lookup (g_settings_schema_source_get_default(), MATE_LOCKDOWN_SCHEMA, FALSE);
+	GSettingsSchema *schema_cafe_lockdown_schema = g_settings_schema_source_lookup (g_settings_schema_source_get_default(), CAFE_LOCKDOWN_SCHEMA, FALSE);
 	if (schema_cafe_lockdown_schema != NULL) {
 		g_settings_schema_unref (schema_cafe_lockdown_schema);
 
 		if (!ev_window->priv->lockdown_settings)
-			ev_window->priv->lockdown_settings = g_settings_new (MATE_LOCKDOWN_SCHEMA);
+			ev_window->priv->lockdown_settings = g_settings_new (CAFE_LOCKDOWN_SCHEMA);
 		g_signal_connect (ev_window->priv->lockdown_settings,
 					 "changed",
 					 G_CALLBACK (lockdown_changed),
@@ -3781,7 +3781,7 @@ ev_window_print_range (EvWindow *ev_window,
 
 	if (ev_window->priv->lockdown_settings)
 		ev_print_operation_set_embed_page_setup (op, !g_settings_get_boolean (ev_window->priv->lockdown_settings,
-												 MATE_LOCKDOWN_PRINT_SETUP));
+												 CAFE_LOCKDOWN_PRINT_SETUP));
 	else
 		ev_print_operation_set_embed_page_setup (op, TRUE);
 
@@ -5337,7 +5337,7 @@ static void
 ev_window_cmd_help_about (GtkAction *action, EvWindow *ev_window)
 {
 	const char *documenters[] = {
-		N_("MATE Documentation Team"),
+		N_("CAFE Documentation Team"),
 		N_("GNOME Documentation Team"),
 		NULL
 	};
@@ -5398,7 +5398,7 @@ ev_window_cmd_help_about (GtkAction *action, EvWindow *ev_window)
 		"version", VERSION,
 		"title", _("About Lector Document Viewer"),
 		"copyright", _("Copyright \xc2\xa9 1996–2009 The Evince authors\n"
-		               "Copyright \xc2\xa9 2012–2020 The MATE developers"),
+		               "Copyright \xc2\xa9 2012–2020 The CAFE developers"),
 		"license", license_trans,
 		"website", "https://cafe-desktop.org/",
 		"comments", comments,
@@ -7873,12 +7873,12 @@ ev_window_init (EvWindow *ev_window)
 			       "model", ev_window->priv->toolbars_model,
 			       NULL));
 
-	GSettingsSchema *schema_cafe_interface_schema = g_settings_schema_source_lookup (g_settings_schema_source_get_default(), MATE_INTERFACE_SCHEMA, FALSE);
+	GSettingsSchema *schema_cafe_interface_schema = g_settings_schema_source_lookup (g_settings_schema_source_get_default(), CAFE_INTERFACE_SCHEMA, FALSE);
 	if (schema_cafe_interface_schema != NULL) {
 		g_settings_schema_unref (schema_cafe_interface_schema);
 
 		if (!ev_window->priv->interface_settings)
-			ev_window->priv->interface_settings = g_settings_new (MATE_INTERFACE_SCHEMA);
+			ev_window->priv->interface_settings = g_settings_new (CAFE_INTERFACE_SCHEMA);
 		g_signal_connect (ev_window->priv->interface_settings,
 				  "changed",
 				  G_CALLBACK (interface_changed),

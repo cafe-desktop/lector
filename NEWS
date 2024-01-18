@@ -518,7 +518,7 @@
 ### lector 1.14.0
 
   * Drop MateConf migration script
-  * Update copyrights, mention MATE team in Caja extension
+  * Update copyrights, mention CAFE team in Caja extension
   * Use org.gnome.SessionManager DBus name to inhibit screensaver
   * GTK+3: add lector-window style class to top level
   * GTK+3: add css name EggToolbarEditor for 3.20

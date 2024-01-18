@@ -94,7 +94,7 @@ liblectordocument_la_SOURCES=			\
 liblectordocument_la_CPPFLAGS = \
 	-DG_LOG_DOMAIN=\"LectorDocument\"		\
 	-DLECTOR_UIDIR=\"$(pkgdatadir)\"		\
-	-DMATELOCALEDIR=\"$(datadir)/locale\"		\
+	-DCAFELOCALEDIR=\"$(datadir)/locale\"		\
 	-DEV_BACKENDSDIR=\"$(backenddir)\"		\
 	-DEV_BACKENDSBINARYVERSION=\"$(backend_binary_version)\"	\
 	-DLECTOR_COMPILATION				\

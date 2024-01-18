@@ -1,6 +1,6 @@
 AM_CPPFLAGS=							\
 	-DLECTORDATADIR=\"$(pkgdatadir)\"				\
-	-DMATEDATADIR=\"$(datadir)\"				\
+	-DCAFEDATADIR=\"$(datadir)\"				\
 	-I$(top_srcdir)						\
 	-I$(top_builddir)					\
 	-I$(top_srcdir)/cut-n-paste/zoom-control/		\
@@ -12,7 +12,7 @@ AM_CPPFLAGS=							\
 	-I$(top_builddir)/libview				\
 	-I$(top_srcdir)/libmisc					\
 	-I$(top_srcdir)/properties				\
-	-DMATEICONDIR=\""$(datadir)/pixmaps"\" 		\
+	-DCAFEICONDIR=\""$(datadir)/pixmaps"\" 		\
 	-DBINDIR=\""$(bindir)"\"				\
 	-DLIBEXECDIR=\""$(libexecdir)"\"			\
 	-DLECTOR_COMPILATION					\
@@ -138,7 +138,7 @@ nodist_lectord_SOURCES = \
 
 lectord_CFLAGS=				\
 	-DLECTORDATADIR=\"$(pkgdatadir)\"			\
-	-DMATEDATADIR=\"$(datadir)\"				\
+	-DCAFEDATADIR=\"$(datadir)\"				\
 	-I$(top_srcdir)						\
 	-I$(top_builddir)					\
 	-DLIBEXECDIR=\""$(libexecdir)"\"			\

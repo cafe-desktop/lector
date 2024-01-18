@@ -1,5 +1,5 @@
 /*
- * Ghostscript widget for GTK/MATE
+ * Ghostscript widget for GTK/CAFE
  *
  * Copyright 1998 - 2005 The Free Software Foundation
  *

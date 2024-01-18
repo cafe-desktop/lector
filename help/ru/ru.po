@@ -77,7 +77,7 @@ msgstr ""
 
 #. (itstool) path: articleinfo/copyright
 #: C/index.docbook:32
-msgid "<year>2020</year> <holder>MATE Documentation Project</holder>"
+msgid "<year>2020</year> <holder>CAFE Documentation Project</holder>"
 msgstr ""
 
 #. (itstool) path: articleinfo/copyright
@@ -93,8 +93,8 @@ msgstr "<year>2004</year> <holder>Sun Microsystems</holder>"
 #. (itstool) path: publisher/publishername
 #. (itstool) path: revdescription/para
 #: C/index.docbook:53 C/index.docbook:104
-msgid "MATE Documentation Project"
-msgstr "Проект документирования MATE"
+msgid "CAFE Documentation Project"
+msgstr "Проект документирования CAFE"
 
 #. (itstool) path: publisher/publishername
 #. (itstool) path: revdescription/para
@@ -123,12 +123,12 @@ msgstr ""
 #. (itstool) path: legalnotice/para
 #: C/index.docbook:12 C/legal.xml:12
 msgid ""
-"This manual is part of a collection of MATE manuals distributed under the "
+"This manual is part of a collection of CAFE manuals distributed under the "
 "GFDL. If you want to distribute this manual separately from the collection, "
 "you can do so by adding a copy of the license to the manual, as described in"
 " section 6 of the license."
 msgstr ""
-"Этот документ является частью документации MATE, распространяемой на "
+"Этот документ является частью документации CAFE, распространяемой на "
 "условиях лицензии GFDL. Если вы хотите распространять этот документ отдельно"
 " от общей документации, вы должны приложить копию лицензии к документу, как "
 "написано в части 6 лицензии."
@@ -137,14 +137,14 @@ msgstr ""
 #: C/index.docbook:19 C/legal.xml:19
 msgid ""
 "Many of the names used by companies to distinguish their products and "
-"services are claimed as trademarks. Where those names appear in any MATE "
-"documentation, and the members of the MATE Documentation Project are made "
+"services are claimed as trademarks. Where those names appear in any CAFE "
+"documentation, and the members of the CAFE Documentation Project are made "
 "aware of those trademarks, then the names are in capital letters or initial "
 "capital letters."
 msgstr ""
 "Некоторые имена и марки используются компаниями для обозначения их продуктов"
 " и услуг и являются торговыми марками. Там, где эти имена присутствуют в "
-"документации и где участники проекта документирования MATE знают об этом, "
+"документации и где участники проекта документирования CAFE знают об этом, "
 "имена выделяются заглавными буквами или начальной заглавной буквой."
 
 #. (itstool) path: listitem/para
@@ -210,11 +210,11 @@ msgstr ""
 #. (itstool) path: authorgroup/author
 #: C/index.docbook:65
 msgid ""
-"<firstname>MATE Documentation Project</firstname> <surname/> "
-"<affiliation><orgname>MATE Desktop</orgname></affiliation>"
+"<firstname>CAFE Documentation Project</firstname> <surname/> "
+"<affiliation><orgname>CAFE Desktop</orgname></affiliation>"
 msgstr ""
-"<firstname>Проект документирования MATE</firstname> <surname/> "
-"<affiliation><orgname>Рабочий стол MATE</orgname></affiliation>"
+"<firstname>Проект документирования CAFE</firstname> <surname/> "
+"<affiliation><orgname>Рабочий стол CAFE</orgname></affiliation>"
 
 #. (itstool) path: authorgroup/author
 #: C/index.docbook:70
@@ -238,8 +238,8 @@ msgstr ""
 
 #. (itstool) path: revdescription/para
 #: C/index.docbook:103
-msgid "MATE Documentation Team"
-msgstr "Команда документирования MATE"
+msgid "CAFE Documentation Team"
+msgstr "Команда документирования CAFE"
 
 #. (itstool) path: revhistory/revision
 #: C/index.docbook:99
@@ -300,12 +300,12 @@ msgstr "Обратная связь"
 msgid ""
 "To report a bug or make a suggestion regarding the Lector Document Viewer "
 "application or this manual, follow the directions in the <ulink url=\"help"
-":cafe-user-guide/feedback\" type=\"help\">MATE Feedback Page</ulink>."
+":cafe-user-guide/feedback\" type=\"help\">CAFE Feedback Page</ulink>."
 msgstr ""
 "Чтобы сообщить об ошибке или внести предложение, связанное с просмотрщиком "
 "документов Lector или этим руководством, следуйте инструкциям на <ulink "
 "url=\"help:cafe-user-guide/feedback\" type=\"help\">странице обратной связи "
-"MATE</ulink>."
+"CAFE</ulink>."
 
 #. (itstool) path: article/indexterm
 #: C/index.docbook:136
@@ -328,14 +328,14 @@ msgid ""
 "The <application>Lector Document Viewer</application> application enables you"
 " to view documents of various formats like Portable Document Format (PDF) "
 "files and PostScript files. <application>Lector Document Viewer</application>"
-" follows Freedesktop.org and MATE standards to provide integration with "
+" follows Freedesktop.org and CAFE standards to provide integration with "
 "Desktop Environment."
 msgstr ""
 "<application>Просмотрщик документов Lector</application> позволяет "
 "просматривать документы различных форматов, в том числе файлы Portable "
 "Document Format (PDF) и файлы PostScript. <application>Просмотрщик "
 "документов Lector</application> соответствует стандартам Freedesktop.org и "
-"MATE, что обеспечивает интеграцию со средой рабочего стола."
+"CAFE, что обеспечивает интеграцию со средой рабочего стола."
 
 #. (itstool) path: sect1/title
 #: C/index.docbook:156
