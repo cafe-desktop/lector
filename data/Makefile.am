@@ -34,7 +34,7 @@ $(desktop_DATA): $(DESKTOP_IN_FILES)
 #
 if ENABLE_DBUS
 servicedir = $(datadir)/dbus-1/services
-service_in_files = org.mate.lector.Daemon.service.in
+service_in_files = org.cafe.lector.Daemon.service.in
 service_DATA = $(service_in_files:.service.in=.service)
 
 $(service_DATA): $(service_in_files) Makefile
@@ -53,7 +53,7 @@ $(appdata_DATA): $(appdata_in_files)
 #
 # GSettings schema
 #
-gsettings_SCHEMAS = org.mate.Lector.gschema.xml
+gsettings_SCHEMAS = org.cafe.Lector.gschema.xml
 
 .PRECIOUS: $(gsettings_SCHEMAS)
 
@@ -89,7 +89,7 @@ EXTRA_DIST =					\
 	$(DESKTOP_IN_FILES)			\
 	$(appdata_in_files)			\
 	$(gsettings_SCHEMAS)			\
-	org.mate.lector.Daemon.service.in	\
+	org.cafe.lector.Daemon.service.in	\
 	$(man_MANS)				\
 	$(NULL)
 

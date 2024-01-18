@@ -1,5 +1,5 @@
 /* ev-sidebar-attachments.c
- *  this file is part of lector, a mate document viewer
+ *  this file is part of lector, a cafe document viewer
  *
  * Copyright (C) 2006 Carlos Garcia Campos
  *
@@ -105,7 +105,7 @@ icon_theme_get_pixbuf_from_mime_type (GtkIconTheme *icon_theme,
 	if (!separator)
 		return NULL; /* maybe we should return a GError with "invalid MIME-type" */
 
-	icon_name = g_string_new ("mate-mime-");
+	icon_name = g_string_new ("cafe-mime-");
 	g_string_append_len (icon_name, mime_type, separator - mime_type);
 	g_string_append_c (icon_name, '-');
 	g_string_append (icon_name, separator + 1);
@@ -114,7 +114,7 @@ icon_theme_get_pixbuf_from_mime_type (GtkIconTheme *icon_theme,
 	if (pixbuf)
 		return pixbuf;
 
-	icon_name = g_string_new ("mate-mime-");
+	icon_name = g_string_new ("cafe-mime-");
 	g_string_append_len (icon_name, mime_type, separator - mime_type);
 	pixbuf = gtk_icon_theme_load_icon (icon_theme, icon_name->str, 48, 0, NULL);
 	g_string_free (icon_name, TRUE);

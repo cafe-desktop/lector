@@ -12,11 +12,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: lector 1.23.1\n"
-"Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
+"Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
 "POT-Creation-Date: 2020-01-10 10:49+0100\n"
 "PO-Revision-Date: 2018-03-11 14:35+0000\n"
 "Last-Translator: Daniel <danny3@tutanota.com>, 2019\n"
-"Language-Team: Romanian (https://www.transifex.com/mate/teams/13566/ro/)\n"
+"Language-Team: Romanian (https://www.transifex.com/cafe/teams/13566/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -511,38 +511,38 @@ msgstr ""
 msgid "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 msgstr ""
 
-#: data/org.mate.Lector.gschema.xml:12
+#: data/org.cafe.Lector.gschema.xml:12
 msgid "Override document restrictions"
 msgstr "Ignoră restricțiile documentului"
 
-#: data/org.mate.Lector.gschema.xml:13
+#: data/org.cafe.Lector.gschema.xml:13
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Ignoră restricțiile documentului, precum cele referitoare la copiere sau "
 "tipărire."
 
-#: data/org.mate.Lector.gschema.xml:17
+#: data/org.cafe.Lector.gschema.xml:17
 msgid "Automatically reload the document"
 msgstr "Reincarca documentul automat"
 
-#: data/org.mate.Lector.gschema.xml:18
+#: data/org.cafe.Lector.gschema.xml:18
 msgid "Whether the document is automatically reloaded on file change."
 msgstr "Daca documentul va fi reincarcat automat la modificarea fisierului"
 
-#: data/org.mate.Lector.gschema.xml:22
+#: data/org.cafe.Lector.gschema.xml:22
 msgid "The URI of the directory last used to open or save a document."
 msgstr ""
 "Calea ultimului director folosit pentru deschidere ori salvare documente "
 
-#: data/org.mate.Lector.gschema.xml:26
+#: data/org.cafe.Lector.gschema.xml:26
 msgid "The URI of the directory last used to save a picture."
 msgstr "Calea ultimului director folosit pentru a salva o imagine"
 
-#: data/org.mate.Lector.gschema.xml:30
+#: data/org.cafe.Lector.gschema.xml:30
 msgid "Page cache size in MiB"
 msgstr "Marimea memoriei cache a pagini in MiB"
 
-#: data/org.mate.Lector.gschema.xml:31
+#: data/org.cafe.Lector.gschema.xml:31
 msgid ""
 "The maximum size that will be used to cache rendered pages, limits maximum "
 "zoom level."
@@ -550,7 +550,7 @@ msgstr ""
 "Memoria maxina folosita pentru a retine paginile finalizate, limiteaza "
 "nivelul maxim pentru zoom"
 
-#: data/org.mate.Lector.gschema.xml:35
+#: data/org.cafe.Lector.gschema.xml:35
 msgid ""
 "Show a dialog to confirm that the user wants to activate the caret "
 "navigation."

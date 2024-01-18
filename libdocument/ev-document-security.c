@@ -1,5 +1,5 @@
 /* ev-document-links.h
- *  this file is part of lector, a mate document_links viewer
+ *  this file is part of lector, a cafe document_links viewer
  *
  * Copyright (C) 2004 Red Hat, Inc.
  *

@@ -13,7 +13,7 @@
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
 # Matheus Macabu <mkbu95@gmail.com>, 2018
 # Marcus Vinícius Marques, 2018
-# Wolfgang Ulbrich <mate@raveit.de>, 2018
+# Wolfgang Ulbrich <cafe@raveit.de>, 2018
 # Gilberto José Souza Coutinho <gilberto.jsc@gmail.com>, 2018
 # Carlos Eduardo Serpa de Sousa <cess@cin.ufpe.br>, 2018
 # 18ab4449a00621534598e84a949423ea, 2018
@@ -33,11 +33,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: lector 1.23.1\n"
-"Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
+"Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
 "POT-Creation-Date: 2020-01-10 10:49+0100\n"
 "PO-Revision-Date: 2018-03-11 14:35+0000\n"
 "Last-Translator: 5acc437dbd3aa90c67ad62b144688347, 2019\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/mate/teams/13566/pt_BR/)\n"
+"Language-Team: Portuguese (Brazil) (https://www.transifex.com/cafe/teams/13566/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -534,38 +534,38 @@ msgstr ""
 msgid "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 msgstr ""
 
-#: data/org.mate.Lector.gschema.xml:12
+#: data/org.cafe.Lector.gschema.xml:12
 msgid "Override document restrictions"
 msgstr "Sobrepor restrições do documento"
 
-#: data/org.mate.Lector.gschema.xml:13
+#: data/org.cafe.Lector.gschema.xml:13
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Sobrepor restrições do documento, tais como restrições para copiar texto ou "
 "imprimir."
 
-#: data/org.mate.Lector.gschema.xml:17
+#: data/org.cafe.Lector.gschema.xml:17
 msgid "Automatically reload the document"
 msgstr "Recarga automática do documento"
 
-#: data/org.mate.Lector.gschema.xml:18
+#: data/org.cafe.Lector.gschema.xml:18
 msgid "Whether the document is automatically reloaded on file change."
 msgstr ""
 "Se o documento será recarregado automaticamente se o arquivo for modificado."
 
-#: data/org.mate.Lector.gschema.xml:22
+#: data/org.cafe.Lector.gschema.xml:22
 msgid "The URI of the directory last used to open or save a document."
 msgstr "URI da última pasta utilizada ao abrir ou salvar um documento."
 
-#: data/org.mate.Lector.gschema.xml:26
+#: data/org.cafe.Lector.gschema.xml:26
 msgid "The URI of the directory last used to save a picture."
 msgstr "URI da última pasta utilizada ao salvar uma imagem."
 
-#: data/org.mate.Lector.gschema.xml:30
+#: data/org.cafe.Lector.gschema.xml:30
 msgid "Page cache size in MiB"
 msgstr "Tamanho do cache de páginas em MiB"
 
-#: data/org.mate.Lector.gschema.xml:31
+#: data/org.cafe.Lector.gschema.xml:31
 msgid ""
 "The maximum size that will be used to cache rendered pages, limits maximum "
 "zoom level."
@@ -573,7 +573,7 @@ msgstr ""
 "Tamanho máximo a utilizar para o cache de páginas já processadas. Limita o "
 "nível máximo de zoom."
 
-#: data/org.mate.Lector.gschema.xml:35
+#: data/org.cafe.Lector.gschema.xml:35
 msgid ""
 "Show a dialog to confirm that the user wants to activate the caret "
 "navigation."

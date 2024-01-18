@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; c-indent-level: 8 -*- */
-/* this file is part of evince, a mate document viewer
+/* this file is part of evince, a cafe document viewer
  *
  * Copyright (C) 2014 Igalia S.L.
  *

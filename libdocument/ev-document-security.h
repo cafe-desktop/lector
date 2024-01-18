@@ -1,5 +1,5 @@
 /* ev-document-security.h
- *  this file is part of lector, a mate pdf viewer
+ *  this file is part of lector, a cafe pdf viewer
  *
  * Copyright (C) 2005 Red Hat, Inc.
  *

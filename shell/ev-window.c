@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; c-indent-level: 8 -*- */
-/* this file is part of lector, a mate document viewer
+/* this file is part of lector, a cafe document viewer
  *
  *  Copyright (C) 2009 Juanjo Marín <juanj.marin@juntadeandalucia.es>
  *  Copyright (C) 2008 Carlos Garcia Campos
@@ -247,20 +247,20 @@ struct _EvWindowPrivate {
 #define ZOOM_CONTROL_ACTION	"ViewZoom"
 #define NAVIGATION_ACTION	"Navigation"
 
-#define MATE_LOCKDOWN_SCHEMA       "org.mate.lockdown"
+#define MATE_LOCKDOWN_SCHEMA       "org.cafe.lockdown"
 #define MATE_LOCKDOWN_SAVE         "disable-save-to-disk"
 #define MATE_LOCKDOWN_PRINT        "disable-printing"
 #define MATE_LOCKDOWN_PRINT_SETUP  "disable-print-setup"
 
-#define MATE_INTERFACE_SCHEMA      "org.mate.interface"
+#define MATE_INTERFACE_SCHEMA      "org.cafe.interface"
 #define MATE_INTERFACE_TB_STYLE    "toolbar-style"
 
 #ifdef ENABLE_DBUS
-#define EV_WINDOW_DBUS_OBJECT_PATH "/org/mate/lector/Window/%d"
-#define EV_WINDOW_DBUS_INTERFACE   "org.mate.lector.Window"
+#define EV_WINDOW_DBUS_OBJECT_PATH "/org/cafe/lector/Window/%d"
+#define EV_WINDOW_DBUS_INTERFACE   "org.cafe.lector.Window"
 #endif
 
-#define GS_SCHEMA_NAME           "org.mate.Lector"
+#define GS_SCHEMA_NAME           "org.cafe.Lector"
 #define GS_OVERRIDE_RESTRICTIONS "override-restrictions"
 #define GS_PAGE_CACHE_SIZE       "page-cache-size"
 #define GS_AUTO_RELOAD           "auto-reload"
@@ -285,7 +285,7 @@ struct _EvWindowPrivate {
 
 #define MAX_RECENT_ITEM_LEN (40)
 
-#define TOOLBAR_RESOURCE_PATH "/org/mate/lector/shell/ui/toolbar.xml"
+#define TOOLBAR_RESOURCE_PATH "/org/cafe/lector/shell/ui/toolbar.xml"
 
 static const gchar *document_print_settings[] = {
 	GTK_PRINT_SETTINGS_N_COPIES,
@@ -1694,9 +1694,9 @@ ev_window_setup_document (EvWindow *ev_window)
 
         ev_window_ensure_settings (ev_window);
 
-	GSettingsSchema *schema_mate_lockdown_schema = g_settings_schema_source_lookup (g_settings_schema_source_get_default(), MATE_LOCKDOWN_SCHEMA, FALSE);
-	if (schema_mate_lockdown_schema != NULL) {
-		g_settings_schema_unref (schema_mate_lockdown_schema);
+	GSettingsSchema *schema_cafe_lockdown_schema = g_settings_schema_source_lookup (g_settings_schema_source_get_default(), MATE_LOCKDOWN_SCHEMA, FALSE);
+	if (schema_cafe_lockdown_schema != NULL) {
+		g_settings_schema_unref (schema_cafe_lockdown_schema);
 
 		if (!ev_window->priv->lockdown_settings)
 			ev_window->priv->lockdown_settings = g_settings_new (MATE_LOCKDOWN_SCHEMA);
@@ -5365,7 +5365,7 @@ ev_window_cmd_help_about (GtkAction *action, EvWindow *ev_window)
 	char **authors;
 	gsize n_authors = 0, i;
 
-	bytes = g_resources_lookup_data ("/org/mate/lector/shell/lector.about", G_RESOURCE_LOOKUP_FLAGS_NONE, &error);
+	bytes = g_resources_lookup_data ("/org/cafe/lector/shell/lector.about", G_RESOURCE_LOOKUP_FLAGS_NONE, &error);
 	g_assert_no_error (error);
 
 	data = g_bytes_get_data (bytes, &data_len);
@@ -5400,7 +5400,7 @@ ev_window_cmd_help_about (GtkAction *action, EvWindow *ev_window)
 		"copyright", _("Copyright \xc2\xa9 1996–2009 The Evince authors\n"
 		               "Copyright \xc2\xa9 2012–2020 The MATE developers"),
 		"license", license_trans,
-		"website", "https://mate-desktop.org/",
+		"website", "https://cafe-desktop.org/",
 		"comments", comments,
 		"authors", authors,
 		"documenters", documenters,
@@ -7065,7 +7065,7 @@ do_action_named (EvWindow *window, EvLinkAction *action)
 	} else {
 		g_warning ("Unimplemented named action: %s, please post a "
 		           "bug report on Lector bug tracker "
-		           "(https://github.com/mate-desktop/lector/issues) with a testcase.",
+		           "(https://github.com/cafe-desktop/lector/issues) with a testcase.",
 			   name);
 	}
 }
@@ -7830,13 +7830,13 @@ ev_window_init (EvWindow *ev_window)
 					    action_group, 0);
 
 	gtk_ui_manager_add_ui_from_resource (ev_window->priv->ui_manager,
-	                                     "/org/mate/lector/shell/ui/lector.xml",
+	                                     "/org/cafe/lector/shell/ui/lector.xml",
 	                                     &error);
 	g_assert_no_error (error);
 
 	css_provider = gtk_css_provider_new ();
 	_gtk_css_provider_load_from_resource (css_provider,
-					      "/org/mate/lector/shell/ui/lector.css",
+					      "/org/cafe/lector/shell/ui/lector.css",
 					      &error);
 	g_assert_no_error (error);
 	gtk_style_context_add_provider_for_screen (gtk_widget_get_screen (GTK_WIDGET (ev_window)),
@@ -7873,9 +7873,9 @@ ev_window_init (EvWindow *ev_window)
 			       "model", ev_window->priv->toolbars_model,
 			       NULL));
 
-	GSettingsSchema *schema_mate_interface_schema = g_settings_schema_source_lookup (g_settings_schema_source_get_default(), MATE_INTERFACE_SCHEMA, FALSE);
-	if (schema_mate_interface_schema != NULL) {
-		g_settings_schema_unref (schema_mate_interface_schema);
+	GSettingsSchema *schema_cafe_interface_schema = g_settings_schema_source_lookup (g_settings_schema_source_get_default(), MATE_INTERFACE_SCHEMA, FALSE);
+	if (schema_cafe_interface_schema != NULL) {
+		g_settings_schema_unref (schema_cafe_interface_schema);
 
 		if (!ev_window->priv->interface_settings)
 			ev_window->priv->interface_settings = g_settings_new (MATE_INTERFACE_SCHEMA);

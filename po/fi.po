@@ -16,11 +16,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: lector 1.23.1\n"
-"Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
+"Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
 "POT-Creation-Date: 2020-01-10 10:49+0100\n"
 "PO-Revision-Date: 2018-03-11 14:35+0000\n"
 "Last-Translator: Teemu Piippo <crimsondusk64@gmail.com>, 2020\n"
-"Language-Team: Finnish (https://www.transifex.com/mate/teams/13566/fi/)\n"
+"Language-Team: Finnish (https://www.transifex.com/cafe/teams/13566/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -513,37 +513,37 @@ msgstr ""
 msgid "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 msgstr ""
 
-#: data/org.mate.Lector.gschema.xml:12
+#: data/org.cafe.Lector.gschema.xml:12
 msgid "Override document restrictions"
 msgstr "Ohita asiakirjan rajoitukset"
 
-#: data/org.mate.Lector.gschema.xml:13
+#: data/org.cafe.Lector.gschema.xml:13
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Ohita asiakirjan rajoitukset, kuten kopioinnin tai tulostuksen rajoitus."
 
-#: data/org.mate.Lector.gschema.xml:17
+#: data/org.cafe.Lector.gschema.xml:17
 msgid "Automatically reload the document"
 msgstr "Automaattisesti uudelleenlataa asiakirja"
 
-#: data/org.mate.Lector.gschema.xml:18
+#: data/org.cafe.Lector.gschema.xml:18
 msgid "Whether the document is automatically reloaded on file change."
 msgstr "Ladataanko asiakirja automaattisesti uudelleen tiedoston muuttuessa."
 
-#: data/org.mate.Lector.gschema.xml:22
+#: data/org.cafe.Lector.gschema.xml:22
 msgid "The URI of the directory last used to open or save a document."
 msgstr ""
 "Asiakirjan avaamiseen tai tallentamiseen viimeksi käytetty hakemiston URI."
 
-#: data/org.mate.Lector.gschema.xml:26
+#: data/org.cafe.Lector.gschema.xml:26
 msgid "The URI of the directory last used to save a picture."
 msgstr "Kuvan tallentamiseen viimeksi käytetyn hakemiston URI."
 
-#: data/org.mate.Lector.gschema.xml:30
+#: data/org.cafe.Lector.gschema.xml:30
 msgid "Page cache size in MiB"
 msgstr "Sivun välimuistin koko MiB"
 
-#: data/org.mate.Lector.gschema.xml:31
+#: data/org.cafe.Lector.gschema.xml:31
 msgid ""
 "The maximum size that will be used to cache rendered pages, limits maximum "
 "zoom level."
@@ -551,7 +551,7 @@ msgstr ""
 "Enimmäiskoko, jota käytetään muokattujen sivujen välimuistiin, rajoittaa "
 "zoomauksen suurinta tasoa."
 
-#: data/org.mate.Lector.gschema.xml:35
+#: data/org.cafe.Lector.gschema.xml:35
 msgid ""
 "Show a dialog to confirm that the user wants to activate the caret "
 "navigation."

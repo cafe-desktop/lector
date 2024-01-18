@@ -1,5 +1,5 @@
 /* ev-keyring.c
- *  this file is part of lector, a mate document viewer
+ *  this file is part of lector, a cafe document viewer
  *
  * Copyright (C) 2008 Carlos Garcia Campos <carlosgc@gnome.org>
  *
@@ -28,7 +28,7 @@
 #include <libsecret/secret.h>
 
 static const SecretSchema doc_password_schema = {
-	"org.mate.Lector.Document",
+	"org.cafe.Lector.Document",
 	SECRET_SCHEMA_DONT_MATCH_NAME,
 	{
 		{ "type", SECRET_SCHEMA_ATTRIBUTE_STRING },

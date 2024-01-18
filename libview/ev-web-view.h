@@ -1,7 +1,7 @@
-/* this file is part of lector, a mate document viewer
+/* this file is part of lector, a cafe document viewer
  *
  *  Copyright (C) 2014 Avishkar Gupta
- *  Based on ev-view.h, also a part of lector, a mate document viewer
+ *  Based on ev-view.h, also a part of lector, a cafe document viewer
  *
  * Lector is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by

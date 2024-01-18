@@ -1,4 +1,4 @@
-/* this file is part of lector, a mate document viewer
+/* this file is part of lector, a cafe document viewer
  *
  *  Copyright (C) 2004 Martin Kretzschmar
  *  Copyright © 2010, 2012 Christian Persch
@@ -66,12 +66,12 @@ struct _EvApplicationClass {
 G_DEFINE_TYPE (EvApplication, ev_application, GTK_TYPE_APPLICATION)
 
 #ifdef ENABLE_DBUS
-#define APPLICATION_DBUS_OBJECT_PATH "/org/mate/lector/Lector"
-#define APPLICATION_DBUS_INTERFACE   "org.mate.lector.Application"
+#define APPLICATION_DBUS_OBJECT_PATH "/org/cafe/lector/Lector"
+#define APPLICATION_DBUS_INTERFACE   "org.cafe.lector.Application"
 
-#define LECTOR_DAEMON_SERVICE        "org.mate.lector.Daemon"
-#define LECTOR_DAEMON_OBJECT_PATH    "/org/mate/lector/Daemon"
-#define LECTOR_DAEMON_INTERFACE      "org.mate.lector.Daemon"
+#define LECTOR_DAEMON_SERVICE        "org.cafe.lector.Daemon"
+#define LECTOR_DAEMON_OBJECT_PATH    "/org/cafe/lector/Daemon"
+#define LECTOR_DAEMON_INTERFACE      "org.cafe.lector.Daemon"
 #endif
 
 static const gchar *userdir = NULL;

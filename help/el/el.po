@@ -6,15 +6,15 @@
 # kosmmart <kosmmartak@gmail.com>, 2018
 # TheDimitris15 <dhmhtrhs150@gmail.com>, 2019
 # anvo <fragos.george@hotmail.com>, 2019
-# Wolfgang Ulbrich <mate@raveit.de>, 2019
+# Wolfgang Ulbrich <cafe@raveit.de>, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2020-01-10 10:49+0100\n"
 "PO-Revision-Date: 2018-09-18 09:08+0000\n"
-"Last-Translator: Wolfgang Ulbrich <mate@raveit.de>, 2019\n"
-"Language-Team: Greek (https://www.transifex.com/mate/teams/13566/el/)\n"
+"Last-Translator: Wolfgang Ulbrich <cafe@raveit.de>, 2019\n"
+"Language-Team: Greek (https://www.transifex.com/cafe/teams/13566/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,7 +28,7 @@ msgstr ""
 "Ελληνική μεταφραστική ομάδα MATE\n"
 " Αλέξανδρος Μουχτσής <alexandros@gnugr.org>\n"
 "\n"
-"Για περισσότερες πληροφορίες, επισκεφθείτε την σελίδα http://www.mate.gr/"
+"Για περισσότερες πληροφορίες, επισκεφθείτε την σελίδα http://www.cafe.gr/"
 
 #. (itstool) path: articleinfo/title
 #: C/index.docbook:25
@@ -269,11 +269,11 @@ msgstr "Ανάδραση"
 msgid ""
 "To report a bug or make a suggestion regarding the Lector Document Viewer "
 "application or this manual, follow the directions in the <ulink url=\"help"
-":mate-user-guide/feedback\" type=\"help\">MATE Feedback Page</ulink>."
+":cafe-user-guide/feedback\" type=\"help\">MATE Feedback Page</ulink>."
 msgstr ""
 "Για να αναφέρετε σφάλματα ή για να υποβάλλετε προτάσεις σχετικά με το "
 "Πρόγραμμα Προβολή Εγγράφων Lector ή το σχετικά με το παρόν εγχειρίδιο, "
-"ακολουθήστε τις οδηγίες στην <ulink url=\"help:mate-user-guide/feedback\" "
+"ακολουθήστε τις οδηγίες στην <ulink url=\"help:cafe-user-guide/feedback\" "
 "type=\"help\">Σελίδα ανάδραση του MATE</ulink>."
 
 #. (itstool) path: article/indexterm

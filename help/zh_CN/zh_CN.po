@@ -3,7 +3,7 @@
 # liushuyu011 <liushuyu011@gmail.com>, 2018
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
 # 玉堂白鹤 <yjwork@qq.com>, 2018
-# Wolfgang Ulbrich <mate@raveit.de>, 2018
+# Wolfgang Ulbrich <cafe@raveit.de>, 2018
 # biqiu-ssw <shenshuaiwen@gmail.com>, 2018
 # CNAmira <forucial@icloud.com>, 2018
 # zhineng404 <zhinengge@gmail.com>, 2019
@@ -14,7 +14,7 @@ msgstr ""
 "POT-Creation-Date: 2020-01-10 10:49+0100\n"
 "PO-Revision-Date: 2018-09-18 09:08+0000\n"
 "Last-Translator: zhineng404 <zhinengge@gmail.com>, 2019\n"
-"Language-Team: Chinese (China) (https://www.transifex.com/mate/teams/13566/zh_CN/)\n"
+"Language-Team: Chinese (China) (https://www.transifex.com/cafe/teams/13566/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -246,9 +246,9 @@ msgstr "反馈"
 msgid ""
 "To report a bug or make a suggestion regarding the Lector Document Viewer "
 "application or this manual, follow the directions in the <ulink url=\"help"
-":mate-user-guide/feedback\" type=\"help\">MATE Feedback Page</ulink>."
+":cafe-user-guide/feedback\" type=\"help\">MATE Feedback Page</ulink>."
 msgstr ""
-"要报告有关Lector 文档查看器应用程序或本手册的错误或提出建议，请按照<ulink url=\"help:mate-user-"
+"要报告有关Lector 文档查看器应用程序或本手册的错误或提出建议，请按照<ulink url=\"help:cafe-user-"
 "guide/feedback\" type=\"help\">MATE反馈页面</ulink>中的说明进行操作。"
 
 #. (itstool) path: article/indexterm

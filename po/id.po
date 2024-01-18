@@ -21,11 +21,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: lector 1.23.1\n"
-"Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
+"Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
 "POT-Creation-Date: 2020-01-10 10:49+0100\n"
 "PO-Revision-Date: 2018-03-11 14:35+0000\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>, 2020\n"
-"Language-Team: Indonesian (https://www.transifex.com/mate/teams/13566/id/)\n"
+"Language-Team: Indonesian (https://www.transifex.com/cafe/teams/13566/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -517,36 +517,36 @@ msgstr "lector"
 msgid "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 msgstr ""
 
-#: data/org.mate.Lector.gschema.xml:12
+#: data/org.cafe.Lector.gschema.xml:12
 msgid "Override document restrictions"
 msgstr "Timpa batasan dokumen"
 
-#: data/org.mate.Lector.gschema.xml:13
+#: data/org.cafe.Lector.gschema.xml:13
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr "Timpa batasan dokumen, seperti batasan untuk menyalin atau mencetak."
 
-#: data/org.mate.Lector.gschema.xml:17
+#: data/org.cafe.Lector.gschema.xml:17
 msgid "Automatically reload the document"
 msgstr "Secara otomatis memuat ulang dokumen"
 
-#: data/org.mate.Lector.gschema.xml:18
+#: data/org.cafe.Lector.gschema.xml:18
 msgid "Whether the document is automatically reloaded on file change."
 msgstr "Apakah dokumen secara otomatis dimuat ulang saat berkas berubah."
 
-#: data/org.mate.Lector.gschema.xml:22
+#: data/org.cafe.Lector.gschema.xml:22
 msgid "The URI of the directory last used to open or save a document."
 msgstr ""
 "URI direktori yang terakhir dipakai untuk membuka atau menyimpan dokumen."
 
-#: data/org.mate.Lector.gschema.xml:26
+#: data/org.cafe.Lector.gschema.xml:26
 msgid "The URI of the directory last used to save a picture."
 msgstr "URI direktori yang terakhir dipakai untuk menyimpan gambar."
 
-#: data/org.mate.Lector.gschema.xml:30
+#: data/org.cafe.Lector.gschema.xml:30
 msgid "Page cache size in MiB"
 msgstr "Ukuran singgahan halaman dalam MiB"
 
-#: data/org.mate.Lector.gschema.xml:31
+#: data/org.cafe.Lector.gschema.xml:31
 msgid ""
 "The maximum size that will be used to cache rendered pages, limits maximum "
 "zoom level."
@@ -554,7 +554,7 @@ msgstr ""
 "Ukuran maksimum yang akan dipakai untuk menyinggah halaman yang dirender, "
 "membatasi tingkat zum maksimum."
 
-#: data/org.mate.Lector.gschema.xml:35
+#: data/org.cafe.Lector.gschema.xml:35
 msgid ""
 "Show a dialog to confirm that the user wants to activate the caret "
 "navigation."
@@ -1420,7 +1420,7 @@ msgstr ""
 "Mohammad DAMT <mdamt@bisnisweb.com>\n"
 "Ahmad Riza H Nst  <ari@160c.afraid.org>\n"
 "Dirgita <dirgita@gmail.com>\n"
-"Tim MATE Indonesia <http://id.mate.org>\n"
+"Tim MATE Indonesia <http://id.cafe.org>\n"
 "Kukuh Syafaat <syafaatkukuh@gmail.com>, 2017."
 
 #: shell/ev-window.c:5749
