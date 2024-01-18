@@ -1,4 +1,4 @@
-/* this file is part of lector, a mate document viewer
+/* this file is part of lector, a cafe document viewer
  *
  *  Copyright (C) 2009 Carlos Garcia Campos
  *

@@ -28,9 +28,9 @@
 #include <glib.h>
 #include <gio/gio.h>
 
-#define SD_NAME        "org.mate.SettingsDaemon"
-#define SD_OBJECT_PATH "/org/mate/SettingsDaemon/MediaKeys"
-#define SD_INTERFACE   "org.mate.SettingsDaemon.MediaKeys"
+#define SD_NAME        "org.cafe.SettingsDaemon"
+#define SD_OBJECT_PATH "/org/cafe/SettingsDaemon/MediaKeys"
+#define SD_INTERFACE   "org.cafe.SettingsDaemon.MediaKeys"
 
 enum {
 	KEY_PRESSED,

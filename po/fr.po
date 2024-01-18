@@ -5,7 +5,7 @@
 # 
 # Translators:
 # rogue_spectre <rogue-spectre@laposte.net>, 2018
-# Wolfgang Ulbrich <mate@raveit.de>, 2018
+# Wolfgang Ulbrich <cafe@raveit.de>, 2018
 # Nicolas Roelandt (Personnel), 2018
 # jeremy shields <jeremy.shields@orange.fr>, 2018
 # Laurent Napias <tamplan+transifex@free.fr>, 2018
@@ -26,11 +26,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: lector 1.23.1\n"
-"Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
+"Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
 "POT-Creation-Date: 2020-01-10 10:49+0100\n"
 "PO-Revision-Date: 2018-03-11 14:35+0000\n"
 "Last-Translator: David D, 2019\n"
-"Language-Team: French (https://www.transifex.com/mate/teams/13566/fr/)\n"
+"Language-Team: French (https://www.transifex.com/cafe/teams/13566/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -528,40 +528,40 @@ msgstr ""
 msgid "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 msgstr ""
 
-#: data/org.mate.Lector.gschema.xml:12
+#: data/org.cafe.Lector.gschema.xml:12
 msgid "Override document restrictions"
 msgstr "Passer outre les restrictions du document"
 
-#: data/org.mate.Lector.gschema.xml:13
+#: data/org.cafe.Lector.gschema.xml:13
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Passer outre les restrictions du document, par exemple sur la copie ou "
 "l'impression."
 
-#: data/org.mate.Lector.gschema.xml:17
+#: data/org.cafe.Lector.gschema.xml:17
 msgid "Automatically reload the document"
 msgstr "Actualiser automatiquement le document"
 
-#: data/org.mate.Lector.gschema.xml:18
+#: data/org.cafe.Lector.gschema.xml:18
 msgid "Whether the document is automatically reloaded on file change."
 msgstr ""
 "Indique si le document est rechargé automatiquement à chaque modification du"
 " fichier"
 
-#: data/org.mate.Lector.gschema.xml:22
+#: data/org.cafe.Lector.gschema.xml:22
 msgid "The URI of the directory last used to open or save a document."
 msgstr ""
 "L'URI du dernier répertoire utilisé pour ouvrir ou sauvegarder un document"
 
-#: data/org.mate.Lector.gschema.xml:26
+#: data/org.cafe.Lector.gschema.xml:26
 msgid "The URI of the directory last used to save a picture."
 msgstr "L'URI du dernier répertoire utilisé pour sauvegarder une image"
 
-#: data/org.mate.Lector.gschema.xml:30
+#: data/org.cafe.Lector.gschema.xml:30
 msgid "Page cache size in MiB"
 msgstr "Taille du cache pour la page en MiB"
 
-#: data/org.mate.Lector.gschema.xml:31
+#: data/org.cafe.Lector.gschema.xml:31
 msgid ""
 "The maximum size that will be used to cache rendered pages, limits maximum "
 "zoom level."
@@ -569,7 +569,7 @@ msgstr ""
 "La taille maximum qui sera mise en cache pour afficher les pages, ce qui "
 "limite les possibilités de rapprochement"
 
-#: data/org.mate.Lector.gschema.xml:35
+#: data/org.cafe.Lector.gschema.xml:35
 msgid ""
 "Show a dialog to confirm that the user wants to activate the caret "
 "navigation."
@@ -1459,7 +1459,7 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Contributeurs au projet MATE :\n"
-"Voir https://www.transifex.com/mate/teams/13566/fr/\n"
+"Voir https://www.transifex.com/cafe/teams/13566/fr/\n"
 "\n"
 "Contributeurs au projet GNOME :\n"
 "Vincent Renardias <vincent@ldsol.com>, 1998-2000.\n"

@@ -3,8 +3,8 @@
 ##########################################################
 requires:
   debian:
-    # Useful URL: https://github.com/mate-desktop/debian-packages
-    # Useful URL: https://salsa.debian.org/debian-mate-team/lector
+    # Useful URL: https://github.com/cafe-desktop/debian-packages
+    # Useful URL: https://salsa.debian.org/debian-cafe-team/lector
     - aptitude
     - autopoint
     - clang
@@ -32,7 +32,7 @@ requires:
     - libxml2-dev
     - lsb-release
     - make
-    - mate-common
+    - cafe-common
     - xsltproc
     - yelp-tools
     - zlib1g-dev

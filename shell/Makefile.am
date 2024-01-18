@@ -163,7 +163,7 @@ EXTRA_DIST = \
 
 ev-gdbus-generated.c ev-gdbus-generated.h: ev-gdbus.xml Makefile
 	$(AM_V_GEN) $(GDBUS_CODEGEN) \
-			--interface-prefix=org.mate.lector \
+			--interface-prefix=org.cafe.lector \
 			--c-namespace=Ev \
 			--c-generate-object-manager \
 			--generate-c-code ev-gdbus-generated \
@@ -171,7 +171,7 @@ ev-gdbus-generated.c ev-gdbus-generated.h: ev-gdbus.xml Makefile
 
 ev-daemon-gdbus-generated.c ev-daemon-gdbus-generated.h: ev-daemon-gdbus.xml Makefile
 	$(AM_V_GEN) $(GDBUS_CODEGEN) \
-			--interface-prefix=org.mate.lector \
+			--interface-prefix=org.cafe.lector \
 			--c-namespace=Ev \
 			--c-generate-object-manager \
 			--generate-c-code ev-daemon-gdbus-generated \

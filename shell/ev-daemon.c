@@ -1,5 +1,5 @@
 /* ev-daemon.c
- *  this file is part of lector, a mate document viewer
+ *  this file is part of lector, a cafe document viewer
  *
  * Copyright (C) 2009 Carlos Garcia Campos  <carlosgc@gnome.org>
  * Copyright © 2010, 2012 Christian Persch
@@ -34,11 +34,11 @@
 
 #include "ev-daemon-gdbus-generated.h"
 
-#define EV_DBUS_DAEMON_NAME             "org.mate.lector.Daemon"
-#define EV_DBUS_DAEMON_INTERFACE_NAME   "org.mate.lector.Daemon"
-#define EV_DBUS_DAEMON_OBJECT_PATH      "/org/mate/lector/Daemon"
+#define EV_DBUS_DAEMON_NAME             "org.cafe.lector.Daemon"
+#define EV_DBUS_DAEMON_INTERFACE_NAME   "org.cafe.lector.Daemon"
+#define EV_DBUS_DAEMON_OBJECT_PATH      "/org/cafe/lector/Daemon"
 
-#define EV_DBUS_WINDOW_INTERFACE_NAME   "org.mate.lector.Window"
+#define EV_DBUS_WINDOW_INTERFACE_NAME   "org.cafe.lector.Window"
 
 #define DAEMON_TIMEOUT (30) /* seconds */
 

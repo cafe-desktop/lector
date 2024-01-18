@@ -5,7 +5,7 @@ multiple and single page document formats like PDF
 and Postscript.  For more general information about 
 Lector please visit our website at 
 
-https://github.com/mate-desktop/lector
+https://github.com/cafe-desktop/lector
 
 Lector is a fork of Evince
 
@@ -13,7 +13,7 @@ This software is licensed under the GPL
 
 Lector Requirements
 ==================================================
-MATE Platform libraries [ https://github.com/mate-desktop/ ]
+MATE Platform libraries [ https://github.com/cafe-desktop/ ]
 Poppler for PDF viewing [ http://poppler.freedesktop.org/ ]
 GhostScript for Postscript viewing [ http://www.cs.wisc.edu/~ghost/ ]
 

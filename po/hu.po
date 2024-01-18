@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Wolfgang Ulbrich <mate@raveit.de>, 2018
+# Wolfgang Ulbrich <cafe@raveit.de>, 2018
 # Márton Fazekas <zseliakiraly@gmail.com>, 2018
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
 # István Szőllősi <szollosi.istv4n@gmail.com>, 2018
@@ -18,11 +18,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: lector 1.23.1\n"
-"Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
+"Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
 "POT-Creation-Date: 2020-01-10 10:49+0100\n"
 "PO-Revision-Date: 2018-03-11 14:35+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>, 2019\n"
-"Language-Team: Hungarian (https://www.transifex.com/mate/teams/13566/hu/)\n"
+"Language-Team: Hungarian (https://www.transifex.com/cafe/teams/13566/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -511,37 +511,37 @@ msgstr ""
 msgid "MATE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 msgstr ""
 
-#: data/org.mate.Lector.gschema.xml:12
+#: data/org.cafe.Lector.gschema.xml:12
 msgid "Override document restrictions"
 msgstr "A dokumentum korlátozásainak felülbírálása"
 
-#: data/org.mate.Lector.gschema.xml:13
+#: data/org.cafe.Lector.gschema.xml:13
 msgid "Override document restrictions, like restriction to copy or to print."
 msgstr ""
 "Dokumentum (például: a másolásra vagy nyomtatásra vonatkozó) korlátozásainak"
 " felülbírálása."
 
-#: data/org.mate.Lector.gschema.xml:17
+#: data/org.cafe.Lector.gschema.xml:17
 msgid "Automatically reload the document"
 msgstr "A dokumentum automatikus újratöltése"
 
-#: data/org.mate.Lector.gschema.xml:18
+#: data/org.cafe.Lector.gschema.xml:18
 msgid "Whether the document is automatically reloaded on file change."
 msgstr "Automatikusan újratölthető legyen-e a dokumentum fájlcsere közben."
 
-#: data/org.mate.Lector.gschema.xml:22
+#: data/org.cafe.Lector.gschema.xml:22
 msgid "The URI of the directory last used to open or save a document."
 msgstr "Az utolsó megnyitásra vagy mentésre használt könyvtár URI címe."
 
-#: data/org.mate.Lector.gschema.xml:26
+#: data/org.cafe.Lector.gschema.xml:26
 msgid "The URI of the directory last used to save a picture."
 msgstr "Az utolsó kép mentésre használt könyvtár URI címe."
 
-#: data/org.mate.Lector.gschema.xml:30
+#: data/org.cafe.Lector.gschema.xml:30
 msgid "Page cache size in MiB"
 msgstr "Oldal gyorsítótár mérete MiB-ban"
 
-#: data/org.mate.Lector.gschema.xml:31
+#: data/org.cafe.Lector.gschema.xml:31
 msgid ""
 "The maximum size that will be used to cache rendered pages, limits maximum "
 "zoom level."
@@ -549,7 +549,7 @@ msgstr ""
 "A leképzett oldalak gyorsítótárának maximális mérete korlátozza a maximális "
 "nagyítási szintet. "
 
-#: data/org.mate.Lector.gschema.xml:35
+#: data/org.cafe.Lector.gschema.xml:35
 msgid ""
 "Show a dialog to confirm that the user wants to activate the caret "
 "navigation."
@@ -1432,9 +1432,9 @@ msgstr ""
 #: shell/ev-window.c:5455
 msgid "translator-credits"
 msgstr ""
-"Dvornik László<dvornik at mate dot hu>\n"
-"Kelemen Gábor<kelemeng at mate dot hu>\n"
-"Tímár András<timar at mate dot hu>\n"
+"Dvornik László<dvornik at cafe dot hu>\n"
+"Kelemen Gábor<kelemeng at cafe dot hu>\n"
+"Tímár András<timar at cafe dot hu>\n"
 "Kalman „KAMI” Szalai<kami911 at gmail dot com>\n"
 "Falu<info at falu dot me>\n"
 "Rezső Páder<rezso at rezso dot net>\n"

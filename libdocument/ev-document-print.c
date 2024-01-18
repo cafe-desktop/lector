@@ -1,5 +1,5 @@
 /* ev-document-print.c
- *  this file is part of lector, a mate document_links viewer
+ *  this file is part of lector, a cafe document_links viewer
  *
  * Copyright (C) 2009 Carlos Garcia Campos  <carlosgc@gnome.org>
  *

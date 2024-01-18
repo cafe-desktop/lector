@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; c-indent-level: 8 -*- */
-/* this file is part of lector, a mate document viewer
+/* this file is part of lector, a cafe document viewer
  *
  * Copyright (C) 2009, Juanjo Marín <juanj.marin@juntadeandalucia.es>
  * Copyright (C) 2004, Red Hat, Inc.
@@ -513,11 +513,11 @@ pdf_document_get_license_from_metadata (xmlDocPtr          doc,
 
 	license = ev_document_license_new ();
 
-	/* b) Marked False => Public Domain, no copyrighted material and no
+	/* b) Marked False => Public Domain, no copyrighted caferial and no
 	 * license needed */
 	if (g_strrstr ((char *) marked, "False") != NULL) {
 		license->text = g_strdup (_("This work is in the Public Domain"));
-	/* c) Marked True => Copyrighted material */
+	/* c) Marked True => Copyrighted caferial */
 	} else {
 		/* Checking usage terms as defined by the XMP Rights Management
 		 * Schema. This field is recomended to be checked by Creative
@@ -1072,7 +1072,7 @@ ev_link_dest_from_dest (PdfDocument *pdf_document,
 	if (unimplemented_dest) {
 		g_warning ("Unimplemented destination: %s, please post a "
 		           "bug report on Lector bug tracker "
-		           "(https://github.com/mate-desktop/lector/issues) with a testcase.",
+		           "(https://github.com/cafe-desktop/lector/issues) with a testcase.",
 			   unimplemented_dest);
 	}
 
@@ -1176,7 +1176,7 @@ ev_link_from_action (PdfDocument   *pdf_document,
 	
 	if (unimplemented_action) {
 		g_warning ("Unimplemented action: %s, please post a bug report "
-			   "on Lector bug tracker (https://github.com/mate-desktop/lector/issues) "
+			   "on Lector bug tracker (https://github.com/cafe-desktop/lector/issues) "
 			   "with a testcase.", unimplemented_action);
 	}
 	
@@ -2703,7 +2703,7 @@ ev_annot_from_poppler_annot (PopplerAnnot *poppler_annot,
 	if (unimplemented_annot) {
 		g_warning ("Unimplemented annotation: %s, please post a "
 		           "bug report on Lector bug tracker "
-		           "(https://github.com/mate-desktop/lector/issues) with a testcase.",
+		           "(https://github.com/cafe-desktop/lector/issues) with a testcase.",
 			   unimplemented_annot);
 	}
 

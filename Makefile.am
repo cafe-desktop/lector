@@ -75,7 +75,7 @@ DISTCHECK_CONFIGURE_FLAGS =   \
     --disable-silent-rules    \
     CFLAGS='-Wno-deprecated-declarations'
 
-distuninstallcheck_listfiles = find . -type f -print | grep -v /share/mate/help/ | grep -v \.omf
+distuninstallcheck_listfiles = find . -type f -print | grep -v /share/cafe/help/ | grep -v \.omf
 
 # Build ChangeLog from GIT  history
 ChangeLog:

@@ -16,7 +16,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <gresources>
-  <gresource prefix="/org/mate/lector/shell">
+  <gresource prefix="/org/cafe/lector/shell">
     <file alias="ui/lector.xml" compressed="true" preprocess="xml-stripblanks">lector-ui.xml</file>
     <file alias="ui/toolbar.xml" compressed="true" preprocess="xml-stripblanks">lector-toolbar.xml</file>
     <file alias="ui/lector.css" compressed="true">lector.css</file>

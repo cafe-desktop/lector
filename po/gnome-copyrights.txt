@@ -25,7 +25,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Amitakhya Phukan <aphukan@redhat.com>, 2008.
-# Amitakhya Phukan <amitakhya@svn.mate.org>, 2008.
+# Amitakhya Phukan <amitakhya@svn.cafe.org>, 2008.
 # Amitakhya Phukan <aphukan@fedoraproject.org>, 2009.
 
 
@@ -72,7 +72,7 @@
 # Krasimir "Bfaf" Chonov <mk2616@abv.bg>, 2009.
 # Yavor Doganov <yavor@gnu.org>, 2008.
 # Ivaylo Valkov <ivaylo@e-valkov.org>, 2010.
-# Damyan Ivanov <dam+mate@ktnx.net>, 2010.
+# Damyan Ivanov <dam+cafe@ktnx.net>, 2010.
 #
 
 
@@ -141,17 +141,17 @@
 # Czech translation of lector.
 # Copyright (C) 2005, 2006, 2008, 2009, 2010 the author(s) of lector.
 # Copyright (C) 2005, 2006 Miloslav Trmac <mitr@volny.cz>.
-# Copyright (C) 2009 Martin Picek <picek.martin@mate-cesko.cz>.
+# Copyright (C) 2009 Martin Picek <picek.martin@cafe-cesko.cz>.
 # This file is distributed under the same license as the lector package.
 # Miloslav Trmac <mitr@volny.cz>, 2005, 2006.
 # Jakub Friedl <jfriedl@suse.cz>, 2006, 2007.
 # Kamil Páral <ripper42@gmail.com>, 2008.
 # Petr Kovar <pknbe@volny.cz>, 2008, 2009.
 # Adrian Guniš <andygun@seznam.cz>, 2008, 2009.
-# Martin Picek <picek.martin@mate-cesko.cz>, 2009.
+# Martin Picek <picek.martin@cafe-cesko.cz>, 2009.
 # Jan Drábek <repli2dev@gmail.com>, 2009.
 # Marek Černocký <marek@manet.cz>, 2009.
-# Lucas Lommer <llommer@svn.mate.org>, 2010
+# Lucas Lommer <llommer@svn.cafe.org>, 2010
 #
 
 
@@ -195,8 +195,8 @@
 # Martin Kretzschmar <martink@gnome.org>, 2004.
 # Frank Arnold <frank@scirocco-5v-turbo.de>, 2005.
 # Hendrik Richter <hendrikr@gnome.org>, 2005, 2006.
-# Hendrik Brandt <heb@mate-de.org>, 2005.
-# Christian Kintner <ckintner@mate-de.org>, 2007.
+# Hendrik Brandt <heb@cafe-de.org>, 2005.
+# Christian Kintner <ckintner@cafe-de.org>, 2007.
 # Mario Blättermann <mariobl@gnome.org>, 2008-2010.
 # Christian Kirbach  <Christian.Kirbach@googlemail.com>, 2009, 2010.
 #
@@ -279,9 +279,9 @@
 #
 # Antonio Ognio <gnrfan@gnrfan.org, 2004, 2005.
 # Daniel Fernandez <dfdez@ya.com>, 2005.
-# Francisco Javier F. Serrador <serrador@cvs.mate.org>, 2005, 2006.
+# Francisco Javier F. Serrador <serrador@cvs.cafe.org>, 2005, 2006.
 # Juanje Ojeda Croissier <jojeda@emergya.es>, 2008, 2009.
-# Jorge González <jorgegonz@svn.mate.org>, 2007, 2008, 2010.
+# Jorge González <jorgegonz@svn.cafe.org>, 2007, 2008, 2010.
 #
 
 
@@ -378,8 +378,8 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
 # Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005, 2006.
-# Ignacio Casal Quinteiro <icq@cvs.mate.org>, 2007.
-# Ignacio Casal Quinteiro <icq@svn.mate.org>, 2007, 2008.
+# Ignacio Casal Quinteiro <icq@cvs.cafe.org>, 2007.
+# Ignacio Casal Quinteiro <icq@svn.cafe.org>, 2007, 2008.
 # Mancomún - Centro de Referencia e Servizos de Software Libre <g11n@mancomun.org>, 2009.
 # Antón Méixome <meixome@mancomun.org>, 2009.
 # Suso Baleato <suso.baleato@xunta.es>
@@ -433,7 +433,7 @@
 # This file is distributed under the same license as the lector package.
 # Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010, Free Software Foundation, Inc.
 #
-# Gabor Kelemen <kelemeng at mate dot hu>, 2005, 2006, 2007, 2008, 2009, 2010.
+# Gabor Kelemen <kelemeng at cafe dot hu>, 2005, 2006, 2007, 2008, 2009, 2010.
 
 
 
@@ -465,7 +465,7 @@
 # Japanese messages catalogue for lector - PS/PDF viewer for MATE
 # Copyright (C) 2005-2010 THE lector's COPYRIGHT HOLDER
 # This file is distributed under the same license as the lector package.
-# Satoru SATOH <ss@mate.gr.jp>, 2005, 2006.
+# Satoru SATOH <ss@cafe.gr.jp>, 2005, 2006.
 # Takeshi AIHANA <takshi.aihana@gmail.com>, 2005-2009.
 # Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2009.
 # Shushi Kurose <md81bird@hitaki.net>, 2009-2010.
@@ -531,7 +531,7 @@
 
 
 ========== ku.po ==========
-# translation of lector.mate-2-12.po to Kurdish
+# translation of lector.cafe-2-12.po to Kurdish
 # Kurdish translation for lector
 # Copyright (c) (c) 2005 Canonical Ltd, and Rosetta Contributors 2005
 # This file is distributed under the same license as the lector package.
@@ -807,7 +807,7 @@
 # Copyright (C) 2005 - 2009 Free Software Foundation, Inc.
 # This file is distributed under the same license as the lector package.
 # Eugen Paiuc <eug_paiuc@bluewin.ch>, 2005.
-# Mișu Moldovan <dumol@mate.ro>, 2005 - 2009.
+# Mișu Moldovan <dumol@cafe.ro>, 2005 - 2009.
 # Lucian Adrian Grijincu <lucian.grijincu@gmail.com>, 2009, 2010.
 
 
@@ -874,7 +874,7 @@
 #
 # Matic Žgur <mr.zgur@gmail.com>, 2006.
 # Matjaž Horvat <m@owca.info>, 2006.
-# Matej Urbančič <mateju@svn.mate.org>, 2006 - 2010.
+# Matej Urbančič <cafeju@svn.cafe.org>, 2006 - 2010.
 #
 
 

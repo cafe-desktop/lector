@@ -1,5 +1,5 @@
 /* ev-previewer-window.c:
- *  this file is part of lector, a mate document viewer
+ *  this file is part of lector, a cafe document viewer
  *
  * Copyright (C) 2009 Carlos Garcia Campos <carlosgc@gnome.org>
  *
@@ -560,7 +560,7 @@ ev_previewer_window_constructor (GType                  type,
 	gtk_window_add_accel_group (GTK_WINDOW (window),
 				    gtk_ui_manager_get_accel_group (window->ui_manager));
 
-	gtk_ui_manager_add_ui_from_resource (window->ui_manager, "/org/mate/lector/previewer/ui/previewer.xml", &error);
+	gtk_ui_manager_add_ui_from_resource (window->ui_manager, "/org/cafe/lector/previewer/ui/previewer.xml", &error);
 	g_assert_no_error (error);
 
 	/* GTKUIManager connects actions accels only for menu items,

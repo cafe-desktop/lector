@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; c-indent-level: 8 -*- */
-/* this file is part of lector, a mate document viewer
+/* this file is part of lector, a cafe document viewer
  *
  *  Copyright (C) 2004 Red Hat, Inc
  *
@@ -7279,7 +7279,7 @@ ev_view_zoom_for_size_single_page (EvView *view,
 
 	get_doc_page_size (view, view->current_page, &doc_width, &doc_height);
 
-	/* Get an approximate border */
+	/* Get an approxicafe border */
 	compute_border (view, &border);
 
 	width -= (border.left + border.right + 2 * view->spacing);

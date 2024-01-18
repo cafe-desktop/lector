@@ -1,5 +1,5 @@
 /* ev-transition-effect.h
- *  this file is part of lector, a mate document viewer
+ *  this file is part of lector, a cafe document viewer
  *
  * Copyright (C) 2007 Carlos Garnacho <carlos@imendio.com>
  *

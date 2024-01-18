@@ -1,5 +1,5 @@
 /* ev-document-layers.c
- *  this file is part of lector, a mate document_links viewer
+ *  this file is part of lector, a cafe document_links viewer
  *
  * Copyright (C) 2008 Carlos Garcia Campos  <carlosgc@gnome.org>
  *

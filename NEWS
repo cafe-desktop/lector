@@ -192,9 +192,9 @@
   * shell: Port to GtkApplication
   * shell: Use g_printerr instead of g_warning
   * daemon: Port to GApplication
-  * daemon: Use gdbus-codegen for the org.mate.lector.Daemon interface
-  * shell: Use gdbus-codegen for the org.mate.lector.Window interface
-  * shell: Use gdbus-codegen for the org.mate.lector.Application interface
+  * daemon: Use gdbus-codegen for the org.cafe.lector.Daemon interface
+  * shell: Use gdbus-codegen for the org.cafe.lector.Window interface
+  * shell: Use gdbus-codegen for the org.cafe.lector.Application interface
   * libview: save inverted colors in a document
   * Save/restore context when getting colors for a different state
   * epub: allow to save epub documents
@@ -483,7 +483,7 @@
 
   * Build: require poppler 0.18.0
   * Use GtkAboutDialog instead of MateAboutDialog
-  * Drop dependency on libmate-desktop and --without-matedesktop
+  * Drop dependency on libcafe-desktop and --without-cafedesktop
     build option
   * Update toolbar-editor from libegg
   * Update synctex to 1.18
@@ -538,7 +538,7 @@
 ### lector 1.12.0
 
   * Drop support for win32/osx/hildon
-  * Drop useless mate-icon-theme dependency
+  * Drop useless cafe-icon-theme dependency
   * Make smclient mandatory
   * [epub] drop embedded MathJax in favor of using distro-packaged one
   * Retrieve strings directly from gschema (requires intltool 0.50.1)
@@ -548,7 +548,7 @@
 
   * Fix several command line options
   * Fix several findbar issues
-  * Make libmatedesktop optional
+  * Make libcafedesktop optional
   * [pdf] Fix saving annotations added to different pages
 
 ### lector 1.10.1
@@ -596,12 +596,12 @@
   * Gtk3: Use gtk_widget_render_icon_pixbuf()
   * Gtk3: presentation: Make sure background window is black by default in presentation mode
   * Add epub support (part of GSoC 2014).
-  * Use MateAboutDialog from libmate-desktop.
+  * Use MateAboutDialog from libcafe-desktop.
 
 ### lector 1.8.0
 
-  * Drop libmatekeyring and use libsecret.
-  * Move from mate-doc-utils to yelp-tools.
+  * Drop libcafekeyring and use libsecret.
+  * Move from cafe-doc-utils to yelp-tools.
   * Better sort files by name in commic book archives.
   * Enable case sensitive search (not available on all backends).
   * Move Lector to "Offcie" in the menu.
