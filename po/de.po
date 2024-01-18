@@ -481,7 +481,7 @@ msgstr "Lector-Dokumentenbetrachter"
 
 #: data/lector.appdata.xml.in:8
 msgid "A Document Viewer for the CAFE desktop environment"
-msgstr "Ein Dokumentenbetrachter für die Mate-Arbeitsumgebung"
+msgstr "Ein Dokumentenbetrachter für die Cafe-Arbeitsumgebung"
 
 #: data/lector.appdata.xml.in:10
 msgid ""

@@ -1850,7 +1850,7 @@ msgstr "Efter filtype"
 
 #: shell/main.c:58 shell/main.c:241
 msgid "CAFE Document Viewer"
-msgstr "Mate Dokumentfremviser"
+msgstr "Cafe Dokumentfremviser"
 
 #: shell/main.c:66
 msgid "The page label of the document to display."
