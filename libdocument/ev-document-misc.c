@@ -60,7 +60,7 @@ create_thumbnail_frame (int        width,
 	/* make sure no one is passing us garbage */
 	g_return_val_if_fail (width_r >= 0 && height_r >= 0, NULL);
 
-	retval = gdk_pixbuf_new (CDK_COLORSPACE_RGB,
+	retval = gdk_pixbuf_new (GDK_COLORSPACE_RGB,
 				 TRUE, 8,
 				 width_r + 4,
 				 height_r + 4);
@@ -316,7 +316,7 @@ ev_document_misc_invert_pixbuf (GdkPixbuf *pixbuf)
 	guint   width, height, x, y, rowstride, n_channels;
 
 	n_channels = gdk_pixbuf_get_n_channels (pixbuf);
-	g_assert (gdk_pixbuf_get_colorspace (pixbuf) == CDK_COLORSPACE_RGB);
+	g_assert (gdk_pixbuf_get_colorspace (pixbuf) == GDK_COLORSPACE_RGB);
 	g_assert (gdk_pixbuf_get_bits_per_sample (pixbuf) == 8);
 
 	/* First grab a pointer to the raw pixel data. */
