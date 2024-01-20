@@ -124,7 +124,7 @@ ev_stock_icons_init (void)
 void
 ev_stock_icons_set_screen (GdkScreen *screen)
 {
-	g_return_if_fail (GDK_IS_SCREEN (screen));
+	g_return_if_fail (CDK_IS_SCREEN (screen));
 
 	ev_stock_icons_add_icons_path_for_screen (screen);
 }

@@ -108,10 +108,10 @@ page_scroll_cb (EvPageActionWidget *action_widget, GdkEventScroll *event)
 	gint pageno;
 
 	pageno = ev_document_model_get_page (model);
-	if ((event->direction == GDK_SCROLL_DOWN) &&
+	if ((event->direction == CDK_SCROLL_DOWN) &&
 	    (pageno < ev_document_get_n_pages (action_widget->document) - 1))
 		pageno++;
-	if ((event->direction == GDK_SCROLL_UP) && (pageno > 0))
+	if ((event->direction == CDK_SCROLL_UP) && (pageno > 0))
 		pageno--;
 	ev_document_model_set_page (model, pageno);
 
@@ -159,7 +159,7 @@ ev_page_action_widget_init (EvPageActionWidget *action_widget)
 
 	action_widget->entry = ctk_entry_new ();
 	ctk_widget_add_events (action_widget->entry,
-			       GDK_BUTTON_MOTION_MASK);
+			       CDK_BUTTON_MOTION_MASK);
 	ctk_entry_set_width_chars (CTK_ENTRY (action_widget->entry), 5);
 	ctk_entry_set_text (CTK_ENTRY (action_widget->entry), "");
 	g_signal_connect_swapped (action_widget->entry, "scroll-event",

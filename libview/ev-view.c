@@ -847,7 +847,7 @@ add_scroll_binding_keypad (CtkBindingSet  *binding_set,
     			   CtkScrollType   scroll,
 			   CtkOrientation  orientation)
 {
-	guint keypad_keyval = keyval - GDK_KEY_Left + GDK_KEY_KP_Left;
+	guint keypad_keyval = keyval - CDK_KEY_Left + CDK_KEY_KP_Left;
 
 	ctk_binding_entry_add_signal (binding_set, keyval, modifiers,
 				      "scroll", 2,
@@ -3798,22 +3798,22 @@ ev_view_scroll_event (CtkWidget *widget, GdkEventScroll *event)
 
 	state = event->state & ctk_accelerator_get_default_mod_mask ();
 
-	if (state == GDK_CONTROL_MASK) {
+	if (state == CDK_CONTROL_MASK) {
 		ev_document_model_set_sizing_mode (view->model, EV_SIZING_FREE);
 		view->zoom_center_x = event->x;
 		view->zoom_center_y = event->y;
 		switch (event->direction) {
-		case GDK_SCROLL_DOWN:
-		case GDK_SCROLL_RIGHT:
+		case CDK_SCROLL_DOWN:
+		case CDK_SCROLL_RIGHT:
 			if (ev_view_can_zoom_out (view))
 				ev_view_zoom_out (view);
 			break;
-		case GDK_SCROLL_UP:
-		case GDK_SCROLL_LEFT:
+		case CDK_SCROLL_UP:
+		case CDK_SCROLL_LEFT:
 			if (ev_view_can_zoom_in (view))
 				ev_view_zoom_in (view);
 			break;
-		case GDK_SCROLL_SMOOTH: {
+		case CDK_SCROLL_SMOOTH: {
 			gdouble delta = event->delta_x + event->delta_y;
 			gdouble factor = pow (delta < 0 ? ZOOM_IN_FACTOR : ZOOM_OUT_FACTOR, fabs (delta));
 
@@ -3830,16 +3830,16 @@ ev_view_scroll_event (CtkWidget *widget, GdkEventScroll *event)
 	view->jump_to_find_result = FALSE;
 
 	/* Shift+Wheel scrolls the in the perpendicular direction */
-	if (state & GDK_SHIFT_MASK) {
-		if (event->direction == GDK_SCROLL_UP)
-			event->direction = GDK_SCROLL_LEFT;
-		else if (event->direction == GDK_SCROLL_LEFT)
-			event->direction = GDK_SCROLL_UP;
-		else if (event->direction == GDK_SCROLL_DOWN)
-			event->direction = GDK_SCROLL_RIGHT;
-		else if (event->direction == GDK_SCROLL_RIGHT)
-			event->direction = GDK_SCROLL_DOWN;
-		else if (event->direction == GDK_SCROLL_SMOOTH) {
+	if (state & CDK_SHIFT_MASK) {
+		if (event->direction == CDK_SCROLL_UP)
+			event->direction = CDK_SCROLL_LEFT;
+		else if (event->direction == CDK_SCROLL_LEFT)
+			event->direction = CDK_SCROLL_UP;
+		else if (event->direction == CDK_SCROLL_DOWN)
+			event->direction = CDK_SCROLL_RIGHT;
+		else if (event->direction == CDK_SCROLL_RIGHT)
+			event->direction = CDK_SCROLL_DOWN;
+		else if (event->direction == CDK_SCROLL_SMOOTH) {
 			/* Swap the deltas for perpendicular direction */
 			gdouble tmp_delta = event->delta_x;
 
@@ -3847,39 +3847,39 @@ ev_view_scroll_event (CtkWidget *widget, GdkEventScroll *event)
 			event->delta_y = tmp_delta;
 		}
 
-		event->state &= ~GDK_SHIFT_MASK;
-		state &= ~GDK_SHIFT_MASK;
+		event->state &= ~CDK_SHIFT_MASK;
+		state &= ~CDK_SHIFT_MASK;
 	}
 
 	fit_width = ev_view_page_fits (view, CTK_ORIENTATION_HORIZONTAL);
 	fit_height = ev_view_page_fits (view, CTK_ORIENTATION_VERTICAL);
 	if (state == 0 && !view->continuous && (fit_width || fit_height)) {
 		switch (event->direction) {
-		case GDK_SCROLL_DOWN:
+		case CDK_SCROLL_DOWN:
 			if (fit_height) {
 				ev_view_next_page (view);
 				return TRUE;
 			}
 			break;
-		case GDK_SCROLL_RIGHT:
+		case CDK_SCROLL_RIGHT:
 			if (fit_width) {
 				ev_view_next_page (view);
 				return TRUE;
 			}
 			break;
-		case GDK_SCROLL_UP:
+		case CDK_SCROLL_UP:
 			if (fit_height) {
 				ev_view_previous_page (view);
 				return TRUE;
 			}
 			break;
-		case GDK_SCROLL_LEFT:
+		case CDK_SCROLL_LEFT:
 			if (fit_width) {
 				ev_view_previous_page (view);
 				return TRUE;
 			}
 			break;
-		case GDK_SCROLL_SMOOTH: {
+		case CDK_SCROLL_SMOOTH: {
 			gdouble decrement;
 			if ((fit_width && fit_height) ||
 			    ((fit_height && event->delta_x == 0.0) ||
@@ -3937,16 +3937,16 @@ ev_view_realize (CtkWidget *widget)
 
 	ctk_widget_get_allocation (widget, &allocation);
 
-	attributes.window_type = GDK_WINDOW_CHILD;
+	attributes.window_type = CDK_WINDOW_CHILD;
 	attributes.x = allocation.x;
 	attributes.y = allocation.y;
 	attributes.width = allocation.width;
 	attributes.height = allocation.height;
-	attributes.wclass = GDK_INPUT_OUTPUT;
+	attributes.wclass = CDK_INPUT_OUTPUT;
 	attributes.visual = ctk_widget_get_visual (widget);
 	attributes.event_mask = ctk_widget_get_events (widget);
 
-	attributes_mask = GDK_WA_X | GDK_WA_Y | GDK_WA_VISUAL;
+	attributes_mask = CDK_WA_X | CDK_WA_Y | CDK_WA_VISUAL;
 
 	window = cdk_window_new (ctk_widget_get_parent_window (widget),
 				 &attributes, attributes_mask);
@@ -4257,10 +4257,10 @@ start_selection_for_event (EvView         *view,
 	view->selection_info.start.y = event->y + view->scroll_y;
 
 	switch (event->type) {
-	        case GDK_2BUTTON_PRESS:
+	        case CDK_2BUTTON_PRESS:
 			view->selection_info.style = EV_SELECTION_STYLE_WORD;
 			break;
-	        case GDK_3BUTTON_PRESS:
+	        case CDK_3BUTTON_PRESS:
 			view->selection_info.style = EV_SELECTION_STYLE_LINE;
 			break;
 	        default:
@@ -4473,13 +4473,13 @@ ev_view_button_press_event (CtkWidget      *widget,
 			EvMapping *link;
 			gint page;
 
-			if (event->state & GDK_CONTROL_MASK)
+			if (event->state & CDK_CONTROL_MASK)
 				return ev_view_synctex_backward_search (view, event->x , event->y);
 
 			if (EV_IS_SELECTION (view->document) && view->selection_info.selections) {
-				if (event->type == GDK_3BUTTON_PRESS) {
+				if (event->type == CDK_3BUTTON_PRESS) {
 					start_selection_for_event (view, event);
-				} else if (event->state & GDK_SHIFT_MASK) {
+				} else if (event->state & CDK_SHIFT_MASK) {
 					GdkPoint end_point;
 
 					end_point.x = event->x + view->scroll_x;
@@ -4799,7 +4799,7 @@ ev_view_motion_notify_event (CtkWidget      *widget,
 			ctk_target_list_add_text_targets (target_list, TARGET_DND_TEXT);
 
 			ctk_drag_begin_with_coordinates (widget, target_list,
-					                 GDK_ACTION_COPY,
+					                 CDK_ACTION_COPY,
 					                 1, (GdkEvent *)event,
 					                 event->x,
 					                 event->y);
@@ -4822,7 +4822,7 @@ ev_view_motion_notify_event (CtkWidget      *widget,
 			ctk_target_list_add_image_targets (target_list, TARGET_DND_IMAGE, TRUE);
 
 			ctk_drag_begin_with_coordinates (widget, target_list,
-					                 GDK_ACTION_COPY,
+					                 CDK_ACTION_COPY,
 					                 1, (GdkEvent *)event,
 					                 event->x,
 					                 event->y);
@@ -4946,7 +4946,7 @@ ev_view_button_release_event (CtkWidget      *widget,
 		return TRUE;
 	}
 
-	if (view->pressed_button == 1 && event->state & GDK_CONTROL_MASK) {
+	if (view->pressed_button == 1 && event->state & CDK_CONTROL_MASK) {
 		view->pressed_button = -1;
 		return TRUE;
 	}
@@ -6179,7 +6179,7 @@ add_move_binding_keypad (CtkBindingSet  *binding_set,
 			 CtkMovementStep step,
 			 gint            count)
 {
-	guint keypad_keyval = keyval - GDK_KEY_Left + GDK_KEY_KP_Left;
+	guint keypad_keyval = keyval - CDK_KEY_Left + CDK_KEY_KP_Left;
 
 	ctk_binding_entry_add_signal (binding_set, keyval, modifiers,
 				      "move-cursor", 3,
@@ -6193,12 +6193,12 @@ add_move_binding_keypad (CtkBindingSet  *binding_set,
 				      G_TYPE_BOOLEAN, FALSE);
 
 	/* Selection-extending version */
-	ctk_binding_entry_add_signal (binding_set, keyval, modifiers | GDK_SHIFT_MASK,
+	ctk_binding_entry_add_signal (binding_set, keyval, modifiers | CDK_SHIFT_MASK,
 				      "move-cursor", 3,
 				      CTK_TYPE_MOVEMENT_STEP, step,
 				      G_TYPE_INT, count,
 				      G_TYPE_BOOLEAN, TRUE);
-	ctk_binding_entry_add_signal (binding_set, keypad_keyval, modifiers | GDK_SHIFT_MASK,
+	ctk_binding_entry_add_signal (binding_set, keypad_keyval, modifiers | CDK_SHIFT_MASK,
 				      "move-cursor", 3,
 				      CTK_TYPE_MOVEMENT_STEP, step,
 				      G_TYPE_INT, count,
@@ -6360,53 +6360,53 @@ ev_view_class_init (EvViewClass *class)
 
 	binding_set = ctk_binding_set_by_class (class);
 
-	add_move_binding_keypad (binding_set, GDK_KEY_Left,  0, CTK_MOVEMENT_VISUAL_POSITIONS, -1);
-	add_move_binding_keypad (binding_set, GDK_KEY_Right, 0, CTK_MOVEMENT_VISUAL_POSITIONS, 1);
-	add_move_binding_keypad (binding_set, GDK_KEY_Left,  GDK_CONTROL_MASK, CTK_MOVEMENT_WORDS, -1);
-	add_move_binding_keypad (binding_set, GDK_KEY_Right, GDK_CONTROL_MASK, CTK_MOVEMENT_WORDS, 1);
-	add_move_binding_keypad (binding_set, GDK_KEY_Up,    0, CTK_MOVEMENT_DISPLAY_LINES, -1);
-	add_move_binding_keypad (binding_set, GDK_KEY_Down,  0, CTK_MOVEMENT_DISPLAY_LINES, 1);
-	add_move_binding_keypad (binding_set, GDK_KEY_Home,  0, CTK_MOVEMENT_DISPLAY_LINE_ENDS, -1);
-	add_move_binding_keypad (binding_set, GDK_KEY_End,   0, CTK_MOVEMENT_DISPLAY_LINE_ENDS, 1);
+	add_move_binding_keypad (binding_set, CDK_KEY_Left,  0, CTK_MOVEMENT_VISUAL_POSITIONS, -1);
+	add_move_binding_keypad (binding_set, CDK_KEY_Right, 0, CTK_MOVEMENT_VISUAL_POSITIONS, 1);
+	add_move_binding_keypad (binding_set, CDK_KEY_Left,  CDK_CONTROL_MASK, CTK_MOVEMENT_WORDS, -1);
+	add_move_binding_keypad (binding_set, CDK_KEY_Right, CDK_CONTROL_MASK, CTK_MOVEMENT_WORDS, 1);
+	add_move_binding_keypad (binding_set, CDK_KEY_Up,    0, CTK_MOVEMENT_DISPLAY_LINES, -1);
+	add_move_binding_keypad (binding_set, CDK_KEY_Down,  0, CTK_MOVEMENT_DISPLAY_LINES, 1);
+	add_move_binding_keypad (binding_set, CDK_KEY_Home,  0, CTK_MOVEMENT_DISPLAY_LINE_ENDS, -1);
+	add_move_binding_keypad (binding_set, CDK_KEY_End,   0, CTK_MOVEMENT_DISPLAY_LINE_ENDS, 1);
 
-	add_scroll_binding_keypad (binding_set, GDK_KEY_Left,  0, CTK_SCROLL_STEP_BACKWARD, CTK_ORIENTATION_HORIZONTAL);
-	add_scroll_binding_keypad (binding_set, GDK_KEY_Right, 0, CTK_SCROLL_STEP_FORWARD, CTK_ORIENTATION_HORIZONTAL);
-	add_scroll_binding_keypad (binding_set, GDK_KEY_Left,  GDK_MOD1_MASK, CTK_SCROLL_STEP_DOWN, CTK_ORIENTATION_HORIZONTAL);
-	add_scroll_binding_keypad (binding_set, GDK_KEY_Right, GDK_MOD1_MASK, CTK_SCROLL_STEP_UP, CTK_ORIENTATION_HORIZONTAL);
-	add_scroll_binding_keypad (binding_set, GDK_KEY_Up,    0, CTK_SCROLL_STEP_BACKWARD, CTK_ORIENTATION_VERTICAL);
-	add_scroll_binding_keypad (binding_set, GDK_KEY_Down,  0, CTK_SCROLL_STEP_FORWARD, CTK_ORIENTATION_VERTICAL);
-	add_scroll_binding_keypad (binding_set, GDK_KEY_Up,    GDK_MOD1_MASK, CTK_SCROLL_STEP_DOWN, CTK_ORIENTATION_VERTICAL);
-	add_scroll_binding_keypad (binding_set, GDK_KEY_Down,  GDK_MOD1_MASK, CTK_SCROLL_STEP_UP, CTK_ORIENTATION_VERTICAL);
-	add_scroll_binding_keypad (binding_set, GDK_KEY_Page_Up, 0, CTK_SCROLL_PAGE_BACKWARD, CTK_ORIENTATION_VERTICAL);
-	add_scroll_binding_keypad (binding_set, GDK_KEY_Page_Down, 0, CTK_SCROLL_PAGE_FORWARD, CTK_ORIENTATION_VERTICAL);
-	ctk_binding_entry_add_signal (binding_set, GDK_KEY_Return, 0, "scroll", 2,
+	add_scroll_binding_keypad (binding_set, CDK_KEY_Left,  0, CTK_SCROLL_STEP_BACKWARD, CTK_ORIENTATION_HORIZONTAL);
+	add_scroll_binding_keypad (binding_set, CDK_KEY_Right, 0, CTK_SCROLL_STEP_FORWARD, CTK_ORIENTATION_HORIZONTAL);
+	add_scroll_binding_keypad (binding_set, CDK_KEY_Left,  CDK_MOD1_MASK, CTK_SCROLL_STEP_DOWN, CTK_ORIENTATION_HORIZONTAL);
+	add_scroll_binding_keypad (binding_set, CDK_KEY_Right, CDK_MOD1_MASK, CTK_SCROLL_STEP_UP, CTK_ORIENTATION_HORIZONTAL);
+	add_scroll_binding_keypad (binding_set, CDK_KEY_Up,    0, CTK_SCROLL_STEP_BACKWARD, CTK_ORIENTATION_VERTICAL);
+	add_scroll_binding_keypad (binding_set, CDK_KEY_Down,  0, CTK_SCROLL_STEP_FORWARD, CTK_ORIENTATION_VERTICAL);
+	add_scroll_binding_keypad (binding_set, CDK_KEY_Up,    CDK_MOD1_MASK, CTK_SCROLL_STEP_DOWN, CTK_ORIENTATION_VERTICAL);
+	add_scroll_binding_keypad (binding_set, CDK_KEY_Down,  CDK_MOD1_MASK, CTK_SCROLL_STEP_UP, CTK_ORIENTATION_VERTICAL);
+	add_scroll_binding_keypad (binding_set, CDK_KEY_Page_Up, 0, CTK_SCROLL_PAGE_BACKWARD, CTK_ORIENTATION_VERTICAL);
+	add_scroll_binding_keypad (binding_set, CDK_KEY_Page_Down, 0, CTK_SCROLL_PAGE_FORWARD, CTK_ORIENTATION_VERTICAL);
+	ctk_binding_entry_add_signal (binding_set, CDK_KEY_Return, 0, "scroll", 2,
 	                              CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_PAGE_FORWARD,
 	                              CTK_TYPE_ORIENTATION, CTK_ORIENTATION_VERTICAL);
-	ctk_binding_entry_add_signal (binding_set, GDK_KEY_Return, GDK_SHIFT_MASK, "scroll", 2,
+	ctk_binding_entry_add_signal (binding_set, CDK_KEY_Return, CDK_SHIFT_MASK, "scroll", 2,
 	                              CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_PAGE_BACKWARD,
 	                              CTK_TYPE_ORIENTATION, CTK_ORIENTATION_VERTICAL);
-	ctk_binding_entry_add_signal (binding_set, GDK_KEY_H, 0, "scroll", 2,
+	ctk_binding_entry_add_signal (binding_set, CDK_KEY_H, 0, "scroll", 2,
 	                              CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_STEP_BACKWARD,
 	                              CTK_TYPE_ORIENTATION, CTK_ORIENTATION_HORIZONTAL);
-	ctk_binding_entry_add_signal (binding_set, GDK_KEY_J, 0, "scroll", 2,
+	ctk_binding_entry_add_signal (binding_set, CDK_KEY_J, 0, "scroll", 2,
 	                              CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_STEP_FORWARD,
 	                              CTK_TYPE_ORIENTATION, CTK_ORIENTATION_VERTICAL);
-	ctk_binding_entry_add_signal (binding_set, GDK_KEY_K, 0, "scroll", 2,
+	ctk_binding_entry_add_signal (binding_set, CDK_KEY_K, 0, "scroll", 2,
 	                              CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_STEP_BACKWARD,
 	                              CTK_TYPE_ORIENTATION, CTK_ORIENTATION_VERTICAL);
-	ctk_binding_entry_add_signal (binding_set, GDK_KEY_L, 0, "scroll", 2,
+	ctk_binding_entry_add_signal (binding_set, CDK_KEY_L, 0, "scroll", 2,
 	                              CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_STEP_FORWARD,
 	                              CTK_TYPE_ORIENTATION, CTK_ORIENTATION_HORIZONTAL);
-	ctk_binding_entry_add_signal (binding_set, GDK_KEY_space, 0, "scroll", 2,
+	ctk_binding_entry_add_signal (binding_set, CDK_KEY_space, 0, "scroll", 2,
 	                              CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_PAGE_FORWARD,
 	                              CTK_TYPE_ORIENTATION, CTK_ORIENTATION_VERTICAL);
-	ctk_binding_entry_add_signal (binding_set, GDK_KEY_space, GDK_SHIFT_MASK, "scroll", 2,
+	ctk_binding_entry_add_signal (binding_set, CDK_KEY_space, CDK_SHIFT_MASK, "scroll", 2,
 	                              CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_PAGE_BACKWARD,
 	                              CTK_TYPE_ORIENTATION, CTK_ORIENTATION_VERTICAL);
-	ctk_binding_entry_add_signal (binding_set, GDK_KEY_BackSpace, 0, "scroll", 2,
+	ctk_binding_entry_add_signal (binding_set, CDK_KEY_BackSpace, 0, "scroll", 2,
 	                              CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_PAGE_BACKWARD,
 	                              CTK_TYPE_ORIENTATION, CTK_ORIENTATION_VERTICAL);
-	ctk_binding_entry_add_signal (binding_set, GDK_KEY_BackSpace, GDK_SHIFT_MASK, "scroll", 2,
+	ctk_binding_entry_add_signal (binding_set, CDK_KEY_BackSpace, CDK_SHIFT_MASK, "scroll", 2,
 	                              CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_PAGE_FORWARD,
 	                              CTK_TYPE_ORIENTATION, CTK_ORIENTATION_VERTICAL);
 }
@@ -6462,17 +6462,17 @@ ev_view_init (EvView *view)
 	ctk_style_context_add_class (context, "view");
 
 	ctk_widget_set_events (CTK_WIDGET (view),
-			       GDK_TOUCH_MASK |
-			       GDK_EXPOSURE_MASK |
-			       GDK_BUTTON_PRESS_MASK |
-			       GDK_BUTTON_RELEASE_MASK |
-			       GDK_SCROLL_MASK |
-			       GDK_SMOOTH_SCROLL_MASK |
-			       GDK_KEY_PRESS_MASK |
-			       GDK_POINTER_MOTION_MASK |
-			       GDK_POINTER_MOTION_HINT_MASK |
-			       GDK_ENTER_NOTIFY_MASK |
-			       GDK_LEAVE_NOTIFY_MASK);
+			       CDK_TOUCH_MASK |
+			       CDK_EXPOSURE_MASK |
+			       CDK_BUTTON_PRESS_MASK |
+			       CDK_BUTTON_RELEASE_MASK |
+			       CDK_SCROLL_MASK |
+			       CDK_SMOOTH_SCROLL_MASK |
+			       CDK_KEY_PRESS_MASK |
+			       CDK_POINTER_MOTION_MASK |
+			       CDK_POINTER_MOTION_HINT_MASK |
+			       CDK_ENTER_NOTIFY_MASK |
+			       CDK_LEAVE_NOTIFY_MASK);
 
 	view->start_page = -1;
 	view->end_page = -1;
@@ -7942,7 +7942,7 @@ ev_view_clipboard_copy (EvView      *view,
 	CtkClipboard *clipboard;
 
 	clipboard = ctk_widget_get_clipboard (CTK_WIDGET (view),
-					      GDK_SELECTION_CLIPBOARD);
+					      CDK_SELECTION_CLIPBOARD);
 	ctk_clipboard_set_text (clipboard, text, -1);
 }
 
@@ -7999,7 +7999,7 @@ ev_view_update_primary_selection (EvView *ev_view)
 	CtkClipboard *clipboard;
 
 	clipboard = ctk_widget_get_clipboard (CTK_WIDGET (ev_view),
-                                              GDK_SELECTION_PRIMARY);
+                                              CDK_SELECTION_PRIMARY);
 
 	if (ev_view->selection_info.selections || ev_view->link_selected) {
                 CtkTargetList *target_list;

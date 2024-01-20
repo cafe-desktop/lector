@@ -590,16 +590,16 @@ ev_view_presentation_previous_page (EvViewPresentation *pview)
 
 /* Goto Window */
 #define KEY_IS_NUMERIC(keyval) \
-	((keyval >= GDK_KEY_0 && keyval <= GDK_KEY_9) || (keyval >= GDK_KEY_KP_0 && keyval <= GDK_KEY_KP_9))
+	((keyval >= CDK_KEY_0 && keyval <= CDK_KEY_9) || (keyval >= CDK_KEY_KP_0 && keyval <= CDK_KEY_KP_9))
 
 /* Cut and paste from ctkwindow.c */
 static void
 send_focus_change (CtkWidget *widget,
 		   gboolean   in)
 {
-	GdkEvent *fevent = cdk_event_new (GDK_FOCUS_CHANGE);
+	GdkEvent *fevent = cdk_event_new (CDK_FOCUS_CHANGE);
 
-	fevent->focus_change.type = GDK_FOCUS_CHANGE;
+	fevent->focus_change.type = CDK_FOCUS_CHANGE;
 	fevent->focus_change.window = ctk_widget_get_window (widget);
 	fevent->focus_change.in = in;
 	if (fevent->focus_change.window)
@@ -635,17 +635,17 @@ ev_view_presentation_goto_window_key_press_event (CtkWidget          *widget,
 						  EvViewPresentation *pview)
 {
 	switch (event->keyval) {
-	case GDK_KEY_Escape:
-	case GDK_KEY_Tab:
-	case GDK_KEY_KP_Tab:
-	case GDK_KEY_ISO_Left_Tab:
+	case CDK_KEY_Escape:
+	case CDK_KEY_Tab:
+	case CDK_KEY_KP_Tab:
+	case CDK_KEY_ISO_Left_Tab:
 		ev_view_presentation_goto_window_hide (pview);
 		return TRUE;
-	case GDK_KEY_Return:
-	case GDK_KEY_KP_Enter:
-	case GDK_KEY_ISO_Enter:
-	case GDK_KEY_BackSpace:
-	case GDK_KEY_Delete:
+	case CDK_KEY_Return:
+	case CDK_KEY_KP_Enter:
+	case CDK_KEY_ISO_Enter:
+	case CDK_KEY_BackSpace:
+	case CDK_KEY_Delete:
 		return FALSE;
 	default:
 		if (!KEY_IS_NUMERIC (event->keyval))
@@ -1162,31 +1162,31 @@ ev_view_presentation_key_press_event (CtkWidget   *widget,
 		return ctk_bindings_activate_event (G_OBJECT (widget), event);
 
 	switch (event->keyval) {
-	case GDK_KEY_b:
-	case GDK_KEY_B:
-	case GDK_KEY_period:
-	case GDK_KEY_KP_Decimal:
+	case CDK_KEY_b:
+	case CDK_KEY_B:
+	case CDK_KEY_period:
+	case CDK_KEY_KP_Decimal:
 		if (pview->state == EV_PRESENTATION_BLACK)
 			ev_view_presentation_set_normal (pview);
 		else
 			ev_view_presentation_set_black (pview);
 
 		return TRUE;
-	case GDK_KEY_w:
-	case GDK_KEY_W:
+	case CDK_KEY_w:
+	case CDK_KEY_W:
 		if (pview->state == EV_PRESENTATION_WHITE)
 			ev_view_presentation_set_normal (pview);
 		else
 			ev_view_presentation_set_white (pview);
 
 		return TRUE;
-	case GDK_KEY_Home:
+	case CDK_KEY_Home:
 		if (pview->state == EV_PRESENTATION_NORMAL) {
 			ev_view_presentation_update_current_page (pview, 0);
 			return TRUE;
 		}
 		break;
-	case GDK_KEY_End:
+	case CDK_KEY_End:
 		if (pview->state == EV_PRESENTATION_NORMAL) {
 			gint page;
 
@@ -1312,8 +1312,8 @@ ev_view_presentation_realize (CtkWidget *widget)
 
 	ctk_widget_set_realized (widget, TRUE);
 
-	attributes.window_type = GDK_WINDOW_CHILD;
-	attributes.wclass = GDK_INPUT_OUTPUT;
+	attributes.window_type = CDK_WINDOW_CHILD;
+	attributes.wclass = CDK_INPUT_OUTPUT;
 	attributes.visual = ctk_widget_get_visual (widget);
 
 	ctk_widget_get_allocation (widget, &allocation);
@@ -1321,20 +1321,20 @@ ev_view_presentation_realize (CtkWidget *widget)
 	attributes.y = allocation.y;
 	attributes.width = allocation.width;
 	attributes.height = allocation.height;
-	attributes.event_mask = GDK_EXPOSURE_MASK |
-		GDK_BUTTON_PRESS_MASK |
-		GDK_BUTTON_RELEASE_MASK |
-		GDK_SCROLL_MASK |
-		GDK_KEY_PRESS_MASK |
-		GDK_POINTER_MOTION_MASK |
-		GDK_POINTER_MOTION_HINT_MASK |
-		GDK_ENTER_NOTIFY_MASK |
-		GDK_LEAVE_NOTIFY_MASK;
+	attributes.event_mask = CDK_EXPOSURE_MASK |
+		CDK_BUTTON_PRESS_MASK |
+		CDK_BUTTON_RELEASE_MASK |
+		CDK_SCROLL_MASK |
+		CDK_KEY_PRESS_MASK |
+		CDK_POINTER_MOTION_MASK |
+		CDK_POINTER_MOTION_HINT_MASK |
+		CDK_ENTER_NOTIFY_MASK |
+		CDK_LEAVE_NOTIFY_MASK;
 
 	window = cdk_window_new (ctk_widget_get_parent_window (widget),
 				 &attributes,
-				 GDK_WA_X | GDK_WA_Y |
-				 GDK_WA_VISUAL);
+				 CDK_WA_X | CDK_WA_Y |
+				 CDK_WA_VISUAL);
 
 	cdk_window_set_user_data (window, widget);
 	ctk_widget_set_window (widget, window);
@@ -1370,15 +1370,15 @@ ev_view_presentation_scroll_event (CtkWidget      *widget,
 		return FALSE;
 
 	switch (event->direction) {
-	case GDK_SCROLL_DOWN:
-	case GDK_SCROLL_RIGHT:
+	case CDK_SCROLL_DOWN:
+	case CDK_SCROLL_RIGHT:
 		ev_view_presentation_change_page (pview, CTK_SCROLL_PAGE_FORWARD);
 		break;
-	case GDK_SCROLL_UP:
-	case GDK_SCROLL_LEFT:
+	case CDK_SCROLL_UP:
+	case CDK_SCROLL_LEFT:
 		ev_view_presentation_change_page (pview, CTK_SCROLL_PAGE_BACKWARD);
 		break;
-        case GDK_SCROLL_SMOOTH:
+        case CDK_SCROLL_SMOOTH:
                 return FALSE;
 	}
 
@@ -1392,7 +1392,7 @@ add_change_page_binding_keypad (CtkBindingSet  *binding_set,
 				GdkModifierType modifiers,
 				CtkScrollType   scroll)
 {
-	guint keypad_keyval = keyval - GDK_KEY_Left + GDK_KEY_KP_Left;
+	guint keypad_keyval = keyval - CDK_KEY_Left + CDK_KEY_KP_Left;
 
 	ctk_binding_entry_add_signal (binding_set, keyval, modifiers,
 				      "change_page", 1,
@@ -1571,32 +1571,32 @@ ev_view_presentation_class_init (EvViewPresentationClass *klass)
 			      G_TYPE_OBJECT);
 
 	binding_set = ctk_binding_set_by_class (klass);
-	add_change_page_binding_keypad (binding_set, GDK_KEY_Left,  0, CTK_SCROLL_PAGE_BACKWARD);
-	add_change_page_binding_keypad (binding_set, GDK_KEY_Right, 0, CTK_SCROLL_PAGE_FORWARD);
-	add_change_page_binding_keypad (binding_set, GDK_KEY_Up,    0, CTK_SCROLL_PAGE_BACKWARD);
-	add_change_page_binding_keypad (binding_set, GDK_KEY_Down,  0, CTK_SCROLL_PAGE_FORWARD);
-	ctk_binding_entry_add_signal (binding_set, GDK_KEY_space, 0,
+	add_change_page_binding_keypad (binding_set, CDK_KEY_Left,  0, CTK_SCROLL_PAGE_BACKWARD);
+	add_change_page_binding_keypad (binding_set, CDK_KEY_Right, 0, CTK_SCROLL_PAGE_FORWARD);
+	add_change_page_binding_keypad (binding_set, CDK_KEY_Up,    0, CTK_SCROLL_PAGE_BACKWARD);
+	add_change_page_binding_keypad (binding_set, CDK_KEY_Down,  0, CTK_SCROLL_PAGE_FORWARD);
+	ctk_binding_entry_add_signal (binding_set, CDK_KEY_space, 0,
 				      "change_page", 1,
 				      CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_PAGE_FORWARD);
-	ctk_binding_entry_add_signal (binding_set, GDK_KEY_BackSpace, 0,
+	ctk_binding_entry_add_signal (binding_set, CDK_KEY_BackSpace, 0,
 				      "change_page", 1,
 				      CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_PAGE_BACKWARD);
-	ctk_binding_entry_add_signal (binding_set, GDK_KEY_Page_Down, 0,
+	ctk_binding_entry_add_signal (binding_set, CDK_KEY_Page_Down, 0,
 				      "change_page", 1,
 				      CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_PAGE_FORWARD);
-	ctk_binding_entry_add_signal (binding_set, GDK_KEY_Page_Up, 0,
+	ctk_binding_entry_add_signal (binding_set, CDK_KEY_Page_Up, 0,
 				      "change_page", 1,
 				      CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_PAGE_BACKWARD);
-	ctk_binding_entry_add_signal (binding_set, GDK_KEY_J, 0,
+	ctk_binding_entry_add_signal (binding_set, CDK_KEY_J, 0,
 				      "change_page", 1,
 				      CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_PAGE_FORWARD);
-	ctk_binding_entry_add_signal (binding_set, GDK_KEY_H, 0,
+	ctk_binding_entry_add_signal (binding_set, CDK_KEY_H, 0,
 				      "change_page", 1,
 				      CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_PAGE_BACKWARD);
-	ctk_binding_entry_add_signal (binding_set, GDK_KEY_L, 0,
+	ctk_binding_entry_add_signal (binding_set, CDK_KEY_L, 0,
 				      "change_page", 1,
 				      CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_PAGE_FORWARD);
-	ctk_binding_entry_add_signal (binding_set, GDK_KEY_K, 0,
+	ctk_binding_entry_add_signal (binding_set, CDK_KEY_K, 0,
 				      "change_page", 1,
 				      CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_PAGE_BACKWARD);
 }

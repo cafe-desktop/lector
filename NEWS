@@ -397,7 +397,7 @@
   * mdvi-lib: Fix compilation warning (const-correctness)
   * libmisc: set width chars for page label
   * libview: Scroll small pages in non-continuous mode
-  * libview: Enable GDK_SMOOTH_SCROLL events for view
+  * libview: Enable CDK_SMOOTH_SCROLL events for view
   * libview: Ctrl+mouse wheel zoom should be pointer-centered, not window-centered
   * ev-view: Add pan gesture to switch page
   * ev-view: explicitly require a CtkScrolledWindow as the parent widget
@@ -575,7 +575,7 @@
   * [pdf] Implement document_links_find_link_page()
   * [djvu] Implement document_links_find_link_page()
   * [libdocument] Use find_link_page() instead of find_link_dest() in get_dest_page()
-  * GDK_KEY_* keys are Ctk+2 as well.
+  * CDK_KEY_* keys are Ctk+2 as well.
   * [shell] Add timestamp parameter to SyncView
   * [shell] Use new methods to get page and page label from a link
   * [libview] The updated CtkComboBox api is in Ctk+2.24

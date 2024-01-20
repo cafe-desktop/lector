@@ -48,7 +48,7 @@ ev_async_renderer_default_init (EvAsyncRendererInterface *klass)
 				      g_cclosure_marshal_VOID__OBJECT,
 				      G_TYPE_NONE,
 				      1,
-				      GDK_TYPE_PIXBUF);
+				      CDK_TYPE_PIXBUF);
 		initialized = TRUE;
 	}
 }

@@ -85,7 +85,7 @@ ev_sidebar_attachments_icon_cache_add (EvSidebarAttachments *ev_attachbar,
 				       const GdkPixbuf      *pixbuf)
 {
 	g_assert (mime_type != NULL);
-	g_assert (GDK_IS_PIXBUF (pixbuf));
+	g_assert (CDK_IS_PIXBUF (pixbuf));
 
 	g_hash_table_insert (ev_attachbar->priv->icon_cache,
 			     (gpointer)g_strdup (mime_type),
@@ -133,13 +133,13 @@ ev_sidebar_attachments_icon_cache_get (EvSidebarAttachments *ev_attachbar,
 	pixbuf = g_hash_table_lookup (ev_attachbar->priv->icon_cache,
 				      mime_type);
 
-	if (GDK_IS_PIXBUF (pixbuf))
+	if (CDK_IS_PIXBUF (pixbuf))
 		return pixbuf;
 
 	pixbuf = icon_theme_get_pixbuf_from_mime_type (ev_attachbar->priv->icon_theme,
 						       mime_type);
 
-	if (GDK_IS_PIXBUF (pixbuf))
+	if (CDK_IS_PIXBUF (pixbuf))
 		ev_sidebar_attachments_icon_cache_add (ev_attachbar,
 						       mime_type,
 						       pixbuf);
@@ -281,7 +281,7 @@ ev_sidebar_attachments_button_press (EvSidebarAttachments *ev_attachbar,
 
 	switch (event->button) {
 	        case 1:
-			if (event->type == GDK_2BUTTON_PRESS) {
+			if (event->type == CDK_2BUTTON_PRESS) {
 				GError *error = NULL;
 				EvAttachment *attachment;
 
@@ -542,7 +542,7 @@ ev_sidebar_attachments_init (EvSidebarAttachments *ev_attachbar)
 					     CTK_SHADOW_IN);
 	/* Data Model */
 	ev_attachbar->priv->model = ctk_list_store_new (N_COLS,
-							GDK_TYPE_PIXBUF,
+							CDK_TYPE_PIXBUF,
 							G_TYPE_STRING,
 							G_TYPE_STRING,
 							EV_TYPE_ATTACHMENT);
@@ -581,9 +581,9 @@ ev_sidebar_attachments_init (EvSidebarAttachments *ev_attachbar)
 	/* Drag and Drop */
 	ctk_icon_view_enable_model_drag_source (
 		CTK_ICON_VIEW (ev_attachbar->priv->icon_view),
-		GDK_BUTTON1_MASK,
+		CDK_BUTTON1_MASK,
 		NULL, 0,
-		GDK_ACTION_COPY);
+		CDK_ACTION_COPY);
         ctk_drag_source_add_uri_targets (ev_attachbar->priv->icon_view);
 
 	g_signal_connect (ev_attachbar->priv->icon_view,
