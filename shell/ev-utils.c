@@ -39,7 +39,7 @@ file_chooser_dialog_add_writable_pixbuf_formats (CtkFileChooser *chooser)
 	g_object_set_data (G_OBJECT(filter), "pixbuf-format", NULL);
 	ctk_file_chooser_add_filter (chooser, filter);
 
-	pixbuf_formats = cdk_pixbuf_get_formats ();
+	pixbuf_formats = gdk_pixbuf_get_formats ();
 
 	for (iter = pixbuf_formats; iter; iter = iter->next) {
 		GdkPixbufFormat *format = iter->data;
@@ -47,12 +47,12 @@ file_chooser_dialog_add_writable_pixbuf_formats (CtkFileChooser *chooser)
 	        gchar *description, *name, *extensions;
 		gchar **extension_list, **mime_types;
 
-		if (cdk_pixbuf_format_is_disabled (format) ||
-	    	    !cdk_pixbuf_format_is_writable (format))
+		if (gdk_pixbuf_format_is_disabled (format) ||
+	    	    !gdk_pixbuf_format_is_writable (format))
 		            continue;
 
-	        name = cdk_pixbuf_format_get_description (format);
-	        extension_list = cdk_pixbuf_format_get_extensions (format);
+	        name = gdk_pixbuf_format_get_description (format);
+	        extension_list = gdk_pixbuf_format_get_extensions (format);
 	        extensions = g_strjoinv (", ", extension_list);
 		g_strfreev (extension_list);
 		description = g_strdup_printf ("%s (%s)", name, extensions);
@@ -66,7 +66,7 @@ file_chooser_dialog_add_writable_pixbuf_formats (CtkFileChooser *chooser)
 		g_free (extensions);
 		g_free (name);
 
-		mime_types = cdk_pixbuf_format_get_mime_types (format);
+		mime_types = gdk_pixbuf_format_get_mime_types (format);
 		for (i = 0; mime_types[i] != 0; i++)
 			ctk_file_filter_add_mime_type (filter, mime_types[i]);
 		g_strfreev (mime_types);
@@ -76,23 +76,23 @@ file_chooser_dialog_add_writable_pixbuf_formats (CtkFileChooser *chooser)
 }
 
 GdkPixbufFormat*
-get_cdk_pixbuf_format_by_extension (gchar *uri)
+get_gdk_pixbuf_format_by_extension (gchar *uri)
 {
 	GSList *pixbuf_formats = NULL;
 	GSList *iter;
 	int i;
 
-	pixbuf_formats = cdk_pixbuf_get_formats ();
+	pixbuf_formats = gdk_pixbuf_get_formats ();
 
 	for (iter = pixbuf_formats; iter; iter = iter->next) {
 		gchar **extension_list;
 		GdkPixbufFormat *format = iter->data;
 
-		if (cdk_pixbuf_format_is_disabled (format) ||
-	    	    !cdk_pixbuf_format_is_writable (format))
+		if (gdk_pixbuf_format_is_disabled (format) ||
+	    	    !gdk_pixbuf_format_is_writable (format))
 		            continue;
 
-	        extension_list = cdk_pixbuf_format_get_extensions (format);
+	        extension_list = gdk_pixbuf_format_get_extensions (format);
 
 		for (i = 0; extension_list[i] != 0; i++) {
 			if (g_str_has_suffix (uri, extension_list[i])) {

@@ -174,7 +174,7 @@ lector_thumbnail_pngenc_get (EvDocument *document, const char *thumbnail, int si
 	g_object_unref (page);
 
 	if (pixbuf != NULL) {
-		if (cdk_pixbuf_save (pixbuf, thumbnail, "png", NULL, NULL)) {
+		if (gdk_pixbuf_save (pixbuf, thumbnail, "png", NULL, NULL)) {
 			g_object_unref  (pixbuf);
 			return TRUE;
 		}

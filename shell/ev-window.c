@@ -7147,7 +7147,7 @@ create_file_from_uri_for_format (const gchar     *uri,
 	gchar  *uri_extension;
 	gint    i;
 
-	extensions = cdk_pixbuf_format_get_extensions (format);
+	extensions = gdk_pixbuf_format_get_extensions (format);
 	for (i = 0; extensions[i]; i++) {
 		if (g_str_has_suffix (uri, extensions[i])) {
 			g_strfreev (extensions);
@@ -7191,15 +7191,15 @@ image_save_dialog_response_cb (CtkWidget *fc,
 	format = g_object_get_data (G_OBJECT (filter), "pixbuf-format");
 
 	if (format == NULL) {
-		format = get_cdk_pixbuf_format_by_extension (uri);
+		format = get_gdk_pixbuf_format_by_extension (uri);
 	}
 
 	if (format == NULL && g_strrstr (uri, ".") == NULL) {
 		/* no extension found and no extension provided within uri */
-		format = get_cdk_pixbuf_format_by_extension (".png");
+		format = get_gdk_pixbuf_format_by_extension (".png");
 		if (format == NULL) {
 			/* no .png support, try .jpeg */
-			format = get_cdk_pixbuf_format_by_extension (".jpeg");
+			format = get_gdk_pixbuf_format_by_extension (".jpeg");
 		}
 	}
 
@@ -7230,8 +7230,8 @@ image_save_dialog_response_cb (CtkWidget *fc,
 					       ev_window->priv->image);
 	ev_document_doc_mutex_unlock ();
 
-	file_format = cdk_pixbuf_format_get_name (format);
-	cdk_pixbuf_save (pixbuf, filename, file_format, &error, NULL);
+	file_format = gdk_pixbuf_format_get_name (format);
+	gdk_pixbuf_save (pixbuf, filename, file_format, &error, NULL);
 	g_free (file_format);
 	g_object_unref (pixbuf);
 
