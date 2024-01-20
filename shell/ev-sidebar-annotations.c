@@ -96,7 +96,7 @@ ev_sidebar_annotations_create_simple_model (const gchar *message)
 	/* Creates a fake model to indicate that we're loading */
 	retval = (CtkTreeModel *)ctk_list_store_new (N_COLUMNS,
 						     G_TYPE_STRING,
-						     CDK_TYPE_PIXBUF,
+						     GDK_TYPE_PIXBUF,
 						     G_TYPE_POINTER);
 
 	ctk_list_store_append (CTK_LIST_STORE (retval), &iter);
@@ -360,7 +360,7 @@ job_finished_callback (EvJobAnnots          *job,
 
 	model = ctk_tree_store_new (N_COLUMNS,
 				    G_TYPE_STRING,
-				    CDK_TYPE_PIXBUF,
+				    GDK_TYPE_PIXBUF,
 				    G_TYPE_POINTER);
 
 	for (l = job->annots; l; l = g_list_next (l)) {
