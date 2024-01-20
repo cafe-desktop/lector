@@ -38,18 +38,18 @@ typedef struct _EvViewAccessiblePrivate EvViewAccessiblePrivate;
 
 struct _EvViewAccessible
 {
-	GtkContainerAccessible parent;
+	CtkContainerAccessible parent;
 
 	EvViewAccessiblePrivate *priv;
 };
 
 struct _EvViewAccessibleClass
 {
-	GtkContainerAccessibleClass parent_class;
+	CtkContainerAccessibleClass parent_class;
 };
 
 GType      ev_view_accessible_get_type  (void);
-AtkObject *ev_view_accessible_new       (GtkWidget *widget);
+AtkObject *ev_view_accessible_new       (CtkWidget *widget);
 void       ev_view_accessible_set_model (EvViewAccessible *accessible,
                                          EvDocumentModel  *model);
 gint       ev_view_accessible_get_n_pages (EvViewAccessible *accessible);

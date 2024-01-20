@@ -41,13 +41,13 @@ typedef struct _EvSidebarAttachmentsPrivate EvSidebarAttachmentsPrivate;
 #define EV_SIDEBAR_ATTACHMENTS_GET_CLASS(object) (G_TYPE_INSTANCE_GET_CLASS((object), EV_TYPE_SIDEBAR_ATTACHMENTS, EvSidebarAttachmentsClass))
 
 struct _EvSidebarAttachments {
-	GtkBox base_instance;
+	CtkBox base_instance;
 
 	EvSidebarAttachmentsPrivate *priv;
 };
 
 struct _EvSidebarAttachmentsClass {
-	GtkBoxClass base_class;
+	CtkBoxClass base_class;
 
 	/* Signals */
 	void (*popup_menu) (EvSidebarAttachments *ev_attachbar,
@@ -55,7 +55,7 @@ struct _EvSidebarAttachmentsClass {
 };
 
 GType      ev_sidebar_attachments_get_type     (void) G_GNUC_CONST;
-GtkWidget *ev_sidebar_attachments_new          (void);
+CtkWidget *ev_sidebar_attachments_new          (void);
 
 G_END_DECLS
 

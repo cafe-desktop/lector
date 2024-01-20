@@ -79,18 +79,18 @@
   * prevent segfaults when no document loaded
   * require GLib 2.54.0
   * Fix build warning on marshalling
-  * previewer-window: suppress GtkAction warnings
-  * sidebar-bookmarks: suppress GtkAction warnings
-  * ev-window: suppress GtkAction warnings
-  * ev-open-recent-action: suppress GtkAction warnings
-  * ev-navigation-action: suppress GtkAction warnings
-  * ev-bookmark-action: suppress GtkAction warnings
-  * ev-page-action: suppress GtkAction warnings
-  * egg-toolbar-editor: suppress GtkAction warnings
-  * egg-editable-toolbar: suppress GtkAction warnings
+  * previewer-window: suppress CtkAction warnings
+  * sidebar-bookmarks: suppress CtkAction warnings
+  * ev-window: suppress CtkAction warnings
+  * ev-open-recent-action: suppress CtkAction warnings
+  * ev-navigation-action: suppress CtkAction warnings
+  * ev-bookmark-action: suppress CtkAction warnings
+  * ev-page-action: suppress CtkAction warnings
+  * egg-toolbar-editor: suppress CtkAction warnings
+  * egg-editable-toolbar: suppress CtkAction warnings
   * egg-toolbar-editor{c/h}: tabs to spaces
   * egg-editable-toolbar{c/h}: tabs to spaces
-  * ephy-zoom-action: suppress GtkAction warnings
+  * ephy-zoom-action: suppress CtkAction warnings
   * document: Replace deprecated gdk_color_equal
   * Fix buffer overflow in backend/tiff-document.c
 
@@ -185,11 +185,11 @@
   * libview: Check number of pages when processing button events
   * libview: Add check for pageless documents to ev_view_accessible_focus_changed
   * libview: Check number of pages on ev_view_document_changed_cb
-  * Use GtkOverlay to show the loading message
+  * Use CtkOverlay to show the loading message
   * shell: Remove unused marshalers
   * thumbnailer: Send error messages to stderr
-  * shell: Use GtkApplication to inhibit the screensaver
-  * shell: Port to GtkApplication
+  * shell: Use CtkApplication to inhibit the screensaver
+  * shell: Port to CtkApplication
   * shell: Use g_printerr instead of g_warning
   * daemon: Port to GApplication
   * daemon: Use gdbus-codegen for the org.cafe.lector.Daemon interface
@@ -203,7 +203,7 @@
   * shell: fix menu-accel for inverted colors
   * shell: add keypad accels for zoom_reset
   * Add zoom reset
-  * avoid deprecated GtkStock
+  * avoid deprecated CtkStock
 
 ### lector 1.20.0
 
@@ -327,7 +327,7 @@
   * libview: merge get_caret_cursor_rect_from_offset and get_caret_cursor_area
   * libview: Notify about caret navigation errors using the error bell.
   * libview: Do not redraw after a click if cursor position hasn't changed
-  * libview: Use GtkBindings for caret navigation
+  * libview: Use CtkBindings for caret navigation
   * libview: Rename EvView::binding-activated signal as EvView::scroll
   * libview: Position the caret cursor by clicking
   * libview: Use EvPixbufCache to find selection region
@@ -383,7 +383,7 @@
   * pdf: Add activation link for Fields that have it.
   * libview: Handle activation link of a Form Field  if present
   * libdocument: Add activation_link to EvFormField struct
-  * ev-properties-licence: don't use deprecated GtkAlignment
+  * ev-properties-licence: don't use deprecated CtkAlignment
   * libview: : avoid deprecated ctk_adjustment_changed
   * ev-job-find: mark two methods as skip
   * ev-jobs: have ev_job_failed_from_error shadow ev_job_failed
@@ -400,7 +400,7 @@
   * libview: Enable GDK_SMOOTH_SCROLL events for view
   * libview: Ctrl+mouse wheel zoom should be pointer-centered, not window-centered
   * ev-view: Add pan gesture to switch page
-  * ev-view: explicitly require a GtkScrolledWindow as the parent widget
+  * ev-view: explicitly require a CtkScrolledWindow as the parent widget
   * ev-view: Add pinch/zoom gesture to handle document zooming
 
 ### lector 1.19.1
@@ -428,7 +428,7 @@
   * libview: save changes to a dropdown in an embedded form
   * libdocument: adjust rendering of shadow for active and inactive pages
   * avoid deprecated gdk_screen_make_display_name
-  * ev-window: remove deprecated GtkToolbar-shadow-type
+  * ev-window: remove deprecated CtkToolbar-shadow-type
   * annotation-properties-dialog: don't use a headerbar
   * avoid deprecated gdk_display_get_screen and gdk_display_get_n_screens
   * ev-window: don't use deprecated ctk_show_uri
@@ -445,11 +445,11 @@
   * shell: remove unused code from utils
   * ev-view: avoid deprecated ctk_drag_begin
   * egg-editable-toolbar: avoid deprecated ctk_drag_begin
-  * message-area: replace some GtkStock deprecations
+  * message-area: replace some CtkStock deprecations
   * ev-sidebar: avoid deprecated CTK_STOCK_CLOSE icon
-  * password-view: replace some GtkStock deprecations
-  * password-view: don't use deprecated GtkAlignment
-  * toolbar-editor: don't use deprecated GtkAlignment
+  * password-view: replace some CtkStock deprecations
+  * password-view: don't use deprecated CtkAlignment
+  * toolbar-editor: don't use deprecated CtkAlignment
 
 ### lector 1.18.0
 
@@ -482,7 +482,7 @@
 ### lector 1.16.0
 
   * Build: require poppler 0.18.0
-  * Use GtkAboutDialog instead of CafeAboutDialog
+  * Use CtkAboutDialog instead of CafeAboutDialog
   * Drop dependency on libcafe-desktop and --without-cafedesktop
     build option
   * Update toolbar-editor from libegg
@@ -554,7 +554,7 @@
 ### lector 1.10.1
 
   * Fix crash when pressing Esc with no document opened
-  * Gtk3: Add webkit2ctk-4.0 and prefer it over 3.0
+  * Ctk3: Add webkit2ctk-4.0 and prefer it over 3.0
   * Help fixes
 
 ### lector 1.10.0
@@ -575,10 +575,10 @@
   * [pdf] Implement document_links_find_link_page()
   * [djvu] Implement document_links_find_link_page()
   * [libdocument] Use find_link_page() instead of find_link_dest() in get_dest_page()
-  * GDK_KEY_* keys are Gtk+2 as well.
+  * GDK_KEY_* keys are Ctk+2 as well.
   * [shell] Add timestamp parameter to SyncView
   * [shell] Use new methods to get page and page label from a link
-  * [libview] The updated GtkComboBox api is in Gtk+2.24
+  * [libview] The updated CtkComboBox api is in Ctk+2.24
   * [dvi] Fix drawing glyphs with transparency
   * [shell] Send the URI of the input file instead of the filename in SyncSource
   * [libdocument] Add xz compression support
@@ -590,11 +590,11 @@
   * presentation: Allow to change rotation in presentation mode
   * Rotate with CTRL+Left/Right in presentation mode too
   * Add .png extension when saving images using DnD
-  * Gtk3: Use ctk_paned_new() instead ctk_[h|v]paned_new()
-  * Gtk3: Add GtkStyleContect support
-  * Gtk3: Don't use gdk_cursor_unref()
-  * Gtk3: Use ctk_widget_render_icon_pixbuf()
-  * Gtk3: presentation: Make sure background window is black by default in presentation mode
+  * Ctk3: Use ctk_paned_new() instead ctk_[h|v]paned_new()
+  * Ctk3: Add CtkStyleContect support
+  * Ctk3: Don't use gdk_cursor_unref()
+  * Ctk3: Use ctk_widget_render_icon_pixbuf()
+  * Ctk3: presentation: Make sure background window is black by default in presentation mode
   * Add epub support (part of GSoC 2014).
   * Use CafeAboutDialog from libcafe-desktop.
 
@@ -606,5 +606,5 @@
   * Enable case sensitive search (not available on all backends).
   * Move Lector to "Offcie" in the menu.
   * Show "filename (title)" in the window title.
-  * Gtk+3, add support to build against Gtk+3, still unsupported.
-  * Add Gtk3 primary toolbar style.
+  * Ctk+3, add support to build against Ctk+3, still unsupported.
+  * Add Ctk3 primary toolbar style.

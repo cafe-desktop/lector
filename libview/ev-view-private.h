@@ -80,7 +80,7 @@ typedef enum {
 
 /* Annotation popup windows */
 typedef struct {
-	GtkWidget *window;
+	CtkWidget *window;
 	guint      page;
 
 	/* Current position */
@@ -114,7 +114,7 @@ typedef struct _EvHeightToPageCache {
 } EvHeightToPageCache;
 
 struct _EvView {
-	GtkContainer layout;
+	CtkContainer layout;
 
 	/* Container */
 	GList *children;
@@ -135,13 +135,13 @@ struct _EvView {
 	EvViewCursor cursor;
 	EvJobRender *current_job;
 
-	GtkRequisition requisition;
+	CtkRequisition requisition;
 	gboolean       internal_size_request;
 
 	/* Scrolling */
-	GtkAdjustment *hadjustment;
-	GtkAdjustment *vadjustment;
-	/* GtkScrollablePolicy needs to be checked when
+	CtkAdjustment *hadjustment;
+	CtkAdjustment *vadjustment;
+	/* CtkScrollablePolicy needs to be checked when
 	* driving the scrollable adjustment values */
 	guint hscroll_policy : 1;
 	guint vscroll_policy : 1;
@@ -171,7 +171,7 @@ struct _EvView {
 	gboolean fullscreen;
 	EvSizingMode sizing_mode;
 	EvPageLayout page_layout;
-	GtkWidget *loading_window;
+	CtkWidget *loading_window;
 	guint loading_timeout;
 
 	/* Common for button press handling */
@@ -225,8 +225,8 @@ struct _EvView {
 	guint    cursor_blink_time;
 
 	/* Gestures */
-	GtkGesture *pan_gesture;
-	GtkGesture *zoom_gesture;
+	CtkGesture *pan_gesture;
+	CtkGesture *zoom_gesture;
 	gdouble prev_zoom_gesture_scale;
 	EvPanAction pan_action;
 
@@ -236,11 +236,11 @@ struct _EvView {
 };
 
 struct _EvViewClass {
-	GtkContainerClass parent_class;
+	CtkContainerClass parent_class;
 
 	void     (*scroll)            (EvView         *view,
-	                               GtkScrollType   scroll,
-	                               GtkOrientation  orientation);
+	                               CtkScrollType   scroll,
+	                               CtkOrientation  orientation);
 	void     (*handle_link)       (EvView         *view,
 	                               EvLink         *link);
 	void     (*external_link)     (EvView         *view,
@@ -256,7 +256,7 @@ struct _EvViewClass {
 	                               EvAnnotation   *annot);
 	void     (*layers_changed)    (EvView         *view);
 	gboolean (*move_cursor)       (EvView         *view,
-	                               GtkMovementStep step,
+	                               CtkMovementStep step,
 	                               gint            count,
 	                               gboolean        extend_selection);
 };

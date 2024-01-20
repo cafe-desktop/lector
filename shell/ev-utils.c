@@ -27,11 +27,11 @@
 #include <glib/gi18n.h>
 
 void
-file_chooser_dialog_add_writable_pixbuf_formats (GtkFileChooser *chooser)
+file_chooser_dialog_add_writable_pixbuf_formats (CtkFileChooser *chooser)
 {
 	GSList *pixbuf_formats = NULL;
 	GSList *iter;
-	GtkFileFilter *filter;
+	CtkFileFilter *filter;
 	int i;
 
 	filter = ctk_file_filter_new();

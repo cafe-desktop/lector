@@ -131,7 +131,7 @@ ev_document_misc_get_loading_thumbnail (int      width,
 void
 ev_document_misc_get_page_border_size (gint       page_width,
 				       gint       page_height,
-				       GtkBorder *border)
+				       CtkBorder *border)
 {
 	g_assert (border);
 
@@ -152,14 +152,14 @@ ev_document_misc_get_page_border_size (gint       page_width,
 
 void
 ev_document_misc_paint_one_page (cairo_t      *cr,
-				 GtkWidget    *widget,
+				 CtkWidget    *widget,
 				 GdkRectangle *area,
-				 GtkBorder    *border,
+				 CtkBorder    *border,
 				 gboolean      highlight,
 				 gboolean      inverted_colors)
 {
-	GtkStyleContext *context = ctk_widget_get_style_context (widget);
-	GtkStateFlags state = ctk_widget_get_state_flags (widget);
+	CtkStyleContext *context = ctk_widget_get_style_context (widget);
+	CtkStateFlags state = ctk_widget_get_state_flags (widget);
         GdkRGBA fg, bg, shade_bg;
 
         ctk_style_context_save (context);
@@ -374,7 +374,7 @@ ev_document_misc_format_date (gint64 utime)
 }
 
 void
-ev_document_misc_get_pointer_position (GtkWidget *widget,
+ev_document_misc_get_pointer_position (CtkWidget *widget,
                                        gint      *x,
                                        gint      *y)
 {

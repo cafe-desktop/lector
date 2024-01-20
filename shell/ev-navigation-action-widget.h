@@ -28,14 +28,14 @@ typedef struct _EvNavigationActionWidgetClass EvNavigationActionWidgetClass;
 
 struct _EvNavigationActionWidget
 {
-	GtkToggleToolButton parent;
+	CtkToggleToolButton parent;
 
-	GtkMenu *menu;
+	CtkMenu *menu;
 };
 
 struct _EvNavigationActionWidgetClass
 {
-	GtkToggleToolButtonClass parent_class;
+	CtkToggleToolButtonClass parent_class;
 
 	void  (*show_menu) (EvNavigationActionWidget *widget);
 };
@@ -43,4 +43,4 @@ struct _EvNavigationActionWidgetClass
 GType ev_navigation_action_widget_get_type   (void);
 
 void
-ev_navigation_action_widget_set_menu(EvNavigationActionWidget *widget, GtkWidget *menu);
+ev_navigation_action_widget_set_menu(EvNavigationActionWidget *widget, CtkWidget *menu);

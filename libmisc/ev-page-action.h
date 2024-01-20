@@ -41,7 +41,7 @@ typedef struct _EvPageActionClass		EvPageActionClass;
 
 struct _EvPageAction
 {
-	GtkAction parent;
+	CtkAction parent;
 
 	/*< private >*/
 	EvPageActionPrivate *priv;
@@ -49,7 +49,7 @@ struct _EvPageAction
 
 struct _EvPageActionClass
 {
-	GtkActionClass parent_class;
+	CtkActionClass parent_class;
 
 	void     (* activate_link) (EvPageAction *page_action,
 			            EvLink       *link);
@@ -60,7 +60,7 @@ GType ev_page_action_get_type        (void) G_GNUC_CONST;
 void  ev_page_action_set_model       (EvPageAction    *page_action,
 				      EvDocumentModel *model);
 void  ev_page_action_set_links_model (EvPageAction    *page_action,
-				      GtkTreeModel    *links_model);
+				      CtkTreeModel    *links_model);
 void  ev_page_action_grab_focus      (EvPageAction    *page_action);
 
 G_END_DECLS

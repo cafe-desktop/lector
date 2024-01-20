@@ -35,8 +35,8 @@ static guint action_signals[N_SIGNALS] = { 0 };
 G_DEFINE_TYPE (EvOpenRecentAction, ev_open_recent_action, CTK_TYPE_ACTION)
 
 static void
-recent_chooser_item_activated (GtkRecentChooser *chooser,
-			       GtkAction        *action)
+recent_chooser_item_activated (CtkRecentChooser *chooser,
+			       CtkAction        *action)
 {
 	gchar *uri;
 
@@ -45,12 +45,12 @@ recent_chooser_item_activated (GtkRecentChooser *chooser,
 	g_free (uri);
 }
 
-static GtkWidget *
-ev_open_recent_action_create_tool_item (GtkAction *action)
+static CtkWidget *
+ev_open_recent_action_create_tool_item (CtkAction *action)
 {
-	GtkWidget       *tool_item;
-	GtkWidget       *toolbar_recent_menu;
-	GtkRecentFilter *filter;
+	CtkWidget       *tool_item;
+	CtkWidget       *toolbar_recent_menu;
+	CtkRecentFilter *filter;
 
 	toolbar_recent_menu = ctk_recent_chooser_menu_new_for_manager (ctk_recent_manager_get_default ());
 	ctk_recent_chooser_set_local_only (CTK_RECENT_CHOOSER (toolbar_recent_menu), FALSE);
@@ -81,7 +81,7 @@ static void
 ev_open_recent_action_class_init (EvOpenRecentActionClass *class)
 {
 	GObjectClass   *object_class = G_OBJECT_CLASS (class);
-	GtkActionClass *action_class = CTK_ACTION_CLASS (class);
+	CtkActionClass *action_class = CTK_ACTION_CLASS (class);
 
 	action_class->toolbar_item_type = CTK_TYPE_MENU_TOOL_BUTTON;
 	action_class->create_tool_item = ev_open_recent_action_create_tool_item;

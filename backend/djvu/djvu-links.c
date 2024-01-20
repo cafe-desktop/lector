@@ -147,7 +147,7 @@ str_to_utf8 (const gchar *text)
 }
 
 /**
- * Builds the index GtkTreeModel from DjVu s-expr
+ * Builds the index CtkTreeModel from DjVu s-expr
  *
  * (bookmarks
  *   ("title1" "dest1"
@@ -160,8 +160,8 @@ str_to_utf8 (const gchar *text)
  */
 static void
 build_tree (const DjvuDocument *djvu_document,
-	    GtkTreeModel       *model,
-	    GtkTreeIter        *parent,
+	    CtkTreeModel       *model,
+	    CtkTreeIter        *parent,
 	    miniexp_t           iter)
 {
 	const char *title, *link_dest;
@@ -169,7 +169,7 @@ build_tree (const DjvuDocument *djvu_document,
 
 	EvLinkAction *ev_action = NULL;
 	EvLink *ev_link = NULL;
-	GtkTreeIter tree_iter;
+	CtkTreeIter tree_iter;
 
 	if (miniexp_car (iter) == miniexp_symbol ("bookmarks")) {
 		/* The (bookmarks) cons */
@@ -431,18 +431,18 @@ djvu_links_find_link_page (EvDocumentLinks  *document_links,
 	return page;
 }
 
-GtkTreeModel *
+CtkTreeModel *
 djvu_links_get_links_model (EvDocumentLinks *document_links)
 {
 	DjvuDocument *djvu_document = DJVU_DOCUMENT (document_links);
-	GtkTreeModel *model = NULL;
+	CtkTreeModel *model = NULL;
 	miniexp_t outline = miniexp_nil;
 
 	while ((outline = ddjvu_document_get_outline (djvu_document->d_document)) == miniexp_dummy)
 		djvu_handle_events (djvu_document, TRUE, NULL);
 
 	if (outline) {
-		model = (GtkTreeModel *) ctk_tree_store_new (EV_DOCUMENT_LINKS_COLUMN_NUM_COLUMNS,
+		model = (CtkTreeModel *) ctk_tree_store_new (EV_DOCUMENT_LINKS_COLUMN_NUM_COLUMNS,
 							     G_TYPE_STRING,
 							     G_TYPE_OBJECT,
 							     G_TYPE_BOOLEAN,

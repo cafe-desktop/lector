@@ -57,7 +57,7 @@ typedef enum {
 
 struct _EvViewPresentation
 {
-	GtkWidget base;
+	CtkWidget base;
 
         guint                  is_constructing : 1;
 
@@ -76,8 +76,8 @@ struct _EvViewPresentation
 	guint                  hide_cursor_timeout_id;
 
 	/* Goto Window */
-	GtkWidget             *goto_window;
-	GtkWidget             *goto_entry;
+	CtkWidget             *goto_window;
+	CtkWidget             *goto_entry;
 
 	/* Page Transition */
 	guint                  trans_timeout_id;
@@ -96,11 +96,11 @@ struct _EvViewPresentation
 
 struct _EvViewPresentationClass
 {
-	GtkWidgetClass base_class;
+	CtkWidgetClass base_class;
 
 	/* signals */
 	void (* change_page)   (EvViewPresentation *pview,
-                                GtkScrollType       scroll);
+                                CtkScrollType       scroll);
 	void (* finished)      (EvViewPresentation *pview);
 	void (* external_link) (EvViewPresentation *pview,
                                 EvLinkAction       *action);
@@ -119,7 +119,7 @@ G_DEFINE_TYPE (EvViewPresentation, ev_view_presentation, CTK_TYPE_WIDGET)
 static void
 ev_view_presentation_set_normal (EvViewPresentation *pview)
 {
-	GtkWidget *widget = CTK_WIDGET (pview);
+	CtkWidget *widget = CTK_WIDGET (pview);
 
 	if (pview->state == EV_PRESENTATION_NORMAL)
 		return;
@@ -133,7 +133,7 @@ ev_view_presentation_set_normal (EvViewPresentation *pview)
 static void
 ev_view_presentation_set_black (EvViewPresentation *pview)
 {
-	GtkWidget *widget = CTK_WIDGET (pview);
+	CtkWidget *widget = CTK_WIDGET (pview);
 
 	if (pview->state == EV_PRESENTATION_BLACK)
 		return;
@@ -147,7 +147,7 @@ ev_view_presentation_set_black (EvViewPresentation *pview)
 static void
 ev_view_presentation_set_white (EvViewPresentation *pview)
 {
-	GtkWidget *widget = CTK_WIDGET (pview);
+	CtkWidget *widget = CTK_WIDGET (pview);
 
 	if (pview->state == EV_PRESENTATION_WHITE)
 		return;
@@ -160,7 +160,7 @@ ev_view_presentation_set_white (EvViewPresentation *pview)
 static void
 ev_view_presentation_set_end (EvViewPresentation *pview)
 {
-	GtkWidget *widget = CTK_WIDGET (pview);
+	CtkWidget *widget = CTK_WIDGET (pview);
 
 	if (pview->state == EV_PRESENTATION_END)
 		return;
@@ -194,8 +194,8 @@ static void
 ev_view_presentation_get_page_area (EvViewPresentation *pview,
 				    GdkRectangle       *area)
 {
-	GtkWidget    *widget = CTK_WIDGET (pview);
-	GtkAllocation allocation;
+	CtkWidget    *widget = CTK_WIDGET (pview);
+	CtkAllocation allocation;
 	gdouble       doc_width, doc_height;
 	gint          view_width, view_height;
 	gdouble       scale;
@@ -594,7 +594,7 @@ ev_view_presentation_previous_page (EvViewPresentation *pview)
 
 /* Cut and paste from ctkwindow.c */
 static void
-send_focus_change (GtkWidget *widget,
+send_focus_change (CtkWidget *widget,
 		   gboolean   in)
 {
 	GdkEvent *fevent = gdk_event_new (GDK_FOCUS_CHANGE);
@@ -620,7 +620,7 @@ ev_view_presentation_goto_window_hide (EvViewPresentation *pview)
 }
 
 static gboolean
-ev_view_presentation_goto_window_delete_event (GtkWidget          *widget,
+ev_view_presentation_goto_window_delete_event (CtkWidget          *widget,
 					       GdkEventAny        *event,
 					       EvViewPresentation *pview)
 {
@@ -630,7 +630,7 @@ ev_view_presentation_goto_window_delete_event (GtkWidget          *widget,
 }
 
 static gboolean
-ev_view_presentation_goto_window_key_press_event (GtkWidget          *widget,
+ev_view_presentation_goto_window_key_press_event (CtkWidget          *widget,
 						  GdkEventKey        *event,
 						  EvViewPresentation *pview)
 {
@@ -656,7 +656,7 @@ ev_view_presentation_goto_window_key_press_event (GtkWidget          *widget,
 }
 
 static gboolean
-ev_view_presentation_goto_window_button_press_event (GtkWidget          *widget,
+ev_view_presentation_goto_window_button_press_event (CtkWidget          *widget,
 						     GdkEventButton     *event,
 						     EvViewPresentation *pview)
 {
@@ -666,7 +666,7 @@ ev_view_presentation_goto_window_button_press_event (GtkWidget          *widget,
 }
 
 static void
-ev_view_presentation_goto_entry_activate (GtkEntry           *entry,
+ev_view_presentation_goto_entry_activate (CtkEntry           *entry,
 					  EvViewPresentation *pview)
 {
 	const gchar *text;
@@ -682,8 +682,8 @@ ev_view_presentation_goto_entry_activate (GtkEntry           *entry,
 static void
 ev_view_presentation_goto_window_create (EvViewPresentation *pview)
 {
-	GtkWidget *frame, *hbox, *label;
-	GtkWindow *toplevel, *goto_window;
+	CtkWidget *frame, *hbox, *label;
+	CtkWindow *toplevel, *goto_window;
 
 	toplevel = CTK_WINDOW (ctk_widget_get_toplevel (CTK_WIDGET (pview)));
 
@@ -743,7 +743,7 @@ ev_view_presentation_goto_window_create (EvViewPresentation *pview)
 static void
 ev_view_presentation_goto_entry_grab_focus (EvViewPresentation *pview)
 {
-	GtkWidgetClass *entry_parent_class;
+	CtkWidgetClass *entry_parent_class;
 
 	entry_parent_class = g_type_class_peek_parent (CTK_ENTRY_GET_CLASS (pview->goto_entry));
 	(entry_parent_class->grab_focus) (pview->goto_entry);
@@ -929,7 +929,7 @@ static void
 ev_view_presentation_set_cursor (EvViewPresentation *pview,
 				 EvViewCursor        view_cursor)
 {
-	GtkWidget  *widget;
+	CtkWidget  *widget;
 	GdkDisplay *display;
 	GdkCursor  *cursor;
 
@@ -1036,7 +1036,7 @@ ev_view_presentation_dispose (GObject *object)
 }
 
 static void
-ev_view_presentation_get_preferred_width (GtkWidget *widget,
+ev_view_presentation_get_preferred_width (CtkWidget *widget,
 					  gint      *minimum,
 					  gint      *natural)
 {
@@ -1044,7 +1044,7 @@ ev_view_presentation_get_preferred_width (GtkWidget *widget,
 }
 
 static void
-ev_view_presentation_get_preferred_height (GtkWidget *widget,
+ev_view_presentation_get_preferred_height (CtkWidget *widget,
 					   gint      *minimum,
 					   gint      *natural)
 {
@@ -1054,7 +1054,7 @@ ev_view_presentation_get_preferred_height (GtkWidget *widget,
 static void
 ev_view_presentation_draw_end_page (EvViewPresentation *pview, cairo_t *cr)
 {
-	GtkWidget *widget = CTK_WIDGET (pview);
+	CtkWidget *widget = CTK_WIDGET (pview);
 	PangoLayout *layout;
 	PangoFontDescription *font_desc;
 	gchar *markup;
@@ -1081,7 +1081,7 @@ ev_view_presentation_draw_end_page (EvViewPresentation *pview, cairo_t *cr)
 }
 
 static gboolean
-ev_view_presentation_draw (GtkWidget *widget,
+ev_view_presentation_draw (CtkWidget *widget,
 			   cairo_t   *cr)
 {
 	EvViewPresentation *pview = EV_VIEW_PRESENTATION (widget);
@@ -1090,7 +1090,7 @@ ev_view_presentation_draw (GtkWidget *widget,
 	cairo_surface_t    *surface;
 	cairo_rectangle_int_t clip_rect;
 	GdkRectangle *area = &clip_rect;
-	GtkStyleContext    *context;
+	CtkStyleContext    *context;
 
 	context = ctk_widget_get_style_context (CTK_WIDGET (pview));
 	ctk_render_background (context, cr,
@@ -1153,7 +1153,7 @@ ev_view_presentation_draw (GtkWidget *widget,
 }
 
 static gboolean
-ev_view_presentation_key_press_event (GtkWidget   *widget,
+ev_view_presentation_key_press_event (CtkWidget   *widget,
 				      GdkEventKey *event)
 {
 	EvViewPresentation *pview = EV_VIEW_PRESENTATION (widget);
@@ -1219,7 +1219,7 @@ ev_view_presentation_key_press_event (GtkWidget   *widget,
 }
 
 static gboolean
-ev_view_presentation_button_release_event (GtkWidget      *widget,
+ev_view_presentation_button_release_event (CtkWidget      *widget,
 					   GdkEventButton *event)
 {
 	EvViewPresentation *pview = EV_VIEW_PRESENTATION (widget);
@@ -1254,7 +1254,7 @@ ev_view_presentation_button_release_event (GtkWidget      *widget,
 }
 
 static gint
-ev_view_presentation_focus_out (GtkWidget     *widget,
+ev_view_presentation_focus_out (CtkWidget     *widget,
 				GdkEventFocus *event)
 {
 	EvViewPresentation *pview = EV_VIEW_PRESENTATION (widget);
@@ -1266,7 +1266,7 @@ ev_view_presentation_focus_out (GtkWidget     *widget,
 }
 
 static gboolean
-ev_view_presentation_motion_notify_event (GtkWidget      *widget,
+ev_view_presentation_motion_notify_event (CtkWidget      *widget,
 					  GdkEventMotion *event)
 {
 	EvViewPresentation *pview = EV_VIEW_PRESENTATION (widget);
@@ -1291,7 +1291,7 @@ ev_view_presentation_update_monitor_geometry (EvViewPresentation *pview)
 }
 
 static gboolean
-init_presentation (GtkWidget *widget)
+init_presentation (CtkWidget *widget)
 {
 	EvViewPresentation *pview = EV_VIEW_PRESENTATION (widget);
 
@@ -1304,11 +1304,11 @@ init_presentation (GtkWidget *widget)
 }
 
 static void
-ev_view_presentation_realize (GtkWidget *widget)
+ev_view_presentation_realize (CtkWidget *widget)
 {
 	GdkWindow    *window;
 	GdkWindowAttr attributes;
-	GtkAllocation allocation;
+	CtkAllocation allocation;
 
 	ctk_widget_set_realized (widget, TRUE);
 
@@ -1344,7 +1344,7 @@ ev_view_presentation_realize (GtkWidget *widget)
 
 static void
 ev_view_presentation_change_page (EvViewPresentation *pview,
-				  GtkScrollType       scroll)
+				  CtkScrollType       scroll)
 {
 	switch (scroll) {
 	case CTK_SCROLL_PAGE_FORWARD:
@@ -1359,7 +1359,7 @@ ev_view_presentation_change_page (EvViewPresentation *pview,
 }
 
 static gboolean
-ev_view_presentation_scroll_event (GtkWidget      *widget,
+ev_view_presentation_scroll_event (CtkWidget      *widget,
 				   GdkEventScroll *event)
 {
 	EvViewPresentation *pview = EV_VIEW_PRESENTATION (widget);
@@ -1387,10 +1387,10 @@ ev_view_presentation_scroll_event (GtkWidget      *widget,
 
 
 static void
-add_change_page_binding_keypad (GtkBindingSet  *binding_set,
+add_change_page_binding_keypad (CtkBindingSet  *binding_set,
 				guint           keyval,
 				GdkModifierType modifiers,
-				GtkScrollType   scroll)
+				CtkScrollType   scroll)
 {
 	guint keypad_keyval = keyval - GDK_KEY_Left + GDK_KEY_KP_Left;
 
@@ -1485,9 +1485,9 @@ ev_view_presentation_constructor (GType                  type,
 static void
 ev_view_presentation_class_init (EvViewPresentationClass *klass)
 {
-	GtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
+	CtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
 	GObjectClass   *gobject_class = G_OBJECT_CLASS (klass);
-	GtkBindingSet  *binding_set;
+	CtkBindingSet  *binding_set;
 
 	klass->change_page = ev_view_presentation_change_page;
 
@@ -1608,7 +1608,7 @@ ev_view_presentation_init (EvViewPresentation *pview)
 	pview->is_constructing = TRUE;
 }
 
-GtkWidget *
+CtkWidget *
 ev_view_presentation_new (EvDocument *document,
 			  guint       current_page,
 			  guint       rotation,

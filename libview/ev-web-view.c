@@ -200,10 +200,10 @@ ev_web_view_page_changed_cb (EvDocumentModel *model,
 	}
 }
 
-GtkWidget*
+CtkWidget*
 ev_web_view_new (void)
 {
-	GtkWidget *webview;
+	CtkWidget *webview;
 
 	webview = g_object_new (EV_TYPE_WEB_VIEW, NULL);
 

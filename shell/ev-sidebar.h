@@ -42,21 +42,21 @@ typedef struct _EvSidebarPrivate EvSidebarPrivate;
 #define EV_SIDEBAR_GET_CLASS(object) (G_TYPE_INSTANCE_GET_CLASS((object), EV_TYPE_SIDEBAR, EvSidebarClass))
 
 struct _EvSidebar {
-	GtkBox base_instance;
+	CtkBox base_instance;
 
 	EvSidebarPrivate *priv;
 };
 
 struct _EvSidebarClass {
-	GtkBoxClass base_class;
+	CtkBoxClass base_class;
 };
 
 GType      ev_sidebar_get_type  (void) G_GNUC_CONST;
-GtkWidget *ev_sidebar_new       (void);
+CtkWidget *ev_sidebar_new       (void);
 void       ev_sidebar_add_page  (EvSidebar       *ev_sidebar,
-				 GtkWidget       *main_widget);
+				 CtkWidget       *main_widget);
 void       ev_sidebar_set_page  (EvSidebar       *ev_sidebar,
-				 GtkWidget       *main_widget);
+				 CtkWidget       *main_widget);
 void       ev_sidebar_set_model (EvSidebar       *sidebar,
 				 EvDocumentModel *model);
 

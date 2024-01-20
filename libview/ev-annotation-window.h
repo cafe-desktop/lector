@@ -39,8 +39,8 @@ typedef struct _EvAnnotationWindowClass EvAnnotationWindowClass;
 #define EV_ANNOTATION_WINDOW_GET_CLASS(object) (G_TYPE_INSTANCE_GET_CLASS((object), EV_TYPE_ANNOTATION_WINDOW, EvAnnotationWindowClass))
 
 GType         ev_annotation_window_get_type       (void) G_GNUC_CONST;
-GtkWidget    *ev_annotation_window_new            (EvAnnotation       *annot,
-						   GtkWindow          *parent);
+CtkWidget    *ev_annotation_window_new            (EvAnnotation       *annot,
+						   CtkWindow          *parent);
 EvAnnotation *ev_annotation_window_get_annotation (EvAnnotationWindow *window);
 void          ev_annotation_window_set_annotation (EvAnnotationWindow *window,
 						   EvAnnotation       *annot);

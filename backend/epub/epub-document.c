@@ -216,14 +216,14 @@ epub_document_links_has_document_links(EvDocumentLinks *document_links)
 
 
 typedef struct _LinksCBStruct {
-	GtkTreeModel *model;
-	GtkTreeIter  *parent;
+	CtkTreeModel *model;
+	CtkTreeIter  *parent;
 }LinksCBStruct;
 
 static void
 epub_document_make_tree_entry(linknode* ListData,LinksCBStruct* UserData)
 {
-	GtkTreeIter tree_iter;
+	CtkTreeIter tree_iter;
 	EvLink *link = NULL;
 	gboolean expand;
 	char *title_markup;
@@ -274,16 +274,16 @@ epub_document_make_tree_entry(linknode* ListData,LinksCBStruct* UserData)
 	g_object_unref (link);
 }
 
-static GtkTreeModel *
+static CtkTreeModel *
 epub_document_links_get_links_model(EvDocumentLinks *document_links)
 {
-    GtkTreeModel *model = NULL;
+    CtkTreeModel *model = NULL;
 
 	g_return_val_if_fail (EPUB_IS_DOCUMENT (document_links), NULL);
 
     EpubDocument *epub_document = EPUB_DOCUMENT(document_links);
 
-    model = (GtkTreeModel*) ctk_tree_store_new (EV_DOCUMENT_LINKS_COLUMN_NUM_COLUMNS,
+    model = (CtkTreeModel*) ctk_tree_store_new (EV_DOCUMENT_LINKS_COLUMN_NUM_COLUMNS,
                                                 G_TYPE_STRING,
                                                 G_TYPE_OBJECT,
                                                 G_TYPE_BOOLEAN,
@@ -293,7 +293,7 @@ epub_document_links_get_links_model(EvDocumentLinks *document_links)
 	linkStruct.model = model;
 	EvLink *link = ev_link_new(epub_document->docTitle,
 	                           ev_link_action_new_dest(ev_link_dest_new_page(0)));
-	GtkTreeIter parent;
+	CtkTreeIter parent;
 
 	linkStruct.parent = &parent;
 

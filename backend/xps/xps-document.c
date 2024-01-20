@@ -344,12 +344,12 @@ ev_link_from_target (XPSDocument    *xps_document,
 
 static void
 build_tree (XPSDocument     *xps_document,
-	    GtkTreeModel    *model,
-	    GtkTreeIter     *parent,
+	    CtkTreeModel    *model,
+	    CtkTreeIter     *parent,
 	    GXPSOutlineIter *iter)
 {
 	do {
-		GtkTreeIter     tree_iter;
+		CtkTreeIter     tree_iter;
 		GXPSOutlineIter child_iter;
 		EvLink         *link;
 		GXPSLinkTarget *target;
@@ -374,20 +374,20 @@ build_tree (XPSDocument     *xps_document,
 	} while (gxps_outline_iter_next (iter));
 }
 
-static GtkTreeModel *
+static CtkTreeModel *
 xps_document_links_get_links_model (EvDocumentLinks *document_links)
 {
 	XPSDocument           *xps_document = XPS_DOCUMENT (document_links);
 	GXPSDocumentStructure *structure;
 	GXPSOutlineIter        iter;
-	GtkTreeModel          *model = NULL;
+	CtkTreeModel          *model = NULL;
 
 	structure = gxps_document_get_structure (xps_document->doc);
 	if (!structure)
 		return NULL;
 
 	if (gxps_document_structure_outline_iter_init (&iter, structure)) {
-		model = (GtkTreeModel *) ctk_tree_store_new (EV_DOCUMENT_LINKS_COLUMN_NUM_COLUMNS,
+		model = (CtkTreeModel *) ctk_tree_store_new (EV_DOCUMENT_LINKS_COLUMN_NUM_COLUMNS,
 							     G_TYPE_STRING,
 							     G_TYPE_OBJECT,
 							     G_TYPE_BOOLEAN,

@@ -30,7 +30,7 @@ typedef struct _EvPageActionWidgetClass EvPageActionWidgetClass;
 
 struct _EvPageActionWidgetClass
 {
-	GtkToolItemClass parent_class;
+	CtkToolItemClass parent_class;
 
 	void (* activate_link) (EvPageActionWidget *page_action,
 			        EvLink             *link);
@@ -39,7 +39,7 @@ struct _EvPageActionWidgetClass
 GType ev_page_action_widget_get_type          (void) G_GNUC_CONST;
 
 void ev_page_action_widget_update_links_model (EvPageActionWidget *proxy,
-					       GtkTreeModel       *model);
+					       CtkTreeModel       *model);
 
 void ev_page_action_widget_set_model          (EvPageActionWidget *action_widget,
 					       EvDocumentModel    *doc_model);

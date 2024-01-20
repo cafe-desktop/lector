@@ -48,14 +48,14 @@ enum
 };
 
 struct _EvSidebarPrivate {
-	GtkWidget *notebook;
-	GtkWidget *select_button;
-	GtkWidget *menu;
-	GtkWidget *hbox;
-	GtkWidget *label;
+	CtkWidget *notebook;
+	CtkWidget *select_button;
+	CtkWidget *menu;
+	CtkWidget *hbox;
+	CtkWidget *label;
 
 	EvDocumentModel *model;
-	GtkTreeModel *page_model;
+	CtkTreeModel *page_model;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE (EvSidebar, ev_sidebar, CTK_TYPE_BOX)
@@ -79,7 +79,7 @@ ev_sidebar_dispose (GObject *object)
 }
 
 static void
-ev_sidebar_select_page (EvSidebar *ev_sidebar,  GtkTreeIter *iter)
+ev_sidebar_select_page (EvSidebar *ev_sidebar,  CtkTreeIter *iter)
 {
 	char *title;
 	int index;
@@ -97,15 +97,15 @@ ev_sidebar_select_page (EvSidebar *ev_sidebar,  GtkTreeIter *iter)
 
 void
 ev_sidebar_set_page (EvSidebar   *ev_sidebar,
-		     GtkWidget   *main_widget)
+		     CtkWidget   *main_widget)
 {
-	GtkTreeIter iter;
+	CtkTreeIter iter;
 	gboolean valid;
 
 	valid = ctk_tree_model_get_iter_first (ev_sidebar->priv->page_model, &iter);
 
 	while (valid) {
-		GtkWidget *widget;
+		CtkWidget *widget;
 
 		ctk_tree_model_get (ev_sidebar->priv->page_model, &iter,
 				    PAGE_COLUMN_MAIN_WIDGET, &widget,
@@ -141,10 +141,10 @@ ev_sidebar_set_property (GObject      *object,
 	}
 }
 
-static GtkWidget *
+static CtkWidget *
 ev_sidebar_get_current_page (EvSidebar *sidebar)
 {
-	GtkNotebook *notebook = CTK_NOTEBOOK (sidebar->priv->notebook);
+	CtkNotebook *notebook = CTK_NOTEBOOK (sidebar->priv->notebook);
 
 	return ctk_notebook_get_nth_page
 		(notebook, ctk_notebook_get_current_page (notebook));
@@ -189,15 +189,15 @@ ev_sidebar_class_init (EvSidebarClass *ev_sidebar_class)
 }
 
 static gboolean
-ev_sidebar_select_button_press_cb (GtkWidget      *widget,
+ev_sidebar_select_button_press_cb (CtkWidget      *widget,
 				   GdkEventButton *event,
 				   gpointer        user_data)
 {
 	EvSidebar *ev_sidebar = EV_SIDEBAR (user_data);
 
 	if (event->button == 1) {
-		GtkRequisition requisition;
-		GtkAllocation allocation;
+		CtkRequisition requisition;
+		CtkAllocation allocation;
 		gint width;
 
 		ctk_widget_get_allocation (widget, &allocation);
@@ -223,7 +223,7 @@ ev_sidebar_select_button_press_cb (GtkWidget      *widget,
 }
 
 static gboolean
-ev_sidebar_select_button_key_press_cb (GtkWidget   *widget,
+ev_sidebar_select_button_key_press_cb (CtkWidget   *widget,
 				       GdkEventKey *event,
 				       gpointer     user_data)
 {
@@ -246,7 +246,7 @@ ev_sidebar_select_button_key_press_cb (GtkWidget   *widget,
 }
 
 static void
-ev_sidebar_close_clicked_cb (GtkWidget *widget,
+ev_sidebar_close_clicked_cb (CtkWidget *widget,
 			     gpointer   user_data)
 {
 	EvSidebar *ev_sidebar = EV_SIDEBAR (user_data);
@@ -255,10 +255,10 @@ ev_sidebar_close_clicked_cb (GtkWidget *widget,
 }
 
 static void
-ev_sidebar_menu_deactivate_cb (GtkWidget *widget,
+ev_sidebar_menu_deactivate_cb (CtkWidget *widget,
 			       gpointer   user_data)
 {
-	GtkWidget *menu_button;
+	CtkWidget *menu_button;
 
 	menu_button = CTK_WIDGET (user_data);
 
@@ -266,8 +266,8 @@ ev_sidebar_menu_deactivate_cb (GtkWidget *widget,
 }
 
 static void
-ev_sidebar_menu_detach_cb (GtkWidget *widget,
-			   GtkMenu   *menu)
+ev_sidebar_menu_detach_cb (CtkWidget *widget,
+			   CtkMenu   *menu)
 {
 	EvSidebar *ev_sidebar = EV_SIDEBAR (widget);
 
@@ -275,12 +275,12 @@ ev_sidebar_menu_detach_cb (GtkWidget *widget,
 }
 
 static void
-ev_sidebar_menu_item_activate_cb (GtkWidget *widget,
+ev_sidebar_menu_item_activate_cb (CtkWidget *widget,
 				  gpointer   user_data)
 {
 	EvSidebar *ev_sidebar = EV_SIDEBAR (user_data);
-	GtkTreeIter iter;
-	GtkWidget *menu_item, *item;
+	CtkTreeIter iter;
+	CtkWidget *menu_item, *item;
 	gboolean valid;
 
 	menu_item = ctk_menu_get_active (CTK_MENU (ev_sidebar->priv->menu));
@@ -306,18 +306,18 @@ ev_sidebar_menu_item_activate_cb (GtkWidget *widget,
 static void
 ev_sidebar_init (EvSidebar *ev_sidebar)
 {
-	GtkWidget *hbox;
-	GtkWidget *close_button;
-	GtkWidget *select_hbox;
-	GtkWidget *arrow;
-	GtkWidget *image;
+	CtkWidget *hbox;
+	CtkWidget *close_button;
+	CtkWidget *select_hbox;
+	CtkWidget *arrow;
+	CtkWidget *image;
 
 	ev_sidebar->priv = ev_sidebar_get_instance_private (ev_sidebar);
 
 	ctk_orientable_set_orientation (CTK_ORIENTABLE (ev_sidebar), CTK_ORIENTATION_VERTICAL);
 
 	/* data model */
-	ev_sidebar->priv->page_model = (GtkTreeModel *)
+	ev_sidebar->priv->page_model = (CtkTreeModel *)
 			ctk_list_store_new (PAGE_COLUMN_NUM_COLS,
 					    G_TYPE_STRING,
 					    CTK_TYPE_WIDGET,
@@ -393,10 +393,10 @@ ev_sidebar_init (EvSidebar *ev_sidebar)
 
 /* Public functions */
 
-GtkWidget *
+CtkWidget *
 ev_sidebar_new (void)
 {
-	GtkWidget *ev_sidebar;
+	CtkWidget *ev_sidebar;
 
 	ev_sidebar = g_object_new (EV_TYPE_SIDEBAR, NULL);
 
@@ -405,10 +405,10 @@ ev_sidebar_new (void)
 
 void
 ev_sidebar_add_page (EvSidebar   *ev_sidebar,
-		     GtkWidget   *main_widget)
+		     CtkWidget   *main_widget)
 {
-	GtkTreeIter iter;
-	GtkWidget *menu_item;
+	CtkTreeIter iter;
+	CtkWidget *menu_item;
 	gchar *label_title;
 	const gchar *title;
 	int index;
@@ -466,15 +466,15 @@ ev_sidebar_document_changed_cb (EvDocumentModel *model,
 {
 	EvSidebarPrivate *priv = sidebar->priv;
 	EvDocument *document = ev_document_model_get_document (model);
-	GtkTreeIter iter;
+	CtkTreeIter iter;
 	gboolean valid;
 	gboolean has_pages = FALSE;
 
 	for (valid = ctk_tree_model_get_iter_first (priv->page_model, &iter);
 	     valid;
 	     valid = ctk_tree_model_iter_next (priv->page_model, &iter)) {
-		GtkWidget *widget;
-		GtkWidget *menu_widget;
+		CtkWidget *widget;
+		CtkWidget *menu_widget;
 
 		ctk_tree_model_get (priv->page_model, &iter,
 				    PAGE_COLUMN_MAIN_WIDGET, &widget,

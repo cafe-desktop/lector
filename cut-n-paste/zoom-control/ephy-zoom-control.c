@@ -30,7 +30,7 @@
 
 struct _EphyZoomControlPrivate
 {
-	GtkComboBox *combo;
+	CtkComboBox *combo;
 	float zoom;
 	float min_zoom;
 	float max_zoom;
@@ -62,7 +62,7 @@ static guint signals[LAST_SIGNAL] = { 0 };
 G_DEFINE_TYPE_WITH_PRIVATE (EphyZoomControl, ephy_zoom_control, CTK_TYPE_TOOL_ITEM)
 
 static void
-combo_changed_cb (GtkComboBox *combo, EphyZoomControl *control)
+combo_changed_cb (CtkComboBox *combo, EphyZoomControl *control)
 {
 	gint index;
 	float zoom;
@@ -93,8 +93,8 @@ static void
 sync_zoom_max_min_cb (EphyZoomControl *control, GParamSpec *pspec, gpointer data)
 {
 	EphyZoomControlPrivate *p = control->priv;
-	GtkListStore *model = (GtkListStore *)ctk_combo_box_get_model (p->combo);
-	GtkTreeIter iter;
+	CtkListStore *model = (CtkListStore *)ctk_combo_box_get_model (p->combo);
+	CtkTreeIter iter;
 	gint i;
 
 	g_signal_handler_block (p->combo, p->handler_id);
@@ -128,8 +128,8 @@ sync_zoom_max_min_cb (EphyZoomControl *control, GParamSpec *pspec, gpointer data
 }
 
 static gboolean
-row_is_separator (GtkTreeModel *model,
-		  GtkTreeIter  *iter,
+row_is_separator (CtkTreeModel *model,
+		  CtkTreeIter  *iter,
 		  gpointer      data)
 {
 	gboolean is_sep;
@@ -151,10 +151,10 @@ static void
 ephy_zoom_control_init (EphyZoomControl *control)
 {
 	EphyZoomControlPrivate *p;
-	GtkWidget *vbox;
-	GtkCellRenderer *renderer;
-	GtkListStore    *store;
-	GtkTreeIter      iter;
+	CtkWidget *vbox;
+	CtkCellRenderer *renderer;
+	CtkListStore    *store;
+	CtkTreeIter      iter;
 	guint i;
 
 	p = ephy_zoom_control_get_instance_private (control);
@@ -187,7 +187,7 @@ ephy_zoom_control_init (EphyZoomControl *control)
 	ctk_cell_layout_set_attributes (CTK_CELL_LAYOUT (p->combo), renderer,
 					"text", COL_TEXT, NULL);
 	ctk_combo_box_set_row_separator_func (p->combo,
-					      (GtkTreeViewRowSeparatorFunc) row_is_separator,
+					      (CtkTreeViewRowSeparatorFunc) row_is_separator,
 					      NULL, NULL);
 
 	ctk_widget_set_focus_on_click (CTK_WIDGET (p->combo), FALSE);

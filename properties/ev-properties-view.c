@@ -74,16 +74,16 @@ static const PropertyInfo properties_info[] = {
 };
 
 struct _EvPropertiesView {
-	GtkBox base_instance;
+	CtkBox base_instance;
 
-	GtkWidget *grid;
+	CtkWidget *grid;
 
-	GtkWidget *labels[N_PROPERTIES];
+	CtkWidget *labels[N_PROPERTIES];
 	gchar     *uri;
 };
 
 struct _EvPropertiesViewClass {
-	GtkBoxClass base_class;
+	CtkBoxClass base_class;
 };
 
 G_DEFINE_TYPE (EvPropertiesView, ev_properties_view, CTK_TYPE_BOX)
@@ -151,12 +151,12 @@ make_valid_utf8 (const gchar *name)
 
 static void
 set_property (EvPropertiesView *properties,
-	      GtkGrid          *grid,
+	      CtkGrid          *grid,
 	      Property          property,
 	      const gchar      *text,
 	      gint             *row)
 {
-	GtkWidget *label;
+	CtkWidget *label;
 	gchar     *markup;
 	gchar     *valid_text;
 
@@ -209,7 +209,7 @@ set_property (EvPropertiesView *properties,
 	*row += 1;
 }
 
-static GtkUnit
+static CtkUnit
 get_default_user_units (void)
 {
 	/* Translate to the default units to use for presenting
@@ -257,7 +257,7 @@ ev_regular_paper_size (const EvDocumentInfo *info)
 	GList *paper_sizes, *l;
 	gchar *exact_size;
 	gchar *str = NULL;
-	GtkUnit units;
+	CtkUnit units;
 
 	units = get_default_user_units ();
 
@@ -274,7 +274,7 @@ ev_regular_paper_size (const EvDocumentInfo *info)
 	paper_sizes = ctk_paper_size_get_paper_sizes (FALSE);
 
 	for (l = paper_sizes; l && l->data; l = g_list_next (l)) {
-		GtkPaperSize *size = (GtkPaperSize *) l->data;
+		CtkPaperSize *size = (CtkPaperSize *) l->data;
 		gdouble paper_width;
 		gdouble paper_height;
 		gdouble width_tolerance;
@@ -317,7 +317,7 @@ ev_regular_paper_size (const EvDocumentInfo *info)
 void
 ev_properties_view_set_info (EvPropertiesView *properties, const EvDocumentInfo *info)
 {
-	GtkWidget *grid;
+	CtkWidget *grid;
 	gchar     *text;
 	gint       row = 0;
 
@@ -391,7 +391,7 @@ ev_properties_view_register_type (GTypeModule *module)
 	ev_properties_view_get_type ();
 }
 
-GtkWidget *
+CtkWidget *
 ev_properties_view_new (const gchar *uri)
 {
 	EvPropertiesView *properties;

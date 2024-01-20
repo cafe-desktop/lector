@@ -193,7 +193,7 @@ struct _EvJobLinks
 {
 	EvJob parent;
 
-	GtkTreeModel *model;
+	CtkTreeModel *model;
 };
 
 struct _EvJobLinksClass
@@ -374,7 +374,7 @@ struct _EvJobLayers
 {
 	EvJob parent;
 
-	GtkTreeModel *model;
+	CtkTreeModel *model;
 };
 
 struct _EvJobLayersClass

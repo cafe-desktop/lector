@@ -40,19 +40,19 @@ typedef struct _EvSidebarBookmarksPrivate EvSidebarBookmarksPrivate;
 #define EV_SIDEBAR_BOOKMARKS_GET_CLASS(object) (G_TYPE_INSTANCE_GET_CLASS((object), EV_TYPE_SIDEBAR_BOOKMARKS, EvSidebarBookmarksClass))
 
 struct _EvSidebarBookmarks {
-	GtkBox base_instance;
+	CtkBox base_instance;
 
 	EvSidebarBookmarksPrivate *priv;
 };
 
 struct _EvSidebarBookmarksClass {
-	GtkBoxClass base_class;
+	CtkBoxClass base_class;
 
         void (*add_bookmark) (EvSidebarBookmarks *sidebar_bookmarks);
 };
 
 GType      ev_sidebar_bookmarks_get_type      (void) G_GNUC_CONST;
-GtkWidget *ev_sidebar_bookmarks_new           (void);
+CtkWidget *ev_sidebar_bookmarks_new           (void);
 void       ev_sidebar_bookmarks_set_bookmarks (EvSidebarBookmarks *sidebar_bookmarks,
 					       EvBookmarks        *bookmarks);
 G_END_DECLS

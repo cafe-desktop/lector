@@ -40,7 +40,7 @@ typedef struct EggToolbarEditorPrivate EggToolbarEditorPrivate;
 
 struct EggToolbarEditor
 {
-  GtkBox parent_object;
+  CtkBox parent_object;
 
   /*< private >*/
   EggToolbarEditorPrivate *priv;
@@ -48,12 +48,12 @@ struct EggToolbarEditor
 
 struct EggToolbarEditorClass
 {
-  GtkBoxClass parent_class;
+  CtkBoxClass parent_class;
 };
 
 
 GType            egg_toolbar_editor_get_type     (void);
-GtkWidget        *egg_toolbar_editor_new         (GtkUIManager *manager,
+CtkWidget        *egg_toolbar_editor_new         (CtkUIManager *manager,
                                                   EggToolbarsModel *model);
 void             egg_toolbar_editor_set_model    (EggToolbarEditor *t,
                                                   EggToolbarsModel *model);

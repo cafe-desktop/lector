@@ -24,7 +24,7 @@
 
 #include <glib.h>
 
-GtkTreeModel  *djvu_links_get_links_model    (EvDocumentLinks *document_links);
+CtkTreeModel  *djvu_links_get_links_model    (EvDocumentLinks *document_links);
 EvMappingList *djvu_links_get_links          (EvDocumentLinks *document_links,
 					      gint             page,
 					      double           scale_factor);

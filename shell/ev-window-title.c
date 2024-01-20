@@ -120,7 +120,7 @@ ev_window_title_sanitize_title (EvWindowTitle *window_title, char **title) {
 static void
 ev_window_title_update (EvWindowTitle *window_title)
 {
-	GtkWindow *window = CTK_WINDOW (window_title->window);
+	CtkWindow *window = CTK_WINDOW (window_title->window);
 	char *title = NULL, *password_title, *p;
 
 	if (window_title->document != NULL) {

@@ -36,16 +36,16 @@ enum
 
 struct _EvPageActionWidget
 {
-	GtkToolItem parent;
+	CtkToolItem parent;
 
 	EvDocument *document;
 	EvDocumentModel *doc_model;
 
-	GtkWidget *entry;
-	GtkWidget *label;
+	CtkWidget *entry;
+	CtkWidget *label;
 	guint signal_id;
-	GtkTreeModel *filter_model;
-	GtkTreeModel *model;
+	CtkTreeModel *filter_model;
+	CtkTreeModel *model;
 };
 
 static guint widget_signals[WIDGET_N_SIGNALS] = {0, };
@@ -151,7 +151,7 @@ activate_cb (EvPageActionWidget *action_widget)
 static void
 ev_page_action_widget_init (EvPageActionWidget *action_widget)
 {
-	GtkWidget *hbox;
+	CtkWidget *hbox;
 	AtkObject *obj;
 
 	hbox = ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 0);
@@ -280,13 +280,13 @@ ev_page_action_widget_class_init (EvPageActionWidgetClass *class)
 }
 
 static gboolean
-match_selected_cb (GtkEntryCompletion *completion,
-		   GtkTreeModel       *filter_model,
-		   GtkTreeIter        *filter_iter,
+match_selected_cb (CtkEntryCompletion *completion,
+		   CtkTreeModel       *filter_model,
+		   CtkTreeIter        *filter_iter,
 		   EvPageActionWidget *proxy)
 {
 	EvLink *link;
-	GtkTreeIter *iter;
+	CtkTreeIter *iter;
 
 	ctk_tree_model_get (filter_model, filter_iter,
 			    0, &iter,
@@ -307,14 +307,14 @@ match_selected_cb (GtkEntryCompletion *completion,
 
 
 static void
-display_completion_text (GtkCellLayout      *cell_layout,
-			 GtkCellRenderer    *renderer,
-			 GtkTreeModel       *filter_model,
-			 GtkTreeIter        *filter_iter,
+display_completion_text (CtkCellLayout      *cell_layout,
+			 CtkCellRenderer    *renderer,
+			 CtkTreeModel       *filter_model,
+			 CtkTreeIter        *filter_iter,
 			 EvPageActionWidget *proxy)
 {
 	EvLink *link;
-	GtkTreeIter *iter;
+	CtkTreeIter *iter;
 
 	ctk_tree_model_get (filter_model, filter_iter,
 			    0, &iter,
@@ -332,13 +332,13 @@ display_completion_text (GtkCellLayout      *cell_layout,
 }
 
 static gboolean
-match_completion (GtkEntryCompletion *completion,
+match_completion (CtkEntryCompletion *completion,
 		  const gchar        *key,
-		  GtkTreeIter        *filter_iter,
+		  CtkTreeIter        *filter_iter,
 		  EvPageActionWidget *proxy)
 {
 	EvLink *link;
-	GtkTreeIter *iter;
+	CtkTreeIter *iter;
 	const gchar *text = NULL;
 
 	ctk_tree_model_get (ctk_entry_completion_get_model (completion),
@@ -387,12 +387,12 @@ match_completion (GtkEntryCompletion *completion,
 #define EPA_FILTER_MODEL_DATA "epa-filter-model"
 
 static gboolean
-build_new_tree_cb (GtkTreeModel *model,
-		   GtkTreePath  *path,
-		   GtkTreeIter  *iter,
+build_new_tree_cb (CtkTreeModel *model,
+		   CtkTreePath  *path,
+		   CtkTreeIter  *iter,
 		   gpointer      data)
 {
-	GtkTreeModel *filter_model = CTK_TREE_MODEL (data);
+	CtkTreeModel *filter_model = CTK_TREE_MODEL (data);
 	EvLink *link;
 	EvLinkAction *action;
 	EvLinkActionType type;
@@ -413,7 +413,7 @@ build_new_tree_cb (GtkTreeModel *model,
 	type = ev_link_action_get_action_type (action);
 
 	if (type == EV_LINK_ACTION_TYPE_GOTO_DEST) {
-		GtkTreeIter filter_iter;
+		CtkTreeIter filter_iter;
 
 		ctk_list_store_append (CTK_LIST_STORE (filter_model), &filter_iter);
 		ctk_list_store_set (CTK_LIST_STORE (filter_model), &filter_iter,
@@ -426,15 +426,15 @@ build_new_tree_cb (GtkTreeModel *model,
 	return FALSE;
 }
 
-static GtkTreeModel *
-get_filter_model_from_model (GtkTreeModel *model)
+static CtkTreeModel *
+get_filter_model_from_model (CtkTreeModel *model)
 {
-	GtkTreeModel *filter_model;
+	CtkTreeModel *filter_model;
 
 	filter_model =
-		(GtkTreeModel *) g_object_get_data (G_OBJECT (model), EPA_FILTER_MODEL_DATA);
+		(CtkTreeModel *) g_object_get_data (G_OBJECT (model), EPA_FILTER_MODEL_DATA);
 	if (filter_model == NULL) {
-		filter_model = (GtkTreeModel *) ctk_list_store_new (1, CTK_TYPE_TREE_ITER);
+		filter_model = (CtkTreeModel *) ctk_list_store_new (1, CTK_TYPE_TREE_ITER);
 
 		ctk_tree_model_foreach (model,
 					build_new_tree_cb,
@@ -447,11 +447,11 @@ get_filter_model_from_model (GtkTreeModel *model)
 
 
 void
-ev_page_action_widget_update_links_model (EvPageActionWidget *proxy, GtkTreeModel *model)
+ev_page_action_widget_update_links_model (EvPageActionWidget *proxy, CtkTreeModel *model)
 {
-	GtkTreeModel *filter_model;
-	GtkEntryCompletion *completion;
-	GtkCellRenderer *renderer;
+	CtkTreeModel *filter_model;
+	CtkEntryCompletion *completion;
+	CtkCellRenderer *renderer;
 
 	if (!model)
 		return;
@@ -468,11 +468,11 @@ ev_page_action_widget_update_links_model (EvPageActionWidget *proxy, GtkTreeMode
 
 	g_signal_connect (completion, "match-selected", G_CALLBACK (match_selected_cb), proxy);
 	ctk_entry_completion_set_match_func (completion,
-					     (GtkEntryCompletionMatchFunc) match_completion,
+					     (CtkEntryCompletionMatchFunc) match_completion,
 					     proxy, NULL);
 
 	/* Set up the layout */
-	renderer = (GtkCellRenderer *)
+	renderer = (CtkCellRenderer *)
 		g_object_new (CTK_TYPE_CELL_RENDERER_TEXT,
 			      "ellipsize", PANGO_ELLIPSIZE_END,
 			      "width_chars", 30,
@@ -480,7 +480,7 @@ ev_page_action_widget_update_links_model (EvPageActionWidget *proxy, GtkTreeMode
 	ctk_cell_layout_pack_start (CTK_CELL_LAYOUT (completion), renderer, TRUE);
 	ctk_cell_layout_set_cell_data_func (CTK_CELL_LAYOUT (completion),
 					    renderer,
-					    (GtkCellLayoutDataFunc) display_completion_text,
+					    (CtkCellLayoutDataFunc) display_completion_text,
 					    proxy, NULL);
 	ctk_entry_set_completion (CTK_ENTRY (proxy->entry), completion);
 

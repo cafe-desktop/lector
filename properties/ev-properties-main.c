@@ -91,7 +91,7 @@ ev_properties_get_pages (CajaPropertyPageProvider *provider,
 	CajaFileInfo *file;
 	gchar *uri = NULL;
 	gchar *mime_type = NULL;
-	GtkWidget *page, *label;
+	CtkWidget *page, *label;
 	CajaPropertyPage *property_page;
 
 	/* only add properties page if a single file is selected */

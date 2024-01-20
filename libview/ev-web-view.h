@@ -45,7 +45,7 @@ typedef struct _EvWebViewClass  EvWebViewClass;
 
 GType		ev_web_view_get_type			(void) G_GNUC_CONST;
 
-GtkWidget*	ev_web_view_new					(void);
+CtkWidget*	ev_web_view_new					(void);
 
 void		ev_web_view_set_model	        (EvWebView          *webview,
 										     EvDocumentModel *model);

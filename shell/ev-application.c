@@ -44,7 +44,7 @@
 #endif /* ENABLE_DBUS */
 
 struct _EvApplication {
-	GtkApplication base_instance;
+	CtkApplication base_instance;
 
 	gchar *uri;
 
@@ -60,7 +60,7 @@ struct _EvApplication {
 };
 
 struct _EvApplicationClass {
-	GtkApplicationClass base_class;
+	CtkApplicationClass base_class;
 };
 
 G_DEFINE_TYPE (EvApplication, ev_application, CTK_TYPE_APPLICATION)
@@ -684,7 +684,7 @@ ev_application_open_window (EvApplication *application,
 			    GdkScreen     *screen,
 			    guint32        timestamp)
 {
-	GtkWidget *new_window = ev_window_new ();
+	CtkWidget *new_window = ev_window_new ();
 	GdkWindow *gdk_window;
 
 	if (screen) {

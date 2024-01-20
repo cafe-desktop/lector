@@ -36,7 +36,7 @@
 #include "ev-window.h"
 
 struct _EvSidebarLinksPrivate {
-	GtkWidget *tree_view;
+	CtkWidget *tree_view;
 
 	/* Keep these ids around for blocking */
 	guint selection_id;
@@ -44,7 +44,7 @@ struct _EvSidebarLinksPrivate {
 	guint row_activated_id;
 
 	EvJob *job;
-	GtkTreeModel *model;
+	CtkTreeModel *model;
 	EvDocument *document;
 	EvDocumentModel *doc_model;
 };
@@ -63,12 +63,12 @@ enum {
 static void update_page_callback 			(EvSidebarLinks    *sidebar_links,
 							 gint               old_page,
 							 gint               current_page);
-static void row_activated_callback 			(GtkTreeView *treeview,
-		                                         GtkTreePath *arg1,
-	                                                 GtkTreeViewColumn *arg2,
+static void row_activated_callback 			(CtkTreeView *treeview,
+		                                         CtkTreePath *arg1,
+	                                                 CtkTreeViewColumn *arg2,
 		                                         gpointer user_data);
 static void ev_sidebar_links_set_links_model            (EvSidebarLinks *links,
-							 GtkTreeModel   *model);
+							 CtkTreeModel   *model);
 static void job_finished_callback 			(EvJobLinks     *job,
 				    		         EvSidebarLinks *sidebar_links);
 static void ev_sidebar_links_set_current_page           (EvSidebarLinks *sidebar_links,
@@ -159,7 +159,7 @@ ev_sidebar_links_dispose (GObject *object)
 }
 
 static void
-ev_sidebar_links_map (GtkWidget *widget)
+ev_sidebar_links_map (CtkWidget *widget)
 {
 	EvSidebarLinks *links;
 
@@ -177,7 +177,7 @@ static void
 ev_sidebar_links_class_init (EvSidebarLinksClass *ev_sidebar_links_class)
 {
 	GObjectClass   *g_object_class;
-	GtkWidgetClass *widget_class;
+	CtkWidgetClass *widget_class;
 
 	g_object_class = G_OBJECT_CLASS (ev_sidebar_links_class);
 	widget_class = CTK_WIDGET_CLASS (ev_sidebar_links_class);
@@ -209,11 +209,11 @@ ev_sidebar_links_class_init (EvSidebarLinksClass *ev_sidebar_links_class)
 }
 
 static void
-selection_changed_callback (GtkTreeSelection   *selection,
+selection_changed_callback (CtkTreeSelection   *selection,
 		            EvSidebarLinks     *ev_sidebar_links)
 {
-	GtkTreeModel *model;
-	GtkTreeIter iter;
+	CtkTreeModel *model;
+	CtkTreeIter iter;
 
 	g_return_if_fail (ev_sidebar_links->priv->document != NULL);
 
@@ -237,15 +237,15 @@ selection_changed_callback (GtkTreeSelection   *selection,
 	}
 }
 
-static GtkTreeModel *
+static CtkTreeModel *
 create_loading_model (void)
 {
-	GtkTreeModel *retval;
-	GtkTreeIter iter;
+	CtkTreeModel *retval;
+	CtkTreeIter iter;
 	gchar *markup;
 
 	/* Creates a fake model to indicate that we're loading */
-	retval = (GtkTreeModel *)ctk_list_store_new (EV_DOCUMENT_LINKS_COLUMN_NUM_COLUMNS,
+	retval = (CtkTreeModel *)ctk_list_store_new (EV_DOCUMENT_LINKS_COLUMN_NUM_COLUMNS,
 						     G_TYPE_STRING,
 						     G_TYPE_OBJECT,
 						     G_TYPE_BOOLEAN,
@@ -264,12 +264,12 @@ create_loading_model (void)
 }
 
 static void
-print_section_cb (GtkWidget *menuitem, EvSidebarLinks *sidebar)
+print_section_cb (CtkWidget *menuitem, EvSidebarLinks *sidebar)
 {
-	GtkWidget *window;
-	GtkTreeSelection *selection;
-	GtkTreeModel *model;
-	GtkTreeIter iter;
+	CtkWidget *window;
+	CtkTreeSelection *selection;
+	CtkTreeModel *model;
+	CtkTreeIter iter;
 
 	selection = ctk_tree_view_get_selection
 		(CTK_TREE_VIEW (sidebar->priv->tree_view));
@@ -320,11 +320,11 @@ print_section_cb (GtkWidget *menuitem, EvSidebarLinks *sidebar)
 	}
 }
 
-static GtkMenu *
+static CtkMenu *
 build_popup_menu (EvSidebarLinks *sidebar)
 {
-	GtkWidget *menu;
-	GtkWidget *item;
+	CtkWidget *menu;
+	CtkWidget *item;
 
 	menu = ctk_menu_new ();
 	item = ctk_image_menu_item_new_from_stock ("ctk-print", NULL);
@@ -338,20 +338,20 @@ build_popup_menu (EvSidebarLinks *sidebar)
 }
 
 static void
-popup_menu_cb (GtkWidget *treeview, EvSidebarLinks *sidebar)
+popup_menu_cb (CtkWidget *treeview, EvSidebarLinks *sidebar)
 {
-	GtkMenu *menu = build_popup_menu (sidebar);
+	CtkMenu *menu = build_popup_menu (sidebar);
 
 	ctk_menu_popup_at_pointer (menu, NULL);
 	ctk_menu_shell_select_first (CTK_MENU_SHELL (menu), FALSE);
 }
 
 static gboolean
-button_press_cb (GtkWidget *treeview,
+button_press_cb (CtkWidget *treeview,
                  GdkEventButton *event,
                  EvSidebarLinks *sidebar)
 {
-	GtkTreePath *path = NULL;
+	CtkTreePath *path = NULL;
 
 	if (event->button == 3) {
 	        if (ctk_tree_view_get_path_at_pos (CTK_TREE_VIEW (treeview),
@@ -377,11 +377,11 @@ static void
 ev_sidebar_links_construct (EvSidebarLinks *ev_sidebar_links)
 {
 	EvSidebarLinksPrivate *priv;
-	GtkWidget *swindow;
-	GtkTreeViewColumn *column;
-	GtkCellRenderer *renderer;
-	GtkTreeSelection *selection;
-	GtkTreeModel *loading_model;
+	CtkWidget *swindow;
+	CtkTreeViewColumn *column;
+	CtkCellRenderer *renderer;
+	CtkTreeSelection *selection;
+	CtkTreeModel *loading_model;
 
 	priv = ev_sidebar_links->priv;
 
@@ -409,7 +409,7 @@ ev_sidebar_links_construct (EvSidebarLinks *ev_sidebar_links)
 	ctk_tree_view_column_set_expand (CTK_TREE_VIEW_COLUMN (column), TRUE);
 	ctk_tree_view_append_column (CTK_TREE_VIEW (priv->tree_view), column);
 
-	renderer = (GtkCellRenderer*)
+	renderer = (CtkCellRenderer*)
 		g_object_new (CTK_TYPE_CELL_RENDERER_TEXT,
 			      "ellipsize", PANGO_ELLIPSIZE_END,
 			      NULL);
@@ -451,10 +451,10 @@ ev_sidebar_links_init (EvSidebarLinks *ev_sidebar_links)
 
 /* Public Functions */
 
-GtkWidget *
+CtkWidget *
 ev_sidebar_links_new (void)
 {
-	GtkWidget *ev_sidebar_links;
+	CtkWidget *ev_sidebar_links;
 
 	ev_sidebar_links = g_object_new (EV_TYPE_SIDEBAR_LINKS, NULL);
 
@@ -462,9 +462,9 @@ ev_sidebar_links_new (void)
 }
 
 static gboolean
-update_page_callback_foreach (GtkTreeModel *model,
-			      GtkTreePath  *path,
-			      GtkTreeIter  *iter,
+update_page_callback_foreach (CtkTreeModel *model,
+			      CtkTreePath  *path,
+			      CtkTreeIter  *iter,
 			      gpointer      data)
 {
 	EvSidebarLinks *sidebar_links = (data);
@@ -501,9 +501,9 @@ static void
 ev_sidebar_links_set_current_page (EvSidebarLinks *sidebar_links,
 				   gint            current_page)
 {
-	GtkTreeSelection *selection;
-	GtkTreeModel *model;
-	GtkTreeIter iter;
+	CtkTreeSelection *selection;
+	CtkTreeModel *model;
+	CtkTreeIter iter;
 
 	/* Widget is not currently visible */
 	if (!ctk_widget_get_mapped (CTK_WIDGET (sidebar_links)))
@@ -531,7 +531,7 @@ ev_sidebar_links_set_current_page (EvSidebarLinks *sidebar_links,
 
 	/* We go through the tree linearly looking for the first page that
 	 * matches.  This is pretty inefficient.  We can do something neat with
-	 * a GtkTreeModelSort here to make it faster, if it turns out to be
+	 * a CtkTreeModelSort here to make it faster, if it turns out to be
 	 * slow.
 	 */
 	g_signal_handler_block (selection, sidebar_links->priv->selection_id);
@@ -554,9 +554,9 @@ update_page_callback (EvSidebarLinks *sidebar_links,
 }
 
 static void
-row_activated_callback (GtkTreeView       *treeview,
-			GtkTreePath       *arg1,
-			GtkTreeViewColumn *arg2,
+row_activated_callback (CtkTreeView       *treeview,
+			CtkTreePath       *arg1,
+			CtkTreeViewColumn *arg2,
 			gpointer           user_data)
 {
 	if (ctk_tree_view_row_expanded (CTK_TREE_VIEW (treeview), arg1)) {
@@ -567,9 +567,9 @@ row_activated_callback (GtkTreeView       *treeview,
 }
 
 static void
-expand_open_links (GtkTreeView *tree_view, GtkTreeModel *model, GtkTreeIter *parent)
+expand_open_links (CtkTreeView *tree_view, CtkTreeModel *model, CtkTreeIter *parent)
 {
-	GtkTreeIter iter;
+	CtkTreeIter iter;
 	gboolean expand;
 
 	if (ctk_tree_model_iter_children (model, &iter, parent)) {
@@ -578,7 +578,7 @@ expand_open_links (GtkTreeView *tree_view, GtkTreeModel *model, GtkTreeIter *par
 					    EV_DOCUMENT_LINKS_COLUMN_EXPAND, &expand,
 					    -1);
 			if (expand) {
-				GtkTreePath *path;
+				CtkTreePath *path;
 
 				path = ctk_tree_model_get_path (model, &iter);
 				ctk_tree_view_expand_row (tree_view, path, FALSE);
@@ -592,7 +592,7 @@ expand_open_links (GtkTreeView *tree_view, GtkTreeModel *model, GtkTreeIter *par
 
 static void
 ev_sidebar_links_set_links_model (EvSidebarLinks *sidebar_links,
-				  GtkTreeModel   *model)
+				  CtkTreeModel   *model)
 {
 	EvSidebarLinksPrivate *priv = sidebar_links->priv;
 
@@ -611,7 +611,7 @@ job_finished_callback (EvJobLinks     *job,
 		       EvSidebarLinks *sidebar_links)
 {
 	EvSidebarLinksPrivate *priv = sidebar_links->priv;
-	GtkTreeSelection *selection;
+	CtkTreeSelection *selection;
 
 	ev_sidebar_links_set_links_model (sidebar_links, job->model);
 

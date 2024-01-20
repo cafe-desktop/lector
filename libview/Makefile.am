@@ -139,7 +139,7 @@ LectorView-$(EV_API_VERSION).gir: liblectorview.la Makefile $(INST_H_FILES) $(fi
 	--include=Gio-2.0 \
 	--include=Gdk-3.0 \
 	--include=GdkPixbuf-2.0 \
-	--include=Gtk-3.0 \
+	--include=Ctk-3.0 \
 	--include=LectorDocument-$(EV_API_VERSION) \
 	--library=lectorview \
 	--libtool="$(LIBTOOL)" \

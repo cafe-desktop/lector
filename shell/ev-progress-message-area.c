@@ -25,8 +25,8 @@
 #include "ev-progress-message-area.h"
 
 struct _EvProgressMessageAreaPrivate {
-	GtkWidget *label;
-	GtkWidget *progress_bar;
+	CtkWidget *label;
+	CtkWidget *progress_bar;
 };
 
 enum {
@@ -73,8 +73,8 @@ ev_progress_message_area_class_init (EvProgressMessageAreaClass *class)
 static void
 ev_progress_message_area_init (EvProgressMessageArea *area)
 {
-	GtkWidget *contents;
-	GtkWidget *vbox;
+	CtkWidget *contents;
+	CtkWidget *vbox;
 
 	area->priv = ev_progress_message_area_get_instance_private (area);
 
@@ -143,13 +143,13 @@ ev_progress_message_area_get_property (GObject    *object,
 	}
 }
 
-GtkWidget *
+CtkWidget *
 ev_progress_message_area_new (const gchar *stock_id,
 			      const gchar *text,
 			      const gchar *first_button_text,
 			      ...)
 {
-	GtkWidget *widget;
+	CtkWidget *widget;
 
 	widget = g_object_new (EV_TYPE_PROGRESS_MESSAGE_AREA,
 			       "message-type", CTK_MESSAGE_OTHER,

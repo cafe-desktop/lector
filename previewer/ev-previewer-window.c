@@ -30,31 +30,31 @@
 #include "ev-previewer-window.h"
 
 struct _EvPreviewerWindow {
-	GtkWindow         base_instance;
+	CtkWindow         base_instance;
 
 	EvDocumentModel  *model;
 	EvDocument       *document;
 
-	GtkActionGroup   *action_group;
-	GtkActionGroup   *accels_group;
-	GtkUIManager     *ui_manager;
+	CtkActionGroup   *action_group;
+	CtkActionGroup   *accels_group;
+	CtkUIManager     *ui_manager;
 
-	GtkWidget        *swindow;
+	CtkWidget        *swindow;
 	EvView           *view;
 	gdouble           dpi;
 
 	/* Printing */
-	GtkPrintSettings *print_settings;
-	GtkPageSetup     *print_page_setup;
+	CtkPrintSettings *print_settings;
+	CtkPageSetup     *print_page_setup;
 #if CTKUNIXPRINT_ENABLED
-	GtkPrinter       *printer;
+	CtkPrinter       *printer;
 #endif
 	gchar            *print_job_title;
 	gchar            *source_file;
 };
 
 struct _EvPreviewerWindowClass {
-	GtkWindowClass base_class;
+	CtkWindowClass base_class;
 };
 
 enum {
@@ -86,7 +86,7 @@ static void
 ev_previewer_window_error_dialog_run (EvPreviewerWindow *window,
 				      GError            *error)
 {
-	GtkWidget *dialog;
+	CtkWidget *dialog;
 
 	dialog = ctk_message_dialog_new (CTK_WINDOW (window),
 					 CTK_DIALOG_MODAL |
@@ -102,28 +102,28 @@ ev_previewer_window_error_dialog_run (EvPreviewerWindow *window,
 #endif
 
 static void
-ev_previewer_window_close (GtkAction         *action,
+ev_previewer_window_close (CtkAction         *action,
 			   EvPreviewerWindow *window)
 {
 	ctk_widget_destroy (CTK_WIDGET (window));
 }
 
 static void
-ev_previewer_window_previous_page (GtkAction         *action,
+ev_previewer_window_previous_page (CtkAction         *action,
 				   EvPreviewerWindow *window)
 {
 	ev_view_previous_page (window->view);
 }
 
 static void
-ev_previewer_window_next_page (GtkAction         *action,
+ev_previewer_window_next_page (CtkAction         *action,
 			       EvPreviewerWindow *window)
 {
 	ev_view_next_page (window->view);
 }
 
 static void
-ev_previewer_window_zoom_in (GtkAction         *action,
+ev_previewer_window_zoom_in (CtkAction         *action,
 			     EvPreviewerWindow *window)
 {
 	ev_document_model_set_sizing_mode (window->model, EV_SIZING_FREE);
@@ -131,7 +131,7 @@ ev_previewer_window_zoom_in (GtkAction         *action,
 }
 
 static void
-ev_previewer_window_zoom_out (GtkAction         *action,
+ev_previewer_window_zoom_out (CtkAction         *action,
 			      EvPreviewerWindow *window)
 {
 	ev_document_model_set_sizing_mode (window->model, EV_SIZING_FREE);
@@ -139,7 +139,7 @@ ev_previewer_window_zoom_out (GtkAction         *action,
 }
 
 static void
-ev_previewer_window_zoom_reset (GtkAction         *action,
+ev_previewer_window_zoom_reset (CtkAction         *action,
 			      EvPreviewerWindow *window)
 {
 	ev_document_model_set_sizing_mode (window->model, EV_SIZING_FREE);
@@ -147,7 +147,7 @@ ev_previewer_window_zoom_reset (GtkAction         *action,
 }
 
 static void
-ev_previewer_window_zoom_fit_page (GtkToggleAction   *action,
+ev_previewer_window_zoom_fit_page (CtkToggleAction   *action,
 				   EvPreviewerWindow *window)
 {
 	ev_document_model_set_sizing_mode (window->model,
@@ -156,7 +156,7 @@ ev_previewer_window_zoom_fit_page (GtkToggleAction   *action,
 }
 
 static void
-ev_previewer_window_zoom_fit_width (GtkToggleAction   *action,
+ev_previewer_window_zoom_fit_width (CtkToggleAction   *action,
                                     EvPreviewerWindow *window)
 {
 	ev_document_model_set_sizing_mode (window->model,
@@ -165,7 +165,7 @@ ev_previewer_window_zoom_fit_width (GtkToggleAction   *action,
 }
 
 static void
-ev_previewer_window_action_page_activated (GtkAction         *action,
+ev_previewer_window_action_page_activated (CtkAction         *action,
 					   EvLink            *link,
 					   EvPreviewerWindow *window)
 {
@@ -174,10 +174,10 @@ ev_previewer_window_action_page_activated (GtkAction         *action,
 }
 
 static void
-ev_previewer_window_focus_page_selector (GtkAction         *action,
+ev_previewer_window_focus_page_selector (CtkAction         *action,
 					 EvPreviewerWindow *window)
 {
-	GtkAction *page_action;
+	CtkAction *page_action;
 
 	page_action = ctk_action_group_get_action (window->action_group,
 						   "PageSelector");
@@ -186,7 +186,7 @@ ev_previewer_window_focus_page_selector (GtkAction         *action,
 
 #if CTKUNIXPRINT_ENABLED
 static void
-ev_previewer_window_print_finished (GtkPrintJob       *print_job,
+ev_previewer_window_print_finished (CtkPrintJob       *print_job,
 				    EvPreviewerWindow *window,
 				    GError            *error)
 {
@@ -201,7 +201,7 @@ ev_previewer_window_print_finished (GtkPrintJob       *print_job,
 static void
 ev_previewer_window_do_print (EvPreviewerWindow *window)
 {
-	GtkPrintJob *job;
+	CtkPrintJob *job;
 	GError      *error = NULL;
 
 	job = ctk_print_job_new (window->print_job_title ?
@@ -212,7 +212,7 @@ ev_previewer_window_do_print (EvPreviewerWindow *window)
 				 window->print_page_setup);
 	if (ctk_print_job_set_source_file (job, window->source_file, &error)) {
 		ctk_print_job_send (job,
-				    (GtkPrintJobCompleteFunc)ev_previewer_window_print_finished,
+				    (CtkPrintJobCompleteFunc)ev_previewer_window_print_finished,
 				    window, NULL);
 	} else {
 		ev_previewer_window_error_dialog_run (window, error);
@@ -242,7 +242,7 @@ ev_previewer_window_enumerate_finished (EvPreviewerWindow *window)
 }
 
 static gboolean
-ev_previewer_window_enumerate_printers (GtkPrinter        *printer,
+ev_previewer_window_enumerate_printers (CtkPrinter        *printer,
 					EvPreviewerWindow *window)
 {
 	const gchar *printer_name;
@@ -262,21 +262,21 @@ ev_previewer_window_enumerate_printers (GtkPrinter        *printer,
 }
 
 static void
-ev_previewer_window_print (GtkAction         *action,
+ev_previewer_window_print (CtkAction         *action,
 			   EvPreviewerWindow *window)
 {
 	if (!window->print_settings)
 		window->print_settings = ctk_print_settings_new ();
 	if (!window->print_page_setup)
 		window->print_page_setup = ctk_page_setup_new ();
-	ctk_enumerate_printers ((GtkPrinterFunc)ev_previewer_window_enumerate_printers,
+	ctk_enumerate_printers ((CtkPrinterFunc)ev_previewer_window_enumerate_printers,
 				window,
 				(GDestroyNotify)ev_previewer_window_enumerate_finished,
 				FALSE);
 }
 #endif
 
-static const GtkActionEntry action_entries[] = {
+static const CtkActionEntry action_entries[] = {
 	{ "FileCloseWindow", "window-close", N_("_Close"), "<control>W",
 	  NULL,
 	  G_CALLBACK (ev_previewer_window_close) },
@@ -303,7 +303,7 @@ static const GtkActionEntry action_entries[] = {
 #endif
 };
 
-static const GtkActionEntry accel_entries[] = {
+static const CtkActionEntry accel_entries[] = {
 	{ "p", "go-up", "", "p", NULL,
 	  G_CALLBACK (ev_previewer_window_previous_page) },
 	{ "n", "go-down", "", "n", NULL,
@@ -331,7 +331,7 @@ static const GtkActionEntry accel_entries[] = {
 
 };
 
-static const GtkToggleActionEntry toggle_action_entries[] = {
+static const CtkToggleActionEntry toggle_action_entries[] = {
 	{ "ViewFitPage", EV_STOCK_ZOOM_PAGE, N_("Fit Pa_ge"), NULL,
 	  N_("Make the current document fill the window"),
 	  G_CALLBACK (ev_previewer_window_zoom_fit_page) },
@@ -341,7 +341,7 @@ static const GtkToggleActionEntry toggle_action_entries[] = {
 };
 
 static gboolean
-view_focus_changed (GtkWidget         *widget,
+view_focus_changed (CtkWidget         *widget,
 		    GdkEventFocus     *event,
 		    EvPreviewerWindow *window)
 {
@@ -357,7 +357,7 @@ view_sizing_mode_changed (EvDocumentModel   *model,
 			  EvPreviewerWindow *window)
 {
 	EvSizingMode sizing_mode = ev_document_model_get_sizing_mode (model);
-	GtkAction   *action;
+	CtkAction   *action;
 
 	action = ctk_action_group_get_action (window->action_group, "ViewFitPage");
 	g_signal_handlers_block_by_func (action,
@@ -471,7 +471,7 @@ ev_previewer_window_dispose (GObject *object)
 static void
 ev_previewer_window_init (EvPreviewerWindow *window)
 {
-	GtkStyleContext *context;
+	CtkStyleContext *context;
 
 	context = ctk_widget_get_style_context (CTK_WIDGET (window));
 	ctk_style_context_add_class (context, "lector-previewer-window");
@@ -503,9 +503,9 @@ ev_previewer_window_constructor (GType                  type,
 {
 	GObject           *object;
 	EvPreviewerWindow *window;
-	GtkWidget         *vbox;
-	GtkWidget         *toolbar;
-	GtkAction         *action;
+	CtkWidget         *vbox;
+	CtkWidget         *toolbar;
+	CtkAction         *action;
 	GError            *error = NULL;
 	gdouble            dpi;
 
@@ -624,7 +624,7 @@ ev_previewer_window_class_init (EvPreviewerWindowClass *klass)
 }
 
 /* Public methods */
-GtkWidget *
+CtkWidget *
 ev_previewer_window_new (EvDocumentModel *model)
 {
 	return CTK_WIDGET (g_object_new (EV_TYPE_PREVIEWER_WINDOW, "model", model, NULL));
@@ -652,8 +652,8 @@ ev_previewer_window_set_print_settings (EvPreviewerWindow *window,
 					   G_KEY_FILE_KEEP_TRANSLATIONS,
 					   &error);
 		if (!error) {
-			GtkPrintSettings *psettings;
-			GtkPageSetup     *psetup;
+			CtkPrintSettings *psettings;
+			CtkPageSetup     *psetup;
 			gchar            *job_name;
 
 			psettings = ctk_print_settings_new_from_key_file (key_file,

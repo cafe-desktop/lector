@@ -62,7 +62,7 @@ struct _EvDocumentLinksInterface
 
 	/* Methods  */
 	gboolean       (* has_document_links) (EvDocumentLinks *document_links);
-	GtkTreeModel  *(* get_links_model)    (EvDocumentLinks *document_links);
+	CtkTreeModel  *(* get_links_model)    (EvDocumentLinks *document_links);
 	EvMappingList *(* get_links)          (EvDocumentLinks *document_links,
 					       EvPage          *page);
 	EvLinkDest    *(* find_link_dest)     (EvDocumentLinks *document_links,
@@ -73,7 +73,7 @@ struct _EvDocumentLinksInterface
 
 GType          ev_document_links_get_type            (void) G_GNUC_CONST;
 gboolean       ev_document_links_has_document_links  (EvDocumentLinks *document_links);
-GtkTreeModel  *ev_document_links_get_links_model     (EvDocumentLinks *document_links);
+CtkTreeModel  *ev_document_links_get_links_model     (EvDocumentLinks *document_links);
 
 EvMappingList *ev_document_links_get_links           (EvDocumentLinks *document_links,
 						      EvPage          *page);

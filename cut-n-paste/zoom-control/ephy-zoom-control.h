@@ -38,7 +38,7 @@ typedef struct _EphyZoomControlPrivate	EphyZoomControlPrivate;
 
 struct _EphyZoomControlClass
 {
-	GtkToolItemClass parent_class;
+	CtkToolItemClass parent_class;
 
 	/* signals */
 	void (*zoom_to_level) 	(EphyZoomControl *control, float level);
@@ -46,7 +46,7 @@ struct _EphyZoomControlClass
 
 struct _EphyZoomControl
 {
-	GtkToolItem parent_object;
+	CtkToolItem parent_object;
 
 	/*< private >*/
 	EphyZoomControlPrivate *priv;

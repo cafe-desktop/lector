@@ -162,7 +162,7 @@ LectorDocument-$(EV_API_VERSION).gir: liblectordocument.la Makefile $(INST_H_FIL
 	--include=Gio-2.0 \
 	--include=Gdk-3.0 \
 	--include=GdkPixbuf-2.0 \
-	--include=Gtk-3.0 \
+	--include=Ctk-3.0 \
 	--library=lectordocument \
 	--libtool="$(LIBTOOL)" \
 	--output $@ \

@@ -30,7 +30,7 @@
 #include "ev-sidebar-layers.h"
 
 struct _EvSidebarLayersPrivate {
-	GtkTreeView  *tree_view;
+	CtkTreeView  *tree_view;
 
 	EvDocument   *document;
 	EvJob        *job;
@@ -102,15 +102,15 @@ ev_sidebar_layers_get_property (GObject    *object,
 	}
 }
 
-static GtkTreeModel *
+static CtkTreeModel *
 ev_sidebar_layers_create_loading_model (void)
 {
-	GtkTreeModel *retval;
-	GtkTreeIter   iter;
+	CtkTreeModel *retval;
+	CtkTreeIter   iter;
 	gchar        *markup;
 
 	/* Creates a fake model to indicate that we're loading */
-	retval = (GtkTreeModel *)ctk_list_store_new (EV_DOCUMENT_LAYERS_N_COLUMNS,
+	retval = (CtkTreeModel *)ctk_list_store_new (EV_DOCUMENT_LAYERS_N_COLUMNS,
 						     G_TYPE_STRING,
 						     G_TYPE_OBJECT,
 						     G_TYPE_BOOLEAN,
@@ -134,10 +134,10 @@ ev_sidebar_layers_create_loading_model (void)
 }
 
 static gboolean
-update_kids (GtkTreeModel *model,
-	     GtkTreePath  *path,
-	     GtkTreeIter  *iter,
-	     GtkTreeIter  *parent)
+update_kids (CtkTreeModel *model,
+	     CtkTreePath  *path,
+	     CtkTreeIter  *iter,
+	     CtkTreeIter  *parent)
 {
 	if (ctk_tree_store_is_ancestor (CTK_TREE_STORE (model), parent, iter)) {
 		gboolean visible;
@@ -154,9 +154,9 @@ update_kids (GtkTreeModel *model,
 }
 
 static gboolean
-clear_rb_group (GtkTreeModel *model,
-		GtkTreePath  *path,
-		GtkTreeIter  *iter,
+clear_rb_group (CtkTreeModel *model,
+		CtkTreePath  *path,
+		CtkTreeIter  *iter,
 		gint         *rb_group)
 {
 	gint group;
@@ -175,13 +175,13 @@ clear_rb_group (GtkTreeModel *model,
 }
 
 static void
-ev_sidebar_layers_visibility_changed (GtkCellRendererToggle *cell,
+ev_sidebar_layers_visibility_changed (CtkCellRendererToggle *cell,
 				      gchar                 *path_str,
 				      EvSidebarLayers       *ev_layers)
 {
-	GtkTreeModel *model;
-	GtkTreePath  *path;
-	GtkTreeIter   iter;
+	CtkTreeModel *model;
+	CtkTreePath  *path;
+	CtkTreeIter   iter;
 	gboolean      visible;
 	EvLayer      *layer;
 
@@ -204,7 +204,7 @@ ev_sidebar_layers_visibility_changed (GtkCellRendererToggle *cell,
 		rb_group = ev_layer_get_rb_group (layer);
 		if (rb_group) {
 			ctk_tree_model_foreach (model,
-						(GtkTreeModelForeachFunc)clear_rb_group,
+						(CtkTreeModelForeachFunc)clear_rb_group,
 						&rb_group);
 		}
 	} else {
@@ -218,7 +218,7 @@ ev_sidebar_layers_visibility_changed (GtkCellRendererToggle *cell,
 
 	if (ev_layer_is_parent (layer)) {
 		ctk_tree_model_foreach (model,
-					(GtkTreeModelForeachFunc)update_kids,
+					(CtkTreeModelForeachFunc)update_kids,
 					&iter);
 	}
 
@@ -227,12 +227,12 @@ ev_sidebar_layers_visibility_changed (GtkCellRendererToggle *cell,
 	g_signal_emit (ev_layers, signals[LAYERS_VISIBILITY_CHANGED], 0);
 }
 
-static GtkTreeView *
+static CtkTreeView *
 ev_sidebar_layers_create_tree_view (EvSidebarLayers *ev_layers)
 {
-	GtkTreeView       *tree_view;
-	GtkTreeViewColumn *column;
-	GtkCellRenderer   *renderer;
+	CtkTreeView       *tree_view;
+	CtkTreeViewColumn *column;
+	CtkCellRenderer   *renderer;
 
 	tree_view = CTK_TREE_VIEW (ctk_tree_view_new ());
 	ctk_tree_view_set_headers_visible (tree_view, FALSE);
@@ -274,8 +274,8 @@ ev_sidebar_layers_create_tree_view (EvSidebarLayers *ev_layers)
 static void
 ev_sidebar_layers_init (EvSidebarLayers *ev_layers)
 {
-	GtkWidget    *swindow;
-	GtkTreeModel *model;
+	CtkWidget    *swindow;
+	CtkTreeModel *model;
 
 	ev_layers->priv = ev_sidebar_layers_get_instance_private (ev_layers);
 
@@ -322,20 +322,20 @@ ev_sidebar_layers_class_init (EvSidebarLayersClass *ev_layers_class)
 			      G_TYPE_NONE, 0, G_TYPE_NONE);
 }
 
-GtkWidget *
+CtkWidget *
 ev_sidebar_layers_new (void)
 {
 	return CTK_WIDGET (g_object_new (EV_TYPE_SIDEBAR_LAYERS, NULL));
 }
 
 static void
-update_layers_state (GtkTreeModel     *model,
-		     GtkTreeIter      *iter,
+update_layers_state (CtkTreeModel     *model,
+		     CtkTreeIter      *iter,
 		     EvDocumentLayers *document_layers)
 {
 	EvLayer    *layer;
 	gboolean    visible;
-	GtkTreeIter child_iter;
+	CtkTreeIter child_iter;
 
 	do {
 		ctk_tree_model_get (model, iter,
@@ -361,8 +361,8 @@ update_layers_state (GtkTreeModel     *model,
 void
 ev_sidebar_layers_update_layers_state (EvSidebarLayers *sidebar_layers)
 {
-	GtkTreeModel     *model;
-	GtkTreeIter       iter;
+	CtkTreeModel     *model;
+	CtkTreeIter       iter;
 	EvDocumentLayers *document_layers;
 
 	document_layers = EV_DOCUMENT_LAYERS (sidebar_layers->priv->document);

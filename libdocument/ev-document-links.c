@@ -47,13 +47,13 @@ ev_document_links_has_document_links (EvDocumentLinks *document_links)
  * ev_document_links_get_links_model:
  * @document_links: an #EvDocumentLinks
  *
- * Returns: (transfer full): a #GtkTreeModel
+ * Returns: (transfer full): a #CtkTreeModel
  */
-GtkTreeModel *
+CtkTreeModel *
 ev_document_links_get_links_model (EvDocumentLinks *document_links)
 {
 	EvDocumentLinksInterface *iface = EV_DOCUMENT_LINKS_GET_IFACE (document_links);
-	GtkTreeModel *retval;
+	CtkTreeModel *retval;
 
 	retval = iface->get_links_model (document_links);
 

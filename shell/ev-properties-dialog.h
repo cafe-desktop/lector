@@ -37,7 +37,7 @@ typedef struct _EvPropertiesDialogPrivate EvPropertiesDialogPrivate;
 #define EV_PROPERTIES_DIALOG_GET_CLASS(object)	(G_TYPE_INSTANCE_GET_CLASS((object), EV_TYPE_PROPERTIES_DIALOG, EvPropertiesDialogClass))
 
 GType		 ev_properties_dialog_get_type     (void);
-GtkWidget	*ev_properties_dialog_new          (void);
+CtkWidget	*ev_properties_dialog_new          (void);
 void	         ev_properties_dialog_set_document (EvPropertiesDialog *properties,
 						    const gchar        *uri,
 					  	    EvDocument         *document);

@@ -35,9 +35,9 @@ enum {
 	LAST_SIGNAL
 };
 struct _EvPasswordViewPrivate {
-	GtkWindow    *parent_window;
-	GtkWidget    *label;
-	GtkWidget    *password_entry;
+	CtkWindow    *parent_window;
+	CtkWidget    *label;
+	CtkWidget    *password_entry;
 
 	gchar        *password;
 	GPasswordSave password_save;
@@ -90,7 +90,7 @@ ev_password_view_class_init (EvPasswordViewClass *class)
 }
 
 static void
-ev_password_view_clicked_cb (GtkWidget      *button,
+ev_password_view_clicked_cb (CtkWidget      *button,
 			     EvPasswordView *password_view)
 {
 	ev_password_view_ask_password (password_view);
@@ -99,11 +99,11 @@ ev_password_view_clicked_cb (GtkWidget      *button,
 static void
 ev_password_view_init (EvPasswordView *password_view)
 {
-	GtkWidget *vbox;
-	GtkWidget *hbox;
-	GtkWidget *image;
-	GtkWidget *button;
-	GtkWidget *label;
+	CtkWidget *vbox;
+	CtkWidget *hbox;
+	CtkWidget *image;
+	CtkWidget *button;
+	CtkWidget *label;
 	gchar     *markup;
 
 	password_view->priv = ev_password_view_get_instance_private (password_view);
@@ -119,7 +119,7 @@ ev_password_view_init (EvPasswordView *password_view)
 	ctk_container_add (CTK_CONTAINER (password_view), vbox);
 
 	password_view->priv->label =
-		(GtkWidget *) g_object_new (CTK_TYPE_LABEL,
+		(CtkWidget *) g_object_new (CTK_TYPE_LABEL,
 					    "wrap", TRUE,
 					    "selectable", TRUE,
 					    NULL);
@@ -179,7 +179,7 @@ ev_password_view_set_uri (EvPasswordView *password_view,
 }
 
 static void
-ev_password_dialog_got_response (GtkDialog      *dialog,
+ev_password_dialog_got_response (CtkDialog      *dialog,
 				 gint            response_id,
 				 EvPasswordView *password_view)
 {
@@ -197,7 +197,7 @@ ev_password_dialog_got_response (GtkDialog      *dialog,
 }
 
 static void
-ev_password_dialog_remember_button_toggled (GtkToggleButton *button,
+ev_password_dialog_remember_button_toggled (CtkToggleButton *button,
 					    EvPasswordView  *password_view)
 {
 	if (ctk_toggle_button_get_active (button)) {
@@ -209,8 +209,8 @@ ev_password_dialog_remember_button_toggled (GtkToggleButton *button,
 }
 
 static void
-ev_password_dialog_entry_changed_cb (GtkEditable *editable,
-				     GtkDialog   *dialog)
+ev_password_dialog_entry_changed_cb (CtkEditable *editable,
+				     CtkDialog   *dialog)
 {
 	const char *text;
 
@@ -221,8 +221,8 @@ ev_password_dialog_entry_changed_cb (GtkEditable *editable,
 }
 
 static void
-ev_password_dialog_entry_activated_cb (GtkEntry  *entry,
-				       GtkDialog *dialog)
+ev_password_dialog_entry_activated_cb (CtkEntry  *entry,
+				       CtkDialog *dialog)
 {
 	ctk_dialog_response (CTK_DIALOG (dialog), CTK_RESPONSE_OK);
 }
@@ -230,11 +230,11 @@ ev_password_dialog_entry_activated_cb (GtkEntry  *entry,
 void
 ev_password_view_ask_password (EvPasswordView *password_view)
 {
-	GtkDialog *dialog;
-	GtkWidget *content_area, *action_area;
-	GtkWidget *hbox, *main_vbox, *vbox, *icon;
-	GtkWidget *grid;
-	GtkWidget *label;
+	CtkDialog *dialog;
+	CtkWidget *content_area, *action_area;
+	CtkWidget *hbox, *main_vbox, *vbox, *icon;
+	CtkWidget *grid;
+	CtkWidget *label;
 	gchar     *text, *markup, *file_name;
 
 	ctk_widget_set_sensitive (CTK_WIDGET (password_view), FALSE);
@@ -341,8 +341,8 @@ ev_password_view_ask_password (EvPasswordView *password_view)
 				       password_view->priv->password_entry);
 
 	if (ev_keyring_is_available ()) {
-		GtkWidget  *choice;
-		GtkWidget  *remember_box;
+		CtkWidget  *choice;
+		CtkWidget  *remember_box;
 		GSList     *group;
 
 		remember_box = ctk_box_new (CTK_ORIENTATION_VERTICAL, 6);
@@ -405,8 +405,8 @@ ev_password_view_get_password_save_flags (EvPasswordView *password_view)
 	return password_view->priv->password_save;
 }
 
-GtkWidget *
-ev_password_view_new (GtkWindow *parent)
+CtkWidget *
+ev_password_view_new (CtkWindow *parent)
 {
 	EvPasswordView *retval;
 

@@ -50,7 +50,7 @@ struct _EvProgressMessageAreaClass {
 };
 
 GType      ev_progress_message_area_get_type        (void) G_GNUC_CONST;
-GtkWidget *ev_progress_message_area_new             (const gchar           *stock_id,
+CtkWidget *ev_progress_message_area_new             (const gchar           *stock_id,
 						     const gchar           *text,
 						     const gchar           *first_button_text,
 						     ...);

@@ -65,7 +65,7 @@ zoom_to_level_cb (EphyZoomControl *control,
 }
 
 static void
-sync_zoom_cb (GtkAction *action, GParamSpec *pspec, GtkWidget *proxy)
+sync_zoom_cb (CtkAction *action, GParamSpec *pspec, CtkWidget *proxy)
 {
 	EphyZoomAction *zoom_action = EPHY_ZOOM_ACTION (action);
 
@@ -73,7 +73,7 @@ sync_zoom_cb (GtkAction *action, GParamSpec *pspec, GtkWidget *proxy)
 }
 
 static void
-sync_min_zoom_cb (GtkAction *action, GParamSpec *pspec, GtkWidget *proxy)
+sync_min_zoom_cb (CtkAction *action, GParamSpec *pspec, CtkWidget *proxy)
 {
 	EphyZoomAction *zoom_action = EPHY_ZOOM_ACTION (action);
 
@@ -81,7 +81,7 @@ sync_min_zoom_cb (GtkAction *action, GParamSpec *pspec, GtkWidget *proxy)
 }
 
 static void
-sync_max_zoom_cb (GtkAction *action, GParamSpec *pspec, GtkWidget *proxy)
+sync_max_zoom_cb (CtkAction *action, GParamSpec *pspec, CtkWidget *proxy)
 {
 	EphyZoomAction *zoom_action = EPHY_ZOOM_ACTION (action);
 
@@ -89,7 +89,7 @@ sync_max_zoom_cb (GtkAction *action, GParamSpec *pspec, GtkWidget *proxy)
 }
 
 static void
-connect_proxy (GtkAction *action, GtkWidget *proxy)
+connect_proxy (CtkAction *action, CtkWidget *proxy)
 {
 	if (EPHY_IS_ZOOM_CONTROL (proxy))
 	{
@@ -106,7 +106,7 @@ connect_proxy (GtkAction *action, GtkWidget *proxy)
 }
 
 static void
-proxy_menu_activate_cb (GtkMenuItem *menu_item, EphyZoomAction *action)
+proxy_menu_activate_cb (CtkMenuItem *menu_item, EphyZoomAction *action)
 {
 	gint index;
 	float zoom;
@@ -123,11 +123,11 @@ proxy_menu_activate_cb (GtkMenuItem *menu_item, EphyZoomAction *action)
 	}
 }
 
-static GtkWidget *
-create_menu_item (GtkAction *action)
+static CtkWidget *
+create_menu_item (CtkAction *action)
 {
 	EphyZoomActionPrivate *p = EPHY_ZOOM_ACTION (action)->priv;
-	GtkWidget *menu, *menu_item;
+	CtkWidget *menu, *menu_item;
 	GSList *group = NULL;
 	int i;
 
@@ -220,7 +220,7 @@ static void
 ephy_zoom_action_class_init (EphyZoomActionClass *class)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (class);
-	GtkActionClass *action_class = CTK_ACTION_CLASS (class);
+	CtkActionClass *action_class = CTK_ACTION_CLASS (class);
 
 	object_class->set_property = ephy_zoom_action_set_property;
 	object_class->get_property = ephy_zoom_action_get_property;

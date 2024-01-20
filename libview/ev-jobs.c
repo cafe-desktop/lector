@@ -322,9 +322,9 @@ ev_job_links_dispose (GObject *object)
 }
 
 static gboolean
-fill_page_labels (GtkTreeModel   *tree_model,
-		  GtkTreePath    *path,
-		  GtkTreeIter    *iter,
+fill_page_labels (CtkTreeModel   *tree_model,
+		  CtkTreePath    *path,
+		  CtkTreeIter    *iter,
 		  EvJob          *job)
 {
 	EvDocumentLinks *document_links;
@@ -365,7 +365,7 @@ ev_job_links_run (EvJob *job)
 	job_links->model = ev_document_links_get_links_model (EV_DOCUMENT_LINKS (job->document));
 	ev_document_doc_mutex_unlock ();
 
-	ctk_tree_model_foreach (job_links->model, (GtkTreeModelForeachFunc)fill_page_labels, job);
+	ctk_tree_model_foreach (job_links->model, (CtkTreeModelForeachFunc)fill_page_labels, job);
 
 	ev_job_succeeded (job);
 
@@ -912,8 +912,8 @@ ev_job_thumbnail_run (EvJob *job)
 
 #if ENABLE_EPUB
 	if (job->document->iswebdocument == TRUE) {
-		GtkWidget *webview;
-		GtkWidget *offscreenwindow;
+		CtkWidget *webview;
+		CtkWidget *offscreenwindow;
 
 		webview = webkit_web_view_new ();
 		offscreenwindow = ctk_offscreen_window_new ();

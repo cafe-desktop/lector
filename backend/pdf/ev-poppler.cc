@@ -924,7 +924,7 @@ font_type_to_string (PopplerFontType type)
 
 static void
 pdf_document_fonts_fill_model (EvDocumentFonts *document_fonts,
-			       GtkTreeModel    *model)
+			       CtkTreeModel    *model)
 {
 	PdfDocument *pdf_document = PDF_DOCUMENT (document_fonts);
 	PopplerFontsIter *iter = pdf_document->fonts_iter;
@@ -935,7 +935,7 @@ pdf_document_fonts_fill_model (EvDocumentFonts *document_fonts,
 		return;
 
 	do {
-		GtkTreeIter list_iter;
+		CtkTreeIter list_iter;
 		const char *name;
 		const char *type;
 		const char *embedded;
@@ -1187,13 +1187,13 @@ ev_link_from_action (PdfDocument   *pdf_document,
 
 static void
 build_tree (PdfDocument      *pdf_document,
-	    GtkTreeModel     *model,
-	    GtkTreeIter      *parent,
+	    CtkTreeModel     *model,
+	    CtkTreeIter      *parent,
 	    PopplerIndexIter *iter)
 {
 	
 	do {
-		GtkTreeIter tree_iter;
+		CtkTreeIter tree_iter;
 		PopplerIndexIter *child;
 		PopplerAction *action;
 		EvLink *link = NULL;
@@ -1236,11 +1236,11 @@ build_tree (PdfDocument      *pdf_document,
 	} while (poppler_index_iter_next (iter));
 }
 
-static GtkTreeModel *
+static CtkTreeModel *
 pdf_document_links_get_links_model (EvDocumentLinks *document_links)
 {
 	PdfDocument *pdf_document = PDF_DOCUMENT (document_links);
-	GtkTreeModel *model = NULL;
+	CtkTreeModel *model = NULL;
 	PopplerIndexIter *iter;
 	
 	g_return_val_if_fail (PDF_IS_DOCUMENT (document_links), NULL);
@@ -1248,7 +1248,7 @@ pdf_document_links_get_links_model (EvDocumentLinks *document_links)
 	iter = poppler_index_iter_new (pdf_document->document);
 	/* Create the model if we have items*/
 	if (iter != NULL) {
-		model = (GtkTreeModel *) ctk_tree_store_new (EV_DOCUMENT_LINKS_COLUMN_NUM_COLUMNS,
+		model = (CtkTreeModel *) ctk_tree_store_new (EV_DOCUMENT_LINKS_COLUMN_NUM_COLUMNS,
 							     G_TYPE_STRING,
 							     G_TYPE_OBJECT,
 							     G_TYPE_BOOLEAN,
@@ -3220,12 +3220,12 @@ pdf_document_layers_has_layers (EvDocumentLayers *document)
 
 static void
 build_layers_tree (PdfDocument       *pdf_document,
-		   GtkTreeModel      *model,
-		   GtkTreeIter       *parent,
+		   CtkTreeModel      *model,
+		   CtkTreeIter       *parent,
 		   PopplerLayersIter *iter)
 {
 	do {
-		GtkTreeIter        tree_iter;
+		CtkTreeIter        tree_iter;
 		PopplerLayersIter *child;
 		PopplerLayer      *layer;
 		EvLayer           *ev_layer = NULL;
@@ -3275,16 +3275,16 @@ build_layers_tree (PdfDocument       *pdf_document,
 	} while (poppler_layers_iter_next (iter));
 }
 
-static GtkTreeModel *
+static CtkTreeModel *
 pdf_document_layers_get_layers (EvDocumentLayers *document)
 {
-	GtkTreeModel *model = NULL;
+	CtkTreeModel *model = NULL;
 	PdfDocument *pdf_document = PDF_DOCUMENT (document);
 	PopplerLayersIter *iter;
 
 	iter = poppler_layers_iter_new (pdf_document->document);
 	if (iter) {
-		model = (GtkTreeModel *) ctk_tree_store_new (EV_DOCUMENT_LAYERS_N_COLUMNS,
+		model = (CtkTreeModel *) ctk_tree_store_new (EV_DOCUMENT_LAYERS_N_COLUMNS,
 							     G_TYPE_STRING,  /* TITLE */
 							     G_TYPE_OBJECT,  /* LAYER */
 							     G_TYPE_BOOLEAN, /* VISIBLE */

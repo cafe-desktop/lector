@@ -37,7 +37,7 @@ typedef struct _EvLoadingMessageClass EvLoadingMessageClass;
 
 GType      ev_loading_message_get_type (void) G_GNUC_CONST;
 
-GtkWidget *ev_loading_message_new      (void);
+CtkWidget *ev_loading_message_new      (void);
 
 G_END_DECLS
 

@@ -91,7 +91,7 @@ ev_previewer_load_document (const gchar     *filename,
 gint
 main (gint argc, gchar **argv)
 {
-	GtkWidget       *window;
+	CtkWidget       *window;
 	GOptionContext  *context;
 	const gchar     *filename;
 	EvDocumentModel *model;

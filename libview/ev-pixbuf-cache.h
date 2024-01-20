@@ -55,7 +55,7 @@ typedef struct _EvPixbufCache       EvPixbufCache;
 typedef struct _EvPixbufCacheClass  EvPixbufCacheClass;
 
 GType          ev_pixbuf_cache_get_type             (void) G_GNUC_CONST;
-EvPixbufCache *ev_pixbuf_cache_new                  (GtkWidget     *view,
+EvPixbufCache *ev_pixbuf_cache_new                  (CtkWidget     *view,
 						     EvDocumentModel *model,
 						     gsize            max_size);
 void           ev_pixbuf_cache_set_max_size         (EvPixbufCache   *pixbuf_cache,

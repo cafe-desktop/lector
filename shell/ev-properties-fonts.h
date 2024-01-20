@@ -39,7 +39,7 @@ typedef struct _EvPropertiesFontsPrivate EvPropertiesFontsPrivate;
 #define EV_PROPERTIES_FONTS_GET_CLASS(object)	(G_TYPE_INSTANCE_GET_CLASS((object), EV_TYPE_PROPERTIES_FONTS, EvPropertiesFontsClass))
 
 GType	           ev_properties_fonts_get_type     (void);
-GtkWidget         *ev_properties_fonts_new          (void);
+CtkWidget         *ev_properties_fonts_new          (void);
 void		   ev_properties_fonts_set_document (EvPropertiesFonts *properties,
 					  	     EvDocument        *document);
 

@@ -39,7 +39,7 @@ typedef struct _EphyZoomActionPrivate	EphyZoomActionPrivate;
 
 struct _EphyZoomAction
 {
-	GtkAction parent;
+	CtkAction parent;
 
 	/*< private >*/
 	EphyZoomActionPrivate *priv;
@@ -47,7 +47,7 @@ struct _EphyZoomAction
 
 struct _EphyZoomActionClass
 {
-	GtkActionClass parent_class;
+	CtkActionClass parent_class;
 
 	void (* zoom_to_level)	(EphyZoomAction *action, float level);
 };

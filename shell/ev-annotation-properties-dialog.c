@@ -30,24 +30,24 @@ enum {
 };
 
 struct _EvAnnotationPropertiesDialog {
-	GtkDialog        base_instance;
+	CtkDialog        base_instance;
 
 	EvAnnotationType annot_type;
 	EvAnnotation    *annot;
 
-	GtkWidget       *grid;
+	CtkWidget       *grid;
 
-	GtkWidget       *author;
-	GtkWidget       *color;
-	GtkWidget       *opacity;
-	GtkWidget       *popup_state;
+	CtkWidget       *author;
+	CtkWidget       *color;
+	CtkWidget       *opacity;
+	CtkWidget       *popup_state;
 
 	/* Text Annotations */
-	GtkWidget       *icon;
+	CtkWidget       *icon;
 };
 
 struct _EvAnnotationPropertiesDialogClass {
-	GtkDialogClass base_class;
+	CtkDialogClass base_class;
 };
 
 G_DEFINE_TYPE (EvAnnotationPropertiesDialog, ev_annotation_properties_dialog, CTK_TYPE_DIALOG)
@@ -86,8 +86,8 @@ static void
 ev_annotation_properties_dialog_constructed (GObject *object)
 {
 	EvAnnotationPropertiesDialog *dialog = EV_ANNOTATION_PROPERTIES_DIALOG (object);
-	GtkWidget *grid = dialog->grid;
-	GtkWidget *label;
+	CtkWidget *grid = dialog->grid;
+	CtkWidget *label;
 
 	ctk_window_set_titlebar (CTK_WINDOW (dialog), NULL);
 
@@ -125,11 +125,11 @@ ev_annotation_properties_dialog_constructed (GObject *object)
 static void
 ev_annotation_properties_dialog_init (EvAnnotationPropertiesDialog *annot_dialog)
 {
-	GtkDialog *dialog = CTK_DIALOG (annot_dialog);
-	GtkWidget *content_area;
-	GtkWidget *label;
-	GtkWidget *grid;
-	GtkWidget *hbox;
+	CtkDialog *dialog = CTK_DIALOG (annot_dialog);
+	CtkWidget *content_area;
+	CtkWidget *label;
+	CtkWidget *grid;
+	CtkWidget *hbox;
 	gchar     *markup;
 	const GdkRGBA yellow = { 1., 1., 0., 1. };
 
@@ -238,7 +238,7 @@ ev_annotation_properties_dialog_class_init (EvAnnotationPropertiesDialogClass *k
 							    G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY));
 }
 
-GtkWidget *
+CtkWidget *
 ev_annotation_properties_dialog_new (EvAnnotationType annot_type)
 {
 	return CTK_WIDGET (g_object_new (EV_TYPE_ANNOTATION_PROPERTIES_DIALOG,
@@ -246,7 +246,7 @@ ev_annotation_properties_dialog_new (EvAnnotationType annot_type)
 					 NULL));
 }
 
-GtkWidget *
+CtkWidget *
 ev_annotation_properties_dialog_new_with_annotation (EvAnnotation *annot)
 {
 	EvAnnotationPropertiesDialog *dialog;
