@@ -18,10 +18,8 @@ requires:
     - ctk-doc-tools
     - libcaja-extension-dev
     - libdjvulibre-dev
-    - libgail-3-dev
     - libgirepository1.0-dev
     - libglib2.0-dev
-    - libctk-3-dev
     - libgxps-dev
     - libkpathsea-dev
     - libsynctex-dev
@@ -45,6 +43,7 @@ requires:
 
 before_scripts:
   - ./html-cppcheck
+  - ./debrepo-install 'libctk-3-dev libcail-3-dev'
   - ./install-from-git https://github.com/cafe-desktop/cafe-common master
 
 build_scripts:
