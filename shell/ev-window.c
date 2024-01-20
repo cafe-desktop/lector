@@ -40,7 +40,7 @@
 #include <glib/gi18n.h>
 #include <gio/gio.h>
 #include <ctk/ctk.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdkx.h>
 
 #include "egg-editable-toolbar.h"
 #include "egg-toolbar-editor.h"
@@ -400,11 +400,11 @@ get_monitor_dpi (EvWindow *ev_window)
 
 	window = ctk_widget_get_window (CTK_WIDGET (ev_window));
 	if (window) {
-		display = gdk_window_get_display (window);
-		monitor = gdk_display_get_monitor_at_window (display, window);
+		display = cdk_window_get_display (window);
+		monitor = cdk_display_get_monitor_at_window (display, window);
 	} else {
-		display = gdk_display_get_default();
-		monitor = gdk_display_get_primary_monitor (display);
+		display = cdk_display_get_default();
+		monitor = cdk_display_get_primary_monitor (display);
 	}
 	return ev_document_misc_get_monitor_dpi (monitor);
 }
@@ -1357,7 +1357,7 @@ monitor_get_dimesions (EvWindow *ev_window,
 		       gint     *height)
 {
 	GdkDisplay  *display;
-	GdkWindow   *gdk_window;
+	GdkWindow   *cdk_window;
 	GdkMonitor  *monitor;
 	GdkRectangle geometry;
 
@@ -1365,12 +1365,12 @@ monitor_get_dimesions (EvWindow *ev_window,
 	*height = 0;
 
 	display = ctk_widget_get_display (CTK_WIDGET (ev_window));
-	gdk_window = ctk_widget_get_window (CTK_WIDGET (ev_window));
+	cdk_window = ctk_widget_get_window (CTK_WIDGET (ev_window));
 
-	if (gdk_window) {
-		monitor = gdk_display_get_monitor_at_window (display,
-							     gdk_window);
-		gdk_monitor_get_workarea (monitor, &geometry);
+	if (cdk_window) {
+		monitor = cdk_display_get_monitor_at_window (display,
+							     cdk_window);
+		cdk_monitor_get_workarea (monitor, &geometry);
 		*width = geometry.width;
 		*height = geometry.height;
 	}
@@ -3305,9 +3305,9 @@ ev_window_cmd_send_to (CtkAction *action,
 		GdkScreen           *screen;
 
 		screen = ctk_window_get_screen (CTK_WINDOW (ev_window));
-		context = gdk_display_get_app_launch_context (gdk_screen_get_display (screen));
-		gdk_app_launch_context_set_screen (context, screen);
-		gdk_app_launch_context_set_timestamp (context, ctk_get_current_event_time ());
+		context = cdk_display_get_app_launch_context (cdk_screen_get_display (screen));
+		cdk_app_launch_context_set_screen (context, screen);
+		cdk_app_launch_context_set_timestamp (context, ctk_get_current_event_time ());
 		g_app_info_launch (app_info, NULL, G_APP_LAUNCH_CONTEXT (context), &error);
 		g_object_unref (context);
 
@@ -6887,7 +6887,7 @@ window_configure_event_cb (EvWindow *window, GdkEventConfigure *event, gpointer 
 	if (!window->priv->metadata)
 		return FALSE;
 
-	state = gdk_window_get_state (ctk_widget_get_window (CTK_WIDGET (window)));
+	state = cdk_window_get_state (ctk_widget_get_window (CTK_WIDGET (window)));
 
 	if (!(state & GDK_WINDOW_STATE_FULLSCREEN)) {
 		if (window->priv->document) {
@@ -6947,9 +6947,9 @@ launch_action (EvWindow *window, EvLinkAction *action)
 	}
 
 	screen = ctk_window_get_screen (CTK_WINDOW (window));
-	context = gdk_display_get_app_launch_context (gdk_screen_get_display (screen));
-	gdk_app_launch_context_set_screen (context, screen);
-	gdk_app_launch_context_set_timestamp (context, ctk_get_current_event_time ());
+	context = cdk_display_get_app_launch_context (cdk_screen_get_display (screen));
+	cdk_app_launch_context_set_screen (context, screen);
+	cdk_app_launch_context_set_timestamp (context, ctk_get_current_event_time ());
 
 	file_list.data = file;
 	if (!g_app_info_launch (app_info, &file_list, G_APP_LAUNCH_CONTEXT (context), &error)) {
@@ -6977,9 +6977,9 @@ launch_external_uri (EvWindow *window, EvLinkAction *action)
 	GdkScreen *screen;
 
 	screen = ctk_window_get_screen (CTK_WINDOW (window));
-	context = gdk_display_get_app_launch_context (gdk_screen_get_display (screen));
-	gdk_app_launch_context_set_screen (context, screen);
-	gdk_app_launch_context_set_timestamp (context, ctk_get_current_event_time ());
+	context = cdk_display_get_app_launch_context (cdk_screen_get_display (screen));
+	cdk_app_launch_context_set_screen (context, screen);
+	cdk_app_launch_context_set_timestamp (context, ctk_get_current_event_time ());
 
 	if (!g_strstr_len (uri, strlen (uri), "://") &&
 	    !g_str_has_prefix (uri, "mailto:")) {
@@ -7147,7 +7147,7 @@ create_file_from_uri_for_format (const gchar     *uri,
 	gchar  *uri_extension;
 	gint    i;
 
-	extensions = gdk_pixbuf_format_get_extensions (format);
+	extensions = cdk_pixbuf_format_get_extensions (format);
 	for (i = 0; extensions[i]; i++) {
 		if (g_str_has_suffix (uri, extensions[i])) {
 			g_strfreev (extensions);
@@ -7191,15 +7191,15 @@ image_save_dialog_response_cb (CtkWidget *fc,
 	format = g_object_get_data (G_OBJECT (filter), "pixbuf-format");
 
 	if (format == NULL) {
-		format = get_gdk_pixbuf_format_by_extension (uri);
+		format = get_cdk_pixbuf_format_by_extension (uri);
 	}
 
 	if (format == NULL && g_strrstr (uri, ".") == NULL) {
 		/* no extension found and no extension provided within uri */
-		format = get_gdk_pixbuf_format_by_extension (".png");
+		format = get_cdk_pixbuf_format_by_extension (".png");
 		if (format == NULL) {
 			/* no .png support, try .jpeg */
-			format = get_gdk_pixbuf_format_by_extension (".jpeg");
+			format = get_cdk_pixbuf_format_by_extension (".jpeg");
 		}
 	}
 
@@ -7230,8 +7230,8 @@ image_save_dialog_response_cb (CtkWidget *fc,
 					       ev_window->priv->image);
 	ev_document_doc_mutex_unlock ();
 
-	file_format = gdk_pixbuf_format_get_name (format);
-	gdk_pixbuf_save (pixbuf, filename, file_format, &error, NULL);
+	file_format = cdk_pixbuf_format_get_name (format);
+	cdk_pixbuf_save (pixbuf, filename, file_format, &error, NULL);
 	g_free (file_format);
 	g_object_unref (pixbuf);
 

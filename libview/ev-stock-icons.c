@@ -118,7 +118,7 @@ ev_stock_icons_init (void)
 
 	g_object_unref (G_OBJECT (factory));
 
-	ev_stock_icons_add_icons_path_for_screen (gdk_screen_get_default ());
+	ev_stock_icons_add_icons_path_for_screen (cdk_screen_get_default ());
 }
 
 void

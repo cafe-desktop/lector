@@ -677,7 +677,7 @@ comics_document_get_page_size (EvDocument *document,
 		g_strfreev (argv);
 		g_return_if_fail (success == TRUE);
 
-		loader = gdk_pixbuf_loader_new ();
+		loader = cdk_pixbuf_loader_new ();
 		g_signal_connect (loader, "area-prepared",
 				  G_CALLBACK (get_page_size_area_prepared_cb),
 				  &got_size);
@@ -686,19 +686,19 @@ comics_document_get_page_size (EvDocument *document,
 			bytes = read (outpipe, buf, 1024);
 
 			if (bytes > 0)
-			gdk_pixbuf_loader_write (loader, buf, bytes, NULL);
+			cdk_pixbuf_loader_write (loader, buf, bytes, NULL);
 			if (bytes <= 0 || got_size) {
 				close (outpipe);
 				outpipe = -1;
-				gdk_pixbuf_loader_close (loader, NULL);
+				cdk_pixbuf_loader_close (loader, NULL);
 			}
 		}
-		pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
+		pixbuf = cdk_pixbuf_loader_get_pixbuf (loader);
 		if (pixbuf) {
 			if (width)
-				*width = gdk_pixbuf_get_width (pixbuf);
+				*width = cdk_pixbuf_get_width (pixbuf);
 			if (height)
-				*height = gdk_pixbuf_get_height (pixbuf);
+				*height = cdk_pixbuf_get_height (pixbuf);
 		}
 		g_spawn_close_pid (child_pid);
 		g_object_unref (loader);
@@ -706,12 +706,12 @@ comics_document_get_page_size (EvDocument *document,
 		filename = g_build_filename (comics_document->dir,
                                              (char *) comics_document->page_names->pdata[page->index],
 					     NULL);
-		pixbuf = gdk_pixbuf_new_from_file (filename, NULL);
+		pixbuf = cdk_pixbuf_new_from_file (filename, NULL);
 		if (pixbuf) {
 			if (width)
-				*width = gdk_pixbuf_get_width (pixbuf);
+				*width = cdk_pixbuf_get_width (pixbuf);
 			if (height)
-				*height = gdk_pixbuf_get_height (pixbuf);
+				*height = cdk_pixbuf_get_height (pixbuf);
 			g_object_unref (pixbuf);
 		}
 		g_free (filename);
@@ -753,7 +753,7 @@ comics_document_render_pixbuf (EvDocument      *document,
 		g_strfreev (argv);
 		g_return_val_if_fail (success == TRUE, NULL);
 
-		loader = gdk_pixbuf_loader_new ();
+		loader = cdk_pixbuf_loader_new ();
 		g_signal_connect (loader, "size-prepared",
 				  G_CALLBACK (render_pixbuf_size_prepared_cb),
 				  &rc->scale);
@@ -762,17 +762,17 @@ comics_document_render_pixbuf (EvDocument      *document,
 			bytes = read (outpipe, buf, 4096);
 
 			if (bytes > 0) {
-				gdk_pixbuf_loader_write (loader, buf, bytes,
+				cdk_pixbuf_loader_write (loader, buf, bytes,
 				NULL);
 			} else if (bytes <= 0) {
 				close (outpipe);
-				gdk_pixbuf_loader_close (loader, NULL);
+				cdk_pixbuf_loader_close (loader, NULL);
 				outpipe = -1;
 			}
 		}
-		tmp_pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
+		tmp_pixbuf = cdk_pixbuf_loader_get_pixbuf (loader);
 		rotated_pixbuf =
-			gdk_pixbuf_rotate_simple (tmp_pixbuf,
+			cdk_pixbuf_rotate_simple (tmp_pixbuf,
 						  360 - rc->rotation);
 		g_spawn_close_pid (child_pid);
 		g_object_unref (loader);
@@ -782,14 +782,14 @@ comics_document_render_pixbuf (EvDocument      *document,
                                           (char *) comics_document->page_names->pdata[rc->page->index],
 					  NULL);
 
-		gdk_pixbuf_get_file_info (filename, &width, &height);
+		cdk_pixbuf_get_file_info (filename, &width, &height);
 
 		tmp_pixbuf =
-			gdk_pixbuf_new_from_file_at_size (
+			cdk_pixbuf_new_from_file_at_size (
 				    filename, width * (rc->scale) + 0.5,
 				    height * (rc->scale) + 0.5, NULL);
 		rotated_pixbuf =
-			gdk_pixbuf_rotate_simple (tmp_pixbuf,
+			cdk_pixbuf_rotate_simple (tmp_pixbuf,
 						  360 - rc->rotation);
 		g_free (filename);
 		g_object_unref (tmp_pixbuf);
@@ -821,7 +821,7 @@ render_pixbuf_size_prepared_cb (GdkPixbufLoader *loader,
 	int w = (width  * (*scale) + 0.5);
 	int h = (height * (*scale) + 0.5);
 
-	gdk_pixbuf_loader_set_size (loader, w, h);
+	cdk_pixbuf_loader_set_size (loader, w, h);
 }
 
 /**
@@ -905,17 +905,17 @@ comics_document_init (ComicsDocument *comics_document)
 	comics_document->extract_command = NULL;
 }
 
-/* Returns a list of file extensions supported by gdk-pixbuf */
+/* Returns a list of file extensions supported by cdk-pixbuf */
 static GSList*
 get_supported_image_extensions(void)
 {
 	GSList *extensions = NULL;
-	GSList *formats = gdk_pixbuf_get_formats ();
+	GSList *formats = cdk_pixbuf_get_formats ();
 	GSList *l;
 
 	for (l = formats; l != NULL; l = l->next) {
 		int i;
-		gchar **ext = gdk_pixbuf_format_get_extensions (l->data);
+		gchar **ext = cdk_pixbuf_format_get_extensions (l->data);
 
 		for (i = 0; ext[i] != NULL; i++) {
 			extensions = g_slist_append (extensions,

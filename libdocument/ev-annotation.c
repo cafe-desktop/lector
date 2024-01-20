@@ -617,7 +617,7 @@ ev_annotation_set_rgba (EvAnnotation  *annot,
     g_return_val_if_fail (EV_IS_ANNOTATION (annot), FALSE);
     g_return_val_if_fail (rgba != NULL, FALSE);
 
-    if (gdk_rgba_equal (rgba, &annot->rgba))
+    if (cdk_rgba_equal (rgba, &annot->rgba))
         return FALSE;
 
     annot->rgba = *rgba;

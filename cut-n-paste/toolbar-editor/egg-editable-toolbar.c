@@ -286,15 +286,15 @@ move_item_cb (CtkAction          *action,
   CtkTargetList *list = ctk_target_list_new (dest_drag_types, G_N_ELEMENTS (dest_drag_types));
 
   GdkEvent *realevent = ctk_get_current_event();
-  GdkEvent *event = gdk_event_new (GDK_MOTION_NOTIFY);
+  GdkEvent *event = cdk_event_new (GDK_MOTION_NOTIFY);
   event->motion.window = g_object_ref (realevent->any.window);
   event->motion.send_event = FALSE;
   event->motion.axes = NULL;
-  event->motion.time = gdk_event_get_time (realevent);
-  gdk_event_set_device (event, gdk_event_get_device (realevent));
-  gdk_event_get_state (realevent, &event->motion.state);
-  gdk_event_get_coords (realevent, &event->motion.x, &event->motion.y);
-  gdk_event_get_root_coords (realevent, &event->motion.x_root, &event->motion.y_root);
+  event->motion.time = cdk_event_get_time (realevent);
+  cdk_event_set_device (event, cdk_event_get_device (realevent));
+  cdk_event_get_state (realevent, &event->motion.state);
+  cdk_event_get_coords (realevent, &event->motion.x, &event->motion.y);
+  cdk_event_get_root_coords (realevent, &event->motion.x_root, &event->motion.y_root);
 
   ctk_drag_begin_with_coordinates (toolitem,
                                    list,
@@ -303,7 +303,7 @@ move_item_cb (CtkAction          *action,
                                    event,
                                    event->motion.x,
                                    event->motion.y);
-  gdk_event_free (event);
+  cdk_event_free (event);
   ctk_target_list_unref (list);
 }
 
@@ -465,9 +465,9 @@ configure_item_cursor (CtkToolItem *item,
 
           screen = ctk_widget_get_screen (CTK_WIDGET (etoolbar));
 
-          cursor = gdk_cursor_new_for_display (gdk_screen_get_display (screen),
+          cursor = cdk_cursor_new_for_display (cdk_screen_get_display (screen),
                                                GDK_HAND2);
-          gdk_window_set_cursor (window, cursor);
+          cdk_window_set_cursor (window, cursor);
           g_object_unref (cursor);
 
           ctk_drag_source_set (widget, GDK_BUTTON1_MASK, dest_drag_types,
@@ -530,7 +530,7 @@ configure_item_cursor (CtkToolItem *item,
         }
       else
         {
-          gdk_window_set_cursor (window, NULL);
+          cdk_window_set_cursor (window, NULL);
         }
     }
 }
@@ -721,12 +721,12 @@ toolbar_drag_data_received_cb (CtkToolbar         *toolbar,
           gint tpos = get_toolbar_position (etoolbar, CTK_WIDGET (toolbar));
           egg_toolbars_model_add_item (etoolbar->priv->model, tpos, ipos, name);
           ctk_drag_finish (context, TRUE,
-                           gdk_drag_context_get_selected_action (context) == GDK_ACTION_MOVE, time);
+                           cdk_drag_context_get_selected_action (context) == GDK_ACTION_MOVE, time);
         }
       else
         {
           ctk_drag_finish (context, FALSE,
-                           gdk_drag_context_get_selected_action (context) == GDK_ACTION_MOVE, time);
+                           cdk_drag_context_get_selected_action (context) == GDK_ACTION_MOVE, time);
         }
     }
 
@@ -764,7 +764,7 @@ toolbar_drag_motion_cb (CtkToolbar         *toolbar,
   GdkAtom target = ctk_drag_dest_find_target (CTK_WIDGET (toolbar), context, NULL);
   if (target == GDK_NONE)
     {
-      gdk_drag_status (context, 0, time);
+      cdk_drag_status (context, 0, time);
       return FALSE;
     }
 
@@ -785,7 +785,7 @@ toolbar_drag_motion_cb (CtkToolbar         *toolbar,
                                            etoolbar->priv->dnd_toolitem, ipos);
     }
 
-  gdk_drag_status (context, gdk_drag_context_get_suggested_action (context), time);
+  cdk_drag_status (context, cdk_drag_context_get_suggested_action (context), time);
 
   return TRUE;
 }
@@ -1824,7 +1824,7 @@ new_pixbuf_from_widget (CtkWidget *widget)
   ctk_widget_show_all (window);
 
   /* Process the waiting events to have the widget actually drawn */
-  gdk_window_process_updates (ctk_widget_get_window (window), TRUE);
+  cdk_window_process_updates (ctk_widget_get_window (window), TRUE);
   pixbuf = ctk_offscreen_window_get_pixbuf (CTK_OFFSCREEN_WINDOW (window));
   ctk_widget_destroy (window);
 

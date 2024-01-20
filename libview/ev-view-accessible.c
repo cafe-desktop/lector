@@ -526,7 +526,7 @@ _transform_doc_rect_to_atk_rect (EvViewAccessible *accessible,
 
 	if (coord_type == ATK_XY_SCREEN) {
 		gint x_window, y_window;
-		gdk_window_get_origin (ctk_widget_get_window (toplevel), &x_window, &y_window);
+		cdk_window_get_origin (ctk_widget_get_window (toplevel), &x_window, &y_window);
 		view_rect.x += x_window;
 		view_rect.y += y_window;
 	}

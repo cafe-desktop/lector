@@ -30,7 +30,7 @@
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
 #include <ctk/ctk.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdkx.h>
 
 #include "eggsmclient.h"
 
@@ -129,7 +129,7 @@ ev_application_load_session (EvApplication *application)
 		return FALSE;
 
 	ev_application_open_uri_at_dest (application, uri,
-					 gdk_screen_get_default (),
+					 cdk_screen_get_default (),
 					 NULL, 0, NULL,
 					 GDK_CURRENT_TIME);
 	g_free (uri);
@@ -184,10 +184,10 @@ ev_display_open_if_needed (const gchar *name)
 	GSList     *l;
 	GdkDisplay *display = NULL;
 
-	displays = gdk_display_manager_list_displays (gdk_display_manager_get ());
+	displays = cdk_display_manager_list_displays (cdk_display_manager_get ());
 
 	for (l = displays; l != NULL; l = l->next) {
-		const gchar *display_name = gdk_display_get_name ((GdkDisplay *) l->data);
+		const gchar *display_name = cdk_display_get_name ((GdkDisplay *) l->data);
 
 		if (g_ascii_strcasecmp (display_name, name) == 0) {
 			display = l->data;
@@ -197,7 +197,7 @@ ev_display_open_if_needed (const gchar *name)
 
 	g_slist_free (displays);
 
-	return display != NULL ? display : gdk_display_open (name);
+	return display != NULL ? display : cdk_display_open (name);
 }
 
 static void
@@ -263,9 +263,9 @@ ev_spawn (const char     *uri,
 		GList uri_list;
 		GList *uris = NULL;
 
-		ctx = gdk_display_get_app_launch_context (gdk_screen_get_display (screen));
-		gdk_app_launch_context_set_screen (ctx, screen);
-		gdk_app_launch_context_set_timestamp (ctx, timestamp);
+		ctx = cdk_display_get_app_launch_context (cdk_screen_get_display (screen));
+		cdk_app_launch_context_set_screen (ctx, screen);
+		cdk_app_launch_context_set_timestamp (ctx, timestamp);
 
 		if (uri) {
 			uri_list.data = (gchar *)uri;
@@ -358,7 +358,7 @@ on_reload_cb (GObject      *source_object,
 
 	/* We did not open a window, so manually clear the startup
 	 * notification. */
-	gdk_notify_startup_complete ();
+	cdk_notify_startup_complete ();
 }
 
 static void
@@ -420,10 +420,10 @@ on_register_uri_cb (GObject      *source_object,
 	g_variant_builder_open (&builder, G_VARIANT_TYPE ("a{sv}"));
 	g_variant_builder_add (&builder, "{sv}",
 	                       "display",
-	                       g_variant_new_string (gdk_display_get_name (gdk_screen_get_display (data->screen))));
+	                       g_variant_new_string (cdk_display_get_name (cdk_screen_get_display (data->screen))));
 	g_variant_builder_add (&builder, "{sv}",
 	                       "screen",
-	                       g_variant_new_int32 (gdk_x11_screen_get_screen_number (data->screen)));
+	                       g_variant_new_int32 (cdk_x11_screen_get_screen_number (data->screen)));
 	if (data->dest) {
 		switch (ev_link_dest_get_dest_type (data->dest)) {
 		case EV_LINK_DEST_TYPE_PAGE_LABEL:
@@ -587,7 +587,7 @@ ev_application_open_uri_in_window (EvApplication  *application,
 				   const gchar    *search_string,
 				   guint           timestamp)
 {
-	GdkWindow *gdk_window;
+	GdkWindow *cdk_window;
 
 	if (uri == NULL)
 	        uri = application->uri;
@@ -604,11 +604,11 @@ ev_application_open_uri_in_window (EvApplication  *application,
 	if (!ctk_widget_get_realized (CTK_WIDGET (ev_window)))
 		ctk_widget_realize (CTK_WIDGET (ev_window));
 
-	gdk_window = ctk_widget_get_window (CTK_WIDGET (ev_window));
+	cdk_window = ctk_widget_get_window (CTK_WIDGET (ev_window));
 
 	if (timestamp <= 0)
-		timestamp = gdk_x11_get_server_time (gdk_window);
-	gdk_x11_window_set_user_time (gdk_window, timestamp);
+		timestamp = cdk_x11_get_server_time (cdk_window);
+	cdk_x11_window_set_user_time (cdk_window, timestamp);
 
 	ctk_window_present (CTK_WINDOW (ev_window));
 }
@@ -685,7 +685,7 @@ ev_application_open_window (EvApplication *application,
 			    guint32        timestamp)
 {
 	CtkWidget *new_window = ev_window_new ();
-	GdkWindow *gdk_window;
+	GdkWindow *cdk_window;
 
 	if (screen) {
 		ev_stock_icons_set_screen (screen);
@@ -695,11 +695,11 @@ ev_application_open_window (EvApplication *application,
 	if (!ctk_widget_get_realized (new_window))
 		ctk_widget_realize (new_window);
 
-	gdk_window = ctk_widget_get_window (CTK_WIDGET (new_window));
+	cdk_window = ctk_widget_get_window (CTK_WIDGET (new_window));
 
 	if (timestamp <= 0)
-		timestamp = gdk_x11_get_server_time (gdk_window);
-	gdk_x11_window_set_user_time (gdk_window, timestamp);
+		timestamp = cdk_x11_get_server_time (cdk_window);
+	cdk_x11_window_set_user_time (cdk_window, timestamp);
 
 	ctk_window_present (CTK_WINDOW (new_window));
 }
@@ -768,9 +768,9 @@ handle_reload_cb (EvLectorApplication   *object,
         }
 
         if (display != NULL)
-                screen = gdk_display_get_default_screen (display);
+                screen = cdk_display_get_default_screen (display);
         else
-                screen = gdk_screen_get_default ();
+                screen = cdk_screen_get_default ();
 
         windows = ctk_application_get_windows (CTK_APPLICATION ((application)));
         for (l = windows; l != NULL; l = g_list_next (l)) {

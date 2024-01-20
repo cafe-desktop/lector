@@ -21,13 +21,13 @@
 #ifndef __EV_UTILS_H__
 #define __EV_UTILS_H__
 
-#include <gdk-pixbuf/gdk-pixbuf.h>
+#include <cdk-pixbuf/cdk-pixbuf.h>
 #include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 
 void           		file_chooser_dialog_add_writable_pixbuf_formats (CtkFileChooser *chooser);
-GdkPixbufFormat* 	get_gdk_pixbuf_format_by_extension (gchar *uri);
+GdkPixbufFormat* 	get_cdk_pixbuf_format_by_extension (gchar *uri);
 
 G_END_DECLS
 

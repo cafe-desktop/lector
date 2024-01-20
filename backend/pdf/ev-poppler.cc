@@ -1455,13 +1455,13 @@ pdf_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document_thumbnails
 
 	if (pixbuf != NULL) {
 		int thumb_width = (rc->rotation == 90 || rc->rotation == 270) ?
-			gdk_pixbuf_get_height (pixbuf) :
-			gdk_pixbuf_get_width (pixbuf);
+			cdk_pixbuf_get_height (pixbuf) :
+			cdk_pixbuf_get_width (pixbuf);
 
 		if (thumb_width == width) {
 			GdkPixbuf *rotated_pixbuf;
 
-			rotated_pixbuf = gdk_pixbuf_rotate_simple (pixbuf,
+			rotated_pixbuf = cdk_pixbuf_rotate_simple (pixbuf,
 								   (GdkPixbufRotation) (360 - rc->rotation));
 			g_object_unref (pixbuf);
 			pixbuf = rotated_pixbuf;
@@ -2557,7 +2557,7 @@ pdf_document_document_forms_iface_init (EvDocumentFormsInterface *iface)
 
 /* Annotations */
 static void
-poppler_annot_color_to_gdk_color (PopplerAnnot *poppler_annot,
+poppler_annot_color_to_cdk_color (PopplerAnnot *poppler_annot,
 				  GdkColor     *color)
 {
 	PopplerColor *poppler_color;
@@ -2734,7 +2734,7 @@ ev_annot_from_poppler_annot (PopplerAnnot *poppler_annot,
 		}
 		g_free (modified);
 
-		poppler_annot_color_to_gdk_color (poppler_annot, &color);
+		poppler_annot_color_to_cdk_color (poppler_annot, &color);
 		ev_annotation_set_color (ev_annot, &color);
 
 		if (POPPLER_IS_ANNOT_MARKUP (poppler_annot)) {

@@ -158,7 +158,7 @@ get_label_from_filename (const gchar *filename)
 static void
 load_files (const char **files)
 {
-	GdkScreen       *screen = gdk_screen_get_default ();
+	GdkScreen       *screen = cdk_screen_get_default ();
 	EvWindowRunMode  mode = EV_WINDOW_MODE_NORMAL;
 	gint             i;
 	EvLinkDest      *global_dest = NULL;
@@ -236,7 +236,7 @@ main (int argc, char *argv[])
 	textdomain (GETTEXT_PACKAGE);
 #endif
 
-	gdk_set_allowed_backends ("x11");
+	cdk_set_allowed_backends ("x11");
 
 	context = g_option_context_new (N_("CAFE Document Viewer"));
 	g_option_context_set_translation_domain(context, GETTEXT_PACKAGE);

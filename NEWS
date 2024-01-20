@@ -91,7 +91,7 @@
   * egg-toolbar-editor{c/h}: tabs to spaces
   * egg-editable-toolbar{c/h}: tabs to spaces
   * ephy-zoom-action: suppress CtkAction warnings
-  * document: Replace deprecated gdk_color_equal
+  * document: Replace deprecated cdk_color_equal
   * Fix buffer overflow in backend/tiff-document.c
 
 ### lector 1.23.0
@@ -151,10 +151,10 @@
   * ev-sidebar-bookmarks: replace deprecated ctk_menu_popup function
   * ev-sidebar: replace deprecated ctk_menu_popup function
   * editable-toolbar: replace deprecated ctk_menu_popup function
-  * libview: replace deprecated gdk_flush
+  * libview: replace deprecated cdk_flush
   * disable StartPresentation action in fullscreen if document has no pages
   * disable ViewPresentation action if document has no pages
-  * libdocument: Use gdk_pixbuf_get_from_surface()
+  * libdocument: Use cdk_pixbuf_get_from_surface()
   * thumbnailer: Remove unused code
   * view: Fix page background rendering while loading
   * libdocument: Deprecate misc_get_page_border_size()
@@ -172,7 +172,7 @@
   * Disable view presentation if there is no document.
   * Allow changing the page of a presentation
   * libview: Fix goto window in presentation mode
-  * libview: avoid deprecated gdk_screen_get_monitor
+  * libview: avoid deprecated cdk_screen_get_monitor
   * EvPresentationView: Render correctly on hi-dpi displays
   * libview: Fix g_return condition in set_device_scale_on_surface()
   * EvView: render correctly on hi-dpi displays
@@ -390,9 +390,9 @@
   * libview: add missing transfer and element-type annotations
   * ev-mapping-list: make a boxed type
   * libdocument: add missing transfer and element-type annotations
-  * ctk 3.22: avoid deprecated gdk_screen_get_monitor... functions:
-  * avoid gdk_screen_get_primary_monitor/gdk_screen_get_monitor_scale_factor
-  * ev-document-misc.c: avoid deprecated gdk_screen_get_width/height_mm
+  * ctk 3.22: avoid deprecated cdk_screen_get_monitor... functions:
+  * avoid cdk_screen_get_primary_monitor/cdk_screen_get_monitor_scale_factor
+  * ev-document-misc.c: avoid deprecated cdk_screen_get_width/height_mm
   * dvi: Mitigate command injection attacks by quoting filename
   * mdvi-lib: Fix compilation warning (const-correctness)
   * libmisc: set width chars for page label
@@ -427,13 +427,13 @@
   * libview: setting annotation window icons sizes
   * libview: save changes to a dropdown in an embedded form
   * libdocument: adjust rendering of shadow for active and inactive pages
-  * avoid deprecated gdk_screen_make_display_name
+  * avoid deprecated cdk_screen_make_display_name
   * ev-window: remove deprecated CtkToolbar-shadow-type
   * annotation-properties-dialog: don't use a headerbar
-  * avoid deprecated gdk_display_get_screen and gdk_display_get_n_screens
+  * avoid deprecated cdk_display_get_screen and cdk_display_get_n_screens
   * ev-window: don't use deprecated ctk_show_uri
   * Translations update
-  * avoid deprecated gdk_screen_get_number
+  * avoid deprecated cdk_screen_get_number
   * Restore Polish translation credits from GNOME
 
 ### lector 1.19.0
@@ -592,7 +592,7 @@
   * Add .png extension when saving images using DnD
   * Ctk3: Use ctk_paned_new() instead ctk_[h|v]paned_new()
   * Ctk3: Add CtkStyleContect support
-  * Ctk3: Don't use gdk_cursor_unref()
+  * Ctk3: Don't use cdk_cursor_unref()
   * Ctk3: Use ctk_widget_render_icon_pixbuf()
   * Ctk3: presentation: Make sure background window is black by default in presentation mode
   * Add epub support (part of GSoC 2014).

@@ -80,7 +80,7 @@ static void
 send_focus_change (CtkWidget *widget,
 		   gboolean   in)
 {
-	GdkEvent *fevent = gdk_event_new (GDK_FOCUS_CHANGE);
+	GdkEvent *fevent = cdk_event_new (GDK_FOCUS_CHANGE);
 
 	fevent->focus_change.type = GDK_FOCUS_CHANGE;
 	fevent->focus_change.window = ctk_widget_get_window (widget);
@@ -90,19 +90,19 @@ send_focus_change (CtkWidget *widget,
 
 	ctk_widget_send_focus_change (widget, fevent);
 
-	gdk_event_free (fevent);
+	cdk_event_free (fevent);
 }
 
 static gdouble
 get_monitor_dpi (EvAnnotationWindow *window)
 {
-	GdkWindow  *gdk_window;
+	GdkWindow  *cdk_window;
 	GdkMonitor *monitor;
 	GdkDisplay *display;
 
-	gdk_window = ctk_widget_get_window (CTK_WIDGET (window));
-	display = gdk_window_get_display (gdk_window);
-	monitor = gdk_display_get_monitor_at_window (display, gdk_window);
+	cdk_window = ctk_widget_get_window (CTK_WIDGET (window));
+	display = cdk_window_get_display (cdk_window);
+	monitor = cdk_display_get_monitor_at_window (display, cdk_window);
 
 	return ev_document_misc_get_monitor_dpi (monitor);
 }
@@ -243,23 +243,23 @@ static void
 ev_annotation_window_set_resize_cursor (CtkWidget          *widget,
 					EvAnnotationWindow *window)
 {
-	GdkWindow *gdk_window = ctk_widget_get_window (widget);
+	GdkWindow *cdk_window = ctk_widget_get_window (widget);
 
-	if (!gdk_window)
+	if (!cdk_window)
 		return;
 
 	if (ctk_widget_is_sensitive (widget)) {
 		GdkDisplay *display = ctk_widget_get_display (widget);
 		GdkCursor  *cursor;
 
-		cursor = gdk_cursor_new_for_display (display,
+		cursor = cdk_cursor_new_for_display (display,
 						     widget == window->resize_sw ?
 						     GDK_BOTTOM_LEFT_CORNER :
 						     GDK_BOTTOM_RIGHT_CORNER);
-		gdk_window_set_cursor (gdk_window, cursor);
+		cdk_window_set_cursor (cdk_window, cursor);
 		g_object_unref (cursor);
 	} else {
-		gdk_window_set_cursor (gdk_window, NULL);
+		cdk_window_set_cursor (cdk_window, NULL);
 	}
 }
 

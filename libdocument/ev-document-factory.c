@@ -35,20 +35,20 @@
 
 #ifdef ENABLE_PIXBUF
 static GList*
-gdk_pixbuf_mime_type_list ()
+cdk_pixbuf_mime_type_list ()
 {
 	GSList *formats, *list;
 	GList *result = NULL;
 
-	formats = gdk_pixbuf_get_formats ();
+	formats = cdk_pixbuf_get_formats ();
 	for (list = formats; list != NULL; list = list->next) {
 		GdkPixbufFormat *format = list->data;
 		gchar          **mime_types;
 
-		if (gdk_pixbuf_format_is_disabled (format))
+		if (cdk_pixbuf_format_is_disabled (format))
 			continue;
 
-		mime_types = gdk_pixbuf_format_get_mime_types (format);
+		mime_types = cdk_pixbuf_format_get_mime_types (format);
 		result = g_list_prepend (result, mime_types);
 	}
 	g_slist_free (formats);
@@ -56,15 +56,15 @@ gdk_pixbuf_mime_type_list ()
 	return result;
 }
 
-/* Would be nice to have this in gdk-pixbuf */
+/* Would be nice to have this in cdk-pixbuf */
 static gboolean
-mime_type_supported_by_gdk_pixbuf (const gchar *mime_type)
+mime_type_supported_by_cdk_pixbuf (const gchar *mime_type)
 {
 	GList *mime_types;
 	GList *list;
 	gboolean retval = FALSE;
 
-	mime_types = gdk_pixbuf_mime_type_list ();
+	mime_types = cdk_pixbuf_mime_type_list ();
 	for (list = mime_types; list; list = list->next) {
 		gchar      **mtypes = (gchar **)list->data;
 		const gchar *mtype;
@@ -151,7 +151,7 @@ get_document_from_uri (const char        *uri,
 	document = ev_backends_manager_get_document (mime_type);
 
 #ifdef ENABLE_PIXBUF
-	if (!document && mime_type_supported_by_gdk_pixbuf (mime_type))
+	if (!document && mime_type_supported_by_cdk_pixbuf (mime_type))
 		document = ev_backends_manager_get_document ("image/*");
 #endif /* ENABLE_PIXBUF */
 
@@ -308,7 +308,7 @@ file_filter_add_mime_types (EvTypeInfo *info, CtkFileFilter *filter)
 	if (g_ascii_strcasecmp (info->mime_types[0], "image/*") == 0) {
 		GList *pixbuf_types, *l;
 
-		pixbuf_types = gdk_pixbuf_mime_type_list ();
+		pixbuf_types = cdk_pixbuf_mime_type_list ();
 		for (l = pixbuf_types; l; l = g_list_next (l)) {
 			gchar **mime_types = (gchar **)l->data;
 			gint    j = 0;

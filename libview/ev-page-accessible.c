@@ -923,7 +923,7 @@ ev_page_accessible_get_character_extents (AtkText      *text,
 	if (coords == ATK_XY_SCREEN) {
 		gint x_window, y_window;
 
-		gdk_window_get_origin (ctk_widget_get_window (toplevel), &x_window, &y_window);
+		cdk_window_get_origin (ctk_widget_get_window (toplevel), &x_window, &y_window);
 		view_rect.x += x_window;
 		view_rect.y += y_window;
 	}
@@ -971,7 +971,7 @@ ev_page_accessible_get_offset_at_point (AtkText      *text,
 	if (coords == ATK_XY_SCREEN) {
 		gint x_window, y_window;
 
-		gdk_window_get_origin (ctk_widget_get_window (toplevel), &x_window, &y_window);
+		cdk_window_get_origin (ctk_widget_get_window (toplevel), &x_window, &y_window);
 		view_point.x -= x_window;
 		view_point.y -= y_window;
 	}

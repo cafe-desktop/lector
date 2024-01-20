@@ -24,7 +24,7 @@
 #include <glib.h>
 #include <glib-object.h>
 #include <gio/gio.h>
-#include <gdk/gdk.h>
+#include <cdk/cdk.h>
 
 G_BEGIN_DECLS
 

@@ -42,12 +42,12 @@ MKTMPL_OPTIONS =
 MKHTML_OPTIONS = --path="$(abs_builddir)"
 
 # Extra options to supply to ctkdoc-fixref. Not normally needed.
-# e.g. FIXXREF_OPTIONS=--extra-dir=../gdk-pixbuf/html --extra-dir=../gdk/html
+# e.g. FIXXREF_OPTIONS=--extra-dir=../cdk-pixbuf/html --extra-dir=../cdk/html
 FIXXREF_OPTIONS = \
 	--extra-dir=$(GLIB_PREFIX)/share/ctk-doc/html/glib \
 	--extra-dir=$(GLIB_PREFIX)/share/ctk-doc/html/gio \
-	--extra-dir=$(CTK_PREFIX)/share/ctk-doc/html/gdk \
-	--extra-dir=$(CTK_PREFIX)/share/ctk-doc/html/gdk-pixbuf \
+	--extra-dir=$(CTK_PREFIX)/share/ctk-doc/html/cdk \
+	--extra-dir=$(CTK_PREFIX)/share/ctk-doc/html/cdk-pixbuf \
 	--extra-dir=$(CTK_PREFIX)/share/ctk-doc/html/ctk
 
 # Used for dependencies. The docs will be rebuilt if any of these change.
