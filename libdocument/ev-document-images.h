@@ -50,14 +50,14 @@ struct _EvDocumentImagesInterface {
         /* Methods  */
         EvMappingList *(* get_image_mapping) (EvDocumentImages *document_images,
 					      EvPage           *page);
-	CdkPixbuf     *(* get_image)         (EvDocumentImages *document_images,
+	GdkPixbuf     *(* get_image)         (EvDocumentImages *document_images,
 					      EvImage          *image);
 };
 
 GType          ev_document_images_get_type          (void) G_GNUC_CONST;
 EvMappingList *ev_document_images_get_image_mapping (EvDocumentImages *document_images,
 						     EvPage           *page);
-CdkPixbuf     *ev_document_images_get_image         (EvDocumentImages *document_images,
+GdkPixbuf     *ev_document_images_get_image         (EvDocumentImages *document_images,
 						     EvImage          *image);
 
 G_END_DECLS

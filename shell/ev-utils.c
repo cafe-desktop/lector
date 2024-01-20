@@ -42,7 +42,7 @@ file_chooser_dialog_add_writable_pixbuf_formats (CtkFileChooser *chooser)
 	pixbuf_formats = cdk_pixbuf_get_formats ();
 
 	for (iter = pixbuf_formats; iter; iter = iter->next) {
-		CdkPixbufFormat *format = iter->data;
+		GdkPixbufFormat *format = iter->data;
 
 	        gchar *description, *name, *extensions;
 		gchar **extension_list, **mime_types;
@@ -75,7 +75,7 @@ file_chooser_dialog_add_writable_pixbuf_formats (CtkFileChooser *chooser)
 	g_slist_free (pixbuf_formats);
 }
 
-CdkPixbufFormat*
+GdkPixbufFormat*
 get_cdk_pixbuf_format_by_extension (gchar *uri)
 {
 	GSList *pixbuf_formats = NULL;
@@ -86,7 +86,7 @@ get_cdk_pixbuf_format_by_extension (gchar *uri)
 
 	for (iter = pixbuf_formats; iter; iter = iter->next) {
 		gchar **extension_list;
-		CdkPixbufFormat *format = iter->data;
+		GdkPixbufFormat *format = iter->data;
 
 		if (cdk_pixbuf_format_is_disabled (format) ||
 	    	    !cdk_pixbuf_format_is_writable (format))

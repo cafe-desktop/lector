@@ -298,7 +298,7 @@ struct _EvJobThumbnail
 	gint rotation;
 	gdouble scale;
 	cairo_surface_t *surface;
-	CdkPixbuf *thumbnail;
+	GdkPixbuf *thumbnail;
 };
 
 struct _EvJobThumbnailClass

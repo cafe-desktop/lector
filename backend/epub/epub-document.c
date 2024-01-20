@@ -116,13 +116,13 @@ epub_document_thumbnails_get_dimensions (EvDocumentThumbnails *document,
 	*height = MAX ((gint)(page_height * rc->scale + 0.5), 1);
 }
 
-static CdkPixbuf *
+static GdkPixbuf *
 epub_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
                                         EvRenderContext      *rc,
                                         gboolean              border)
 {
 	cairo_surface_t *webpage;
-	CdkPixbuf *thumbnailpix = NULL ;
+	GdkPixbuf *thumbnailpix = NULL ;
 	gint width,height;
 	epub_document_thumbnails_get_dimensions (document, rc, &width, &height);
 	webpage = ev_document_misc_surface_rotate_and_scale (rc->page->backend_page,
