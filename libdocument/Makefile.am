@@ -160,8 +160,8 @@ LectorDocument-$(EV_API_VERSION).gir: liblectordocument.la Makefile $(INST_H_FIL
 	--nsversion=$(EV_API_VERSION) \
 	--include=GLib-2.0 \
 	--include=Gio-2.0 \
-	--include=Gdk-3.0 \
-	--include=GdkPixbuf-2.0 \
+	--include=Cdk-3.0 \
+	--include=CdkPixbuf-2.0 \
 	--include=Ctk-3.0 \
 	--library=lectordocument \
 	--libtool="$(LIBTOOL)" \

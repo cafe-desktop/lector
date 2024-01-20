@@ -102,7 +102,7 @@ page_changed_cb (EvDocumentModel    *model,
 }
 
 static gboolean
-page_scroll_cb (EvPageActionWidget *action_widget, GdkEventScroll *event)
+page_scroll_cb (EvPageActionWidget *action_widget, CdkEventScroll *event)
 {
 	EvDocumentModel *model = action_widget->doc_model;
 	gint pageno;

@@ -506,12 +506,12 @@ xps_document_document_print_iface_init (EvDocumentPrintInterface *iface)
 	iface->print_page = xps_document_print_print_page;
 }
 
-static GdkPixbuf *
+static CdkPixbuf *
 xps_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
                                        EvRenderContext      *rc,
                                        gboolean              border)
 {
-	GdkPixbuf *thumbnail;
+	CdkPixbuf *thumbnail;
 	cairo_surface_t *surface;
 
 	surface = xps_document_render (EV_DOCUMENT (document), rc);
@@ -521,7 +521,7 @@ xps_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 	cairo_surface_destroy (surface);
 
 	if (border) {
-		GdkPixbuf *tmp_pixbuf = thumbnail;
+		CdkPixbuf *tmp_pixbuf = thumbnail;
 
 		thumbnail = ev_document_misc_get_thumbnail_frame (-1, -1, tmp_pixbuf);
 		g_object_unref (tmp_pixbuf);

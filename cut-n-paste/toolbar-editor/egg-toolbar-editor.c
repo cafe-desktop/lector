@@ -296,21 +296,21 @@ egg_toolbar_editor_new (CtkUIManager *manager,
 
 static void
 drag_begin_cb (CtkWidget          *widget,
-               GdkDragContext     *context)
+               CdkDragContext     *context)
 {
   ctk_widget_hide (widget);
 }
 
 static void
 drag_end_cb (CtkWidget          *widget,
-             GdkDragContext     *context)
+             CdkDragContext     *context)
 {
   ctk_widget_show (widget);
 }
 
 static void
 drag_data_get_cb (CtkWidget          *widget,
-                  GdkDragContext     *context,
+                  CdkDragContext     *context,
                   CtkSelectionData   *selection_data,
                   guint               info,
                   guint32             time,
@@ -355,8 +355,8 @@ elide_underscores (const gchar *original)
 static void
 set_drag_cursor (CtkWidget *widget)
 {
-  GdkCursor *cursor;
-  GdkScreen *screen;
+  CdkCursor *cursor;
+  CdkScreen *screen;
 
   screen = ctk_widget_get_screen (widget);
 
@@ -377,7 +377,7 @@ event_box_realize_cb (CtkWidget *widget, CtkImage *icon)
   if (type == CTK_IMAGE_STOCK)
     {
       gchar *stock_id;
-      GdkPixbuf *pixbuf;
+      CdkPixbuf *pixbuf;
 
       ctk_image_get_stock (icon, &stock_id, NULL);
       pixbuf = ctk_widget_render_icon_pixbuf (widget, stock_id,
@@ -388,10 +388,10 @@ event_box_realize_cb (CtkWidget *widget, CtkImage *icon)
   else if (type == CTK_IMAGE_ICON_NAME)
     {
       const gchar *icon_name;
-      GdkScreen *screen;
+      CdkScreen *screen;
       CtkIconTheme *icon_theme;
       gint width, height;
-      GdkPixbuf *pixbuf;
+      CdkPixbuf *pixbuf;
 
       ctk_image_get_icon_name (icon, &icon_name, NULL);
       screen = ctk_widget_get_screen (widget);
@@ -414,7 +414,7 @@ event_box_realize_cb (CtkWidget *widget, CtkImage *icon)
     }
   else if (type == CTK_IMAGE_PIXBUF)
     {
-      GdkPixbuf *pixbuf = ctk_image_get_pixbuf (icon);
+      CdkPixbuf *pixbuf = ctk_image_get_pixbuf (icon);
       ctk_drag_source_set_icon_pixbuf (widget, pixbuf);
     }
 }
@@ -423,7 +423,7 @@ static CtkWidget *
 editor_create_item (EggToolbarEditor *editor,
                     CtkImage         *icon,
                     const char       *label_text,
-                    GdkDragAction    action)
+                    CdkDragAction    action)
 {
   CtkWidget *event_box;
   CtkWidget *vbox;
@@ -467,7 +467,7 @@ editor_create_item (EggToolbarEditor *editor,
 static CtkWidget *
 editor_create_item_from_name (EggToolbarEditor *editor,
                               const char *      name,
-                              GdkDragAction     drag_action)
+                              CdkDragAction     drag_action)
 {
   CtkWidget *item;
   const char *item_name;

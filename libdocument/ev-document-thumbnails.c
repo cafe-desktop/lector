@@ -29,7 +29,7 @@ ev_document_thumbnails_default_init (EvDocumentThumbnailsInterface *klass)
 {
 }
 
-GdkPixbuf *
+CdkPixbuf *
 ev_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 				      EvRenderContext      *rc,
 				      gboolean              border)

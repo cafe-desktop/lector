@@ -868,7 +868,7 @@ export_print_done (EvPrintOperationExport *export)
 
 		if (!error) {
 			GAppInfo *app;
-			GdkAppLaunchContext *ctx;
+			CdkAppLaunchContext *ctx;
 			gchar  *cmd;
 			gchar  *quoted_filename;
 			gchar  *quoted_settings_filename;

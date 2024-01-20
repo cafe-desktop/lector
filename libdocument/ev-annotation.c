@@ -34,7 +34,7 @@ struct _EvAnnotation {
 	gchar           *contents;
 	gchar           *name;
 	gchar           *modified;
-	GdkRGBA          rgba;
+	CdkRGBA          rgba;
 };
 
 struct _EvAnnotationClass {
@@ -200,7 +200,7 @@ ev_annotation_get_property (GObject    *object,
 		g_value_set_string (value, ev_annotation_get_modified (annot));
 		break;
 	case PROP_ANNOT_COLOR: {
-		GdkColor color;
+		CdkColor color;
 		ev_annotation_get_color (annot, &color);
 		g_value_set_pointer (value, &color);
 		break;
@@ -253,7 +253,7 @@ ev_annotation_class_init (EvAnnotationClass *klass)
     /**
      * EvAnnotation:color:
      *
-     * The colour of the annotation as a #GdkColor.
+     * The colour of the annotation as a #CdkColor.
      *
      * Deprecated: 1.2.1: Use #EvAnnotation:rgba instead.
      */
@@ -267,7 +267,7 @@ ev_annotation_class_init (EvAnnotationClass *klass)
     /**
      * EvAnnotation:rgba:
      *
-     * The colour of the annotation as a #GdkRGBA.
+     * The colour of the annotation as a #CdkRGBA.
      *
      * Since: 1.2.1
      */
@@ -518,7 +518,7 @@ ev_annotation_set_modified_from_time (EvAnnotation *annot,
 /**
  * ev_annotation_get_color:
  * @annot: an #EvAnnotation
- * @color: (out): a #GdkColor to be filled with the Annotation color.
+ * @color: (out): a #CdkColor to be filled with the Annotation color.
  *
  * Get the color of @annot.
  *
@@ -526,9 +526,9 @@ ev_annotation_set_modified_from_time (EvAnnotation *annot,
  */
 void
 ev_annotation_get_color (EvAnnotation *annot,
-                         GdkColor     *color)
+                         CdkColor     *color)
 {
-    GdkRGBA rgba;
+    CdkRGBA rgba;
 
     g_return_if_fail (EV_IS_ANNOTATION (annot));
     g_return_if_fail (color != NULL);
@@ -544,7 +544,7 @@ ev_annotation_get_color (EvAnnotation *annot,
 /**
  * ev_annotation_set_color:
  * @annot: an #Evannotation
- * @color: a #GdkColor
+ * @color: a #CdkColor
  *
  * Set the color of the annotation to @color. You can monitor
  * changes to the annotation's color by connecting to
@@ -556,10 +556,10 @@ ev_annotation_get_color (EvAnnotation *annot,
  */
 gboolean
 ev_annotation_set_color (EvAnnotation   *annot,
-                         const GdkColor *color)
+                         const CdkColor *color)
 {
-    GdkColor annot_color;
-    GdkRGBA rgba;
+    CdkColor annot_color;
+    CdkRGBA rgba;
 
     g_return_val_if_fail (EV_IS_ANNOTATION (annot), FALSE);
 
@@ -583,7 +583,7 @@ ev_annotation_set_color (EvAnnotation   *annot,
 /**
  * ev_annotation_get_rgba:
  * @annot: an #EvAnnotation
- * @rgba: (out): a #GdkRGBA to be filled with the annotation color
+ * @rgba: (out): a #CdkRGBA to be filled with the annotation color
  *
  * Gets the color of @annot.
  *
@@ -591,7 +591,7 @@ ev_annotation_set_color (EvAnnotation   *annot,
  */
 void
 ev_annotation_get_rgba (EvAnnotation *annot,
-                        GdkRGBA      *rgba)
+                        CdkRGBA      *rgba)
 {
     g_return_if_fail (EV_IS_ANNOTATION (annot));
     g_return_if_fail (rgba != NULL);
@@ -602,7 +602,7 @@ ev_annotation_get_rgba (EvAnnotation *annot,
 /**
  * ev_annotation_set_rgba:
  * @annot: an #Evannotation
- * @rgba: a #GdkRGBA
+ * @rgba: a #CdkRGBA
  *
  * Set the color of the annotation to @rgba.
  *
@@ -612,7 +612,7 @@ ev_annotation_get_rgba (EvAnnotation *annot,
  */
 gboolean
 ev_annotation_set_rgba (EvAnnotation  *annot,
-                        const GdkRGBA *rgba)
+                        const CdkRGBA *rgba)
 {
     g_return_val_if_fail (EV_IS_ANNOTATION (annot), FALSE);
     g_return_val_if_fail (rgba != NULL, FALSE);

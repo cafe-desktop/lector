@@ -243,8 +243,8 @@ struct _EvJobRender
 	cairo_region_t *selection_region;
 	EvRectangle selection_points;
 	EvSelectionStyle selection_style;
-	GdkColor base;
-	GdkColor text;
+	CdkColor base;
+	CdkColor text;
 };
 
 struct _EvJobRenderClass
@@ -298,7 +298,7 @@ struct _EvJobThumbnail
 	gint rotation;
 	gdouble scale;
 	cairo_surface_t *surface;
-	GdkPixbuf *thumbnail;
+	CdkPixbuf *thumbnail;
 };
 
 struct _EvJobThumbnailClass
@@ -449,8 +449,8 @@ EvJob          *ev_job_render_new         (EvDocument      *document,
 void     ev_job_render_set_selection_info (EvJobRender     *job,
 					   EvRectangle     *selection_points,
 					   EvSelectionStyle selection_style,
-					   GdkColor        *text,
-					   GdkColor        *base);
+					   CdkColor        *text,
+					   CdkColor        *base);
 /* EvJobPageData */
 GType           ev_job_page_data_get_type (void) G_GNUC_CONST;
 EvJob          *ev_job_page_data_new      (EvDocument      *document,

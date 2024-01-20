@@ -70,9 +70,9 @@ G_DEFINE_TYPE (EvPreviewerWindow, ev_previewer_window, CTK_TYPE_WINDOW)
 static gdouble
 get_monitor_dpi (EvPreviewerWindow *window)
 {
-	GdkWindow  *cdk_window;
-	GdkMonitor *monitor;
-	GdkDisplay *display;
+	CdkWindow  *cdk_window;
+	CdkMonitor *monitor;
+	CdkDisplay *display;
 
 	cdk_window = ctk_widget_get_window (CTK_WIDGET (window));
 	display = cdk_window_get_display (cdk_window);
@@ -342,7 +342,7 @@ static const CtkToggleActionEntry toggle_action_entries[] = {
 
 static gboolean
 view_focus_changed (CtkWidget         *widget,
-		    GdkEventFocus     *event,
+		    CdkEventFocus     *event,
 		    EvPreviewerWindow *window)
 {
 	if (window->accels_group)

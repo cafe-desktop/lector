@@ -333,7 +333,7 @@ egg_toolbars_model_set_flags (EggToolbarsModel *model,
 
 char *
 egg_toolbars_model_get_data (EggToolbarsModel *model,
-                             GdkAtom           type,
+                             CdkAtom           type,
                              const char       *name)
 {
   EggToolbarsItemType *t;
@@ -362,7 +362,7 @@ egg_toolbars_model_get_data (EggToolbarsModel *model,
 
 char *
 egg_toolbars_model_get_name (EggToolbarsModel *model,
-                             GdkAtom           type,
+                             CdkAtom           type,
                              const char       *data,
                              gboolean          create)
 {
@@ -472,7 +472,7 @@ parse_data_list (EggToolbarsModel *model,
 
           if (type != NULL)
             {
-              GdkAtom atom = cdk_atom_intern ((const char*) type, TRUE);
+              CdkAtom atom = cdk_atom_intern ((const char*) type, TRUE);
               name = egg_toolbars_model_get_name (model, atom, (const char*) data, create);
             }
 
@@ -510,7 +510,7 @@ parse_item_list (EggToolbarsModel *model,
             {
               xmlChar *type = xmlGetProp (child, (const xmlChar*) "type");
               xmlChar *data = xmlGetProp (child, (const xmlChar*) "name");
-              GdkAtom  atom = type ? cdk_atom_intern ((const char*) type, TRUE) : CDK_NONE;
+              CdkAtom  atom = type ? cdk_atom_intern ((const char*) type, TRUE) : CDK_NONE;
 
               /* If an old format, try to use it. */
               name = egg_toolbars_model_get_name (model, atom, (const char*) data, FALSE);

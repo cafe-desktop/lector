@@ -192,7 +192,7 @@ ev_view_presentation_get_scale_for_page (EvViewPresentation *pview,
 
 static void
 ev_view_presentation_get_page_area (EvViewPresentation *pview,
-				    GdkRectangle       *area)
+				    CdkRectangle       *area)
 {
 	CtkWidget    *widget = CTK_WIDGET (pview);
 	CtkAllocation allocation;
@@ -597,7 +597,7 @@ static void
 send_focus_change (CtkWidget *widget,
 		   gboolean   in)
 {
-	GdkEvent *fevent = cdk_event_new (CDK_FOCUS_CHANGE);
+	CdkEvent *fevent = cdk_event_new (CDK_FOCUS_CHANGE);
 
 	fevent->focus_change.type = CDK_FOCUS_CHANGE;
 	fevent->focus_change.window = ctk_widget_get_window (widget);
@@ -621,7 +621,7 @@ ev_view_presentation_goto_window_hide (EvViewPresentation *pview)
 
 static gboolean
 ev_view_presentation_goto_window_delete_event (CtkWidget          *widget,
-					       GdkEventAny        *event,
+					       CdkEventAny        *event,
 					       EvViewPresentation *pview)
 {
 	ev_view_presentation_goto_window_hide (pview);
@@ -631,7 +631,7 @@ ev_view_presentation_goto_window_delete_event (CtkWidget          *widget,
 
 static gboolean
 ev_view_presentation_goto_window_key_press_event (CtkWidget          *widget,
-						  GdkEventKey        *event,
+						  CdkEventKey        *event,
 						  EvViewPresentation *pview)
 {
 	switch (event->keyval) {
@@ -657,7 +657,7 @@ ev_view_presentation_goto_window_key_press_event (CtkWidget          *widget,
 
 static gboolean
 ev_view_presentation_goto_window_button_press_event (CtkWidget          *widget,
-						     GdkEventButton     *event,
+						     CdkEventButton     *event,
 						     EvViewPresentation *pview)
 {
 	ev_view_presentation_goto_window_hide (pview);
@@ -756,10 +756,10 @@ monitor_get_dimesions (EvViewPresentation *pview,
 		       gint     *width,
 		       gint     *height)
 {
-	GdkDisplay  *display;
-	GdkWindow   *cdk_window;
-	GdkMonitor  *monitor;
-	GdkRectangle geometry;
+	CdkDisplay  *display;
+	CdkWindow   *cdk_window;
+	CdkMonitor  *monitor;
+	CdkRectangle geometry;
 
 	*width = 0;
 	*height = 0;
@@ -778,9 +778,9 @@ monitor_get_dimesions (EvViewPresentation *pview,
 
 static void
 ev_view_presentation_goto_window_send_key_event (EvViewPresentation *pview,
-						 GdkEvent           *event)
+						 CdkEvent           *event)
 {
-	GdkEventKey *new_event;
+	CdkEventKey *new_event;
 	gint        monitor_width;
 	gint        monitor_height;
 
@@ -791,15 +791,15 @@ ev_view_presentation_goto_window_send_key_event (EvViewPresentation *pview,
 			 monitor_height + 1);
 	ctk_widget_show (pview->goto_window);
 
-	new_event = (GdkEventKey *) cdk_event_copy (event);
+	new_event = (CdkEventKey *) cdk_event_copy (event);
 	g_object_unref (new_event->window);
 	new_event->window = ctk_widget_get_window (pview->goto_window);
 	if (new_event->window)
 		g_object_ref (new_event->window);
 	ctk_widget_realize (pview->goto_window);
 
-	ctk_widget_event (pview->goto_window, (GdkEvent *)new_event);
-	cdk_event_free ((GdkEvent *)new_event);
+	ctk_widget_event (pview->goto_window, (CdkEvent *)new_event);
+	cdk_event_free ((CdkEvent *)new_event);
 	ctk_widget_hide (pview->goto_window);
 }
 
@@ -834,7 +834,7 @@ ev_view_presentation_get_link_at_location (EvViewPresentation *pview,
 					   gdouble             x,
 					   gdouble             y)
 {
-	GdkRectangle   page_area;
+	CdkRectangle   page_area;
 	EvMappingList *link_mapping;
 	EvLink        *link;
 	gdouble        width, height;
@@ -930,8 +930,8 @@ ev_view_presentation_set_cursor (EvViewPresentation *pview,
 				 EvViewCursor        view_cursor)
 {
 	CtkWidget  *widget;
-	GdkDisplay *display;
-	GdkCursor  *cursor;
+	CdkDisplay *display;
+	CdkCursor  *cursor;
 
 	if (pview->cursor == view_cursor)
 		return;
@@ -1085,11 +1085,11 @@ ev_view_presentation_draw (CtkWidget *widget,
 			   cairo_t   *cr)
 {
 	EvViewPresentation *pview = EV_VIEW_PRESENTATION (widget);
-	GdkRectangle        page_area;
-	GdkRectangle        overlap;
+	CdkRectangle        page_area;
+	CdkRectangle        overlap;
 	cairo_surface_t    *surface;
 	cairo_rectangle_int_t clip_rect;
-	GdkRectangle *area = &clip_rect;
+	CdkRectangle *area = &clip_rect;
 	CtkStyleContext    *context;
 
 	context = ctk_widget_get_style_context (CTK_WIDGET (pview));
@@ -1154,7 +1154,7 @@ ev_view_presentation_draw (CtkWidget *widget,
 
 static gboolean
 ev_view_presentation_key_press_event (CtkWidget   *widget,
-				      GdkEventKey *event)
+				      CdkEventKey *event)
 {
 	EvViewPresentation *pview = EV_VIEW_PRESENTATION (widget);
 
@@ -1206,7 +1206,7 @@ ev_view_presentation_key_press_event (CtkWidget   *widget,
 		gint x, y;
 
 		ev_view_presentation_goto_window_create (pview);
-		ev_view_presentation_goto_window_send_key_event (pview, (GdkEvent *)event);
+		ev_view_presentation_goto_window_send_key_event (pview, (CdkEvent *)event);
 		ev_document_misc_get_pointer_position (CTK_WIDGET (pview), &x, &y);
 		ctk_window_move (CTK_WINDOW (pview->goto_window), x, y);
 		ctk_widget_show (pview->goto_window);
@@ -1220,7 +1220,7 @@ ev_view_presentation_key_press_event (CtkWidget   *widget,
 
 static gboolean
 ev_view_presentation_button_release_event (CtkWidget      *widget,
-					   GdkEventButton *event)
+					   CdkEventButton *event)
 {
 	EvViewPresentation *pview = EV_VIEW_PRESENTATION (widget);
 
@@ -1255,7 +1255,7 @@ ev_view_presentation_button_release_event (CtkWidget      *widget,
 
 static gint
 ev_view_presentation_focus_out (CtkWidget     *widget,
-				GdkEventFocus *event)
+				CdkEventFocus *event)
 {
 	EvViewPresentation *pview = EV_VIEW_PRESENTATION (widget);
 
@@ -1267,7 +1267,7 @@ ev_view_presentation_focus_out (CtkWidget     *widget,
 
 static gboolean
 ev_view_presentation_motion_notify_event (CtkWidget      *widget,
-					  GdkEventMotion *event)
+					  CdkEventMotion *event)
 {
 	EvViewPresentation *pview = EV_VIEW_PRESENTATION (widget);
 
@@ -1280,9 +1280,9 @@ ev_view_presentation_motion_notify_event (CtkWidget      *widget,
 static void
 ev_view_presentation_update_monitor_geometry (EvViewPresentation *pview)
 {
-	GdkDisplay          *display = ctk_widget_get_display (CTK_WIDGET (pview));
-	GdkRectangle        monitor;
-	GdkMonitor          *monitor_num;
+	CdkDisplay          *display = ctk_widget_get_display (CTK_WIDGET (pview));
+	CdkRectangle        monitor;
+	CdkMonitor          *monitor_num;
 
 	monitor_num = cdk_display_get_monitor_at_window (display, ctk_widget_get_window (CTK_WIDGET (pview)));
 	cdk_monitor_get_geometry (monitor_num, &monitor);
@@ -1306,8 +1306,8 @@ init_presentation (CtkWidget *widget)
 static void
 ev_view_presentation_realize (CtkWidget *widget)
 {
-	GdkWindow    *window;
-	GdkWindowAttr attributes;
+	CdkWindow    *window;
+	CdkWindowAttr attributes;
 	CtkAllocation allocation;
 
 	ctk_widget_set_realized (widget, TRUE);
@@ -1360,7 +1360,7 @@ ev_view_presentation_change_page (EvViewPresentation *pview,
 
 static gboolean
 ev_view_presentation_scroll_event (CtkWidget      *widget,
-				   GdkEventScroll *event)
+				   CdkEventScroll *event)
 {
 	EvViewPresentation *pview = EV_VIEW_PRESENTATION (widget);
 	guint               state;
@@ -1389,7 +1389,7 @@ ev_view_presentation_scroll_event (CtkWidget      *widget,
 static void
 add_change_page_binding_keypad (CtkBindingSet  *binding_set,
 				guint           keyval,
-				GdkModifierType modifiers,
+				CdkModifierType modifiers,
 				CtkScrollType   scroll)
 {
 	guint keypad_keyval = keyval - CDK_KEY_Left + CDK_KEY_KP_Left;

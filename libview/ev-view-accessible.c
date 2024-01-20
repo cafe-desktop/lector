@@ -438,7 +438,7 @@ ev_view_accessible_set_model (EvViewAccessible *accessible,
 
 static gboolean
 ev_view_accessible_focus_changed (CtkWidget        *widget,
-				  GdkEventFocus    *event,
+				  CdkEventFocus    *event,
 				  EvViewAccessible *self)
 {
 	AtkObject *page_accessible;
@@ -509,7 +509,7 @@ _transform_doc_rect_to_atk_rect (EvViewAccessible *accessible,
 				 AtkCoordType      coord_type)
 {
 	EvView *view;
-	GdkRectangle view_rect;
+	CdkRectangle view_rect;
 	CtkWidget *widget, *toplevel;
 	gint x_widget, y_widget;
 
@@ -543,7 +543,7 @@ ev_view_accessible_is_doc_rect_showing (EvViewAccessible *accessible,
 					EvRectangle      *doc_rect)
 {
 	EvView *view;
-	GdkRectangle view_rect;
+	CdkRectangle view_rect;
 	CtkAllocation allocation;
 	gint x, y;
 	gboolean hidden;

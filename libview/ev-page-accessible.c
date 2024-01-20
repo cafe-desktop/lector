@@ -901,7 +901,7 @@ ev_page_accessible_get_character_extents (AtkText      *text,
 	EvRectangle *doc_rect;
 	guint n_areas = 0;
 	gint x_widget, y_widget;
-	GdkRectangle view_rect;
+	CdkRectangle view_rect;
 
 	if (!view->page_cache)
 		return;
@@ -949,10 +949,10 @@ ev_page_accessible_get_offset_at_point (AtkText      *text,
 	guint i;
 	gint x_widget, y_widget;
 	gint offset=-1;
-	GdkPoint view_point;
+	CdkPoint view_point;
 	gdouble doc_x, doc_y;
 	CtkBorder border;
-	GdkRectangle page_area;
+	CdkRectangle page_area;
 
 	if (!view->page_cache)
 		return -1;
@@ -1017,8 +1017,8 @@ ev_page_accessible_set_selection (AtkText *text,
 	EvView *view = ev_page_accessible_get_view (self);
 	EvRectangle *areas = NULL;
 	guint n_areas = 0;
-	GdkRectangle start_rect, end_rect;
-	GdkPoint start_point, end_point;
+	CdkRectangle start_rect, end_rect;
+	CdkPoint start_point, end_point;
 
 	ev_page_cache_get_text_layout (view->page_cache, self->priv->page, &areas, &n_areas);
 	if (start_pos < 0 || end_pos >= n_areas)
@@ -1183,7 +1183,7 @@ ev_page_accessible_get_extents (AtkComponent *atk_component,
 {
 	EvPageAccessible *self;
 	EvView *view;
-	GdkRectangle page_area;
+	CdkRectangle page_area;
 	CtkBorder border;
 	EvRectangle doc_rect, atk_rect;
 

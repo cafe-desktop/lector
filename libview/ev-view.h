@@ -103,7 +103,7 @@ void           ev_view_autoscroll_stop    (EvView *view);
 
 gboolean       ev_view_get_page_extents   (EvView       *view,
                                            gint          page,
-                                           GdkRectangle *page_area,
+                                           CdkRectangle *page_area,
                                            CtkBorder    *border);
 /* Annotations */
 void           ev_view_focus_annotation      (EvView          *view,

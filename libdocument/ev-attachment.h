@@ -70,7 +70,7 @@ gboolean     ev_attachment_save                  (EvAttachment *attachment,
 						  GFile        *file,
 						  GError      **error);
 gboolean     ev_attachment_open                  (EvAttachment *attachment,
-						  GdkScreen    *screen,
+						  CdkScreen    *screen,
 						  guint32       timestamp,
 						  GError      **error);
 

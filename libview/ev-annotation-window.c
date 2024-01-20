@@ -80,7 +80,7 @@ static void
 send_focus_change (CtkWidget *widget,
 		   gboolean   in)
 {
-	GdkEvent *fevent = cdk_event_new (CDK_FOCUS_CHANGE);
+	CdkEvent *fevent = cdk_event_new (CDK_FOCUS_CHANGE);
 
 	fevent->focus_change.type = CDK_FOCUS_CHANGE;
 	fevent->focus_change.window = ctk_widget_get_window (widget);
@@ -96,9 +96,9 @@ send_focus_change (CtkWidget *widget,
 static gdouble
 get_monitor_dpi (EvAnnotationWindow *window)
 {
-	GdkWindow  *cdk_window;
-	GdkMonitor *monitor;
-	GdkDisplay *display;
+	CdkWindow  *cdk_window;
+	CdkMonitor *monitor;
+	CdkDisplay *display;
 
 	cdk_window = ctk_widget_get_window (CTK_WIDGET (window));
 	display = cdk_window_get_display (cdk_window);
@@ -124,7 +124,7 @@ ev_annotation_window_sync_contents (EvAnnotationWindow *window)
 
 static void
 ev_annotation_window_set_color (EvAnnotationWindow *window,
-                                GdkRGBA           *color)
+                                CdkRGBA           *color)
 {
         CtkStyleProperties *properties;
         CtkStyleProvider   *provider;
@@ -170,7 +170,7 @@ ev_annotation_window_color_changed (EvAnnotation       *annot,
 				    GParamSpec         *pspec,
 				    EvAnnotationWindow *window)
 {
-	GdkRGBA rgba;
+	CdkRGBA rgba;
 
 	ev_annotation_get_rgba (annot, &rgba);
 	ev_annotation_window_set_color (window, &rgba);
@@ -223,7 +223,7 @@ ev_annotation_window_set_property (GObject      *object,
 
 static gboolean
 ev_annotation_window_resize (EvAnnotationWindow *window,
-			     GdkEventButton     *event,
+			     CdkEventButton     *event,
 			     CtkWidget          *ebox)
 {
 	if (event->type == CDK_BUTTON_PRESS && event->button == 1) {
@@ -243,14 +243,14 @@ static void
 ev_annotation_window_set_resize_cursor (CtkWidget          *widget,
 					EvAnnotationWindow *window)
 {
-	GdkWindow *cdk_window = ctk_widget_get_window (widget);
+	CdkWindow *cdk_window = ctk_widget_get_window (widget);
 
 	if (!cdk_window)
 		return;
 
 	if (ctk_widget_is_sensitive (widget)) {
-		GdkDisplay *display = ctk_widget_get_display (widget);
-		GdkCursor  *cursor;
+		CdkDisplay *display = ctk_widget_get_display (widget);
+		CdkCursor  *cursor;
 
 		cursor = cdk_cursor_new_for_display (display,
 						     widget == window->resize_sw ?
@@ -282,7 +282,7 @@ ev_annotation_window_close (EvAnnotationWindow *window)
 
 static gboolean
 ev_annotation_window_button_press_event (CtkWidget      *widget,
-					 GdkEventButton *event)
+					 CdkEventButton *event)
 {
 	EvAnnotationWindow *window = EV_ANNOTATION_WINDOW (widget);
 
@@ -309,7 +309,7 @@ ev_annotation_window_init (EvAnnotationWindow *window)
 	CtkWidget *swindow;
 	CtkWidget *header;
 	CtkIconTheme *icon_theme;
-	GdkPixbuf *pixbuf;
+	CdkPixbuf *pixbuf;
 
 	icon_theme = ctk_icon_theme_get_default ();
 
@@ -437,7 +437,7 @@ ev_annotation_window_constructor (GType                  type,
 	EvAnnotationMarkup *markup;
 	const gchar        *contents;
 	const gchar        *label;
-	GdkRGBA             color;
+	CdkRGBA             color;
 	EvRectangle        *rect;
 	gdouble             scale;
 	gdouble             opacity;
@@ -497,7 +497,7 @@ ev_annotation_window_constructor (GType                  type,
 
 static gboolean
 ev_annotation_window_configure_event (CtkWidget         *widget,
-				      GdkEventConfigure *event)
+				      CdkEventConfigure *event)
 {
 	EvAnnotationWindow *window = EV_ANNOTATION_WINDOW (widget);
 
@@ -512,7 +512,7 @@ ev_annotation_window_configure_event (CtkWidget         *widget,
 
 static gboolean
 ev_annotation_window_focus_in_event (CtkWidget     *widget,
-				     GdkEventFocus *event)
+				     CdkEventFocus *event)
 {
 	EvAnnotationWindow *window = EV_ANNOTATION_WINDOW (widget);
 
@@ -534,7 +534,7 @@ ev_annotation_window_focus_in_event (CtkWidget     *widget,
 
 static gboolean
 ev_annotation_window_focus_out_event (CtkWidget     *widget,
-				      GdkEventFocus *event)
+				      CdkEventFocus *event)
 {
 	EvAnnotationWindow *window = EV_ANNOTATION_WINDOW (widget);
 

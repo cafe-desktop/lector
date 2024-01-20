@@ -19,11 +19,11 @@
 
 #include "ev-view-cursor.h"
 
-GdkCursor *
-ev_view_cursor_new (GdkDisplay  *display,
+CdkCursor *
+ev_view_cursor_new (CdkDisplay  *display,
 		    EvViewCursor new_cursor)
 {
-	GdkCursor *cursor = NULL;
+	CdkCursor *cursor = NULL;
 
 	switch (new_cursor) {
 	case EV_VIEW_CURSOR_NORMAL:

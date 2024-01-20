@@ -159,7 +159,7 @@ struct _EvWindowPrivate {
 
 	/* Menubar accels */
 	guint           menubar_accel_keyval;
-	GdkModifierType menubar_accel_modifier;
+	CdkModifierType menubar_accel_modifier;
 
 	/* Progress Messages */
 	guint progress_idle;
@@ -394,9 +394,9 @@ G_DEFINE_TYPE_WITH_PRIVATE (EvWindow, ev_window, CTK_TYPE_APPLICATION_WINDOW)
 static gdouble
 get_monitor_dpi (EvWindow *ev_window)
 {
-	GdkWindow  *window;
-	GdkMonitor *monitor;
-	GdkDisplay *display;
+	CdkWindow  *window;
+	CdkMonitor *monitor;
+	CdkDisplay *display;
 
 	window = ctk_widget_get_window (CTK_WIDGET (ev_window));
 	if (window) {
@@ -1356,10 +1356,10 @@ monitor_get_dimesions (EvWindow *ev_window,
 		       gint     *width,
 		       gint     *height)
 {
-	GdkDisplay  *display;
-	GdkWindow   *cdk_window;
-	GdkMonitor  *monitor;
-	GdkRectangle geometry;
+	CdkDisplay  *display;
+	CdkWindow   *cdk_window;
+	CdkMonitor  *monitor;
+	CdkRectangle geometry;
 
 	*width = 0;
 	*height = 0;
@@ -3301,8 +3301,8 @@ ev_window_cmd_send_to (CtkAction *action,
 	g_free (unescaped_uri);
 	app_info = g_app_info_create_from_commandline (command, NULL, 0, &error);
 	if (app_info) {
-		GdkAppLaunchContext *context;
-		GdkScreen           *screen;
+		CdkAppLaunchContext *context;
+		CdkScreen           *screen;
 
 		screen = ctk_window_get_screen (CTK_WINDOW (ev_window));
 		context = cdk_display_get_app_launch_context (cdk_screen_get_display (screen));
@@ -4538,7 +4538,7 @@ static void
 ev_window_setup_ctk_settings (EvWindow *window)
 {
 	CtkSettings *settings;
-	GdkScreen   *screen;
+	CdkScreen   *screen;
 	gchar       *menubar_accel_accel;
 
 	screen = ctk_window_get_screen (CTK_WINDOW (window));
@@ -4595,10 +4595,10 @@ ev_window_update_max_min_scale (EvWindow *window)
 
 static void
 ev_window_screen_changed (CtkWidget *widget,
-			  GdkScreen *old_screen)
+			  CdkScreen *old_screen)
 {
 	EvWindow *window = EV_WINDOW (widget);
-	GdkScreen *screen;
+	CdkScreen *screen;
 
 	screen = ctk_widget_get_screen (widget);
 	if (screen == old_screen)
@@ -4614,7 +4614,7 @@ ev_window_screen_changed (CtkWidget *widget,
 
 static gboolean
 ev_window_state_event (CtkWidget           *widget,
-		       GdkEventWindowState *event)
+		       CdkEventWindowState *event)
 {
 	EvWindow *window = EV_WINDOW (widget);
 
@@ -5957,7 +5957,7 @@ zoom_control_changed_cb (EphyZoomAction *action,
 
 static void
 ev_window_drag_data_received (CtkWidget        *widget,
-			      GdkDragContext   *context,
+			      CdkDragContext   *context,
 			      gint              x,
 			      gint              y,
 			      CtkSelectionData *selection_data,
@@ -6335,7 +6335,7 @@ menubar_deactivate_cb (CtkWidget *menubar,
 
 static gboolean
 ev_window_key_press_event (CtkWidget   *widget,
-			   GdkEventKey *event)
+			   CdkEventKey *event)
 {
 	static gpointer grand_parent_class = NULL;
 	CtkWindow *window = CTK_WINDOW (widget);
@@ -6357,7 +6357,7 @@ ev_window_key_press_event (CtkWidget   *widget,
 
 static gboolean
 ev_window_delete_event (CtkWidget   *widget,
-			GdkEventAny *event)
+			CdkEventAny *event)
 {
 	return !ev_window_close (EV_WINDOW (widget));
 }
@@ -6830,7 +6830,7 @@ sidebar_widget_model_set (EvSidebarLinks *ev_sidebar_links,
 }
 
 static gboolean
-view_actions_focus_in_cb (CtkWidget *widget, GdkEventFocus *event, EvWindow *window)
+view_actions_focus_in_cb (CtkWidget *widget, CdkEventFocus *event, EvWindow *window)
 {
 #ifdef ENABLE_DBUS
 	GObject *keys;
@@ -6865,7 +6865,7 @@ sidebar_page_main_widget_update_cb (GObject *ev_sidebar_page,
 }
 
 static gboolean
-window_state_event_cb (EvWindow *window, GdkEventWindowState *event, gpointer dummy)
+window_state_event_cb (EvWindow *window, CdkEventWindowState *event, gpointer dummy)
 {
 	if (!(event->new_window_state & CDK_WINDOW_STATE_FULLSCREEN)) {
 		gboolean maximized;
@@ -6879,9 +6879,9 @@ window_state_event_cb (EvWindow *window, GdkEventWindowState *event, gpointer du
 }
 
 static gboolean
-window_configure_event_cb (EvWindow *window, GdkEventConfigure *event, gpointer dummy)
+window_configure_event_cb (EvWindow *window, CdkEventConfigure *event, gpointer dummy)
 {
-	GdkWindowState state;
+	CdkWindowState state;
 	gdouble document_width, document_height;
 
 	if (!window->priv->metadata)
@@ -6914,8 +6914,8 @@ launch_action (EvWindow *window, EvLinkAction *action)
 	GAppInfo *app_info;
 	GFile *file;
 	GList file_list = {NULL};
-	GdkAppLaunchContext *context;
-	GdkScreen *screen;
+	CdkAppLaunchContext *context;
+	CdkScreen *screen;
 	GError *error = NULL;
 
 	if (filename == NULL)
@@ -6973,8 +6973,8 @@ launch_external_uri (EvWindow *window, EvLinkAction *action)
 	const gchar *uri = ev_link_action_get_uri (action);
 	GError *error = NULL;
 	gboolean ret;
-	GdkAppLaunchContext *context;
-	GdkScreen *screen;
+	CdkAppLaunchContext *context;
+	CdkScreen *screen;
 
 	screen = ctk_window_get_screen (CTK_WINDOW (window));
 	context = cdk_display_get_app_launch_context (cdk_screen_get_display (screen));
@@ -7140,7 +7140,7 @@ ev_view_popup_cmd_copy_link_address (CtkAction *action, EvWindow *window)
 
 static GFile *
 create_file_from_uri_for_format (const gchar     *uri,
-				 GdkPixbufFormat *format)
+				 CdkPixbufFormat *format)
 {
 	GFile  *target_file;
 	gchar **extensions;
@@ -7171,11 +7171,11 @@ image_save_dialog_response_cb (CtkWidget *fc,
 	GFile           *target_file;
 	gboolean         is_native;
 	GError          *error = NULL;
-	GdkPixbuf       *pixbuf;
+	CdkPixbuf       *pixbuf;
 	gchar           *uri;
 	gchar           *filename;
 	gchar           *file_format;
-	GdkPixbufFormat *format;
+	CdkPixbufFormat *format;
 	CtkFileFilter   *filter;
 
 	if (response_id != CTK_RESPONSE_OK) {
@@ -7299,7 +7299,7 @@ static void
 ev_view_popup_cmd_copy_image (CtkAction *action, EvWindow *window)
 {
 	CtkClipboard *clipboard;
-	GdkPixbuf    *pixbuf;
+	CdkPixbuf    *pixbuf;
 
 	if (!window->priv->image)
 		return;
@@ -7322,7 +7322,7 @@ ev_view_popup_cmd_annot_properties (CtkAction *action,
 	if (window->priv->document && window->priv->document->iswebdocument == TRUE ) return;
 
 	const gchar                  *author;
-	GdkRGBA                       rgba;
+	CdkRGBA                       rgba;
 	gdouble                       opacity;
 	gboolean                      popup_is_open;
 	EvAnnotationPropertiesDialog *dialog;
@@ -7391,7 +7391,7 @@ static void
 ev_attachment_popup_cmd_open_attachment (CtkAction *action, EvWindow *window)
 {
 	GList     *l;
-	GdkScreen *screen;
+	CdkScreen *screen;
 
 	if (!window->priv->attach_list)
 		return;

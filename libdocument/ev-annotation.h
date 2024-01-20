@@ -118,14 +118,14 @@ gboolean             ev_annotation_set_modified_from_time    (EvAnnotation      
 							      gint64                  utime);
 EV_DEPRECATED_FOR(ev_annotaion_get_rgba)
 void                 ev_annotation_get_color                 (EvAnnotation           *annot,
-							      GdkColor               *color);
+							      CdkColor               *color);
 EV_DEPRECATED_FOR(ev_annotaion_set_rgba)
 gboolean             ev_annotation_set_color                 (EvAnnotation           *annot,
-							      const GdkColor         *color);
+							      const CdkColor         *color);
 void                 ev_annotation_get_rgba                  (EvAnnotation           *annot,
-                                                              GdkRGBA                *rgba);
+                                                              CdkRGBA                *rgba);
 gboolean             ev_annotation_set_rgba                  (EvAnnotation           *annot,
-                                                              const GdkRGBA          *rgba);
+                                                              const CdkRGBA          *rgba);
 
 /* EvAnnotationMarkup */
 GType                ev_annotation_markup_get_type           (void) G_GNUC_CONST;

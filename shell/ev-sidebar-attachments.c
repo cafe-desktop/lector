@@ -82,7 +82,7 @@ G_DEFINE_TYPE_EXTENDED (EvSidebarAttachments,
 static void
 ev_sidebar_attachments_icon_cache_add (EvSidebarAttachments *ev_attachbar,
 				       const gchar          *mime_type,
-				       const GdkPixbuf      *pixbuf)
+				       const CdkPixbuf      *pixbuf)
 {
 	g_assert (mime_type != NULL);
 	g_assert (CDK_IS_PIXBUF (pixbuf));
@@ -93,13 +93,13 @@ ev_sidebar_attachments_icon_cache_add (EvSidebarAttachments *ev_attachbar,
 
 }
 
-static GdkPixbuf *
+static CdkPixbuf *
 icon_theme_get_pixbuf_from_mime_type (CtkIconTheme *icon_theme,
 				      const gchar  *mime_type)
 {
 	const char *separator;
 	GString *icon_name;
-	GdkPixbuf *pixbuf;
+	CdkPixbuf *pixbuf;
 
 	separator = strchr (mime_type, '/');
 	if (!separator)
@@ -122,11 +122,11 @@ icon_theme_get_pixbuf_from_mime_type (CtkIconTheme *icon_theme,
 	return pixbuf;
 }
 
-static GdkPixbuf *
+static CdkPixbuf *
 ev_sidebar_attachments_icon_cache_get (EvSidebarAttachments *ev_attachbar,
 				       const gchar          *mime_type)
 {
-	GdkPixbuf *pixbuf = NULL;
+	CdkPixbuf *pixbuf = NULL;
 
 	g_assert (mime_type != NULL);
 
@@ -149,10 +149,10 @@ ev_sidebar_attachments_icon_cache_get (EvSidebarAttachments *ev_attachbar,
 
 static gboolean
 icon_cache_update_icon (gchar                *key,
-			GdkPixbuf            *value,
+			CdkPixbuf            *value,
 			EvSidebarAttachments *ev_attachbar)
 {
-	GdkPixbuf *pixbuf = NULL;
+	CdkPixbuf *pixbuf = NULL;
 
 	pixbuf = icon_theme_get_pixbuf_from_mime_type (ev_attachbar->priv->icon_theme,
 						       key);
@@ -269,7 +269,7 @@ ev_sidebar_attachments_popup_menu (CtkWidget *widget)
 
 static gboolean
 ev_sidebar_attachments_button_press (EvSidebarAttachments *ev_attachbar,
-				     GdkEventButton       *event,
+				     CdkEventButton       *event,
 				     CtkWidget            *icon_view)
 {
 	if (!ctk_widget_has_focus (icon_view)) {
@@ -328,7 +328,7 @@ ev_sidebar_attachments_update_icons (EvSidebarAttachments *ev_attachbar,
 
 	while (valid) {
 		EvAttachment *attachment = NULL;
-		GdkPixbuf    *pixbuf = NULL;
+		CdkPixbuf    *pixbuf = NULL;
 		const gchar  *mime_type;
 
 		ctk_tree_model_get (CTK_TREE_MODEL (ev_attachbar->priv->model), &iter,
@@ -355,10 +355,10 @@ ev_sidebar_attachments_update_icons (EvSidebarAttachments *ev_attachbar,
 
 static void
 ev_sidebar_attachments_screen_changed (CtkWidget *widget,
-				       GdkScreen *old_screen)
+				       CdkScreen *old_screen)
 {
 	EvSidebarAttachments *ev_attachbar = EV_SIDEBAR_ATTACHMENTS (widget);
-	GdkScreen            *screen;
+	CdkScreen            *screen;
 
 	if (!ev_attachbar->priv->icon_theme)
 		return;
@@ -387,7 +387,7 @@ ev_sidebar_attachments_screen_changed (CtkWidget *widget,
 
 static void
 ev_sidebar_attachments_drag_data_get (CtkWidget        *widget,
-				      GdkDragContext   *drag_context,
+				      CdkDragContext   *drag_context,
 				      CtkSelectionData *data,
 				      guint             info,
 				      guint             time,
@@ -611,7 +611,7 @@ job_finished_callback (EvJobAttachments     *job,
 	for (l = job->attachments; l && l->data; l = g_list_next (l)) {
 		EvAttachment *attachment;
 		CtkTreeIter   iter;
-		GdkPixbuf    *pixbuf = NULL;
+		CdkPixbuf    *pixbuf = NULL;
 		const gchar  *mime_type;
 
 		attachment = EV_ATTACHMENT (l->data);
@@ -647,7 +647,7 @@ ev_sidebar_attachments_document_changed_cb (EvDocumentModel      *model,
 		return;
 
 	if (!ev_attachbar->priv->icon_theme) {
-		GdkScreen *screen;
+		CdkScreen *screen;
 
 		screen = ctk_widget_get_screen (CTK_WIDGET (ev_attachbar));
 		ev_attachbar->priv->icon_theme = ctk_icon_theme_get_for_screen (screen);
