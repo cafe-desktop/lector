@@ -142,7 +142,7 @@ ev_image_save_tmp (EvImage   *image,
 	if ((fd = ev_mkstemp ("image.XXXXXX.png", &filename, &error)) == -1)
 		goto had_error;
 
-	cdk_pixbuf_save (pixbuf, filename,
+	gdk_pixbuf_save (pixbuf, filename,
 			 "png", &error,
 			 "compression", "3", NULL);
         close (fd);

@@ -50,8 +50,8 @@ create_thumbnail_frame (int        width,
 		g_return_val_if_fail (CDK_IS_PIXBUF (source_pixbuf), NULL);
 
 	if (source_pixbuf) {
-		width_r = cdk_pixbuf_get_width (source_pixbuf);
-		height_r = cdk_pixbuf_get_height (source_pixbuf);
+		width_r = gdk_pixbuf_get_width (source_pixbuf);
+		height_r = gdk_pixbuf_get_height (source_pixbuf);
 	} else {
 		width_r = width;
 		height_r = height;
@@ -60,16 +60,16 @@ create_thumbnail_frame (int        width,
 	/* make sure no one is passing us garbage */
 	g_return_val_if_fail (width_r >= 0 && height_r >= 0, NULL);
 
-	retval = cdk_pixbuf_new (CDK_COLORSPACE_RGB,
+	retval = gdk_pixbuf_new (CDK_COLORSPACE_RGB,
 				 TRUE, 8,
 				 width_r + 4,
 				 height_r + 4);
 
 	/* make it black and fill in the middle */
-	data = cdk_pixbuf_get_pixels (retval);
-	rowstride = cdk_pixbuf_get_rowstride (retval);
+	data = gdk_pixbuf_get_pixels (retval);
+	rowstride = gdk_pixbuf_get_rowstride (retval);
 
-	cdk_pixbuf_fill (retval, 0x000000ff);
+	gdk_pixbuf_fill (retval, 0x000000ff);
 	if (fill_bg) {
 		for (i = 1; i < height_r + 1; i++)
 			memset (data + (rowstride * i) + 4, 0xffffffff, width_r * 4);
@@ -77,7 +77,7 @@ create_thumbnail_frame (int        width,
 
 	/* copy the source pixbuf */
 	if (source_pixbuf)
-		cdk_pixbuf_copy_area (source_pixbuf, 0, 0,
+		gdk_pixbuf_copy_area (source_pixbuf, 0, 0,
 				      width_r,
 				      height_r,
 				      retval,
@@ -207,10 +207,10 @@ ev_document_misc_surface_from_pixbuf (GdkPixbuf *pixbuf)
 
 	g_return_val_if_fail (CDK_IS_PIXBUF (pixbuf), NULL);
 
-	surface = cairo_image_surface_create (cdk_pixbuf_get_has_alpha (pixbuf) ?
+	surface = cairo_image_surface_create (gdk_pixbuf_get_has_alpha (pixbuf) ?
 					      CAIRO_FORMAT_ARGB32 : CAIRO_FORMAT_RGB24,
-					      cdk_pixbuf_get_width (pixbuf),
-					      cdk_pixbuf_get_height (pixbuf));
+					      gdk_pixbuf_get_width (pixbuf),
+					      gdk_pixbuf_get_height (pixbuf));
 	cr = cairo_create (surface);
 	cdk_cairo_set_source_pixbuf (cr, pixbuf, 0, 0);
 	cairo_paint (cr);
@@ -230,7 +230,7 @@ ev_document_misc_pixbuf_from_surface (cairo_surface_t *surface)
 {
 	g_return_val_if_fail (surface, NULL);
 
-    return cdk_pixbuf_get_from_surface (surface,
+    return gdk_pixbuf_get_from_surface (surface,
                                         0, 0,
                                         cairo_image_surface_get_width (surface),
                                         cairo_image_surface_get_height (surface));
@@ -315,18 +315,18 @@ ev_document_misc_invert_pixbuf (GdkPixbuf *pixbuf)
 	guchar *data, *p;
 	guint   width, height, x, y, rowstride, n_channels;
 
-	n_channels = cdk_pixbuf_get_n_channels (pixbuf);
-	g_assert (cdk_pixbuf_get_colorspace (pixbuf) == CDK_COLORSPACE_RGB);
-	g_assert (cdk_pixbuf_get_bits_per_sample (pixbuf) == 8);
+	n_channels = gdk_pixbuf_get_n_channels (pixbuf);
+	g_assert (gdk_pixbuf_get_colorspace (pixbuf) == CDK_COLORSPACE_RGB);
+	g_assert (gdk_pixbuf_get_bits_per_sample (pixbuf) == 8);
 
 	/* First grab a pointer to the raw pixel data. */
-	data = cdk_pixbuf_get_pixels (pixbuf);
+	data = gdk_pixbuf_get_pixels (pixbuf);
 
 	/* Find the number of bytes per row (could be padded). */
-	rowstride = cdk_pixbuf_get_rowstride (pixbuf);
+	rowstride = gdk_pixbuf_get_rowstride (pixbuf);
 
-	width = cdk_pixbuf_get_width (pixbuf);
-	height = cdk_pixbuf_get_height (pixbuf);
+	width = gdk_pixbuf_get_width (pixbuf);
+	height = gdk_pixbuf_get_height (pixbuf);
 	for (x = 0; x < width; x++) {
 		for (y = 0; y < height; y++) {
 			/* Calculate pixel's offset into the data array. */

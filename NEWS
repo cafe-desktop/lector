@@ -154,7 +154,7 @@
   * libview: replace deprecated cdk_flush
   * disable StartPresentation action in fullscreen if document has no pages
   * disable ViewPresentation action if document has no pages
-  * libdocument: Use cdk_pixbuf_get_from_surface()
+  * libdocument: Use gdk_pixbuf_get_from_surface()
   * thumbnailer: Remove unused code
   * view: Fix page background rendering while loading
   * libdocument: Deprecate misc_get_page_border_size()

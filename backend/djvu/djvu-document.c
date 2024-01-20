@@ -513,10 +513,10 @@ djvu_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 	thumb_width = (gint) (page_width * rc->scale);
 	thumb_height = (gint) (page_height * rc->scale);
 
-	pixbuf = cdk_pixbuf_new (CDK_COLORSPACE_RGB, FALSE, 8,
+	pixbuf = gdk_pixbuf_new (CDK_COLORSPACE_RGB, FALSE, 8,
 				 thumb_width, thumb_height);
-	cdk_pixbuf_fill (pixbuf, 0xffffffff);
-	pixels = cdk_pixbuf_get_pixels (pixbuf);
+	gdk_pixbuf_fill (pixbuf, 0xffffffff);
+	pixels = gdk_pixbuf_get_pixels (pixbuf);
 
 	while (ddjvu_thumbnail_status (djvu_document->d_document, rc->page->index, 1) < DDJVU_JOB_OK)
 		djvu_handle_events(djvu_document, TRUE, NULL);
@@ -524,10 +524,10 @@ djvu_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 	ddjvu_thumbnail_render (djvu_document->d_document, rc->page->index,
 				&thumb_width, &thumb_height,
 				djvu_document->thumbs_format,
-				cdk_pixbuf_get_rowstride (pixbuf),
+				gdk_pixbuf_get_rowstride (pixbuf),
 				(gchar *)pixels);
 
-	rotated_pixbuf = cdk_pixbuf_rotate_simple (pixbuf, 360 - rc->rotation);
+	rotated_pixbuf = gdk_pixbuf_rotate_simple (pixbuf, 360 - rc->rotation);
 	g_object_unref (pixbuf);
 
         if (border) {

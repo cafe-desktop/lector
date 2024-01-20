@@ -319,7 +319,7 @@ dvi_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 	pixbuf = ev_document_misc_pixbuf_from_surface (surface);
 	cairo_surface_destroy (surface);
 
-	rotated_pixbuf = cdk_pixbuf_rotate_simple (pixbuf, 360 - rc->rotation);
+	rotated_pixbuf = gdk_pixbuf_rotate_simple (pixbuf, 360 - rc->rotation);
 	g_object_unref (pixbuf);
 
 	if (border) {
