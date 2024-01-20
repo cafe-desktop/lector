@@ -83,9 +83,9 @@ expand_content_files =
 # CFLAGS and LDFLAGS for compiling gtkdoc-scangobj with your library.
 # Only needed if you are using gtkdoc-scangobj to dynamically query widget
 # signals and properties.
-# e.g. CTKDOC_CFLAGS=-I$(top_srcdir) -I$(top_builddir) $(CTK_DEBUG_FLAGS)
-# e.g. CTKDOC_LIBS=$(top_builddir)/ctk/$(ctktargetlib)
-CTKDOC_CFLAGS = \
+# e.g. GTKDOC_CFLAGS=-I$(top_srcdir) -I$(top_builddir) $(CTK_DEBUG_FLAGS)
+# e.g. GTKDOC_LIBS=$(top_builddir)/ctk/$(ctktargetlib)
+GTKDOC_CFLAGS = \
 	-I$(top_srcdir)					\
 	-I$(top_builddir)				\
 	-I$(top_srcdir)/shell				\
@@ -113,7 +113,7 @@ FILTER_OUT = \
 	$(top_builddir)/shell/lectord-ev-daemon.o \
 	$(top_builddir)/shell/lectord-ev-daemon-gdbus-generated.o
 
-CTKDOC_LIBS = \
+GTKDOC_LIBS = \
 	$(top_builddir)/cut-n-paste/zoom-control/libephyzoom.la		\
 	$(top_builddir)/cut-n-paste/toolbar-editor/libtoolbareditor.la	\
 	$(top_builddir)/cut-n-paste/smclient/libsmclient.la		\
@@ -141,7 +141,7 @@ EXTRA_DIST += \
 # Comment this out if you want your docs-status tested during 'make check'
 if ENABLE_CTK_DOC
 #TESTS_ENVIRONMENT = cd $(srcsrc) &&
-#TESTS = $(CTKDOC_CHECK)
+#TESTS = $(GTKDOC_CHECK)
 endif
 
 -include $(top_srcdir)/git.mk
