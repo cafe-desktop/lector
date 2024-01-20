@@ -542,7 +542,7 @@ ev_sidebar_attachments_init (EvSidebarAttachments *ev_attachbar)
 					     CTK_SHADOW_IN);
 	/* Data Model */
 	ev_attachbar->priv->model = ctk_list_store_new (N_COLS,
-							CDK_TYPE_PIXBUF,
+							GDK_TYPE_PIXBUF,
 							G_TYPE_STRING,
 							G_TYPE_STRING,
 							EV_TYPE_ATTACHMENT);
