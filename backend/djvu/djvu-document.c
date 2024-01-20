@@ -33,7 +33,7 @@
 #include "ev-file-helpers.h"
 
 #include <glib.h>
-#include <cdk-pixbuf/cdk-pixbuf.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
 #include <glib/gi18n-lib.h>
 #include <string.h>
 

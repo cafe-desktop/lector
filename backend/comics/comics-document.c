@@ -905,7 +905,7 @@ comics_document_init (ComicsDocument *comics_document)
 	comics_document->extract_command = NULL;
 }
 
-/* Returns a list of file extensions supported by cdk-pixbuf */
+/* Returns a list of file extensions supported by gdk-pixbuf */
 static GSList*
 get_supported_image_extensions(void)
 {

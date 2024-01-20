@@ -56,7 +56,7 @@ cdk_pixbuf_mime_type_list ()
 	return result;
 }
 
-/* Would be nice to have this in cdk-pixbuf */
+/* Would be nice to have this in gdk-pixbuf */
 static gboolean
 mime_type_supported_by_cdk_pixbuf (const gchar *mime_type)
 {
