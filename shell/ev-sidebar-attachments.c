@@ -85,7 +85,7 @@ ev_sidebar_attachments_icon_cache_add (EvSidebarAttachments *ev_attachbar,
 				       const GdkPixbuf      *pixbuf)
 {
 	g_assert (mime_type != NULL);
-	g_assert (CDK_IS_PIXBUF (pixbuf));
+	g_assert (GDK_IS_PIXBUF (pixbuf));
 
 	g_hash_table_insert (ev_attachbar->priv->icon_cache,
 			     (gpointer)g_strdup (mime_type),
@@ -133,13 +133,13 @@ ev_sidebar_attachments_icon_cache_get (EvSidebarAttachments *ev_attachbar,
 	pixbuf = g_hash_table_lookup (ev_attachbar->priv->icon_cache,
 				      mime_type);
 
-	if (CDK_IS_PIXBUF (pixbuf))
+	if (GDK_IS_PIXBUF (pixbuf))
 		return pixbuf;
 
 	pixbuf = icon_theme_get_pixbuf_from_mime_type (ev_attachbar->priv->icon_theme,
 						       mime_type);
 
-	if (CDK_IS_PIXBUF (pixbuf))
+	if (GDK_IS_PIXBUF (pixbuf))
 		ev_sidebar_attachments_icon_cache_add (ev_attachbar,
 						       mime_type,
 						       pixbuf);

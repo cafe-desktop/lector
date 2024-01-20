@@ -92,7 +92,7 @@ ev_image_new_from_pixbuf (GdkPixbuf *pixbuf)
 {
 	EvImage *image;
 
-	g_return_val_if_fail (CDK_IS_PIXBUF (pixbuf), NULL);
+	g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), NULL);
 
 	image = EV_IMAGE (g_object_new (EV_TYPE_IMAGE, NULL));
 	image->priv->pixbuf = g_object_ref (pixbuf);
@@ -120,7 +120,7 @@ GdkPixbuf *
 ev_image_get_pixbuf (EvImage *image)
 {
 	g_return_val_if_fail (EV_IS_IMAGE (image), NULL);
-	g_return_val_if_fail (CDK_IS_PIXBUF (image->priv->pixbuf), NULL);
+	g_return_val_if_fail (GDK_IS_PIXBUF (image->priv->pixbuf), NULL);
 
 	return image->priv->pixbuf;
 }
@@ -134,7 +134,7 @@ ev_image_save_tmp (EvImage   *image,
         int fd;
 
 	g_return_val_if_fail (EV_IS_IMAGE (image), NULL);
-	g_return_val_if_fail (CDK_IS_PIXBUF (pixbuf), NULL);
+	g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), NULL);
 
 	if (image->priv->tmp_uri)
 		return image->priv->tmp_uri;
