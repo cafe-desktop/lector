@@ -47,7 +47,7 @@ create_thumbnail_frame (int        width,
 	int width_r, height_r;
 
 	if (source_pixbuf)
-		g_return_val_if_fail (CDK_IS_PIXBUF (source_pixbuf), NULL);
+		g_return_val_if_fail (GDK_IS_PIXBUF (source_pixbuf), NULL);
 
 	if (source_pixbuf) {
 		width_r = gdk_pixbuf_get_width (source_pixbuf);
@@ -205,7 +205,7 @@ ev_document_misc_surface_from_pixbuf (GdkPixbuf *pixbuf)
 	cairo_surface_t *surface;
 	cairo_t         *cr;
 
-	g_return_val_if_fail (CDK_IS_PIXBUF (pixbuf), NULL);
+	g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), NULL);
 
 	surface = cairo_image_surface_create (gdk_pixbuf_get_has_alpha (pixbuf) ?
 					      CAIRO_FORMAT_ARGB32 : CAIRO_FORMAT_RGB24,
