@@ -360,8 +360,8 @@ build_tree (XPSDocument     *xps_document,
 		link = ev_link_from_target (xps_document, target);
 		gxps_link_target_free (target);
 
-		ctk_tree_store_append (GTK_TREE_STORE (model), &tree_iter, parent);
-		ctk_tree_store_set (GTK_TREE_STORE (model), &tree_iter,
+		ctk_tree_store_append (CTK_TREE_STORE (model), &tree_iter, parent);
+		ctk_tree_store_set (CTK_TREE_STORE (model), &tree_iter,
 				    EV_DOCUMENT_LINKS_COLUMN_MARKUP, title,
 				    EV_DOCUMENT_LINKS_COLUMN_LINK, link,
 				    EV_DOCUMENT_LINKS_COLUMN_EXPAND, FALSE,

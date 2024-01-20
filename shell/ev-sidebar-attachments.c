@@ -72,7 +72,7 @@ static void ev_sidebar_attachments_page_iface_init (EvSidebarPageInterface *ifac
 
 G_DEFINE_TYPE_EXTENDED (EvSidebarAttachments,
                         ev_sidebar_attachments,
-                        GTK_TYPE_BOX,
+                        CTK_TYPE_BOX,
                         0,
                         G_ADD_PRIVATE (EvSidebarAttachments)
                         G_IMPLEMENT_INTERFACE (EV_TYPE_SIDEBAR_PAGE,
@@ -181,19 +181,19 @@ ev_sidebar_attachments_get_attachment_at_pos (EvSidebarAttachments *ev_attachbar
 	GtkTreeIter   iter;
 	EvAttachment *attachment = NULL;
 
-	path = ctk_icon_view_get_path_at_pos (GTK_ICON_VIEW (ev_attachbar->priv->icon_view),
+	path = ctk_icon_view_get_path_at_pos (CTK_ICON_VIEW (ev_attachbar->priv->icon_view),
 					      x, y);
 	if (!path) {
 		return NULL;
 	}
 
-	ctk_tree_model_get_iter (GTK_TREE_MODEL (ev_attachbar->priv->model),
+	ctk_tree_model_get_iter (CTK_TREE_MODEL (ev_attachbar->priv->model),
 				 &iter, path);
-	ctk_tree_model_get (GTK_TREE_MODEL (ev_attachbar->priv->model), &iter,
+	ctk_tree_model_get (CTK_TREE_MODEL (ev_attachbar->priv->model), &iter,
 			    COLUMN_ATTACHMENT, &attachment,
 			    -1);
 
-	ctk_icon_view_select_path (GTK_ICON_VIEW (ev_attachbar->priv->icon_view),
+	ctk_icon_view_select_path (CTK_ICON_VIEW (ev_attachbar->priv->icon_view),
 				   path);
 
 	ctk_tree_path_free (path);
@@ -211,7 +211,7 @@ ev_sidebar_attachments_popup_menu_show (EvSidebarAttachments *ev_attachbar,
 	GList       *selected = NULL, *l;
 	GList       *attach_list = NULL;
 
-	icon_view = GTK_ICON_VIEW (ev_attachbar->priv->icon_view);
+	icon_view = CTK_ICON_VIEW (ev_attachbar->priv->icon_view);
 
 	path = ctk_icon_view_get_path_at_pos (icon_view, x, y);
 	if (!path)
@@ -234,9 +234,9 @@ ev_sidebar_attachments_popup_menu_show (EvSidebarAttachments *ev_attachbar,
 
 		path = (GtkTreePath *) l->data;
 
-		ctk_tree_model_get_iter (GTK_TREE_MODEL (ev_attachbar->priv->model),
+		ctk_tree_model_get_iter (CTK_TREE_MODEL (ev_attachbar->priv->model),
 					 &iter, path);
-		ctk_tree_model_get (GTK_TREE_MODEL (ev_attachbar->priv->model), &iter,
+		ctk_tree_model_get (CTK_TREE_MODEL (ev_attachbar->priv->model), &iter,
 				    COLUMN_ATTACHMENT, &attachment,
 				    -1);
 
@@ -292,7 +292,7 @@ ev_sidebar_attachments_button_press (EvSidebarAttachments *ev_attachbar,
 					return FALSE;
 
 				ev_attachment_open (attachment,
-						    ctk_widget_get_screen (GTK_WIDGET (ev_attachbar)),
+						    ctk_widget_get_screen (CTK_WIDGET (ev_attachbar)),
 						    event->time,
 						    &error);
 
@@ -323,7 +323,7 @@ ev_sidebar_attachments_update_icons (EvSidebarAttachments *ev_attachbar,
 	ev_sidebar_attachments_icon_cache_refresh (ev_attachbar);
 
 	valid = ctk_tree_model_get_iter_first (
-		GTK_TREE_MODEL (ev_attachbar->priv->model),
+		CTK_TREE_MODEL (ev_attachbar->priv->model),
 		&iter);
 
 	while (valid) {
@@ -331,7 +331,7 @@ ev_sidebar_attachments_update_icons (EvSidebarAttachments *ev_attachbar,
 		GdkPixbuf    *pixbuf = NULL;
 		const gchar  *mime_type;
 
-		ctk_tree_model_get (GTK_TREE_MODEL (ev_attachbar->priv->model), &iter,
+		ctk_tree_model_get (CTK_TREE_MODEL (ev_attachbar->priv->model), &iter,
 				    COLUMN_ATTACHMENT, &attachment,
 				    -1);
 
@@ -348,7 +348,7 @@ ev_sidebar_attachments_update_icons (EvSidebarAttachments *ev_attachbar,
 				    -1);
 
 		valid = ctk_tree_model_iter_next (
-			GTK_TREE_MODEL (ev_attachbar->priv->model),
+			CTK_TREE_MODEL (ev_attachbar->priv->model),
 			&iter);
 	}
 }
@@ -380,8 +380,8 @@ ev_sidebar_attachments_screen_changed (GtkWidget *widget,
 				  G_CALLBACK (ev_sidebar_attachments_update_icons),
 				  (gpointer) ev_attachbar);
 
-	if (GTK_WIDGET_CLASS (ev_sidebar_attachments_parent_class)->screen_changed) {
-		GTK_WIDGET_CLASS (ev_sidebar_attachments_parent_class)->screen_changed (widget, old_screen);
+	if (CTK_WIDGET_CLASS (ev_sidebar_attachments_parent_class)->screen_changed) {
+		CTK_WIDGET_CLASS (ev_sidebar_attachments_parent_class)->screen_changed (widget, old_screen);
 	}
 }
 
@@ -398,7 +398,7 @@ ev_sidebar_attachments_drag_data_get (GtkWidget        *widget,
         GPtrArray            *uris;
         char                **uri_list;
 
-	selected = ctk_icon_view_get_selected_items (GTK_ICON_VIEW (ev_attachbar->priv->icon_view));
+	selected = ctk_icon_view_get_selected_items (CTK_ICON_VIEW (ev_attachbar->priv->icon_view));
 	if (!selected)
 		return;
 
@@ -414,9 +414,9 @@ ev_sidebar_attachments_drag_data_get (GtkWidget        *widget,
 
 		path = (GtkTreePath *) l->data;
 
-		ctk_tree_model_get_iter (GTK_TREE_MODEL (ev_attachbar->priv->model),
+		ctk_tree_model_get_iter (CTK_TREE_MODEL (ev_attachbar->priv->model),
 					 &iter, path);
-		ctk_tree_model_get (GTK_TREE_MODEL (ev_attachbar->priv->model), &iter,
+		ctk_tree_model_get (CTK_TREE_MODEL (ev_attachbar->priv->model), &iter,
 				    COLUMN_ATTACHMENT, &attachment,
 				    -1);
 
@@ -503,7 +503,7 @@ ev_sidebar_attachments_class_init (EvSidebarAttachmentsClass *ev_attachbar_class
 	GtkWidgetClass *ctk_widget_class;
 
 	g_object_class = G_OBJECT_CLASS (ev_attachbar_class);
-	ctk_widget_class = GTK_WIDGET_CLASS (ev_attachbar_class);
+	ctk_widget_class = CTK_WIDGET_CLASS (ev_attachbar_class);
 
 	g_object_class->get_property = ev_sidebar_attachments_get_property;
 	g_object_class->dispose = ev_sidebar_attachments_dispose;
@@ -533,13 +533,13 @@ ev_sidebar_attachments_init (EvSidebarAttachments *ev_attachbar)
 
 	ev_attachbar->priv = ev_sidebar_attachments_get_instance_private (ev_attachbar);
 
-	ctk_orientable_set_orientation (GTK_ORIENTABLE (ev_attachbar), GTK_ORIENTATION_VERTICAL);
+	ctk_orientable_set_orientation (CTK_ORIENTABLE (ev_attachbar), CTK_ORIENTATION_VERTICAL);
 	swindow = ctk_scrolled_window_new (NULL, NULL);
-	ctk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (swindow),
-					GTK_POLICY_NEVER,
-					GTK_POLICY_AUTOMATIC);
-	ctk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow),
-					     GTK_SHADOW_IN);
+	ctk_scrolled_window_set_policy (CTK_SCROLLED_WINDOW (swindow),
+					CTK_POLICY_NEVER,
+					CTK_POLICY_AUTOMATIC);
+	ctk_scrolled_window_set_shadow_type (CTK_SCROLLED_WINDOW (swindow),
+					     CTK_SHADOW_IN);
 	/* Data Model */
 	ev_attachbar->priv->model = ctk_list_store_new (N_COLS,
 							GDK_TYPE_PIXBUF,
@@ -549,10 +549,10 @@ ev_sidebar_attachments_init (EvSidebarAttachments *ev_attachbar)
 
 	/* Icon View */
 	ev_attachbar->priv->icon_view =
-		ctk_icon_view_new_with_model (GTK_TREE_MODEL (ev_attachbar->priv->model));
-	ctk_icon_view_set_selection_mode (GTK_ICON_VIEW (ev_attachbar->priv->icon_view),
-					  GTK_SELECTION_MULTIPLE);
-	ctk_icon_view_set_columns (GTK_ICON_VIEW (ev_attachbar->priv->icon_view), -1);
+		ctk_icon_view_new_with_model (CTK_TREE_MODEL (ev_attachbar->priv->model));
+	ctk_icon_view_set_selection_mode (CTK_ICON_VIEW (ev_attachbar->priv->icon_view),
+					  CTK_SELECTION_MULTIPLE);
+	ctk_icon_view_set_columns (CTK_ICON_VIEW (ev_attachbar->priv->icon_view), -1);
 	g_object_set (G_OBJECT (ev_attachbar->priv->icon_view),
 		      "text-column", COLUMN_NAME,
 		      "pixbuf-column", COLUMN_ICON,
@@ -562,12 +562,12 @@ ev_sidebar_attachments_init (EvSidebarAttachments *ev_attachbar)
 				  G_CALLBACK (ev_sidebar_attachments_button_press),
 				  (gpointer) ev_attachbar);
 
-	ctk_container_add (GTK_CONTAINER (swindow),
+	ctk_container_add (CTK_CONTAINER (swindow),
 			   ev_attachbar->priv->icon_view);
 
-	ctk_container_add (GTK_CONTAINER (ev_attachbar),
+	ctk_container_add (CTK_CONTAINER (ev_attachbar),
 			   swindow);
-	ctk_widget_show_all (GTK_WIDGET (ev_attachbar));
+	ctk_widget_show_all (CTK_WIDGET (ev_attachbar));
 
 	/* Icon Theme */
 	ev_attachbar->priv->icon_theme = NULL;
@@ -580,7 +580,7 @@ ev_sidebar_attachments_init (EvSidebarAttachments *ev_attachbar)
 
 	/* Drag and Drop */
 	ctk_icon_view_enable_model_drag_source (
-		GTK_ICON_VIEW (ev_attachbar->priv->icon_view),
+		CTK_ICON_VIEW (ev_attachbar->priv->icon_view),
 		GDK_BUTTON1_MASK,
 		NULL, 0,
 		GDK_ACTION_COPY);
@@ -649,7 +649,7 @@ ev_sidebar_attachments_document_changed_cb (EvDocumentModel      *model,
 	if (!ev_attachbar->priv->icon_theme) {
 		GdkScreen *screen;
 
-		screen = ctk_widget_get_screen (GTK_WIDGET (ev_attachbar));
+		screen = ctk_widget_get_screen (CTK_WIDGET (ev_attachbar));
 		ev_attachbar->priv->icon_theme = ctk_icon_theme_get_for_screen (screen);
 		g_signal_connect_swapped (ev_attachbar->priv->icon_theme,
 					  "changed",

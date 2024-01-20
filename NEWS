@@ -208,8 +208,8 @@
 ### lector 1.20.0
 
   * Translations update
-  * require GTK+ 3.22 and GLib 2.50
-  * build: remove pre-GTK+3 option (how did I miss that?)
+  * require CTK+ 3.22 and GLib 2.50
+  * build: remove pre-CTK+3 option (how did I miss that?)
   * epub: make minizip support more BSD variants
   * update copyright year to 2018
 
@@ -446,7 +446,7 @@
   * ev-view: avoid deprecated ctk_drag_begin
   * egg-editable-toolbar: avoid deprecated ctk_drag_begin
   * message-area: replace some GtkStock deprecations
-  * ev-sidebar: avoid deprecated GTK_STOCK_CLOSE icon
+  * ev-sidebar: avoid deprecated CTK_STOCK_CLOSE icon
   * password-view: replace some GtkStock deprecations
   * password-view: don't use deprecated GtkAlignment
   * toolbar-editor: don't use deprecated GtkAlignment
@@ -456,13 +456,13 @@
   * NEWS: use consistent, project wide, markdown-like formatting to make
     generating release announcements easier
   * Build: require caja >= 1.17.1
-  * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-ctk
+  * Move to CTK+3 (require CTK+ >= 3.14), drop CTK+2 code and --with-ctk
     build option
   * [comics] add support for unarchiver (unar and lsar)
   * [libview] increase page cache size to reduce number of page reloads
   * Remove metadata migration code
   * Force X11 backend
-  * Fix lots of GTK+ deprecations
+  * Fix lots of CTK+ deprecations
   * Fix some a11y issues
   * Some more fixes and cleanups
   * Translations update
@@ -495,9 +495,9 @@
   * Improve named destinations support with --named-dest command line
     argument and dbus support
   * [dvi] Use t1 font mapping files
-  * GTK+3: add style class for view
-  * GTK+3: fix possible crash when building with introspection enabled
-  * GTK+3: fix lots of deprecations
+  * CTK+3: add style class for view
+  * CTK+3: fix possible crash when building with introspection enabled
+  * CTK+3: fix lots of deprecations
   * Some more fixes and cleanups
   * Translations update
 
@@ -508,7 +508,7 @@
   * Fix some issues with rotated documents
   * Some more fixes and cleanups
   * Translations update
-  * Make distcheck use currently selected GTK+ version
+  * Make distcheck use currently selected CTK+ version
 
 ### lector 1.14.1
 
@@ -520,8 +520,8 @@
   * Drop CafeConf migration script
   * Update copyrights, mention CAFE team in Caja extension
   * Use org.gnome.SessionManager DBus name to inhibit screensaver
-  * GTK+3: add lector-window style class to top level
-  * GTK+3: add css name EggToolbarEditor for 3.20
+  * CTK+3: add lector-window style class to top level
+  * CTK+3: add css name EggToolbarEditor for 3.20
   * Some more fixes and cleanups
   * Translations update
   * Fix Changelog generation

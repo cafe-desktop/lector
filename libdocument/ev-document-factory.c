@@ -350,7 +350,7 @@ ev_document_factory_add_filters (GtkWidget *chooser, EvDocument *document)
 	GtkFileFilter *default_filter;
 	GtkFileFilter *document_filter;
 
-        g_return_if_fail (GTK_IS_FILE_CHOOSER (chooser));
+        g_return_if_fail (CTK_IS_FILE_CHOOSER (chooser));
         g_return_if_fail (document == NULL || EV_IS_DOCUMENT (document));
 
 	all_types = ev_backends_manager_get_all_types_info ();
@@ -358,7 +358,7 @@ ev_document_factory_add_filters (GtkWidget *chooser, EvDocument *document)
 	default_filter = document_filter = filter = ctk_file_filter_new ();
 	ctk_file_filter_set_name (filter, _("All Documents"));
 	g_list_foreach (all_types, (GFunc)file_filter_add_mime_types, filter);
-	ctk_file_chooser_add_filter (GTK_FILE_CHOOSER (chooser), filter);
+	ctk_file_chooser_add_filter (CTK_FILE_CHOOSER (chooser), filter);
 
 	if (document) {
 		EvTypeInfo *info;
@@ -368,7 +368,7 @@ ev_document_factory_add_filters (GtkWidget *chooser, EvDocument *document)
 		ctk_file_filter_set_name (filter, info->desc);
 		file_filter_add_mime_types (info, filter);
 		g_free (info);
-		ctk_file_chooser_add_filter (GTK_FILE_CHOOSER (chooser), filter);
+		ctk_file_chooser_add_filter (CTK_FILE_CHOOSER (chooser), filter);
 	} else {
 		GList *l;
 
@@ -380,7 +380,7 @@ ev_document_factory_add_filters (GtkWidget *chooser, EvDocument *document)
 			default_filter = filter = ctk_file_filter_new ();
 			ctk_file_filter_set_name (filter, info->desc);
 			file_filter_add_mime_types (info, filter);
-			ctk_file_chooser_add_filter (GTK_FILE_CHOOSER (chooser), filter);
+			ctk_file_chooser_add_filter (CTK_FILE_CHOOSER (chooser), filter);
 		}
 	}
 
@@ -390,8 +390,8 @@ ev_document_factory_add_filters (GtkWidget *chooser, EvDocument *document)
 	filter = ctk_file_filter_new ();
 	ctk_file_filter_set_name (filter, _("All Files"));
 	ctk_file_filter_add_pattern (filter, "*");
-	ctk_file_chooser_add_filter (GTK_FILE_CHOOSER (chooser), filter);
+	ctk_file_chooser_add_filter (CTK_FILE_CHOOSER (chooser), filter);
 
-	ctk_file_chooser_set_filter (GTK_FILE_CHOOSER (chooser),
+	ctk_file_chooser_set_filter (CTK_FILE_CHOOSER (chooser),
 				     document == NULL ? document_filter : default_filter);
 }

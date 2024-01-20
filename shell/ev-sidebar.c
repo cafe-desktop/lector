@@ -58,7 +58,7 @@ struct _EvSidebarPrivate {
 	GtkTreeModel *page_model;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (EvSidebar, ev_sidebar, GTK_TYPE_BOX)
+G_DEFINE_TYPE_WITH_PRIVATE (EvSidebar, ev_sidebar, CTK_TYPE_BOX)
 
 static void
 ev_sidebar_dispose (GObject *object)
@@ -66,7 +66,7 @@ ev_sidebar_dispose (GObject *object)
 	EvSidebar *ev_sidebar = EV_SIDEBAR (object);
 
 	if (ev_sidebar->priv->menu) {
-		ctk_menu_detach (GTK_MENU (ev_sidebar->priv->menu));
+		ctk_menu_detach (CTK_MENU (ev_sidebar->priv->menu));
 		ev_sidebar->priv->menu = NULL;
 	}
 
@@ -89,8 +89,8 @@ ev_sidebar_select_page (EvSidebar *ev_sidebar,  GtkTreeIter *iter)
 			    PAGE_COLUMN_NOTEBOOK_INDEX, &index,
 			    -1);
 
-	ctk_notebook_set_current_page (GTK_NOTEBOOK (ev_sidebar->priv->notebook), index);
-	ctk_label_set_text (GTK_LABEL (ev_sidebar->priv->label), title);
+	ctk_notebook_set_current_page (CTK_NOTEBOOK (ev_sidebar->priv->notebook), index);
+	ctk_label_set_text (CTK_LABEL (ev_sidebar->priv->label), title);
 
 	g_free (title);
 }
@@ -144,7 +144,7 @@ ev_sidebar_set_property (GObject      *object,
 static GtkWidget *
 ev_sidebar_get_current_page (EvSidebar *sidebar)
 {
-	GtkNotebook *notebook = GTK_NOTEBOOK (sidebar->priv->notebook);
+	GtkNotebook *notebook = CTK_NOTEBOOK (sidebar->priv->notebook);
 
 	return ctk_notebook_get_nth_page
 		(notebook, ctk_notebook_get_current_page (notebook));
@@ -184,7 +184,7 @@ ev_sidebar_class_init (EvSidebarClass *ev_sidebar_class)
 					 g_param_spec_object ("current-page",
 							      "Current page",
 							      "The currently visible page",
-							      GTK_TYPE_WIDGET,
+							      CTK_TYPE_WIDGET,
 							      G_PARAM_READWRITE));
 }
 
@@ -209,8 +209,8 @@ ev_sidebar_select_button_press_cb (GtkWidget      *widget,
 
 		ctk_widget_grab_focus (widget);
 
-		ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
-		ctk_menu_popup_at_widget (GTK_MENU (ev_sidebar->priv->menu),
+		ctk_toggle_button_set_active (CTK_TOGGLE_BUTTON (widget), TRUE);
+		ctk_menu_popup_at_widget (CTK_MENU (ev_sidebar->priv->menu),
 		                          widget,
 		                          GDK_GRAVITY_SOUTH_WEST,
 		                          GDK_GRAVITY_NORTH_WEST,
@@ -233,8 +233,8 @@ ev_sidebar_select_button_key_press_cb (GtkWidget   *widget,
 	    event->keyval == GDK_KEY_KP_Space ||
 	    event->keyval == GDK_KEY_Return ||
 	    event->keyval == GDK_KEY_KP_Enter) {
-		ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
-		ctk_menu_popup_at_widget (GTK_MENU (ev_sidebar->priv->menu),
+		ctk_toggle_button_set_active (CTK_TOGGLE_BUTTON (widget), TRUE);
+		ctk_menu_popup_at_widget (CTK_MENU (ev_sidebar->priv->menu),
 		                          widget,
 		                          GDK_GRAVITY_SOUTH_WEST,
 		                          GDK_GRAVITY_NORTH_WEST,
@@ -251,7 +251,7 @@ ev_sidebar_close_clicked_cb (GtkWidget *widget,
 {
 	EvSidebar *ev_sidebar = EV_SIDEBAR (user_data);
 
-	ctk_widget_hide (GTK_WIDGET (ev_sidebar));
+	ctk_widget_hide (CTK_WIDGET (ev_sidebar));
 }
 
 static void
@@ -260,9 +260,9 @@ ev_sidebar_menu_deactivate_cb (GtkWidget *widget,
 {
 	GtkWidget *menu_button;
 
-	menu_button = GTK_WIDGET (user_data);
+	menu_button = CTK_WIDGET (user_data);
 
-	ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (menu_button), FALSE);
+	ctk_toggle_button_set_active (CTK_TOGGLE_BUTTON (menu_button), FALSE);
 }
 
 static void
@@ -283,7 +283,7 @@ ev_sidebar_menu_item_activate_cb (GtkWidget *widget,
 	GtkWidget *menu_item, *item;
 	gboolean valid;
 
-	menu_item = ctk_menu_get_active (GTK_MENU (ev_sidebar->priv->menu));
+	menu_item = ctk_menu_get_active (CTK_MENU (ev_sidebar->priv->menu));
 	valid = ctk_tree_model_get_iter_first (ev_sidebar->priv->page_model, &iter);
 
 	while (valid) {
@@ -314,24 +314,24 @@ ev_sidebar_init (EvSidebar *ev_sidebar)
 
 	ev_sidebar->priv = ev_sidebar_get_instance_private (ev_sidebar);
 
-	ctk_orientable_set_orientation (GTK_ORIENTABLE (ev_sidebar), GTK_ORIENTATION_VERTICAL);
+	ctk_orientable_set_orientation (CTK_ORIENTABLE (ev_sidebar), CTK_ORIENTATION_VERTICAL);
 
 	/* data model */
 	ev_sidebar->priv->page_model = (GtkTreeModel *)
 			ctk_list_store_new (PAGE_COLUMN_NUM_COLS,
 					    G_TYPE_STRING,
-					    GTK_TYPE_WIDGET,
-					    GTK_TYPE_WIDGET,
+					    CTK_TYPE_WIDGET,
+					    CTK_TYPE_WIDGET,
 					    G_TYPE_INT);
 
 	/* top option menu */
-	hbox = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+	hbox = ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 0);
 	ev_sidebar->priv->hbox = hbox;
-	ctk_box_pack_start (GTK_BOX (ev_sidebar), hbox, FALSE, FALSE, 0);
+	ctk_box_pack_start (CTK_BOX (ev_sidebar), hbox, FALSE, FALSE, 0);
 	ctk_widget_show (hbox);
 
 	ev_sidebar->priv->select_button = ctk_toggle_button_new ();
-	ctk_button_set_relief (GTK_BUTTON (ev_sidebar->priv->select_button), GTK_RELIEF_NONE);
+	ctk_button_set_relief (CTK_BUTTON (ev_sidebar->priv->select_button), CTK_RELIEF_NONE);
 	g_signal_connect (ev_sidebar->priv->select_button, "button_press_event",
 			  G_CALLBACK (ev_sidebar_select_button_press_cb),
 			  ev_sidebar);
@@ -339,56 +339,56 @@ ev_sidebar_init (EvSidebar *ev_sidebar)
 			  G_CALLBACK (ev_sidebar_select_button_key_press_cb),
 			  ev_sidebar);
 
-	select_hbox = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+	select_hbox = ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 0);
 
 	ev_sidebar->priv->label = ctk_label_new ("");
-	ctk_box_pack_start (GTK_BOX (select_hbox),
+	ctk_box_pack_start (CTK_BOX (select_hbox),
 			    ev_sidebar->priv->label,
 			    FALSE, FALSE, 0);
 	ctk_widget_show (ev_sidebar->priv->label);
 
-	arrow = ctk_image_new_from_icon_name ("pan-down-symbolic", GTK_ICON_SIZE_BUTTON);
-	ctk_box_pack_end (GTK_BOX (select_hbox), arrow, FALSE, FALSE, 0);
+	arrow = ctk_image_new_from_icon_name ("pan-down-symbolic", CTK_ICON_SIZE_BUTTON);
+	ctk_box_pack_end (CTK_BOX (select_hbox), arrow, FALSE, FALSE, 0);
 	ctk_widget_show (arrow);
 
-	ctk_container_add (GTK_CONTAINER (ev_sidebar->priv->select_button), select_hbox);
+	ctk_container_add (CTK_CONTAINER (ev_sidebar->priv->select_button), select_hbox);
 	ctk_widget_show (select_hbox);
 
-	ctk_box_pack_start (GTK_BOX (hbox), ev_sidebar->priv->select_button, TRUE, TRUE, 0);
+	ctk_box_pack_start (CTK_BOX (hbox), ev_sidebar->priv->select_button, TRUE, TRUE, 0);
 	ctk_widget_show (ev_sidebar->priv->select_button);
 
 	close_button = ctk_button_new ();
-	ctk_button_set_relief (GTK_BUTTON (close_button), GTK_RELIEF_NONE);
+	ctk_button_set_relief (CTK_BUTTON (close_button), CTK_RELIEF_NONE);
 	g_signal_connect (close_button, "clicked",
 			  G_CALLBACK (ev_sidebar_close_clicked_cb),
 			  ev_sidebar);
 
 	image = ctk_image_new_from_icon_name ("window-close",
-	                                      GTK_ICON_SIZE_MENU);
-	ctk_container_add (GTK_CONTAINER (close_button), image);
+	                                      CTK_ICON_SIZE_MENU);
+	ctk_container_add (CTK_CONTAINER (close_button), image);
 	ctk_widget_show (image);
 
-	ctk_box_pack_end (GTK_BOX (hbox), close_button, FALSE, FALSE, 0);
+	ctk_box_pack_end (CTK_BOX (hbox), close_button, FALSE, FALSE, 0);
 	ctk_widget_show (close_button);
 
 	ev_sidebar->priv->menu = ctk_menu_new ();
 	g_signal_connect (ev_sidebar->priv->menu, "deactivate",
 			  G_CALLBACK (ev_sidebar_menu_deactivate_cb),
 			  ev_sidebar->priv->select_button);
-	ctk_menu_attach_to_widget (GTK_MENU (ev_sidebar->priv->menu),
-				   GTK_WIDGET (ev_sidebar),
+	ctk_menu_attach_to_widget (CTK_MENU (ev_sidebar->priv->menu),
+				   CTK_WIDGET (ev_sidebar),
 				   ev_sidebar_menu_detach_cb);
 	ctk_widget_show (ev_sidebar->priv->menu);
 
 	ev_sidebar->priv->notebook = ctk_notebook_new ();
-	ctk_notebook_set_show_border (GTK_NOTEBOOK (ev_sidebar->priv->notebook), FALSE);
-	ctk_notebook_set_show_tabs (GTK_NOTEBOOK (ev_sidebar->priv->notebook), FALSE);
-	ctk_box_pack_start (GTK_BOX (ev_sidebar), ev_sidebar->priv->notebook,
+	ctk_notebook_set_show_border (CTK_NOTEBOOK (ev_sidebar->priv->notebook), FALSE);
+	ctk_notebook_set_show_tabs (CTK_NOTEBOOK (ev_sidebar->priv->notebook), FALSE);
+	ctk_box_pack_start (CTK_BOX (ev_sidebar), ev_sidebar->priv->notebook,
 			    TRUE, TRUE, 0);
 	ctk_widget_show (ev_sidebar->priv->notebook);
 
-	ctk_widget_set_sensitive (GTK_WIDGET (ev_sidebar->priv->notebook), FALSE);
-	ctk_widget_set_sensitive (GTK_WIDGET (ev_sidebar->priv->select_button), FALSE);
+	ctk_widget_set_sensitive (CTK_WIDGET (ev_sidebar->priv->notebook), FALSE);
+	ctk_widget_set_sensitive (CTK_WIDGET (ev_sidebar->priv->select_button), FALSE);
 }
 
 /* Public functions */
@@ -415,13 +415,13 @@ ev_sidebar_add_page (EvSidebar   *ev_sidebar,
 
 	g_return_if_fail (EV_IS_SIDEBAR (ev_sidebar));
 	g_return_if_fail (EV_IS_SIDEBAR_PAGE (main_widget));
-	g_return_if_fail (GTK_IS_WIDGET (main_widget));
+	g_return_if_fail (CTK_IS_WIDGET (main_widget));
 
 	ev_sidebar_page_set_model (EV_SIDEBAR_PAGE (main_widget),
 				   ev_sidebar->priv->model);
 	title = ev_sidebar_page_get_label (EV_SIDEBAR_PAGE (main_widget));
 
-	index = ctk_notebook_append_page (GTK_NOTEBOOK (ev_sidebar->priv->notebook),
+	index = ctk_notebook_append_page (CTK_NOTEBOOK (ev_sidebar->priv->notebook),
 					  main_widget, NULL);
 
 	menu_item = ctk_image_menu_item_new_with_label (title);
@@ -429,18 +429,18 @@ ev_sidebar_add_page (EvSidebar   *ev_sidebar,
 			  G_CALLBACK (ev_sidebar_menu_item_activate_cb),
 			  ev_sidebar);
 	ctk_widget_show (menu_item);
-	ctk_menu_shell_append (GTK_MENU_SHELL (ev_sidebar->priv->menu),
+	ctk_menu_shell_append (CTK_MENU_SHELL (ev_sidebar->priv->menu),
 			       menu_item);
 
 	/* Insert and move to end */
-	ctk_list_store_insert_with_values (GTK_LIST_STORE (ev_sidebar->priv->page_model),
+	ctk_list_store_insert_with_values (CTK_LIST_STORE (ev_sidebar->priv->page_model),
 					   &iter, 0,
 					   PAGE_COLUMN_TITLE, title,
 					   PAGE_COLUMN_MENU_ITEM, menu_item,
 					   PAGE_COLUMN_MAIN_WIDGET, main_widget,
 					   PAGE_COLUMN_NOTEBOOK_INDEX, index,
 					   -1);
-	ctk_list_store_move_before(GTK_LIST_STORE(ev_sidebar->priv->page_model),
+	ctk_list_store_move_before(CTK_LIST_STORE(ev_sidebar->priv->page_model),
 					   &iter, NULL);
 
 
@@ -452,9 +452,9 @@ ev_sidebar_add_page (EvSidebar   *ev_sidebar,
 			    PAGE_COLUMN_NOTEBOOK_INDEX, &index,
 			    -1);
 
-	ctk_menu_set_active (GTK_MENU (ev_sidebar->priv->menu), index);
-	ctk_label_set_text (GTK_LABEL (ev_sidebar->priv->label), label_title);
-	ctk_notebook_set_current_page (GTK_NOTEBOOK (ev_sidebar->priv->notebook),
+	ctk_menu_set_active (CTK_MENU (ev_sidebar->priv->menu), index);
+	ctk_label_set_text (CTK_LABEL (ev_sidebar->priv->label), label_title);
+	ctk_notebook_set_current_page (CTK_NOTEBOOK (ev_sidebar->priv->notebook),
 				       index);
 	g_free (label_title);
 }
@@ -491,10 +491,10 @@ ev_sidebar_document_changed_cb (EvDocumentModel *model,
 	}
 
 	if (!has_pages) {
-		ctk_widget_hide (GTK_WIDGET (sidebar));
+		ctk_widget_hide (CTK_WIDGET (sidebar));
 	} else {
-		ctk_widget_set_sensitive (GTK_WIDGET (sidebar->priv->notebook), TRUE);
-		ctk_widget_set_sensitive (GTK_WIDGET (sidebar->priv->select_button), TRUE);
+		ctk_widget_set_sensitive (CTK_WIDGET (sidebar->priv->notebook), TRUE);
+		ctk_widget_set_sensitive (CTK_WIDGET (sidebar->priv->select_button), TRUE);
 	}
 }
 

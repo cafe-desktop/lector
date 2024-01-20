@@ -36,7 +36,7 @@ struct _EvPropertiesLicenseClass {
 	GtkBoxClass base_class;
 };
 
-G_DEFINE_TYPE (EvPropertiesLicense, ev_properties_license, GTK_TYPE_BOX)
+G_DEFINE_TYPE (EvPropertiesLicense, ev_properties_license, CTK_TYPE_BOX)
 
 static void
 ev_properties_license_class_init (EvPropertiesLicenseClass *properties_license_class)
@@ -50,22 +50,22 @@ get_license_text_widget (EvDocumentLicense *license)
 	GtkTextBuffer *buffer;
 
 	textview = ctk_text_view_new ();
-	ctk_text_view_set_wrap_mode (GTK_TEXT_VIEW (textview), GTK_WRAP_WORD);
-	ctk_text_view_set_left_margin (GTK_TEXT_VIEW (textview), 8);
-	ctk_text_view_set_right_margin (GTK_TEXT_VIEW (textview), 8);
+	ctk_text_view_set_wrap_mode (CTK_TEXT_VIEW (textview), CTK_WRAP_WORD);
+	ctk_text_view_set_left_margin (CTK_TEXT_VIEW (textview), 8);
+	ctk_text_view_set_right_margin (CTK_TEXT_VIEW (textview), 8);
 
-	buffer = ctk_text_view_get_buffer (GTK_TEXT_VIEW (textview));
+	buffer = ctk_text_view_get_buffer (CTK_TEXT_VIEW (textview));
 	ctk_text_buffer_set_text (buffer, ev_document_license_get_text (license), -1);
 
 	swindow = ctk_scrolled_window_new (NULL, NULL);
 	ctk_widget_set_hexpand (swindow, TRUE);
 	ctk_widget_set_margin_start (swindow, 12);
-	ctk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (swindow),
-					GTK_POLICY_AUTOMATIC,
-					GTK_POLICY_AUTOMATIC);
-	ctk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow),
-					     GTK_SHADOW_IN);
-	ctk_container_add (GTK_CONTAINER (swindow), textview);
+	ctk_scrolled_window_set_policy (CTK_SCROLLED_WINDOW (swindow),
+					CTK_POLICY_AUTOMATIC,
+					CTK_POLICY_AUTOMATIC);
+	ctk_scrolled_window_set_shadow_type (CTK_SCROLLED_WINDOW (swindow),
+					     CTK_SHADOW_IN);
+	ctk_container_add (CTK_CONTAINER (swindow), textview);
 	ctk_widget_show (textview);
 
 	return swindow;
@@ -90,11 +90,11 @@ get_license_uri_widget (const gchar *uri)
 	checked_uri = g_uri_parse_scheme (uri);
 	if (checked_uri) {
 		markup = g_markup_printf_escaped ("<a href=\"%s\">%s</a>", uri, uri);
-		ctk_label_set_markup (GTK_LABEL (label), markup);
+		ctk_label_set_markup (CTK_LABEL (label), markup);
 		g_free (markup);
 		g_free (checked_uri);
 	} else {
-		ctk_label_set_text (GTK_LABEL (label), uri);
+		ctk_label_set_text (CTK_LABEL (label), uri);
 	}
 
 	return label;
@@ -109,15 +109,15 @@ ev_properties_license_add_section (EvPropertiesLicense *properties,
 	gchar     *markup;
 
 	title = ctk_label_new (NULL);
-	ctk_label_set_xalign (GTK_LABEL (title), 0.0);
-	ctk_label_set_use_markup (GTK_LABEL (title), TRUE);
+	ctk_label_set_xalign (CTK_LABEL (title), 0.0);
+	ctk_label_set_use_markup (CTK_LABEL (title), TRUE);
 	markup = g_strdup_printf ("<b>%s</b>", title_text);
-	ctk_label_set_markup (GTK_LABEL (title), markup);
+	ctk_label_set_markup (CTK_LABEL (title), markup);
 	g_free (markup);
-	ctk_box_pack_start (GTK_BOX (properties), title, FALSE, FALSE, 0);
+	ctk_box_pack_start (CTK_BOX (properties), title, FALSE, FALSE, 0);
 	ctk_widget_show (title);
 
-	ctk_box_pack_start (GTK_BOX (properties), contents, FALSE, TRUE, 0);
+	ctk_box_pack_start (CTK_BOX (properties), contents, FALSE, TRUE, 0);
 	ctk_widget_show (contents);
 }
 
@@ -151,9 +151,9 @@ ev_properties_license_set_license (EvPropertiesLicense *properties,
 static void
 ev_properties_license_init (EvPropertiesLicense *properties)
 {
-	ctk_orientable_set_orientation (GTK_ORIENTABLE (properties), GTK_ORIENTATION_VERTICAL);
-	ctk_box_set_spacing (GTK_BOX (properties), 12);
-	ctk_container_set_border_width (GTK_CONTAINER (properties), 12);
+	ctk_orientable_set_orientation (CTK_ORIENTABLE (properties), CTK_ORIENTATION_VERTICAL);
+	ctk_box_set_spacing (CTK_BOX (properties), 12);
+	ctk_container_set_border_width (CTK_CONTAINER (properties), 12);
 }
 
 GtkWidget *
@@ -163,5 +163,5 @@ ev_properties_license_new (void)
 
 	properties_license = g_object_new (EV_TYPE_PROPERTIES_LICENSE, NULL);
 
-	return GTK_WIDGET (properties_license);
+	return CTK_WIDGET (properties_license);
 }

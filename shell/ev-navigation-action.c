@@ -40,7 +40,7 @@ struct _EvNavigationActionPrivate
 	EvHistory *history;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (EvNavigationAction, ev_navigation_action, GTK_TYPE_ACTION)
+G_DEFINE_TYPE_WITH_PRIVATE (EvNavigationAction, ev_navigation_action, CTK_TYPE_ACTION)
 
 #define MAX_LABEL_LENGTH 48
 
@@ -50,7 +50,7 @@ ev_navigation_action_history_changed (EvHistory *history,
 {
 	EvNavigationAction *action = EV_NAVIGATION_ACTION (data);
 
-	ctk_action_set_sensitive (GTK_ACTION (action),
+	ctk_action_set_sensitive (CTK_ACTION (action),
 				  ev_history_get_n_links (history) > 0);
 }
 
@@ -97,7 +97,7 @@ new_history_menu_item (EvNavigationAction *action,
 
 	title = ev_link_get_title (link);
 	item = ctk_image_menu_item_new_with_label (title);
-	label = GTK_LABEL (ctk_bin_get_child (GTK_BIN (item)));
+	label = CTK_LABEL (ctk_bin_get_child (CTK_BIN (item)));
 	ctk_label_set_use_markup (label, TRUE);
 	g_object_set_data (G_OBJECT (item), "index",
 			   GINT_TO_POINTER (index));
@@ -127,7 +127,7 @@ build_menu (EvNavigationAction *action)
 		return NULL;
 	}
 
-	menu = GTK_MENU_SHELL (ctk_menu_new ());
+	menu = CTK_MENU_SHELL (ctk_menu_new ());
 
 	start = 0;
 	end = ev_history_get_n_links (history);
@@ -138,7 +138,7 @@ build_menu (EvNavigationAction *action)
 		ctk_menu_shell_prepend (menu, item);
 	}
 
-	return GTK_WIDGET (menu);
+	return CTK_WIDGET (menu);
 }
 
 static void
@@ -156,7 +156,7 @@ connect_proxy (GtkAction *action, GtkWidget *proxy)
 {
 	GtkWidget *menu;
 
-	if (GTK_IS_TOOL_ITEM (proxy)) {
+	if (CTK_IS_TOOL_ITEM (proxy)) {
 		/* set dummy menu so the arrow gets sensitive */
 		menu = ctk_menu_new ();
 		ev_navigation_action_widget_set_menu (EV_NAVIGATION_ACTION_WIDGET (proxy), menu);
@@ -165,7 +165,7 @@ connect_proxy (GtkAction *action, GtkWidget *proxy)
 				  G_CALLBACK (menu_activated_cb), action);
 	}
 
-	GTK_ACTION_CLASS (ev_navigation_action_parent_class)->connect_proxy (action, proxy);
+	CTK_ACTION_CLASS (ev_navigation_action_parent_class)->connect_proxy (action, proxy);
 }
 
 static GtkWidget *
@@ -174,9 +174,9 @@ create_tool_item (GtkAction *action)
 	EvNavigationActionWidget *proxy;
 
 	proxy = g_object_new (EV_TYPE_NAVIGATION_ACTION_WIDGET, NULL);
-	ctk_widget_show (GTK_WIDGET (proxy));
+	ctk_widget_show (CTK_WIDGET (proxy));
 
-	return GTK_WIDGET (proxy);
+	return CTK_WIDGET (proxy);
 }
 
 static GtkWidget *
@@ -187,9 +187,9 @@ create_menu_item (GtkAction *action)
 
 	menu = build_menu (EV_NAVIGATION_ACTION (action));
 
-        menu_item = GTK_ACTION_CLASS (ev_navigation_action_parent_class)->create_menu_item (action);
+        menu_item = CTK_ACTION_CLASS (ev_navigation_action_parent_class)->create_menu_item (action);
 
-	ctk_menu_item_set_submenu (GTK_MENU_ITEM (menu_item), menu);
+	ctk_menu_item_set_submenu (CTK_MENU_ITEM (menu_item), menu);
 
 	ctk_widget_show (menu_item);
 
@@ -220,11 +220,11 @@ static void
 ev_navigation_action_class_init (EvNavigationActionClass *class)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (class);
-	GtkActionClass *action_class = GTK_ACTION_CLASS (class);
+	GtkActionClass *action_class = CTK_ACTION_CLASS (class);
 
 	object_class->finalize = ev_navigation_action_finalize;
 
-	action_class->toolbar_item_type = GTK_TYPE_TOOL_ITEM;
+	action_class->toolbar_item_type = CTK_TYPE_TOOL_ITEM;
 	action_class->create_tool_item = create_tool_item;
 	action_class->connect_proxy = connect_proxy;
 	action_class->create_menu_item = create_menu_item;

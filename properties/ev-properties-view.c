@@ -86,7 +86,7 @@ struct _EvPropertiesViewClass {
 	GtkBoxClass base_class;
 };
 
-G_DEFINE_TYPE (EvPropertiesView, ev_properties_view, GTK_TYPE_BOX)
+G_DEFINE_TYPE (EvPropertiesView, ev_properties_view, CTK_TYPE_BOX)
 
 static void
 ev_properties_view_dispose (GObject *object)
@@ -164,7 +164,7 @@ set_property (EvPropertiesView *properties,
 		label = ctk_label_new (NULL);
 		g_object_set (G_OBJECT (label), "xalign", 0.0, NULL);
 		markup = g_strdup_printf ("<b>%s</b>", _(properties_info[property].label));
-		ctk_label_set_markup (GTK_LABEL (label), markup);
+		ctk_label_set_markup (CTK_LABEL (label), markup);
 		g_free (markup);
 
 		ctk_grid_attach (grid, label, 0, *row, 1, 1);
@@ -191,11 +191,11 @@ set_property (EvPropertiesView *properties,
 		   Keywords: None
 		*/
 		markup = g_markup_printf_escaped ("<i>%s</i>", _("None"));
-		ctk_label_set_markup (GTK_LABEL (label), markup);
+		ctk_label_set_markup (CTK_LABEL (label), markup);
 		g_free (markup);
 	} else {
 		valid_text = make_valid_utf8 (text ? text : "");
-		ctk_label_set_text (GTK_LABEL (label), valid_text);
+		ctk_label_set_text (CTK_LABEL (label), valid_text);
 		g_free (valid_text);
 	}
 
@@ -225,19 +225,19 @@ get_default_user_units (void)
 
 	imperial = nl_langinfo (_NL_MEASUREMENT_MEASUREMENT);
 	if (imperial && imperial[0] == 2)
-		return GTK_UNIT_INCH;  /* imperial */
+		return CTK_UNIT_INCH;  /* imperial */
 	if (imperial && imperial[0] == 1)
-		return GTK_UNIT_MM;  /* metric */
+		return CTK_UNIT_MM;  /* metric */
 #endif
 
 	if (strcmp (e, "default:mm") == 0)
-		return GTK_UNIT_MM;
+		return CTK_UNIT_MM;
 	if (strcmp (e, "default:inch") == 0)
-		return GTK_UNIT_INCH;
+		return CTK_UNIT_INCH;
 
 	g_warning ("Whoever translated default:mm did so wrongly.\n");
 
-	return GTK_UNIT_MM;
+	return CTK_UNIT_MM;
 }
 
 static gdouble
@@ -261,7 +261,7 @@ ev_regular_paper_size (const EvDocumentInfo *info)
 
 	units = get_default_user_units ();
 
-	if (units == GTK_UNIT_MM) {
+	if (units == CTK_UNIT_MM) {
 		exact_size = g_strdup_printf(_("%.0f × %.0f mm"),
 					     info->paper_width,
 					     info->paper_height);
@@ -280,8 +280,8 @@ ev_regular_paper_size (const EvDocumentInfo *info)
 		gdouble width_tolerance;
 		gdouble height_tolerance;
 
-		paper_width = ctk_paper_size_get_width (size, GTK_UNIT_MM);
-		paper_height = ctk_paper_size_get_height (size, GTK_UNIT_MM);
+		paper_width = ctk_paper_size_get_width (size, CTK_UNIT_MM);
+		paper_height = ctk_paper_size_get_height (size, CTK_UNIT_MM);
 
 		width_tolerance = get_tolerance (paper_width);
 		height_tolerance = get_tolerance (paper_height);
@@ -324,51 +324,51 @@ ev_properties_view_set_info (EvPropertiesView *properties, const EvDocumentInfo 
 	grid = properties->grid;
 
 	if (info->fields_mask & EV_DOCUMENT_INFO_TITLE) {
-		set_property (properties, GTK_GRID (grid), TITLE_PROPERTY, info->title, &row);
+		set_property (properties, CTK_GRID (grid), TITLE_PROPERTY, info->title, &row);
 	}
-	set_property (properties, GTK_GRID (grid), URI_PROPERTY, properties->uri, &row);
+	set_property (properties, CTK_GRID (grid), URI_PROPERTY, properties->uri, &row);
 	if (info->fields_mask & EV_DOCUMENT_INFO_SUBJECT) {
-		set_property (properties, GTK_GRID (grid), SUBJECT_PROPERTY, info->subject, &row);
+		set_property (properties, CTK_GRID (grid), SUBJECT_PROPERTY, info->subject, &row);
 	}
 	if (info->fields_mask & EV_DOCUMENT_INFO_AUTHOR) {
-		set_property (properties, GTK_GRID (grid), AUTHOR_PROPERTY, info->author, &row);
+		set_property (properties, CTK_GRID (grid), AUTHOR_PROPERTY, info->author, &row);
 	}
 	if (info->fields_mask & EV_DOCUMENT_INFO_KEYWORDS) {
-		set_property (properties, GTK_GRID (grid), KEYWORDS_PROPERTY, info->keywords, &row);
+		set_property (properties, CTK_GRID (grid), KEYWORDS_PROPERTY, info->keywords, &row);
 	}
 	if (info->fields_mask & EV_DOCUMENT_INFO_PRODUCER) {
-		set_property (properties, GTK_GRID (grid), PRODUCER_PROPERTY, info->producer, &row);
+		set_property (properties, CTK_GRID (grid), PRODUCER_PROPERTY, info->producer, &row);
 	}
 	if (info->fields_mask & EV_DOCUMENT_INFO_CREATOR) {
-		set_property (properties, GTK_GRID (grid), CREATOR_PROPERTY, info->creator, &row);
+		set_property (properties, CTK_GRID (grid), CREATOR_PROPERTY, info->creator, &row);
 	}
 	if ((info->fields_mask & EV_DOCUMENT_INFO_CREATION_DATE) && (info->creation_date > 0)) {
 		text = ev_document_misc_format_date (info->creation_date);
-		set_property (properties, GTK_GRID (grid), CREATION_DATE_PROPERTY, text, &row);
+		set_property (properties, CTK_GRID (grid), CREATION_DATE_PROPERTY, text, &row);
 		g_free (text);
 	}
 	if ((info->fields_mask & EV_DOCUMENT_INFO_MOD_DATE) && (info->modified_date > 0)) {
 		text = ev_document_misc_format_date (info->modified_date);
-		set_property (properties, GTK_GRID (grid), MOD_DATE_PROPERTY, text, &row);
+		set_property (properties, CTK_GRID (grid), MOD_DATE_PROPERTY, text, &row);
 		g_free (text);
 	}
 	if (info->fields_mask & EV_DOCUMENT_INFO_FORMAT) {
-		set_property (properties, GTK_GRID (grid), FORMAT_PROPERTY, info->format, &row);
+		set_property (properties, CTK_GRID (grid), FORMAT_PROPERTY, info->format, &row);
 	}
 	if (info->fields_mask & EV_DOCUMENT_INFO_N_PAGES) {
 		text = g_strdup_printf ("%d", info->n_pages);
-		set_property (properties, GTK_GRID (grid), N_PAGES_PROPERTY, text, &row);
+		set_property (properties, CTK_GRID (grid), N_PAGES_PROPERTY, text, &row);
 		g_free (text);
 	}
 	if (info->fields_mask & EV_DOCUMENT_INFO_LINEARIZED) {
-		set_property (properties, GTK_GRID (grid), LINEARIZED_PROPERTY, info->linearized, &row);
+		set_property (properties, CTK_GRID (grid), LINEARIZED_PROPERTY, info->linearized, &row);
 	}
 	if (info->fields_mask & EV_DOCUMENT_INFO_SECURITY) {
-		set_property (properties, GTK_GRID (grid), SECURITY_PROPERTY, info->security, &row);
+		set_property (properties, CTK_GRID (grid), SECURITY_PROPERTY, info->security, &row);
 	}
 	if (info->fields_mask & EV_DOCUMENT_INFO_PAPER_SIZE) {
 		text = ev_regular_paper_size (info);
-		set_property (properties, GTK_GRID (grid), PAPER_SIZE_PROPERTY, text, &row);
+		set_property (properties, CTK_GRID (grid), PAPER_SIZE_PROPERTY, text, &row);
 		g_free (text);
 	}
 }
@@ -376,12 +376,12 @@ ev_properties_view_set_info (EvPropertiesView *properties, const EvDocumentInfo 
 static void
 ev_properties_view_init (EvPropertiesView *properties)
 {
-	ctk_orientable_set_orientation (GTK_ORIENTABLE (properties), GTK_ORIENTATION_VERTICAL);
+	ctk_orientable_set_orientation (CTK_ORIENTABLE (properties), CTK_ORIENTATION_VERTICAL);
 	properties->grid = ctk_grid_new ();
-	ctk_grid_set_column_spacing (GTK_GRID (properties->grid), 12);
-	ctk_grid_set_row_spacing (GTK_GRID (properties->grid), 6);
-	ctk_container_set_border_width (GTK_CONTAINER (properties->grid), 12);
-	ctk_box_pack_start (GTK_BOX (properties), properties->grid, TRUE, TRUE, 0);
+	ctk_grid_set_column_spacing (CTK_GRID (properties->grid), 12);
+	ctk_grid_set_row_spacing (CTK_GRID (properties->grid), 6);
+	ctk_container_set_border_width (CTK_CONTAINER (properties->grid), 12);
+	ctk_box_pack_start (CTK_BOX (properties), properties->grid, TRUE, TRUE, 0);
 	ctk_widget_show (properties->grid);
 }
 
@@ -399,5 +399,5 @@ ev_properties_view_new (const gchar *uri)
 	properties = g_object_new (EV_TYPE_PROPERTIES, NULL);
 	properties->uri = g_uri_unescape_string (uri, NULL);
 
-	return GTK_WIDGET (properties);
+	return CTK_WIDGET (properties);
 }

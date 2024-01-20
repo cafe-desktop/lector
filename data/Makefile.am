@@ -62,7 +62,7 @@ gsettings_SCHEMAS = org.cafe.Lector.gschema.xml
 
 
 #
-# GTK icon cache
+# CTK icon cache
 #
 
 ctk_update_icon_cache = ctk-update-icon-cache -f -t $(datadir)/icons/hicolor

@@ -34,21 +34,21 @@ struct _EvLoadingMessageClass {
         GtkBoxClass base_class;
 };
 
-G_DEFINE_TYPE (EvLoadingMessage, ev_loading_message, GTK_TYPE_BOX)
+G_DEFINE_TYPE (EvLoadingMessage, ev_loading_message, CTK_TYPE_BOX)
 
 static void
 ev_loading_message_init (EvLoadingMessage *message)
 {
         GtkWidget *label;
 
-        ctk_container_set_border_width (GTK_CONTAINER (message), 10);
+        ctk_container_set_border_width (CTK_CONTAINER (message), 10);
 
         message->spinner = ctk_spinner_new ();
-        ctk_box_pack_start (GTK_BOX (message), message->spinner, FALSE, FALSE, 0);
+        ctk_box_pack_start (CTK_BOX (message), message->spinner, FALSE, FALSE, 0);
         ctk_widget_show (message->spinner);
 
         label = ctk_label_new (_("Loading…"));
-        ctk_box_pack_start (GTK_BOX (message), label, FALSE, FALSE, 0);
+        ctk_box_pack_start (CTK_BOX (message), label, FALSE, FALSE, 0);
         ctk_widget_show (label);
 }
 
@@ -77,7 +77,7 @@ ev_loading_message_size_allocate (GtkWidget     *widget,
         child_allocation.width = MAX (1, allocation->width - (padding.left + padding.right));
         child_allocation.height = MAX (1, allocation->height - (padding.top + padding.bottom));
 
-        GTK_WIDGET_CLASS (ev_loading_message_parent_class)->size_allocate (widget, &child_allocation);
+        CTK_WIDGET_CLASS (ev_loading_message_parent_class)->size_allocate (widget, &child_allocation);
         ctk_widget_set_allocation (widget, allocation);
 }
 
@@ -88,7 +88,7 @@ ev_loading_message_get_preferred_width (GtkWidget *widget,
 {
         GtkBorder padding;
 
-        GTK_WIDGET_CLASS (ev_loading_message_parent_class)->get_preferred_width (widget, minimum_size, natural_size);
+        CTK_WIDGET_CLASS (ev_loading_message_parent_class)->get_preferred_width (widget, minimum_size, natural_size);
 
         get_widget_padding (widget, &padding);
         *minimum_size += padding.left + padding.right;
@@ -102,7 +102,7 @@ ev_loading_message_get_preferred_height (GtkWidget *widget,
 {
         GtkBorder padding;
 
-        GTK_WIDGET_CLASS (ev_loading_message_parent_class)->get_preferred_height (widget, minimum_size, natural_size);
+        CTK_WIDGET_CLASS (ev_loading_message_parent_class)->get_preferred_height (widget, minimum_size, natural_size);
 
         get_widget_padding (widget, &padding);
         *minimum_size += padding.top + padding.bottom;
@@ -123,7 +123,7 @@ ev_loading_message_draw (GtkWidget *widget,
         ctk_render_background (context, cr, 0, 0, width, height);
         ctk_render_frame (context, cr, 0, 0, width, height);
 
-        GTK_WIDGET_CLASS (ev_loading_message_parent_class)->draw (widget, cr);
+        CTK_WIDGET_CLASS (ev_loading_message_parent_class)->draw (widget, cr);
 
         return TRUE;
 }
@@ -133,9 +133,9 @@ ev_loading_message_hide (GtkWidget *widget)
 {
         EvLoadingMessage *message = EV_LOADING_MESSAGE (widget);
 
-        ctk_spinner_stop (GTK_SPINNER (message->spinner));
+        ctk_spinner_stop (CTK_SPINNER (message->spinner));
 
-        GTK_WIDGET_CLASS (ev_loading_message_parent_class)->hide (widget);
+        CTK_WIDGET_CLASS (ev_loading_message_parent_class)->hide (widget);
 }
 
 static void
@@ -143,15 +143,15 @@ ev_loading_message_show (GtkWidget *widget)
 {
         EvLoadingMessage *message = EV_LOADING_MESSAGE (widget);
 
-        ctk_spinner_start (GTK_SPINNER (message->spinner));
+        ctk_spinner_start (CTK_SPINNER (message->spinner));
 
-        GTK_WIDGET_CLASS (ev_loading_message_parent_class)->show (widget);
+        CTK_WIDGET_CLASS (ev_loading_message_parent_class)->show (widget);
 }
 
 static void
 ev_loading_message_class_init (EvLoadingMessageClass *klass)
 {
-        GtkWidgetClass *ctk_widget_class = GTK_WIDGET_CLASS (klass);
+        GtkWidgetClass *ctk_widget_class = CTK_WIDGET_CLASS (klass);
 
         ctk_widget_class->size_allocate = ev_loading_message_size_allocate;
         ctk_widget_class->get_preferred_width = ev_loading_message_get_preferred_width;
@@ -168,7 +168,7 @@ ev_loading_message_new (void)
         GtkWidget *message;
 
         message = g_object_new (EV_TYPE_LOADING_MESSAGE,
-                                "orientation", GTK_ORIENTATION_HORIZONTAL,
+                                "orientation", CTK_ORIENTATION_HORIZONTAL,
                                 "spacing", 12,
                                 NULL);
         return message;

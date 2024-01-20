@@ -3,7 +3,7 @@ AUTOMAKE_OPTIONS = 1.10
 
 # This is a blank Makefile.am for using ctk-doc.
 # Copy this to your project's API docs directory and modify the variables to
-# suit your project. See the GTK+ Makefiles in ctk+/docs/reference for examples
+# suit your project. See the CTK+ Makefiles in ctk+/docs/reference for examples
 # of using the various options.
 
 # The name of the module, e.g. 'glib'.
@@ -25,7 +25,7 @@ DOC_SOURCE_DIR = $(top_srcdir)/shell
 SCANGOBJ_OPTIONS =
 
 # Extra options to supply to ctkdoc-scan.
-# e.g. SCAN_OPTIONS=--deprecated-guards="GTK_DISABLE_DEPRECATED"
+# e.g. SCAN_OPTIONS=--deprecated-guards="CTK_DISABLE_DEPRECATED"
 SCAN_OPTIONS =
 
 # Extra options to supply to ctkdoc-mkdb.
@@ -45,9 +45,9 @@ MKHTML_OPTIONS = --path="$(abs_builddir)"
 FIXXREF_OPTIONS = \
 	--extra-dir=$(GLIB_PREFIX)/share/ctk-doc/html/glib \
 	--extra-dir=$(GLIB_PREFIX)/share/ctk-doc/html/gio \
-	--extra-dir=$(GTK_PREFIX)/share/ctk-doc/html/gdk \
-	--extra-dir=$(GTK_PREFIX)/share/ctk-doc/html/gdk-pixbuf \
-	--extra-dir=$(GTK_PREFIX)/share/ctk-doc/html/ctk
+	--extra-dir=$(CTK_PREFIX)/share/ctk-doc/html/gdk \
+	--extra-dir=$(CTK_PREFIX)/share/ctk-doc/html/gdk-pixbuf \
+	--extra-dir=$(CTK_PREFIX)/share/ctk-doc/html/ctk
 
 # Used for dependencies. The docs will be rebuilt if any of these change.
 # e.g. HFILE_GLOB=$(top_srcdir)/ctk/*.h
@@ -83,9 +83,9 @@ expand_content_files =
 # CFLAGS and LDFLAGS for compiling ctkdoc-scangobj with your library.
 # Only needed if you are using ctkdoc-scangobj to dynamically query widget
 # signals and properties.
-# e.g. GTKDOC_CFLAGS=-I$(top_srcdir) -I$(top_builddir) $(GTK_DEBUG_FLAGS)
-# e.g. GTKDOC_LIBS=$(top_builddir)/ctk/$(ctktargetlib)
-GTKDOC_CFLAGS = \
+# e.g. CTKDOC_CFLAGS=-I$(top_srcdir) -I$(top_builddir) $(CTK_DEBUG_FLAGS)
+# e.g. CTKDOC_LIBS=$(top_builddir)/ctk/$(ctktargetlib)
+CTKDOC_CFLAGS = \
 	-I$(top_srcdir)					\
 	-I$(top_builddir)				\
 	-I$(top_srcdir)/shell				\
@@ -106,14 +106,14 @@ GTKDOC_CFLAGS = \
 	$(SHELL_CFLAGS)					\
 	$(WARN_CFLAGS)					\
 	$(DISABLE_DEPRECATED)				\
-	$(GTK_PRINT_CFLAGS)
+	$(CTK_PRINT_CFLAGS)
 
 FILTER_OUT = \
 	$(top_builddir)/shell/main.o			\
 	$(top_builddir)/shell/lectord-ev-daemon.o \
 	$(top_builddir)/shell/lectord-ev-daemon-gdbus-generated.o
 
-GTKDOC_LIBS = \
+CTKDOC_LIBS = \
 	$(top_builddir)/cut-n-paste/zoom-control/libephyzoom.la		\
 	$(top_builddir)/cut-n-paste/toolbar-editor/libtoolbareditor.la	\
 	$(top_builddir)/cut-n-paste/smclient/libsmclient.la		\
@@ -122,7 +122,7 @@ GTKDOC_LIBS = \
 	$(top_builddir)/libview/liblectorview.la				\
 	$(top_builddir)/libmisc/libevmisc.la				\
 	$(SHELL_LIBS)							\
-	$(GTK_PRINT_LIBS)						\
+	$(CTK_PRINT_LIBS)						\
 	$(filter-out $(FILTER_OUT),$(wildcard $(top_builddir)/shell/*.o))
 
 # This includes the standard ctk-doc make rules, copied by ctkdocize.
@@ -139,9 +139,9 @@ EXTRA_DIST += \
 #DISTCLEANFILES +=
 
 # Comment this out if you want your docs-status tested during 'make check'
-if ENABLE_GTK_DOC
+if ENABLE_CTK_DOC
 #TESTS_ENVIRONMENT = cd $(srcsrc) &&
-#TESTS = $(GTKDOC_CHECK)
+#TESTS = $(CTKDOC_CHECK)
 endif
 
 -include $(top_srcdir)/git.mk

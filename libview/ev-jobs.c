@@ -343,7 +343,7 @@ fill_page_labels (GtkTreeModel   *tree_model,
 	if (!page_label)
 		return FALSE;
 
-	ctk_tree_store_set (GTK_TREE_STORE (tree_model), iter,
+	ctk_tree_store_set (CTK_TREE_STORE (tree_model), iter,
 			    EV_DOCUMENT_LINKS_COLUMN_PAGE_LABEL, page_label,
 			    -1);
 
@@ -846,7 +846,7 @@ snapshot_callback(WebKitWebView *webview,
 	ev_document_doc_mutex_unlock ();
 	ev_job_succeeded (EV_JOB(job_thumb));
 
-	ctk_widget_destroy (ctk_widget_get_toplevel (GTK_WIDGET (webview)));
+	ctk_widget_destroy (ctk_widget_get_toplevel (CTK_WIDGET (webview)));
 }
 
 static void
@@ -877,7 +877,7 @@ webview_load_failed_cb (WebKitWebView  *webview,
 	g_warning ("Error loading data from %s: %s", failing_uri, e->message);
 	ev_job_failed_from_error (EV_JOB(job_thumb), e);
 
-	ctk_widget_destroy (ctk_widget_get_toplevel (GTK_WIDGET (webview)));
+	ctk_widget_destroy (ctk_widget_get_toplevel (CTK_WIDGET (webview)));
 	return TRUE;
 }
 
@@ -918,8 +918,8 @@ ev_job_thumbnail_run (EvJob *job)
 		webview = webkit_web_view_new ();
 		offscreenwindow = ctk_offscreen_window_new ();
 
-		ctk_container_add (GTK_CONTAINER(offscreenwindow), GTK_WIDGET (webview));
-		ctk_window_set_default_size (GTK_WINDOW(offscreenwindow), 800, 1080);
+		ctk_container_add (CTK_CONTAINER(offscreenwindow), CTK_WIDGET (webview));
+		ctk_window_set_default_size (CTK_WINDOW(offscreenwindow), 800, 1080);
 		ctk_widget_show_all (offscreenwindow);
 
 		g_signal_connect (WEBKIT_WEB_VIEW (webview), "load-changed",
@@ -1721,8 +1721,8 @@ ev_job_print_run (EvJob *job)
 		ev_job_succeeded (job);
 	} else {
 		ev_job_failed (job,
-			       GTK_PRINT_ERROR,
-			       GTK_PRINT_ERROR_GENERAL,
+			       CTK_PRINT_ERROR,
+			       CTK_PRINT_ERROR_GENERAL,
 			       _("Failed to print page %d: %s"),
 			       job_print->page,
 			       cairo_status_to_string (cr_status));

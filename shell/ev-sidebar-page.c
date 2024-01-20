@@ -85,7 +85,7 @@ ev_sidebar_page_default_init (EvSidebarPageInterface *iface)
 						     g_param_spec_object ("main-widget",
 									  "Main Widget",
 									  "Main page widget, used to handle focus",
-									  GTK_TYPE_WIDGET,
+									  CTK_TYPE_WIDGET,
 									  G_PARAM_READABLE));
 		initialized = TRUE;
 	}

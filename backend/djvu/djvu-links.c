@@ -195,16 +195,16 @@ build_tree (const DjvuDocument *djvu_document,
 			/* FIXME: component file identifiers */
 		} else if (ev_action) {
 			ev_link = ev_link_new (utf8_title ? utf8_title : title, ev_action);
-			ctk_tree_store_append (GTK_TREE_STORE (model), &tree_iter, parent);
-			ctk_tree_store_set (GTK_TREE_STORE (model), &tree_iter,
+			ctk_tree_store_append (CTK_TREE_STORE (model), &tree_iter, parent);
+			ctk_tree_store_set (CTK_TREE_STORE (model), &tree_iter,
 					    EV_DOCUMENT_LINKS_COLUMN_MARKUP, title_markup,
 					    EV_DOCUMENT_LINKS_COLUMN_LINK, ev_link,
 					    EV_DOCUMENT_LINKS_COLUMN_EXPAND, FALSE,
 					    -1);
 			g_object_unref (ev_link);
 		} else {
-			ctk_tree_store_append (GTK_TREE_STORE (model), &tree_iter, parent);
-			ctk_tree_store_set (GTK_TREE_STORE (model), &tree_iter,
+			ctk_tree_store_append (CTK_TREE_STORE (model), &tree_iter, parent);
+			ctk_tree_store_set (CTK_TREE_STORE (model), &tree_iter,
 					    EV_DOCUMENT_LINKS_COLUMN_MARKUP, title_markup,
 					    EV_DOCUMENT_LINKS_COLUMN_EXPAND, FALSE,
 					    -1);
