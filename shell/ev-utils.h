@@ -21,7 +21,7 @@
 #ifndef __EV_UTILS_H__
 #define __EV_UTILS_H__
 
-#include <cdk-pixbuf/cdk-pixbuf.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
 #include <ctk/ctk.h>
 
 G_BEGIN_DECLS
