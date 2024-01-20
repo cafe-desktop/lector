@@ -385,7 +385,7 @@ tiff_document_render_pixbuf (EvDocument      *document,
 		return NULL;
 	}
 
-	pixbuf = gdk_pixbuf_new_from_data (pixels, CDK_COLORSPACE_RGB, TRUE, 8,
+	pixbuf = gdk_pixbuf_new_from_data (pixels, GDK_COLORSPACE_RGB, TRUE, 8,
 					   width, height, rowstride,
 					   (GdkPixbufDestroyNotify) g_free, NULL);
 	pop_handlers ();
