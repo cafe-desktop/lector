@@ -393,7 +393,7 @@ tiff_document_render_pixbuf (EvDocument      *document,
 	scaled_pixbuf = gdk_pixbuf_scale_simple (pixbuf,
 						 width * rc->scale,
 						 height * rc->scale * (x_res / y_res),
-						 CDK_INTERP_BILINEAR);
+						 GDK_INTERP_BILINEAR);
 	g_object_unref (pixbuf);
 
 	rotated_pixbuf = gdk_pixbuf_rotate_simple (scaled_pixbuf, 360 - rc->rotation);
