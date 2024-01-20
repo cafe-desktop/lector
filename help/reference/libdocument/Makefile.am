@@ -89,9 +89,9 @@ expand_content_files =
 # CFLAGS and LDFLAGS for compiling gtkdoc-scangobj with your library.
 # Only needed if you are using gtkdoc-scangobj to dynamically query widget
 # signals and properties.
-# e.g. CTKDOC_CFLAGS=-I$(top_srcdir) -I$(top_builddir) $(CTK_DEBUG_FLAGS)
-# e.g. CTKDOC_LIBS=$(top_builddir)/ctk/$(ctktargetlib)
-CTKDOC_CFLAGS = \
+# e.g. GTKDOC_CFLAGS=-I$(top_srcdir) -I$(top_builddir) $(CTK_DEBUG_FLAGS)
+# e.g. GTKDOC_LIBS=$(top_builddir)/ctk/$(ctktargetlib)
+GTKDOC_CFLAGS = \
 	-I$(top_srcdir)					\
 	-I$(top_builddir)				\
 	-I$(top_srcdir)/libdocument 			\
@@ -106,7 +106,7 @@ CTKDOC_CFLAGS = \
 	$(WARN_CFLAGS)					\
 	$(DISABLE_DEPRECATED)
 
-CTKDOC_LIBS = \
+GTKDOC_LIBS = \
 	$(top_builddir)/libdocument/liblectordocument.la	\
 	$(LIBDOCUMENT_LIBS)
 
@@ -126,7 +126,7 @@ EXTRA_DIST += \
 # Comment this out if you want your docs-status tested during 'make check'
 if ENABLE_CTK_DOC
 #TESTS_ENVIRONMENT = cd $(srcsrc) &&
-#TESTS = $(CTKDOC_CHECK)
+#TESTS = $(GTKDOC_CHECK)
 endif
 
 -include $(top_srcdir)/git.mk
