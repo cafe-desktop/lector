@@ -34,7 +34,7 @@ struct _PixbufDocument
 {
 	EvDocument parent_instance;
 
-	CdkPixbuf *pixbuf;
+	GdkPixbuf *pixbuf;
 
 	gchar *uri;
 };
@@ -57,7 +57,7 @@ pixbuf_document_load (EvDocument  *document,
 	PixbufDocument *pixbuf_document = PIXBUF_DOCUMENT (document);
 
 	gchar *filename;
-	CdkPixbuf *pixbuf;
+	GdkPixbuf *pixbuf;
 
 	/* FIXME: We could actually load uris  */
 	filename = g_filename_from_uri (uri, NULL, error);
@@ -109,7 +109,7 @@ pixbuf_document_render (EvDocument      *document,
 			EvRenderContext *rc)
 {
 	PixbufDocument *pixbuf_document = PIXBUF_DOCUMENT (document);
-	CdkPixbuf *scaled_pixbuf, *rotated_pixbuf;
+	GdkPixbuf *scaled_pixbuf, *rotated_pixbuf;
 	cairo_surface_t *surface;
 
 	scaled_pixbuf = cdk_pixbuf_scale_simple (
@@ -153,13 +153,13 @@ pixbuf_document_class_init (PixbufDocumentClass *klass)
 	ev_document_class->render = pixbuf_document_render;
 }
 
-static CdkPixbuf *
+static GdkPixbuf *
 pixbuf_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 					  EvRenderContext      *rc,
 					  gboolean              border)
 {
 	PixbufDocument *pixbuf_document = PIXBUF_DOCUMENT (document);
-	CdkPixbuf *pixbuf, *rotated_pixbuf;
+	GdkPixbuf *pixbuf, *rotated_pixbuf;
 	gint width, height;
 
 	width = (gint) (cdk_pixbuf_get_width (pixbuf_document->pixbuf) * rc->scale);

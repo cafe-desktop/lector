@@ -363,14 +363,14 @@ ps_document_class_init (PSDocumentClass *klass)
 }
 
 /* EvDocumentThumbnailsIface */
-static CdkPixbuf *
+static GdkPixbuf *
 ps_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document_thumbnails,
 				      EvRenderContext      *rc,
 				      gboolean              border)
 {
 	PSDocument      *ps = PS_DOCUMENT (document_thumbnails);
 	cairo_surface_t *surface;
-	CdkPixbuf       *pixbuf = NULL;
+	GdkPixbuf       *pixbuf = NULL;
 
 	surface = ps_document_render (EV_DOCUMENT (ps), rc);
 	if (!surface) {
@@ -382,7 +382,7 @@ ps_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document_thumbnails,
 	cairo_surface_destroy (surface);
 
 	if (border) {
-		CdkPixbuf *border_pixbuf;
+		GdkPixbuf *border_pixbuf;
 
 		border_pixbuf = ev_document_misc_get_thumbnail_frame (-1, -1, pixbuf);
 		g_object_unref (pixbuf);

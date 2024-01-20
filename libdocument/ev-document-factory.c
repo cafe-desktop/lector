@@ -42,7 +42,7 @@ cdk_pixbuf_mime_type_list ()
 
 	formats = cdk_pixbuf_get_formats ();
 	for (list = formats; list != NULL; list = list->next) {
-		CdkPixbufFormat *format = list->data;
+		GdkPixbufFormat *format = list->data;
 		gchar          **mime_types;
 
 		if (cdk_pixbuf_format_is_disabled (format))

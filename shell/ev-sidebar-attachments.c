@@ -82,7 +82,7 @@ G_DEFINE_TYPE_EXTENDED (EvSidebarAttachments,
 static void
 ev_sidebar_attachments_icon_cache_add (EvSidebarAttachments *ev_attachbar,
 				       const gchar          *mime_type,
-				       const CdkPixbuf      *pixbuf)
+				       const GdkPixbuf      *pixbuf)
 {
 	g_assert (mime_type != NULL);
 	g_assert (CDK_IS_PIXBUF (pixbuf));
@@ -93,13 +93,13 @@ ev_sidebar_attachments_icon_cache_add (EvSidebarAttachments *ev_attachbar,
 
 }
 
-static CdkPixbuf *
+static GdkPixbuf *
 icon_theme_get_pixbuf_from_mime_type (CtkIconTheme *icon_theme,
 				      const gchar  *mime_type)
 {
 	const char *separator;
 	GString *icon_name;
-	CdkPixbuf *pixbuf;
+	GdkPixbuf *pixbuf;
 
 	separator = strchr (mime_type, '/');
 	if (!separator)
@@ -122,11 +122,11 @@ icon_theme_get_pixbuf_from_mime_type (CtkIconTheme *icon_theme,
 	return pixbuf;
 }
 
-static CdkPixbuf *
+static GdkPixbuf *
 ev_sidebar_attachments_icon_cache_get (EvSidebarAttachments *ev_attachbar,
 				       const gchar          *mime_type)
 {
-	CdkPixbuf *pixbuf = NULL;
+	GdkPixbuf *pixbuf = NULL;
 
 	g_assert (mime_type != NULL);
 
@@ -149,10 +149,10 @@ ev_sidebar_attachments_icon_cache_get (EvSidebarAttachments *ev_attachbar,
 
 static gboolean
 icon_cache_update_icon (gchar                *key,
-			CdkPixbuf            *value,
+			GdkPixbuf            *value,
 			EvSidebarAttachments *ev_attachbar)
 {
-	CdkPixbuf *pixbuf = NULL;
+	GdkPixbuf *pixbuf = NULL;
 
 	pixbuf = icon_theme_get_pixbuf_from_mime_type (ev_attachbar->priv->icon_theme,
 						       key);
@@ -328,7 +328,7 @@ ev_sidebar_attachments_update_icons (EvSidebarAttachments *ev_attachbar,
 
 	while (valid) {
 		EvAttachment *attachment = NULL;
-		CdkPixbuf    *pixbuf = NULL;
+		GdkPixbuf    *pixbuf = NULL;
 		const gchar  *mime_type;
 
 		ctk_tree_model_get (CTK_TREE_MODEL (ev_attachbar->priv->model), &iter,
@@ -611,7 +611,7 @@ job_finished_callback (EvJobAttachments     *job,
 	for (l = job->attachments; l && l->data; l = g_list_next (l)) {
 		EvAttachment *attachment;
 		CtkTreeIter   iter;
-		CdkPixbuf    *pixbuf = NULL;
+		GdkPixbuf    *pixbuf = NULL;
 		const gchar  *mime_type;
 
 		attachment = EV_ATTACHMENT (l->data);

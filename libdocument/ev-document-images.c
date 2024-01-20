@@ -42,9 +42,9 @@ ev_document_images_get_image_mapping (EvDocumentImages *document_images,
  * @document_images: an #EvDocumentImages
  * @image: an #EvImage
  *
- * Returns: (transfer full): a #CdkPixbuf
+ * Returns: (transfer full): a #GdkPixbuf
  */
-CdkPixbuf *
+GdkPixbuf *
 ev_document_images_get_image (EvDocumentImages *document_images,
 			      EvImage          *image)
 {

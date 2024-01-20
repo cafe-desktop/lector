@@ -1380,11 +1380,11 @@ pdf_document_images_get_image_mapping (EvDocumentImages *document_images,
 	return ev_mapping_list_new (page->index, g_list_reverse (retval), (GDestroyNotify)g_object_unref);
 }
 
-CdkPixbuf *
+GdkPixbuf *
 pdf_document_images_get_image (EvDocumentImages *document_images,
 			       EvImage          *image)
 {
-	CdkPixbuf       *retval = NULL;
+	GdkPixbuf       *retval = NULL;
 	PdfDocument     *pdf_document;
 	PopplerPage     *poppler_page;
 	cairo_surface_t *surface;
@@ -1411,13 +1411,13 @@ pdf_document_document_images_iface_init (EvDocumentImagesInterface *iface)
 	iface->get_image = pdf_document_images_get_image;
 }
 
-static CdkPixbuf *
+static GdkPixbuf *
 make_thumbnail_for_page (PopplerPage     *poppler_page,
 			 EvRenderContext *rc,
 			 gint             width,
 			 gint             height)
 {
-	CdkPixbuf *pixbuf;
+	GdkPixbuf *pixbuf;
 	cairo_surface_t *surface;
 
 	ev_document_fc_mutex_lock ();
@@ -1430,7 +1430,7 @@ make_thumbnail_for_page (PopplerPage     *poppler_page,
 	return pixbuf;
 }
 
-static CdkPixbuf *
+static GdkPixbuf *
 pdf_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document_thumbnails,
 				       EvRenderContext      *rc, 
 				       gboolean              border)
@@ -1438,8 +1438,8 @@ pdf_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document_thumbnails
 	PdfDocument *pdf_document = PDF_DOCUMENT (document_thumbnails);
 	PopplerPage *poppler_page;
 	cairo_surface_t *surface;
-	CdkPixbuf *pixbuf = NULL;
-	CdkPixbuf *border_pixbuf;
+	GdkPixbuf *pixbuf = NULL;
+	GdkPixbuf *border_pixbuf;
 	gint width, height;
 
 	poppler_page = POPPLER_PAGE (rc->page->backend_page);
@@ -1459,10 +1459,10 @@ pdf_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document_thumbnails
 			cdk_pixbuf_get_width (pixbuf);
 
 		if (thumb_width == width) {
-			CdkPixbuf *rotated_pixbuf;
+			GdkPixbuf *rotated_pixbuf;
 
 			rotated_pixbuf = cdk_pixbuf_rotate_simple (pixbuf,
-								   (CdkPixbufRotation) (360 - rc->rotation));
+								   (GdkPixbufRotation) (360 - rc->rotation));
 			g_object_unref (pixbuf);
 			pixbuf = rotated_pixbuf;
 		} else {

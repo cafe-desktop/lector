@@ -4591,7 +4591,7 @@ ev_view_drag_data_get (CtkWidget        *widget,
 			break;
 	        case TARGET_DND_IMAGE:
 			if (view->image_dnd_info.image) {
-				CdkPixbuf *pixbuf;
+				GdkPixbuf *pixbuf;
 
 				ev_document_doc_mutex_lock ();
 				pixbuf = ev_document_images_get_image (EV_DOCUMENT_IMAGES (view->document),
@@ -4604,7 +4604,7 @@ ev_view_drag_data_get (CtkWidget        *widget,
 			break;
 	        case TARGET_DND_URI:
 			if (view->image_dnd_info.image) {
-				CdkPixbuf   *pixbuf;
+				GdkPixbuf   *pixbuf;
 				const gchar *tmp_uri;
 				gchar       *uris[2];
 

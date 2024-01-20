@@ -331,8 +331,8 @@ job_finished_callback (EvJobAnnots          *job,
 	CtkTreeStore *model;
 	CtkTreeSelection *selection;
 	GList *l;
-	CdkPixbuf *text_icon = NULL;
-	CdkPixbuf *attachment_icon = NULL;
+	GdkPixbuf *text_icon = NULL;
+	GdkPixbuf *attachment_icon = NULL;
 
 	priv = sidebar_annots->priv;
 
@@ -385,7 +385,7 @@ job_finished_callback (EvJobAnnots          *job,
 			const gchar  *modified;
 			gchar        *markup;
 			CtkTreeIter   child_iter;
-			CdkPixbuf    *pixbuf = NULL;
+			GdkPixbuf    *pixbuf = NULL;
 			CtkIconTheme *icon_theme;
 
 			annot = ((EvMapping *)(ll->data))->data;

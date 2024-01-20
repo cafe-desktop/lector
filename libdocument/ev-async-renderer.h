@@ -46,7 +46,7 @@ struct _EvAsyncRendererInterface
 	GTypeInterface base_iface;
 
 	void	    (* render_finished) (EvAsyncRenderer *renderer,
-					 CdkPixbuf       *pixbuf);
+					 GdkPixbuf       *pixbuf);
 
 	void        (* render_pixbuf)   (EvAsyncRenderer *renderer,
 					 int              page,

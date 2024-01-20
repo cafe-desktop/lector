@@ -160,7 +160,7 @@ lector_thumbnail_pngenc_get (EvDocument *document, const char *thumbnail, int si
 {
 	EvRenderContext *rc;
 	double width, height;
-	CdkPixbuf *pixbuf;
+	GdkPixbuf *pixbuf;
 	EvPage *page;
 
 	page = ev_document_get_page (document, 0);

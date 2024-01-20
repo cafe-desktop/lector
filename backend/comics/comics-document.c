@@ -117,9 +117,9 @@ static const ComicBookDecompressCommand command_usage_def[] = {
 static void       comics_document_document_thumbnails_iface_init (EvDocumentThumbnailsInterface *iface);
 
 static GSList*    get_supported_image_extensions (void);
-static void       get_page_size_area_prepared_cb (CdkPixbufLoader *loader,
+static void       get_page_size_area_prepared_cb (GdkPixbufLoader *loader,
 						  gpointer data);
-static void       render_pixbuf_size_prepared_cb (CdkPixbufLoader *loader,
+static void       render_pixbuf_size_prepared_cb (GdkPixbufLoader *loader,
 						  gint width,
 						  gint height,
 						  gpointer data);
@@ -655,14 +655,14 @@ comics_document_get_page_size (EvDocument *document,
 			       double     *width,
 			       double     *height)
 {
-	CdkPixbufLoader *loader;
+	GdkPixbufLoader *loader;
 	char **argv;
 	guchar buf[1024];
 	gboolean success, got_size = FALSE;
 	gint outpipe = -1;
 	GPid child_pid;
 	gssize bytes;
-	CdkPixbuf *pixbuf;
+	GdkPixbuf *pixbuf;
 	gchar *filename;
 	ComicsDocument *comics_document = COMICS_DOCUMENT (document);
 
@@ -719,19 +719,19 @@ comics_document_get_page_size (EvDocument *document,
 }
 
 static void
-get_page_size_area_prepared_cb (CdkPixbufLoader *loader,
+get_page_size_area_prepared_cb (GdkPixbufLoader *loader,
 				gpointer         data)
 {
 	gboolean *got_size = data;
 	*got_size = TRUE;
 }
 
-static CdkPixbuf *
+static GdkPixbuf *
 comics_document_render_pixbuf (EvDocument      *document,
 			       EvRenderContext *rc)
 {
-	CdkPixbufLoader *loader;
-	CdkPixbuf *rotated_pixbuf, *tmp_pixbuf;
+	GdkPixbufLoader *loader;
+	GdkPixbuf *rotated_pixbuf, *tmp_pixbuf;
 	char **argv;
 	guchar buf[4096];
 	gboolean success;
@@ -801,7 +801,7 @@ static cairo_surface_t *
 comics_document_render (EvDocument      *document,
 			EvRenderContext *rc)
 {
-	CdkPixbuf       *pixbuf;
+	GdkPixbuf       *pixbuf;
 	cairo_surface_t *surface;
 
 	pixbuf = comics_document_render_pixbuf (document, rc);
@@ -812,7 +812,7 @@ comics_document_render (EvDocument      *document,
 }
 
 static void
-render_pixbuf_size_prepared_cb (CdkPixbufLoader *loader,
+render_pixbuf_size_prepared_cb (GdkPixbufLoader *loader,
 				gint             width,
 				gint             height,
 				gpointer         data)
@@ -929,17 +929,17 @@ get_supported_image_extensions(void)
 	return extensions;
 }
 
-static CdkPixbuf *
+static GdkPixbuf *
 comics_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 					  EvRenderContext      *rc,
 					  gboolean              border)
 {
-	CdkPixbuf *thumbnail;
+	GdkPixbuf *thumbnail;
 
 	thumbnail = comics_document_render_pixbuf (EV_DOCUMENT (document), rc);
 
 	if (border) {
-	      CdkPixbuf *tmp_pixbuf = thumbnail;
+	      GdkPixbuf *tmp_pixbuf = thumbnail;
 
 	      thumbnail = ev_document_misc_get_thumbnail_frame (-1, -1, tmp_pixbuf);
 	      g_object_unref (tmp_pixbuf);

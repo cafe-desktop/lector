@@ -29,7 +29,7 @@
 #include <glib/gi18n.h>
 #include <string.h>
 
-static CdkPixbuf * new_separator_pixbuf         (void);
+static GdkPixbuf * new_separator_pixbuf         (void);
 
 #define MIN_TOOLBAR_HEIGHT 20
 #define EGG_ITEM_NAME      "egg-item-name"
@@ -461,7 +461,7 @@ configure_item_cursor (CtkToolItem *item,
         {
           CdkCursor *cursor;
           CdkScreen *screen;
-          CdkPixbuf *pixbuf = NULL;
+          GdkPixbuf *pixbuf = NULL;
 
           screen = ctk_widget_get_screen (CTK_WIDGET (etoolbar));
 
@@ -1802,11 +1802,11 @@ egg_editable_toolbar_set_fixed (EggEditableToolbar *etoolbar,
  * themes. However, the icon is slightly large for themes
  * with large toolbar icons.
  */
-static CdkPixbuf *
+static GdkPixbuf *
 new_pixbuf_from_widget (CtkWidget *widget)
 {
   CtkWidget *window;
-  CdkPixbuf *pixbuf;
+  GdkPixbuf *pixbuf;
   gint icon_height;
 
   if (!ctk_icon_size_lookup (CTK_ICON_SIZE_LARGE_TOOLBAR,
@@ -1831,11 +1831,11 @@ new_pixbuf_from_widget (CtkWidget *widget)
   return pixbuf;
 }
 
-static CdkPixbuf *
+static GdkPixbuf *
 new_separator_pixbuf (void)
 {
   CtkWidget *separator;
-  CdkPixbuf *pixbuf;
+  GdkPixbuf *pixbuf;
 
   separator = ctk_separator_new (CTK_ORIENTATION_VERTICAL);
   pixbuf = new_pixbuf_from_widget (separator);
@@ -1845,7 +1845,7 @@ new_separator_pixbuf (void)
 static void
 update_separator_image (CtkImage *image)
 {
-  CdkPixbuf *pixbuf = new_separator_pixbuf ();
+  GdkPixbuf *pixbuf = new_separator_pixbuf ();
   ctk_image_set_from_pixbuf (CTK_IMAGE (image), pixbuf);
   g_object_unref (pixbuf);
 }

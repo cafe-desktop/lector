@@ -324,7 +324,7 @@ tiff_document_render (EvDocument      *document,
 	return rotated_surface;
 }
 
-static CdkPixbuf *
+static GdkPixbuf *
 tiff_document_render_pixbuf (EvDocument      *document,
 			     EvRenderContext *rc)
 {
@@ -333,9 +333,9 @@ tiff_document_render_pixbuf (EvDocument      *document,
 	float x_res, y_res;
 	gint rowstride, bytes;
 	guchar *pixels = NULL;
-	CdkPixbuf *pixbuf;
-	CdkPixbuf *scaled_pixbuf;
-	CdkPixbuf *rotated_pixbuf;
+	GdkPixbuf *pixbuf;
+	GdkPixbuf *scaled_pixbuf;
+	GdkPixbuf *rotated_pixbuf;
 
 	push_handlers ();
 	if (TIFFSetDirectory (tiff_document->tiff, rc->page->index) != 1) {
@@ -387,7 +387,7 @@ tiff_document_render_pixbuf (EvDocument      *document,
 
 	pixbuf = cdk_pixbuf_new_from_data (pixels, CDK_COLORSPACE_RGB, TRUE, 8,
 					   width, height, rowstride,
-					   (CdkPixbufDestroyNotify) g_free, NULL);
+					   (GdkPixbufDestroyNotify) g_free, NULL);
 	pop_handlers ();
 
 	scaled_pixbuf = cdk_pixbuf_scale_simple (pixbuf,
@@ -446,17 +446,17 @@ tiff_document_class_init (TiffDocumentClass *klass)
 	ev_document_class->get_page_label = tiff_document_get_page_label;
 }
 
-static CdkPixbuf *
+static GdkPixbuf *
 tiff_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 					EvRenderContext      *rc,
 					gboolean              border)
 {
-	CdkPixbuf *pixbuf;
+	GdkPixbuf *pixbuf;
 
 	pixbuf = tiff_document_render_pixbuf (EV_DOCUMENT (document), rc);
 
 	if (border) {
-		CdkPixbuf *tmp_pixbuf = pixbuf;
+		GdkPixbuf *tmp_pixbuf = pixbuf;
 
 		pixbuf = ev_document_misc_get_thumbnail_frame (-1, -1, tmp_pixbuf);
 		g_object_unref (tmp_pixbuf);

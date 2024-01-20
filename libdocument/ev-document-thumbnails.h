@@ -44,7 +44,7 @@ struct _EvDocumentThumbnailsInterface {
         GTypeInterface base_iface;
 
         /* Methods  */
-        CdkPixbuf *  (* get_thumbnail)  (EvDocumentThumbnails *document,
+        GdkPixbuf *  (* get_thumbnail)  (EvDocumentThumbnails *document,
                                          EvRenderContext      *rc,
                                          gboolean              border);
         void         (* get_dimensions) (EvDocumentThumbnails *document,
@@ -56,7 +56,7 @@ struct _EvDocumentThumbnailsInterface {
 
 GType      ev_document_thumbnails_get_type       (void) G_GNUC_CONST;
 
-CdkPixbuf *ev_document_thumbnails_get_thumbnail  (EvDocumentThumbnails *document,
+GdkPixbuf *ev_document_thumbnails_get_thumbnail  (EvDocumentThumbnails *document,
                                                   EvRenderContext      *rc,
                                                   gboolean              border);
 void       ev_document_thumbnails_get_dimensions (EvDocumentThumbnails *document,

@@ -27,7 +27,7 @@
 G_BEGIN_DECLS
 
 void           		file_chooser_dialog_add_writable_pixbuf_formats (CtkFileChooser *chooser);
-CdkPixbufFormat* 	get_cdk_pixbuf_format_by_extension (gchar *uri);
+GdkPixbufFormat* 	get_cdk_pixbuf_format_by_extension (gchar *uri);
 
 G_END_DECLS
 
