@@ -3,7 +3,7 @@
                       "http://www.freedesktop.org/software/dbus/introspection.dtd">
 <node>
   <interface name='org.cafe.lector.Application'>
-    <annotation name="org.ctk.GDBus.C.Name" value="LectorApplication" />
+    <annotation name="org.gtk.GDBus.C.Name" value="LectorApplication" />
     <method name='Reload'>
       <arg type='a{sv}' name='args' direction='in'/>
       <arg type='u' name='timestamp' direction='in'/>
@@ -13,7 +13,7 @@
     </method>
   </interface>
   <interface name='org.cafe.lector.Window'>
-    <annotation name="org.ctk.GDBus.C.Name" value="LectorWindow" />
+    <annotation name="org.gtk.GDBus.C.Name" value="LectorWindow" />
     <method name='SyncView'>
       <arg type='s' name='source_file' direction='in'/>
       <arg type='(ii)' name='source_point' direction='in'/>
