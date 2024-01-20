@@ -764,7 +764,7 @@ Configure summary:
     Caja Plugin.........:    $enable_caja
     Thumbnailer.........:    $enable_thumbnailer
     Previewer...........:    $enable_previewer
-    Ctk-Doc Support.....:    $enable_gtk_doc
+    Gtk-Doc Support.....:    $enable_gtk_doc
     Debug mode..........:    $enable_debug
     GObj. Introspection.:    $enable_introspection
     Tests...............:    $enable_tests
