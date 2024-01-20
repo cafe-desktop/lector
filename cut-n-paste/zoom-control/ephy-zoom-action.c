@@ -54,7 +54,7 @@ enum
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (EphyZoomAction, ephy_zoom_action, GTK_TYPE_ACTION)
+G_DEFINE_TYPE_WITH_PRIVATE (EphyZoomAction, ephy_zoom_action, CTK_TYPE_ACTION)
 
 static void
 zoom_to_level_cb (EphyZoomControl *control,
@@ -102,7 +102,7 @@ connect_proxy (GtkAction *action, GtkWidget *proxy)
 		g_signal_connect (proxy, "zoom_to_level",
 				  G_CALLBACK (zoom_to_level_cb), action);
 	}
-	GTK_ACTION_CLASS (ephy_zoom_action_parent_class)->connect_proxy (action, proxy);
+	CTK_ACTION_CLASS (ephy_zoom_action_parent_class)->connect_proxy (action, proxy);
 }
 
 static void
@@ -112,7 +112,7 @@ proxy_menu_activate_cb (GtkMenuItem *menu_item, EphyZoomAction *action)
 	float zoom;
 
 	/* menu item was toggled OFF */
-	if (!ctk_check_menu_item_get_active (GTK_CHECK_MENU_ITEM (menu_item))) return;
+	if (!ctk_check_menu_item_get_active (CTK_CHECK_MENU_ITEM (menu_item))) return;
 
 	index = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (menu_item), "zoom-level"));
 	zoom = zoom_levels[index].level;
@@ -143,9 +143,9 @@ create_menu_item (GtkAction *action)
 		{
 			menu_item = ctk_radio_menu_item_new_with_label (group,
 									_(zoom_levels[i].name));
-			group = ctk_radio_menu_item_get_group (GTK_RADIO_MENU_ITEM (menu_item));
+			group = ctk_radio_menu_item_get_group (CTK_RADIO_MENU_ITEM (menu_item));
 
-                        ctk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (menu_item),
+                        ctk_check_menu_item_set_active (CTK_CHECK_MENU_ITEM (menu_item),
                                                         p->zoom == zoom_levels[i].level);
 
                         g_object_set_data (G_OBJECT (menu_item), "zoom-level", GINT_TO_POINTER (i));
@@ -154,14 +154,14 @@ create_menu_item (GtkAction *action)
                 }
 
                 ctk_widget_show (menu_item);
-		ctk_menu_shell_append (GTK_MENU_SHELL (menu), menu_item);
+		ctk_menu_shell_append (CTK_MENU_SHELL (menu), menu_item);
 	}
 
 	ctk_widget_show (menu);
 
-        menu_item = GTK_ACTION_CLASS (ephy_zoom_action_parent_class)->create_menu_item (action);
+        menu_item = CTK_ACTION_CLASS (ephy_zoom_action_parent_class)->create_menu_item (action);
 
-	ctk_menu_item_set_submenu (GTK_MENU_ITEM (menu_item), menu);
+	ctk_menu_item_set_submenu (CTK_MENU_ITEM (menu_item), menu);
 
 	ctk_widget_show (menu_item);
 
@@ -220,7 +220,7 @@ static void
 ephy_zoom_action_class_init (EphyZoomActionClass *class)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (class);
-	GtkActionClass *action_class = GTK_ACTION_CLASS (class);
+	GtkActionClass *action_class = CTK_ACTION_CLASS (class);
 
 	object_class->set_property = ephy_zoom_action_set_property;
 	object_class->get_property = ephy_zoom_action_get_property;

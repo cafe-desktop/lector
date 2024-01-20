@@ -50,7 +50,7 @@ struct _EvPageActionWidget
 
 static guint widget_signals[WIDGET_N_SIGNALS] = {0, };
 
-G_DEFINE_TYPE (EvPageActionWidget, ev_page_action_widget, GTK_TYPE_TOOL_ITEM)
+G_DEFINE_TYPE (EvPageActionWidget, ev_page_action_widget, CTK_TYPE_TOOL_ITEM)
 
 static void
 update_pages_label (EvPageActionWidget *action_widget,
@@ -65,7 +65,7 @@ update_pages_label (EvPageActionWidget *action_widget,
 	} else {
 		label_text = g_strdup_printf (_("of %d"), n_pages);
 	}
-	ctk_label_set_text (GTK_LABEL (action_widget->label), label_text);
+	ctk_label_set_text (CTK_LABEL (action_widget->label), label_text);
 	g_free (label_text);
 }
 
@@ -76,17 +76,17 @@ ev_page_action_widget_set_current_page (EvPageActionWidget *action_widget,
 	if (page >= 0) {
 		gchar *page_label;
 
-		ctk_entry_set_width_chars (GTK_ENTRY (action_widget->entry),
+		ctk_entry_set_width_chars (CTK_ENTRY (action_widget->entry),
 					   CLAMP (ev_document_get_max_label_len (action_widget->document),
 						  6, 12));
 
 		page_label = ev_document_get_page_label (action_widget->document, page);
-		ctk_entry_set_text (GTK_ENTRY (action_widget->entry), page_label);
-		ctk_editable_set_position (GTK_EDITABLE (action_widget->entry), -1);
+		ctk_entry_set_text (CTK_ENTRY (action_widget->entry), page_label);
+		ctk_editable_set_position (CTK_EDITABLE (action_widget->entry), -1);
 		g_free (page_label);
 
 	} else {
-		ctk_entry_set_text (GTK_ENTRY (action_widget->entry), "");
+		ctk_entry_set_text (CTK_ENTRY (action_widget->entry), "");
 	}
 
 	update_pages_label (action_widget, page);
@@ -132,7 +132,7 @@ activate_cb (EvPageActionWidget *action_widget)
 	model = action_widget->doc_model;
 	current_page = ev_document_model_get_page (model);
 
-	text = ctk_entry_get_text (GTK_ENTRY (action_widget->entry));
+	text = ctk_entry_get_text (CTK_ENTRY (action_widget->entry));
 
 	link_dest = ev_link_dest_new_page_label (text);
 	link_action = ev_link_action_new_dest (link_dest);
@@ -154,14 +154,14 @@ ev_page_action_widget_init (EvPageActionWidget *action_widget)
 	GtkWidget *hbox;
 	AtkObject *obj;
 
-	hbox = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-	ctk_box_set_spacing (GTK_BOX (hbox), 6);
+	hbox = ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 0);
+	ctk_box_set_spacing (CTK_BOX (hbox), 6);
 
 	action_widget->entry = ctk_entry_new ();
 	ctk_widget_add_events (action_widget->entry,
 			       GDK_BUTTON_MOTION_MASK);
-	ctk_entry_set_width_chars (GTK_ENTRY (action_widget->entry), 5);
-	ctk_entry_set_text (GTK_ENTRY (action_widget->entry), "");
+	ctk_entry_set_width_chars (CTK_ENTRY (action_widget->entry), 5);
+	ctk_entry_set_text (CTK_ENTRY (action_widget->entry), "");
 	g_signal_connect_swapped (action_widget->entry, "scroll-event",
 				  G_CALLBACK (page_scroll_cb),
 				  action_widget);
@@ -172,22 +172,22 @@ ev_page_action_widget_init (EvPageActionWidget *action_widget)
 	obj = ctk_widget_get_accessible (action_widget->entry);
 	atk_object_set_name (obj, "page-label-entry");
 
-	ctk_box_pack_start (GTK_BOX (hbox), action_widget->entry,
+	ctk_box_pack_start (CTK_BOX (hbox), action_widget->entry,
 			    FALSE, FALSE, 0);
 	ctk_widget_show (action_widget->entry);
 
 	action_widget->label = ctk_label_new (NULL);
-	ctk_label_set_width_chars (GTK_LABEL (action_widget->label), 14);
-	ctk_label_set_xalign (GTK_LABEL (action_widget->label), 0.0);
-	ctk_box_pack_start (GTK_BOX (hbox), action_widget->label,
+	ctk_label_set_width_chars (CTK_LABEL (action_widget->label), 14);
+	ctk_label_set_xalign (CTK_LABEL (action_widget->label), 0.0);
+	ctk_box_pack_start (CTK_BOX (hbox), action_widget->label,
 			    FALSE, FALSE, 0);
 	ctk_widget_show (action_widget->label);
 
-	ctk_container_set_border_width (GTK_CONTAINER (action_widget), 6);
-	ctk_container_add (GTK_CONTAINER (action_widget), hbox);
+	ctk_container_set_border_width (CTK_CONTAINER (action_widget), 6);
+	ctk_container_add (CTK_CONTAINER (action_widget), hbox);
 	ctk_widget_show (hbox);
 
-	ctk_widget_show (GTK_WIDGET (action_widget));
+	ctk_widget_show (CTK_WIDGET (action_widget));
 }
 
 static void
@@ -392,7 +392,7 @@ build_new_tree_cb (GtkTreeModel *model,
 		   GtkTreeIter  *iter,
 		   gpointer      data)
 {
-	GtkTreeModel *filter_model = GTK_TREE_MODEL (data);
+	GtkTreeModel *filter_model = CTK_TREE_MODEL (data);
 	EvLink *link;
 	EvLinkAction *action;
 	EvLinkActionType type;
@@ -415,8 +415,8 @@ build_new_tree_cb (GtkTreeModel *model,
 	if (type == EV_LINK_ACTION_TYPE_GOTO_DEST) {
 		GtkTreeIter filter_iter;
 
-		ctk_list_store_append (GTK_LIST_STORE (filter_model), &filter_iter);
-		ctk_list_store_set (GTK_LIST_STORE (filter_model), &filter_iter,
+		ctk_list_store_append (CTK_LIST_STORE (filter_model), &filter_iter);
+		ctk_list_store_set (CTK_LIST_STORE (filter_model), &filter_iter,
 				    0, iter,
 				    -1);
 	}
@@ -434,7 +434,7 @@ get_filter_model_from_model (GtkTreeModel *model)
 	filter_model =
 		(GtkTreeModel *) g_object_get_data (G_OBJECT (model), EPA_FILTER_MODEL_DATA);
 	if (filter_model == NULL) {
-		filter_model = (GtkTreeModel *) ctk_list_store_new (1, GTK_TYPE_TREE_ITER);
+		filter_model = (GtkTreeModel *) ctk_list_store_new (1, CTK_TYPE_TREE_ITER);
 
 		ctk_tree_model_foreach (model,
 					build_new_tree_cb,
@@ -473,16 +473,16 @@ ev_page_action_widget_update_links_model (EvPageActionWidget *proxy, GtkTreeMode
 
 	/* Set up the layout */
 	renderer = (GtkCellRenderer *)
-		g_object_new (GTK_TYPE_CELL_RENDERER_TEXT,
+		g_object_new (CTK_TYPE_CELL_RENDERER_TEXT,
 			      "ellipsize", PANGO_ELLIPSIZE_END,
 			      "width_chars", 30,
 			      NULL);
-	ctk_cell_layout_pack_start (GTK_CELL_LAYOUT (completion), renderer, TRUE);
-	ctk_cell_layout_set_cell_data_func (GTK_CELL_LAYOUT (completion),
+	ctk_cell_layout_pack_start (CTK_CELL_LAYOUT (completion), renderer, TRUE);
+	ctk_cell_layout_set_cell_data_func (CTK_CELL_LAYOUT (completion),
 					    renderer,
 					    (GtkCellLayoutDataFunc) display_completion_text,
 					    proxy, NULL);
-	ctk_entry_set_completion (GTK_ENTRY (proxy->entry), completion);
+	ctk_entry_set_completion (CTK_ENTRY (proxy->entry), completion);
 
 	g_object_unref (completion);
 }

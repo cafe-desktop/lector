@@ -7,6 +7,6 @@ backenddir=@libdir@/lector/@EV_BINARY_VERSION@/backends
 Name: Lector Document
 Description: CAFE document viewer backend library
 Version: @VERSION@
-Requires: gio-2.0 >= @GLIB_REQUIRED@ ctk+-3.0 >= @GTK_REQUIRED@
+Requires: gio-2.0 >= @GLIB_REQUIRED@ ctk+-3.0 >= @CTK_REQUIRED@
 Libs: -L${libdir} -llectordocument
 Cflags: -I${includedir}

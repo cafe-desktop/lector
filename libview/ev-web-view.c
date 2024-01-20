@@ -136,9 +136,9 @@ ev_web_view_class_init (EvWebViewClass *klass)
 static void
 ev_web_view_init (EvWebView *webview)
 {
-	ctk_widget_set_can_focus (GTK_WIDGET (webview), TRUE);
+	ctk_widget_set_can_focus (CTK_WIDGET (webview), TRUE);
 
-	ctk_widget_set_has_window (GTK_WIDGET (webview), TRUE);
+	ctk_widget_set_has_window (CTK_WIDGET (webview), TRUE);
 
 	webview->current_page = 0;
 

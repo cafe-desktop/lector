@@ -961,8 +961,8 @@ pdf_document_fonts_fill_model (EvDocumentFonts *document_fonts,
 
 		details = g_markup_printf_escaped ("%s\n%s", type, embedded);
 
-		ctk_list_store_append (GTK_LIST_STORE (model), &list_iter);
-		ctk_list_store_set (GTK_LIST_STORE (model), &list_iter,
+		ctk_list_store_append (CTK_LIST_STORE (model), &list_iter);
+		ctk_list_store_set (CTK_LIST_STORE (model), &list_iter,
 				    EV_DOCUMENT_FONTS_COLUMN_NAME, name,
 				    EV_DOCUMENT_FONTS_COLUMN_DETAILS, details,
 				    -1);
@@ -1215,10 +1215,10 @@ build_tree (PdfDocument      *pdf_document,
 			continue;
 		}
 
-		ctk_tree_store_append (GTK_TREE_STORE (model), &tree_iter, parent);
+		ctk_tree_store_append (CTK_TREE_STORE (model), &tree_iter, parent);
 		title_markup = g_markup_escape_text (ev_link_get_title (link), -1);
 		
-		ctk_tree_store_set (GTK_TREE_STORE (model), &tree_iter,
+		ctk_tree_store_set (CTK_TREE_STORE (model), &tree_iter,
 				    EV_DOCUMENT_LINKS_COLUMN_MARKUP, title_markup,
 				    EV_DOCUMENT_LINKS_COLUMN_LINK, link,
 				    EV_DOCUMENT_LINKS_COLUMN_EXPAND, expand,
@@ -3255,8 +3255,8 @@ build_layers_tree (PdfDocument       *pdf_document,
 			layer = NULL;
 		}
 
-		ctk_tree_store_append (GTK_TREE_STORE (model), &tree_iter, parent);
-		ctk_tree_store_set (GTK_TREE_STORE (model), &tree_iter,
+		ctk_tree_store_append (CTK_TREE_STORE (model), &tree_iter, parent);
+		ctk_tree_store_set (CTK_TREE_STORE (model), &tree_iter,
 				    EV_DOCUMENT_LAYERS_COLUMN_TITLE, markup,
 				    EV_DOCUMENT_LAYERS_COLUMN_VISIBLE, visible,
 				    EV_DOCUMENT_LAYERS_COLUMN_ENABLED, TRUE, /* FIXME */

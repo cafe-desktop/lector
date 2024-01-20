@@ -21,7 +21,7 @@
 
 #include "ev-print-operation.h"
 
-#if GTKUNIXPRINT_ENABLED
+#if CTKUNIXPRINT_ENABLED
 #include <ctk/ctkunixprint.h>
 #endif
 #include <glib/gi18n.h>
@@ -151,7 +151,7 @@ ev_print_operation_class_init (EvPrintOperationClass *klass)
 			      NULL, NULL,
 			      g_cclosure_marshal_VOID__ENUM,
 			      G_TYPE_NONE, 1,
-			      GTK_TYPE_PRINT_OPERATION_RESULT);
+			      CTK_TYPE_PRINT_OPERATION_RESULT);
 	signals[BEGIN_PRINT] =
 		g_signal_new ("begin_print",
 			      G_TYPE_FROM_CLASS (g_object_class),
@@ -190,7 +190,7 @@ ev_print_operation_set_print_settings (EvPrintOperation *op,
 	EvPrintOperationClass *class = EV_PRINT_OPERATION_GET_CLASS (op);
 
 	g_return_if_fail (EV_IS_PRINT_OPERATION (op));
-	g_return_if_fail (GTK_IS_PRINT_SETTINGS (print_settings));
+	g_return_if_fail (CTK_IS_PRINT_SETTINGS (print_settings));
 
 	class->set_print_settings (op, print_settings);
 }
@@ -218,7 +218,7 @@ ev_print_operation_set_default_page_setup (EvPrintOperation *op,
 	EvPrintOperationClass *class = EV_PRINT_OPERATION_GET_CLASS (op);
 
 	g_return_if_fail (EV_IS_PRINT_OPERATION (op));
-	g_return_if_fail (GTK_IS_PAGE_SETUP (page_setup));
+	g_return_if_fail (CTK_IS_PAGE_SETUP (page_setup));
 
 	class->set_default_page_setup (op, page_setup);
 }
@@ -356,7 +356,7 @@ ev_print_operation_update_status (EvPrintOperation *op,
 	g_signal_emit (op, signals[STATUS_CHANGED], 0);
 }
 
-#if GTKUNIXPRINT_ENABLED
+#if CTKUNIXPRINT_ENABLED
 
 /* Export interface */
 #define EV_TYPE_PRINT_OPERATION_EXPORT         (ev_print_operation_export_get_type())
@@ -641,17 +641,17 @@ clamp_ranges (EvPrintOperationExport *export)
 		}
 
 		n_pages = export->ranges[i].end - export->ranges[i].start + 1;
-		if (export->page_set == GTK_PAGE_SET_ALL) {
+		if (export->page_set == CTK_PAGE_SET_ALL) {
 			n_pages_to_print += n_pages;
 		} else if (n_pages % 2 == 0) {
 			n_pages_to_print += n_pages / 2;
-		} else if (export->page_set == GTK_PAGE_SET_EVEN) {
+		} else if (export->page_set == CTK_PAGE_SET_EVEN) {
 			if (n_pages==1 && export->ranges[i].start % 2 == 0)
 				null_flag = TRUE;
 			else
 				n_pages_to_print += export->ranges[i].start % 2 == 0 ?
 				n_pages / 2 : (n_pages / 2) + 1;
-		} else if (export->page_set == GTK_PAGE_SET_ODD) {
+		} else if (export->page_set == CTK_PAGE_SET_ODD) {
 			if (n_pages==1 && export->ranges[i].start % 2 != 0)
 				null_flag = TRUE;
 			else
@@ -727,9 +727,9 @@ export_print_inc_page (EvPrintOperationExport *export)
 					 * which are in the current odd / even sheet set */
 
 					export->page_count += export->pages_per_sheet - (export->page_count - 1) % export->pages_per_sheet;
-					if (export->page_set == GTK_PAGE_SET_ALL ||
-						(export->page_set == GTK_PAGE_SET_EVEN && export->sheet % 2 == 0) ||
-						(export->page_set == GTK_PAGE_SET_ODD && export->sheet % 2 == 1) ) {
+					if (export->page_set == CTK_PAGE_SET_ALL ||
+						(export->page_set == CTK_PAGE_SET_EVEN && export->sheet % 2 == 0) ||
+						(export->page_set == CTK_PAGE_SET_ODD && export->sheet % 2 == 1) ) {
 						ev_file_exporter_end_page (EV_FILE_EXPORTER (op->document));
 					}
 					ev_document_doc_mutex_unlock ();
@@ -748,8 +748,8 @@ export_print_inc_page (EvPrintOperationExport *export)
 	/* in/decrement the page number until we reach the first page on the next EVEN or ODD sheet
 	 * if we're not collating, we have to make sure that this is done only once! */
 	} while ( export->collate == 1 &&
-		((export->page_set == GTK_PAGE_SET_EVEN && export->sheet % 2 == 1) ||
-		(export->page_set == GTK_PAGE_SET_ODD && export->sheet % 2 == 0)));
+		((export->page_set == CTK_PAGE_SET_EVEN && export->sheet % 2 == 1) ||
+		(export->page_set == CTK_PAGE_SET_ODD && export->sheet % 2 == 0)));
 
 	return TRUE;
 }
@@ -790,12 +790,12 @@ ctk_print_job_finished (GtkPrintJob            *print_job,
 
 	if (error) {
 		g_set_error_literal (&export->error,
-				     GTK_PRINT_ERROR,
-				     GTK_PRINT_ERROR_GENERAL,
+				     CTK_PRINT_ERROR,
+				     CTK_PRINT_ERROR_GENERAL,
 				     error->message);
-		g_signal_emit (op, signals[DONE], 0, GTK_PRINT_OPERATION_RESULT_ERROR);
+		g_signal_emit (op, signals[DONE], 0, CTK_PRINT_OPERATION_RESULT_ERROR);
 	} else {
-		g_signal_emit (op, signals[DONE], 0, GTK_PRINT_OPERATION_RESULT_APPLY);
+		g_signal_emit (op, signals[DONE], 0, CTK_PRINT_OPERATION_RESULT_APPLY);
 	}
 
 	ev_print_operation_export_clear_temp_file (export);
@@ -824,11 +824,11 @@ export_print_done (EvPrintOperationExport *export)
 	capabilities = ev_file_exporter_get_capabilities (EV_FILE_EXPORTER (op->document));
 
 	ctk_print_settings_set_page_ranges (settings, NULL, 0);
-	ctk_print_settings_set_print_pages (settings, GTK_PRINT_PAGES_ALL);
+	ctk_print_settings_set_print_pages (settings, CTK_PRINT_PAGES_ALL);
 	if (capabilities & EV_FILE_EXPORTER_CAN_COPIES)
 		ctk_print_settings_set_n_copies (settings, 1);
 	if (capabilities & EV_FILE_EXPORTER_CAN_PAGE_SET)
-		ctk_print_settings_set_page_set (settings, GTK_PAGE_SET_ALL);
+		ctk_print_settings_set_page_set (settings, CTK_PAGE_SET_ALL);
 	if (capabilities & EV_FILE_EXPORTER_CAN_SCALE)
 		ctk_print_settings_set_scale (settings, 1.0);
 	if (capabilities & EV_FILE_EXPORTER_CAN_COLLATE)
@@ -837,7 +837,7 @@ export_print_done (EvPrintOperationExport *export)
 		ctk_print_settings_set_reverse (settings, FALSE);
 	if (capabilities & EV_FILE_EXPORTER_CAN_NUMBER_UP) {
 		ctk_print_settings_set_number_up (settings, 1);
-		ctk_print_settings_set_int (settings, "cups-"GTK_PRINT_SETTINGS_NUMBER_UP, 1);
+		ctk_print_settings_set_int (settings, "cups-"CTK_PRINT_SETTINGS_NUMBER_UP, 1);
 	}
 
 	if (export->print_preview) {
@@ -884,7 +884,7 @@ export_print_done (EvPrintOperationExport *export)
 			app = g_app_info_create_from_commandline (cmd, NULL, 0, &error);
 
 			if (app != NULL) {
-				ctx = gdk_display_get_app_launch_context (ctk_widget_get_display (GTK_WIDGET (export->parent_window)));
+				ctx = gdk_display_get_app_launch_context (ctk_widget_get_display (CTK_WIDGET (export->parent_window)));
 				gdk_app_launch_context_set_screen (ctx, ctk_window_get_screen (export->parent_window));
 
 				g_app_info_launch (app, NULL, G_APP_LAUNCH_CONTEXT (ctx), &error);
@@ -901,7 +901,7 @@ export_print_done (EvPrintOperationExport *export)
 				g_unlink (print_settings_file);
 			g_free (print_settings_file);
 		} else {
-			g_signal_emit (op, signals[DONE], 0, GTK_PRINT_OPERATION_RESULT_APPLY);
+			g_signal_emit (op, signals[DONE], 0, CTK_PRINT_OPERATION_RESULT_APPLY);
 			/* temp_file will be deleted by the previewer */
 
 			ev_print_operation_export_run_next (export);
@@ -925,12 +925,12 @@ export_print_done (EvPrintOperationExport *export)
 
 	if (error) {
 		g_set_error_literal (&export->error,
-				     GTK_PRINT_ERROR,
-				     GTK_PRINT_ERROR_GENERAL,
+				     CTK_PRINT_ERROR,
+				     CTK_PRINT_ERROR_GENERAL,
 				     error->message);
 		g_error_free (error);
 		ev_print_operation_export_clear_temp_file (export);
-		g_signal_emit (op, signals[DONE], 0, GTK_PRINT_OPERATION_RESULT_ERROR);
+		g_signal_emit (op, signals[DONE], 0, CTK_PRINT_OPERATION_RESULT_ERROR);
 
 		ev_print_operation_export_run_next (export);
 	}
@@ -950,9 +950,9 @@ export_job_finished (EvJobExport            *job,
 
 	if (export->pages_per_sheet == 1 ||
 	   ( export->page_count % export->pages_per_sheet == 0 &&
-	   ( export->page_set == GTK_PAGE_SET_ALL ||
-	   ( export->page_set == GTK_PAGE_SET_EVEN && export->sheet % 2 == 0 ) ||
-	   ( export->page_set == GTK_PAGE_SET_ODD && export->sheet % 2 == 1 ) ) ) ) {
+	   ( export->page_set == CTK_PAGE_SET_ALL ||
+	   ( export->page_set == CTK_PAGE_SET_EVEN && export->sheet % 2 == 0 ) ||
+	   ( export->page_set == CTK_PAGE_SET_ODD && export->sheet % 2 == 1 ) ) ) ) {
 
 		ev_document_doc_mutex_lock ();
 		ev_file_exporter_end_page (EV_FILE_EXPORTER (op->document));
@@ -1000,7 +1000,7 @@ export_cancel (EvPrintOperationExport *export)
 
 	ev_print_operation_export_clear_temp_file (export);
 
-	g_signal_emit (op, signals[DONE], 0, GTK_PRINT_OPERATION_RESULT_CANCEL);
+	g_signal_emit (op, signals[DONE], 0, CTK_PRINT_OPERATION_RESULT_CANCEL);
 
 	ev_print_operation_export_run_next (export);
 }
@@ -1050,8 +1050,8 @@ export_print_page (EvPrintOperationExport *export)
 
 	/* we're not collating and we've reached a sheet from the wrong sheet set */
 	if (!export->collate &&
-	    ((export->page_set == GTK_PAGE_SET_EVEN && export->sheet % 2 != 0) ||
-	    (export->page_set == GTK_PAGE_SET_ODD && export->sheet % 2 != 1))) {
+	    ((export->page_set == CTK_PAGE_SET_EVEN && export->sheet % 2 != 0) ||
+	    (export->page_set == CTK_PAGE_SET_ODD && export->sheet % 2 != 1))) {
 
 		do {
 			export->page_count++;
@@ -1076,16 +1076,16 @@ export_print_page (EvPrintOperationExport *export)
 				}
 			}
 
-		} while ((export->page_set == GTK_PAGE_SET_EVEN && export->sheet % 2 != 0) ||
-	    		  (export->page_set == GTK_PAGE_SET_ODD && export->sheet % 2 != 1));
+		} while ((export->page_set == CTK_PAGE_SET_EVEN && export->sheet % 2 != 0) ||
+	    		  (export->page_set == CTK_PAGE_SET_ODD && export->sheet % 2 != 1));
 
 	}
 
 	if (export->pages_per_sheet == 1 ||
 	    (export->page_count % export->pages_per_sheet == 1 &&
-	    (export->page_set == GTK_PAGE_SET_ALL ||
-	    (export->page_set == GTK_PAGE_SET_EVEN && export->sheet % 2 == 0) ||
-	    (export->page_set == GTK_PAGE_SET_ODD && export->sheet % 2 == 1)))) {
+	    (export->page_set == CTK_PAGE_SET_ALL ||
+	    (export->page_set == CTK_PAGE_SET_EVEN && export->sheet % 2 == 0) ||
+	    (export->page_set == CTK_PAGE_SET_ODD && export->sheet % 2 == 1)))) {
 		ev_document_doc_mutex_lock ();
 		ev_file_exporter_begin_page (EV_FILE_EXPORTER (op->document));
 		ev_document_doc_mutex_unlock ();
@@ -1146,61 +1146,61 @@ ev_print_operation_export_print_dialog_response_cb (GtkDialog              *dial
 	GError           *error = NULL;
 	EvPrintOperation *op = EV_PRINT_OPERATION (export);
 
-	if (response != GTK_RESPONSE_OK &&
-	    response != GTK_RESPONSE_APPLY) {
-		ctk_widget_destroy (GTK_WIDGET (dialog));
-		g_signal_emit (op, signals[DONE], 0, GTK_PRINT_OPERATION_RESULT_CANCEL);
+	if (response != CTK_RESPONSE_OK &&
+	    response != CTK_RESPONSE_APPLY) {
+		ctk_widget_destroy (CTK_WIDGET (dialog));
+		g_signal_emit (op, signals[DONE], 0, CTK_PRINT_OPERATION_RESULT_CANCEL);
 
 		return;
 	}
 
-	export->print_preview = (response == GTK_RESPONSE_APPLY);
+	export->print_preview = (response == CTK_RESPONSE_APPLY);
 
-	printer = ctk_print_unix_dialog_get_selected_printer (GTK_PRINT_UNIX_DIALOG (dialog));
+	printer = ctk_print_unix_dialog_get_selected_printer (CTK_PRINT_UNIX_DIALOG (dialog));
 	ev_print_operation_export_set_printer (export, printer);
 
-	print_settings = ctk_print_unix_dialog_get_settings (GTK_PRINT_UNIX_DIALOG (dialog));
+	print_settings = ctk_print_unix_dialog_get_settings (CTK_PRINT_UNIX_DIALOG (dialog));
 	ev_print_operation_export_set_print_settings (op, print_settings);
 
-	page_setup = ctk_print_unix_dialog_get_page_setup (GTK_PRINT_UNIX_DIALOG (dialog));
+	page_setup = ctk_print_unix_dialog_get_page_setup (CTK_PRINT_UNIX_DIALOG (dialog));
 	ev_print_operation_export_set_default_page_setup (op, page_setup);
 
 	if (!ctk_printer_accepts_ps (export->printer)) {
-		ctk_widget_destroy (GTK_WIDGET (dialog));
+		ctk_widget_destroy (CTK_WIDGET (dialog));
 
 		g_set_error_literal (&export->error,
-                                     GTK_PRINT_ERROR,
-                                     GTK_PRINT_ERROR_GENERAL,
+                                     CTK_PRINT_ERROR,
+                                     CTK_PRINT_ERROR_GENERAL,
                                      _("Printing is not supported on this printer."));
-		g_signal_emit (op, signals[DONE], 0, GTK_PRINT_OPERATION_RESULT_ERROR);
+		g_signal_emit (op, signals[DONE], 0, CTK_PRINT_OPERATION_RESULT_ERROR);
 
 		return;
 	}
 
-	file_format = ctk_print_settings_get (print_settings, GTK_PRINT_SETTINGS_OUTPUT_FILE_FORMAT);
+	file_format = ctk_print_settings_get (print_settings, CTK_PRINT_SETTINGS_OUTPUT_FILE_FORMAT);
 
 	filename = g_strdup_printf ("lector_print.%s.XXXXXX", file_format != NULL ? file_format : "");
 	export->fd = g_file_open_tmp (filename, &export->temp_file, &error);
 	g_free (filename);
 	if (export->fd <= -1) {
-		ctk_widget_destroy (GTK_WIDGET (dialog));
+		ctk_widget_destroy (CTK_WIDGET (dialog));
 
 		g_set_error_literal (&export->error,
-				     GTK_PRINT_ERROR,
-				     GTK_PRINT_ERROR_GENERAL,
+				     CTK_PRINT_ERROR,
+				     CTK_PRINT_ERROR_GENERAL,
 				     error->message);
 		g_error_free (error);
-		g_signal_emit (op, signals[DONE], 0, GTK_PRINT_OPERATION_RESULT_ERROR);
+		g_signal_emit (op, signals[DONE], 0, CTK_PRINT_OPERATION_RESULT_ERROR);
 
 		return;
 	}
 
-	export->current_page = ctk_print_unix_dialog_get_current_page (GTK_PRINT_UNIX_DIALOG (dialog));
+	export->current_page = ctk_print_unix_dialog_get_current_page (CTK_PRINT_UNIX_DIALOG (dialog));
 	export->page_set = ctk_print_settings_get_page_set (print_settings);
 	print_pages = ctk_print_settings_get_print_pages (print_settings);
 
 	switch (print_pages) {
-	case GTK_PRINT_PAGES_CURRENT:
+	case CTK_PRINT_PAGES_CURRENT:
 		export->ranges = &export->one_range;
 
 		export->ranges[0].start = export->current_page;
@@ -1208,7 +1208,7 @@ ev_print_operation_export_print_dialog_response_cb (GtkDialog              *dial
 		export->n_ranges = 1;
 
 		break;
-	case GTK_PRINT_PAGES_RANGES: {
+	case CTK_PRINT_PAGES_RANGES: {
 		gint i;
 
 		export->ranges = ctk_print_settings_get_page_ranges (print_settings, &export->n_ranges);
@@ -1219,7 +1219,7 @@ ev_print_operation_export_print_dialog_response_cb (GtkDialog              *dial
 		break;
 	default:
 		g_warning ("Unsupported print pages setting\n");
-	case GTK_PRINT_PAGES_ALL:
+	case CTK_PRINT_PAGES_ALL:
 		export->ranges = &export->one_range;
 
 		export->ranges[0].start = 0;
@@ -1232,13 +1232,13 @@ ev_print_operation_export_print_dialog_response_cb (GtkDialog              *dial
 	if (export->n_ranges < 1 || !clamp_ranges (export)) {
 		GtkWidget *message_dialog;
 
-		message_dialog = ctk_message_dialog_new (GTK_WINDOW (dialog),
-						 GTK_DIALOG_MODAL,
-						 GTK_MESSAGE_WARNING,
-						 GTK_BUTTONS_CLOSE,
+		message_dialog = ctk_message_dialog_new (CTK_WINDOW (dialog),
+						 CTK_DIALOG_MODAL,
+						 CTK_MESSAGE_WARNING,
+						 CTK_BUTTONS_CLOSE,
 						 "%s", _("Invalid page selection"));
-		ctk_window_set_title (GTK_WINDOW (message_dialog), _("Warning"));
-		ctk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (message_dialog),
+		ctk_window_set_title (CTK_WINDOW (message_dialog), _("Warning"));
+		ctk_message_dialog_format_secondary_text (CTK_MESSAGE_DIALOG (message_dialog),
 							  "%s", _("Your print range selection does not include any pages"));
 		g_signal_connect (message_dialog, "response",
 				  G_CALLBACK (ctk_widget_destroy),
@@ -1248,8 +1248,8 @@ ev_print_operation_export_print_dialog_response_cb (GtkDialog              *dial
 		return;
 	} else	ev_print_operation_update_status (op, -1, -1, 0.0);
 
-	width = ctk_page_setup_get_paper_width (page_setup, GTK_UNIT_POINTS);
-	height = ctk_page_setup_get_paper_height (page_setup, GTK_UNIT_POINTS);
+	width = ctk_page_setup_get_paper_width (page_setup, CTK_UNIT_POINTS);
+	height = ctk_page_setup_get_paper_height (page_setup, CTK_UNIT_POINTS);
 	scale = ctk_print_settings_get_scale (print_settings) * 0.01;
 	if (scale != 1.0) {
 		width *= scale;
@@ -1301,7 +1301,7 @@ ev_print_operation_export_print_dialog_response_cb (GtkDialog              *dial
 
 	g_signal_emit (op, signals[BEGIN_PRINT], 0);
 
-	ctk_widget_destroy (GTK_WIDGET (dialog));
+	ctk_widget_destroy (CTK_WIDGET (dialog));
 }
 
 static void
@@ -1319,31 +1319,31 @@ ev_print_operation_export_run (EvPrintOperation *op,
 
 	/* translators: Title of the print dialog */
 	dialog = ctk_print_unix_dialog_new (_("Print"), parent);
-	ctk_window_set_modal (GTK_WINDOW (dialog), TRUE);
+	ctk_window_set_modal (CTK_WINDOW (dialog), TRUE);
 
-	capabilities = GTK_PRINT_CAPABILITY_PREVIEW |
+	capabilities = CTK_PRINT_CAPABILITY_PREVIEW |
 		ev_file_exporter_get_capabilities (EV_FILE_EXPORTER (op->document));
-	ctk_print_unix_dialog_set_manual_capabilities (GTK_PRINT_UNIX_DIALOG (dialog),
+	ctk_print_unix_dialog_set_manual_capabilities (CTK_PRINT_UNIX_DIALOG (dialog),
 						       capabilities);
 
-	ctk_print_unix_dialog_set_embed_page_setup (GTK_PRINT_UNIX_DIALOG (dialog),
+	ctk_print_unix_dialog_set_embed_page_setup (CTK_PRINT_UNIX_DIALOG (dialog),
 						    export->embed_page_setup);
 
-	ctk_print_unix_dialog_set_current_page (GTK_PRINT_UNIX_DIALOG (dialog),
+	ctk_print_unix_dialog_set_current_page (CTK_PRINT_UNIX_DIALOG (dialog),
 						export->current_page);
 
-	ctk_print_unix_dialog_set_settings (GTK_PRINT_UNIX_DIALOG (dialog),
+	ctk_print_unix_dialog_set_settings (CTK_PRINT_UNIX_DIALOG (dialog),
 					    export->print_settings);
 
 	if (export->page_setup)
-		ctk_print_unix_dialog_set_page_setup (GTK_PRINT_UNIX_DIALOG (dialog),
+		ctk_print_unix_dialog_set_page_setup (CTK_PRINT_UNIX_DIALOG (dialog),
 						      export->page_setup);
 
 	g_signal_connect (dialog, "response",
 			  G_CALLBACK (ev_print_operation_export_print_dialog_response_cb),
 			  export);
 
-	ctk_window_present (GTK_WINDOW (dialog));
+	ctk_window_present (CTK_WINDOW (dialog));
 }
 
 static void
@@ -1503,7 +1503,7 @@ ev_print_operation_export_class_init (EvPrintOperationExportClass *klass)
 	g_object_class->finalize = ev_print_operation_export_finalize;
 }
 
-#endif /* GTKUNIXPRINT_ENABLED */
+#endif /* CTKUNIXPRINT_ENABLED */
 
 /* Print to cairo interface */
 #define EV_TYPE_PRINT_OPERATION_PRINT         (ev_print_operation_print_get_type())
@@ -1627,7 +1627,7 @@ ev_print_operation_print_run (EvPrintOperation *op,
 	EvPrintOperationPrint *print = EV_PRINT_OPERATION_PRINT (op);
 
 	ctk_print_operation_run (print->op,
-				 GTK_PRINT_OPERATION_ACTION_PRINT_DIALOG,
+				 CTK_PRINT_OPERATION_ACTION_PRINT_DIALOG,
 				 parent, NULL);
 }
 
@@ -1699,7 +1699,7 @@ ev_print_operation_print_status_changed (EvPrintOperationPrint *print)
 	GtkPrintStatus status;
 
 	status = ctk_print_operation_get_status (print->op);
-	if (status == GTK_PRINT_STATUS_GENERATING_DATA)
+	if (status == CTK_PRINT_STATUS_GENERATING_DATA)
 		print->n_pages_to_print = ctk_print_operation_get_n_pages_to_print (print->op);
 }
 
@@ -1759,16 +1759,16 @@ ev_print_operation_print_request_page_setup (EvPrintOperationPrint *print,
 
 	if (print->use_source_size) {
 		paper_size = ctk_paper_size_new_custom ("custom", "custom",
-							width, height, GTK_UNIT_POINTS);
+							width, height, CTK_UNIT_POINTS);
 		ctk_page_setup_set_paper_size_and_default_margins (setup, paper_size);
 		ctk_paper_size_free (paper_size);
 	}
 
 	if (print->autorotate) {
 		if (width > height)
-			ctk_page_setup_set_orientation (setup, GTK_PAGE_ORIENTATION_LANDSCAPE);
+			ctk_page_setup_set_orientation (setup, CTK_PAGE_ORIENTATION_LANDSCAPE);
 		else
-			ctk_page_setup_set_orientation (setup, GTK_PAGE_ORIENTATION_PORTRAIT);
+			ctk_page_setup_set_orientation (setup, CTK_PAGE_ORIENTATION_PORTRAIT);
 	}
 }
 
@@ -1893,20 +1893,20 @@ ev_print_operation_print_create_custom_widget (EvPrintOperationPrint *print,
 	use_source_size = ctk_print_settings_get_bool (settings, EV_PRINT_SETTING_PAGE_SIZE);
 
 	grid = ctk_grid_new ();
-	ctk_grid_set_row_spacing (GTK_GRID (grid), 6);
-	ctk_grid_set_column_spacing (GTK_GRID (grid), 12);
-	ctk_container_set_border_width (GTK_CONTAINER (grid), 12);
+	ctk_grid_set_row_spacing (CTK_GRID (grid), 6);
+	ctk_grid_set_column_spacing (CTK_GRID (grid), 12);
+	ctk_container_set_border_width (CTK_CONTAINER (grid), 12);
 
 	label = ctk_label_new (_("Page Scaling:"));
-	ctk_grid_attach (GTK_GRID (grid), label, 0, 0, 1, 1);
+	ctk_grid_attach (CTK_GRID (grid), label, 0, 0, 1, 1);
 	ctk_widget_show (label);
 
 	print->scale_combo = ctk_combo_box_text_new ();
 	/* translators: Value for 'Page Scaling:' to not scale the document pages on printing */
-	ctk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (print->scale_combo), _("None"));
-	ctk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (print->scale_combo), _("Shrink to Printable Area"));
-	ctk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (print->scale_combo), _("Fit to Printable Area"));
-	ctk_combo_box_set_active (GTK_COMBO_BOX (print->scale_combo), page_scale);
+	ctk_combo_box_text_append_text (CTK_COMBO_BOX_TEXT (print->scale_combo), _("None"));
+	ctk_combo_box_text_append_text (CTK_COMBO_BOX_TEXT (print->scale_combo), _("Shrink to Printable Area"));
+	ctk_combo_box_text_append_text (CTK_COMBO_BOX_TEXT (print->scale_combo), _("Fit to Printable Area"));
+	ctk_combo_box_set_active (CTK_COMBO_BOX (print->scale_combo), page_scale);
 	ctk_widget_set_tooltip_text (print->scale_combo,
 		_("Scale document pages to fit the selected printer page. Select from one of the following:\n"
 		  "\n"
@@ -1917,22 +1917,22 @@ ev_print_operation_print_create_custom_widget (EvPrintOperationPrint *print,
 		  "\n"
 		  "• \"Fit to Printable Area\": Document pages are enlarged or reduced as"
 		  " required to fit the printable area of the printer page.\n"));
-	ctk_grid_attach (GTK_GRID (grid), print->scale_combo, 1, 0, 1, 1);
+	ctk_grid_attach (CTK_GRID (grid), print->scale_combo, 1, 0, 1, 1);
 	ctk_widget_show (print->scale_combo);
 
 	print->autorotate_button = ctk_check_button_new_with_label (_("Auto Rotate and Center"));
-	ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (print->autorotate_button), autorotate);
+	ctk_toggle_button_set_active (CTK_TOGGLE_BUTTON (print->autorotate_button), autorotate);
 	ctk_widget_set_tooltip_text (print->autorotate_button,
 		_("Rotate printer page orientation of each page to match orientation of each document page. "
 		  "Document pages will be centered within the printer page."));
-	ctk_grid_attach (GTK_GRID (grid), print->autorotate_button, 0, 1, 2, 1);
+	ctk_grid_attach (CTK_GRID (grid), print->autorotate_button, 0, 1, 2, 1);
 	ctk_widget_show (print->autorotate_button);
 
 	print->source_button = ctk_check_button_new_with_label (_("Select page size using document page size"));
-	ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (print->source_button), use_source_size);
+	ctk_toggle_button_set_active (CTK_TOGGLE_BUTTON (print->source_button), use_source_size);
 	ctk_widget_set_tooltip_text (print->source_button, _("When enabled, each page will be printed on "
 							     "the same size paper as the document page."));
-	ctk_grid_attach (GTK_GRID (grid), print->source_button, 0, 2, 2, 1);
+	ctk_grid_attach (CTK_GRID (grid), print->source_button, 0, 2, 2, 1);
 	ctk_widget_show (print->source_button);
 
 	return G_OBJECT (grid);
@@ -1944,9 +1944,9 @@ ev_print_operation_print_custom_widget_apply (EvPrintOperationPrint *print,
 {
 	GtkPrintSettings *settings;
 
-	print->page_scale = ctk_combo_box_get_active (GTK_COMBO_BOX (print->scale_combo));
-	print->autorotate = ctk_toggle_button_get_active (GTK_TOGGLE_BUTTON (print->autorotate_button));
-	print->use_source_size = ctk_toggle_button_get_active (GTK_TOGGLE_BUTTON (print->source_button));
+	print->page_scale = ctk_combo_box_get_active (CTK_COMBO_BOX (print->scale_combo));
+	print->autorotate = ctk_toggle_button_get_active (CTK_TOGGLE_BUTTON (print->autorotate_button));
+	print->use_source_size = ctk_toggle_button_get_active (CTK_TOGGLE_BUTTON (print->source_button));
 	settings = ctk_print_operation_get_print_settings (print->op);
 	ctk_print_settings_set_int (settings, EV_PRINT_SETTING_PAGE_SCALE, print->page_scale);
 	ctk_print_settings_set_bool (settings, EV_PRINT_SETTING_AUTOROTATE, print->autorotate);
@@ -2011,7 +2011,7 @@ ev_print_operation_print_init (EvPrintOperationPrint *print)
 				  print);
 	ctk_print_operation_set_allow_async (print->op, TRUE);
 	ctk_print_operation_set_use_full_page (print->op, TRUE);
-	ctk_print_operation_set_unit (print->op, GTK_UNIT_POINTS);
+	ctk_print_operation_set_unit (print->op, CTK_UNIT_POINTS);
 	ctk_print_operation_set_custom_tab_label (print->op, _("Page Handling"));
 }
 
@@ -2040,11 +2040,11 @@ ev_print_operation_print_class_init (EvPrintOperationPrintClass *klass)
 gboolean
 ev_print_operation_exists_for_document (EvDocument *document)
 {
-#if GTKUNIXPRINT_ENABLED
+#if CTKUNIXPRINT_ENABLED
 	return (EV_IS_FILE_EXPORTER(document) || EV_IS_DOCUMENT_PRINT(document));
 #else
 	return EV_IS_DOCUMENT_PRINT(document);
-#endif /* GTKUNIXPRINT_ENABLED */
+#endif /* CTKUNIXPRINT_ENABLED */
 }
 
 /* Factory method */
@@ -2059,7 +2059,7 @@ ev_print_operation_new (EvDocument *document)
 		op = EV_PRINT_OPERATION (g_object_new (EV_TYPE_PRINT_OPERATION_PRINT,
 						       "document", document, NULL));
 	else
-#if GTKUNIXPRINT_ENABLED
+#if CTKUNIXPRINT_ENABLED
 		op = EV_PRINT_OPERATION (g_object_new (EV_TYPE_PRINT_OPERATION_EXPORT,
 						       "document", document, NULL));
 #else

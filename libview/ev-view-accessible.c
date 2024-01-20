@@ -67,7 +67,7 @@ struct _EvViewAccessiblePrivate {
 	GPtrArray *children;
 };
 
-G_DEFINE_TYPE_WITH_CODE (EvViewAccessible, ev_view_accessible, GTK_TYPE_CONTAINER_ACCESSIBLE,
+G_DEFINE_TYPE_WITH_CODE (EvViewAccessible, ev_view_accessible, CTK_TYPE_CONTAINER_ACCESSIBLE,
 			 G_ADD_PRIVATE (EvViewAccessible)
 			 G_IMPLEMENT_INTERFACE (ATK_TYPE_ACTION, ev_view_accessible_action_iface_init)
 			 G_IMPLEMENT_INTERFACE (ATK_TYPE_DOCUMENT, ev_view_accessible_document_iface_init))
@@ -123,7 +123,7 @@ ev_view_accessible_initialize (AtkObject *obj,
 	if (ATK_OBJECT_CLASS (ev_view_accessible_parent_class)->initialize != NULL)
 		ATK_OBJECT_CLASS (ev_view_accessible_parent_class)->initialize (obj, data);
 
-	ctk_accessible_set_widget (GTK_ACCESSIBLE (obj), GTK_WIDGET (data));
+	ctk_accessible_set_widget (CTK_ACCESSIBLE (obj), CTK_WIDGET (data));
 
 	atk_object_set_name (obj, _("Document View"));
 	atk_object_set_role (obj, ATK_ROLE_DOCUMENT_FRAME);
@@ -146,7 +146,7 @@ ev_view_accessible_ref_child (AtkObject *obj,
 	self = EV_VIEW_ACCESSIBLE (obj);
 	g_return_val_if_fail (i >= 0 || i < ev_view_accessible_get_n_pages (self), NULL);
 
-	view = EV_VIEW (ctk_accessible_get_widget (GTK_ACCESSIBLE (obj)));
+	view = EV_VIEW (ctk_accessible_get_widget (CTK_ACCESSIBLE (obj)));
 	if (view == NULL)
 		return NULL;
 
@@ -197,7 +197,7 @@ ev_view_accessible_get_current_page_number (AtkDocument *atk_document)
 
 	g_return_val_if_fail (EV_IS_VIEW_ACCESSIBLE (atk_document), -1);
 
-	widget = ctk_accessible_get_widget (GTK_ACCESSIBLE (atk_document));
+	widget = ctk_accessible_get_widget (CTK_ACCESSIBLE (atk_document));
 	if (widget == NULL)
 		return -1;
 
@@ -217,7 +217,7 @@ ev_view_accessible_idle_do_action (gpointer data)
 {
 	EvViewAccessiblePrivate* priv = EV_VIEW_ACCESSIBLE (data)->priv;
 
-	ev_view_scroll (EV_VIEW (ctk_accessible_get_widget (GTK_ACCESSIBLE (data))),
+	ev_view_scroll (EV_VIEW (ctk_accessible_get_widget (CTK_ACCESSIBLE (data))),
 	                priv->idle_scroll,
 	                FALSE);
 	priv->action_idle_handler = 0;
@@ -230,7 +230,7 @@ ev_view_accessible_action_do_action (AtkAction *action,
 {
 	EvViewAccessiblePrivate* priv = EV_VIEW_ACCESSIBLE (action)->priv;
 
-	if (ctk_accessible_get_widget (GTK_ACCESSIBLE (action)) == NULL)
+	if (ctk_accessible_get_widget (CTK_ACCESSIBLE (action)) == NULL)
 		return FALSE;
 
 	if (priv->action_idle_handler)
@@ -238,10 +238,10 @@ ev_view_accessible_action_do_action (AtkAction *action,
 
 	switch (i) {
 	case ACTION_SCROLL_UP:
-		priv->idle_scroll = GTK_SCROLL_PAGE_BACKWARD;
+		priv->idle_scroll = CTK_SCROLL_PAGE_BACKWARD;
 		break;
 	case ACTION_SCROLL_DOWN:
-		priv->idle_scroll = GTK_SCROLL_PAGE_FORWARD;
+		priv->idle_scroll = CTK_SCROLL_PAGE_FORWARD;
 		break;
 	default:
 		return FALSE;
@@ -357,7 +357,7 @@ page_changed_cb (EvDocumentModel  *model,
 {
 	EvView *view;
 
-	view = EV_VIEW (ctk_accessible_get_widget (GTK_ACCESSIBLE (accessible)));
+	view = EV_VIEW (ctk_accessible_get_widget (CTK_ACCESSIBLE (accessible)));
 	if (!ev_view_is_caret_navigation_enabled (view))
 		g_signal_emit_by_name (accessible, "page-changed", new_page + 1);
 }
@@ -496,7 +496,7 @@ ev_view_accessible_get_relevant_page (EvViewAccessible *accessible)
 
 	g_return_val_if_fail (EV_IS_VIEW_ACCESSIBLE (accessible), -1);
 
-	view = EV_VIEW (ctk_accessible_get_widget (GTK_ACCESSIBLE (accessible)));
+	view = EV_VIEW (ctk_accessible_get_widget (CTK_ACCESSIBLE (accessible)));
 
 	return get_relevant_page (view);
 }
@@ -513,12 +513,12 @@ _transform_doc_rect_to_atk_rect (EvViewAccessible *accessible,
 	GtkWidget *widget, *toplevel;
 	gint x_widget, y_widget;
 
-	view = EV_VIEW (ctk_accessible_get_widget (GTK_ACCESSIBLE (accessible)));
+	view = EV_VIEW (ctk_accessible_get_widget (CTK_ACCESSIBLE (accessible)));
 	_ev_view_transform_doc_rect_to_view_rect (view, page, doc_rect, &view_rect);
 	view_rect.x -= view->scroll_x;
 	view_rect.y -= view->scroll_y;
 
-	widget = GTK_WIDGET (view);
+	widget = CTK_WIDGET (view);
 	toplevel = ctk_widget_get_toplevel (widget);
 	ctk_widget_translate_coordinates (widget, toplevel, 0, 0, &x_widget, &y_widget);
 	view_rect.x += x_widget;
@@ -548,11 +548,11 @@ ev_view_accessible_is_doc_rect_showing (EvViewAccessible *accessible,
 	gint x, y;
 	gboolean hidden;
 
-	view = EV_VIEW (ctk_accessible_get_widget (GTK_ACCESSIBLE (accessible)));
+	view = EV_VIEW (ctk_accessible_get_widget (CTK_ACCESSIBLE (accessible)));
 	if (page < view->start_page || page > view->end_page)
 		return FALSE;
 
-	ctk_widget_get_allocation (GTK_WIDGET (view), &allocation);
+	ctk_widget_get_allocation (CTK_WIDGET (view), &allocation);
 	x = ctk_adjustment_get_value (view->hadjustment);
 	y = ctk_adjustment_get_value (view->vadjustment);
 

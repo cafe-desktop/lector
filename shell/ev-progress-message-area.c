@@ -80,22 +80,22 @@ ev_progress_message_area_init (EvProgressMessageArea *area)
 
 	contents = _ev_message_area_get_main_box (EV_MESSAGE_AREA (area));
 
-	vbox = ctk_box_new (GTK_ORIENTATION_VERTICAL, 6);
+	vbox = ctk_box_new (CTK_ORIENTATION_VERTICAL, 6);
 
 	area->priv->label = ctk_label_new (NULL);
-	ctk_label_set_use_markup (GTK_LABEL (area->priv->label), TRUE);
-	ctk_label_set_ellipsize (GTK_LABEL (area->priv->label),
+	ctk_label_set_use_markup (CTK_LABEL (area->priv->label), TRUE);
+	ctk_label_set_ellipsize (CTK_LABEL (area->priv->label),
 				 PANGO_ELLIPSIZE_END);
-	ctk_label_set_xalign (GTK_LABEL (area->priv->label), 0.0);
-	ctk_box_pack_start (GTK_BOX (vbox), area->priv->label, TRUE, TRUE, 0);
+	ctk_label_set_xalign (CTK_LABEL (area->priv->label), 0.0);
+	ctk_box_pack_start (CTK_BOX (vbox), area->priv->label, TRUE, TRUE, 0);
 	ctk_widget_show (area->priv->label);
 
 	area->priv->progress_bar = ctk_progress_bar_new ();
 	ctk_widget_set_size_request (area->priv->progress_bar, -1, 15);
-	ctk_box_pack_start (GTK_BOX (vbox), area->priv->progress_bar, TRUE, FALSE, 0);
+	ctk_box_pack_start (CTK_BOX (vbox), area->priv->progress_bar, TRUE, FALSE, 0);
 	ctk_widget_show (area->priv->progress_bar);
 
-	ctk_box_pack_start (GTK_BOX (contents), vbox, TRUE, TRUE, 0);
+	ctk_box_pack_start (CTK_BOX (contents), vbox, TRUE, TRUE, 0);
 	ctk_widget_show (vbox);
 }
 
@@ -129,12 +129,12 @@ ev_progress_message_area_get_property (GObject    *object,
 
 	switch (prop_id) {
 	case PROP_STATUS:
-		g_value_set_string (value, ctk_label_get_label (GTK_LABEL (area->priv->label)));
+		g_value_set_string (value, ctk_label_get_label (CTK_LABEL (area->priv->label)));
 		break;
 	case PROP_FRACTION: {
 		gdouble fraction;
 
-		fraction = ctk_progress_bar_get_fraction (GTK_PROGRESS_BAR (area->priv->progress_bar));
+		fraction = ctk_progress_bar_get_fraction (CTK_PROGRESS_BAR (area->priv->progress_bar));
 		g_value_set_double (value, fraction);
 	}
 		break;
@@ -152,7 +152,7 @@ ev_progress_message_area_new (const gchar *stock_id,
 	GtkWidget *widget;
 
 	widget = g_object_new (EV_TYPE_PROGRESS_MESSAGE_AREA,
-			       "message-type", GTK_MESSAGE_OTHER,
+			       "message-type", CTK_MESSAGE_OTHER,
 			       "text", text,
 			       NULL);
 	if (first_button_text) {
@@ -176,7 +176,7 @@ ev_progress_message_area_set_status (EvProgressMessageArea *area,
 {
 	g_return_if_fail (EV_IS_PROGRESS_MESSAGE_AREA (area));
 
-	ctk_label_set_text (GTK_LABEL (area->priv->label), str);
+	ctk_label_set_text (CTK_LABEL (area->priv->label), str);
 
 	g_object_notify (G_OBJECT (area), "status");
 }
@@ -187,7 +187,7 @@ ev_progress_message_area_set_fraction (EvProgressMessageArea *area,
 {
 	g_return_if_fail (EV_IS_PROGRESS_MESSAGE_AREA (area));
 
-	ctk_progress_bar_set_fraction (GTK_PROGRESS_BAR (area->priv->progress_bar),
+	ctk_progress_bar_set_fraction (CTK_PROGRESS_BAR (area->priv->progress_bar),
 				       fraction);
 	g_object_notify (G_OBJECT (area), "fraction");
 }

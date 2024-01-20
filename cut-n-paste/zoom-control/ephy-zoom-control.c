@@ -59,7 +59,7 @@ enum
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (EphyZoomControl, ephy_zoom_control, GTK_TYPE_TOOL_ITEM)
+G_DEFINE_TYPE_WITH_PRIVATE (EphyZoomControl, ephy_zoom_control, CTK_TYPE_TOOL_ITEM)
 
 static void
 combo_changed_cb (GtkComboBox *combo, EphyZoomControl *control)
@@ -179,30 +179,30 @@ ephy_zoom_control_init (EphyZoomControl *control)
 		}
 	}
 
-	p->combo = GTK_COMBO_BOX (ctk_combo_box_new_with_model (GTK_TREE_MODEL (store)));
+	p->combo = CTK_COMBO_BOX (ctk_combo_box_new_with_model (CTK_TREE_MODEL (store)));
 	g_object_unref (store);
 
 	renderer = ctk_cell_renderer_text_new ();
-	ctk_cell_layout_pack_start     (GTK_CELL_LAYOUT (p->combo), renderer, TRUE);
-	ctk_cell_layout_set_attributes (GTK_CELL_LAYOUT (p->combo), renderer,
+	ctk_cell_layout_pack_start     (CTK_CELL_LAYOUT (p->combo), renderer, TRUE);
+	ctk_cell_layout_set_attributes (CTK_CELL_LAYOUT (p->combo), renderer,
 					"text", COL_TEXT, NULL);
 	ctk_combo_box_set_row_separator_func (p->combo,
 					      (GtkTreeViewRowSeparatorFunc) row_is_separator,
 					      NULL, NULL);
 
-	ctk_widget_set_focus_on_click (GTK_WIDGET (p->combo), FALSE);
+	ctk_widget_set_focus_on_click (CTK_WIDGET (p->combo), FALSE);
 	g_object_ref_sink (G_OBJECT (p->combo));
-	ctk_widget_show (GTK_WIDGET (p->combo));
+	ctk_widget_show (CTK_WIDGET (p->combo));
 
 	i = ephy_zoom_get_zoom_level_index (p->zoom);
 	ctk_combo_box_set_active (p->combo, i);
 
-	vbox = ctk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-	ctk_box_set_homogeneous (GTK_BOX (vbox), TRUE);
-	ctk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET (p->combo), TRUE, FALSE, 0);
+	vbox = ctk_box_new (CTK_ORIENTATION_VERTICAL, 0);
+	ctk_box_set_homogeneous (CTK_BOX (vbox), TRUE);
+	ctk_box_pack_start (CTK_BOX (vbox), CTK_WIDGET (p->combo), TRUE, FALSE, 0);
 	ctk_widget_show (vbox);
 
-	ctk_container_add (GTK_CONTAINER (control), vbox);
+	ctk_container_add (CTK_CONTAINER (control), vbox);
 
 	p->handler_id = g_signal_connect (p->combo, "changed",
 					  G_CALLBACK (combo_changed_cb), control);

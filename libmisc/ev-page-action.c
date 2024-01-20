@@ -45,7 +45,7 @@ enum
 
 static guint signals[N_SIGNALS] = {0, };
 
-G_DEFINE_TYPE_WITH_PRIVATE (EvPageAction, ev_page_action, GTK_TYPE_ACTION)
+G_DEFINE_TYPE_WITH_PRIVATE (EvPageAction, ev_page_action, CTK_TYPE_ACTION)
 
 enum {
 	PROP_0,
@@ -79,7 +79,7 @@ connect_proxy (GtkAction *action, GtkWidget *proxy)
 {
 	EvPageAction *page = EV_PAGE_ACTION (action);
 
-	if (GTK_IS_TOOL_ITEM (proxy)) {
+	if (CTK_IS_TOOL_ITEM (proxy)) {
 		ev_page_action_widget_set_model (EV_PAGE_ACTION_WIDGET (proxy),
 						 page->priv->doc_model);
 		g_signal_connect (proxy, "activate_link",
@@ -90,7 +90,7 @@ connect_proxy (GtkAction *action, GtkWidget *proxy)
 					 proxy, 0);
 	}
 
-	GTK_ACTION_CLASS (ev_page_action_parent_class)->connect_proxy (action, proxy);
+	CTK_ACTION_CLASS (ev_page_action_parent_class)->connect_proxy (action, proxy);
 }
 
 static void
@@ -164,7 +164,7 @@ ev_page_action_set_links_model (EvPageAction *page,
 				GtkTreeModel *links_model)
 {
 	g_return_if_fail (EV_IS_PAGE_ACTION (page));
-	g_return_if_fail (GTK_IS_TREE_MODEL (links_model));
+	g_return_if_fail (CTK_IS_TREE_MODEL (links_model));
 
 	if (page->priv->model == links_model)
 		return;
@@ -181,13 +181,13 @@ ev_page_action_grab_focus (EvPageAction *page_action)
 {
 	GSList *proxies;
 
-	proxies = ctk_action_get_proxies (GTK_ACTION (page_action));
+	proxies = ctk_action_get_proxies (CTK_ACTION (page_action));
 	for (; proxies != NULL; proxies = proxies->next) {
 		EvPageActionWidget *proxy;
 
 		proxy = EV_PAGE_ACTION_WIDGET (proxies->data);
 
-		if (ctk_widget_get_mapped (GTK_WIDGET (proxy)))
+		if (ctk_widget_get_mapped (CTK_WIDGET (proxy)))
 			ev_page_action_widget_grab_focus (proxy);
 	}
 }
@@ -202,13 +202,13 @@ static void
 ev_page_action_class_init (EvPageActionClass *class)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (class);
-	GtkActionClass *action_class = GTK_ACTION_CLASS (class);
+	GtkActionClass *action_class = CTK_ACTION_CLASS (class);
 
 	object_class->dispose = ev_page_action_dispose;
 	object_class->set_property = ev_page_action_set_property;
 	object_class->get_property = ev_page_action_get_property;
 
-	action_class->toolbar_item_type = GTK_TYPE_TOOL_ITEM;
+	action_class->toolbar_item_type = CTK_TYPE_TOOL_ITEM;
 	action_class->create_tool_item = create_tool_item;
 	action_class->connect_proxy = connect_proxy;
 
@@ -226,6 +226,6 @@ ev_page_action_class_init (EvPageActionClass *class)
 					 g_param_spec_object ("model",
 							      "Model",
 							      "Current Links Model",
-							      GTK_TYPE_TREE_MODEL,
+							      CTK_TYPE_TREE_MODEL,
 							      G_PARAM_READWRITE));
 }

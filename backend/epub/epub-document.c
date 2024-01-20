@@ -254,10 +254,10 @@ epub_document_make_tree_entry(linknode* ListData,LinksCBStruct* UserData)
 
 	link = ev_link_new((gchar*)ListData->linktext,ev_action);
 
-	ctk_tree_store_append (GTK_TREE_STORE (UserData->model), &tree_iter,(UserData->parent));
+	ctk_tree_store_append (CTK_TREE_STORE (UserData->model), &tree_iter,(UserData->parent));
 	title_markup = g_strdup((gchar*)ListData->linktext);
 
-	ctk_tree_store_set (GTK_TREE_STORE (UserData->model), &tree_iter,
+	ctk_tree_store_set (CTK_TREE_STORE (UserData->model), &tree_iter,
 			    EV_DOCUMENT_LINKS_COLUMN_MARKUP, title_markup,
 			    EV_DOCUMENT_LINKS_COLUMN_LINK, link,
 			    EV_DOCUMENT_LINKS_COLUMN_EXPAND, expand,
@@ -297,9 +297,9 @@ epub_document_links_get_links_model(EvDocumentLinks *document_links)
 
 	linkStruct.parent = &parent;
 
-	ctk_tree_store_append (GTK_TREE_STORE (model), &parent,NULL);
+	ctk_tree_store_append (CTK_TREE_STORE (model), &parent,NULL);
 
-	ctk_tree_store_set (GTK_TREE_STORE (model), &parent,
+	ctk_tree_store_set (CTK_TREE_STORE (model), &parent,
 			    EV_DOCUMENT_LINKS_COLUMN_MARKUP, epub_document->docTitle,
 			    EV_DOCUMENT_LINKS_COLUMN_LINK, link,
 			    EV_DOCUMENT_LINKS_COLUMN_EXPAND, TRUE,

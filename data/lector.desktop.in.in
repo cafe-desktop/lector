@@ -14,7 +14,7 @@ X-CAFE-Bugzilla-Bugzilla=CAFE
 X-CAFE-Bugzilla-Product=lector
 X-CAFE-Bugzilla-Component=BugBuddyBugs
 X-CAFE-Bugzilla-Version=@VERSION@
-Categories=GTK;Office;Viewer;
+Categories=CTK;Office;Viewer;
 # Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 Keywords=CAFE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;
 MimeType=@LECTOR_MIME_TYPES@

@@ -45,7 +45,7 @@ struct _EvPropertiesDialogClass {
 	GtkDialogClass base_class;
 };
 
-G_DEFINE_TYPE (EvPropertiesDialog, ev_properties_dialog, GTK_TYPE_DIALOG)
+G_DEFINE_TYPE (EvPropertiesDialog, ev_properties_dialog, CTK_TYPE_DIALOG)
 
 static void
 ev_properties_dialog_class_init (EvPropertiesDialogClass *properties_class)
@@ -57,20 +57,20 @@ ev_properties_dialog_init (EvPropertiesDialog *properties)
 {
 	GtkBox *content_area;
 
-	content_area = GTK_BOX (ctk_dialog_get_content_area (GTK_DIALOG (properties)));
+	content_area = CTK_BOX (ctk_dialog_get_content_area (CTK_DIALOG (properties)));
 
-	ctk_window_set_title (GTK_WINDOW (properties), _("Properties"));
-	ctk_window_set_destroy_with_parent (GTK_WINDOW (properties), TRUE);
-	ctk_container_set_border_width (GTK_CONTAINER (properties), 5);
+	ctk_window_set_title (CTK_WINDOW (properties), _("Properties"));
+	ctk_window_set_destroy_with_parent (CTK_WINDOW (properties), TRUE);
+	ctk_container_set_border_width (CTK_CONTAINER (properties), 5);
 	ctk_box_set_spacing (content_area, 2);
 
-	ctk_dialog_add_button (GTK_DIALOG (properties), "ctk-close",
-			       GTK_RESPONSE_CANCEL);
-	ctk_dialog_set_default_response (GTK_DIALOG (properties),
-			                 GTK_RESPONSE_CANCEL);
+	ctk_dialog_add_button (CTK_DIALOG (properties), "ctk-close",
+			       CTK_RESPONSE_CANCEL);
+	ctk_dialog_set_default_response (CTK_DIALOG (properties),
+			                 CTK_RESPONSE_CANCEL);
 
 	properties->notebook = ctk_notebook_new ();
-	ctk_container_set_border_width (GTK_CONTAINER (properties->notebook), 5);
+	ctk_container_set_border_width (CTK_CONTAINER (properties->notebook), 5);
 	ctk_box_pack_start (content_area, properties->notebook, TRUE, TRUE, 0);
 	ctk_widget_show (properties->notebook);
 
@@ -93,7 +93,7 @@ ev_properties_dialog_set_document (EvPropertiesDialog *properties,
 	if (properties->general_page == NULL) {
 		label = ctk_label_new (_("General"));
 		properties->general_page = ev_properties_view_new (uri);
-		ctk_notebook_append_page (GTK_NOTEBOOK (properties->notebook),
+		ctk_notebook_append_page (CTK_NOTEBOOK (properties->notebook),
 					  properties->general_page, label);
 		ctk_widget_show (properties->general_page);
 	}
@@ -103,7 +103,7 @@ ev_properties_dialog_set_document (EvPropertiesDialog *properties,
 		if (properties->fonts_page == NULL) {
 			label = ctk_label_new (_("Fonts"));
 			properties->fonts_page = ev_properties_fonts_new ();
-			ctk_notebook_append_page (GTK_NOTEBOOK (properties->notebook),
+			ctk_notebook_append_page (CTK_NOTEBOOK (properties->notebook),
 						  properties->fonts_page, label);
 			ctk_widget_show (properties->fonts_page);
 		}
@@ -116,7 +116,7 @@ ev_properties_dialog_set_document (EvPropertiesDialog *properties,
 		if (properties->license_page == NULL) {
 			label = ctk_label_new (_("Document License"));
 			properties->license_page = ev_properties_license_new ();
-			ctk_notebook_append_page (GTK_NOTEBOOK (properties->notebook),
+			ctk_notebook_append_page (CTK_NOTEBOOK (properties->notebook),
 						  properties->license_page, label);
 			ctk_widget_show (properties->license_page);
 		}
@@ -133,5 +133,5 @@ ev_properties_dialog_new ()
 
 	properties = g_object_new (EV_TYPE_PROPERTIES_DIALOG, NULL);
 
-	return GTK_WIDGET (properties);
+	return CTK_WIDGET (properties);
 }
