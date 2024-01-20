@@ -25,7 +25,7 @@
 #include "ephy-zoom-control.h"
 #include "ephy-zoom.h"
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <glib/gi18n.h>
 
 struct _EphyZoomControlPrivate
@@ -67,7 +67,7 @@ combo_changed_cb (GtkComboBox *combo, EphyZoomControl *control)
 	gint index;
 	float zoom;
 
-	index = gtk_combo_box_get_active (combo);
+	index = ctk_combo_box_get_active (combo);
 	zoom = zoom_levels[index].level;
 
 	if (zoom != control->priv->zoom)
@@ -85,7 +85,7 @@ sync_zoom_cb (EphyZoomControl *control, GParamSpec *pspec, gpointer data)
 	index = ephy_zoom_get_zoom_level_index (p->zoom);
 
 	g_signal_handler_block (p->combo, p->handler_id);
-	gtk_combo_box_set_active (p->combo, index);
+	ctk_combo_box_set_active (p->combo, index);
 	g_signal_handler_unblock (p->combo, p->handler_id);
 }
 
@@ -93,12 +93,12 @@ static void
 sync_zoom_max_min_cb (EphyZoomControl *control, GParamSpec *pspec, gpointer data)
 {
 	EphyZoomControlPrivate *p = control->priv;
-	GtkListStore *model = (GtkListStore *)gtk_combo_box_get_model (p->combo);
+	GtkListStore *model = (GtkListStore *)ctk_combo_box_get_model (p->combo);
 	GtkTreeIter iter;
 	gint i;
 
 	g_signal_handler_block (p->combo, p->handler_id);
-	gtk_list_store_clear (model);
+	ctk_list_store_clear (model);
 
 	for (i = 0; i < n_zoom_levels; i++)
 	{
@@ -110,20 +110,20 @@ sync_zoom_max_min_cb (EphyZoomControl *control, GParamSpec *pspec, gpointer data
 				break;
 		}
 
-		gtk_list_store_append (model, &iter);
+		ctk_list_store_append (model, &iter);
 
 		if (zoom_levels[i].name != NULL) {
-			gtk_list_store_set (model, &iter,
+			ctk_list_store_set (model, &iter,
 					    COL_TEXT, _(zoom_levels[i].name),
 					    -1);
 		} else {
-			gtk_list_store_set (model, &iter,
+			ctk_list_store_set (model, &iter,
 					    COL_IS_SEP, zoom_levels[i].name == NULL,
 					    -1);
 		}
 	}
 
-	gtk_combo_box_set_active (p->combo, ephy_zoom_get_zoom_level_index (p->zoom));
+	ctk_combo_box_set_active (p->combo, ephy_zoom_get_zoom_level_index (p->zoom));
 	g_signal_handler_unblock (p->combo, p->handler_id);
 }
 
@@ -133,7 +133,7 @@ row_is_separator (GtkTreeModel *model,
 		  gpointer      data)
 {
 	gboolean is_sep;
-	gtk_tree_model_get (model, iter, COL_IS_SEP, &is_sep, -1);
+	ctk_tree_model_get (model, iter, COL_IS_SEP, &is_sep, -1);
 	return is_sep;
 }
 
@@ -162,47 +162,47 @@ ephy_zoom_control_init (EphyZoomControl *control)
 
 	p->zoom = 1.0;
 
-	store = gtk_list_store_new (2, G_TYPE_STRING, G_TYPE_BOOLEAN);
+	store = ctk_list_store_new (2, G_TYPE_STRING, G_TYPE_BOOLEAN);
 
 	for (i = 0; i < n_zoom_levels; i++)
 	{
-		gtk_list_store_append (store, &iter);
+		ctk_list_store_append (store, &iter);
 
 		if (zoom_levels[i].name != NULL) {
-			gtk_list_store_set (store, &iter,
+			ctk_list_store_set (store, &iter,
 				            COL_TEXT, _(zoom_levels[i].name),
 				            -1);
 		} else {
-			gtk_list_store_set (store, &iter,
+			ctk_list_store_set (store, &iter,
 				            COL_IS_SEP, zoom_levels[i].name == NULL,
 				            -1);
 		}
 	}
 
-	p->combo = GTK_COMBO_BOX (gtk_combo_box_new_with_model (GTK_TREE_MODEL (store)));
+	p->combo = GTK_COMBO_BOX (ctk_combo_box_new_with_model (GTK_TREE_MODEL (store)));
 	g_object_unref (store);
 
-	renderer = gtk_cell_renderer_text_new ();
-	gtk_cell_layout_pack_start     (GTK_CELL_LAYOUT (p->combo), renderer, TRUE);
-	gtk_cell_layout_set_attributes (GTK_CELL_LAYOUT (p->combo), renderer,
+	renderer = ctk_cell_renderer_text_new ();
+	ctk_cell_layout_pack_start     (GTK_CELL_LAYOUT (p->combo), renderer, TRUE);
+	ctk_cell_layout_set_attributes (GTK_CELL_LAYOUT (p->combo), renderer,
 					"text", COL_TEXT, NULL);
-	gtk_combo_box_set_row_separator_func (p->combo,
+	ctk_combo_box_set_row_separator_func (p->combo,
 					      (GtkTreeViewRowSeparatorFunc) row_is_separator,
 					      NULL, NULL);
 
-	gtk_widget_set_focus_on_click (GTK_WIDGET (p->combo), FALSE);
+	ctk_widget_set_focus_on_click (GTK_WIDGET (p->combo), FALSE);
 	g_object_ref_sink (G_OBJECT (p->combo));
-	gtk_widget_show (GTK_WIDGET (p->combo));
+	ctk_widget_show (GTK_WIDGET (p->combo));
 
 	i = ephy_zoom_get_zoom_level_index (p->zoom);
-	gtk_combo_box_set_active (p->combo, i);
+	ctk_combo_box_set_active (p->combo, i);
 
-	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-	gtk_box_set_homogeneous (GTK_BOX (vbox), TRUE);
-	gtk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET (p->combo), TRUE, FALSE, 0);
-	gtk_widget_show (vbox);
+	vbox = ctk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+	ctk_box_set_homogeneous (GTK_BOX (vbox), TRUE);
+	ctk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET (p->combo), TRUE, FALSE, 0);
+	ctk_widget_show (vbox);
 
-	gtk_container_add (GTK_CONTAINER (control), vbox);
+	ctk_container_add (GTK_CONTAINER (control), vbox);
 
 	p->handler_id = g_signal_connect (p->combo, "changed",
 					  G_CALLBACK (combo_changed_cb), control);

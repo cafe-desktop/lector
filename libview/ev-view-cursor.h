@@ -24,7 +24,7 @@
 #ifndef __EV_VIEW_CURSOR_H__
 #define __EV_VIEW_CURSOR_H__
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 

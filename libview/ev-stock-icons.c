@@ -23,7 +23,7 @@
 
 #include <config.h>
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "ev-stock-icons.h"
 
@@ -60,7 +60,7 @@ ev_stock_icons_add_icons_path_for_screen (GdkScreen *screen)
 
 	g_return_if_fail (ev_icons_path != NULL);
 
-	icon_theme = screen ? gtk_icon_theme_get_for_screen (screen) : gtk_icon_theme_get_default ();
+	icon_theme = screen ? ctk_icon_theme_get_for_screen (screen) : ctk_icon_theme_get_default ();
 	if (icon_theme) {
 		gchar **path = NULL;
 		gint    n_paths;
@@ -69,14 +69,14 @@ ev_stock_icons_add_icons_path_for_screen (GdkScreen *screen)
 		/* GtkIconTheme will then look in Lector custom hicolor dir
 		 * for icons as well as the standard search paths
 		 */
-		gtk_icon_theme_get_search_path (icon_theme, &path, &n_paths);
+		ctk_icon_theme_get_search_path (icon_theme, &path, &n_paths);
 		for (i = n_paths - 1; i >= 0; i--) {
 			if (g_ascii_strcasecmp (ev_icons_path, path[i]) == 0)
 				break;
 		}
 
 		if (i < 0)
-			gtk_icon_theme_append_search_path (icon_theme,
+			ctk_icon_theme_append_search_path (icon_theme,
 							   ev_icons_path);
 
 		g_strfreev (path);
@@ -97,24 +97,24 @@ ev_stock_icons_init (void)
 
 	ev_icons_path = g_build_filename (LECTORDATADIR, "icons", NULL);
 
-        factory = gtk_icon_factory_new ();
-        gtk_icon_factory_add_default (factory);
+        factory = ctk_icon_factory_new ();
+        ctk_icon_factory_add_default (factory);
 
-	source = gtk_icon_source_new ();
+	source = ctk_icon_source_new ();
 
 	for (i = 0; i < G_N_ELEMENTS (stock_icons); i++) {
 		GtkIconSet *set;
 
-		gtk_icon_source_set_icon_name (source, stock_icons [i].icon);
+		ctk_icon_source_set_icon_name (source, stock_icons [i].icon);
 
-		set = gtk_icon_set_new ();
-		gtk_icon_set_add_source (set, source);
+		set = ctk_icon_set_new ();
+		ctk_icon_set_add_source (set, source);
 
-		gtk_icon_factory_add (factory, stock_icons [i].stock_id, set);
-		gtk_icon_set_unref (set);
+		ctk_icon_factory_add (factory, stock_icons [i].stock_id, set);
+		ctk_icon_set_unref (set);
 	}
 
-	gtk_icon_source_free (source);
+	ctk_icon_source_free (source);
 
 	g_object_unref (G_OBJECT (factory));
 

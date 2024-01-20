@@ -40,7 +40,7 @@
 #include "ev-document-text.h"
 #include "ev-debug.h"
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #if ENABLE_EPUB
 #include <webkit2/webkit2.h>
 #endif
@@ -331,7 +331,7 @@ fill_page_labels (GtkTreeModel   *tree_model,
 	EvLink          *link;
 	gchar           *page_label;
 
-	gtk_tree_model_get (tree_model, iter,
+	ctk_tree_model_get (tree_model, iter,
 			    EV_DOCUMENT_LINKS_COLUMN_LINK, &link,
 			    -1);
 
@@ -343,7 +343,7 @@ fill_page_labels (GtkTreeModel   *tree_model,
 	if (!page_label)
 		return FALSE;
 
-	gtk_tree_store_set (GTK_TREE_STORE (tree_model), iter,
+	ctk_tree_store_set (GTK_TREE_STORE (tree_model), iter,
 			    EV_DOCUMENT_LINKS_COLUMN_PAGE_LABEL, page_label,
 			    -1);
 
@@ -365,7 +365,7 @@ ev_job_links_run (EvJob *job)
 	job_links->model = ev_document_links_get_links_model (EV_DOCUMENT_LINKS (job->document));
 	ev_document_doc_mutex_unlock ();
 
-	gtk_tree_model_foreach (job_links->model, (GtkTreeModelForeachFunc)fill_page_labels, job);
+	ctk_tree_model_foreach (job_links->model, (GtkTreeModelForeachFunc)fill_page_labels, job);
 
 	ev_job_succeeded (job);
 
@@ -846,7 +846,7 @@ snapshot_callback(WebKitWebView *webview,
 	ev_document_doc_mutex_unlock ();
 	ev_job_succeeded (EV_JOB(job_thumb));
 
-	gtk_widget_destroy (gtk_widget_get_toplevel (GTK_WIDGET (webview)));
+	ctk_widget_destroy (ctk_widget_get_toplevel (GTK_WIDGET (webview)));
 }
 
 static void
@@ -877,7 +877,7 @@ webview_load_failed_cb (WebKitWebView  *webview,
 	g_warning ("Error loading data from %s: %s", failing_uri, e->message);
 	ev_job_failed_from_error (EV_JOB(job_thumb), e);
 
-	gtk_widget_destroy (gtk_widget_get_toplevel (GTK_WIDGET (webview)));
+	ctk_widget_destroy (ctk_widget_get_toplevel (GTK_WIDGET (webview)));
 	return TRUE;
 }
 
@@ -916,11 +916,11 @@ ev_job_thumbnail_run (EvJob *job)
 		GtkWidget *offscreenwindow;
 
 		webview = webkit_web_view_new ();
-		offscreenwindow = gtk_offscreen_window_new ();
+		offscreenwindow = ctk_offscreen_window_new ();
 
-		gtk_container_add (GTK_CONTAINER(offscreenwindow), GTK_WIDGET (webview));
-		gtk_window_set_default_size (GTK_WINDOW(offscreenwindow), 800, 1080);
-		gtk_widget_show_all (offscreenwindow);
+		ctk_container_add (GTK_CONTAINER(offscreenwindow), GTK_WIDGET (webview));
+		ctk_window_set_default_size (GTK_WINDOW(offscreenwindow), 800, 1080);
+		ctk_widget_show_all (offscreenwindow);
 
 		g_signal_connect (WEBKIT_WEB_VIEW (webview), "load-changed",
 		                  G_CALLBACK (web_thumbnail_get_screenshot_cb),

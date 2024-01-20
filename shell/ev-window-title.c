@@ -164,11 +164,11 @@ ev_window_title_update (EvWindowTitle *window_title)
 
 	switch (window_title->type) {
 	case EV_WINDOW_TITLE_DOCUMENT:
-		gtk_window_set_title (window, title);
+		ctk_window_set_title (window, title);
 		break;
 	case EV_WINDOW_TITLE_PASSWORD:
 		password_title = g_strdup_printf (_("%s — Password Required"), title);
-		gtk_window_set_title (window, password_title);
+		ctk_window_set_title (window, password_title);
 		g_free (password_title);
 		break;
 	}

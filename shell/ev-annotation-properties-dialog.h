@@ -21,7 +21,7 @@
 #ifndef __EV_ANNOTATION_PROPERTIES_DIALOG_H__
 #define __EV_ANNOTATION_PROPERTIES_DIALOG_H__
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <glib-object.h>
 
 #include <lector-document.h>

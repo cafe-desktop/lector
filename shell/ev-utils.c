@@ -34,10 +34,10 @@ file_chooser_dialog_add_writable_pixbuf_formats (GtkFileChooser *chooser)
 	GtkFileFilter *filter;
 	int i;
 
-	filter = gtk_file_filter_new();
-	gtk_file_filter_set_name (filter, _("By extension"));
+	filter = ctk_file_filter_new();
+	ctk_file_filter_set_name (filter, _("By extension"));
 	g_object_set_data (G_OBJECT(filter), "pixbuf-format", NULL);
-	gtk_file_chooser_add_filter (chooser, filter);
+	ctk_file_chooser_add_filter (chooser, filter);
 
 	pixbuf_formats = gdk_pixbuf_get_formats ();
 
@@ -57,10 +57,10 @@ file_chooser_dialog_add_writable_pixbuf_formats (GtkFileChooser *chooser)
 		g_strfreev (extension_list);
 		description = g_strdup_printf ("%s (%s)", name, extensions);
 
-		filter = gtk_file_filter_new ();
-		gtk_file_filter_set_name (filter, description);
+		filter = ctk_file_filter_new ();
+		ctk_file_filter_set_name (filter, description);
 		g_object_set_data (G_OBJECT (filter), "pixbuf-format", format);
-		gtk_file_chooser_add_filter (chooser, filter);
+		ctk_file_chooser_add_filter (chooser, filter);
 
 		g_free (description);
 		g_free (extensions);
@@ -68,7 +68,7 @@ file_chooser_dialog_add_writable_pixbuf_formats (GtkFileChooser *chooser)
 
 		mime_types = gdk_pixbuf_format_get_mime_types (format);
 		for (i = 0; mime_types[i] != 0; i++)
-			gtk_file_filter_add_mime_type (filter, mime_types[i]);
+			ctk_file_filter_add_mime_type (filter, mime_types[i]);
 		g_strfreev (mime_types);
 	}
 

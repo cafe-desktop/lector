@@ -24,7 +24,7 @@
 #include <math.h>
 
 #include <glib.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <gdk/gdkx.h>
 
 #include "ev-document-misc.h"
@@ -158,15 +158,15 @@ ev_document_misc_paint_one_page (cairo_t      *cr,
 				 gboolean      highlight,
 				 gboolean      inverted_colors)
 {
-	GtkStyleContext *context = gtk_widget_get_style_context (widget);
-	GtkStateFlags state = gtk_widget_get_state_flags (widget);
+	GtkStyleContext *context = ctk_widget_get_style_context (widget);
+	GtkStateFlags state = ctk_widget_get_state_flags (widget);
         GdkRGBA fg, bg, shade_bg;
 
-        gtk_style_context_save (context);
-        gtk_style_context_get_background_color (context, state, &bg);
-        gtk_style_context_get_color (context, state, &fg);
-        gtk_style_context_get_color (context, state, &shade_bg);
-        gtk_style_context_restore (context);
+        ctk_style_context_save (context);
+        ctk_style_context_get_background_color (context, state, &bg);
+        ctk_style_context_get_color (context, state, &fg);
+        ctk_style_context_get_color (context, state, &shade_bg);
+        ctk_style_context_restore (context);
         shade_bg.alpha *= 0.5;
 
 	gdk_cairo_set_source_rgba (cr, highlight ? &fg : &shade_bg);
@@ -387,19 +387,19 @@ ev_document_misc_get_pointer_position (GtkWidget *widget,
         if (y)
                 *y = -1;
 
-        if (!gtk_widget_get_realized (widget))
+        if (!ctk_widget_get_realized (widget))
                 return;
 
-        seat = gdk_display_get_default_seat (gtk_widget_get_display (widget));
+        seat = gdk_display_get_default_seat (ctk_widget_get_display (widget));
         device_pointer = gdk_seat_get_pointer (seat);
-        gdk_window_get_device_position (gtk_widget_get_window (widget),
+        gdk_window_get_device_position (ctk_widget_get_window (widget),
                                         device_pointer,
                                         x, y, NULL);
 
-        if (gtk_widget_get_has_window (widget))
+        if (ctk_widget_get_has_window (widget))
                 return;
 
-        gtk_widget_get_allocation (widget, &allocation);
+        ctk_widget_get_allocation (widget, &allocation);
         if (x)
                 *x -= allocation.x;
         if (y)

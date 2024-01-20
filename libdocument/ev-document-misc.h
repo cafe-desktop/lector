@@ -29,7 +29,7 @@
 #include <cairo.h>
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include "ev-macros.h"
 
 G_BEGIN_DECLS

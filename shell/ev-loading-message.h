@@ -21,7 +21,7 @@
 #ifndef EV_LOADING_MESSAGE_H
 #define EV_LOADING_MESSAGE_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 

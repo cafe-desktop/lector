@@ -24,7 +24,7 @@
 #ifndef __EV_PRINT_OPERATION_H__
 #define __EV_PRINT_OPERATION_H__
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <glib-object.h>
 
 #include <lector-document.h>

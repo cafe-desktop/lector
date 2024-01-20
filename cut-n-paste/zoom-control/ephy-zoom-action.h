@@ -22,7 +22,7 @@
 #ifndef EPHY_ZOOM_ACTION_H
 #define EPHY_ZOOM_ACTION_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 

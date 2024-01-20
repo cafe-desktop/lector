@@ -36,7 +36,7 @@
 #include <X11/SM/SMlib.h>
 
 #include <gdk/gdk.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <gdk/gdkx.h>
 
 #define EGG_TYPE_SM_CLIENT_XSMP            (egg_sm_client_xsmp_get_type ())
@@ -1246,7 +1246,7 @@ card8_prop (const char *name, unsigned char value)
  * than SM. (DCOP uses ICE, but it has its own private copy of
  * libICE.)
  *
- * When this moves to gtk, it will need to be cleverer, to avoid
+ * When this moves to ctk, it will need to be cleverer, to avoid
  * tripping over old apps that use CafeClient or that use libSM
  * directly.
  */

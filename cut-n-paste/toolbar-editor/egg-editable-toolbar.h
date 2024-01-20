@@ -24,7 +24,7 @@
 
 #include "egg-toolbars-model.h"
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 

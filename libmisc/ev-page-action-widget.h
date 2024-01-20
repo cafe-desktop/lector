@@ -20,7 +20,7 @@
 
 #include <lector-view.h>
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #define EV_TYPE_PAGE_ACTION_WIDGET (ev_page_action_widget_get_type ())
 #define EV_PAGE_ACTION_WIDGET(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), EV_TYPE_PAGE_ACTION_WIDGET, EvPageActionWidget))

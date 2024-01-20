@@ -19,7 +19,7 @@
 #ifndef EGG_TOOLBAR_EDITOR_H
 #define EGG_TOOLBAR_EDITOR_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "egg-toolbars-model.h"
 

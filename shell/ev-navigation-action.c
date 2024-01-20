@@ -21,7 +21,7 @@
 #include "config.h"
 
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "ev-navigation-action.h"
 #include "ev-navigation-action-widget.h"
@@ -50,7 +50,7 @@ ev_navigation_action_history_changed (EvHistory *history,
 {
 	EvNavigationAction *action = EV_NAVIGATION_ACTION (data);
 
-	gtk_action_set_sensitive (GTK_ACTION (action),
+	ctk_action_set_sensitive (GTK_ACTION (action),
 				  ev_history_get_n_links (history) > 0);
 }
 
@@ -96,20 +96,20 @@ new_history_menu_item (EvNavigationAction *action,
 	const char *title;
 
 	title = ev_link_get_title (link);
-	item = gtk_image_menu_item_new_with_label (title);
-	label = GTK_LABEL (gtk_bin_get_child (GTK_BIN (item)));
-	gtk_label_set_use_markup (label, TRUE);
+	item = ctk_image_menu_item_new_with_label (title);
+	label = GTK_LABEL (ctk_bin_get_child (GTK_BIN (item)));
+	ctk_label_set_use_markup (label, TRUE);
 	g_object_set_data (G_OBJECT (item), "index",
 			   GINT_TO_POINTER (index));
 
-	gtk_label_set_ellipsize (label, PANGO_ELLIPSIZE_END);
-	gtk_label_set_max_width_chars (label, MAX_LABEL_LENGTH);
+	ctk_label_set_ellipsize (label, PANGO_ELLIPSIZE_END);
+	ctk_label_set_max_width_chars (label, MAX_LABEL_LENGTH);
 
 	g_signal_connect (item, "activate",
 			  G_CALLBACK (activate_menu_item_cb),
 			  action);
 
-	gtk_widget_show (item);
+	ctk_widget_show (item);
 
 	return item;
 }
@@ -127,7 +127,7 @@ build_menu (EvNavigationAction *action)
 		return NULL;
 	}
 
-	menu = GTK_MENU_SHELL (gtk_menu_new ());
+	menu = GTK_MENU_SHELL (ctk_menu_new ());
 
 	start = 0;
 	end = ev_history_get_n_links (history);
@@ -135,7 +135,7 @@ build_menu (EvNavigationAction *action)
 	for (i = start; i < end; i++) {
 		link = ev_history_get_link_nth (history, i);
 		item = new_history_menu_item (action, link, i);
-		gtk_menu_shell_prepend (menu, item);
+		ctk_menu_shell_prepend (menu, item);
 	}
 
 	return GTK_WIDGET (menu);
@@ -158,7 +158,7 @@ connect_proxy (GtkAction *action, GtkWidget *proxy)
 
 	if (GTK_IS_TOOL_ITEM (proxy)) {
 		/* set dummy menu so the arrow gets sensitive */
-		menu = gtk_menu_new ();
+		menu = ctk_menu_new ();
 		ev_navigation_action_widget_set_menu (EV_NAVIGATION_ACTION_WIDGET (proxy), menu);
 
 		g_signal_connect (proxy, "show-menu",
@@ -174,7 +174,7 @@ create_tool_item (GtkAction *action)
 	EvNavigationActionWidget *proxy;
 
 	proxy = g_object_new (EV_TYPE_NAVIGATION_ACTION_WIDGET, NULL);
-	gtk_widget_show (GTK_WIDGET (proxy));
+	ctk_widget_show (GTK_WIDGET (proxy));
 
 	return GTK_WIDGET (proxy);
 }
@@ -189,9 +189,9 @@ create_menu_item (GtkAction *action)
 
         menu_item = GTK_ACTION_CLASS (ev_navigation_action_parent_class)->create_menu_item (action);
 
-	gtk_menu_item_set_submenu (GTK_MENU_ITEM (menu_item), menu);
+	ctk_menu_item_set_submenu (GTK_MENU_ITEM (menu_item), menu);
 
-	gtk_widget_show (menu_item);
+	ctk_widget_show (menu_item);
 
 	return menu_item;
 }

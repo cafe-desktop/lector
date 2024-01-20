@@ -21,7 +21,7 @@
 #ifndef EPHY_ZOOM_CONTROL_H
 #define EPHY_ZOOM_CONTROL_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 

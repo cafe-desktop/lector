@@ -21,7 +21,7 @@
 #ifndef EV_PREVIEWER_WINDOW_H
 #define EV_PREVIEWER_WINDOW_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include <lector-document.h>
 #include <lector-view.h>

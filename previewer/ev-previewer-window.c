@@ -21,7 +21,7 @@
 #include <config.h>
 
 #if GTKUNIXPRINT_ENABLED
-#include <gtk/gtkunixprint.h>
+#include <ctk/ctkunixprint.h>
 #endif
 #include <glib/gi18n.h>
 #include <lector-view.h>
@@ -74,7 +74,7 @@ get_monitor_dpi (EvPreviewerWindow *window)
 	GdkMonitor *monitor;
 	GdkDisplay *display;
 
-	gdk_window = gtk_widget_get_window (GTK_WIDGET (window));
+	gdk_window = ctk_widget_get_window (GTK_WIDGET (window));
 	display = gdk_window_get_display (gdk_window);
 	monitor = gdk_display_get_monitor_at_window (display, gdk_window);
 
@@ -88,16 +88,16 @@ ev_previewer_window_error_dialog_run (EvPreviewerWindow *window,
 {
 	GtkWidget *dialog;
 
-	dialog = gtk_message_dialog_new (GTK_WINDOW (window),
+	dialog = ctk_message_dialog_new (GTK_WINDOW (window),
 					 GTK_DIALOG_MODAL |
 					 GTK_DIALOG_DESTROY_WITH_PARENT,
 					 GTK_MESSAGE_ERROR,
 					 GTK_BUTTONS_CLOSE,
 					 "%s", _("Failed to print document"));
-	gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
+	ctk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
 						  "%s", error->message);
-	gtk_dialog_run (GTK_DIALOG (dialog));
-	gtk_widget_destroy (dialog);
+	ctk_dialog_run (GTK_DIALOG (dialog));
+	ctk_widget_destroy (dialog);
 }
 #endif
 
@@ -105,7 +105,7 @@ static void
 ev_previewer_window_close (GtkAction         *action,
 			   EvPreviewerWindow *window)
 {
-	gtk_widget_destroy (GTK_WIDGET (window));
+	ctk_widget_destroy (GTK_WIDGET (window));
 }
 
 static void
@@ -151,7 +151,7 @@ ev_previewer_window_zoom_fit_page (GtkToggleAction   *action,
 				   EvPreviewerWindow *window)
 {
 	ev_document_model_set_sizing_mode (window->model,
-					   gtk_toggle_action_get_active (action) ?
+					   ctk_toggle_action_get_active (action) ?
 					   EV_SIZING_FIT_PAGE : EV_SIZING_FREE);
 }
 
@@ -160,7 +160,7 @@ ev_previewer_window_zoom_fit_width (GtkToggleAction   *action,
                                     EvPreviewerWindow *window)
 {
 	ev_document_model_set_sizing_mode (window->model,
-					   gtk_toggle_action_get_active (action) ?
+					   ctk_toggle_action_get_active (action) ?
 					   EV_SIZING_FIT_WIDTH : EV_SIZING_FREE);
 }
 
@@ -170,7 +170,7 @@ ev_previewer_window_action_page_activated (GtkAction         *action,
 					   EvPreviewerWindow *window)
 {
 	ev_view_handle_link (window->view, link);
-	gtk_widget_grab_focus (GTK_WIDGET (window->view));
+	ctk_widget_grab_focus (GTK_WIDGET (window->view));
 }
 
 static void
@@ -179,7 +179,7 @@ ev_previewer_window_focus_page_selector (GtkAction         *action,
 {
 	GtkAction *page_action;
 
-	page_action = gtk_action_group_get_action (window->action_group,
+	page_action = ctk_action_group_get_action (window->action_group,
 						   "PageSelector");
 	ev_page_action_grab_focus (EV_PAGE_ACTION (page_action));
 }
@@ -195,7 +195,7 @@ ev_previewer_window_print_finished (GtkPrintJob       *print_job,
 	}
 
 	g_object_unref (print_job);
-	gtk_widget_destroy (GTK_WIDGET (window));
+	ctk_widget_destroy (GTK_WIDGET (window));
 }
 
 static void
@@ -204,14 +204,14 @@ ev_previewer_window_do_print (EvPreviewerWindow *window)
 	GtkPrintJob *job;
 	GError      *error = NULL;
 
-	job = gtk_print_job_new (window->print_job_title ?
+	job = ctk_print_job_new (window->print_job_title ?
 				 window->print_job_title :
 				 window->source_file,
 				 window->printer,
 				 window->print_settings,
 				 window->print_page_setup);
-	if (gtk_print_job_set_source_file (job, window->source_file, &error)) {
-		gtk_print_job_send (job,
+	if (ctk_print_job_set_source_file (job, window->source_file, &error)) {
+		ctk_print_job_send (job,
 				    (GtkPrintJobCompleteFunc)ev_previewer_window_print_finished,
 				    window, NULL);
 	} else {
@@ -219,7 +219,7 @@ ev_previewer_window_do_print (EvPreviewerWindow *window)
 		g_error_free (error);
 	}
 
-	gtk_widget_hide (GTK_WIDGET (window));
+	ctk_widget_hide (GTK_WIDGET (window));
 }
 
 static void
@@ -234,7 +234,7 @@ ev_previewer_window_enumerate_finished (EvPreviewerWindow *window)
 			     GTK_PRINT_ERROR,
 			     GTK_PRINT_ERROR_GENERAL,
 			     _("The selected printer '%s' could not be found"),
-			     gtk_print_settings_get_printer (window->print_settings));
+			     ctk_print_settings_get_printer (window->print_settings));
 
 		ev_previewer_window_error_dialog_run (window, error);
 		g_error_free (error);
@@ -247,10 +247,10 @@ ev_previewer_window_enumerate_printers (GtkPrinter        *printer,
 {
 	const gchar *printer_name;
 
-	printer_name = gtk_print_settings_get_printer (window->print_settings);
+	printer_name = ctk_print_settings_get_printer (window->print_settings);
 	if ((printer_name
-	     && strcmp (printer_name, gtk_printer_get_name (printer)) == 0) ||
-	    (!printer_name && gtk_printer_is_default (printer))) {
+	     && strcmp (printer_name, ctk_printer_get_name (printer)) == 0) ||
+	    (!printer_name && ctk_printer_is_default (printer))) {
 		if (window->printer)
 			g_object_unref (window->printer);
 		window->printer = g_object_ref (printer);
@@ -266,10 +266,10 @@ ev_previewer_window_print (GtkAction         *action,
 			   EvPreviewerWindow *window)
 {
 	if (!window->print_settings)
-		window->print_settings = gtk_print_settings_new ();
+		window->print_settings = ctk_print_settings_new ();
 	if (!window->print_page_setup)
-		window->print_page_setup = gtk_page_setup_new ();
-	gtk_enumerate_printers ((GtkPrinterFunc)ev_previewer_window_enumerate_printers,
+		window->print_page_setup = ctk_page_setup_new ();
+	ctk_enumerate_printers ((GtkPrinterFunc)ev_previewer_window_enumerate_printers,
 				window,
 				(GDestroyNotify)ev_previewer_window_enumerate_finished,
 				FALSE);
@@ -346,7 +346,7 @@ view_focus_changed (GtkWidget         *widget,
 		    EvPreviewerWindow *window)
 {
 	if (window->accels_group)
-		gtk_action_group_set_sensitive (window->accels_group, event->in);
+		ctk_action_group_set_sensitive (window->accels_group, event->in);
 
 	return FALSE;
 }
@@ -359,21 +359,21 @@ view_sizing_mode_changed (EvDocumentModel   *model,
 	EvSizingMode sizing_mode = ev_document_model_get_sizing_mode (model);
 	GtkAction   *action;
 
-	action = gtk_action_group_get_action (window->action_group, "ViewFitPage");
+	action = ctk_action_group_get_action (window->action_group, "ViewFitPage");
 	g_signal_handlers_block_by_func (action,
 					 G_CALLBACK (ev_previewer_window_zoom_fit_page),
 					 window);
-	gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action),
+	ctk_toggle_action_set_active (GTK_TOGGLE_ACTION (action),
 				      sizing_mode == EV_SIZING_FIT_PAGE);
 	g_signal_handlers_unblock_by_func (action,
 					   G_CALLBACK (ev_previewer_window_zoom_fit_page),
 					   window);
 
-	action = gtk_action_group_get_action (window->action_group, "ViewFitWidth");
+	action = ctk_action_group_get_action (window->action_group, "ViewFitWidth");
 	g_signal_handlers_block_by_func (action,
 					 G_CALLBACK (ev_previewer_window_zoom_fit_width),
 					 window);
-	gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action),
+	ctk_toggle_action_set_active (GTK_TOGGLE_ACTION (action),
 				      sizing_mode == EV_SIZING_FIT_WIDTH);
 	g_signal_handlers_unblock_by_func (action,
 					   G_CALLBACK (ev_previewer_window_zoom_fit_width),
@@ -392,8 +392,8 @@ ev_previewer_window_set_document (EvPreviewerWindow *window,
 	g_signal_connect (model, "notify::sizing-mode",
 			  G_CALLBACK (view_sizing_mode_changed),
 			  window);
-	gtk_action_group_set_sensitive (window->action_group, TRUE);
-	gtk_action_group_set_sensitive (window->accels_group, TRUE);
+	ctk_action_group_set_sensitive (window->action_group, TRUE);
+	ctk_action_group_set_sensitive (window->accels_group, TRUE);
 }
 
 static void
@@ -401,10 +401,10 @@ ev_previewer_window_connect_action_accelerators (EvPreviewerWindow *window)
 {
 	GList *actions;
 
-	gtk_ui_manager_ensure_update (window->ui_manager);
+	ctk_ui_manager_ensure_update (window->ui_manager);
 
-	actions = gtk_action_group_list_actions (window->action_group);
-	g_list_foreach (actions, (GFunc)gtk_action_connect_accelerator, NULL);
+	actions = ctk_action_group_list_actions (window->action_group);
+	g_list_foreach (actions, (GFunc)ctk_action_connect_accelerator, NULL);
 	g_list_free (actions);
 }
 
@@ -473,10 +473,10 @@ ev_previewer_window_init (EvPreviewerWindow *window)
 {
 	GtkStyleContext *context;
 
-	context = gtk_widget_get_style_context (GTK_WIDGET (window));
-	gtk_style_context_add_class (context, "lector-previewer-window");
+	context = ctk_widget_get_style_context (GTK_WIDGET (window));
+	ctk_style_context_add_class (context, "lector-previewer-window");
 
-	gtk_window_set_default_size (GTK_WINDOW (window), 600, 600);
+	ctk_window_set_default_size (GTK_WINDOW (window), 600, 600);
 }
 
 static void
@@ -522,15 +522,15 @@ ev_previewer_window_constructor (GType                  type,
 				  G_CALLBACK (ev_previewer_window_set_document),
 				  window);
 
-	window->action_group = gtk_action_group_new ("PreviewerActions");
-	gtk_action_group_set_translation_domain (window->action_group, NULL);
-	gtk_action_group_add_actions (window->action_group, action_entries,
+	window->action_group = ctk_action_group_new ("PreviewerActions");
+	ctk_action_group_set_translation_domain (window->action_group, NULL);
+	ctk_action_group_add_actions (window->action_group, action_entries,
 				      G_N_ELEMENTS (action_entries),
 				      window);
-	gtk_action_group_add_toggle_actions (window->action_group, toggle_action_entries,
+	ctk_action_group_add_toggle_actions (window->action_group, toggle_action_entries,
 					     G_N_ELEMENTS (toggle_action_entries),
 					     window);
-	gtk_action_group_set_sensitive (window->action_group, FALSE);
+	ctk_action_group_set_sensitive (window->action_group, FALSE);
 
 	action = g_object_new (EV_TYPE_PAGE_ACTION,
 			       "name", "PageSelector",
@@ -543,24 +543,24 @@ ev_previewer_window_constructor (GType                  type,
 	g_signal_connect (action, "activate_link",
 			  G_CALLBACK (ev_previewer_window_action_page_activated),
 			  window);
-	gtk_action_group_add_action (window->action_group, action);
+	ctk_action_group_add_action (window->action_group, action);
 	g_object_unref (action);
 
-	window->accels_group = gtk_action_group_new ("PreviewerAccelerators");
-	gtk_action_group_add_actions (window->accels_group, accel_entries,
+	window->accels_group = ctk_action_group_new ("PreviewerAccelerators");
+	ctk_action_group_add_actions (window->accels_group, accel_entries,
 				      G_N_ELEMENTS (accel_entries),
 				      window);
-	gtk_action_group_set_sensitive (window->accels_group, FALSE);
+	ctk_action_group_set_sensitive (window->accels_group, FALSE);
 
-	window->ui_manager = gtk_ui_manager_new ();
-	gtk_ui_manager_insert_action_group (window->ui_manager,
+	window->ui_manager = ctk_ui_manager_new ();
+	ctk_ui_manager_insert_action_group (window->ui_manager,
 					    window->action_group, 0);
-	gtk_ui_manager_insert_action_group (window->ui_manager,
+	ctk_ui_manager_insert_action_group (window->ui_manager,
 					    window->accels_group, 1);
-	gtk_window_add_accel_group (GTK_WINDOW (window),
-				    gtk_ui_manager_get_accel_group (window->ui_manager));
+	ctk_window_add_accel_group (GTK_WINDOW (window),
+				    ctk_ui_manager_get_accel_group (window->ui_manager));
 
-	gtk_ui_manager_add_ui_from_resource (window->ui_manager, "/org/cafe/lector/previewer/ui/previewer.xml", &error);
+	ctk_ui_manager_add_ui_from_resource (window->ui_manager, "/org/cafe/lector/previewer/ui/previewer.xml", &error);
 	g_assert_no_error (error);
 
 	/* GTKUIManager connects actions accels only for menu items,
@@ -570,14 +570,14 @@ ev_previewer_window_constructor (GType                  type,
 
 	view_sizing_mode_changed (window->model, NULL, window);
 
-	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+	vbox = ctk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 
-	toolbar = gtk_ui_manager_get_widget (window->ui_manager, "/PreviewToolbar");
-	gtk_box_pack_start (GTK_BOX (vbox), toolbar, FALSE, FALSE, 0);
-	gtk_widget_show (toolbar);
+	toolbar = ctk_ui_manager_get_widget (window->ui_manager, "/PreviewToolbar");
+	ctk_box_pack_start (GTK_BOX (vbox), toolbar, FALSE, FALSE, 0);
+	ctk_widget_show (toolbar);
 
-	window->swindow = gtk_scrolled_window_new (NULL, NULL);
-	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (window->swindow),
+	window->swindow = ctk_scrolled_window_new (NULL, NULL);
+	ctk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (window->swindow),
 					GTK_POLICY_AUTOMATIC,
 					GTK_POLICY_AUTOMATIC);
 
@@ -591,14 +591,14 @@ ev_previewer_window_constructor (GType                  type,
 	ev_view_set_model (window->view, window->model);
 	ev_document_model_set_continuous (window->model, FALSE);
 
-	gtk_container_add (GTK_CONTAINER (window->swindow), GTK_WIDGET (window->view));
-	gtk_widget_show (GTK_WIDGET (window->view));
+	ctk_container_add (GTK_CONTAINER (window->swindow), GTK_WIDGET (window->view));
+	ctk_widget_show (GTK_WIDGET (window->view));
 
-	gtk_box_pack_start (GTK_BOX (vbox), window->swindow, TRUE, TRUE, 0);
-	gtk_widget_show (window->swindow);
+	ctk_box_pack_start (GTK_BOX (vbox), window->swindow, TRUE, TRUE, 0);
+	ctk_widget_show (window->swindow);
 
-	gtk_container_add (GTK_CONTAINER (window), vbox);
-	gtk_widget_show (vbox);
+	ctk_container_add (GTK_CONTAINER (window), vbox);
+	ctk_widget_show (vbox);
 
 	return object;
 }
@@ -656,33 +656,33 @@ ev_previewer_window_set_print_settings (EvPreviewerWindow *window,
 			GtkPageSetup     *psetup;
 			gchar            *job_name;
 
-			psettings = gtk_print_settings_new_from_key_file (key_file,
+			psettings = ctk_print_settings_new_from_key_file (key_file,
 									  "Print Settings",
 									  NULL);
-			window->print_settings = psettings ? psettings : gtk_print_settings_new ();
+			window->print_settings = psettings ? psettings : ctk_print_settings_new ();
 
-			psetup = gtk_page_setup_new_from_key_file (key_file,
+			psetup = ctk_page_setup_new_from_key_file (key_file,
 								   "Page Setup",
 								   NULL);
-			window->print_page_setup = psetup ? psetup : gtk_page_setup_new ();
+			window->print_page_setup = psetup ? psetup : ctk_page_setup_new ();
 
 			job_name = g_key_file_get_string (key_file,
 							  "Print Job", "title",
 							  NULL);
 			if (job_name) {
 				window->print_job_title = job_name;
-				gtk_window_set_title (GTK_WINDOW (window), job_name);
+				ctk_window_set_title (GTK_WINDOW (window), job_name);
 			}
 		} else {
-			window->print_settings = gtk_print_settings_new ();
-			window->print_page_setup = gtk_page_setup_new ();
+			window->print_settings = ctk_print_settings_new ();
+			window->print_page_setup = ctk_page_setup_new ();
 			g_error_free (error);
 		}
 
 		g_key_file_free (key_file);
 	} else {
-		window->print_settings = gtk_print_settings_new ();
-		window->print_page_setup = gtk_page_setup_new ();
+		window->print_settings = ctk_print_settings_new ();
+		window->print_page_setup = ctk_page_setup_new ();
 	}
 }
 

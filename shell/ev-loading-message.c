@@ -41,15 +41,15 @@ ev_loading_message_init (EvLoadingMessage *message)
 {
         GtkWidget *label;
 
-        gtk_container_set_border_width (GTK_CONTAINER (message), 10);
+        ctk_container_set_border_width (GTK_CONTAINER (message), 10);
 
-        message->spinner = gtk_spinner_new ();
-        gtk_box_pack_start (GTK_BOX (message), message->spinner, FALSE, FALSE, 0);
-        gtk_widget_show (message->spinner);
+        message->spinner = ctk_spinner_new ();
+        ctk_box_pack_start (GTK_BOX (message), message->spinner, FALSE, FALSE, 0);
+        ctk_widget_show (message->spinner);
 
-        label = gtk_label_new (_("Loading…"));
-        gtk_box_pack_start (GTK_BOX (message), label, FALSE, FALSE, 0);
-        gtk_widget_show (label);
+        label = ctk_label_new (_("Loading…"));
+        ctk_box_pack_start (GTK_BOX (message), label, FALSE, FALSE, 0);
+        ctk_widget_show (label);
 }
 
 static void
@@ -59,9 +59,9 @@ get_widget_padding (GtkWidget *widget,
         GtkStyleContext *context;
         GtkStateFlags state;
 
-        context = gtk_widget_get_style_context (widget);
-        state = gtk_style_context_get_state (context);
-        gtk_style_context_get_padding (context, state, padding);
+        context = ctk_widget_get_style_context (widget);
+        state = ctk_style_context_get_state (context);
+        ctk_style_context_get_padding (context, state, padding);
 }
 
 static void
@@ -78,7 +78,7 @@ ev_loading_message_size_allocate (GtkWidget     *widget,
         child_allocation.height = MAX (1, allocation->height - (padding.top + padding.bottom));
 
         GTK_WIDGET_CLASS (ev_loading_message_parent_class)->size_allocate (widget, &child_allocation);
-        gtk_widget_set_allocation (widget, allocation);
+        ctk_widget_set_allocation (widget, allocation);
 }
 
 static void
@@ -116,12 +116,12 @@ ev_loading_message_draw (GtkWidget *widget,
         GtkStyleContext *context;
         gint             width, height;
 
-        context = gtk_widget_get_style_context (widget);
-        width = gtk_widget_get_allocated_width (widget);
-        height = gtk_widget_get_allocated_height (widget);
+        context = ctk_widget_get_style_context (widget);
+        width = ctk_widget_get_allocated_width (widget);
+        height = ctk_widget_get_allocated_height (widget);
 
-        gtk_render_background (context, cr, 0, 0, width, height);
-        gtk_render_frame (context, cr, 0, 0, width, height);
+        ctk_render_background (context, cr, 0, 0, width, height);
+        ctk_render_frame (context, cr, 0, 0, width, height);
 
         GTK_WIDGET_CLASS (ev_loading_message_parent_class)->draw (widget, cr);
 
@@ -133,7 +133,7 @@ ev_loading_message_hide (GtkWidget *widget)
 {
         EvLoadingMessage *message = EV_LOADING_MESSAGE (widget);
 
-        gtk_spinner_stop (GTK_SPINNER (message->spinner));
+        ctk_spinner_stop (GTK_SPINNER (message->spinner));
 
         GTK_WIDGET_CLASS (ev_loading_message_parent_class)->hide (widget);
 }
@@ -143,7 +143,7 @@ ev_loading_message_show (GtkWidget *widget)
 {
         EvLoadingMessage *message = EV_LOADING_MESSAGE (widget);
 
-        gtk_spinner_start (GTK_SPINNER (message->spinner));
+        ctk_spinner_start (GTK_SPINNER (message->spinner));
 
         GTK_WIDGET_CLASS (ev_loading_message_parent_class)->show (widget);
 }
@@ -151,14 +151,14 @@ ev_loading_message_show (GtkWidget *widget)
 static void
 ev_loading_message_class_init (EvLoadingMessageClass *klass)
 {
-        GtkWidgetClass *gtk_widget_class = GTK_WIDGET_CLASS (klass);
+        GtkWidgetClass *ctk_widget_class = GTK_WIDGET_CLASS (klass);
 
-        gtk_widget_class->size_allocate = ev_loading_message_size_allocate;
-        gtk_widget_class->get_preferred_width = ev_loading_message_get_preferred_width;
-        gtk_widget_class->get_preferred_height = ev_loading_message_get_preferred_height;
-        gtk_widget_class->draw = ev_loading_message_draw;
-        gtk_widget_class->show = ev_loading_message_show;
-        gtk_widget_class->hide = ev_loading_message_hide;
+        ctk_widget_class->size_allocate = ev_loading_message_size_allocate;
+        ctk_widget_class->get_preferred_width = ev_loading_message_get_preferred_width;
+        ctk_widget_class->get_preferred_height = ev_loading_message_get_preferred_height;
+        ctk_widget_class->draw = ev_loading_message_draw;
+        ctk_widget_class->show = ev_loading_message_show;
+        ctk_widget_class->hide = ev_loading_message_hide;
 }
 
 /* Public methods */

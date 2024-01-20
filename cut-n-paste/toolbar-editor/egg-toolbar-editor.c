@@ -25,7 +25,7 @@
 
 #include <string.h>
 #include <libxml/tree.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <glib/gi18n.h>
 
 static const GtkTargetEntry dest_drag_types[] = {
@@ -93,7 +93,7 @@ find_action (EggToolbarEditor *t,
   GList *l;
   GtkAction *action = NULL;
 
-  l = gtk_ui_manager_get_action_groups (t->priv->manager);
+  l = ctk_ui_manager_get_action_groups (t->priv->manager);
 
   g_return_val_if_fail (EGG_IS_TOOLBAR_EDITOR (t), NULL);
   g_return_val_if_fail (name != NULL, NULL);
@@ -102,7 +102,7 @@ find_action (EggToolbarEditor *t,
     {
       GtkAction *tmp;
 
-      tmp = gtk_action_group_get_action (GTK_ACTION_GROUP (l->data), name);
+      tmp = ctk_action_group_get_action (GTK_ACTION_GROUP (l->data), name);
       if (tmp)
         action = tmp;
     }
@@ -259,7 +259,7 @@ egg_toolbar_editor_class_init (EggToolbarEditorClass *klass)
                                                        G_PARAM_CONSTRUCT));
 
   GtkWidgetClass *widget_class  = GTK_WIDGET_CLASS (klass);
-  gtk_widget_class_set_css_name (widget_class, "EggToolbarEditor");
+  ctk_widget_class_set_css_name (widget_class, "EggToolbarEditor");
 }
 
 static void
@@ -298,14 +298,14 @@ static void
 drag_begin_cb (GtkWidget          *widget,
                GdkDragContext     *context)
 {
-  gtk_widget_hide (widget);
+  ctk_widget_hide (widget);
 }
 
 static void
 drag_end_cb (GtkWidget          *widget,
              GdkDragContext     *context)
 {
-  gtk_widget_show (widget);
+  ctk_widget_show (widget);
 }
 
 static void
@@ -321,8 +321,8 @@ drag_data_get_cb (GtkWidget          *widget,
   target = g_object_get_data (G_OBJECT (widget), "egg-item-name");
   g_return_if_fail (target != NULL);
 
-  gtk_selection_data_set (selection_data,
-                          gtk_selection_data_get_target (selection_data), 8,
+  ctk_selection_data_set (selection_data,
+                          ctk_selection_data_get_target (selection_data), 8,
                           (const guchar *) target, strlen (target));
 }
 
@@ -358,11 +358,11 @@ set_drag_cursor (GtkWidget *widget)
   GdkCursor *cursor;
   GdkScreen *screen;
 
-  screen = gtk_widget_get_screen (widget);
+  screen = ctk_widget_get_screen (widget);
 
   cursor = gdk_cursor_new_for_display (gdk_screen_get_display (screen),
                                        GDK_HAND2);
-  gdk_window_set_cursor (gtk_widget_get_window (widget), cursor);
+  gdk_window_set_cursor (ctk_widget_get_window (widget), cursor);
   g_object_unref (cursor);
 }
 
@@ -373,16 +373,16 @@ event_box_realize_cb (GtkWidget *widget, GtkImage *icon)
 
   set_drag_cursor (widget);
 
-  type = gtk_image_get_storage_type (icon);
+  type = ctk_image_get_storage_type (icon);
   if (type == GTK_IMAGE_STOCK)
     {
       gchar *stock_id;
       GdkPixbuf *pixbuf;
 
-      gtk_image_get_stock (icon, &stock_id, NULL);
-      pixbuf = gtk_widget_render_icon_pixbuf (widget, stock_id,
+      ctk_image_get_stock (icon, &stock_id, NULL);
+      pixbuf = ctk_widget_render_icon_pixbuf (widget, stock_id,
                                               GTK_ICON_SIZE_LARGE_TOOLBAR);
-      gtk_drag_source_set_icon_pixbuf (widget, pixbuf);
+      ctk_drag_source_set_icon_pixbuf (widget, pixbuf);
       g_object_unref (pixbuf);
     }
   else if (type == GTK_IMAGE_ICON_NAME)
@@ -393,29 +393,29 @@ event_box_realize_cb (GtkWidget *widget, GtkImage *icon)
       gint width, height;
       GdkPixbuf *pixbuf;
 
-      gtk_image_get_icon_name (icon, &icon_name, NULL);
-      screen = gtk_widget_get_screen (widget);
-      icon_theme = gtk_icon_theme_get_for_screen (screen);
+      ctk_image_get_icon_name (icon, &icon_name, NULL);
+      screen = ctk_widget_get_screen (widget);
+      icon_theme = ctk_icon_theme_get_for_screen (screen);
 
-      if (!gtk_icon_size_lookup (GTK_ICON_SIZE_LARGE_TOOLBAR,
+      if (!ctk_icon_size_lookup (GTK_ICON_SIZE_LARGE_TOOLBAR,
                                  &width, &height))
         {
           width = height = 24;
         }
 
-      pixbuf = gtk_icon_theme_load_icon (icon_theme, icon_name,
+      pixbuf = ctk_icon_theme_load_icon (icon_theme, icon_name,
                                          MIN (width, height), 0, NULL);
       if (G_UNLIKELY (!pixbuf))
         return;
 
-      gtk_drag_source_set_icon_pixbuf (widget, pixbuf);
+      ctk_drag_source_set_icon_pixbuf (widget, pixbuf);
       g_object_unref (pixbuf);
 
     }
   else if (type == GTK_IMAGE_PIXBUF)
     {
-      GdkPixbuf *pixbuf = gtk_image_get_pixbuf (icon);
-      gtk_drag_source_set_icon_pixbuf (widget, pixbuf);
+      GdkPixbuf *pixbuf = ctk_image_get_pixbuf (icon);
+      ctk_drag_source_set_icon_pixbuf (widget, pixbuf);
     }
 }
 
@@ -430,10 +430,10 @@ editor_create_item (EggToolbarEditor *editor,
   GtkWidget *label;
   gchar *label_no_mnemonic = NULL;
 
-  event_box = gtk_event_box_new ();
-  gtk_event_box_set_visible_window (GTK_EVENT_BOX (event_box), FALSE);
-  gtk_widget_show (event_box);
-  gtk_drag_source_set (event_box,
+  event_box = ctk_event_box_new ();
+  ctk_event_box_set_visible_window (GTK_EVENT_BOX (event_box), FALSE);
+  ctk_widget_show (event_box);
+  ctk_drag_source_set (event_box,
                        GDK_BUTTON1_MASK,
                        source_drag_types, G_N_ELEMENTS (source_drag_types), action);
   g_signal_connect (event_box, "drag_data_get",
@@ -449,17 +449,17 @@ editor_create_item (EggToolbarEditor *editor,
                         G_CALLBACK (drag_end_cb), NULL);
     }
 
-  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-  gtk_widget_show (vbox);
-  gtk_container_add (GTK_CONTAINER (event_box), vbox);
+  vbox = ctk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+  ctk_widget_show (vbox);
+  ctk_container_add (GTK_CONTAINER (event_box), vbox);
 
-  gtk_widget_show (GTK_WIDGET (icon));
-  gtk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET (icon), FALSE, TRUE, 0);
+  ctk_widget_show (GTK_WIDGET (icon));
+  ctk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET (icon), FALSE, TRUE, 0);
   label_no_mnemonic = elide_underscores (label_text);
-  label = gtk_label_new (label_no_mnemonic);
+  label = ctk_label_new (label_no_mnemonic);
   g_free (label_no_mnemonic);
-  gtk_widget_show (label);
-  gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, TRUE, 0);
+  ctk_widget_show (label);
+  ctk_box_pack_start (GTK_BOX (vbox), label, FALSE, TRUE, 0);
 
   return event_box;
 }
@@ -502,10 +502,10 @@ editor_create_item_from_name (EggToolbarEditor *editor,
 
       /* This is a workaround to catch named icons. */
       if (icon_name)
-        icon = gtk_image_new_from_icon_name (icon_name,
+        icon = ctk_image_new_from_icon_name (icon_name,
                                              GTK_ICON_SIZE_LARGE_TOOLBAR);
       else
-        icon = gtk_image_new_from_icon_name (stock_id ? stock_id : "gtk-dnd",
+        icon = ctk_image_new_from_icon_name (stock_id ? stock_id : "ctk-dnd",
                                              GTK_ICON_SIZE_LARGE_TOOLBAR);
 
       item_name = g_strdup (name);
@@ -536,28 +536,28 @@ append_grid (GtkGrid *grid, GList *items, gint y, gint width)
 
       if (y > 0)
         {
-          item = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
-          gtk_widget_set_hexpand (item, TRUE);
-          gtk_widget_set_vexpand (item, FALSE);
-          gtk_widget_show (item);
+          item = ctk_separator_new (GTK_ORIENTATION_HORIZONTAL);
+          ctk_widget_set_hexpand (item, TRUE);
+          ctk_widget_set_vexpand (item, FALSE);
+          ctk_widget_show (item);
 
-          gtk_grid_attach (grid, item, 0, y, width, 1);
+          ctk_grid_attach (grid, item, 0, y, width, 1);
           y++;
         }
 
       for (; items != NULL; items = items->next)
         {
           item = items->data;
-          gtk_widget_set_hexpand (item, FALSE);
-          gtk_widget_set_vexpand (item, FALSE);
-          gtk_widget_show (item);
+          ctk_widget_set_hexpand (item, FALSE);
+          ctk_widget_set_vexpand (item, FALSE);
+          ctk_widget_show (item);
 
           if (x >= width)
             {
               x = 0;
               y++;
             }
-          gtk_grid_attach (grid, item, x, y, 1, 1);
+          ctk_grid_attach (grid, item, x, y, 1, 1);
           x++;
         }
 
@@ -578,12 +578,12 @@ update_editor_sheet (EggToolbarEditor *editor)
   g_return_if_fail (EGG_IS_TOOLBAR_EDITOR (editor));
 
   /* Create new grid. */
-  grid = gtk_grid_new ();
+  grid = ctk_grid_new ();
   editor->priv->grid = grid;
-  gtk_container_set_border_width (GTK_CONTAINER (grid), 12);
-  gtk_grid_set_row_spacing (GTK_GRID (grid), 24);
-  gtk_widget_show (grid);
-  gtk_drag_dest_set (grid, GTK_DEST_DEFAULT_ALL,
+  ctk_container_set_border_width (GTK_CONTAINER (grid), 12);
+  ctk_grid_set_row_spacing (GTK_GRID (grid), 24);
+  ctk_widget_show (grid);
+  ctk_drag_dest_set (grid, GTK_DEST_DEFAULT_ALL,
                      dest_drag_types, G_N_ELEMENTS (dest_drag_types),
                      GDK_ACTION_MOVE | GDK_ACTION_COPY);
 
@@ -623,15 +623,15 @@ update_editor_sheet (EggToolbarEditor *editor)
   g_ptr_array_free (items, TRUE);
 
   /* Delete old grid. */
-  viewport = gtk_bin_get_child (GTK_BIN (editor->priv->scrolled_window));
+  viewport = ctk_bin_get_child (GTK_BIN (editor->priv->scrolled_window));
   if (viewport)
     {
-      gtk_container_remove (GTK_CONTAINER (viewport),
-                            gtk_bin_get_child (GTK_BIN (viewport)));
+      ctk_container_remove (GTK_CONTAINER (viewport),
+                            ctk_bin_get_child (GTK_BIN (viewport)));
     }
 
   /* Add grid to window. */
-  gtk_scrolled_window_add_with_viewport
+  ctk_scrolled_window_add_with_viewport
     (GTK_SCROLLED_WINDOW (editor->priv->scrolled_window), grid);
 }
 
@@ -640,19 +640,19 @@ setup_editor (EggToolbarEditor *editor)
 {
   GtkWidget *scrolled_window;
 
-  gtk_container_set_border_width (GTK_CONTAINER (editor), 12);
-  scrolled_window = gtk_scrolled_window_new (NULL, NULL);
+  ctk_container_set_border_width (GTK_CONTAINER (editor), 12);
+  scrolled_window = ctk_scrolled_window_new (NULL, NULL);
   editor->priv->scrolled_window = scrolled_window;
-  gtk_widget_show (scrolled_window);
-  gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolled_window),
+  ctk_widget_show (scrolled_window);
+  ctk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolled_window),
                                   GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-  gtk_box_pack_start (GTK_BOX (editor), scrolled_window, TRUE, TRUE, 0);
+  ctk_box_pack_start (GTK_BOX (editor), scrolled_window, TRUE, TRUE, 0);
 }
 
 static void
 egg_toolbar_editor_init (EggToolbarEditor *t)
 {
-  gtk_orientable_set_orientation (GTK_ORIENTABLE (t), GTK_ORIENTATION_VERTICAL);
+  ctk_orientable_set_orientation (GTK_ORIENTABLE (t), GTK_ORIENTATION_VERTICAL);
 
   t->priv = egg_toolbar_editor_get_instance_private (t);
 

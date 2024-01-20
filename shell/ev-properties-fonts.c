@@ -23,7 +23,7 @@
 #endif
 
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "ev-document-fonts.h"
 #include "ev-job-scheduler.h"
@@ -83,7 +83,7 @@ font_cell_data_func (GtkTreeViewColumn *col, GtkCellRenderer *renderer,
 	char *details;
 	char *markup;
 
-	gtk_tree_model_get (model, iter,
+	ctk_tree_model_get (model, iter,
 			    EV_DOCUMENT_FONTS_COLUMN_NAME, &name,
 			    EV_DOCUMENT_FONTS_COLUMN_DETAILS, &details,
 			    -1);
@@ -109,50 +109,50 @@ ev_properties_fonts_init (EvPropertiesFonts *properties)
 	GtkCellRenderer   *renderer;
 	GtkTreeViewColumn *column;
 
-	gtk_orientable_set_orientation (GTK_ORIENTABLE (properties), GTK_ORIENTATION_VERTICAL);
-	gtk_container_set_border_width (GTK_CONTAINER (properties), 12);
-	gtk_box_set_spacing (GTK_BOX (properties), 6);
+	ctk_orientable_set_orientation (GTK_ORIENTABLE (properties), GTK_ORIENTATION_VERTICAL);
+	ctk_container_set_border_width (GTK_CONTAINER (properties), 12);
+	ctk_box_set_spacing (GTK_BOX (properties), 6);
 
-	swindow = gtk_scrolled_window_new (NULL, NULL);
-	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (swindow),
+	swindow = ctk_scrolled_window_new (NULL, NULL);
+	ctk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (swindow),
 					GTK_POLICY_AUTOMATIC,
 					GTK_POLICY_AUTOMATIC);
-	gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow),
+	ctk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow),
 					     GTK_SHADOW_IN);
 
-	properties->fonts_treeview = gtk_tree_view_new ();
-	gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (properties->fonts_treeview),
+	properties->fonts_treeview = ctk_tree_view_new ();
+	ctk_tree_view_set_headers_visible (GTK_TREE_VIEW (properties->fonts_treeview),
 					   FALSE);
-	column = gtk_tree_view_column_new ();
-	gtk_tree_view_column_set_expand (GTK_TREE_VIEW_COLUMN (column), TRUE);
-	gtk_tree_view_append_column (GTK_TREE_VIEW (properties->fonts_treeview),
+	column = ctk_tree_view_column_new ();
+	ctk_tree_view_column_set_expand (GTK_TREE_VIEW_COLUMN (column), TRUE);
+	ctk_tree_view_append_column (GTK_TREE_VIEW (properties->fonts_treeview),
 				     column);
 
 	renderer = GTK_CELL_RENDERER (g_object_new (GTK_TYPE_CELL_RENDERER_TEXT,
 						    "ypad", 6, NULL));
-	gtk_tree_view_column_pack_start (GTK_TREE_VIEW_COLUMN (column),
+	ctk_tree_view_column_pack_start (GTK_TREE_VIEW_COLUMN (column),
 					 renderer, FALSE);
-	gtk_tree_view_column_set_title (GTK_TREE_VIEW_COLUMN (column),
+	ctk_tree_view_column_set_title (GTK_TREE_VIEW_COLUMN (column),
 					_("Font"));
-	gtk_tree_view_column_set_cell_data_func (column, renderer,
+	ctk_tree_view_column_set_cell_data_func (column, renderer,
 						 font_cell_data_func,
 						 NULL, NULL);
 
-	gtk_container_add (GTK_CONTAINER (swindow), properties->fonts_treeview);
-	gtk_widget_show (properties->fonts_treeview);
+	ctk_container_add (GTK_CONTAINER (swindow), properties->fonts_treeview);
+	ctk_widget_show (properties->fonts_treeview);
 
-	gtk_box_pack_start (GTK_BOX (properties), swindow,
+	ctk_box_pack_start (GTK_BOX (properties), swindow,
 			    TRUE, TRUE, 0);
-	gtk_widget_show (swindow);
+	ctk_widget_show (swindow);
 
-	properties->fonts_progress_label = gtk_label_new (NULL);
+	properties->fonts_progress_label = ctk_label_new (NULL);
 	g_object_set (G_OBJECT (properties->fonts_progress_label),
 		      "xalign", 0.0,
 		      NULL);
-	gtk_box_pack_start (GTK_BOX (properties),
+	ctk_box_pack_start (GTK_BOX (properties),
 			    properties->fonts_progress_label,
 			    FALSE, FALSE, 0);
-	gtk_widget_show (properties->fonts_progress_label);
+	ctk_widget_show (properties->fonts_progress_label);
 }
 
 static void
@@ -162,11 +162,11 @@ update_progress_label (GtkWidget *label, double progress)
 		char *progress_text;
 		progress_text = g_strdup_printf (_("Gathering font information… %3d%%"),
 						 (int) (progress * 100));
-		gtk_label_set_text (GTK_LABEL (label), progress_text);
+		ctk_label_set_text (GTK_LABEL (label), progress_text);
 		g_free (progress_text);
-		gtk_widget_show (label);
+		ctk_widget_show (label);
 	} else {
-		gtk_widget_hide (label);
+		ctk_widget_hide (label);
 	}
 }
 
@@ -186,7 +186,7 @@ job_fonts_updated_cb (EvJobFonts *job, gdouble progress, EvPropertiesFonts *prop
 
 	update_progress_label (properties->fonts_progress_label, progress);
 
-	model = gtk_tree_view_get_model (GTK_TREE_VIEW (properties->fonts_treeview));
+	model = ctk_tree_view_get_model (GTK_TREE_VIEW (properties->fonts_treeview));
 	/* Documen lock is already held by the jop */
 	ev_document_fonts_fill_model (document_fonts, model);
 }
@@ -200,9 +200,9 @@ ev_properties_fonts_set_document (EvPropertiesFonts *properties,
 
 	properties->document = document;
 
-	list_store = gtk_list_store_new (EV_DOCUMENT_FONTS_COLUMN_NUM_COLUMNS,
+	list_store = ctk_list_store_new (EV_DOCUMENT_FONTS_COLUMN_NUM_COLUMNS,
 					 G_TYPE_STRING, G_TYPE_STRING);
-	gtk_tree_view_set_model (tree_view, GTK_TREE_MODEL (list_store));
+	ctk_tree_view_set_model (tree_view, GTK_TREE_MODEL (list_store));
 
 	properties->fonts_job = ev_job_fonts_new (properties->document);
 	g_signal_connect (properties->fonts_job, "updated",

@@ -20,7 +20,7 @@
 #ifndef EV_OPEN_RECENT_ACTION_H
 #define EV_OPEN_RECENT_ACTION_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 

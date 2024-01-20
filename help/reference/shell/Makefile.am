@@ -1,9 +1,9 @@
 # We require automake 1.10 for $(abs_builddir)
 AUTOMAKE_OPTIONS = 1.10
 
-# This is a blank Makefile.am for using gtk-doc.
+# This is a blank Makefile.am for using ctk-doc.
 # Copy this to your project's API docs directory and modify the variables to
-# suit your project. See the GTK+ Makefiles in gtk+/docs/reference for examples
+# suit your project. See the GTK+ Makefiles in ctk+/docs/reference for examples
 # of using the various options.
 
 # The name of the module, e.g. 'glib'.
@@ -16,42 +16,42 @@ DOC_MODULE = lector
 DOC_MAIN_SGML_FILE = $(DOC_MODULE)-docs.xml
 
 # The directory containing the source code. Relative to $(srcdir).
-# gtk-doc will search all .c & .h files beneath here for inline comments
+# ctk-doc will search all .c & .h files beneath here for inline comments
 # lectoring the functions and macros.
-# e.g. DOC_SOURCE_DIR=../../../gtk
+# e.g. DOC_SOURCE_DIR=../../../ctk
 DOC_SOURCE_DIR = $(top_srcdir)/shell
 
-# Extra options to pass to gtkdoc-scangobj. Not normally needed.
+# Extra options to pass to ctkdoc-scangobj. Not normally needed.
 SCANGOBJ_OPTIONS =
 
-# Extra options to supply to gtkdoc-scan.
+# Extra options to supply to ctkdoc-scan.
 # e.g. SCAN_OPTIONS=--deprecated-guards="GTK_DISABLE_DEPRECATED"
 SCAN_OPTIONS =
 
-# Extra options to supply to gtkdoc-mkdb.
+# Extra options to supply to ctkdoc-mkdb.
 # e.g. MKDB_OPTIONS=--sgml-mode --output-format=xml
 MKDB_OPTIONS = --sgml-mode --output-format=xml --name-space=ev
 
-# Extra options to supply to gtkdoc-mktmpl
+# Extra options to supply to ctkdoc-mktmpl
 # e.g. MKTMPL_OPTIONS=--only-section-tmpl
 # MKTMPL_OPTIONS =
 
-# Extra options to supply to gtkdoc-mkhtml
+# Extra options to supply to ctkdoc-mkhtml
 # Add the builddir to the HTML path so that version.xml is found
 MKHTML_OPTIONS = --path="$(abs_builddir)"
 
-# Extra options to supply to gtkdoc-fixref. Not normally needed.
+# Extra options to supply to ctkdoc-fixref. Not normally needed.
 # e.g. FIXXREF_OPTIONS=--extra-dir=../gdk-pixbuf/html --extra-dir=../gdk/html
 FIXXREF_OPTIONS = \
-	--extra-dir=$(GLIB_PREFIX)/share/gtk-doc/html/glib \
-	--extra-dir=$(GLIB_PREFIX)/share/gtk-doc/html/gio \
-	--extra-dir=$(GTK_PREFIX)/share/gtk-doc/html/gdk \
-	--extra-dir=$(GTK_PREFIX)/share/gtk-doc/html/gdk-pixbuf \
-	--extra-dir=$(GTK_PREFIX)/share/gtk-doc/html/gtk
+	--extra-dir=$(GLIB_PREFIX)/share/ctk-doc/html/glib \
+	--extra-dir=$(GLIB_PREFIX)/share/ctk-doc/html/gio \
+	--extra-dir=$(GTK_PREFIX)/share/ctk-doc/html/gdk \
+	--extra-dir=$(GTK_PREFIX)/share/ctk-doc/html/gdk-pixbuf \
+	--extra-dir=$(GTK_PREFIX)/share/ctk-doc/html/ctk
 
 # Used for dependencies. The docs will be rebuilt if any of these change.
-# e.g. HFILE_GLOB=$(top_srcdir)/gtk/*.h
-# e.g. CFILE_GLOB=$(top_srcdir)/gtk/*.c
+# e.g. HFILE_GLOB=$(top_srcdir)/ctk/*.h
+# e.g. CFILE_GLOB=$(top_srcdir)/ctk/*.c
 HFILE_GLOB = $(top_srcdir)/shell/*.h
 CFILE_GLOB = $(top_srcdir)/shell/*.c
 
@@ -61,13 +61,13 @@ CFILE_GLOB = $(top_srcdir)/shell/*.c
 EXTRA_HFILES =
 
 # Header files to ignore when scanning. Use base file name, no paths
-# e.g. IGNORE_HFILES=gtkdebug.h gtkintl.h
+# e.g. IGNORE_HFILES=ctkdebug.h ctkintl.h
 IGNORE_HFILES = \
 	config.h \
 	ev-marshal.h
 
 # Images to copy into HTML directory.
-# e.g. HTML_IMAGES=$(top_srcdir)/gtk/stock-icons/stock_about_24.png
+# e.g. HTML_IMAGES=$(top_srcdir)/ctk/stock-icons/stock_about_24.png
 HTML_IMAGES =
 
 # Extra SGML files that are included by $(DOC_MAIN_SGML_FILE).
@@ -75,16 +75,16 @@ HTML_IMAGES =
 content_files = \
 	version.xml
 
-# SGML files where gtk-doc abbrevations (#GtkWidget) are expanded
+# SGML files where ctk-doc abbrevations (#GtkWidget) are expanded
 # These files must be listed here *and* in content_files
 # e.g. expand_content_files=running.sgml
 expand_content_files =
 
-# CFLAGS and LDFLAGS for compiling gtkdoc-scangobj with your library.
-# Only needed if you are using gtkdoc-scangobj to dynamically query widget
+# CFLAGS and LDFLAGS for compiling ctkdoc-scangobj with your library.
+# Only needed if you are using ctkdoc-scangobj to dynamically query widget
 # signals and properties.
 # e.g. GTKDOC_CFLAGS=-I$(top_srcdir) -I$(top_builddir) $(GTK_DEBUG_FLAGS)
-# e.g. GTKDOC_LIBS=$(top_builddir)/gtk/$(gtktargetlib)
+# e.g. GTKDOC_LIBS=$(top_builddir)/ctk/$(ctktargetlib)
 GTKDOC_CFLAGS = \
 	-I$(top_srcdir)					\
 	-I$(top_builddir)				\
@@ -125,8 +125,8 @@ GTKDOC_LIBS = \
 	$(GTK_PRINT_LIBS)						\
 	$(filter-out $(FILTER_OUT),$(wildcard $(top_builddir)/shell/*.o))
 
-# This includes the standard gtk-doc make rules, copied by gtkdocize.
-include $(top_srcdir)/gtk-doc.make
+# This includes the standard ctk-doc make rules, copied by ctkdocize.
+include $(top_srcdir)/ctk-doc.make
 
 # Other files to distribute
 # e.g. EXTRA_DIST += version.xml.in

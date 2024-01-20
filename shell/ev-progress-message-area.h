@@ -21,7 +21,7 @@
 #ifndef EV_PROGRESS_MESSAGE_AREA_H
 #define EV_PROGRESS_MESSAGE_AREA_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "ev-message-area.h"
 

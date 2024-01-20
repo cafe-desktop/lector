@@ -28,7 +28,7 @@
 #ifndef __EV_PIXBUF_CACHE_H__
 #define __EV_PIXBUF_CACHE_H__
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include <lector-document.h>
 #include <lector-view.h>

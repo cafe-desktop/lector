@@ -21,7 +21,7 @@
 #ifndef EV_PAGE_ACTION_H
 #define EV_PAGE_ACTION_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include <lector-document.h>
 #include <lector-view.h>

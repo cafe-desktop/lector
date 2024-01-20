@@ -18,7 +18,7 @@
  *
  */
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #define EV_TYPE_NAVIGATION_ACTION_WIDGET (ev_navigation_action_widget_get_type ())
 #define EV_NAVIGATION_ACTION_WIDGET(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), EV_TYPE_NAVIGATION_ACTION_WIDGET, EvNavigationActionWidget))

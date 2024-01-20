@@ -360,8 +360,8 @@ build_tree (XPSDocument     *xps_document,
 		link = ev_link_from_target (xps_document, target);
 		gxps_link_target_free (target);
 
-		gtk_tree_store_append (GTK_TREE_STORE (model), &tree_iter, parent);
-		gtk_tree_store_set (GTK_TREE_STORE (model), &tree_iter,
+		ctk_tree_store_append (GTK_TREE_STORE (model), &tree_iter, parent);
+		ctk_tree_store_set (GTK_TREE_STORE (model), &tree_iter,
 				    EV_DOCUMENT_LINKS_COLUMN_MARKUP, title,
 				    EV_DOCUMENT_LINKS_COLUMN_LINK, link,
 				    EV_DOCUMENT_LINKS_COLUMN_EXPAND, FALSE,
@@ -387,7 +387,7 @@ xps_document_links_get_links_model (EvDocumentLinks *document_links)
 		return NULL;
 
 	if (gxps_document_structure_outline_iter_init (&iter, structure)) {
-		model = (GtkTreeModel *) gtk_tree_store_new (EV_DOCUMENT_LINKS_COLUMN_NUM_COLUMNS,
+		model = (GtkTreeModel *) ctk_tree_store_new (EV_DOCUMENT_LINKS_COLUMN_NUM_COLUMNS,
 							     G_TYPE_STRING,
 							     G_TYPE_OBJECT,
 							     G_TYPE_BOOLEAN,

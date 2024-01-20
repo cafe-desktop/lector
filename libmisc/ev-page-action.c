@@ -26,7 +26,7 @@
 #include <stdlib.h>
 
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "ev-page-action.h"
 #include "ev-page-action-widget.h"
@@ -181,13 +181,13 @@ ev_page_action_grab_focus (EvPageAction *page_action)
 {
 	GSList *proxies;
 
-	proxies = gtk_action_get_proxies (GTK_ACTION (page_action));
+	proxies = ctk_action_get_proxies (GTK_ACTION (page_action));
 	for (; proxies != NULL; proxies = proxies->next) {
 		EvPageActionWidget *proxy;
 
 		proxy = EV_PAGE_ACTION_WIDGET (proxies->data);
 
-		if (gtk_widget_get_mapped (GTK_WIDGET (proxy)))
+		if (ctk_widget_get_mapped (GTK_WIDGET (proxy)))
 			ev_page_action_widget_grab_focus (proxy);
 	}
 }

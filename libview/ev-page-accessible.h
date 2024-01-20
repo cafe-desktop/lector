@@ -23,7 +23,7 @@
 #ifndef __EV_PAGE_ACCESSIBLE_H__
 #define __EV_PAGE_ACCESSIBLE_H__
 
-#include <gtk/gtk-a11y.h>
+#include <ctk/ctk-a11y.h>
 #include "ev-view-accessible.h"
 #include "ev-view.h"
 

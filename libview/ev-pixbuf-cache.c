@@ -256,7 +256,7 @@ ev_pixbuf_cache_set_max_size (EvPixbufCache *pixbuf_cache,
 static int
 get_device_scale (EvPixbufCache *pixbuf_cache)
 {
-	return gtk_widget_get_scale_factor (pixbuf_cache->view);
+	return ctk_widget_get_scale_factor (pixbuf_cache->view);
 }
 
 static void

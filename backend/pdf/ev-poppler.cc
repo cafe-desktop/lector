@@ -23,7 +23,7 @@
 
 #include <math.h>
 #include <string.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <poppler.h>
 #include <poppler-document.h>
 #include <poppler-page.h>
@@ -523,7 +523,7 @@ pdf_document_get_license_from_metadata (xmlDocPtr          doc,
 		 * Schema. This field is recomended to be checked by Creative
 		 * Commons */
 		/* 1) checking for a suitable localized string */
-		language_string = pango_language_to_string (gtk_get_default_language ());
+		language_string = pango_language_to_string (ctk_get_default_language ());
 		tags = g_strsplit (language_string, "-", -1);
 		i = g_strv_length (tags);
 		while (i-- && !license->text) {
@@ -961,8 +961,8 @@ pdf_document_fonts_fill_model (EvDocumentFonts *document_fonts,
 
 		details = g_markup_printf_escaped ("%s\n%s", type, embedded);
 
-		gtk_list_store_append (GTK_LIST_STORE (model), &list_iter);
-		gtk_list_store_set (GTK_LIST_STORE (model), &list_iter,
+		ctk_list_store_append (GTK_LIST_STORE (model), &list_iter);
+		ctk_list_store_set (GTK_LIST_STORE (model), &list_iter,
 				    EV_DOCUMENT_FONTS_COLUMN_NAME, name,
 				    EV_DOCUMENT_FONTS_COLUMN_DETAILS, details,
 				    -1);
@@ -1215,10 +1215,10 @@ build_tree (PdfDocument      *pdf_document,
 			continue;
 		}
 
-		gtk_tree_store_append (GTK_TREE_STORE (model), &tree_iter, parent);
+		ctk_tree_store_append (GTK_TREE_STORE (model), &tree_iter, parent);
 		title_markup = g_markup_escape_text (ev_link_get_title (link), -1);
 		
-		gtk_tree_store_set (GTK_TREE_STORE (model), &tree_iter,
+		ctk_tree_store_set (GTK_TREE_STORE (model), &tree_iter,
 				    EV_DOCUMENT_LINKS_COLUMN_MARKUP, title_markup,
 				    EV_DOCUMENT_LINKS_COLUMN_LINK, link,
 				    EV_DOCUMENT_LINKS_COLUMN_EXPAND, expand,
@@ -1248,7 +1248,7 @@ pdf_document_links_get_links_model (EvDocumentLinks *document_links)
 	iter = poppler_index_iter_new (pdf_document->document);
 	/* Create the model if we have items*/
 	if (iter != NULL) {
-		model = (GtkTreeModel *) gtk_tree_store_new (EV_DOCUMENT_LINKS_COLUMN_NUM_COLUMNS,
+		model = (GtkTreeModel *) ctk_tree_store_new (EV_DOCUMENT_LINKS_COLUMN_NUM_COLUMNS,
 							     G_TYPE_STRING,
 							     G_TYPE_OBJECT,
 							     G_TYPE_BOOLEAN,
@@ -3255,8 +3255,8 @@ build_layers_tree (PdfDocument       *pdf_document,
 			layer = NULL;
 		}
 
-		gtk_tree_store_append (GTK_TREE_STORE (model), &tree_iter, parent);
-		gtk_tree_store_set (GTK_TREE_STORE (model), &tree_iter,
+		ctk_tree_store_append (GTK_TREE_STORE (model), &tree_iter, parent);
+		ctk_tree_store_set (GTK_TREE_STORE (model), &tree_iter,
 				    EV_DOCUMENT_LAYERS_COLUMN_TITLE, markup,
 				    EV_DOCUMENT_LAYERS_COLUMN_VISIBLE, visible,
 				    EV_DOCUMENT_LAYERS_COLUMN_ENABLED, TRUE, /* FIXME */
@@ -3284,7 +3284,7 @@ pdf_document_layers_get_layers (EvDocumentLayers *document)
 
 	iter = poppler_layers_iter_new (pdf_document->document);
 	if (iter) {
-		model = (GtkTreeModel *) gtk_tree_store_new (EV_DOCUMENT_LAYERS_N_COLUMNS,
+		model = (GtkTreeModel *) ctk_tree_store_new (EV_DOCUMENT_LAYERS_N_COLUMNS,
 							     G_TYPE_STRING,  /* TITLE */
 							     G_TYPE_OBJECT,  /* LAYER */
 							     G_TYPE_BOOLEAN, /* VISIBLE */

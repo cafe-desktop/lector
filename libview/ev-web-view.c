@@ -22,7 +22,7 @@
 
 #if ENABLE_EPUB
 #include <glib/gi18n-lib.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <stdlib.h>
 
 #include <webkit2/webkit2.h>
@@ -136,9 +136,9 @@ ev_web_view_class_init (EvWebViewClass *klass)
 static void
 ev_web_view_init (EvWebView *webview)
 {
-	gtk_widget_set_can_focus (GTK_WIDGET (webview), TRUE);
+	ctk_widget_set_can_focus (GTK_WIDGET (webview), TRUE);
 
-	gtk_widget_set_has_window (GTK_WIDGET (webview), TRUE);
+	ctk_widget_set_has_window (GTK_WIDGET (webview), TRUE);
 
 	webview->current_page = 0;
 

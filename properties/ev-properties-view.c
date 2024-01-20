@@ -29,7 +29,7 @@
 #endif
 
 #include <glib/gi18n-lib.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "ev-properties-view.h"
 
@@ -161,18 +161,18 @@ set_property (EvPropertiesView *properties,
 	gchar     *valid_text;
 
 	if (!properties->labels[property]) {
-		label = gtk_label_new (NULL);
+		label = ctk_label_new (NULL);
 		g_object_set (G_OBJECT (label), "xalign", 0.0, NULL);
 		markup = g_strdup_printf ("<b>%s</b>", _(properties_info[property].label));
-		gtk_label_set_markup (GTK_LABEL (label), markup);
+		ctk_label_set_markup (GTK_LABEL (label), markup);
 		g_free (markup);
 
-		gtk_grid_attach (grid, label, 0, *row, 1, 1);
-		gtk_widget_show (label);
+		ctk_grid_attach (grid, label, 0, *row, 1, 1);
+		ctk_widget_show (label);
 	}
 
 	if (!properties->labels[property]) {
-		label = gtk_label_new (NULL);
+		label = ctk_label_new (NULL);
 
 		g_object_set (G_OBJECT (label),
 			      "xalign", 0.0,
@@ -191,20 +191,20 @@ set_property (EvPropertiesView *properties,
 		   Keywords: None
 		*/
 		markup = g_markup_printf_escaped ("<i>%s</i>", _("None"));
-		gtk_label_set_markup (GTK_LABEL (label), markup);
+		ctk_label_set_markup (GTK_LABEL (label), markup);
 		g_free (markup);
 	} else {
 		valid_text = make_valid_utf8 (text ? text : "");
-		gtk_label_set_text (GTK_LABEL (label), valid_text);
+		ctk_label_set_text (GTK_LABEL (label), valid_text);
 		g_free (valid_text);
 	}
 
 	if (!properties->labels[property]) {
-		gtk_grid_attach (grid, label, 1, *row, 1, 1);
+		ctk_grid_attach (grid, label, 1, *row, 1, 1);
 		properties->labels[property] = label;
 	}
 
-	gtk_widget_show (label);
+	ctk_widget_show (label);
 
 	*row += 1;
 }
@@ -271,7 +271,7 @@ ev_regular_paper_size (const EvDocumentInfo *info)
 					      info->paper_height / 25.4f);
 	}
 
-	paper_sizes = gtk_paper_size_get_paper_sizes (FALSE);
+	paper_sizes = ctk_paper_size_get_paper_sizes (FALSE);
 
 	for (l = paper_sizes; l && l->data; l = g_list_next (l)) {
 		GtkPaperSize *size = (GtkPaperSize *) l->data;
@@ -280,8 +280,8 @@ ev_regular_paper_size (const EvDocumentInfo *info)
 		gdouble width_tolerance;
 		gdouble height_tolerance;
 
-		paper_width = gtk_paper_size_get_width (size, GTK_UNIT_MM);
-		paper_height = gtk_paper_size_get_height (size, GTK_UNIT_MM);
+		paper_width = ctk_paper_size_get_width (size, GTK_UNIT_MM);
+		paper_height = ctk_paper_size_get_height (size, GTK_UNIT_MM);
 
 		width_tolerance = get_tolerance (paper_width);
 		height_tolerance = get_tolerance (paper_height);
@@ -291,19 +291,19 @@ ev_regular_paper_size (const EvDocumentInfo *info)
 			/* Note to translators: first placeholder is the paper name (eg.
 			 * A4), second placeholder is the paper size (eg. 297x210 mm) */
 			str = g_strdup_printf (_("%s, Portrait (%s)"),
-					       gtk_paper_size_get_display_name (size),
+					       ctk_paper_size_get_display_name (size),
 					       exact_size);
 		} else if (ABS (info->paper_width  - paper_height) <= height_tolerance &&
 			   ABS (info->paper_height - paper_width) <= width_tolerance) {
 			/* Note to translators: first placeholder is the paper name (eg.
 			 * A4), second placeholder is the paper size (eg. 297x210 mm) */
 			str = g_strdup_printf ( _("%s, Landscape (%s)"),
-						gtk_paper_size_get_display_name (size),
+						ctk_paper_size_get_display_name (size),
 						exact_size);
 		}
 	}
 
-	g_list_foreach (paper_sizes, (GFunc) gtk_paper_size_free, NULL);
+	g_list_foreach (paper_sizes, (GFunc) ctk_paper_size_free, NULL);
 	g_list_free (paper_sizes);
 
 	if (str != NULL) {
@@ -376,13 +376,13 @@ ev_properties_view_set_info (EvPropertiesView *properties, const EvDocumentInfo 
 static void
 ev_properties_view_init (EvPropertiesView *properties)
 {
-	gtk_orientable_set_orientation (GTK_ORIENTABLE (properties), GTK_ORIENTATION_VERTICAL);
-	properties->grid = gtk_grid_new ();
-	gtk_grid_set_column_spacing (GTK_GRID (properties->grid), 12);
-	gtk_grid_set_row_spacing (GTK_GRID (properties->grid), 6);
-	gtk_container_set_border_width (GTK_CONTAINER (properties->grid), 12);
-	gtk_box_pack_start (GTK_BOX (properties), properties->grid, TRUE, TRUE, 0);
-	gtk_widget_show (properties->grid);
+	ctk_orientable_set_orientation (GTK_ORIENTABLE (properties), GTK_ORIENTATION_VERTICAL);
+	properties->grid = ctk_grid_new ();
+	ctk_grid_set_column_spacing (GTK_GRID (properties->grid), 12);
+	ctk_grid_set_row_spacing (GTK_GRID (properties->grid), 6);
+	ctk_container_set_border_width (GTK_CONTAINER (properties->grid), 12);
+	ctk_box_pack_start (GTK_BOX (properties), properties->grid, TRUE, TRUE, 0);
+	ctk_widget_show (properties->grid);
 }
 
 void
