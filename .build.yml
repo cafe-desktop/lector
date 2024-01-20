@@ -15,7 +15,7 @@ requires:
     - gettext
     - git
     - gobject-introspection
-    - ctk-doc-tools
+    - gtk-doc-tools
     - libcaja-extension-dev
     - libdjvulibre-dev
     - libgirepository1.0-dev

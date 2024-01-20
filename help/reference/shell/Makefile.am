@@ -1,7 +1,7 @@
 # We require automake 1.10 for $(abs_builddir)
 AUTOMAKE_OPTIONS = 1.10
 
-# This is a blank Makefile.am for using ctk-doc.
+# This is a blank Makefile.am for using gtk-doc.
 # Copy this to your project's API docs directory and modify the variables to
 # suit your project. See the CTK+ Makefiles in ctk+/docs/reference for examples
 # of using the various options.
@@ -16,7 +16,7 @@ DOC_MODULE = lector
 DOC_MAIN_SGML_FILE = $(DOC_MODULE)-docs.xml
 
 # The directory containing the source code. Relative to $(srcdir).
-# ctk-doc will search all .c & .h files beneath here for inline comments
+# gtk-doc will search all .c & .h files beneath here for inline comments
 # lectoring the functions and macros.
 # e.g. DOC_SOURCE_DIR=../../../ctk
 DOC_SOURCE_DIR = $(top_srcdir)/shell
@@ -43,11 +43,11 @@ MKHTML_OPTIONS = --path="$(abs_builddir)"
 # Extra options to supply to ctkdoc-fixref. Not normally needed.
 # e.g. FIXXREF_OPTIONS=--extra-dir=../cdk-pixbuf/html --extra-dir=../cdk/html
 FIXXREF_OPTIONS = \
-	--extra-dir=$(GLIB_PREFIX)/share/ctk-doc/html/glib \
-	--extra-dir=$(GLIB_PREFIX)/share/ctk-doc/html/gio \
-	--extra-dir=$(CTK_PREFIX)/share/ctk-doc/html/cdk \
-	--extra-dir=$(CTK_PREFIX)/share/ctk-doc/html/cdk-pixbuf \
-	--extra-dir=$(CTK_PREFIX)/share/ctk-doc/html/ctk
+	--extra-dir=$(GLIB_PREFIX)/share/gtk-doc/html/glib \
+	--extra-dir=$(GLIB_PREFIX)/share/gtk-doc/html/gio \
+	--extra-dir=$(CTK_PREFIX)/share/gtk-doc/html/cdk \
+	--extra-dir=$(CTK_PREFIX)/share/gtk-doc/html/cdk-pixbuf \
+	--extra-dir=$(CTK_PREFIX)/share/gtk-doc/html/ctk
 
 # Used for dependencies. The docs will be rebuilt if any of these change.
 # e.g. HFILE_GLOB=$(top_srcdir)/ctk/*.h
@@ -75,7 +75,7 @@ HTML_IMAGES =
 content_files = \
 	version.xml
 
-# SGML files where ctk-doc abbrevations (#CtkWidget) are expanded
+# SGML files where gtk-doc abbrevations (#CtkWidget) are expanded
 # These files must be listed here *and* in content_files
 # e.g. expand_content_files=running.sgml
 expand_content_files =
@@ -125,8 +125,8 @@ CTKDOC_LIBS = \
 	$(CTK_PRINT_LIBS)						\
 	$(filter-out $(FILTER_OUT),$(wildcard $(top_builddir)/shell/*.o))
 
-# This includes the standard ctk-doc make rules, copied by ctkdocize.
-include $(top_srcdir)/ctk-doc.make
+# This includes the standard gtk-doc make rules, copied by ctkdocize.
+include $(top_srcdir)/gtk-doc.make
 
 # Other files to distribute
 # e.g. EXTRA_DIST += version.xml.in
