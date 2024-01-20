@@ -29,7 +29,6 @@ requires:
     - libsm-dev
     - libspectre-dev
     - libtiff-dev
-    - libwebkit2ctk-4.0-dev
     - libx11-dev
     - libxml2-dev
     - lsb-release
