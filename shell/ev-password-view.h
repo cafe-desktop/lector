@@ -34,20 +34,20 @@ typedef struct _EvPasswordViewClass   EvPasswordViewClass;
 typedef struct _EvPasswordViewPrivate EvPasswordViewPrivate;
 
 struct _EvPasswordView {
-	GtkViewport parent_instance;
+	CtkViewport parent_instance;
 
 	EvPasswordViewPrivate *priv;
 };
 
 struct _EvPasswordViewClass {
-	GtkViewportClass parent_class;
+	CtkViewportClass parent_class;
 
 	/* signals */
 	void (*unlock) (EvPasswordView	*self);
 };
 
 GType	      ev_password_view_get_type                (void) G_GNUC_CONST;
-GtkWidget    *ev_password_view_new                     (GtkWindow      *parent);
+CtkWidget    *ev_password_view_new                     (CtkWindow      *parent);
 void          ev_password_view_set_uri                 (EvPasswordView *password_view,
 							const char     *uri);
 void          ev_password_view_ask_password            (EvPasswordView *password_view);

@@ -58,7 +58,7 @@ struct _EvViewAccessiblePrivate {
 	/* AtkAction */
 	gchar        *action_descriptions[LAST_ACTION];
 	guint         action_idle_handler;
-	GtkScrollType idle_scroll;
+	CtkScrollType idle_scroll;
 
 	gint previous_cursor_page;
 	gint start_page;
@@ -193,7 +193,7 @@ ev_view_accessible_get_page_count (AtkDocument *atk_document)
 static gint
 ev_view_accessible_get_current_page_number (AtkDocument *atk_document)
 {
-	GtkWidget *widget;
+	CtkWidget *widget;
 
 	g_return_val_if_fail (EV_IS_VIEW_ACCESSIBLE (atk_document), -1);
 
@@ -437,7 +437,7 @@ ev_view_accessible_set_model (EvViewAccessible *accessible,
 }
 
 static gboolean
-ev_view_accessible_focus_changed (GtkWidget        *widget,
+ev_view_accessible_focus_changed (CtkWidget        *widget,
 				  GdkEventFocus    *event,
 				  EvViewAccessible *self)
 {
@@ -458,7 +458,7 @@ ev_view_accessible_focus_changed (GtkWidget        *widget,
 }
 
 AtkObject *
-ev_view_accessible_new (GtkWidget *widget)
+ev_view_accessible_new (CtkWidget *widget)
 {
 	AtkObject *accessible;
 	EvView    *view;
@@ -510,7 +510,7 @@ _transform_doc_rect_to_atk_rect (EvViewAccessible *accessible,
 {
 	EvView *view;
 	GdkRectangle view_rect;
-	GtkWidget *widget, *toplevel;
+	CtkWidget *widget, *toplevel;
 	gint x_widget, y_widget;
 
 	view = EV_VIEW (ctk_accessible_get_widget (CTK_ACCESSIBLE (accessible)));
@@ -544,7 +544,7 @@ ev_view_accessible_is_doc_rect_showing (EvViewAccessible *accessible,
 {
 	EvView *view;
 	GdkRectangle view_rect;
-	GtkAllocation allocation;
+	CtkAllocation allocation;
 	gint x, y;
 	gboolean hidden;
 

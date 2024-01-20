@@ -43,7 +43,7 @@ struct _EvPixbufCache
 	GObject parent;
 
 	/* We keep a link to our containing view just for style information. */
-	GtkWidget *view;
+	CtkWidget *view;
 	EvDocument *document;
 	EvDocumentModel *model;
 	int start_page;
@@ -225,7 +225,7 @@ ev_pixbuf_cache_dispose (GObject *object)
 
 
 EvPixbufCache *
-ev_pixbuf_cache_new (GtkWidget       *view,
+ev_pixbuf_cache_new (CtkWidget       *view,
 		     EvDocumentModel *model,
 		     gsize            max_size)
 {

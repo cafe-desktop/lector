@@ -88,7 +88,7 @@ typedef enum {
 } EvViewFindDirection;
 
 typedef struct {
-	GtkWidget  *widget;
+	CtkWidget  *widget;
 
 	/* View coords */
 	gint        x;
@@ -114,7 +114,7 @@ static void       ensure_rectangle_is_visible                (EvView            
 
 /*** Geometry computations ***/
 static void       compute_border                             (EvView             *view,
-							      GtkBorder          *border);
+							      CtkBorder          *border);
 static void       get_page_y_offset                          (EvView             *view,
 							      int                 page,
 							      int                *y_offset);
@@ -143,38 +143,38 @@ static void          show_annotation_windows                 (EvView            
 							      gint                page);
 static void          hide_annotation_windows                 (EvView             *view,
 							      gint                page);
-/*** GtkWidget implementation ***/
+/*** CtkWidget implementation ***/
 static void       ev_view_size_request_continuous_dual_page  (EvView             *view,
-							      GtkRequisition     *requisition);
+							      CtkRequisition     *requisition);
 static void       ev_view_size_request_continuous            (EvView             *view,
-							      GtkRequisition     *requisition);
+							      CtkRequisition     *requisition);
 static void       ev_view_size_request_dual_page             (EvView             *view,
-							      GtkRequisition     *requisition);
+							      CtkRequisition     *requisition);
 static void       ev_view_size_request_single_page           (EvView             *view,
-							      GtkRequisition     *requisition);
-static void       ev_view_size_request                       (GtkWidget          *widget,
-							      GtkRequisition     *requisition);
-static void       ev_view_size_allocate                      (GtkWidget          *widget,
-							      GtkAllocation      *allocation);
-static gboolean   ev_view_scroll_event                       (GtkWidget          *widget,
+							      CtkRequisition     *requisition);
+static void       ev_view_size_request                       (CtkWidget          *widget,
+							      CtkRequisition     *requisition);
+static void       ev_view_size_allocate                      (CtkWidget          *widget,
+							      CtkAllocation      *allocation);
+static gboolean   ev_view_scroll_event                       (CtkWidget          *widget,
 							      GdkEventScroll     *event);
-static gboolean   ev_view_draw                               (GtkWidget          *widget,
+static gboolean   ev_view_draw                               (CtkWidget          *widget,
 							      cairo_t            *cr);
-static gboolean   ev_view_popup_menu                         (GtkWidget 	 *widget);
-static gboolean   ev_view_button_press_event                 (GtkWidget          *widget,
+static gboolean   ev_view_popup_menu                         (CtkWidget 	 *widget);
+static gboolean   ev_view_button_press_event                 (CtkWidget          *widget,
 							      GdkEventButton     *event);
-static gboolean   ev_view_motion_notify_event                (GtkWidget          *widget,
+static gboolean   ev_view_motion_notify_event                (CtkWidget          *widget,
 							      GdkEventMotion     *event);
-static gboolean   ev_view_button_release_event               (GtkWidget          *widget,
+static gboolean   ev_view_button_release_event               (CtkWidget          *widget,
 							      GdkEventButton     *event);
-static gboolean   ev_view_enter_notify_event                 (GtkWidget          *widget,
+static gboolean   ev_view_enter_notify_event                 (CtkWidget          *widget,
 							      GdkEventCrossing   *event);
-static gboolean   ev_view_leave_notify_event                 (GtkWidget          *widget,
+static gboolean   ev_view_leave_notify_event                 (CtkWidget          *widget,
 							      GdkEventCrossing   *event);
-static void       ev_view_style_updated                      (GtkWidget          *widget);
+static void       ev_view_style_updated                      (CtkWidget          *widget);
 static void       ev_view_remove_all                         (EvView             *view);
 
-static AtkObject *ev_view_get_accessible                     (GtkWidget *widget);
+static AtkObject *ev_view_get_accessible                     (CtkWidget *widget);
 
 /*** Drawing ***/
 static void       highlight_find_results                     (EvView             *view,
@@ -187,7 +187,7 @@ static void       draw_one_page                              (EvView            
 							      gint                page,
 							      cairo_t            *cr,
 							      GdkRectangle       *page_area,
-							      GtkBorder          *border,
+							      CtkBorder          *border,
 							      GdkRectangle       *expose_area,
 							      gboolean		 *page_ready);
 static void       ev_view_reload_page                        (EvView             *view,
@@ -204,7 +204,7 @@ static void       ev_view_page_changed_cb                    (EvDocumentModel   
 							      gint                old_page,
 							      gint                new_page,
 							      EvView             *view);
-static void       on_adjustment_value_changed                (GtkAdjustment      *adjustment,
+static void       on_adjustment_value_changed                (CtkAdjustment      *adjustment,
 							      EvView             *view);
 
 /*** GObject ***/
@@ -245,7 +245,7 @@ static void	ev_view_zoom_for_size_single_page 	       (EvView *view,
 				    			        int     width,
 					    			int     height);
 static gboolean ev_view_page_fits			       (EvView         *view,
-								GtkOrientation  orientation);
+								CtkOrientation  orientation);
 /*** Cursors ***/
 static void       ev_view_set_cursor                         (EvView             *view,
 							      EvViewCursor        new_cursor);
@@ -275,11 +275,11 @@ static void       clear_selection                            (EvView            
 static void       clear_link_selected                        (EvView             *view);
 static void       selection_free                             (EvViewSelection    *selection);
 static char*      get_selected_text                          (EvView             *ev_view);
-static void       ev_view_primary_get_cb                     (GtkClipboard       *clipboard,
-							      GtkSelectionData   *selection_data,
+static void       ev_view_primary_get_cb                     (CtkClipboard       *clipboard,
+							      CtkSelectionData   *selection_data,
 							      guint               info,
 							      gpointer            data);
-static void       ev_view_primary_clear_cb                   (GtkClipboard       *clipboard,
+static void       ev_view_primary_clear_cb                   (CtkClipboard       *clipboard,
 							      gpointer            data);
 static void       ev_view_update_primary_selection           (EvView             *ev_view);
 
@@ -451,13 +451,13 @@ ev_view_get_height_to_page (EvView *view,
 
 static gint
 ev_view_get_scrollbar_size (EvView        *view,
-			    GtkOrientation orientation)
+			    CtkOrientation orientation)
 {
-	GtkWidget *widget = CTK_WIDGET (view);
-	GtkWidget *sb;
-	GtkWidget *swindow = ctk_widget_get_parent (CTK_WIDGET (view));
-	GtkAllocation allocation;
-	GtkRequisition req;
+	CtkWidget *widget = CTK_WIDGET (view);
+	CtkWidget *sb;
+	CtkWidget *swindow = ctk_widget_get_parent (CTK_WIDGET (view));
+	CtkAllocation allocation;
+	CtkRequisition req;
 	gint spacing;
 
 	if (!CTK_IS_SCROLLED_WINDOW (swindow))
@@ -498,7 +498,7 @@ is_dual_page (EvView   *view,
 		double        scale;
 		double        doc_width;
 		double        doc_height;
-		GtkAllocation allocation;
+		CtkAllocation allocation;
 
 		window = ctk_widget_get_window (CTK_WIDGET (view));
 		display = gdk_window_get_display (window);
@@ -539,7 +539,7 @@ static void
 scroll_to_point (EvView        *view,
 		 gdouble        x,
 		 gdouble        y,
-		 GtkOrientation orientation)
+		 CtkOrientation orientation)
 {
 	gdouble page_size;
 	gdouble upper, lower;
@@ -573,7 +573,7 @@ scroll_to_point (EvView        *view,
 }
 
 static void
-ev_view_scroll_to_page_position (EvView *view, GtkOrientation orientation)
+ev_view_scroll_to_page_position (EvView *view, CtkOrientation orientation)
 {
 	gdouble x, y;
 
@@ -583,7 +583,7 @@ ev_view_scroll_to_page_position (EvView *view, GtkOrientation orientation)
 	if ((orientation == CTK_ORIENTATION_VERTICAL && view->pending_point.y == 0) ||
 	    (orientation == CTK_ORIENTATION_HORIZONTAL && view->pending_point.x == 0)) {
 		GdkRectangle page_area;
-		GtkBorder    border;
+		CtkBorder    border;
 
 		ev_view_get_page_extents (view, view->current_page, &page_area, &border);
 		x = page_area.x;
@@ -602,11 +602,11 @@ ev_view_scroll_to_page_position (EvView *view, GtkOrientation orientation)
 
 static void
 view_set_adjustment_values (EvView         *view,
-			    GtkOrientation  orientation)
+			    CtkOrientation  orientation)
 {
-	GtkWidget *widget = CTK_WIDGET (view);
-	GtkAdjustment *adjustment;
-	GtkAllocation allocation;
+	CtkWidget *widget = CTK_WIDGET (view);
+	CtkAdjustment *adjustment;
+	CtkAllocation allocation;
 	int req_size;
 	int alloc_size;
 	gdouble page_size;
@@ -697,7 +697,7 @@ view_update_range_and_current_page (EvView *view)
 
 	if (view->continuous) {
 		GdkRectangle current_area, unused, page_area;
-		GtkBorder border;
+		CtkBorder border;
 		gboolean found = FALSE;
 		gint area_max = -1, area;
 		gint best_current_page = -1;
@@ -806,10 +806,10 @@ view_update_range_and_current_page (EvView *view)
 
 static void
 set_scroll_adjustment (EvView *view,
-		       GtkOrientation  orientation,
-		       GtkAdjustment  *adjustment)
+		       CtkOrientation  orientation,
+		       CtkAdjustment  *adjustment)
 {
-	GtkAdjustment **to_set;
+	CtkAdjustment **to_set;
 	const gchar *prop_name;
 
 	if (orientation == CTK_ORIENTATION_HORIZONTAL) {
@@ -841,11 +841,11 @@ set_scroll_adjustment (EvView *view,
 }
 
 static void
-add_scroll_binding_keypad (GtkBindingSet  *binding_set,
+add_scroll_binding_keypad (CtkBindingSet  *binding_set,
     			   guint           keyval,
     			   GdkModifierType modifiers,
-    			   GtkScrollType   scroll,
-			   GtkOrientation  orientation)
+    			   CtkScrollType   scroll,
+			   CtkOrientation  orientation)
 {
 	guint keypad_keyval = keyval - GDK_KEY_Left + GDK_KEY_KP_Left;
 
@@ -861,17 +861,17 @@ add_scroll_binding_keypad (GtkBindingSet  *binding_set,
 
 static gdouble
 compute_scroll_increment (EvView        *view,
-			  GtkScrollType  scroll)
+			  CtkScrollType  scroll)
 {
-	GtkWidget *widget = CTK_WIDGET (view);
-	GtkAdjustment *adjustment = view->vadjustment;
+	CtkWidget *widget = CTK_WIDGET (view);
+	CtkAdjustment *adjustment = view->vadjustment;
 	cairo_region_t *text_region, *region;
-	GtkAllocation allocation;
+	CtkAllocation allocation;
 	gint page;
 	GdkRectangle rect;
 	EvRectangle doc_rect;
 	GdkRectangle page_area;
-	GtkBorder border;
+	CtkBorder border;
 	gdouble fraction = 1.0;
 
 	if (scroll != CTK_SCROLL_PAGE_BACKWARD && scroll != CTK_SCROLL_PAGE_FORWARD)
@@ -934,10 +934,10 @@ compute_scroll_increment (EvView        *view,
 
 void
 ev_view_scroll (EvView        *view,
-	        GtkScrollType  scroll,
+	        CtkScrollType  scroll,
 		gboolean       horizontal)
 {
-	GtkAdjustment *adjustment;
+	CtkAdjustment *adjustment;
 	double value, increment;
 	gdouble upper, lower;
 	gdouble page_size;
@@ -1033,8 +1033,8 @@ ev_view_scroll (EvView        *view,
 
 static void
 ev_view_scroll_internal (EvView        *view,
-			 GtkScrollType  scroll,
-			 GtkOrientation orientation)
+			 CtkScrollType  scroll,
+			 CtkOrientation orientation)
 {
 	ev_view_scroll (view, scroll, orientation == CTK_ORIENTATION_HORIZONTAL);
 }
@@ -1044,9 +1044,9 @@ ev_view_scroll_internal (EvView        *view,
 static void
 ensure_rectangle_is_visible (EvView *view, GdkRectangle *rect)
 {
-	GtkWidget *widget = CTK_WIDGET (view);
-	GtkAdjustment *adjustment;
-	GtkAllocation allocation;
+	CtkWidget *widget = CTK_WIDGET (view);
+	CtkAdjustment *adjustment;
+	CtkAllocation allocation;
 	gdouble adj_value;
 	int value;
 
@@ -1082,11 +1082,11 @@ ensure_rectangle_is_visible (EvView *view, GdkRectangle *rect)
 /*** Geometry computations ***/
 
 static void
-compute_border (EvView *view, GtkBorder *border)
+compute_border (EvView *view, CtkBorder *border)
 {
-	GtkWidget       *widget = CTK_WIDGET (view);
-	GtkStyleContext *context = ctk_widget_get_style_context (widget);
-	GtkStateFlags    state = ctk_widget_get_state_flags (widget);
+	CtkWidget       *widget = CTK_WIDGET (view);
+	CtkStyleContext *context = ctk_widget_get_style_context (widget);
+	CtkStateFlags    state = ctk_widget_get_state_flags (widget);
 
 	ctk_style_context_save (context);
 	ctk_style_context_add_class (context, EV_STYLE_CLASS_DOCUMENT_PAGE);
@@ -1153,7 +1153,7 @@ static void
 get_page_y_offset (EvView *view, int page, int *y_offset)
 {
 	int offset = 0;
-	GtkBorder border;
+	CtkBorder border;
 	gboolean odd_left;
 
 	g_return_if_fail (y_offset != NULL);
@@ -1177,11 +1177,11 @@ gboolean
 ev_view_get_page_extents (EvView       *view,
 			  gint          page,
 			  GdkRectangle *page_area,
-			  GtkBorder    *border)
+			  CtkBorder    *border)
 {
-	GtkWidget *widget;
+	CtkWidget *widget;
 	int width, height;
-	GtkAllocation allocation;
+	CtkAllocation allocation;
 
 	widget = CTK_WIDGET (view);
 	ctk_widget_get_allocation (widget, &allocation);
@@ -1222,7 +1222,7 @@ ev_view_get_page_extents (EvView       *view,
 			gint width_2, height_2;
 			gint max_width = width;
 			gint max_height = height;
-			GtkBorder overall_border;
+			CtkBorder overall_border;
 			gint other_page;
 
 			other_page = (page % 2 == !odd_left) ? page + 1: page - 1;
@@ -1319,7 +1319,7 @@ _ev_view_transform_doc_point_to_view_point (EvView   *view,
 					    GdkPoint *view_point)
 {
 	GdkRectangle page_area;
-	GtkBorder border;
+	CtkBorder border;
 	double x, y, view_x, view_y;
 	gdouble width, height;
 
@@ -1356,7 +1356,7 @@ _ev_view_transform_doc_rect_to_view_rect (EvView       *view,
 					  GdkRectangle *view_rect)
 {
 	GdkRectangle page_area;
-	GtkBorder border;
+	CtkBorder border;
 	double x, y, w, h;
 	gdouble width, height;
 
@@ -1413,7 +1413,7 @@ find_page_at_location (EvView  *view,
 
 	for (i = view->start_page; i >= 0 && i <= view->end_page; i++) {
 		GdkRectangle page_area;
-		GtkBorder border;
+		CtkBorder border;
 
 		if (! ev_view_get_page_extents (view, i, &page_area, &border))
 			continue;
@@ -1550,7 +1550,7 @@ ev_view_get_area_from_mapping (EvView        *view,
 
 static void
 ev_view_put (EvView      *view,
-	     GtkWidget   *child_widget,
+	     CtkWidget   *child_widget,
 	     gint         x,
 	     gint         y,
 	     guint        page,
@@ -1572,7 +1572,7 @@ ev_view_put (EvView      *view,
 
 static void
 ev_view_put_to_doc_rect (EvView      *view,
-			 GtkWidget   *child_widget,
+			 CtkWidget   *child_widget,
 			 guint        page,
 			 EvRectangle *doc_rect)
 {
@@ -1626,7 +1626,7 @@ goto_fitr_dest (EvView *view, EvLinkDest *dest)
 	EvPoint doc_point;
 	gdouble zoom, left, top;
 	gboolean change_left, change_top;
-	GtkAllocation allocation;
+	CtkAllocation allocation;
 
 	ctk_widget_get_allocation (CTK_WIDGET (view), &allocation);
 
@@ -1656,7 +1656,7 @@ goto_fitv_dest (EvView *view, EvLinkDest *dest)
 	gint page;
 	double zoom, left;
 	gboolean change_left;
-	GtkAllocation allocation;
+	CtkAllocation allocation;
 
 	ctk_widget_get_allocation (CTK_WIDGET (view), &allocation);
 
@@ -1687,7 +1687,7 @@ goto_fith_dest (EvView *view, EvLinkDest *dest)
 	gint page;
 	gdouble zoom, top;
 	gboolean change_top;
-	GtkAllocation allocation;
+	CtkAllocation allocation;
 
 	ctk_widget_get_allocation (CTK_WIDGET (view), &allocation);
 
@@ -1717,7 +1717,7 @@ goto_fit_dest (EvView *view, EvLinkDest *dest)
 	double zoom;
 	gdouble doc_width, doc_height;
 	int page;
-	GtkAllocation allocation;
+	CtkAllocation allocation;
 
 	ctk_widget_get_allocation (CTK_WIDGET (view), &allocation);
 
@@ -2171,7 +2171,7 @@ ev_view_forms_remove_widgets (EvView *view)
 }
 
 static void
-ev_view_form_field_destroy (GtkWidget *widget,
+ev_view_form_field_destroy (CtkWidget *widget,
 			    EvView    *view)
 {
 	g_idle_add ((GSourceFunc)ev_view_forms_remove_widgets, view);
@@ -2233,7 +2233,7 @@ ev_view_form_field_button_toggle (EvView      *view,
 	cairo_region_destroy (region);
 }
 
-static GtkWidget *
+static CtkWidget *
 ev_view_form_field_button_create_widget (EvView      *view,
                                          EvFormField *field)
 {
@@ -2250,7 +2250,7 @@ ev_view_form_field_button_create_widget (EvView      *view,
 
 static void
 ev_view_form_field_text_save (EvView    *view,
-			      GtkWidget *widget)
+			      CtkWidget *widget)
 {
 	EvFormField *field;
 
@@ -2274,7 +2274,7 @@ ev_view_form_field_text_save (EvView    *view,
 }
 
 static void
-ev_view_form_field_text_changed (GtkWidget   *widget,
+ev_view_form_field_text_changed (CtkWidget   *widget,
 				 EvFormField *field)
 {
 	EvFormFieldText *field_text = EV_FORM_FIELD_TEXT (field);
@@ -2283,7 +2283,7 @@ ev_view_form_field_text_changed (GtkWidget   *widget,
 	if (CTK_IS_ENTRY (widget)) {
 		text = g_strdup (ctk_entry_get_text (CTK_ENTRY (widget)));
 	} else if (CTK_IS_TEXT_BUFFER (widget)) {
-		GtkTextIter start, end;
+		CtkTextIter start, end;
 
 		ctk_text_buffer_get_bounds (CTK_TEXT_BUFFER (widget), &start, &end);
 		text = ctk_text_buffer_get_text (CTK_TEXT_BUFFER (widget),
@@ -2299,7 +2299,7 @@ ev_view_form_field_text_changed (GtkWidget   *widget,
 }
 
 static gboolean
-ev_view_form_field_text_focus_out (GtkWidget     *widget,
+ev_view_form_field_text_focus_out (CtkWidget     *widget,
 				   GdkEventFocus *event,
 				   EvView        *view)
 {
@@ -2308,12 +2308,12 @@ ev_view_form_field_text_focus_out (GtkWidget     *widget,
 	return FALSE;
 }
 
-static GtkWidget *
+static CtkWidget *
 ev_view_form_field_text_create_widget (EvView      *view,
 				       EvFormField *field)
 {
 	EvFormFieldText *field_text = EV_FORM_FIELD_TEXT (field);
-	GtkWidget       *text = NULL;
+	CtkWidget       *text = NULL;
 	gchar           *txt;
 
 	txt = ev_document_forms_form_field_text_get_text (EV_DOCUMENT_FORMS (view->document),
@@ -2344,7 +2344,7 @@ ev_view_form_field_text_create_widget (EvView      *view,
 						view);
 			break;
 	        case EV_FORM_FIELD_TEXT_MULTILINE: {
-			GtkTextBuffer *buffer;
+			CtkTextBuffer *buffer;
 
 			text = ctk_text_view_new ();
 			buffer = ctk_text_view_get_buffer (CTK_TEXT_VIEW (text));
@@ -2373,7 +2373,7 @@ ev_view_form_field_text_create_widget (EvView      *view,
 
 static void
 ev_view_form_field_choice_save (EvView    *view,
-				GtkWidget *widget)
+				CtkWidget *widget)
 {
 	EvFormField *field;
 
@@ -2407,7 +2407,7 @@ ev_view_form_field_choice_save (EvView    *view,
 }
 
 static void
-ev_view_form_field_choice_changed (GtkWidget   *widget,
+ev_view_form_field_choice_changed (CtkWidget   *widget,
 				   EvFormField *field)
 {
 	EvFormFieldChoice *field_choice = EV_FORM_FIELD_CHOICE (field);
@@ -2437,8 +2437,8 @@ ev_view_form_field_choice_changed (GtkWidget   *widget,
 			}
 		}
 	} else if (CTK_IS_TREE_SELECTION (widget)) {
-		GtkTreeSelection *selection = CTK_TREE_SELECTION (widget);
-		GtkTreeModel     *model;
+		CtkTreeSelection *selection = CTK_TREE_SELECTION (widget);
+		CtkTreeModel     *model;
 		GList            *items, *l;
 
 		items = ctk_tree_selection_get_selected_rows (selection, &model);
@@ -2446,8 +2446,8 @@ ev_view_form_field_choice_changed (GtkWidget   *widget,
 		field_choice->selected_items = NULL;
 
 		for (l = items; l && l->data; l = g_list_next (l)) {
-			GtkTreeIter  iter;
-			GtkTreePath *path = (GtkTreePath *)l->data;
+			CtkTreeIter  iter;
+			CtkTreePath *path = (CtkTreePath *)l->data;
 			gint         item;
 
 			ctk_tree_model_get_iter (model, &iter, path);
@@ -2465,13 +2465,13 @@ ev_view_form_field_choice_changed (GtkWidget   *widget,
 	}
 }
 
-static GtkWidget *
+static CtkWidget *
 ev_view_form_field_choice_create_widget (EvView      *view,
 					 EvFormField *field)
 {
 	EvFormFieldChoice *field_choice = EV_FORM_FIELD_CHOICE (field);
-	GtkWidget         *choice;
-	GtkTreeModel      *model;
+	CtkWidget         *choice;
+	CtkTreeModel      *model;
 	gint               n_items, i;
 	gint               selected_item = 0;
 
@@ -2479,7 +2479,7 @@ ev_view_form_field_choice_create_widget (EvView      *view,
 								   field);
 	model = CTK_TREE_MODEL (ctk_list_store_new (2, G_TYPE_STRING, G_TYPE_INT));
 	for (i = 0; i < n_items; i++) {
-		GtkTreeIter iter;
+		CtkTreeIter iter;
 		gchar      *item;
 
 		item = ev_document_forms_form_field_choice_get_item (EV_DOCUMENT_FORMS (view->document),
@@ -2503,9 +2503,9 @@ ev_view_form_field_choice_create_widget (EvView      *view,
 	}
 
 	if (field_choice->type == EV_FORM_FIELD_CHOICE_LIST) {
-		GtkCellRenderer  *renderer;
-		GtkWidget        *tree_view;
-		GtkTreeSelection *selection;
+		CtkCellRenderer  *renderer;
+		CtkWidget        *tree_view;
+		CtkTreeSelection *selection;
 
 		tree_view = ctk_tree_view_new_with_model (model);
 		ctk_tree_view_set_headers_visible (CTK_TREE_VIEW (tree_view), FALSE);
@@ -2556,7 +2556,7 @@ ev_view_form_field_choice_create_widget (EvView      *view,
 					G_CALLBACK (ev_view_form_field_destroy),
 					view);
 	} else { /* ComboBoxText */
-		GtkCellRenderer *renderer;
+		CtkCellRenderer *renderer;
 
 		choice = ctk_combo_box_new_with_model (model);
 		renderer = ctk_cell_renderer_text_new ();
@@ -2590,7 +2590,7 @@ void
 _ev_view_focus_form_field (EvView      *view,
                           EvFormField *field)
 {
-	GtkWidget     *field_widget = NULL;
+	CtkWidget     *field_widget = NULL;
 	EvMappingList *form_field_mapping;
 	EvMapping     *mapping;
 
@@ -2645,7 +2645,7 @@ ev_view_handle_form_field (EvView      *view,
 /* Annotations */
 static EvViewWindowChild *
 ev_view_get_window_child (EvView    *view,
-			  GtkWidget *window)
+			  CtkWidget *window)
 {
 	GList *children = view->window_children;
 
@@ -2668,7 +2668,7 @@ ev_view_window_child_move (EvView            *view,
 			   gint               x,
 			   gint               y)
 {
-	GtkAllocation allocation;
+	CtkAllocation allocation;
 	gint          width, height;
 
 	ctk_widget_get_allocation (CTK_WIDGET (view), &allocation);
@@ -2685,7 +2685,7 @@ ev_view_window_child_move (EvView            *view,
 
 static void
 ev_view_window_child_move_with_parent (EvView    *view,
-				       GtkWidget *window)
+				       CtkWidget *window)
 {
 	EvViewWindowChild *child;
 	gint               root_x, root_y;
@@ -2709,7 +2709,7 @@ ev_view_window_child_move_with_parent (EvView    *view,
 
 static void
 ev_view_window_child_put (EvView    *view,
-			  GtkWidget *window,
+			  CtkWidget *window,
 			  guint      page,
 			  gint       x,
 			  gint       y,
@@ -2786,7 +2786,7 @@ ev_view_window_children_free (EvView *view)
 }
 
 static void
-annotation_window_grab_focus (GtkWidget *widget,
+annotation_window_grab_focus (CtkWidget *widget,
 			      EvView    *view)
 {
 	if (view->window_child_focus)
@@ -2812,7 +2812,7 @@ annotation_window_moved (EvAnnotationWindow *window,
 {
 	EvViewWindowChild *child;
 	GdkRectangle       page_area;
-	GtkBorder          border;
+	CtkBorder          border;
 	GdkRectangle       view_rect;
 	EvRectangle        doc_rect;
 	gint               width, height;
@@ -2854,12 +2854,12 @@ ev_view_annotation_save_contents (EvView       *view,
 	ev_document_doc_mutex_unlock ();
 }
 
-static GtkWidget *
+static CtkWidget *
 ev_view_create_annotation_window (EvView       *view,
 				  EvAnnotation *annot,
-				  GtkWindow    *parent)
+				  CtkWindow    *parent)
 {
-	GtkWidget   *window;
+	CtkWidget   *window;
 	EvRectangle  doc_rect;
 	GdkRectangle view_rect;
 	guint        page;
@@ -2898,7 +2898,7 @@ show_annotation_windows (EvView *view,
 {
 	EvMappingList *annots;
 	GList         *l;
-	GtkWindow     *parent;
+	CtkWindow     *parent;
 
 	parent = CTK_WINDOW (ctk_widget_get_toplevel (CTK_WIDGET (view)));
 
@@ -2907,7 +2907,7 @@ show_annotation_windows (EvView *view,
 	for (l = ev_mapping_list_get_list (annots); l && l->data; l = g_list_next (l)) {
 		EvAnnotation      *annot;
 		EvViewWindowChild *child;
-		GtkWidget         *window;
+		CtkWidget         *window;
 
 		annot = ((EvMapping *)(l->data))->data;
 
@@ -2947,7 +2947,7 @@ hide_annotation_windows (EvView *view,
 
 	for (l = ev_mapping_list_get_list (annots); l && l->data; l = g_list_next (l)) {
 		EvAnnotation *annot;
-		GtkWidget    *window;
+		CtkWidget    *window;
 
 		annot = ((EvMapping *)(l->data))->data;
 
@@ -2998,7 +2998,7 @@ ev_view_get_annotation_at_location (EvView  *view,
 
 static void
 ev_view_annotation_show_popup_window (EvView    *view,
-				      GtkWidget *window)
+				      CtkWidget *window)
 {
 	EvViewWindowChild *child;
 
@@ -3021,7 +3021,7 @@ ev_view_handle_annotation (EvView       *view,
 			   guint32       timestamp)
 {
 	if (EV_IS_ANNOTATION_MARKUP (annot)) {
-		GtkWidget *window;
+		CtkWidget *window;
 
 		window = g_object_get_data (G_OBJECT (annot), "popup");
 		ev_view_annotation_show_popup_window (view, window);
@@ -3056,7 +3056,7 @@ ev_view_create_annotation (EvView          *view,
 	EvAnnotation   *annot;
 	GdkPoint        point;
 	GdkRectangle    page_area;
-	GtkBorder       border;
+	CtkBorder       border;
 	EvRectangle     doc_rect, popup_rect;
 	EvPage         *page;
 	GdkColor        color = { 0, 65535, 65535, 0 };
@@ -3111,8 +3111,8 @@ ev_view_create_annotation (EvView          *view,
 		ev_page_cache_mark_dirty (view->page_cache, view->current_page, EV_PAGE_DATA_INCLUDE_ANNOTS);
 
 	if (EV_IS_ANNOTATION_MARKUP (annot)) {
-		GtkWindow *parent;
-		GtkWidget *window;
+		CtkWindow *parent;
+		CtkWidget *window;
 
 		parent = CTK_WINDOW (ctk_widget_get_toplevel (CTK_WIDGET (view)));
 		window = ev_view_create_annotation_window (view, annot, parent);
@@ -3259,7 +3259,7 @@ cursor_should_blink (EvView *view)
 	    ctk_widget_has_focus (CTK_WIDGET (view)) &&
 	    view->pixbuf_cache &&
 	    !ev_pixbuf_cache_get_selection_region (view->pixbuf_cache, view->cursor_page, view->scale)) {
-		GtkSettings *settings;
+		CtkSettings *settings;
 		gboolean blink;
 
 		settings = ctk_widget_get_settings (CTK_WIDGET (view));
@@ -3274,7 +3274,7 @@ cursor_should_blink (EvView *view)
 static gint
 get_cursor_blink_time (EvView *view)
 {
-	GtkSettings *settings = ctk_widget_get_settings (CTK_WIDGET (view));
+	CtkSettings *settings = ctk_widget_get_settings (CTK_WIDGET (view));
 	gint time;
 
 	g_object_get (settings, "ctk-cursor-blink-time", &time, NULL);
@@ -3285,7 +3285,7 @@ get_cursor_blink_time (EvView *view)
 static gint
 get_cursor_blink_timeout_id (EvView *view)
 {
-	GtkSettings *settings = ctk_widget_get_settings (CTK_WIDGET (view));
+	CtkSettings *settings = ctk_widget_get_settings (CTK_WIDGET (view));
 	gint timeout;
 
 	g_object_get (settings, "ctk-cursor-blink-timeout", &timeout, NULL);
@@ -3355,7 +3355,7 @@ get_caret_cursor_area (EvView       *view,
 static void
 show_cursor (EvView *view)
 {
-	GtkWidget   *widget;
+	CtkWidget   *widget;
 	GdkRectangle view_rect;
 
 	if (view->cursor_visible)
@@ -3374,7 +3374,7 @@ show_cursor (EvView *view)
 static void
 hide_cursor (EvView *view)
 {
-	GtkWidget   *widget;
+	CtkWidget   *widget;
 	GdkRectangle view_rect;
 
 	if (!view->cursor_visible)
@@ -3515,11 +3515,11 @@ ev_view_set_caret_cursor_position (EvView *view,
 	}
 }
 
-/*** GtkWidget implementation ***/
+/*** CtkWidget implementation ***/
 
 static void
 ev_view_size_request_continuous_dual_page (EvView         *view,
-			     	           GtkRequisition *requisition)
+			     	           CtkRequisition *requisition)
 {
 	gint n_pages;
 
@@ -3535,7 +3535,7 @@ ev_view_size_request_continuous_dual_page (EvView         *view,
 			break;
 	        case EV_SIZING_FREE: {
 			gint max_width;
-			GtkBorder border;
+			CtkBorder border;
 
 			ev_view_get_max_page_size (view, &max_width, NULL);
 			compute_border (view, &border);
@@ -3549,7 +3549,7 @@ ev_view_size_request_continuous_dual_page (EvView         *view,
 
 static void
 ev_view_size_request_continuous (EvView         *view,
-				 GtkRequisition *requisition)
+				 CtkRequisition *requisition)
 {
 	gint n_pages;
 
@@ -3565,7 +3565,7 @@ ev_view_size_request_continuous (EvView         *view,
 			break;
 	        case EV_SIZING_FREE: {
 			gint max_width;
-			GtkBorder border;
+			CtkBorder border;
 
 			ev_view_get_max_page_size (view, &max_width, NULL);
 			compute_border (view, &border);
@@ -3579,9 +3579,9 @@ ev_view_size_request_continuous (EvView         *view,
 
 static void
 ev_view_size_request_dual_page (EvView         *view,
-				GtkRequisition *requisition)
+				CtkRequisition *requisition)
 {
-	GtkBorder border;
+	CtkBorder border;
 	gint width, height;
 
 	if (view->sizing_mode == EV_SIZING_FIT_PAGE) {
@@ -3614,9 +3614,9 @@ ev_view_size_request_dual_page (EvView         *view,
 
 static void
 ev_view_size_request_single_page (EvView         *view,
-				  GtkRequisition *requisition)
+				  CtkRequisition *requisition)
 {
-	GtkBorder border;
+	CtkBorder border;
 	gint width, height;
 
 	if (view->sizing_mode == EV_SIZING_FIT_PAGE) {
@@ -3635,8 +3635,8 @@ ev_view_size_request_single_page (EvView         *view,
 }
 
 static void
-ev_view_size_request (GtkWidget      *widget,
-		      GtkRequisition *requisition)
+ev_view_size_request (CtkWidget      *widget,
+		      CtkRequisition *requisition)
 {
 	EvView *view = EV_VIEW (widget);
 	gboolean dual_page;
@@ -3657,7 +3657,7 @@ ev_view_size_request (GtkWidget      *widget,
 	    (view->sizing_mode == EV_SIZING_FIT_WIDTH ||
 	     view->sizing_mode == EV_SIZING_FIT_PAGE ||
 	     view->sizing_mode == EV_SIZING_AUTOMATIC)) {
-		GtkAllocation allocation;
+		CtkAllocation allocation;
 
 		ctk_widget_get_allocation (widget, &allocation);
 		ev_view_zoom_for_size (view,
@@ -3679,11 +3679,11 @@ ev_view_size_request (GtkWidget      *widget,
 }
 
 static void
-ev_view_get_preferred_width (GtkWidget *widget,
+ev_view_get_preferred_width (CtkWidget *widget,
 			     gint *minimum,
 			     gint *natural)
 {
-	GtkRequisition requisition;
+	CtkRequisition requisition;
 
 	ev_view_size_request (widget, &requisition);
 
@@ -3691,11 +3691,11 @@ ev_view_get_preferred_width (GtkWidget *widget,
 }
 
 static void
-ev_view_get_preferred_height (GtkWidget *widget,
+ev_view_get_preferred_height (CtkWidget *widget,
 			      gint *minimum,
 			      gint *natural)
 {
-	GtkRequisition requisition;
+	CtkRequisition requisition;
 
 	ev_view_size_request (widget, &requisition);
 
@@ -3703,8 +3703,8 @@ ev_view_get_preferred_height (GtkWidget *widget,
 }
 
 static void
-ev_view_size_allocate (GtkWidget      *widget,
-		       GtkAllocation  *allocation)
+ev_view_size_allocate (CtkWidget      *widget,
+		       CtkAllocation  *allocation)
 {
 	EvView *view = EV_VIEW (widget);
 	GList  *l;
@@ -3725,7 +3725,7 @@ ev_view_size_allocate (GtkWidget      *widget,
 	if (view->sizing_mode == EV_SIZING_FIT_WIDTH ||
 	    view->sizing_mode == EV_SIZING_FIT_PAGE ||
 	    view->sizing_mode == EV_SIZING_AUTOMATIC) {
-		GtkRequisition req;
+		CtkRequisition req;
 
 		ev_view_zoom_for_size (view,
 				       allocation->width,
@@ -3790,7 +3790,7 @@ ev_view_size_allocate (GtkWidget      *widget,
 }
 
 static gboolean
-ev_view_scroll_event (GtkWidget *widget, GdkEventScroll *event)
+ev_view_scroll_event (CtkWidget *widget, GdkEventScroll *event)
 {
 	EvView *view = EV_VIEW (widget);
 	guint state;
@@ -3926,9 +3926,9 @@ find_selection_for_page (EvView *view,
 }
 
 static void
-ev_view_realize (GtkWidget *widget)
+ev_view_realize (CtkWidget *widget)
 {
-	GtkAllocation allocation;
+	CtkAllocation allocation;
 	GdkWindow *window;
 	GdkWindowAttr attributes;
 	gint attributes_mask;
@@ -3955,7 +3955,7 @@ ev_view_realize (GtkWidget *widget)
 }
 
 static void
-get_cursor_color (GtkStyleContext *context,
+get_cursor_color (CtkStyleContext *context,
 		  GdkRGBA         *color)
 {
 	GdkColor *style_color;
@@ -4016,7 +4016,7 @@ draw_focus (EvView       *view,
             gint          page,
             GdkRectangle *clip)
 {
-	GtkWidget   *widget = CTK_WIDGET (view);
+	CtkWidget   *widget = CTK_WIDGET (view);
 	GdkRectangle rect;
 	GdkRectangle intersect;
 
@@ -4037,7 +4037,7 @@ draw_focus (EvView       *view,
 }
 
 static gboolean
-ev_view_draw (GtkWidget      *widget,
+ev_view_draw (CtkWidget      *widget,
 	      cairo_t *cr)
 {
 	EvView    *view = EV_VIEW (widget);
@@ -4059,7 +4059,7 @@ ev_view_draw (GtkWidget      *widget,
 
 	for (i = view->start_page; i >= 0 && i <= view->end_page; i++) {
 		GdkRectangle page_area;
-		GtkBorder border;
+		CtkBorder border;
 		gboolean page_ready = TRUE;
 
 		if (!ev_view_get_page_extents (view, i, &page_area, &border))
@@ -4148,7 +4148,7 @@ ev_view_do_popup_menu (EvView *view,
 }
 
 static gboolean
-ev_view_popup_menu (GtkWidget *widget)
+ev_view_popup_menu (CtkWidget *widget)
 {
 	gint x, y;
 
@@ -4201,11 +4201,11 @@ get_annot_area (EvView       *view,
 }
 
 static gboolean
-ev_view_query_tooltip (GtkWidget  *widget,
+ev_view_query_tooltip (CtkWidget  *widget,
 		       gint        x,
 		       gint        y,
 		       gboolean    keyboard_tip,
-		       GtkTooltip *tooltip)
+		       CtkTooltip *tooltip)
 {
 	EvView       *view = EV_VIEW (widget);
 	EvLink       *link;
@@ -4433,7 +4433,7 @@ position_caret_cursor_for_event (EvView         *view,
 }
 
 static gboolean
-ev_view_button_press_event (GtkWidget      *widget,
+ev_view_button_press_event (CtkWidget      *widget,
 			    GdkEventButton *event)
 {
 	EvView *view = EV_VIEW (widget);
@@ -4555,7 +4555,7 @@ ev_view_button_press_event (GtkWidget      *widget,
 static void
 ev_view_remove_all (EvView *view)
 {
-	ctk_container_foreach (CTK_CONTAINER (view), (GtkCallback) ctk_widget_destroy, NULL);
+	ctk_container_foreach (CTK_CONTAINER (view), (CtkCallback) ctk_widget_destroy, NULL);
 	GList *children, *child;
 
 	children = ctk_container_get_children (CTK_CONTAINER (view));
@@ -4568,9 +4568,9 @@ ev_view_remove_all (EvView *view)
 
 /*** Drag and Drop ***/
 static void
-ev_view_drag_data_get (GtkWidget        *widget,
+ev_view_drag_data_get (CtkWidget        *widget,
 		       GdkDragContext   *context,
-		       GtkSelectionData *selection_data,
+		       CtkSelectionData *selection_data,
 		       guint             info,
 		       guint             time)
 {
@@ -4624,7 +4624,7 @@ ev_view_drag_data_get (GtkWidget        *widget,
 }
 
 static gboolean
-ev_view_drag_motion (GtkWidget      *widget,
+ev_view_drag_motion (CtkWidget      *widget,
 		     GdkDragContext *context,
 		     gint            x,
 		     gint            y,
@@ -4653,8 +4653,8 @@ static gboolean
 selection_scroll_timeout_cb (EvView *view)
 {
 	gint x, y, shift = 0;
-	GtkWidget *widget = CTK_WIDGET (view);
-	GtkAllocation allocation;
+	CtkWidget *widget = CTK_WIDGET (view);
+	CtkAllocation allocation;
 
 	ctk_widget_get_allocation (widget, &allocation);
 	ev_document_misc_get_pointer_position (widget, &x, &y);
@@ -4717,7 +4717,7 @@ ev_view_scroll_drag_release (EvView *view)
 	gdouble oldhadjustment, oldvadjustment;
 	gdouble h_page_size, v_page_size;
 	gdouble h_upper, v_upper;
-	GtkAllocation allocation;
+	CtkAllocation allocation;
 
 	view->drag_info.momentum.x /= 1.2;
 	view->drag_info.momentum.y /= 1.2; /* Alter these constants to change "friction" */
@@ -4762,7 +4762,7 @@ ev_view_scroll_drag_release (EvView *view)
 }
 
 static gboolean
-ev_view_motion_notify_event (GtkWidget      *widget,
+ev_view_motion_notify_event (CtkWidget      *widget,
 			     GdkEventMotion *event)
 {
 	EvView    *view = EV_VIEW (widget);
@@ -4794,7 +4794,7 @@ ev_view_motion_notify_event (GtkWidget      *widget,
 					      view->selection_info.start.x,
 					      view->selection_info.start.y,
 					      x, y)) {
-			GtkTargetList *target_list = ctk_target_list_new (NULL, 0);
+			CtkTargetList *target_list = ctk_target_list_new (NULL, 0);
 
 			ctk_target_list_add_text_targets (target_list, TARGET_DND_TEXT);
 
@@ -4816,7 +4816,7 @@ ev_view_motion_notify_event (GtkWidget      *widget,
 					      view->selection_info.start.x,
 					      view->selection_info.start.y,
 					      x, y)) {
-			GtkTargetList *target_list = ctk_target_list_new (NULL, 0);
+			CtkTargetList *target_list = ctk_target_list_new (NULL, 0);
 
 			ctk_target_list_add_uri_targets (target_list, TARGET_DND_URI);
 			ctk_target_list_add_image_targets (target_list, TARGET_DND_IMAGE, TRUE);
@@ -4891,7 +4891,7 @@ ev_view_motion_notify_event (GtkWidget      *widget,
 		if (view->drag_info.in_drag) {
 			int dx, dy;
 			gdouble dhadj_value, dvadj_value;
-			GtkAllocation allocation;
+			CtkAllocation allocation;
 
 			view->drag_info.buffer[0].x = event->x;
 			view->drag_info.buffer[0].y = event->y;
@@ -4928,7 +4928,7 @@ ev_view_motion_notify_event (GtkWidget      *widget,
 }
 
 static gboolean
-ev_view_button_release_event (GtkWidget      *widget,
+ev_view_button_release_event (CtkWidget      *widget,
 			      GdkEventButton *event)
 {
 	EvView *view = EV_VIEW (widget);
@@ -5027,7 +5027,7 @@ static gboolean
 ev_view_forward_key_event_to_focused_child (EvView      *view,
                                             GdkEventKey *event)
 {
-	GtkWidget   *child_widget = NULL;
+	CtkWidget   *child_widget = NULL;
 	GdkEventKey *new_event;
 	gboolean     handled;
 
@@ -5396,7 +5396,7 @@ cursor_clear_selection (EvView  *view,
 
 static gboolean
 ev_view_move_cursor (EvView         *view,
-		     GtkMovementStep step,
+		     CtkMovementStep step,
 		     gint            count,
 		     gboolean        extend_selections)
 {
@@ -5534,7 +5534,7 @@ ev_view_move_cursor (EvView         *view,
 }
 
 static gboolean
-ev_view_key_press_event (GtkWidget   *widget,
+ev_view_key_press_event (CtkWidget   *widget,
 			 GdkEventKey *event)
 {
 	EvView  *view = EV_VIEW (widget);
@@ -5557,7 +5557,7 @@ ev_view_key_press_event (GtkWidget   *widget,
 }
 
 static gint
-ev_view_focus_in (GtkWidget     *widget,
+ev_view_focus_in (CtkWidget     *widget,
 		  GdkEventFocus *event)
 {
 	EvView *view = EV_VIEW (widget);
@@ -5572,7 +5572,7 @@ ev_view_focus_in (GtkWidget     *widget,
 }
 
 static gint
-ev_view_focus_out (GtkWidget     *widget,
+ev_view_focus_out (CtkWidget     *widget,
 		   GdkEventFocus *event)
 {
 	EvView *view = EV_VIEW (widget);
@@ -5587,7 +5587,7 @@ ev_view_focus_out (GtkWidget     *widget,
 }
 
 static gboolean
-ev_view_leave_notify_event (GtkWidget *widget, GdkEventCrossing   *event)
+ev_view_leave_notify_event (CtkWidget *widget, GdkEventCrossing   *event)
 {
 	EvView *view = EV_VIEW (widget);
 
@@ -5598,7 +5598,7 @@ ev_view_leave_notify_event (GtkWidget *widget, GdkEventCrossing   *event)
 }
 
 static gboolean
-ev_view_enter_notify_event (GtkWidget *widget, GdkEventCrossing   *event)
+ev_view_enter_notify_event (CtkWidget *widget, GdkEventCrossing   *event)
 {
 	EvView *view = EV_VIEW (widget);
 
@@ -5608,7 +5608,7 @@ ev_view_enter_notify_event (GtkWidget *widget, GdkEventCrossing   *event)
 }
 
 static void
-ev_view_style_updated (GtkWidget *widget)
+ev_view_style_updated (CtkWidget *widget)
 {
 	if (EV_VIEW (widget)->pixbuf_cache)
 		ev_pixbuf_cache_style_changed (EV_VIEW (widget)->pixbuf_cache);
@@ -5624,7 +5624,7 @@ draw_rubberband (EvView             *view,
 		 const GdkRectangle *rect,
 		 gdouble             alpha)
 {
-	GtkStyleContext *context;
+	CtkStyleContext *context;
 	GdkRGBA          color;
 
 	context = ctk_widget_get_style_context (CTK_WIDGET (view));
@@ -5740,9 +5740,9 @@ _ev_view_get_selection_colors (EvView  *view,
                                GdkRGBA *bg_color,
                                GdkRGBA *fg_color)
 {
-	GtkWidget       *widget = CTK_WIDGET (view);
-	GtkStateFlags    state;
-	GtkStyleContext *context;
+	CtkWidget       *widget = CTK_WIDGET (view);
+	CtkStateFlags    state;
+	CtkStyleContext *context;
 
 	state = ctk_widget_has_focus (widget) ? CTK_STATE_FLAG_SELECTED : CTK_STATE_FLAG_ACTIVE;
 	context = ctk_widget_get_style_context (widget);
@@ -5782,11 +5782,11 @@ draw_one_page (EvView       *view,
 	       gint          page,
 	       cairo_t      *cr,
 	       GdkRectangle *page_area,
-	       GtkBorder    *border,
+	       CtkBorder    *border,
 	       GdkRectangle *expose_area,
 	       gboolean     *page_ready)
 {
-	GtkStyleContext *context;
+	CtkStyleContext *context;
 	GdkRectangle     overlap;
 	GdkRectangle     real_page_area;
 	gint             current_page;
@@ -6016,11 +6016,11 @@ ev_view_set_property (GObject      *object,
 		break;
 	case PROP_HADJUSTMENT:
 		set_scroll_adjustment (view, CTK_ORIENTATION_HORIZONTAL,
-				       (GtkAdjustment *) g_value_get_object (value));
+				       (CtkAdjustment *) g_value_get_object (value));
 		break;
 	case PROP_VADJUSTMENT:
 		set_scroll_adjustment (view, CTK_ORIENTATION_VERTICAL,
-				       (GtkAdjustment *) g_value_get_object (value));
+				       (CtkAdjustment *) g_value_get_object (value));
 		break;
 	case PROP_HSCROLL_POLICY:
 		view->hscroll_policy = g_value_get_enum (value);
@@ -6038,7 +6038,7 @@ ev_view_set_property (GObject      *object,
 
 /* Accessibility */
 static AtkObject *
-ev_view_get_accessible (GtkWidget *widget)
+ev_view_get_accessible (CtkWidget *widget)
 {
 	EvView *view = EV_VIEW (widget);
 
@@ -6047,10 +6047,10 @@ ev_view_get_accessible (GtkWidget *widget)
 	return view->accessible;
 }
 
-/* GtkContainer */
+/* CtkContainer */
 static void
-ev_view_remove (GtkContainer *container,
-		GtkWidget    *widget)
+ev_view_remove (CtkContainer *container,
+		CtkWidget    *widget)
 {
 	EvView *view = EV_VIEW (container);
 	GList *tmp_list = view->children;
@@ -6074,9 +6074,9 @@ ev_view_remove (GtkContainer *container,
 }
 
 static void
-ev_view_forall (GtkContainer *container,
+ev_view_forall (CtkContainer *container,
 		gboolean      include_internals,
-		GtkCallback   callback,
+		CtkCallback   callback,
 		gpointer      callback_data)
 {
 	EvView *view = EV_VIEW (container);
@@ -6092,12 +6092,12 @@ ev_view_forall (GtkContainer *container,
 }
 
 static void
-pan_gesture_pan_cb (GtkGesturePan   *gesture,
-		    GtkPanDirection  direction,
+pan_gesture_pan_cb (CtkGesturePan   *gesture,
+		    CtkPanDirection  direction,
 		    gdouble          offset,
 		    EvView          *view)
 {
-	GtkAllocation allocation;
+	CtkAllocation allocation;
 
 	ctk_widget_get_allocation (CTK_WIDGET (view), &allocation);
 
@@ -6124,7 +6124,7 @@ pan_gesture_pan_cb (GtkGesturePan   *gesture,
 }
 
 static void
-pan_gesture_end_cb (GtkGesture       *gesture,
+pan_gesture_end_cb (CtkGesture       *gesture,
 		    GdkEventSequence *sequence,
 		    EvView           *view)
 {
@@ -6140,10 +6140,10 @@ pan_gesture_end_cb (GtkGesture       *gesture,
 }
 
 static void
-ev_view_hierarchy_changed (GtkWidget *widget,
-			   GtkWidget *previous_toplevel)
+ev_view_hierarchy_changed (CtkWidget *widget,
+			   CtkWidget *previous_toplevel)
 {
-	GtkWidget *parent = ctk_widget_get_parent (widget);
+	CtkWidget *parent = ctk_widget_get_parent (widget);
 	EvView *view = EV_VIEW (widget);
 
 	if (parent && !view->pan_gesture) {
@@ -6163,20 +6163,20 @@ ev_view_hierarchy_changed (GtkWidget *widget,
 }
 
 static void
-ev_view_parent_set (GtkWidget *widget,
-		    GtkWidget *previous_parent)
+ev_view_parent_set (CtkWidget *widget,
+		    CtkWidget *previous_parent)
 {
-	GtkWidget *parent;
+	CtkWidget *parent;
 
 	parent = ctk_widget_get_parent (widget);
 	g_assert (!parent || CTK_IS_SCROLLED_WINDOW (parent));
 }
 
 static void
-add_move_binding_keypad (GtkBindingSet  *binding_set,
+add_move_binding_keypad (CtkBindingSet  *binding_set,
 			 guint           keyval,
 			 GdkModifierType modifiers,
-			 GtkMovementStep step,
+			 CtkMovementStep step,
 			 gint            count)
 {
 	guint keypad_keyval = keyval - GDK_KEY_Left + GDK_KEY_KP_Left;
@@ -6209,9 +6209,9 @@ static void
 ev_view_class_init (EvViewClass *class)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (class);
-	GtkWidgetClass *widget_class = CTK_WIDGET_CLASS (class);
-	GtkContainerClass *container_class = CTK_CONTAINER_CLASS (class);
-	GtkBindingSet *binding_set;
+	CtkWidgetClass *widget_class = CTK_WIDGET_CLASS (class);
+	CtkContainerClass *container_class = CTK_CONTAINER_CLASS (class);
+	CtkBindingSet *binding_set;
 
 	object_class->get_property = ev_view_get_property;
 	object_class->set_property = ev_view_set_property;
@@ -6420,7 +6420,7 @@ on_notify_scale_factor (EvView     *view,
 }
 
 static void
-zoom_gesture_begin_cb (GtkGesture       *gesture,
+zoom_gesture_begin_cb (CtkGesture       *gesture,
 		       GdkEventSequence *sequence,
 		       EvView           *view)
 {
@@ -6428,7 +6428,7 @@ zoom_gesture_begin_cb (GtkGesture       *gesture,
 }
 
 static void
-zoom_gesture_scale_changed_cb (GtkGestureZoom *gesture,
+zoom_gesture_scale_changed_cb (CtkGestureZoom *gesture,
 			       gdouble         scale,
 			       EvView         *view)
 {
@@ -6451,7 +6451,7 @@ zoom_gesture_scale_changed_cb (GtkGestureZoom *gesture,
 static void
 ev_view_init (EvView *view)
 {
-	GtkStyleContext *context;
+	CtkStyleContext *context;
 
 	ctk_widget_set_can_focus (CTK_WIDGET (view), TRUE);
 	ctk_widget_set_has_window (CTK_WIDGET (view), TRUE);
@@ -6561,10 +6561,10 @@ ev_view_page_changed_cb (EvDocumentModel *model,
 }
 
 static void
-on_adjustment_value_changed (GtkAdjustment *adjustment,
+on_adjustment_value_changed (CtkAdjustment *adjustment,
 			     EvView        *view)
 {
-	GtkWidget *widget = CTK_WIDGET (view);
+	CtkWidget *widget = CTK_WIDGET (view);
 	int dx = 0, dy = 0;
 	gint x, y;
 	gint value;
@@ -6619,10 +6619,10 @@ on_adjustment_value_changed (GtkAdjustment *adjustment,
 		view_update_range_and_current_page (view);
 }
 
-GtkWidget*
+CtkWidget*
 ev_view_new (void)
 {
-	GtkWidget *view;
+	CtkWidget *view;
 
 	view = g_object_new (EV_TYPE_VIEW, NULL);
 
@@ -7134,7 +7134,7 @@ ev_view_zoom_for_size_continuous_and_dual_page (EvView *view,
 						int     height)
 {
 	gdouble doc_width, doc_height;
-	GtkBorder border;
+	CtkBorder border;
 	gdouble scale;
 	gint sb_size;
 
@@ -7179,7 +7179,7 @@ ev_view_zoom_for_size_continuous (EvView *view,
 				  int     height)
 {
 	gdouble doc_width, doc_height;
-	GtkBorder border;
+	CtkBorder border;
 	gdouble scale;
 	gint sb_size;
 
@@ -7222,7 +7222,7 @@ ev_view_zoom_for_size_dual_page (EvView *view,
 				 int     width,
 				 int     height)
 {
-	GtkBorder border;
+	CtkBorder border;
 	gdouble doc_width, doc_height;
 	gdouble scale;
 	gint other_page;
@@ -7273,7 +7273,7 @@ ev_view_zoom_for_size_single_page (EvView *view,
 				   int     height)
 {
 	gdouble doc_width, doc_height;
-	GtkBorder border;
+	CtkBorder border;
 	gdouble scale;
 	gint sb_size;
 
@@ -7335,10 +7335,10 @@ ev_view_zoom_for_size (EvView *view,
 
 static gboolean
 ev_view_page_fits (EvView         *view,
-		   GtkOrientation  orientation)
+		   CtkOrientation  orientation)
 {
-	GtkRequisition requisition;
-	GtkAllocation  allocation;
+	CtkRequisition requisition;
+	CtkAllocation  allocation;
 	double         size;
 
 	if (view->sizing_mode == EV_SIZING_FIT_PAGE)
@@ -7600,7 +7600,7 @@ get_selection_page_range (EvView          *view,
 	last = -1;
 	for (i = start_page; i <= end_page; i++) {
 		GdkRectangle page_area;
-		GtkBorder    border;
+		CtkBorder    border;
 
 		ev_view_get_page_extents (view, i, &page_area, &border);
 		page_area.x -= border.left;
@@ -7644,7 +7644,7 @@ compute_new_selection (EvView          *view,
 	for (i = first; i <= last; i++) {
 		EvViewSelection *selection;
 		GdkRectangle     page_area;
-		GtkBorder        border;
+		CtkBorder        border;
 		GdkPoint        *point;
 		gdouble          width, height;
 
@@ -7792,7 +7792,7 @@ merge_selection_region (EvView *view,
 		/* Redraw the damaged region! */
 		if (region) {
 			GdkRectangle    page_area;
-			GtkBorder       border;
+			CtkBorder       border;
 			cairo_region_t *damage_region;
 			gint            i, n_rects;
 
@@ -7939,7 +7939,7 @@ static void
 ev_view_clipboard_copy (EvView      *view,
 			const gchar *text)
 {
-	GtkClipboard *clipboard;
+	CtkClipboard *clipboard;
 
 	clipboard = ctk_widget_get_clipboard (CTK_WIDGET (view),
 					      GDK_SELECTION_CLIPBOARD);
@@ -7960,8 +7960,8 @@ ev_view_copy (EvView *ev_view)
 }
 
 static void
-ev_view_primary_get_cb (GtkClipboard     *clipboard,
-			GtkSelectionData *selection_data,
+ev_view_primary_get_cb (CtkClipboard     *clipboard,
+			CtkSelectionData *selection_data,
 			guint             info,
 			gpointer          data)
 {
@@ -7984,7 +7984,7 @@ ev_view_primary_get_cb (GtkClipboard     *clipboard,
 }
 
 static void
-ev_view_primary_clear_cb (GtkClipboard *clipboard,
+ev_view_primary_clear_cb (CtkClipboard *clipboard,
 			  gpointer      data)
 {
 	EvView *view = EV_VIEW (data);
@@ -7996,14 +7996,14 @@ ev_view_primary_clear_cb (GtkClipboard *clipboard,
 static void
 ev_view_update_primary_selection (EvView *ev_view)
 {
-	GtkClipboard *clipboard;
+	CtkClipboard *clipboard;
 
 	clipboard = ctk_widget_get_clipboard (CTK_WIDGET (ev_view),
                                               GDK_SELECTION_PRIMARY);
 
 	if (ev_view->selection_info.selections || ev_view->link_selected) {
-                GtkTargetList *target_list;
-                GtkTargetEntry *targets;
+                CtkTargetList *target_list;
+                CtkTargetEntry *targets;
                 int n_targets;
 
                 target_list = ctk_target_list_new (NULL, 0);
@@ -8052,7 +8052,7 @@ ev_view_set_cursor (EvView *view, EvViewCursor new_cursor)
 {
 	GdkDisplay *display;
 	GdkCursor *cursor = NULL;
-	GtkWidget *widget;
+	CtkWidget *widget;
 	GdkWindow *bin_window;
 
 	if (view->cursor == new_cursor) {

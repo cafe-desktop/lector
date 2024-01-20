@@ -59,11 +59,11 @@ typedef struct _EvThumbsSizeCache {
 } EvThumbsSizeCache;
 
 struct _EvSidebarThumbnailsPrivate {
-	GtkWidget *swindow;
-	GtkWidget *icon_view;
-	GtkWidget *tree_view;
-	GtkAdjustment *vadjustment;
-	GtkListStore *list_store;
+	CtkWidget *swindow;
+	CtkWidget *icon_view;
+	CtkWidget *tree_view;
+	CtkAdjustment *vadjustment;
+	CtkListStore *list_store;
 	GHashTable *loading_icons;
 	EvDocument *document;
 	EvDocumentModel *model;
@@ -287,7 +287,7 @@ ev_sidebar_thumbnails_get_property (GObject    *object,
 }
 
 static void
-ev_sidebar_thumbnails_map (GtkWidget *widget)
+ev_sidebar_thumbnails_map (CtkWidget *widget)
 {
 	EvSidebarThumbnails *sidebar;
 
@@ -306,7 +306,7 @@ ev_sidebar_fullscreen_cb (EvSidebarThumbnails *sidebar)
 	 * stays in its original position.
 	 *
 	 * The sidebar window move is unwanted and unsolicited, and it's
-	 * most probably caused by GtkIconView or GtkScrolledWindow bug.
+	 * most probably caused by CtkIconView or CtkScrolledWindow bug.
 	 *
 	 * Workaround this by having the sidebar sync its window with the
 	 * current scroll position after a fullscreen operation, do that by
@@ -319,7 +319,7 @@ static void
 ev_sidebar_thumbnails_class_init (EvSidebarThumbnailsClass *ev_sidebar_thumbnails_class)
 {
 	GObjectClass *g_object_class;
-	GtkWidgetClass *widget_class;
+	CtkWidgetClass *widget_class;
 
 	g_object_class = G_OBJECT_CLASS (ev_sidebar_thumbnails_class);
 	widget_class = CTK_WIDGET_CLASS (ev_sidebar_thumbnails_class);
@@ -333,10 +333,10 @@ ev_sidebar_thumbnails_class_init (EvSidebarThumbnailsClass *ev_sidebar_thumbnail
 					  "main-widget");
 }
 
-GtkWidget *
+CtkWidget *
 ev_sidebar_thumbnails_new (void)
 {
-	GtkWidget *ev_sidebar_thumbnails;
+	CtkWidget *ev_sidebar_thumbnails;
 
 	ev_sidebar_thumbnails = g_object_new (EV_TYPE_SIDEBAR_THUMBNAILS, NULL);
 
@@ -373,8 +373,8 @@ cancel_running_jobs (EvSidebarThumbnails *sidebar_thumbnails,
                      gint                 end_page)
 {
 	EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
-	GtkTreePath *path;
-	GtkTreeIter iter;
+	CtkTreePath *path;
+	CtkTreeIter iter;
 	gboolean result;
 
 	g_assert (start_page <= end_page);
@@ -432,8 +432,8 @@ add_range (EvSidebarThumbnails *sidebar_thumbnails,
 	   gint                 end_page)
 {
 	EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
-	GtkTreePath *path;
-	GtkTreeIter iter;
+	CtkTreePath *path;
+	CtkTreeIter iter;
 	gboolean result;
 	gint page = start_page;
 
@@ -522,8 +522,8 @@ static void
 adjustment_changed_cb (EvSidebarThumbnails *sidebar_thumbnails)
 {
 	EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
-	GtkTreePath *path = NULL;
-	GtkTreePath *path2 = NULL;
+	CtkTreePath *path = NULL;
+	CtkTreePath *path2 = NULL;
 	gdouble page_size;
 	gdouble value;
 	gint wy1;
@@ -579,7 +579,7 @@ static void
 ev_sidebar_thumbnails_fill_model (EvSidebarThumbnails *sidebar_thumbnails)
 {
 	EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
-	GtkTreeIter iter;
+	CtkTreeIter iter;
 	int i;
 	gint prev_width = -1;
 	gint prev_height = -1;
@@ -616,12 +616,12 @@ ev_sidebar_thumbnails_fill_model (EvSidebarThumbnails *sidebar_thumbnails)
 }
 
 static void
-ev_sidebar_tree_selection_changed (GtkTreeSelection *selection,
+ev_sidebar_tree_selection_changed (CtkTreeSelection *selection,
 				   EvSidebarThumbnails *ev_sidebar_thumbnails)
 {
 	EvSidebarThumbnailsPrivate *priv = ev_sidebar_thumbnails->priv;
-	GtkTreePath *path;
-	GtkTreeIter iter;
+	CtkTreePath *path;
+	CtkTreeIter iter;
 	int page;
 
 	if (!ctk_tree_selection_get_selected (selection, NULL, &iter))
@@ -636,11 +636,11 @@ ev_sidebar_tree_selection_changed (GtkTreeSelection *selection,
 }
 
 static void
-ev_sidebar_icon_selection_changed (GtkIconView         *icon_view,
+ev_sidebar_icon_selection_changed (CtkIconView         *icon_view,
 				   EvSidebarThumbnails *ev_sidebar_thumbnails)
 {
 	EvSidebarThumbnailsPrivate *priv = ev_sidebar_thumbnails->priv;
-	GtkTreePath *path;
+	CtkTreePath *path;
 	GList *selected;
 	int page;
 
@@ -664,8 +664,8 @@ static void
 ev_sidebar_init_tree_view (EvSidebarThumbnails *ev_sidebar_thumbnails)
 {
 	EvSidebarThumbnailsPrivate *priv;
-	GtkTreeSelection *selection;
-	GtkCellRenderer *renderer;
+	CtkTreeSelection *selection;
+	CtkCellRenderer *renderer;
 
 	ctk_orientable_set_orientation (CTK_ORIENTABLE (ev_sidebar_thumbnails), CTK_ORIENTATION_VERTICAL);
 
@@ -695,7 +695,7 @@ static void
 ev_sidebar_init_icon_view (EvSidebarThumbnails *ev_sidebar_thumbnails)
 {
 	EvSidebarThumbnailsPrivate *priv;
-	GtkCellRenderer *renderer;
+	CtkCellRenderer *renderer;
 
 	priv = ev_sidebar_thumbnails->priv;
 	priv->icon_view = ctk_icon_view_new_with_model (CTK_TREE_MODEL (priv->list_store));
@@ -736,16 +736,16 @@ ev_sidebar_thumbnails_use_icon_view (EvSidebarThumbnails *sidebar_thumbnails)
 }
 
 static void
-ev_sidebar_thumbnails_row_changed (GtkTreeModel *model,
-                                   GtkTreePath  *path,
-                                   GtkTreeIter  *iter,
+ev_sidebar_thumbnails_row_changed (CtkTreeModel *model,
+                                   CtkTreePath  *path,
+                                   CtkTreeIter  *iter,
                                    gpointer      data)
 {
 	guint signal_id;
 
 	signal_id = GPOINTER_TO_UINT (data);
 
-	/* PREVENT GtkIconView "row-changed" handler to be reached, as it will
+	/* PREVENT CtkIconView "row-changed" handler to be reached, as it will
 	 * perform a full invalidate and relayout of all items, See bug:
 	 * https://bugzilla.gnome.org/show_bug.cgi?id=691448#c9 */
 	g_signal_stop_emission (model, signal_id, 0);
@@ -797,8 +797,8 @@ static void
 ev_sidebar_thumbnails_set_current_page (EvSidebarThumbnails *sidebar,
 					gint                 page)
 {
-	GtkTreeView *tree_view;
-	GtkTreePath *path;
+	CtkTreeView *tree_view;
+	CtkTreePath *path;
 
 	path = ctk_tree_path_new_from_indices (page, -1);
 
@@ -891,9 +891,9 @@ thumbnail_job_completed_callback (EvJobThumbnail      *job,
 				  EvSidebarThumbnails *sidebar_thumbnails)
 {
 	EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
-	GtkTreeIter *iter;
+	CtkTreeIter *iter;
 
-	iter = (GtkTreeIter *) g_object_get_data (G_OBJECT (job), "tree_iter");
+	iter = (CtkTreeIter *) g_object_get_data (G_OBJECT (job), "tree_iter");
 	if (priv->inverted_colors && priv->document->iswebdocument == FALSE)
 		ev_document_misc_invert_pixbuf (job->thumbnail);
 	ctk_list_store_set (priv->list_store,
@@ -995,9 +995,9 @@ ev_sidebar_thumbnails_set_model (EvSidebarPage   *sidebar_page,
 }
 
 static gboolean
-ev_sidebar_thumbnails_clear_job (GtkTreeModel *model,
-			         GtkTreePath *path,
-			         GtkTreeIter *iter,
+ev_sidebar_thumbnails_clear_job (CtkTreeModel *model,
+			         CtkTreePath *path,
+			         CtkTreeIter *iter,
 				 gpointer data)
 {
 	EvJob *job;

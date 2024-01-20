@@ -69,7 +69,7 @@ ev_navigation_action_set_history (EvNavigationAction *action,
 }
 
 static void
-activate_menu_item_cb (GtkWidget *widget, EvNavigationAction *action)
+activate_menu_item_cb (CtkWidget *widget, EvNavigationAction *action)
 {
 	int index;
 
@@ -86,13 +86,13 @@ activate_menu_item_cb (GtkWidget *widget, EvNavigationAction *action)
 	}
 }
 
-static GtkWidget *
+static CtkWidget *
 new_history_menu_item (EvNavigationAction *action,
 		       EvLink             *link,
 		       int                 index)
 {
-	GtkLabel *label;
-	GtkWidget *item;
+	CtkLabel *label;
+	CtkWidget *item;
 	const char *title;
 
 	title = ev_link_get_title (link);
@@ -114,11 +114,11 @@ new_history_menu_item (EvNavigationAction *action,
 	return item;
 }
 
-static GtkWidget *
+static CtkWidget *
 build_menu (EvNavigationAction *action)
 {
-	GtkMenuShell *menu;
-	GtkWidget *item;
+	CtkMenuShell *menu;
+	CtkWidget *item;
 	EvLink *link;
 	EvHistory *history = action->priv->history;
 	int start, end, i;
@@ -145,16 +145,16 @@ static void
 menu_activated_cb (EvNavigationActionWidget *button,
 		   EvNavigationAction *action)
 {
-	GtkWidget *menu;
+	CtkWidget *menu;
 
 	menu = build_menu (action);
 	ev_navigation_action_widget_set_menu (button, menu);
 }
 
 static void
-connect_proxy (GtkAction *action, GtkWidget *proxy)
+connect_proxy (CtkAction *action, CtkWidget *proxy)
 {
-	GtkWidget *menu;
+	CtkWidget *menu;
 
 	if (CTK_IS_TOOL_ITEM (proxy)) {
 		/* set dummy menu so the arrow gets sensitive */
@@ -168,8 +168,8 @@ connect_proxy (GtkAction *action, GtkWidget *proxy)
 	CTK_ACTION_CLASS (ev_navigation_action_parent_class)->connect_proxy (action, proxy);
 }
 
-static GtkWidget *
-create_tool_item (GtkAction *action)
+static CtkWidget *
+create_tool_item (CtkAction *action)
 {
 	EvNavigationActionWidget *proxy;
 
@@ -179,11 +179,11 @@ create_tool_item (GtkAction *action)
 	return CTK_WIDGET (proxy);
 }
 
-static GtkWidget *
-create_menu_item (GtkAction *action)
+static CtkWidget *
+create_menu_item (CtkAction *action)
 {
-	GtkWidget *menu;
-	GtkWidget *menu_item;
+	CtkWidget *menu;
+	CtkWidget *menu_item;
 
 	menu = build_menu (EV_NAVIGATION_ACTION (action));
 
@@ -220,7 +220,7 @@ static void
 ev_navigation_action_class_init (EvNavigationActionClass *class)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (class);
-	GtkActionClass *action_class = CTK_ACTION_CLASS (class);
+	CtkActionClass *action_class = CTK_ACTION_CLASS (class);
 
 	object_class->finalize = ev_navigation_action_finalize;
 

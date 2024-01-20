@@ -39,7 +39,7 @@ typedef struct _EvPreviewerWindow      EvPreviewerWindow;
 typedef struct _EvPreviewerWindowClass EvPreviewerWindowClass;
 
 GType      ev_previewer_window_get_type           (void) G_GNUC_CONST;
-GtkWidget *ev_previewer_window_new                (EvDocumentModel   *model);
+CtkWidget *ev_previewer_window_new                (EvDocumentModel   *model);
 
 void       ev_previewer_window_set_print_settings (EvPreviewerWindow *window,
 						   const gchar       *print_settings);

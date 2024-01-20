@@ -63,7 +63,7 @@ struct _EvDocumentFontsInterface
 				   int              n_pages);
 	double   (* get_progress) (EvDocumentFonts *document_fonts);
 	void     (* fill_model)   (EvDocumentFonts *document_fonts,
-				   GtkTreeModel    *model);
+				   CtkTreeModel    *model);
 };
 
 GType     ev_document_fonts_get_type     (void);
@@ -71,7 +71,7 @@ gboolean  ev_document_fonts_scan         (EvDocumentFonts *document_fonts,
 				          int              n_pages);
 double	  ev_document_fonts_get_progress (EvDocumentFonts *document_fonts);
 void      ev_document_fonts_fill_model   (EvDocumentFonts *document_fonts,
-				          GtkTreeModel    *model);
+				          CtkTreeModel    *model);
 
 G_END_DECLS
 

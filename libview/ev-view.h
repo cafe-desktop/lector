@@ -42,7 +42,7 @@ typedef struct _EvViewClass  EvViewClass;
 
 GType		ev_view_get_type	    (void) G_GNUC_CONST;
 
-GtkWidget*	ev_view_new		    (void);
+CtkWidget*	ev_view_new		    (void);
 void		ev_view_set_model	    (EvView          *view,
 					     EvDocumentModel *model);
 EV_DEPRECATED
@@ -91,7 +91,7 @@ void           ev_view_show_cursor        (EvView         *view);
 /* Navigation */
 EV_DEPRECATED_FOR(g_signal_emit_by_name)
 void	       ev_view_scroll             (EvView         *view,
-	                                   GtkScrollType   scroll,
+	                                   CtkScrollType   scroll,
 					   gboolean        horizontal);
 void	       ev_view_handle_link        (EvView         *view,
 					   EvLink         *link);
@@ -104,7 +104,7 @@ void           ev_view_autoscroll_stop    (EvView *view);
 gboolean       ev_view_get_page_extents   (EvView       *view,
                                            gint          page,
                                            GdkRectangle *page_area,
-                                           GtkBorder    *border);
+                                           CtkBorder    *border);
 /* Annotations */
 void           ev_view_focus_annotation      (EvView          *view,
 					      EvMapping       *annot_mapping);

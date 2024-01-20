@@ -40,23 +40,23 @@ typedef struct _EvMessageAreaClass   EvMessageAreaClass;
 typedef struct _EvMessageAreaPrivate EvMessageAreaPrivate;
 
 struct _EvMessageArea {
-	GtkInfoBar parent_instance;
+	CtkInfoBar parent_instance;
 
 	/*< private >*/
 	EvMessageAreaPrivate *priv;
 };
 
 struct _EvMessageAreaClass {
-	GtkInfoBarClass parent_class;
+	CtkInfoBarClass parent_class;
 };
 
 GType      ev_message_area_get_type             (void) G_GNUC_CONST;
-GtkWidget *ev_message_area_new                  (GtkMessageType type,
+CtkWidget *ev_message_area_new                  (CtkMessageType type,
 						 const gchar   *text,
 						 const gchar   *first_button_text,
 						 ...);
 void       ev_message_area_set_image            (EvMessageArea *area,
-						 GtkWidget     *image);
+						 CtkWidget     *image);
 void       ev_message_area_set_image_from_stock (EvMessageArea *area,
 						 const gchar   *stock_id);
 void       ev_message_area_set_text             (EvMessageArea *area,
@@ -67,7 +67,7 @@ void       ev_message_area_set_secondary_text   (EvMessageArea *area,
 void      _ev_message_area_add_buttons_valist   (EvMessageArea *area,
 						 const gchar   *first_button_text,
 						 va_list        args);
-GtkWidget *_ev_message_area_get_main_box        (EvMessageArea *area);
+CtkWidget *_ev_message_area_get_main_box        (EvMessageArea *area);
 
 G_END_DECLS
 

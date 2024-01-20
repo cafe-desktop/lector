@@ -129,29 +129,29 @@ struct _EvWindowPrivate {
 	/* UI */
 	EvChrome chrome;
 
-	GtkWidget *main_box;
-	GtkWidget *menubar;
-	GtkWidget *toolbar;
-	GtkWidget *hpaned;
-	GtkWidget *view_box;
-	GtkWidget *sidebar;
-	GtkWidget *find_bar;
-	GtkWidget *scrolled_window;
-	GtkWidget *view;
-	GtkWidget *loading_message;
-	GtkWidget *presentation_view;
-	GtkWidget *message_area;
-	GtkWidget *password_view;
-	GtkWidget *sidebar_thumbs;
-	GtkWidget *sidebar_links;
-	GtkWidget *sidebar_attachments;
-	GtkWidget *sidebar_layers;
-	GtkWidget *sidebar_annots;
-	GtkWidget *sidebar_bookmarks;
+	CtkWidget *main_box;
+	CtkWidget *menubar;
+	CtkWidget *toolbar;
+	CtkWidget *hpaned;
+	CtkWidget *view_box;
+	CtkWidget *sidebar;
+	CtkWidget *find_bar;
+	CtkWidget *scrolled_window;
+	CtkWidget *view;
+	CtkWidget *loading_message;
+	CtkWidget *presentation_view;
+	CtkWidget *message_area;
+	CtkWidget *password_view;
+	CtkWidget *sidebar_thumbs;
+	CtkWidget *sidebar_links;
+	CtkWidget *sidebar_attachments;
+	CtkWidget *sidebar_layers;
+	CtkWidget *sidebar_annots;
+	CtkWidget *sidebar_bookmarks;
 	EggToolbarsModel *toolbars_model;
 	GSettings        *interface_settings;
 #if ENABLE_EPUB
-	GtkWidget *webview;
+	CtkWidget *webview;
 #endif
 	/* Settings */
 	GSettings *settings;
@@ -169,31 +169,31 @@ struct _EvWindowPrivate {
 	guint loading_message_timeout;
 
 	/* Dialogs */
-	GtkWidget *properties;
-	GtkWidget *print_dialog;
+	CtkWidget *properties;
+	CtkWidget *print_dialog;
 
 	/* UI Builders */
-	GtkActionGroup   *action_group;
-	GtkActionGroup   *view_popup_action_group;
-	GtkActionGroup   *attachment_popup_action_group;
-	GtkRecentManager *recent_manager;
-	GtkActionGroup   *recent_action_group;
+	CtkActionGroup   *action_group;
+	CtkActionGroup   *view_popup_action_group;
+	CtkActionGroup   *attachment_popup_action_group;
+	CtkRecentManager *recent_manager;
+	CtkActionGroup   *recent_action_group;
 	guint             recent_ui_id;
-	GtkActionGroup   *bookmarks_action_group;
+	CtkActionGroup   *bookmarks_action_group;
 	guint             bookmarks_ui_id;
-	GtkUIManager     *ui_manager;
+	CtkUIManager     *ui_manager;
 
 	/* Fullscreen mode */
-	GtkWidget *fullscreen_toolbar;
+	CtkWidget *fullscreen_toolbar;
 
 	/* Popup view */
-	GtkWidget    *view_popup;
+	CtkWidget    *view_popup;
 	EvLink       *link;
 	EvImage      *image;
 	EvAnnotation *annot;
 
 	/* Popup attachment */
-	GtkWidget    *attachment_popup;
+	CtkWidget    *attachment_popup;
 	GList        *attach_list;
 
 	/* Document */
@@ -225,8 +225,8 @@ struct _EvWindowPrivate {
 
 	/* Printing */
 	GQueue           *print_queue;
-	GtkPrintSettings *print_settings;
-	GtkPageSetup     *print_page_setup;
+	CtkPrintSettings *print_settings;
+	CtkPageSetup     *print_page_setup;
 	gboolean          close_after_print;
 	GSettings        *lockdown_settings;
 #ifdef ENABLE_DBUS
@@ -238,7 +238,7 @@ struct _EvWindowPrivate {
 	guint presentation_mode_inhibit_id;
 
 	/* Caret navigation */
-	GtkWidget *ask_caret_navigation_check;
+	CtkWidget *ask_caret_navigation_check;
 };
 
 #define EV_WINDOW_IS_PRESENTATION(w) (w->priv->presentation_view != NULL)
@@ -303,7 +303,7 @@ static void	ev_window_update_actions	 	(EvWindow         *ev_window);
 static void     ev_window_sidebar_visibility_changed_cb (EvSidebar        *ev_sidebar,
 							 GParamSpec       *pspec,
 							 EvWindow         *ev_window);
-static void     ev_window_view_toolbar_cb               (GtkAction        *action,
+static void     ev_window_view_toolbar_cb               (CtkAction        *action,
 							 EvWindow         *ev_window);
 static void     ev_window_set_page_mode                 (EvWindow         *window,
 							 EvWindowPageMode  page_mode);
@@ -328,42 +328,42 @@ static void     ev_window_add_recent                    (EvWindow         *windo
 static void     ev_window_run_fullscreen                (EvWindow         *window);
 static void     ev_window_stop_fullscreen               (EvWindow         *window,
 							 gboolean          unfullscreen_window);
-static void     ev_window_cmd_view_fullscreen           (GtkAction        *action,
+static void     ev_window_cmd_view_fullscreen           (CtkAction        *action,
 							 EvWindow         *window);
 static void     ev_window_run_presentation              (EvWindow         *window);
 static void     ev_window_stop_presentation             (EvWindow         *window,
 							 gboolean          unfullscreen_window);
-static void     ev_window_cmd_view_presentation         (GtkAction        *action,
+static void     ev_window_cmd_view_presentation         (CtkAction        *action,
 							 EvWindow         *window);
-static void     ev_view_popup_cmd_open_link             (GtkAction        *action,
+static void     ev_view_popup_cmd_open_link             (CtkAction        *action,
 							 EvWindow         *window);
-static void     ev_view_popup_cmd_open_link_new_window  (GtkAction        *action,
+static void     ev_view_popup_cmd_open_link_new_window  (CtkAction        *action,
 							 EvWindow         *window);
-static void     ev_view_popup_cmd_copy_link_address     (GtkAction        *action,
+static void     ev_view_popup_cmd_copy_link_address     (CtkAction        *action,
 							 EvWindow         *window);
-static void     ev_view_popup_cmd_save_image_as         (GtkAction        *action,
+static void     ev_view_popup_cmd_save_image_as         (CtkAction        *action,
 							 EvWindow         *window);
-static void     ev_view_popup_cmd_copy_image            (GtkAction        *action,
+static void     ev_view_popup_cmd_copy_image            (CtkAction        *action,
 							 EvWindow         *window);
-static void     ev_view_popup_cmd_annot_properties      (GtkAction        *action,
+static void     ev_view_popup_cmd_annot_properties      (CtkAction        *action,
 							 EvWindow         *window);
-static void     ev_view_popup_cmd_remove_annotation     (GtkAction        *action,
+static void     ev_view_popup_cmd_remove_annotation     (CtkAction        *action,
 							 EvWindow         *window);
-static void	ev_attachment_popup_cmd_open_attachment (GtkAction        *action,
+static void	ev_attachment_popup_cmd_open_attachment (CtkAction        *action,
 							 EvWindow         *window);
-static void	ev_attachment_popup_cmd_save_attachment_as (GtkAction     *action,
+static void	ev_attachment_popup_cmd_save_attachment_as (CtkAction     *action,
 							 EvWindow         *window);
-static void	ev_window_cmd_view_fit_page 		(GtkAction 	  *action,
+static void	ev_window_cmd_view_fit_page 		(CtkAction 	  *action,
 							 EvWindow 	  *ev_window);
-static void	ev_window_cmd_view_fit_width 		(GtkAction 	  *action,
+static void	ev_window_cmd_view_fit_width 		(CtkAction 	  *action,
 							 EvWindow 	  *ev_window);
-static void	ev_window_cmd_view_expand_window       (GtkAction *action,
+static void	ev_window_cmd_view_expand_window       (CtkAction *action,
                                                         EvWindow *ev_window);
 static void	view_handle_link_cb 			(EvView           *view,
 							 EvLink           *link,
 							 EvWindow         *window);
 static void     ev_window_update_find_status_message    (EvWindow         *ev_window);
-static void     ev_window_cmd_edit_find                 (GtkAction        *action,
+static void     ev_window_cmd_edit_find                 (CtkAction        *action,
 							 EvWindow         *ev_window);
 static void     find_bar_search_changed_cb              (EggFindBar       *find_bar,
 							 GParamSpec       *param,
@@ -414,7 +414,7 @@ ev_window_set_action_sensitive (EvWindow   *ev_window,
 		    	        const char *name,
 		  	        gboolean    sensitive)
 {
-	GtkAction *action = ctk_action_group_get_action (ev_window->priv->action_group,
+	CtkAction *action = ctk_action_group_get_action (ev_window->priv->action_group,
 							 name);
 	ctk_action_set_sensitive (action, sensitive);
 }
@@ -632,7 +632,7 @@ ev_window_update_actions (EvWindow *ev_window)
 
 	sizing_mode = ev_document_model_get_sizing_mode (ev_window->priv->model);
 	if (has_pages && sizing_mode != EV_SIZING_FIT_WIDTH && sizing_mode != EV_SIZING_FIT_PAGE) {
-		GtkAction *action;
+		CtkAction *action;
 		float      zoom;
 		float      real_zoom;
 
@@ -648,7 +648,7 @@ ev_window_update_actions (EvWindow *ev_window)
 }
 
 static void
-set_widget_visibility (GtkWidget *widget, gboolean visible)
+set_widget_visibility (CtkWidget *widget, gboolean visible)
 {
 	g_assert (CTK_IS_WIDGET (widget));
 
@@ -704,8 +704,8 @@ update_chrome_flag (EvWindow *window, EvChrome flag, gboolean active)
 static void
 update_sizing_buttons (EvWindow *window)
 {
-	GtkActionGroup *action_group = window->priv->action_group;
-	GtkAction *action;
+	CtkActionGroup *action_group = window->priv->action_group;
+	CtkAction *action;
 	gboolean fit_page, fit_width;
 
 	switch (ev_document_model_get_sizing_mode (window->priv->model)) {
@@ -754,8 +754,8 @@ static void
 update_chrome_actions (EvWindow *window)
 {
 	EvWindowPrivate *priv = window->priv;
-	GtkActionGroup *action_group = priv->action_group;
-	GtkAction *action;
+	CtkActionGroup *action_group = priv->action_group;
+	CtkAction *action;
 
 	action= ctk_action_group_get_action (action_group, "ViewToolbar");
 	g_signal_handlers_block_by_func
@@ -787,7 +787,7 @@ ev_window_is_empty (const EvWindow *ev_window)
 
 static void
 ev_window_set_message_area (EvWindow  *window,
-			    GtkWidget *area)
+			    CtkWidget *area)
 {
 	if (window->priv->message_area == area)
 		return;
@@ -822,7 +822,7 @@ ev_window_error_message (EvWindow    *window,
 			 const gchar *format,
 			 ...)
 {
-	GtkWidget *area;
+	CtkWidget *area;
 	va_list    args;
 	gchar     *msg = NULL;
 
@@ -854,7 +854,7 @@ ev_window_warning_message (EvWindow    *window,
 			   const gchar *format,
 			   ...)
 {
-	GtkWidget *area;
+	CtkWidget *area;
 	va_list    args;
 	gchar     *msg = NULL;
 
@@ -914,9 +914,9 @@ typedef struct _PageTitleData {
 } PageTitleData;
 
 static gboolean
-ev_window_find_page_title (GtkTreeModel  *tree_model,
-			   GtkTreePath   *path,
-			   GtkTreeIter   *iter,
+ev_window_find_page_title (CtkTreeModel  *tree_model,
+			   CtkTreePath   *path,
+			   CtkTreeIter   *iter,
 			   PageTitleData *data)
 {
 	gchar *page_string;
@@ -947,7 +947,7 @@ ev_window_get_page_title (EvWindow    *window,
 	if (EV_IS_DOCUMENT_LINKS (window->priv->document) &&
 	    ev_document_links_has_document_links (EV_DOCUMENT_LINKS (window->priv->document))) {
 		PageTitleData data;
-		GtkTreeModel *model;
+		CtkTreeModel *model;
 
 		data.page_label = page_label;
 		data.page_title = NULL;
@@ -957,7 +957,7 @@ ev_window_get_page_title (EvWindow    *window,
 			      NULL);
 		if (model) {
 			ctk_tree_model_foreach (model,
-						(GtkTreeModelForeachFunc)ev_window_find_page_title,
+						(CtkTreeModelForeachFunc)ev_window_find_page_title,
 						&data);
 
 			g_object_unref (model);
@@ -1092,7 +1092,7 @@ ev_window_page_changed_cb (EvWindow        *ev_window,
 static const gchar *
 ev_window_sidebar_get_current_page_id (EvWindow *ev_window)
 {
-	GtkWidget   *current_page;
+	CtkWidget   *current_page;
 	const gchar *id;
 
 	g_object_get (ev_window->priv->sidebar,
@@ -1126,12 +1126,12 @@ ev_window_sidebar_set_current_page (EvWindow    *window,
 {
 	EvDocument *document = window->priv->document;
 	EvSidebar  *sidebar = EV_SIDEBAR (window->priv->sidebar);
-	GtkWidget  *links = window->priv->sidebar_links;
-	GtkWidget  *thumbs = window->priv->sidebar_thumbs;
-	GtkWidget  *attachments = window->priv->sidebar_attachments;
-	GtkWidget  *annots = window->priv->sidebar_annots;
-	GtkWidget  *layers = window->priv->sidebar_layers;
-	GtkWidget  *bookmarks = window->priv->sidebar_bookmarks;
+	CtkWidget  *links = window->priv->sidebar_links;
+	CtkWidget  *thumbs = window->priv->sidebar_thumbs;
+	CtkWidget  *attachments = window->priv->sidebar_attachments;
+	CtkWidget  *annots = window->priv->sidebar_annots;
+	CtkWidget  *layers = window->priv->sidebar_layers;
+	CtkWidget  *bookmarks = window->priv->sidebar_bookmarks;
 
 	if (strcmp (page_id, LINKS_SIDEBAR_ID) == 0 &&
 	    ev_sidebar_page_support_document (EV_SIDEBAR_PAGE (links), document)) {
@@ -1682,7 +1682,7 @@ ev_window_setup_document (EvWindow *ev_window)
 {
 	const EvDocumentInfo *info;
 	EvDocument *document = ev_window->priv->document;
-	GtkAction *action;
+	CtkAction *action;
 
 	ev_window->priv->setup_document_idle = 0;
 	ev_window_refresh_window_thumbnail (ev_window);
@@ -2009,7 +2009,7 @@ static void
 ev_window_reload_job_cb (EvJob    *job,
 			 EvWindow *ev_window)
 {
-	GtkWidget *widget;
+	CtkWidget *widget;
 
 	if (ev_job_is_failed (job)) {
 		ev_window_clear_reload_job (ev_window);
@@ -2127,7 +2127,7 @@ ev_window_progress_response_cb (EvProgressMessageArea *area,
 static gboolean
 show_loading_progress (EvWindow *ev_window)
 {
-	GtkWidget *area;
+	CtkWidget *area;
 	gchar     *text;
 	gchar 	  *display_name;
 
@@ -2508,7 +2508,7 @@ ev_window_reload_local (EvWindow *ev_window)
 static gboolean
 show_reloading_progress (EvWindow *ev_window)
 {
-	GtkWidget *area;
+	CtkWidget *area;
 	gchar     *text;
 
 	if (ev_window->priv->message_area)
@@ -2679,7 +2679,7 @@ get_settings_key_for_directory (GUserDirectory directory)
 
 static void
 ev_window_file_chooser_restore_folder (EvWindow       *window,
-                                       GtkFileChooser *file_chooser,
+                                       CtkFileChooser *file_chooser,
                                        const gchar    *uri,
                                        GUserDirectory  directory)
 {
@@ -2714,7 +2714,7 @@ ev_window_file_chooser_restore_folder (EvWindow       *window,
 
 static void
 ev_window_file_chooser_save_folder (EvWindow       *window,
-                                    GtkFileChooser *file_chooser,
+                                    CtkFileChooser *file_chooser,
                                     GUserDirectory  directory)
 {
         gchar *uri, *folder;
@@ -2735,7 +2735,7 @@ ev_window_file_chooser_save_folder (EvWindow       *window,
 }
 
 static void
-file_open_dialog_response_cb (GtkWidget *chooser,
+file_open_dialog_response_cb (CtkWidget *chooser,
 			      gint       response_id,
 			      EvWindow  *ev_window)
 {
@@ -2760,9 +2760,9 @@ file_open_dialog_response_cb (GtkWidget *chooser,
 }
 
 static void
-ev_window_cmd_file_open (GtkAction *action, EvWindow *window)
+ev_window_cmd_file_open (CtkAction *action, EvWindow *window)
 {
-	GtkWidget   *chooser;
+	CtkWidget   *chooser;
 
 	chooser = ctk_file_chooser_dialog_new (_("Open Document"),
 					       CTK_WINDOW (window),
@@ -2801,16 +2801,16 @@ ev_window_open_copy_at_dest (EvWindow   *window,
 }
 
 static void
-ev_window_cmd_file_open_copy (GtkAction *action, EvWindow *window)
+ev_window_cmd_file_open_copy (CtkAction *action, EvWindow *window)
 {
 	ev_window_open_copy_at_dest (window, NULL);
 }
 
 static void
-ev_window_cmd_recent_file_activate (GtkAction *action,
+ev_window_cmd_recent_file_activate (CtkAction *action,
 				    EvWindow  *window)
 {
-	GtkRecentInfo *info;
+	CtkRecentInfo *info;
 	const gchar   *uri;
 
 	info = g_object_get_data (G_OBJECT (action), "ctk-recent-info");
@@ -2840,7 +2840,7 @@ ev_window_add_recent (EvWindow *window, const char *filename)
 }
 
 static gint
-compare_recent_items (GtkRecentInfo *a, GtkRecentInfo *b)
+compare_recent_items (CtkRecentInfo *a, CtkRecentInfo *b)
 {
 	gboolean     has_ev_a, has_ev_b;
 	const gchar *lector = g_get_application_name ();
@@ -2907,12 +2907,12 @@ ev_window_get_recent_file_label (gint index, const gchar *filename)
 }
 
 static void
-ev_window_recent_action_connect_proxy_cb (GtkActionGroup *action_group,
-                                          GtkAction *action,
-                                          GtkWidget *proxy,
+ev_window_recent_action_connect_proxy_cb (CtkActionGroup *action_group,
+                                          CtkAction *action,
+                                          CtkWidget *proxy,
                                           gpointer data)
 {
-        GtkLabel *label;
+        CtkLabel *label;
 
         if (!CTK_IS_MENU_ITEM (proxy))
                 return;
@@ -2954,15 +2954,15 @@ ev_window_setup_recent (EvWindow *ev_window)
 	items = g_list_sort (items, (GCompareFunc) compare_recent_items);
 
 	for (l = items; l && l->data; l = g_list_next (l)) {
-		GtkRecentInfo *info;
-		GtkAction     *action;
+		CtkRecentInfo *info;
+		CtkAction     *action;
 		gchar         *action_name;
 		gchar         *label;
                 const gchar   *mime_type;
                 gchar         *content_type;
                 GIcon         *icon = NULL;
 
-		info = (GtkRecentInfo *) l->data;
+		info = (CtkRecentInfo *) l->data;
 
 		if (!ctk_recent_info_has_application (info, lector) ||
 		    (ctk_recent_info_is_local (info) && !ctk_recent_info_exists (info)))
@@ -3022,7 +3022,7 @@ static gboolean
 show_saving_progress (GFile *dst)
 {
 	EvWindow  *ev_window;
-	GtkWidget *area;
+	CtkWidget *area;
 	gchar     *text;
 	gchar     *uri;
 	EvSaveType save_type;
@@ -3197,7 +3197,7 @@ ev_window_save_job_cb (EvJob     *job,
 }
 
 static void
-file_save_dialog_response_cb (GtkWidget *fc,
+file_save_dialog_response_cb (CtkWidget *fc,
 			      gint       response_id,
 			      EvWindow  *ev_window)
 {
@@ -3231,9 +3231,9 @@ file_save_dialog_response_cb (GtkWidget *fc,
 }
 
 static void
-ev_window_cmd_save_as (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_save_as (CtkAction *action, EvWindow *ev_window)
 {
-	GtkWidget *fc;
+	CtkWidget *fc;
 	gchar *base_name, *dir_name, *var_tmp_dir, *tmp_dir;
 	GFile *file, *parent;
 	const gchar *default_dir, *dest_dir, *documents_dir;
@@ -3286,7 +3286,7 @@ ev_window_cmd_save_as (GtkAction *action, EvWindow *ev_window)
 }
 
  static void
-ev_window_cmd_send_to (GtkAction *action,
+ev_window_cmd_send_to (CtkAction *action,
 		       EvWindow  *ev_window)
 {
 	GAppInfo   *app_info;
@@ -3373,7 +3373,7 @@ save_print_setting_file (GKeyFile *key_file)
 
 static void
 ev_window_save_print_settings (EvWindow         *window,
-			       GtkPrintSettings *print_settings)
+			       CtkPrintSettings *print_settings)
 {
 	GKeyFile *key_file;
 	gint      i;
@@ -3403,7 +3403,7 @@ ev_window_save_print_settings (EvWindow         *window,
 
 static void
 ev_window_save_print_page_setup (EvWindow     *window,
-				 GtkPageSetup *page_setup)
+				 CtkPageSetup *page_setup)
 {
 	GKeyFile *key_file;
 
@@ -3443,7 +3443,7 @@ ev_window_save_print_page_setup (EvWindow     *window,
 
 static void
 ev_window_load_print_settings_from_metadata (EvWindow         *window,
-					     GtkPrintSettings *print_settings)
+					     CtkPrintSettings *print_settings)
 {
 	gint i;
 
@@ -3463,11 +3463,11 @@ ev_window_load_print_settings_from_metadata (EvWindow         *window,
 
 static void
 ev_window_load_print_page_setup_from_metadata (EvWindow     *window,
-					       GtkPageSetup *page_setup)
+					       CtkPageSetup *page_setup)
 {
 	gint          int_value;
 	gdouble       double_value;
-	GtkPaperSize *paper_size = ctk_page_setup_get_paper_size (page_setup);
+	CtkPaperSize *paper_size = ctk_page_setup_get_paper_size (page_setup);
 
 	/* Load page setup options that are specific to the document */
 	if (window->priv->metadata &&
@@ -3514,10 +3514,10 @@ ev_window_load_print_page_setup_from_metadata (EvWindow     *window,
 	}
 }
 
-static GtkPrintSettings *
+static CtkPrintSettings *
 get_print_settings (GKeyFile *key_file)
 {
-	GtkPrintSettings *print_settings;
+	CtkPrintSettings *print_settings;
 
 	print_settings = g_key_file_has_group (key_file, EV_PRINT_SETTINGS_GROUP) ?
 		ctk_print_settings_new_from_key_file (key_file, EV_PRINT_SETTINGS_GROUP, NULL) :
@@ -3526,10 +3526,10 @@ get_print_settings (GKeyFile *key_file)
 	return print_settings ? print_settings : ctk_print_settings_new ();
 }
 
-static GtkPageSetup *
+static CtkPageSetup *
 get_print_page_setup (GKeyFile *key_file)
 {
-	GtkPageSetup *page_setup;
+	CtkPageSetup *page_setup;
 
 	page_setup = g_key_file_has_group (key_file, EV_PAGE_SETUP_GROUP) ?
 		ctk_page_setup_new_from_key_file (key_file, EV_PAGE_SETUP_GROUP, NULL) :
@@ -3578,7 +3578,7 @@ ev_window_print_update_pending_jobs_message (EvWindow *ev_window,
 }
 
 static gboolean
-destroy_window (GtkWidget *window)
+destroy_window (CtkWidget *window)
 {
 	ctk_widget_destroy (window);
 
@@ -3587,20 +3587,20 @@ destroy_window (GtkWidget *window)
 
 static void
 ev_window_print_operation_done (EvPrintOperation       *op,
-				GtkPrintOperationResult result,
+				CtkPrintOperationResult result,
 				EvWindow               *ev_window)
 {
 	gint n_jobs;
 
 	switch (result) {
 	case CTK_PRINT_OPERATION_RESULT_APPLY: {
-		GtkPrintSettings *print_settings;
+		CtkPrintSettings *print_settings;
 
 		print_settings = ev_print_operation_get_print_settings (op);
 		ev_window_save_print_settings (ev_window, print_settings);
 
 		if (ev_print_operation_get_embed_page_setup (op)) {
-			GtkPageSetup *page_setup;
+			CtkPageSetup *page_setup;
 
 			page_setup = ev_print_operation_get_default_page_setup (op);
 			ev_window_save_print_page_setup (ev_window, page_setup);
@@ -3609,7 +3609,7 @@ ev_window_print_operation_done (EvPrintOperation       *op,
 
 		break;
 	case CTK_PRINT_OPERATION_RESULT_ERROR: {
-		GtkWidget *dialog;
+		CtkWidget *dialog;
 		GError    *error = NULL;
 
 
@@ -3675,7 +3675,7 @@ ev_window_print_operation_status_changed (EvPrintOperation *op,
 	fraction = ev_print_operation_get_progress (op);
 
 	if (!ev_window->priv->message_area) {
-		GtkWidget   *area;
+		CtkWidget   *area;
 		const gchar *job_name;
 		gchar       *text;
 
@@ -3723,8 +3723,8 @@ ev_window_print_range (EvWindow *ev_window,
 {
 	EvPrintOperation *op;
 	GKeyFile         *print_settings_file;
-	GtkPrintSettings *print_settings;
-	GtkPageSetup     *print_page_setup;
+	CtkPrintSettings *print_settings;
+	CtkPageSetup     *print_page_setup;
 	gint              current_page;
 	gint              document_last_page;
 
@@ -3762,9 +3762,9 @@ ev_window_print_range (EvWindow *ev_window,
 	ev_window_load_print_page_setup_from_metadata (ev_window, print_page_setup);
 
 	if (first_page != 1 || last_page != document_last_page) {
-		GtkPageRange range;
+		CtkPageRange range;
 
-		/* Ranges in GtkPrint are 0 - N */
+		/* Ranges in CtkPrint are 0 - N */
 		range.start = first_page - 1;
 		range.end = last_page - 1;
 
@@ -3800,13 +3800,13 @@ ev_window_print (EvWindow *window)
 }
 
 static void
-ev_window_cmd_file_print (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_file_print (CtkAction *action, EvWindow *ev_window)
 {
 	ev_window_print (ev_window);
 }
 
 static void
-ev_window_cmd_file_properties (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_file_properties (CtkAction *action, EvWindow *ev_window)
 {
 	if (ev_window->priv->properties == NULL) {
 		ev_window->priv->properties = ev_properties_dialog_new ();
@@ -3825,7 +3825,7 @@ ev_window_cmd_file_properties (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-document_modified_confirmation_dialog_response (GtkDialog *dialog,
+document_modified_confirmation_dialog_response (CtkDialog *dialog,
 						gint       response,
 						EvWindow  *ev_window)
 {
@@ -3848,7 +3848,7 @@ static gboolean
 ev_window_check_document_modified (EvWindow *ev_window)
 {
 	EvDocument  *document = ev_window->priv->document;
-	GtkWidget   *dialog;
+	CtkWidget   *dialog;
 	gchar       *text, *markup;
 	const gchar *secondary_text;
 
@@ -3905,7 +3905,7 @@ ev_window_check_document_modified (EvWindow *ev_window)
 }
 
 static void
-print_jobs_confirmation_dialog_response (GtkDialog *dialog,
+print_jobs_confirmation_dialog_response (CtkDialog *dialog,
 					 gint       response,
 					 EvWindow  *ev_window)
 {
@@ -3938,7 +3938,7 @@ print_jobs_confirmation_dialog_response (GtkDialog *dialog,
 static gboolean
 ev_window_check_print_queue (EvWindow *ev_window)
 {
-	GtkWidget *dialog;
+	CtkWidget *dialog;
 	gchar     *text, *markup;
 	gint       n_print_jobs;
 
@@ -4024,16 +4024,16 @@ ev_window_close (EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_file_close_window (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_file_close_window (CtkAction *action, EvWindow *ev_window)
 {
 	if (ev_window_close (ev_window))
 		ctk_widget_destroy (CTK_WIDGET (ev_window));
 }
 
 static void
-ev_window_cmd_focus_page_selector (GtkAction *act, EvWindow *window)
+ev_window_cmd_focus_page_selector (CtkAction *act, EvWindow *window)
 {
-	GtkAction *action;
+	CtkAction *action;
 
 	update_chrome_flag (window, EV_CHROME_RAISE_TOOLBAR, TRUE);
 	ev_window_set_action_sensitive (window, "ViewToolbar", FALSE);
@@ -4045,7 +4045,7 @@ ev_window_cmd_focus_page_selector (GtkAction *act, EvWindow *window)
 }
 
 static void
-ev_window_cmd_scroll_forward (GtkAction *action, EvWindow *window)
+ev_window_cmd_scroll_forward (CtkAction *action, EvWindow *window)
 {
 	/* If the webview is occupying the window */
 	if (window->priv->document && window->priv->document->iswebdocument == TRUE)
@@ -4055,7 +4055,7 @@ ev_window_cmd_scroll_forward (GtkAction *action, EvWindow *window)
 }
 
 static void
-ev_window_cmd_scroll_backward (GtkAction *action, EvWindow *window)
+ev_window_cmd_scroll_backward (CtkAction *action, EvWindow *window)
 {
 	/* If the webview is occupying the window */
 	if (window->priv->document && window->priv->document->iswebdocument == TRUE)
@@ -4065,7 +4065,7 @@ ev_window_cmd_scroll_backward (GtkAction *action, EvWindow *window)
 }
 
 static void
-ev_window_cmd_continuous (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_continuous (CtkAction *action, EvWindow *ev_window)
 {
 	gboolean continuous;
 
@@ -4075,7 +4075,7 @@ ev_window_cmd_continuous (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_dual (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_dual (CtkAction *action, EvWindow *ev_window)
 {
 	gboolean dual_page;
 
@@ -4085,7 +4085,7 @@ ev_window_cmd_dual (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_dual_odd_pages_left (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_dual_odd_pages_left (CtkAction *action, EvWindow *ev_window)
 {
 	gboolean dual_page_odd_left;
 
@@ -4095,7 +4095,7 @@ ev_window_cmd_dual_odd_pages_left (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_view_fit_page (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_view_fit_page (CtkAction *action, EvWindow *ev_window)
 {
 	ev_window_stop_presentation (ev_window, TRUE);
 
@@ -4108,13 +4108,13 @@ ev_window_cmd_view_fit_page (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_fit_page (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_fit_page (CtkAction *action, EvWindow *ev_window)
 {
 	ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_FIT_PAGE);
 }
 
 static void
-ev_window_cmd_view_fit_width (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_view_fit_width (CtkAction *action, EvWindow *ev_window)
 {
 	ev_window_stop_presentation (ev_window, TRUE);
 
@@ -4127,13 +4127,13 @@ ev_window_cmd_view_fit_width (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_fit_width (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_fit_width (CtkAction *action, EvWindow *ev_window)
 {
 	ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_FIT_WIDTH);
 }
 
 static void
-ev_window_cmd_edit_select_all (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_edit_select_all (CtkAction *action, EvWindow *ev_window)
 {
 	g_return_if_fail (EV_IS_WINDOW (ev_window));
 
@@ -4155,7 +4155,7 @@ ev_window_cmd_edit_select_all (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_edit_find (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_edit_find (CtkAction *action, EvWindow *ev_window)
 {
 	if (ev_window->priv->document == NULL || !EV_IS_DOCUMENT_FIND (ev_window->priv->document)) {
 		g_error ("Find action should be insensitive since document doesn't support find");
@@ -4171,7 +4171,7 @@ ev_window_cmd_edit_find (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_edit_find_next (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_edit_find_next (CtkAction *action, EvWindow *ev_window)
 {
 	if (EV_WINDOW_IS_PRESENTATION (ev_window))
 		return;
@@ -4190,7 +4190,7 @@ ev_window_cmd_edit_find_next (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_edit_find_previous (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_edit_find_previous (CtkAction *action, EvWindow *ev_window)
 {
 	if (EV_WINDOW_IS_PRESENTATION (ev_window))
 		return;
@@ -4209,7 +4209,7 @@ ev_window_cmd_edit_find_previous (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_edit_copy (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_edit_copy (CtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
 #if ENABLE_EPUB
@@ -4235,7 +4235,7 @@ ev_window_sidebar_position_change_cb (GObject    *object,
 static void
 ev_window_update_fullscreen_action (EvWindow *window)
 {
-	GtkAction *action;
+	CtkAction *action;
 
 	action = ctk_action_group_get_action (window->priv->action_group, "ViewFullscreen");
 	g_signal_handlers_block_by_func
@@ -4247,9 +4247,9 @@ ev_window_update_fullscreen_action (EvWindow *window)
 }
 
 static void
-fullscreen_toolbar_setup_item_properties (GtkUIManager *ui_manager)
+fullscreen_toolbar_setup_item_properties (CtkUIManager *ui_manager)
 {
-	GtkWidget *item;
+	CtkWidget *item;
 
 	item = ctk_ui_manager_get_widget (ui_manager, "/FullscreenToolbar/GoPreviousPage");
 	g_object_set (item, "is-important", FALSE, NULL);
@@ -4346,7 +4346,7 @@ ev_window_stop_fullscreen (EvWindow *window,
 }
 
 static void
-ev_window_cmd_view_fullscreen (GtkAction *action, EvWindow *window)
+ev_window_cmd_view_fullscreen (CtkAction *action, EvWindow *window)
 {
 	gboolean fullscreen;
 
@@ -4390,7 +4390,7 @@ ev_window_uninhibit_screensaver (EvWindow *window)
 static void
 ev_window_update_presentation_action (EvWindow *window)
 {
-	GtkAction *action;
+	CtkAction *action;
 
 	action = ctk_action_group_get_action (window->priv->action_group, "ViewPresentation");
 	g_signal_handlers_block_by_func
@@ -4524,7 +4524,7 @@ ev_window_stop_presentation (EvWindow *window,
 }
 
 static void
-ev_window_cmd_view_presentation (GtkAction *action, EvWindow *window)
+ev_window_cmd_view_presentation (CtkAction *action, EvWindow *window)
 {
 	gboolean presentation;
 
@@ -4537,7 +4537,7 @@ ev_window_cmd_view_presentation (GtkAction *action, EvWindow *window)
 static void
 ev_window_setup_ctk_settings (EvWindow *window)
 {
-	GtkSettings *settings;
+	CtkSettings *settings;
 	GdkScreen   *screen;
 	gchar       *menubar_accel_accel;
 
@@ -4567,7 +4567,7 @@ static void
 ev_window_update_max_min_scale (EvWindow *window)
 {
 	gdouble    dpi;
-	GtkAction *action;
+	CtkAction *action;
 	gdouble    min_width, min_height;
 	gdouble    width, height;
 	gdouble    max_scale;
@@ -4594,7 +4594,7 @@ ev_window_update_max_min_scale (EvWindow *window)
 }
 
 static void
-ev_window_screen_changed (GtkWidget *widget,
+ev_window_screen_changed (CtkWidget *widget,
 			  GdkScreen *old_screen)
 {
 	EvWindow *window = EV_WINDOW (widget);
@@ -4613,7 +4613,7 @@ ev_window_screen_changed (GtkWidget *widget,
 }
 
 static gboolean
-ev_window_state_event (GtkWidget           *widget,
+ev_window_state_event (CtkWidget           *widget,
 		       GdkEventWindowState *event)
 {
 	EvWindow *window = EV_WINDOW (widget);
@@ -4644,8 +4644,8 @@ static void
 ev_window_set_page_mode (EvWindow         *window,
 			 EvWindowPageMode  page_mode)
 {
-	GtkWidget *child = NULL;
-	GtkWidget *real_child;
+	CtkWidget *child = NULL;
+	CtkWidget *real_child;
 
 	if (window->priv->page_mode == page_mode)
 		return;
@@ -4682,7 +4682,7 @@ ev_window_set_page_mode (EvWindow         *window,
 
 
 static void
-ev_window_cmd_edit_rotate_left (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_edit_rotate_left (CtkAction *action, EvWindow *ev_window)
 {
 	gint rotation;
 
@@ -4698,7 +4698,7 @@ ev_window_cmd_edit_rotate_left (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_edit_rotate_right (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_edit_rotate_right (CtkAction *action, EvWindow *ev_window)
 {
 	gint rotation;
 
@@ -4714,7 +4714,7 @@ ev_window_cmd_edit_rotate_right (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_view_inverted_colors (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_view_inverted_colors (CtkAction *action, EvWindow *ev_window)
 {
 	gboolean inverted_colors = ev_document_model_get_inverted_colors (ev_window->priv->model);
 
@@ -4722,7 +4722,7 @@ ev_window_cmd_view_inverted_colors (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_edit_toolbar_cb (GtkDialog *dialog,
+ev_window_cmd_edit_toolbar_cb (CtkDialog *dialog,
 			       gint       response,
 			       EvWindow  *ev_window)
 {
@@ -4742,11 +4742,11 @@ ev_window_cmd_edit_toolbar_cb (GtkDialog *dialog,
 }
 
 static void
-ev_window_cmd_edit_toolbar (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_edit_toolbar (CtkAction *action, EvWindow *ev_window)
 {
-	GtkWidget          *dialog;
-	GtkWidget          *editor;
-	GtkWidget          *content_area;
+	CtkWidget          *dialog;
+	CtkWidget          *editor;
+	CtkWidget          *content_area;
 	EggEditableToolbar *toolbar;
 
 	dialog = ctk_dialog_new_with_buttons (_("Toolbar Editor"),
@@ -4779,7 +4779,7 @@ ev_window_cmd_edit_toolbar (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_edit_save_settings (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_edit_save_settings (CtkAction *action, EvWindow *ev_window)
 {
 	EvWindowPrivate *priv = ev_window->priv;
 	EvDocumentModel *model = priv->model;
@@ -4816,7 +4816,7 @@ ev_window_cmd_edit_save_settings (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_view_zoom_in (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_view_zoom_in (CtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
 
@@ -4833,7 +4833,7 @@ ev_window_cmd_view_zoom_in (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_view_zoom_out (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_view_zoom_out (CtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
 
@@ -4850,7 +4850,7 @@ ev_window_cmd_view_zoom_out (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_view_zoom_reset (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_view_zoom_reset (CtkAction *action, EvWindow *ev_window)
 {
 	g_return_if_fail (EV_IS_WINDOW (ev_window));
 
@@ -4867,7 +4867,7 @@ ev_window_cmd_view_zoom_reset (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_go_previous_page (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_go_previous_page (CtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
 #if ENABLE_EPUB
@@ -4882,7 +4882,7 @@ ev_window_cmd_go_previous_page (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_go_next_page (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_go_next_page (CtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
 #if ENABLE_EPUB
@@ -4896,7 +4896,7 @@ ev_window_cmd_go_next_page (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_go_first_page (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_go_first_page (CtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
 
@@ -4904,7 +4904,7 @@ ev_window_cmd_go_first_page (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_go_last_page (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_go_last_page (CtkAction *action, EvWindow *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
 
@@ -4913,7 +4913,7 @@ ev_window_cmd_go_last_page (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_go_forward (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_go_forward (CtkAction *action, EvWindow *ev_window)
 {
 	int n_pages, current_page;
 
@@ -4928,7 +4928,7 @@ ev_window_cmd_go_forward (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_go_backward (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_go_backward (CtkAction *action, EvWindow *ev_window)
 {
 	int current_page;
 
@@ -4942,7 +4942,7 @@ ev_window_cmd_go_backward (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_bookmark_activate (GtkAction *action,
+ev_window_cmd_bookmark_activate (CtkAction *action,
 				 EvWindow  *window)
 {
 	guint page = ev_bookmark_action_get_page (EV_BOOKMARK_ACTION (action));
@@ -4986,7 +4986,7 @@ ev_window_setup_bookmarks (EvWindow *window)
 
 	for (l = items; l && l->data; l = g_list_next (l)) {
 		EvBookmark *bm = (EvBookmark *)l->data;
-		GtkAction  *action;
+		CtkAction  *action;
 		const gchar *action_name;
 		const gchar *action_label;
 
@@ -5014,7 +5014,7 @@ ev_window_setup_bookmarks (EvWindow *window)
 }
 
 static void
-ev_window_cmd_bookmarks_add (GtkAction *action,
+ev_window_cmd_bookmarks_add (CtkAction *action,
 			     EvWindow  *window)
 {
 	EvBookmark bm;
@@ -5032,13 +5032,13 @@ ev_window_cmd_bookmarks_add (GtkAction *action,
 }
 
 static void
-ev_window_cmd_view_reload (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_view_reload (CtkAction *action, EvWindow *ev_window)
 {
 	ev_window_reload_document (ev_window, NULL);
 }
 
 static void
-ev_window_cmd_view_expand_window (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_view_expand_window (CtkAction *action, EvWindow *ev_window)
 {
 	g_return_if_fail (EV_IS_WINDOW (ev_window));
 
@@ -5046,7 +5046,7 @@ ev_window_cmd_view_expand_window (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_view_autoscroll (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_view_autoscroll (CtkAction *action, EvWindow *ev_window)
 {
 	EvDocument* document = ev_window->priv->document;
 	if (document->iswebdocument == TRUE ) {
@@ -5059,7 +5059,7 @@ ev_window_cmd_view_autoscroll (GtkAction *action, EvWindow *ev_window)
 #define EV_HELP "help:lector"
 
 static void
-ev_window_cmd_help_contents (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_help_contents (CtkAction *action, EvWindow *ev_window)
 {
 	GError  *error = NULL;
 
@@ -5076,21 +5076,21 @@ ev_window_cmd_help_contents (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_leave_fullscreen (GtkAction *action, EvWindow *window)
+ev_window_cmd_leave_fullscreen (CtkAction *action, EvWindow *window)
 {
 	ev_window_stop_fullscreen (window, TRUE);
 }
 
 static void
-ev_window_cmd_start_presentation (GtkAction *action, EvWindow *window)
+ev_window_cmd_start_presentation (CtkAction *action, EvWindow *window)
 {
 	ev_window_run_presentation (window);
 }
 
 static void
-ev_window_cmd_escape (GtkAction *action, EvWindow *window)
+ev_window_cmd_escape (CtkAction *action, EvWindow *window)
 {
-	GtkWidget *widget;
+	CtkWidget *widget;
 
 	if (window->priv->document && !window->priv->document->iswebdocument && window->priv->view)
 		ev_view_autoscroll_stop (EV_VIEW (window->priv->view));
@@ -5192,7 +5192,7 @@ ev_window_zoom_changed_cb (EvDocumentModel *model, GParamSpec *pspec, EvWindow *
 static void
 ev_window_update_continuous_action (EvWindow *window)
 {
-	GtkAction *action;
+	CtkAction *action;
 
 	action = ctk_action_group_get_action (window->priv->action_group, "ViewContinuous");
 	g_signal_handlers_block_by_func
@@ -5233,7 +5233,7 @@ ev_window_rotation_changed_cb (EvDocumentModel *model,
 static void
 ev_window_update_inverted_colors_action (EvWindow *window)
 {
-	GtkAction *action;
+	CtkAction *action;
 
 	action = ctk_action_group_get_action (window->priv->action_group, "ViewInvertedColors");
 	g_signal_handlers_block_by_func
@@ -5263,7 +5263,7 @@ ev_window_inverted_colors_changed_cb (EvDocumentModel *model,
 static void
 ev_window_update_dual_page_action (EvWindow *window)
 {
-	GtkAction *action;
+	CtkAction *action;
 
 	action = ctk_action_group_get_action (window->priv->action_group, "ViewDual");
 	g_signal_handlers_block_by_func
@@ -5289,7 +5289,7 @@ ev_window_dual_mode_changed_cb (EvDocumentModel *model,
 static void
 ev_window_update_dual_page_odd_pages_left_action (EvWindow *window)
 {
-	GtkAction *action;
+	CtkAction *action;
 
 	action = ctk_action_group_get_action (window->priv->action_group, "ViewDualOddLeft");
 	g_signal_handlers_block_by_func
@@ -5334,7 +5334,7 @@ build_comments_string (EvDocument *document)
 #define EMAILIFY(string) (g_strdelimit ((string), "%", '@'))
 
 static void
-ev_window_cmd_help_about (GtkAction *action, EvWindow *ev_window)
+ev_window_cmd_help_about (CtkAction *action, EvWindow *ev_window)
 {
 	const char *documenters[] = {
 		N_("CAFE Documentation Team"),
@@ -5415,7 +5415,7 @@ ev_window_cmd_help_about (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_view_toolbar_cb (GtkAction *action, EvWindow *ev_window)
+ev_window_view_toolbar_cb (CtkAction *action, EvWindow *ev_window)
 {
 	gboolean active;
 
@@ -5427,7 +5427,7 @@ ev_window_view_toolbar_cb (GtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_view_sidebar_cb (GtkAction *action, EvWindow *ev_window)
+ev_window_view_sidebar_cb (CtkAction *action, EvWindow *ev_window)
 {
 	if (EV_WINDOW_IS_PRESENTATION (ev_window))
 		return;
@@ -5454,7 +5454,7 @@ ev_window_sidebar_visibility_changed_cb (EvSidebar  *ev_sidebar,
 					 GParamSpec *pspec,
 					 EvWindow   *ev_window)
 {
-	GtkAction *action;
+	CtkAction *action;
 
 	action = ctk_action_group_get_action (ev_window->priv->action_group, "ViewSidebar");
 
@@ -5477,7 +5477,7 @@ view_menu_link_popup (EvWindow *ev_window,
 {
 	gboolean   show_external = FALSE;
 	gboolean   show_internal = FALSE;
-	GtkAction *action;
+	CtkAction *action;
 
 	if (ev_window->priv->document && ev_window->priv->document->iswebdocument == TRUE ) return ;
 
@@ -5530,7 +5530,7 @@ static void
 view_menu_image_popup (EvWindow  *ev_window,
 		       EvImage   *image)
 {
-	GtkAction *action;
+	CtkAction *action;
 	gboolean   show_image = FALSE;
 
 	if (ev_window->priv->document && ev_window->priv->document->iswebdocument == TRUE ) return ;
@@ -5557,7 +5557,7 @@ static void
 view_menu_annot_popup (EvWindow     *ev_window,
 		       EvAnnotation *annot)
 {
-	GtkAction *action;
+	CtkAction *action;
 	gboolean   show_annot = FALSE;
 	gboolean can_remove_annots = FALSE;
 
@@ -5644,7 +5644,7 @@ attachment_bar_menu_popup_cb (EvSidebarAttachments *attachbar,
 			      GList           *attach_list,
 			      EvWindow        *ev_window)
 {
-	GtkWidget *popup;
+	CtkWidget *popup;
 
 	g_assert (attach_list != NULL);
 
@@ -5882,7 +5882,7 @@ zoom_control_changed_cb (EphyZoomAction *action,
 			 EvWindow       *ev_window)
 {
 	EvSizingMode mode;
-	GtkWindow *window;
+	CtkWindow *window;
 	gdouble doc_width, doc_height, scale;
 	gint old_width, old_height;
 	gint new_width, new_height;
@@ -5905,19 +5905,19 @@ zoom_control_changed_cb (EphyZoomAction *action,
 
 		if (ev_window->priv->chrome & EV_CHROME_SIDEBAR)
 		{
-			GtkAllocation alloc;
+			CtkAllocation alloc;
 			ctk_widget_get_allocation(ev_window->priv->sidebar_thumbs, &alloc);
 			new_width += alloc.width;
 		}
 		if (ev_window->priv->chrome & EV_CHROME_TOOLBAR)
 		{
-			GtkAllocation alloc;
+			CtkAllocation alloc;
 			ctk_widget_get_allocation(CTK_WIDGET(ev_window->priv->toolbar), &alloc);
 			new_height += alloc.height;
 		}
 		if (ev_window->priv->chrome & EV_CHROME_MENUBAR)
 		{
-			GtkAllocation alloc;
+			CtkAllocation alloc;
 			ctk_widget_get_allocation(CTK_WIDGET(ev_window->priv->menubar), &alloc);
 			new_height += alloc.height;
 		}
@@ -5956,11 +5956,11 @@ zoom_control_changed_cb (EphyZoomAction *action,
 }
 
 static void
-ev_window_drag_data_received (GtkWidget        *widget,
+ev_window_drag_data_received (CtkWidget        *widget,
 			      GdkDragContext   *context,
 			      gint              x,
 			      gint              y,
-			      GtkSelectionData *selection_data,
+			      CtkSelectionData *selection_data,
 			      guint             info,
 			      guint             time)
 
@@ -5969,7 +5969,7 @@ ev_window_drag_data_received (GtkWidget        *widget,
 	gchar    **uris;
 	gint       i = 0;
 	GSList    *uri_list = NULL;
-	GtkWidget *source;
+	CtkWidget *source;
 
 	source = ctk_drag_get_source_widget (context);
 	if (source && widget == ctk_widget_get_toplevel (source)) {
@@ -6027,12 +6027,12 @@ ev_window_caret_navigation_message_area_response_cb (EvMessageArea *area,
 }
 
 static void
-ev_window_cmd_view_toggle_caret_navigation (GtkAction *action,
+ev_window_cmd_view_toggle_caret_navigation (CtkAction *action,
                                             EvWindow *window)
 {
-	GtkWidget *message_area;
-	GtkWidget *box;
-	GtkWidget *hbox;
+	CtkWidget *message_area;
+	CtkWidget *box;
+	CtkWidget *hbox;
 	gboolean   enabled;
 
 	/* Don't ask for user confirmation to turn the caret navigation off when it is active,
@@ -6310,7 +6310,7 @@ ev_window_dispose (GObject *object)
 }
 
 static void
-menubar_deactivate_cb (GtkWidget *menubar,
+menubar_deactivate_cb (CtkWidget *menubar,
 		       EvWindow  *window)
 {
 	g_signal_handlers_disconnect_by_func (menubar,
@@ -6324,21 +6324,21 @@ menubar_deactivate_cb (GtkWidget *menubar,
 
 
 /*
- * GtkWindow catches keybindings for the menu items _before_ passing them to
+ * CtkWindow catches keybindings for the menu items _before_ passing them to
  * the focused widget. This is unfortunate and means that pressing Ctrl+a,
  * Ctrl+left or Ctrl+right in the search bar ends up selecting text in the EvView
  * or rotating it.
- * Here we override GtkWindow's handler to do the same things that it
+ * Here we override CtkWindow's handler to do the same things that it
  * does, but in the opposite order and then we chain up to the grand
  * parent handler, skipping ctk_window_key_press_event.
  */
 
 static gboolean
-ev_window_key_press_event (GtkWidget   *widget,
+ev_window_key_press_event (CtkWidget   *widget,
 			   GdkEventKey *event)
 {
 	static gpointer grand_parent_class = NULL;
-	GtkWindow *window = CTK_WINDOW (widget);
+	CtkWindow *window = CTK_WINDOW (widget);
 
 	if (grand_parent_class == NULL)
                 grand_parent_class = g_type_class_peek_parent (ev_window_parent_class);
@@ -6356,7 +6356,7 @@ ev_window_key_press_event (GtkWidget   *widget,
 }
 
 static gboolean
-ev_window_delete_event (GtkWidget   *widget,
+ev_window_delete_event (CtkWidget   *widget,
 			GdkEventAny *event)
 {
 	return !ev_window_close (EV_WINDOW (widget));
@@ -6366,7 +6366,7 @@ static void
 ev_window_class_init (EvWindowClass *ev_window_class)
 {
 	GObjectClass *g_object_class = G_OBJECT_CLASS (ev_window_class);
-	GtkWidgetClass *widget_class = CTK_WIDGET_CLASS (ev_window_class);
+	CtkWidgetClass *widget_class = CTK_WIDGET_CLASS (ev_window_class);
 
 	g_object_class->dispose = ev_window_dispose;
 
@@ -6380,7 +6380,7 @@ ev_window_class_init (EvWindowClass *ev_window_class)
 }
 
 /* Normal items */
-static const GtkActionEntry entries[] = {
+static const CtkActionEntry entries[] = {
 	{ "File", NULL, N_("_File") },
         { "Edit", NULL, N_("_Edit") },
 	{ "View", NULL, N_("_View") },
@@ -6535,7 +6535,7 @@ static const GtkActionEntry entries[] = {
 };
 
 /* Toggle items */
-static const GtkToggleActionEntry toggle_entries[] = {
+static const CtkToggleActionEntry toggle_entries[] = {
 	/* View Menu */
 	{ "ViewToolbar", NULL, N_("_Toolbar"), "t",
 	  N_("Show or hide the toolbar"),
@@ -6574,7 +6574,7 @@ static const GtkToggleActionEntry toggle_entries[] = {
 };
 
 /* Popups specific items */
-static const GtkActionEntry view_popup_entries [] = {
+static const CtkActionEntry view_popup_entries [] = {
 	/* Links */
 	{ "OpenLink", "document-open", N_("_Open Link"), NULL,
 	  NULL, G_CALLBACK (ev_view_popup_cmd_open_link) },
@@ -6594,7 +6594,7 @@ static const GtkActionEntry view_popup_entries [] = {
 	  NULL, G_CALLBACK (ev_view_popup_cmd_remove_annotation) }
 };
 
-static const GtkActionEntry attachment_popup_entries [] = {
+static const CtkActionEntry attachment_popup_entries [] = {
 	{ "OpenAttachment", "document-open", N_("_Open Attachment"), NULL,
 	  NULL, G_CALLBACK (ev_attachment_popup_cmd_open_attachment) },
 	{ "SaveAttachmentAs", "document-save-as", N_("_Save Attachment As…"), NULL,
@@ -6709,9 +6709,9 @@ sidebar_bookmarks_add_bookmark (EvSidebarBookmarks *sidebar_bookmarks,
 }
 
 static void
-register_custom_actions (EvWindow *window, GtkActionGroup *group)
+register_custom_actions (EvWindow *window, CtkActionGroup *group)
 {
-	GtkAction *action;
+	CtkAction *action;
 
 	action = g_object_new (EV_TYPE_PAGE_ACTION,
 			       "name", PAGE_SELECTOR_ACTION,
@@ -6769,9 +6769,9 @@ register_custom_actions (EvWindow *window, GtkActionGroup *group)
 }
 
 static void
-set_action_properties (GtkActionGroup *action_group)
+set_action_properties (CtkActionGroup *action_group)
 {
-	GtkAction *action;
+	CtkAction *action;
 
 	action = ctk_action_group_get_action (action_group, "FileSendTo");
 	/*translators: this is the label for toolbar button*/
@@ -6817,8 +6817,8 @@ sidebar_widget_model_set (EvSidebarLinks *ev_sidebar_links,
 			  GParamSpec     *pspec,
 			  EvWindow       *ev_window)
 {
-	GtkTreeModel *model;
-	GtkAction *action;
+	CtkTreeModel *model;
+	CtkAction *action;
 
 	g_object_get (G_OBJECT (ev_sidebar_links),
 		      "model", &model,
@@ -6830,7 +6830,7 @@ sidebar_widget_model_set (EvSidebarLinks *ev_sidebar_links,
 }
 
 static gboolean
-view_actions_focus_in_cb (GtkWidget *widget, GdkEventFocus *event, EvWindow *window)
+view_actions_focus_in_cb (CtkWidget *widget, GdkEventFocus *event, EvWindow *window)
 {
 #ifdef ENABLE_DBUS
 	GObject *keys;
@@ -6852,7 +6852,7 @@ sidebar_page_main_widget_update_cb (GObject *ev_sidebar_page,
 				    GParamSpec         *pspec,
 				    EvWindow           *ev_window)
 {
-	GtkWidget *widget;
+	CtkWidget *widget;
 
 	g_object_get (ev_sidebar_page, "main_widget", &widget, NULL);
 
@@ -7102,14 +7102,14 @@ view_external_link_cb (EvWindow *window, EvLinkAction *action)
 }
 
 static void
-ev_view_popup_cmd_open_link (GtkAction *action, EvWindow *window)
+ev_view_popup_cmd_open_link (CtkAction *action, EvWindow *window)
 {
 	if (window->priv->document && window->priv->document->iswebdocument == TRUE ) return;
 	ev_view_handle_link (EV_VIEW (window->priv->view), window->priv->link);
 }
 
 static void
-ev_view_popup_cmd_open_link_new_window (GtkAction *action, EvWindow *window)
+ev_view_popup_cmd_open_link_new_window (CtkAction *action, EvWindow *window)
 {
 	EvLinkAction *ev_action = NULL;
 	EvLinkDest   *dest;
@@ -7126,7 +7126,7 @@ ev_view_popup_cmd_open_link_new_window (GtkAction *action, EvWindow *window)
 }
 
 static void
-ev_view_popup_cmd_copy_link_address (GtkAction *action, EvWindow *window)
+ev_view_popup_cmd_copy_link_address (CtkAction *action, EvWindow *window)
 {
 	EvLinkAction *ev_action;
 	if (window->priv->document && window->priv->document->iswebdocument == TRUE ) return;
@@ -7164,7 +7164,7 @@ create_file_from_uri_for_format (const gchar     *uri,
 }
 
 static void
-image_save_dialog_response_cb (GtkWidget *fc,
+image_save_dialog_response_cb (CtkWidget *fc,
 			       gint       response_id,
 			       EvWindow  *ev_window)
 {
@@ -7176,7 +7176,7 @@ image_save_dialog_response_cb (GtkWidget *fc,
 	gchar           *filename;
 	gchar           *file_format;
 	GdkPixbufFormat *format;
-	GtkFileFilter   *filter;
+	CtkFileFilter   *filter;
 
 	if (response_id != CTK_RESPONSE_OK) {
 		ctk_widget_destroy (fc);
@@ -7263,9 +7263,9 @@ image_save_dialog_response_cb (GtkWidget *fc,
 }
 
 static void
-ev_view_popup_cmd_save_image_as (GtkAction *action, EvWindow *window)
+ev_view_popup_cmd_save_image_as (CtkAction *action, EvWindow *window)
 {
-	GtkWidget *fc;
+	CtkWidget *fc;
 
 	if (!window->priv->image)
 		return;
@@ -7296,9 +7296,9 @@ ev_view_popup_cmd_save_image_as (GtkAction *action, EvWindow *window)
 }
 
 static void
-ev_view_popup_cmd_copy_image (GtkAction *action, EvWindow *window)
+ev_view_popup_cmd_copy_image (CtkAction *action, EvWindow *window)
 {
-	GtkClipboard *clipboard;
+	CtkClipboard *clipboard;
 	GdkPixbuf    *pixbuf;
 
 	if (!window->priv->image)
@@ -7316,7 +7316,7 @@ ev_view_popup_cmd_copy_image (GtkAction *action, EvWindow *window)
 }
 
 static void
-ev_view_popup_cmd_annot_properties (GtkAction *action,
+ev_view_popup_cmd_annot_properties (CtkAction *action,
 				    EvWindow  *window)
 {
 	if (window->priv->document && window->priv->document->iswebdocument == TRUE ) return;
@@ -7380,7 +7380,7 @@ ev_view_popup_cmd_annot_properties (GtkAction *action,
 }
 
 static void
-ev_view_popup_cmd_remove_annotation (GtkAction *action,
+ev_view_popup_cmd_remove_annotation (CtkAction *action,
                                      EvWindow  *window)
 {
         ev_view_remove_annotation (EV_VIEW (window->priv->view),
@@ -7388,7 +7388,7 @@ ev_view_popup_cmd_remove_annotation (GtkAction *action,
 }
 
 static void
-ev_attachment_popup_cmd_open_attachment (GtkAction *action, EvWindow *window)
+ev_attachment_popup_cmd_open_attachment (CtkAction *action, EvWindow *window)
 {
 	GList     *l;
 	GdkScreen *screen;
@@ -7415,14 +7415,14 @@ ev_attachment_popup_cmd_open_attachment (GtkAction *action, EvWindow *window)
 }
 
 static void
-attachment_save_dialog_response_cb (GtkWidget *fc,
+attachment_save_dialog_response_cb (CtkWidget *fc,
 				    gint       response_id,
 				    EvWindow  *ev_window)
 {
 	GFile                *target_file;
 	gchar                *uri;
 	GList                *l;
-	GtkFileChooserAction  fc_action;
+	CtkFileChooserAction  fc_action;
 	gboolean              is_dir;
 	gboolean              is_native;
 
@@ -7497,9 +7497,9 @@ attachment_save_dialog_response_cb (GtkWidget *fc,
 }
 
 static void
-ev_attachment_popup_cmd_save_attachment_as (GtkAction *action, EvWindow *window)
+ev_attachment_popup_cmd_save_attachment_as (CtkAction *action, EvWindow *window)
 {
-	GtkWidget    *fc;
+	CtkWidget    *fc;
 	EvAttachment *attachment = NULL;
 
 	if (!window->priv->attach_list)
@@ -7702,7 +7702,7 @@ handle_sync_view_cb (EvLectorWindow        *object,
 #endif /* ENABLE_DBUS */
 
 static gboolean
-_ctk_css_provider_load_from_resource (GtkCssProvider *provider,
+_ctk_css_provider_load_from_resource (CtkCssProvider *provider,
 				      const char     *resource_path,
 				      GError        **error)
 {
@@ -7725,13 +7725,13 @@ _ctk_css_provider_load_from_resource (GtkCssProvider *provider,
 static void
 ev_window_init (EvWindow *ev_window)
 {
-	GtkActionGroup *action_group;
-	GtkAccelGroup *accel_group;
-	GtkCssProvider *css_provider;
+	CtkActionGroup *action_group;
+	CtkAccelGroup *accel_group;
+	CtkCssProvider *css_provider;
 	GError *error = NULL;
-	GtkWidget *sidebar_widget;
-	GtkWidget *menuitem;
-	GtkWidget *overlay;
+	CtkWidget *sidebar_widget;
+	CtkWidget *menuitem;
+	CtkWidget *overlay;
 	GObject *mpkeys;
 	guint page_cache_mb;
 #ifdef ENABLE_DBUS
@@ -7783,7 +7783,7 @@ ev_window_init (EvWindow *ev_window)
 	ev_window->priv->presentation_mode_inhibit_id = 0;
 	ev_window->priv->title = ev_window_title_new (ev_window);
 
-	GtkStyleContext *context;
+	CtkStyleContext *context;
 
 	context = ctk_widget_get_style_context (CTK_WIDGET (ev_window));
 	ctk_style_context_add_class (context, "lector-window");
@@ -8205,14 +8205,14 @@ ev_window_init (EvWindow *ev_window)
 /**
  * ev_window_new:
  *
- * Creates a #GtkWidget that represents the window.
+ * Creates a #CtkWidget that represents the window.
  *
- * Returns: the #GtkWidget that represents the window.
+ * Returns: the #CtkWidget that represents the window.
  */
-GtkWidget *
+CtkWidget *
 ev_window_new (void)
 {
-	GtkWidget *ev_window;
+	CtkWidget *ev_window;
 
 	ev_window = CTK_WIDGET (g_object_new (EV_TYPE_WINDOW,
 					      "type", CTK_WINDOW_TOPLEVEL,

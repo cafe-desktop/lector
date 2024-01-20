@@ -41,7 +41,7 @@ typedef struct _EvPropertiesLicensePrivate EvPropertiesLicensePrivate;
 
 GType      ev_properties_license_get_type    (void) G_GNUC_CONST;
 
-GtkWidget *ev_properties_license_new         (void);
+CtkWidget *ev_properties_license_new         (void);
 void       ev_properties_license_set_license (EvPropertiesLicense *properties_license,
 					      EvDocumentLicense   *license);
 

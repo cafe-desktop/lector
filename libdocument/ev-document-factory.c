@@ -299,7 +299,7 @@ ev_document_factory_get_document (const char *uri, GError **error)
 }
 
 static void
-file_filter_add_mime_types (EvTypeInfo *info, GtkFileFilter *filter)
+file_filter_add_mime_types (EvTypeInfo *info, CtkFileFilter *filter)
 {
 	const gchar *mime_type;
 	gint         i = 0;
@@ -330,25 +330,25 @@ file_filter_add_mime_types (EvTypeInfo *info, GtkFileFilter *filter)
 
 /**
  * ev_document_factory_add_filters:
- * @chooser: a #GtkFileChooser
+ * @chooser: a #CtkFileChooser
  * @document: a #EvDocument, or %NULL
  *
  * Adds some file filters to @chooser.
 
  * Always add a "All documents" format.
  *
- * If @document is not %NULL, adds a #GtkFileFilter for @document's MIME type.
+ * If @document is not %NULL, adds a #CtkFileFilter for @document's MIME type.
  *
- * If @document is %NULL, adds a #GtkFileFilter for each document type that lector
+ * If @document is %NULL, adds a #CtkFileFilter for each document type that lector
  * can handle.
  */
 void
-ev_document_factory_add_filters (GtkWidget *chooser, EvDocument *document)
+ev_document_factory_add_filters (CtkWidget *chooser, EvDocument *document)
 {
 	GList         *all_types;
-	GtkFileFilter *filter;
-	GtkFileFilter *default_filter;
-	GtkFileFilter *document_filter;
+	CtkFileFilter *filter;
+	CtkFileFilter *default_filter;
+	CtkFileFilter *document_filter;
 
         g_return_if_fail (CTK_IS_FILE_CHOOSER (chooser));
         g_return_if_fail (document == NULL || EV_IS_DOCUMENT (document));

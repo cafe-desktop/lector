@@ -30,14 +30,14 @@ struct _EggFindBarPrivate
 {
   gchar *search_string;
 
-  GtkToolItem *next_button;
-  GtkToolItem *previous_button;
-  GtkToolItem *status_separator;
-  GtkToolItem *status_item;
-  GtkToolItem *case_button;
+  CtkToolItem *next_button;
+  CtkToolItem *previous_button;
+  CtkToolItem *status_separator;
+  CtkToolItem *status_item;
+  CtkToolItem *case_button;
 
-  GtkWidget *find_entry;
-  GtkWidget *status_label;
+  CtkWidget *find_entry;
+  CtkWidget *status_label;
 
   gulong set_focus_handler;
   guint case_sensitive : 1;
@@ -58,8 +58,8 @@ static void egg_find_bar_set_property  (GObject        *object,
                                         guint           prop_id,
                                         const GValue   *value,
                                         GParamSpec     *pspec);
-static void egg_find_bar_show          (GtkWidget *widget);
-static void egg_find_bar_hide          (GtkWidget *widget);
+static void egg_find_bar_show          (CtkWidget *widget);
+static void egg_find_bar_hide          (CtkWidget *widget);
 
 G_DEFINE_TYPE_WITH_PRIVATE (EggFindBar, egg_find_bar, CTK_TYPE_TOOLBAR);
 
@@ -78,13 +78,13 @@ static void
 egg_find_bar_class_init (EggFindBarClass *klass)
 {
   GObjectClass *object_class;
-  GtkWidgetClass *widget_class;
-  GtkBindingSet *binding_set;
+  CtkWidgetClass *widget_class;
+  CtkBindingSet *binding_set;
 
   egg_find_bar_parent_class = g_type_class_peek_parent (klass);
 
   object_class = (GObjectClass *)klass;
-  widget_class = (GtkWidgetClass *)klass;
+  widget_class = (CtkWidgetClass *)klass;
 
   object_class->set_property = egg_find_bar_set_property;
   object_class->get_property = egg_find_bar_get_property;
@@ -202,7 +202,7 @@ egg_find_bar_emit_previous (EggFindBar *find_bar)
 }
 
 static void
-next_clicked_callback (GtkButton *button,
+next_clicked_callback (CtkButton *button,
                        void      *data)
 {
   EggFindBar *find_bar = EGG_FIND_BAR (data);
@@ -211,7 +211,7 @@ next_clicked_callback (GtkButton *button,
 }
 
 static void
-previous_clicked_callback (GtkButton *button,
+previous_clicked_callback (CtkButton *button,
                            void      *data)
 {
   EggFindBar *find_bar = EGG_FIND_BAR (data);
@@ -220,7 +220,7 @@ previous_clicked_callback (GtkButton *button,
 }
 
 static void
-case_sensitive_toggled_callback (GtkToggleToolButton  *button,
+case_sensitive_toggled_callback (CtkToggleToolButton  *button,
                                  void                 *data)
 {
   EggFindBar *find_bar = EGG_FIND_BAR (data);
@@ -230,7 +230,7 @@ case_sensitive_toggled_callback (GtkToggleToolButton  *button,
 }
 
 static void
-entry_activate_callback (GtkEntry *entry,
+entry_activate_callback (CtkEntry *entry,
                           void     *data)
 {
   EggFindBar *find_bar = EGG_FIND_BAR (data);
@@ -240,7 +240,7 @@ entry_activate_callback (GtkEntry *entry,
 }
 
 static void
-entry_changed_callback (GtkEntry *entry,
+entry_changed_callback (CtkEntry *entry,
                         void     *data)
 {
   EggFindBar *find_bar = EGG_FIND_BAR (data);
@@ -257,11 +257,11 @@ entry_changed_callback (GtkEntry *entry,
 }
 
 static void
-set_focus_cb (GtkWidget *window,
-	      GtkWidget *widget,
+set_focus_cb (CtkWidget *window,
+	      CtkWidget *widget,
 	      EggFindBar *bar)
 {
-  GtkWidget *wbar = CTK_WIDGET (bar);
+  CtkWidget *wbar = CTK_WIDGET (bar);
 
   while (widget != NULL && widget != wbar)
     {
@@ -281,10 +281,10 @@ static void
 egg_find_bar_init (EggFindBar *find_bar)
 {
   EggFindBarPrivate *priv;
-  GtkWidget *label;
-  GtkWidget *box;
-  GtkToolItem *item;
-  GtkWidget *arrow;
+  CtkWidget *label;
+  CtkWidget *box;
+  CtkToolItem *item;
+  CtkWidget *arrow;
 
   /* Data */
   priv = egg_find_bar_get_instance_private (find_bar);
@@ -444,7 +444,7 @@ egg_find_bar_get_property (GObject    *object,
 }
 
 static void
-egg_find_bar_show (GtkWidget *widget)
+egg_find_bar_show (CtkWidget *widget)
 {
   EggFindBar *bar = EGG_FIND_BAR (widget);
   EggFindBarPrivate *priv = bar->priv;
@@ -453,7 +453,7 @@ egg_find_bar_show (GtkWidget *widget)
 
   if (priv->set_focus_handler == 0)
     {
-      GtkWidget *toplevel;
+      CtkWidget *toplevel;
 
       toplevel = ctk_widget_get_toplevel (widget);
 
@@ -464,14 +464,14 @@ egg_find_bar_show (GtkWidget *widget)
 }
 
 static void
-egg_find_bar_hide (GtkWidget *widget)
+egg_find_bar_hide (CtkWidget *widget)
 {
   EggFindBar *bar = EGG_FIND_BAR (widget);
   EggFindBarPrivate *priv = bar->priv;
 
   if (priv->set_focus_handler != 0)
     {
-      GtkWidget *toplevel;
+      CtkWidget *toplevel;
 
       toplevel = ctk_widget_get_toplevel (widget);
 
@@ -484,7 +484,7 @@ egg_find_bar_hide (GtkWidget *widget)
 }
 
 void
-egg_find_bar_grab_focus (GtkWidget *widget)
+egg_find_bar_grab_focus (CtkWidget *widget)
 {
   EggFindBar *find_bar = EGG_FIND_BAR (widget);
   EggFindBarPrivate *priv = find_bar->priv;
@@ -501,7 +501,7 @@ egg_find_bar_grab_focus (GtkWidget *widget)
  *
  * Since: 2.6
  */
-GtkWidget *
+CtkWidget *
 egg_find_bar_new (void)
 {
   EggFindBar *find_bar;

@@ -41,16 +41,16 @@ enum {
 };
 
 struct _EvAnnotationWindow {
-	GtkWindow     base_instance;
+	CtkWindow     base_instance;
 
 	EvAnnotation *annotation;
-	GtkWindow    *parent;
+	CtkWindow    *parent;
 
-	GtkWidget    *title;
-	GtkWidget    *close_button;
-	GtkWidget    *text_view;
-	GtkWidget    *resize_se;
-	GtkWidget    *resize_sw;
+	CtkWidget    *title;
+	CtkWidget    *close_button;
+	CtkWidget    *text_view;
+	CtkWidget    *resize_se;
+	CtkWidget    *resize_sw;
 
 	gboolean      is_open;
 	EvRectangle   rect;
@@ -63,7 +63,7 @@ struct _EvAnnotationWindow {
 };
 
 struct _EvAnnotationWindowClass {
-	GtkWindowClass base_class;
+	CtkWindowClass base_class;
 
 	void (* closed) (EvAnnotationWindow *window);
 	void (* moved)  (EvAnnotationWindow *window,
@@ -77,7 +77,7 @@ G_DEFINE_TYPE (EvAnnotationWindow, ev_annotation_window, CTK_TYPE_WINDOW)
 
 /* Cut and paste from ctkwindow.c */
 static void
-send_focus_change (GtkWidget *widget,
+send_focus_change (CtkWidget *widget,
 		   gboolean   in)
 {
 	GdkEvent *fevent = gdk_event_new (GDK_FOCUS_CHANGE);
@@ -111,8 +111,8 @@ static void
 ev_annotation_window_sync_contents (EvAnnotationWindow *window)
 {
 	gchar         *contents;
-	GtkTextIter    start, end;
-	GtkTextBuffer *buffer;
+	CtkTextIter    start, end;
+	CtkTextBuffer *buffer;
 	EvAnnotation  *annot = window->annotation;
 
 	buffer = ctk_text_view_get_buffer (CTK_TEXT_VIEW (window->text_view));
@@ -126,8 +126,8 @@ static void
 ev_annotation_window_set_color (EvAnnotationWindow *window,
                                 GdkRGBA           *color)
 {
-        GtkStyleProperties *properties;
-        GtkStyleProvider   *provider;
+        CtkStyleProperties *properties;
+        CtkStyleProvider   *provider;
 
         properties = ctk_style_properties_new ();
         ctk_style_properties_set (properties, 0,
@@ -224,7 +224,7 @@ ev_annotation_window_set_property (GObject      *object,
 static gboolean
 ev_annotation_window_resize (EvAnnotationWindow *window,
 			     GdkEventButton     *event,
-			     GtkWidget          *ebox)
+			     CtkWidget          *ebox)
 {
 	if (event->type == GDK_BUTTON_PRESS && event->button == 1) {
 		ctk_window_begin_resize_drag (CTK_WINDOW (window),
@@ -240,7 +240,7 @@ ev_annotation_window_resize (EvAnnotationWindow *window,
 }
 
 static void
-ev_annotation_window_set_resize_cursor (GtkWidget          *widget,
+ev_annotation_window_set_resize_cursor (CtkWidget          *widget,
 					EvAnnotationWindow *window)
 {
 	GdkWindow *gdk_window = ctk_widget_get_window (widget);
@@ -264,10 +264,10 @@ ev_annotation_window_set_resize_cursor (GtkWidget          *widget,
 }
 
 static void
-text_view_state_flags_changed (GtkWidget     *widget,
-                               GtkStateFlags  previous_flags)
+text_view_state_flags_changed (CtkWidget     *widget,
+                               CtkStateFlags  previous_flags)
 {
-	GtkStateFlags current_flags = ctk_widget_get_state_flags (widget);
+	CtkStateFlags current_flags = ctk_widget_get_state_flags (widget);
 
 	if (current_flags & CTK_STATE_FLAG_BACKDROP)
 	    ctk_text_view_set_cursor_visible (CTK_TEXT_VIEW (widget), FALSE);
@@ -281,7 +281,7 @@ ev_annotation_window_close (EvAnnotationWindow *window)
 }
 
 static gboolean
-ev_annotation_window_button_press_event (GtkWidget      *widget,
+ev_annotation_window_button_press_event (CtkWidget      *widget,
 					 GdkEventButton *event)
 {
 	EvAnnotationWindow *window = EV_ANNOTATION_WINDOW (widget);
@@ -304,11 +304,11 @@ ev_annotation_window_button_press_event (GtkWidget      *widget,
 static void
 ev_annotation_window_init (EvAnnotationWindow *window)
 {
-	GtkWidget *vbox, *hbox;
-	GtkWidget *icon;
-	GtkWidget *swindow;
-	GtkWidget *header;
-	GtkIconTheme *icon_theme;
+	CtkWidget *vbox, *hbox;
+	CtkWidget *icon;
+	CtkWidget *swindow;
+	CtkWidget *header;
+	CtkIconTheme *icon_theme;
 	GdkPixbuf *pixbuf;
 
 	icon_theme = ctk_icon_theme_get_default ();
@@ -476,7 +476,7 @@ ev_annotation_window_constructor (GType                  type,
 
 	contents = ev_annotation_get_contents (annot);
 	if (contents) {
-		GtkTextBuffer *buffer;
+		CtkTextBuffer *buffer;
 
 		buffer = ctk_text_view_get_buffer (CTK_TEXT_VIEW (window->text_view));
 		ctk_text_buffer_set_text (buffer, contents, -1);
@@ -496,7 +496,7 @@ ev_annotation_window_constructor (GType                  type,
 }
 
 static gboolean
-ev_annotation_window_configure_event (GtkWidget         *widget,
+ev_annotation_window_configure_event (CtkWidget         *widget,
 				      GdkEventConfigure *event)
 {
 	EvAnnotationWindow *window = EV_ANNOTATION_WINDOW (widget);
@@ -511,7 +511,7 @@ ev_annotation_window_configure_event (GtkWidget         *widget,
 }
 
 static gboolean
-ev_annotation_window_focus_in_event (GtkWidget     *widget,
+ev_annotation_window_focus_in_event (CtkWidget     *widget,
 				     GdkEventFocus *event)
 {
 	EvAnnotationWindow *window = EV_ANNOTATION_WINDOW (widget);
@@ -533,7 +533,7 @@ ev_annotation_window_focus_in_event (GtkWidget     *widget,
 }
 
 static gboolean
-ev_annotation_window_focus_out_event (GtkWidget     *widget,
+ev_annotation_window_focus_out_event (CtkWidget     *widget,
 				      GdkEventFocus *event)
 {
 	EvAnnotationWindow *window = EV_ANNOTATION_WINDOW (widget);
@@ -547,7 +547,7 @@ static void
 ev_annotation_window_class_init (EvAnnotationWindowClass *klass)
 {
 	GObjectClass   *g_object_class = G_OBJECT_CLASS (klass);
-	GtkWidgetClass *ctk_widget_class = CTK_WIDGET_CLASS (klass);
+	CtkWidgetClass *ctk_widget_class = CTK_WIDGET_CLASS (klass);
 
 	g_object_class->constructor = ev_annotation_window_constructor;
 	g_object_class->set_property = ev_annotation_window_set_property;
@@ -593,11 +593,11 @@ ev_annotation_window_class_init (EvAnnotationWindowClass *klass)
 }
 
 /* Public methods */
-GtkWidget *
+CtkWidget *
 ev_annotation_window_new (EvAnnotation *annot,
-			  GtkWindow    *parent)
+			  CtkWindow    *parent)
 {
-	GtkWidget *window;
+	CtkWidget *window;
 
 	g_return_val_if_fail (EV_IS_ANNOTATION_MARKUP (annot), NULL);
 	g_return_val_if_fail (CTK_IS_WINDOW (parent), NULL);

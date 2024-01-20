@@ -28,13 +28,13 @@ enum {
 };
 
 struct _EvBookmarkAction {
-        GtkAction base;
+        CtkAction base;
 
         guint     page;
 };
 
 struct _EvBookmarkActionClass {
-        GtkActionClass base_class;
+        CtkActionClass base_class;
 };
 
 G_DEFINE_TYPE (EvBookmarkAction, ev_bookmark_action, CTK_TYPE_ACTION)
@@ -77,10 +77,10 @@ ev_bookmark_action_class_init (EvBookmarkActionClass *klass)
                                                             G_PARAM_CONSTRUCT_ONLY | G_PARAM_WRITABLE));
 }
 
-GtkAction *
+CtkAction *
 ev_bookmark_action_new (EvBookmark *bookmark)
 {
-        GtkAction *action;
+        CtkAction *action;
         gchar *name;
 
         g_return_val_if_fail (bookmark->title != NULL, NULL);

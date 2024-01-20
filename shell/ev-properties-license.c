@@ -29,11 +29,11 @@
 #include "ev-properties-license.h"
 
 struct _EvPropertiesLicense {
-	GtkBox base_instance;
+	CtkBox base_instance;
 };
 
 struct _EvPropertiesLicenseClass {
-	GtkBoxClass base_class;
+	CtkBoxClass base_class;
 };
 
 G_DEFINE_TYPE (EvPropertiesLicense, ev_properties_license, CTK_TYPE_BOX)
@@ -43,11 +43,11 @@ ev_properties_license_class_init (EvPropertiesLicenseClass *properties_license_c
 {
 }
 
-static GtkWidget *
+static CtkWidget *
 get_license_text_widget (EvDocumentLicense *license)
 {
-	GtkWidget *swindow, *textview;
-	GtkTextBuffer *buffer;
+	CtkWidget *swindow, *textview;
+	CtkTextBuffer *buffer;
 
 	textview = ctk_text_view_new ();
 	ctk_text_view_set_wrap_mode (CTK_TEXT_VIEW (textview), CTK_WRAP_WORD);
@@ -71,10 +71,10 @@ get_license_text_widget (EvDocumentLicense *license)
 	return swindow;
 }
 
-static GtkWidget *
+static CtkWidget *
 get_license_uri_widget (const gchar *uri)
 {
-	GtkWidget *label;
+	CtkWidget *label;
 	gchar     *checked_uri;
 	gchar     *markup;
 
@@ -103,9 +103,9 @@ get_license_uri_widget (const gchar *uri)
 static void
 ev_properties_license_add_section (EvPropertiesLicense *properties,
 				   const gchar         *title_text,
-				   GtkWidget           *contents)
+				   CtkWidget           *contents)
 {
-	GtkWidget *title;
+	CtkWidget *title;
 	gchar     *markup;
 
 	title = ctk_label_new (NULL);
@@ -156,7 +156,7 @@ ev_properties_license_init (EvPropertiesLicense *properties)
 	ctk_container_set_border_width (CTK_CONTAINER (properties), 12);
 }
 
-GtkWidget *
+CtkWidget *
 ev_properties_license_new (void)
 {
 	EvPropertiesLicense *properties_license;

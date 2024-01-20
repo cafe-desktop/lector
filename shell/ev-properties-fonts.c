@@ -31,17 +31,17 @@
 #include "ev-properties-fonts.h"
 
 struct _EvPropertiesFonts {
-	GtkBox base_instance;
+	CtkBox base_instance;
 
-	GtkWidget *fonts_treeview;
-	GtkWidget *fonts_progress_label;
+	CtkWidget *fonts_treeview;
+	CtkWidget *fonts_progress_label;
 	EvJob     *fonts_job;
 
 	EvDocument *document;
 };
 
 struct _EvPropertiesFontsClass {
-	GtkBoxClass base_class;
+	CtkBoxClass base_class;
 };
 
 static void
@@ -76,8 +76,8 @@ ev_properties_fonts_class_init (EvPropertiesFontsClass *properties_class)
 }
 
 static void
-font_cell_data_func (GtkTreeViewColumn *col, GtkCellRenderer *renderer,
-		     GtkTreeModel *model, GtkTreeIter *iter, gpointer user_data)
+font_cell_data_func (CtkTreeViewColumn *col, CtkCellRenderer *renderer,
+		     CtkTreeModel *model, CtkTreeIter *iter, gpointer user_data)
 {
 	char *name;
 	char *details;
@@ -105,9 +105,9 @@ font_cell_data_func (GtkTreeViewColumn *col, GtkCellRenderer *renderer,
 static void
 ev_properties_fonts_init (EvPropertiesFonts *properties)
 {
-	GtkWidget         *swindow;
-	GtkCellRenderer   *renderer;
-	GtkTreeViewColumn *column;
+	CtkWidget         *swindow;
+	CtkCellRenderer   *renderer;
+	CtkTreeViewColumn *column;
 
 	ctk_orientable_set_orientation (CTK_ORIENTABLE (properties), CTK_ORIENTATION_VERTICAL);
 	ctk_container_set_border_width (CTK_CONTAINER (properties), 12);
@@ -156,7 +156,7 @@ ev_properties_fonts_init (EvPropertiesFonts *properties)
 }
 
 static void
-update_progress_label (GtkWidget *label, double progress)
+update_progress_label (CtkWidget *label, double progress)
 {
 	if (progress > 0) {
 		char *progress_text;
@@ -181,7 +181,7 @@ job_fonts_finished_cb (EvJob *job, EvPropertiesFonts *properties)
 static void
 job_fonts_updated_cb (EvJobFonts *job, gdouble progress, EvPropertiesFonts *properties)
 {
-	GtkTreeModel *model;
+	CtkTreeModel *model;
 	EvDocumentFonts *document_fonts = EV_DOCUMENT_FONTS (properties->document);
 
 	update_progress_label (properties->fonts_progress_label, progress);
@@ -195,8 +195,8 @@ void
 ev_properties_fonts_set_document (EvPropertiesFonts *properties,
 				  EvDocument        *document)
 {
-	GtkTreeView *tree_view = CTK_TREE_VIEW (properties->fonts_treeview);
-	GtkListStore *list_store;
+	CtkTreeView *tree_view = CTK_TREE_VIEW (properties->fonts_treeview);
+	CtkListStore *list_store;
 
 	properties->document = document;
 
@@ -214,7 +214,7 @@ ev_properties_fonts_set_document (EvPropertiesFonts *properties,
 	ev_job_scheduler_push_job (properties->fonts_job, EV_JOB_PRIORITY_NONE);
 }
 
-GtkWidget *
+CtkWidget *
 ev_properties_fonts_new ()
 {
 	EvPropertiesFonts *properties;

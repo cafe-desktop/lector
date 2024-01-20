@@ -37,7 +37,7 @@ typedef struct _EggFindBarPrivate EggFindBarPrivate;
 
 struct _EggFindBar
 {
-  GtkToolbar parent;
+  CtkToolbar parent;
 
   /*< private >*/
   EggFindBarPrivate *priv;
@@ -45,12 +45,12 @@ struct _EggFindBar
 
 struct _EggFindBarClass
 {
-  GtkToolbarClass parent_class;
+  CtkToolbarClass parent_class;
 
   void (* next)	    (EggFindBar *find_bar);
   void (* previous) (EggFindBar *find_bar);
   void (* close)    (EggFindBar *find_bar);
-  void (* scroll)   (EggFindBar *find_bar, GtkScrollType* scroll);
+  void (* scroll)   (EggFindBar *find_bar, CtkScrollType* scroll);
 
   /* Padding for future expansion */
   void (*_ctk_reserved1) (void);
@@ -60,7 +60,7 @@ struct _EggFindBarClass
 };
 
 GType                  egg_find_bar_get_type               (void) G_GNUC_CONST;
-GtkWidget             *egg_find_bar_new                    (void);
+CtkWidget             *egg_find_bar_new                    (void);
 
 void        egg_find_bar_set_search_string       (EggFindBar *find_bar,
                                                   const char *search_string);
@@ -71,7 +71,7 @@ gboolean    egg_find_bar_get_case_sensitive      (EggFindBar *find_bar);
 void        egg_find_bar_set_status_text         (EggFindBar *find_bar,
                                                   const char *text);
 
-void        egg_find_bar_grab_focus               (GtkWidget *widget);
+void        egg_find_bar_grab_focus               (CtkWidget *widget);
 
 G_END_DECLS
 

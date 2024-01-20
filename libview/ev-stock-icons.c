@@ -56,7 +56,7 @@ static gchar *ev_icons_path;
 static void
 ev_stock_icons_add_icons_path_for_screen (GdkScreen *screen)
 {
-	GtkIconTheme *icon_theme;
+	CtkIconTheme *icon_theme;
 
 	g_return_if_fail (ev_icons_path != NULL);
 
@@ -66,7 +66,7 @@ ev_stock_icons_add_icons_path_for_screen (GdkScreen *screen)
 		gint    n_paths;
 		gint    i;
 
-		/* GtkIconTheme will then look in Lector custom hicolor dir
+		/* CtkIconTheme will then look in Lector custom hicolor dir
 		 * for icons as well as the standard search paths
 		 */
 		ctk_icon_theme_get_search_path (icon_theme, &path, &n_paths);
@@ -91,8 +91,8 @@ ev_stock_icons_add_icons_path_for_screen (GdkScreen *screen)
 void
 ev_stock_icons_init (void)
 {
-	GtkIconFactory *factory;
-	GtkIconSource *source;
+	CtkIconFactory *factory;
+	CtkIconSource *source;
 	gint i;
 
 	ev_icons_path = g_build_filename (LECTORDATADIR, "icons", NULL);
@@ -103,7 +103,7 @@ ev_stock_icons_init (void)
 	source = ctk_icon_source_new ();
 
 	for (i = 0; i < G_N_ELEMENTS (stock_icons); i++) {
-		GtkIconSet *set;
+		CtkIconSet *set;
 
 		ctk_icon_source_set_icon_name (source, stock_icons [i].icon);
 

@@ -40,17 +40,17 @@ typedef struct _EvSidebarThumbnailsPrivate EvSidebarThumbnailsPrivate;
 #define EV_SIDEBAR_THUMBNAILS_GET_CLASS(object)	(G_TYPE_INSTANCE_GET_CLASS((object), EV_TYPE_SIDEBAR_THUMBNAILS, EvSidebarThumbnailsClass))
 
 struct _EvSidebarThumbnails {
-	GtkBox base_instance;
+	CtkBox base_instance;
 
 	EvSidebarThumbnailsPrivate *priv;
 };
 
 struct _EvSidebarThumbnailsClass {
-	GtkBoxClass base_class;
+	CtkBoxClass base_class;
 };
 
 GType      ev_sidebar_thumbnails_get_type     (void) G_GNUC_CONST;
-GtkWidget *ev_sidebar_thumbnails_new          (void);
+CtkWidget *ev_sidebar_thumbnails_new          (void);
 
 G_END_DECLS
 

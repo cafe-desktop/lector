@@ -43,12 +43,12 @@ GdkPixbuf *ev_document_misc_get_loading_thumbnail (int      width,
 EV_DEPRECATED
 void       ev_document_misc_get_page_border_size (gint          page_width,
 						  gint          page_height,
-						  GtkBorder    *border);
+						  CtkBorder    *border);
 EV_DEPRECATED
 void       ev_document_misc_paint_one_page       (cairo_t      *cr,
-						  GtkWidget    *widget,
+						  CtkWidget    *widget,
 						  GdkRectangle *area,
-						  GtkBorder    *border,
+						  CtkBorder    *border,
 						  gboolean      highlight,
 						  gboolean      inverted_colors);
 
@@ -65,7 +65,7 @@ gdouble          ev_document_misc_get_monitor_dpi (GdkMonitor *monitor);
 
 gchar           *ev_document_misc_format_date (gint64 utime);
 
-void             ev_document_misc_get_pointer_position (GtkWidget *widget,
+void             ev_document_misc_get_pointer_position (CtkWidget *widget,
 							gint      *x,
 							gint      *y);
 

@@ -26,10 +26,10 @@
 #include "ev-message-area.h"
 
 struct _EvMessageAreaPrivate {
-	GtkWidget *main_box;
-	GtkWidget *image;
-	GtkWidget *label;
-	GtkWidget *secondary_label;
+	CtkWidget *main_box;
+	CtkWidget *image;
+	CtkWidget *label;
+	CtkWidget *secondary_label;
 
 	guint      message_type : 3;
 };
@@ -86,8 +86,8 @@ ev_message_area_class_init (EvMessageAreaClass *class)
 static void
 ev_message_area_init (EvMessageArea *area)
 {
-	GtkWidget *hbox, *vbox;
-	GtkWidget *content_area;
+	CtkWidget *hbox, *vbox;
+	CtkWidget *content_area;
 
 	area->priv = ev_message_area_get_instance_private (area);
 
@@ -132,7 +132,7 @@ ev_message_area_init (EvMessageArea *area)
 
 static void
 ev_message_area_set_image_for_type (EvMessageArea *area,
-				    GtkMessageType type)
+				    CtkMessageType type)
 {
 	const gchar *icon_name = NULL;
 	AtkObject   *atk_obj;
@@ -153,7 +153,7 @@ ev_message_area_set_image_for_type (EvMessageArea *area,
 	case CTK_MESSAGE_OTHER:
 		break;
 	default:
-		g_warning ("Unknown GtkMessageType %u", type);
+		g_warning ("Unknown CtkMessageType %u", type);
 		break;
 	}
 
@@ -186,7 +186,7 @@ ev_message_area_set_property (GObject      *object,
 		ev_message_area_set_secondary_text (area, g_value_get_string (value));
 		break;
 	case PROP_IMAGE:
-		ev_message_area_set_image (area, (GtkWidget *)g_value_get_object (value));
+		ev_message_area_set_image (area, (CtkWidget *)g_value_get_object (value));
 		break;
 	default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -243,19 +243,19 @@ _ev_message_area_add_buttons_valist (EvMessageArea *area,
 	}
 }
 
-GtkWidget *
+CtkWidget *
 _ev_message_area_get_main_box (EvMessageArea *area)
 {
 	return area->priv->main_box;
 }
 
-GtkWidget *
-ev_message_area_new (GtkMessageType type,
+CtkWidget *
+ev_message_area_new (CtkMessageType type,
 		     const gchar   *text,
 		     const gchar   *first_button_text,
 		     ...)
 {
-	GtkWidget *widget;
+	CtkWidget *widget;
 
 	widget = g_object_new (EV_TYPE_MESSAGE_AREA,
 			       "message-type", type,
@@ -276,9 +276,9 @@ ev_message_area_new (GtkMessageType type,
 
 void
 ev_message_area_set_image (EvMessageArea *area,
-			   GtkWidget     *image)
+			   CtkWidget     *image)
 {
-	GtkWidget *parent;
+	CtkWidget *parent;
 
 	g_return_if_fail (EV_IS_MESSAGE_AREA (area));
 

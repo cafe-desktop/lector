@@ -59,7 +59,7 @@ struct _EvDocumentLayersInterface
 
 	/* Methods  */
 	gboolean      (* has_layers)       (EvDocumentLayers *document_layers);
-	GtkTreeModel *(* get_layers)       (EvDocumentLayers *document_layers);
+	CtkTreeModel *(* get_layers)       (EvDocumentLayers *document_layers);
 
 	void          (* show_layer)       (EvDocumentLayers *document_layers,
 					    EvLayer          *layer);
@@ -72,7 +72,7 @@ struct _EvDocumentLayersInterface
 GType         ev_document_layers_get_type         (void) G_GNUC_CONST;
 
 gboolean      ev_document_layers_has_layers       (EvDocumentLayers *document_layers);
-GtkTreeModel *ev_document_layers_get_layers       (EvDocumentLayers *document_layers);
+CtkTreeModel *ev_document_layers_get_layers       (EvDocumentLayers *document_layers);
 void          ev_document_layers_show_layer       (EvDocumentLayers *document_layers,
 						   EvLayer          *layer);
 void          ev_document_layers_hide_layer       (EvDocumentLayers *document_layers,

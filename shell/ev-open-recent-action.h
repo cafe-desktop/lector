@@ -35,11 +35,11 @@ typedef struct _EvOpenRecentAction      EvOpenRecentAction;
 typedef struct _EvOpenRecentActionClass EvOpenRecentActionClass;
 
 struct _EvOpenRecentAction {
-	GtkAction parent;
+	CtkAction parent;
 };
 
 struct _EvOpenRecentActionClass {
-	GtkActionClass parent_class;
+	CtkActionClass parent_class;
 
 	void (* item_activated) (EvOpenRecentAction *action,
 				 const gchar        *uri);

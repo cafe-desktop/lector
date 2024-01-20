@@ -37,7 +37,7 @@ typedef struct _EvBookmarkAction      EvBookmarkAction;
 typedef struct _EvBookmarkActionClass EvBookmarkActionClass;
 
 GType      ev_bookmark_action_get_type (void) G_GNUC_CONST;
-GtkAction *ev_bookmark_action_new      (EvBookmark       *bookmark);
+CtkAction *ev_bookmark_action_new      (EvBookmark       *bookmark);
 guint      ev_bookmark_action_get_page (EvBookmarkAction *action);
 
 G_END_DECLS

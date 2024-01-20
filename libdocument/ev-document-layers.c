@@ -42,9 +42,9 @@ ev_document_layers_has_layers (EvDocumentLayers *document_layers)
  * ev_document_layers_get_layers:
  * @document_layers: an #EvDocumentLayers
  *
- * Returns: (transfer full): a #GtkTreeModel
+ * Returns: (transfer full): a #CtkTreeModel
  */
-GtkTreeModel *
+CtkTreeModel *
 ev_document_layers_get_layers (EvDocumentLayers *document_layers)
 {
 	EvDocumentLayersInterface *iface = EV_DOCUMENT_LAYERS_GET_IFACE (document_layers);

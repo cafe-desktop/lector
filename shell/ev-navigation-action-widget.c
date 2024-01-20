@@ -23,8 +23,8 @@
 #include <glib/gi18n.h>
 #include <string.h>
 
-static void ev_navigation_action_widget_toggled (GtkToggleToolButton *toggle);
-static gboolean ev_navigation_action_widget_button_press_event (GtkWidget *widget,
+static void ev_navigation_action_widget_toggled (CtkToggleToolButton *toggle);
+static gboolean ev_navigation_action_widget_button_press_event (CtkWidget *widget,
         	        	        		        GdkEventButton    *event,
         	        	        		        gpointer data);
 
@@ -41,7 +41,7 @@ static guint signals[LAST_SIGNAL] = { 0 };
 static void
 ev_navigation_action_widget_init (EvNavigationActionWidget *action_widget)
 {
-	GtkWidget *toggle_button;
+	CtkWidget *toggle_button;
 
 	/* It's rather dirty hack but we need a child to connect to
 	 * button press event
@@ -58,7 +58,7 @@ ev_navigation_action_widget_init (EvNavigationActionWidget *action_widget)
 static void
 ev_navigation_action_widget_class_init (EvNavigationActionWidgetClass *klass)
 {
-	GtkToggleToolButtonClass *toggle_tool_button_class = CTK_TOGGLE_TOOL_BUTTON_CLASS (klass);
+	CtkToggleToolButtonClass *toggle_tool_button_class = CTK_TOGGLE_TOOL_BUTTON_CLASS (klass);
 
 	toggle_tool_button_class->toggled = ev_navigation_action_widget_toggled;
 
@@ -73,7 +73,7 @@ ev_navigation_action_widget_class_init (EvNavigationActionWidgetClass *klass)
 }
 
 static int
-menu_deactivate_cb (GtkMenuShell      *menu_shell,
+menu_deactivate_cb (CtkMenuShell      *menu_shell,
 		    EvNavigationActionWidget *widget)
 {
          ctk_toggle_tool_button_set_active (CTK_TOGGLE_TOOL_BUTTON (widget), FALSE);
@@ -81,8 +81,8 @@ menu_deactivate_cb (GtkMenuShell      *menu_shell,
 }
 
 static void
-menu_detacher (GtkWidget *widget,
-               GtkMenu   *menu)
+menu_detacher (CtkWidget *widget,
+               CtkMenu   *menu)
 {
 	 EvNavigationActionWidget *button = EV_NAVIGATION_ACTION_WIDGET (widget);
          g_return_if_fail (button->menu == menu);
@@ -90,7 +90,7 @@ menu_detacher (GtkWidget *widget,
 }
 
 void
-ev_navigation_action_widget_set_menu(EvNavigationActionWidget *button, GtkWidget *menu)
+ev_navigation_action_widget_set_menu(EvNavigationActionWidget *button, CtkWidget *menu)
 {
 
       if (button->menu == CTK_MENU (menu))
@@ -130,7 +130,7 @@ popup_menu_under_arrow (EvNavigationActionWidget *button,
 }
 
 static void
-ev_navigation_action_widget_toggled (GtkToggleToolButton *toggle)
+ev_navigation_action_widget_toggled (CtkToggleToolButton *toggle)
 {
 	EvNavigationActionWidget *button = EV_NAVIGATION_ACTION_WIDGET (toggle);
 	if (!button->menu)
@@ -146,7 +146,7 @@ ev_navigation_action_widget_toggled (GtkToggleToolButton *toggle)
 }
 
 static gboolean
-ev_navigation_action_widget_button_press_event (GtkWidget *widget,
+ev_navigation_action_widget_button_press_event (CtkWidget *widget,
                 	            		GdkEventButton    *event,
                 	            		gpointer data)
 {

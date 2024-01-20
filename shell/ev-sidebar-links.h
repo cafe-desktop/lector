@@ -44,20 +44,20 @@ typedef struct _EvSidebarLinksPrivate EvSidebarLinksPrivate;
 #define EV_SIDEBAR_LINKS_GET_CLASS(object) (G_TYPE_INSTANCE_GET_CLASS((object), EV_TYPE_SIDEBAR_LINKS, EvSidebarLinksClass))
 
 struct _EvSidebarLinks {
-	GtkBox base_instance;
+	CtkBox base_instance;
 
 	EvSidebarLinksPrivate *priv;
 };
 
 struct _EvSidebarLinksClass {
-	GtkBoxClass base_class;
+	CtkBoxClass base_class;
 
 	void    (* link_activated) (EvSidebarLinks *sidebar_links,
 				    EvLink         *link);
 };
 
 GType      ev_sidebar_links_get_type       (void);
-GtkWidget *ev_sidebar_links_new            (void);
+CtkWidget *ev_sidebar_links_new            (void);
 
 G_END_DECLS
 

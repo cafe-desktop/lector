@@ -61,16 +61,16 @@ struct _EvPrintOperationClass {
 	void              (* set_current_page)       (EvPrintOperation       *op,
 						      gint                    current_page);
 	void              (* set_print_settings)     (EvPrintOperation       *op,
-						      GtkPrintSettings       *print_settings);
-	GtkPrintSettings *(* get_print_settings)     (EvPrintOperation       *op);
+						      CtkPrintSettings       *print_settings);
+	CtkPrintSettings *(* get_print_settings)     (EvPrintOperation       *op);
 	void              (* set_default_page_setup) (EvPrintOperation       *op,
-						      GtkPageSetup           *page_setup);
-	GtkPageSetup     *(* get_default_page_setup) (EvPrintOperation       *op);
+						      CtkPageSetup           *page_setup);
+	CtkPageSetup     *(* get_default_page_setup) (EvPrintOperation       *op);
 	void              (* set_job_name)           (EvPrintOperation       *op,
 						      const gchar            *job_name);
 	const gchar      *(* get_job_name)           (EvPrintOperation       *op);
 	void              (* run)                    (EvPrintOperation       *op,
-						      GtkWindow              *parent);
+						      CtkWindow              *parent);
 	void              (* cancel)                 (EvPrintOperation       *op);
 	void              (* get_error)              (EvPrintOperation       *op,
 						      GError                **error);
@@ -80,7 +80,7 @@ struct _EvPrintOperationClass {
 
 	/* signals */
 	void              (* done)                   (EvPrintOperation       *op,
-						      GtkPrintOperationResult result);
+						      CtkPrintOperationResult result);
 	void              (* begin_print)            (EvPrintOperation       *op);
 	void              (* status_changed)         (EvPrintOperation       *op);
 };
@@ -185,7 +185,7 @@ ev_print_operation_set_current_page (EvPrintOperation *op,
 
 void
 ev_print_operation_set_print_settings (EvPrintOperation *op,
-				       GtkPrintSettings *print_settings)
+				       CtkPrintSettings *print_settings)
 {
 	EvPrintOperationClass *class = EV_PRINT_OPERATION_GET_CLASS (op);
 
@@ -199,9 +199,9 @@ ev_print_operation_set_print_settings (EvPrintOperation *op,
  * ev_print_operation_get_print_settings:
  * @op: an #EvPrintOperation
  *
- * Returns: (transfer none): a #GtkPrintSettings
+ * Returns: (transfer none): a #CtkPrintSettings
  */
-GtkPrintSettings *
+CtkPrintSettings *
 ev_print_operation_get_print_settings (EvPrintOperation *op)
 {
 	EvPrintOperationClass *class = EV_PRINT_OPERATION_GET_CLASS (op);
@@ -213,7 +213,7 @@ ev_print_operation_get_print_settings (EvPrintOperation *op)
 
 void
 ev_print_operation_set_default_page_setup (EvPrintOperation *op,
-					   GtkPageSetup     *page_setup)
+					   CtkPageSetup     *page_setup)
 {
 	EvPrintOperationClass *class = EV_PRINT_OPERATION_GET_CLASS (op);
 
@@ -227,9 +227,9 @@ ev_print_operation_set_default_page_setup (EvPrintOperation *op,
  * ev_print_operation_get_default_page_setup:
  * @op: an #EvPrintOperation
  *
- * Returns: (transfer none): a #GtkPageSetup
+ * Returns: (transfer none): a #CtkPageSetup
  */
-GtkPageSetup *
+CtkPageSetup *
 ev_print_operation_get_default_page_setup (EvPrintOperation *op)
 {
 	EvPrintOperationClass *class = EV_PRINT_OPERATION_GET_CLASS (op);
@@ -263,7 +263,7 @@ ev_print_operation_get_job_name (EvPrintOperation *op)
 
 void
 ev_print_operation_run (EvPrintOperation *op,
-			GtkWindow        *parent)
+			CtkWindow        *parent)
 {
 	EvPrintOperationClass *class = EV_PRINT_OPERATION_GET_CLASS (op);
 
@@ -376,17 +376,17 @@ static void     export_cancel                      (EvPrintOperationExport *expo
 struct _EvPrintOperationExport {
 	EvPrintOperation parent;
 
-	GtkWindow *parent_window;
+	CtkWindow *parent_window;
 	EvJob *job_export;
 	GError *error;
 
 	gboolean print_preview;
 	gint n_pages;
 	gint current_page;
-	GtkPrinter *printer;
-	GtkPageSetup *page_setup;
-	GtkPrintSettings *print_settings;
-	GtkPageSet page_set;
+	CtkPrinter *printer;
+	CtkPageSetup *page_setup;
+	CtkPrintSettings *print_settings;
+	CtkPageSet page_set;
 	gint copies;
 	guint collate     : 1;
 	guint reverse     : 1;
@@ -408,8 +408,8 @@ struct _EvPrintOperationExport {
 	gint sheet, page_count;
 
 	gint range, n_ranges;
-	GtkPageRange *ranges;
-	GtkPageRange one_range;
+	CtkPageRange *ranges;
+	CtkPageRange one_range;
 
 	gint page, start, end, inc;
 };
@@ -518,7 +518,7 @@ ev_print_operation_export_set_current_page (EvPrintOperation *op,
 
 static void
 ev_print_operation_export_set_print_settings (EvPrintOperation *op,
-					      GtkPrintSettings *print_settings)
+					      CtkPrintSettings *print_settings)
 {
 	EvPrintOperationExport *export = EV_PRINT_OPERATION_EXPORT (op);
 
@@ -531,7 +531,7 @@ ev_print_operation_export_set_print_settings (EvPrintOperation *op,
 	export->print_settings = print_settings;
 }
 
-static GtkPrintSettings *
+static CtkPrintSettings *
 ev_print_operation_export_get_print_settings (EvPrintOperation *op)
 {
 	EvPrintOperationExport *export = EV_PRINT_OPERATION_EXPORT (op);
@@ -541,7 +541,7 @@ ev_print_operation_export_get_print_settings (EvPrintOperation *op)
 
 static void
 ev_print_operation_export_set_default_page_setup (EvPrintOperation *op,
-						  GtkPageSetup     *page_setup)
+						  CtkPageSetup     *page_setup)
 {
 	EvPrintOperationExport *export = EV_PRINT_OPERATION_EXPORT (op);
 
@@ -554,7 +554,7 @@ ev_print_operation_export_set_default_page_setup (EvPrintOperation *op,
 	export->page_setup = page_setup;
 }
 
-static GtkPageSetup *
+static CtkPageSetup *
 ev_print_operation_export_get_default_page_setup (EvPrintOperation *op)
 {
 	EvPrintOperationExport *export = EV_PRINT_OPERATION_EXPORT (op);
@@ -582,7 +582,7 @@ ev_print_operation_export_get_job_name (EvPrintOperation *op)
 
 static void
 ev_print_operation_export_set_printer (EvPrintOperationExport *export,
-				       GtkPrinter             *printer)
+				       CtkPrinter             *printer)
 {
 	if (printer == export->printer)
 		return;
@@ -596,7 +596,7 @@ ev_print_operation_export_set_printer (EvPrintOperationExport *export,
 static void
 find_range (EvPrintOperationExport *export)
 {
-	GtkPageRange *range;
+	CtkPageRange *range;
 
 	range = &export->ranges[export->range];
 
@@ -782,7 +782,7 @@ ev_print_operation_export_run_next (EvPrintOperationExport *export)
 }
 
 static void
-ctk_print_job_finished (GtkPrintJob            *print_job,
+ctk_print_job_finished (CtkPrintJob            *print_job,
 			EvPrintOperationExport *export,
 			GError                 *error)
 {
@@ -808,7 +808,7 @@ static void
 export_print_done (EvPrintOperationExport *export)
 {
 	EvPrintOperation *op = EV_PRINT_OPERATION (export);
-	GtkPrintSettings *settings;
+	CtkPrintSettings *settings;
 	EvFileExporterCapabilities capabilities;
 	GError *error = NULL;
 
@@ -907,7 +907,7 @@ export_print_done (EvPrintOperationExport *export)
 			ev_print_operation_export_run_next (export);
 		}
 	} else {
-		GtkPrintJob *job;
+		CtkPrintJob *job;
 
 		job = ctk_print_job_new (export->job_name,
 					 export->printer,
@@ -916,7 +916,7 @@ export_print_done (EvPrintOperationExport *export)
 		ctk_print_job_set_source_file (job, export->temp_file, &error);
 		if (!error){
 			ctk_print_job_send (job,
-					    (GtkPrintJobCompleteFunc)ctk_print_job_finished,
+					    (CtkPrintJobCompleteFunc)ctk_print_job_finished,
 					    g_object_ref (export),
 					    (GDestroyNotify)g_object_unref);
 		}
@@ -1128,14 +1128,14 @@ ev_print_operation_export_begin (EvPrintOperationExport *export)
 }
 
 static void
-ev_print_operation_export_print_dialog_response_cb (GtkDialog              *dialog,
+ev_print_operation_export_print_dialog_response_cb (CtkDialog              *dialog,
 						    gint                    response,
 						    EvPrintOperationExport *export)
 {
-	GtkPrintPages     print_pages;
-	GtkPrintSettings *print_settings;
-	GtkPageSetup     *page_setup;
-	GtkPrinter       *printer;
+	CtkPrintPages     print_pages;
+	CtkPrintSettings *print_settings;
+	CtkPageSetup     *page_setup;
+	CtkPrinter       *printer;
 	gdouble           scale;
 	gdouble           width;
 	gdouble           height;
@@ -1230,7 +1230,7 @@ ev_print_operation_export_print_dialog_response_cb (GtkDialog              *dial
 	}
 
 	if (export->n_ranges < 1 || !clamp_ranges (export)) {
-		GtkWidget *message_dialog;
+		CtkWidget *message_dialog;
 
 		message_dialog = ctk_message_dialog_new (CTK_WINDOW (dialog),
 						 CTK_DIALOG_MODAL,
@@ -1306,11 +1306,11 @@ ev_print_operation_export_print_dialog_response_cb (GtkDialog              *dial
 
 static void
 ev_print_operation_export_run (EvPrintOperation *op,
-			       GtkWindow        *parent)
+			       CtkWindow        *parent)
 {
 	EvPrintOperationExport *export = EV_PRINT_OPERATION_EXPORT (op);
-	GtkWidget              *dialog;
-	GtkPrintCapabilities    capabilities;
+	CtkWidget              *dialog;
+	CtkPrintCapabilities    capabilities;
 
 	ev_print_queue_init ();
 
@@ -1529,18 +1529,18 @@ typedef enum {
 struct _EvPrintOperationPrint {
 	EvPrintOperation parent;
 
-	GtkPrintOperation *op;
+	CtkPrintOperation *op;
 	gint               n_pages_to_print;
 	gint               total;
 	EvJob             *job_print;
 	gchar             *job_name;
 
         /* Page handling tab */
-        GtkWidget   *scale_combo;
+        CtkWidget   *scale_combo;
         EvPrintScale page_scale;
-	GtkWidget   *autorotate_button;
+	CtkWidget   *autorotate_button;
 	gboolean     autorotate;
-	GtkWidget   *source_button;
+	CtkWidget   *source_button;
 	gboolean     use_source_size;
 };
 
@@ -1561,14 +1561,14 @@ ev_print_operation_print_set_current_page (EvPrintOperation *op,
 
 static void
 ev_print_operation_print_set_print_settings (EvPrintOperation *op,
-					     GtkPrintSettings *print_settings)
+					     CtkPrintSettings *print_settings)
 {
 	EvPrintOperationPrint *print = EV_PRINT_OPERATION_PRINT (op);
 
 	ctk_print_operation_set_print_settings (print->op, print_settings);
 }
 
-static GtkPrintSettings *
+static CtkPrintSettings *
 ev_print_operation_print_get_print_settings (EvPrintOperation *op)
 {
 	EvPrintOperationPrint *print = EV_PRINT_OPERATION_PRINT (op);
@@ -1578,14 +1578,14 @@ ev_print_operation_print_get_print_settings (EvPrintOperation *op)
 
 static void
 ev_print_operation_print_set_default_page_setup (EvPrintOperation *op,
-						 GtkPageSetup     *page_setup)
+						 CtkPageSetup     *page_setup)
 {
 	EvPrintOperationPrint *print = EV_PRINT_OPERATION_PRINT (op);
 
 	ctk_print_operation_set_default_page_setup (print->op, page_setup);
 }
 
-static GtkPageSetup *
+static CtkPageSetup *
 ev_print_operation_print_get_default_page_setup (EvPrintOperation *op)
 {
 	EvPrintOperationPrint *print = EV_PRINT_OPERATION_PRINT (op);
@@ -1622,7 +1622,7 @@ ev_print_operation_print_get_job_name (EvPrintOperation *op)
 
 static void
 ev_print_operation_print_run (EvPrintOperation *op,
-			      GtkWindow        *parent)
+			      CtkWindow        *parent)
 {
 	EvPrintOperationPrint *print = EV_PRINT_OPERATION_PRINT (op);
 
@@ -1670,7 +1670,7 @@ ev_print_operation_print_get_embed_page_setup (EvPrintOperation *op)
 
 static void
 ev_print_operation_print_begin_print (EvPrintOperationPrint *print,
-				      GtkPrintContext       *context)
+				      CtkPrintContext       *context)
 {
 	EvPrintOperation *op = EV_PRINT_OPERATION (print);
 	gint              n_pages;
@@ -1684,7 +1684,7 @@ ev_print_operation_print_begin_print (EvPrintOperationPrint *print,
 
 static void
 ev_print_operation_print_done (EvPrintOperationPrint  *print,
-			       GtkPrintOperationResult result)
+			       CtkPrintOperationResult result)
 {
 	EvPrintOperation *op = EV_PRINT_OPERATION (print);
 
@@ -1696,7 +1696,7 @@ ev_print_operation_print_done (EvPrintOperationPrint  *print,
 static void
 ev_print_operation_print_status_changed (EvPrintOperationPrint *print)
 {
-	GtkPrintStatus status;
+	CtkPrintStatus status;
 
 	status = ctk_print_operation_get_status (print->op);
 	if (status == CTK_PRINT_STATUS_GENERATING_DATA)
@@ -1746,13 +1746,13 @@ print_job_cancelled (EvJobPrint            *job,
 
 static void
 ev_print_operation_print_request_page_setup (EvPrintOperationPrint *print,
-					     GtkPrintContext       *context,
+					     CtkPrintContext       *context,
 					     gint                   page_nr,
-					     GtkPageSetup          *setup)
+					     CtkPageSetup          *setup)
 {
 	EvPrintOperation *op = EV_PRINT_OPERATION (print);
 	gdouble           width, height;
-	GtkPaperSize     *paper_size;
+	CtkPaperSize     *paper_size;
 
 	ev_document_get_page_size (op->document, page_nr,
 				   &width, &height);
@@ -1773,7 +1773,7 @@ ev_print_operation_print_request_page_setup (EvPrintOperationPrint *print,
 }
 
 static void
-_print_context_get_hard_margins (GtkPrintContext *context,
+_print_context_get_hard_margins (CtkPrintContext *context,
 				 gdouble         *top,
 				 gdouble         *bottom,
 				 gdouble         *left,
@@ -1789,7 +1789,7 @@ _print_context_get_hard_margins (GtkPrintContext *context,
 
 static void
 ev_print_operation_print_draw_page (EvPrintOperationPrint *print,
-				    GtkPrintContext       *context,
+				    CtkPrintContext       *context,
 				    gint                   page)
 {
 	EvPrintOperation *op = EV_PRINT_OPERATION (print);
@@ -1876,11 +1876,11 @@ ev_print_operation_print_draw_page (EvPrintOperationPrint *print,
 
 static GObject *
 ev_print_operation_print_create_custom_widget (EvPrintOperationPrint *print,
-					       GtkPrintContext       *context)
+					       CtkPrintContext       *context)
 {
-	GtkPrintSettings *settings;
-	GtkWidget        *label;
-	GtkWidget        *grid;
+	CtkPrintSettings *settings;
+	CtkWidget        *label;
+	CtkWidget        *grid;
 	EvPrintScale      page_scale;
 	gboolean          autorotate;
 	gboolean          use_source_size;
@@ -1940,9 +1940,9 @@ ev_print_operation_print_create_custom_widget (EvPrintOperationPrint *print,
 
 static void
 ev_print_operation_print_custom_widget_apply (EvPrintOperationPrint *print,
-					      GtkPrintContext       *context)
+					      CtkPrintContext       *context)
 {
-	GtkPrintSettings *settings;
+	CtkPrintSettings *settings;
 
 	print->page_scale = ctk_combo_box_get_active (CTK_COMBO_BOX (print->scale_combo));
 	print->autorotate = ctk_toggle_button_get_active (CTK_TOGGLE_BUTTON (print->autorotate_button));

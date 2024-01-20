@@ -51,7 +51,7 @@ ev_document_fonts_scan (EvDocumentFonts *document_fonts,
 
 void
 ev_document_fonts_fill_model (EvDocumentFonts *document_fonts,
-			      GtkTreeModel    *model)
+			      CtkTreeModel    *model)
 {
 	EvDocumentFontsInterface *iface = EV_DOCUMENT_FONTS_GET_IFACE (document_fonts);
 

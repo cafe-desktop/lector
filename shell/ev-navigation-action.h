@@ -41,7 +41,7 @@ typedef struct _EvNavigationActionClass		EvNavigationActionClass;
 
 struct _EvNavigationAction
 {
-	GtkAction parent;
+	CtkAction parent;
 
 	/*< private >*/
 	EvNavigationActionPrivate *priv;
@@ -49,7 +49,7 @@ struct _EvNavigationAction
 
 struct _EvNavigationActionClass
 {
-	GtkActionClass parent_class;
+	CtkActionClass parent_class;
 
 	void (* activate_link) (EvNavigationAction *action,
 			        EvLink             *link);

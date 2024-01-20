@@ -51,9 +51,9 @@ enum {
 struct _EvSidebarAnnotationsPrivate {
 	EvDocument  *document;
 
-	GtkWidget *notebook;
-	GtkWidget *tree_view;
-	GtkWidget *annot_text_item;
+	CtkWidget *notebook;
+	CtkWidget *tree_view;
+	CtkWidget *annot_text_item;
 
 	EvJob *job;
 	guint selection_changed_id;
@@ -86,15 +86,15 @@ ev_sidebar_annotations_dispose (GObject *object)
 	G_OBJECT_CLASS (ev_sidebar_annotations_parent_class)->dispose (object);
 }
 
-static GtkTreeModel *
+static CtkTreeModel *
 ev_sidebar_annotations_create_simple_model (const gchar *message)
 {
-	GtkTreeModel *retval;
-	GtkTreeIter iter;
+	CtkTreeModel *retval;
+	CtkTreeIter iter;
 	gchar *markup;
 
 	/* Creates a fake model to indicate that we're loading */
-	retval = (GtkTreeModel *)ctk_list_store_new (N_COLUMNS,
+	retval = (CtkTreeModel *)ctk_list_store_new (N_COLUMNS,
 						     G_TYPE_STRING,
 						     GDK_TYPE_PIXBUF,
 						     G_TYPE_POINTER);
@@ -111,7 +111,7 @@ ev_sidebar_annotations_create_simple_model (const gchar *message)
 }
 
 static void
-ev_sidebar_annotations_text_annot_button_toggled (GtkWidget  *button,
+ev_sidebar_annotations_text_annot_button_toggled (CtkWidget  *button,
                                                   EvSidebarAnnotations *sidebar_annots)
 {
 	EvAnnotationType annot_type;
@@ -132,15 +132,15 @@ ev_sidebar_annotations_text_annot_button_toggled (GtkWidget  *button,
 static void
 ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 {
-	GtkWidget *swindow;
-	GtkTreeModel *loading_model;
-	GtkCellRenderer *renderer;
-	GtkTreeViewColumn *column;
-	GtkTreeSelection *selection;
-	GtkWidget *hbox;
-	GtkWidget *buttonarea;
-	GtkWidget *image;
-	GtkWidget *label;
+	CtkWidget *swindow;
+	CtkTreeModel *loading_model;
+	CtkCellRenderer *renderer;
+	CtkTreeViewColumn *column;
+	CtkTreeSelection *selection;
+	CtkWidget *hbox;
+	CtkWidget *buttonarea;
+	CtkWidget *image;
+	CtkWidget *label;
 
 	ev_annots->priv = ev_sidebar_annotations_get_instance_private (ev_annots);
 
@@ -273,7 +273,7 @@ ev_sidebar_annotations_class_init (EvSidebarAnnotationsClass *klass)
 			      G_TYPE_NONE);
 }
 
-GtkWidget *
+CtkWidget *
 ev_sidebar_annotations_new (void)
 {
 	return CTK_WIDGET (g_object_new (EV_TYPE_SIDEBAR_ANNOTATIONS, NULL));
@@ -283,7 +283,7 @@ void
 ev_sidebar_annotations_annot_added (EvSidebarAnnotations *sidebar_annots,
 				    EvAnnotation         *annot)
 {
-	GtkWidget *toggle_button;
+	CtkWidget *toggle_button;
 
 	if (EV_IS_ANNOTATION_TEXT (annot)) {
 		toggle_button = sidebar_annots->priv->annot_text_item;
@@ -306,11 +306,11 @@ ev_sidebar_annotations_annot_removed (EvSidebarAnnotations *sidebar_annots)
 }
 
 static void
-selection_changed_cb (GtkTreeSelection     *selection,
+selection_changed_cb (CtkTreeSelection     *selection,
 		      EvSidebarAnnotations *sidebar_annots)
 {
-	GtkTreeModel *model;
-	GtkTreeIter   iter;
+	CtkTreeModel *model;
+	CtkTreeIter   iter;
 
 	if (ctk_tree_selection_get_selected (selection, &model, &iter)) {
 		EvMapping *mapping = NULL;
@@ -328,8 +328,8 @@ job_finished_callback (EvJobAnnots          *job,
 		       EvSidebarAnnotations *sidebar_annots)
 {
 	EvSidebarAnnotationsPrivate *priv;
-	GtkTreeStore *model;
-	GtkTreeSelection *selection;
+	CtkTreeStore *model;
+	CtkTreeSelection *selection;
 	GList *l;
 	GdkPixbuf *text_icon = NULL;
 	GdkPixbuf *attachment_icon = NULL;
@@ -337,7 +337,7 @@ job_finished_callback (EvJobAnnots          *job,
 	priv = sidebar_annots->priv;
 
 	if (!job->annots) {
-		GtkTreeModel *list;
+		CtkTreeModel *list;
 
 		list = ev_sidebar_annotations_create_simple_model (_("Document contains no annotations"));
 		ctk_tree_view_set_model (CTK_TREE_VIEW (priv->tree_view), list);
@@ -367,7 +367,7 @@ job_finished_callback (EvJobAnnots          *job,
 		EvMappingList *mapping_list;
 		GList         *ll;
 		gchar         *page_label;
-		GtkTreeIter    iter;
+		CtkTreeIter    iter;
 		gboolean       found = FALSE;
 
 		mapping_list = (EvMappingList *)l->data;
@@ -384,9 +384,9 @@ job_finished_callback (EvJobAnnots          *job,
 			const gchar  *label;
 			const gchar  *modified;
 			gchar        *markup;
-			GtkTreeIter   child_iter;
+			CtkTreeIter   child_iter;
 			GdkPixbuf    *pixbuf = NULL;
-			GtkIconTheme *icon_theme;
+			CtkIconTheme *icon_theme;
 
 			annot = ((EvMapping *)(ll->data))->data;
 			if (!EV_IS_ANNOTATION_MARKUP (annot))

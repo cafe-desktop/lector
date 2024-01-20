@@ -60,11 +60,11 @@ enum {
 static guint signals[N_SIGNALS] = { 0 };
 
 struct _EvSidebarAttachmentsPrivate {
-	GtkWidget      *icon_view;
-	GtkListStore   *model;
+	CtkWidget      *icon_view;
+	CtkListStore   *model;
 
 	/* Icons */
-	GtkIconTheme   *icon_theme;
+	CtkIconTheme   *icon_theme;
 	GHashTable     *icon_cache;
 };
 
@@ -94,7 +94,7 @@ ev_sidebar_attachments_icon_cache_add (EvSidebarAttachments *ev_attachbar,
 }
 
 static GdkPixbuf *
-icon_theme_get_pixbuf_from_mime_type (GtkIconTheme *icon_theme,
+icon_theme_get_pixbuf_from_mime_type (CtkIconTheme *icon_theme,
 				      const gchar  *mime_type)
 {
 	const char *separator;
@@ -177,8 +177,8 @@ ev_sidebar_attachments_get_attachment_at_pos (EvSidebarAttachments *ev_attachbar
 					      gint                  x,
 					      gint                  y)
 {
-	GtkTreePath  *path = NULL;
-	GtkTreeIter   iter;
+	CtkTreePath  *path = NULL;
+	CtkTreeIter   iter;
 	EvAttachment *attachment = NULL;
 
 	path = ctk_icon_view_get_path_at_pos (CTK_ICON_VIEW (ev_attachbar->priv->icon_view),
@@ -206,8 +206,8 @@ ev_sidebar_attachments_popup_menu_show (EvSidebarAttachments *ev_attachbar,
 					gint                  x,
 					gint                  y)
 {
-	GtkIconView *icon_view;
-	GtkTreePath *path;
+	CtkIconView *icon_view;
+	CtkTreePath *path;
 	GList       *selected = NULL, *l;
 	GList       *attach_list = NULL;
 
@@ -229,10 +229,10 @@ ev_sidebar_attachments_popup_menu_show (EvSidebarAttachments *ev_attachbar,
 		return FALSE;
 
 	for (l = selected; l && l->data; l = g_list_next (l)) {
-		GtkTreeIter   iter;
+		CtkTreeIter   iter;
 		EvAttachment *attachment = NULL;
 
-		path = (GtkTreePath *) l->data;
+		path = (CtkTreePath *) l->data;
 
 		ctk_tree_model_get_iter (CTK_TREE_MODEL (ev_attachbar->priv->model),
 					 &iter, path);
@@ -257,7 +257,7 @@ ev_sidebar_attachments_popup_menu_show (EvSidebarAttachments *ev_attachbar,
 }
 
 static gboolean
-ev_sidebar_attachments_popup_menu (GtkWidget *widget)
+ev_sidebar_attachments_popup_menu (CtkWidget *widget)
 {
 	EvSidebarAttachments *ev_attachbar = EV_SIDEBAR_ATTACHMENTS (widget);
 	gint                  x, y;
@@ -270,7 +270,7 @@ ev_sidebar_attachments_popup_menu (GtkWidget *widget)
 static gboolean
 ev_sidebar_attachments_button_press (EvSidebarAttachments *ev_attachbar,
 				     GdkEventButton       *event,
-				     GtkWidget            *icon_view)
+				     CtkWidget            *icon_view)
 {
 	if (!ctk_widget_has_focus (icon_view)) {
 		ctk_widget_grab_focus (icon_view);
@@ -317,7 +317,7 @@ static void
 ev_sidebar_attachments_update_icons (EvSidebarAttachments *ev_attachbar,
 				     gpointer              user_data)
 {
-	GtkTreeIter iter;
+	CtkTreeIter iter;
 	gboolean    valid;
 
 	ev_sidebar_attachments_icon_cache_refresh (ev_attachbar);
@@ -354,7 +354,7 @@ ev_sidebar_attachments_update_icons (EvSidebarAttachments *ev_attachbar,
 }
 
 static void
-ev_sidebar_attachments_screen_changed (GtkWidget *widget,
+ev_sidebar_attachments_screen_changed (CtkWidget *widget,
 				       GdkScreen *old_screen)
 {
 	EvSidebarAttachments *ev_attachbar = EV_SIDEBAR_ATTACHMENTS (widget);
@@ -386,9 +386,9 @@ ev_sidebar_attachments_screen_changed (GtkWidget *widget,
 }
 
 static void
-ev_sidebar_attachments_drag_data_get (GtkWidget        *widget,
+ev_sidebar_attachments_drag_data_get (CtkWidget        *widget,
 				      GdkDragContext   *drag_context,
-				      GtkSelectionData *data,
+				      CtkSelectionData *data,
 				      guint             info,
 				      guint             time,
 				      gpointer          user_data)
@@ -406,13 +406,13 @@ ev_sidebar_attachments_drag_data_get (GtkWidget        *widget,
 
 	for (l = selected; l && l->data; l = g_list_next (l)) {
 		EvAttachment *attachment;
-		GtkTreePath  *path;
-		GtkTreeIter   iter;
+		CtkTreePath  *path;
+		CtkTreeIter   iter;
 		GFile        *file;
 		gchar        *template;
 		GError       *error = NULL;
 
-		path = (GtkTreePath *) l->data;
+		path = (CtkTreePath *) l->data;
 
 		ctk_tree_model_get_iter (CTK_TREE_MODEL (ev_attachbar->priv->model),
 					 &iter, path);
@@ -500,7 +500,7 @@ static void
 ev_sidebar_attachments_class_init (EvSidebarAttachmentsClass *ev_attachbar_class)
 {
 	GObjectClass   *g_object_class;
-	GtkWidgetClass *ctk_widget_class;
+	CtkWidgetClass *ctk_widget_class;
 
 	g_object_class = G_OBJECT_CLASS (ev_attachbar_class);
 	ctk_widget_class = CTK_WIDGET_CLASS (ev_attachbar_class);
@@ -529,7 +529,7 @@ ev_sidebar_attachments_class_init (EvSidebarAttachmentsClass *ev_attachbar_class
 static void
 ev_sidebar_attachments_init (EvSidebarAttachments *ev_attachbar)
 {
-	GtkWidget *swindow;
+	CtkWidget *swindow;
 
 	ev_attachbar->priv = ev_sidebar_attachments_get_instance_private (ev_attachbar);
 
@@ -592,10 +592,10 @@ ev_sidebar_attachments_init (EvSidebarAttachments *ev_attachbar)
 			  (gpointer) ev_attachbar);
 }
 
-GtkWidget *
+CtkWidget *
 ev_sidebar_attachments_new (void)
 {
-	GtkWidget *ev_attachbar;
+	CtkWidget *ev_attachbar;
 
 	ev_attachbar = g_object_new (EV_TYPE_SIDEBAR_ATTACHMENTS, NULL);
 
@@ -610,7 +610,7 @@ job_finished_callback (EvJobAttachments     *job,
 
 	for (l = job->attachments; l && l->data; l = g_list_next (l)) {
 		EvAttachment *attachment;
-		GtkTreeIter   iter;
+		CtkTreeIter   iter;
 		GdkPixbuf    *pixbuf = NULL;
 		const gchar  *mime_type;
 

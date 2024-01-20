@@ -38,13 +38,13 @@ typedef struct _EvSidebarAnnotationsPrivate EvSidebarAnnotationsPrivate;
 #define EV_SIDEBAR_ANNOTATIONS_GET_CLASS(object) (G_TYPE_INSTANCE_GET_CLASS((object), EV_TYPE_SIDEBAR_ANNOTATIONS, EvSidebarAnnotationsClass))
 
 struct _EvSidebarAnnotations {
-	GtkBox base_instance;
+	CtkBox base_instance;
 
 	EvSidebarAnnotationsPrivate *priv;
 };
 
 struct _EvSidebarAnnotationsClass {
-	GtkBoxClass base_class;
+	CtkBoxClass base_class;
 
 	void    (* annot_activated)     (EvSidebarAnnotations *sidebar_annots,
 					 EvMapping            *mapping);
@@ -54,7 +54,7 @@ struct _EvSidebarAnnotationsClass {
 };
 
 GType      ev_sidebar_annotations_get_type      (void) G_GNUC_CONST;
-GtkWidget *ev_sidebar_annotations_new           (void);
+CtkWidget *ev_sidebar_annotations_new           (void);
 void       ev_sidebar_annotations_annot_added   (EvSidebarAnnotations *sidebar_annots,
                                                  EvAnnotation         *annot);
 void       ev_sidebar_annotations_annot_removed (EvSidebarAnnotations *sidebar_annots);

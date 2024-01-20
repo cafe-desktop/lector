@@ -32,17 +32,17 @@
 #include "ev-properties-license.h"
 
 struct _EvPropertiesDialog {
-	GtkDialog base_instance;
+	CtkDialog base_instance;
 
 	EvDocument *document;
-	GtkWidget *notebook;
-	GtkWidget *general_page;
-	GtkWidget *fonts_page;
-	GtkWidget *license_page;
+	CtkWidget *notebook;
+	CtkWidget *general_page;
+	CtkWidget *fonts_page;
+	CtkWidget *license_page;
 };
 
 struct _EvPropertiesDialogClass {
-	GtkDialogClass base_class;
+	CtkDialogClass base_class;
 };
 
 G_DEFINE_TYPE (EvPropertiesDialog, ev_properties_dialog, CTK_TYPE_DIALOG)
@@ -55,7 +55,7 @@ ev_properties_dialog_class_init (EvPropertiesDialogClass *properties_class)
 static void
 ev_properties_dialog_init (EvPropertiesDialog *properties)
 {
-	GtkBox *content_area;
+	CtkBox *content_area;
 
 	content_area = CTK_BOX (ctk_dialog_get_content_area (CTK_DIALOG (properties)));
 
@@ -83,7 +83,7 @@ ev_properties_dialog_set_document (EvPropertiesDialog *properties,
 				   const gchar        *uri,
 			           EvDocument         *document)
 {
-	GtkWidget *label;
+	CtkWidget *label;
 	const EvDocumentInfo *info;
 
 	properties->document = document;
@@ -126,7 +126,7 @@ ev_properties_dialog_set_document (EvPropertiesDialog *properties,
 	}
 }
 
-GtkWidget *
+CtkWidget *
 ev_properties_dialog_new ()
 {
 	EvPropertiesDialog *properties;

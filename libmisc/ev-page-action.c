@@ -34,7 +34,7 @@
 struct _EvPageActionPrivate
 {
 	EvDocumentModel *doc_model;
-	GtkTreeModel *model;
+	CtkTreeModel *model;
 };
 
 enum
@@ -52,10 +52,10 @@ enum {
 	PROP_MODEL
 };
 
-static GtkWidget *
-create_tool_item (GtkAction *action)
+static CtkWidget *
+create_tool_item (CtkAction *action)
 {
-	GtkWidget *proxy;
+	CtkWidget *proxy;
 
 	proxy = g_object_new (EV_TYPE_PAGE_ACTION_WIDGET, NULL);
 
@@ -75,7 +75,7 @@ activate_link_cb (EvPageActionWidget *proxy, EvLink *link, EvPageAction *action)
 }
 
 static void
-connect_proxy (GtkAction *action, GtkWidget *proxy)
+connect_proxy (CtkAction *action, CtkWidget *proxy)
 {
 	EvPageAction *page = EV_PAGE_ACTION (action);
 
@@ -161,7 +161,7 @@ ev_page_action_set_model (EvPageAction    *page,
 
 void
 ev_page_action_set_links_model (EvPageAction *page,
-				GtkTreeModel *links_model)
+				CtkTreeModel *links_model)
 {
 	g_return_if_fail (EV_IS_PAGE_ACTION (page));
 	g_return_if_fail (CTK_IS_TREE_MODEL (links_model));
@@ -202,7 +202,7 @@ static void
 ev_page_action_class_init (EvPageActionClass *class)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (class);
-	GtkActionClass *action_class = CTK_ACTION_CLASS (class);
+	CtkActionClass *action_class = CTK_ACTION_CLASS (class);
 
 	object_class->dispose = ev_page_action_dispose;
 	object_class->set_property = ev_page_action_set_property;
