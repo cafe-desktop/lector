@@ -165,7 +165,7 @@ load_files (const char **files)
 
 	if (!files) {
 		if (!ev_application_has_window (EV_APP))
-			ev_application_open_window (EV_APP, screen, GDK_CURRENT_TIME);
+			ev_application_open_window (EV_APP, screen, CDK_CURRENT_TIME);
 		return;
 	}
 
@@ -213,7 +213,7 @@ load_files (const char **files)
 
 		ev_application_open_uri_at_dest (EV_APP, uri, screen, dest,
 						 mode, ev_find_string,
-						 GDK_CURRENT_TIME);
+						 CDK_CURRENT_TIME);
 
 		if (dest)
 			g_object_unref (dest);

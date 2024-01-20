@@ -47,7 +47,7 @@ create_thumbnail_frame (int        width,
 	int width_r, height_r;
 
 	if (source_pixbuf)
-		g_return_val_if_fail (GDK_IS_PIXBUF (source_pixbuf), NULL);
+		g_return_val_if_fail (CDK_IS_PIXBUF (source_pixbuf), NULL);
 
 	if (source_pixbuf) {
 		width_r = cdk_pixbuf_get_width (source_pixbuf);
@@ -60,7 +60,7 @@ create_thumbnail_frame (int        width,
 	/* make sure no one is passing us garbage */
 	g_return_val_if_fail (width_r >= 0 && height_r >= 0, NULL);
 
-	retval = cdk_pixbuf_new (GDK_COLORSPACE_RGB,
+	retval = cdk_pixbuf_new (CDK_COLORSPACE_RGB,
 				 TRUE, 8,
 				 width_r + 4,
 				 height_r + 4);
@@ -205,7 +205,7 @@ ev_document_misc_surface_from_pixbuf (GdkPixbuf *pixbuf)
 	cairo_surface_t *surface;
 	cairo_t         *cr;
 
-	g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), NULL);
+	g_return_val_if_fail (CDK_IS_PIXBUF (pixbuf), NULL);
 
 	surface = cairo_image_surface_create (cdk_pixbuf_get_has_alpha (pixbuf) ?
 					      CAIRO_FORMAT_ARGB32 : CAIRO_FORMAT_RGB24,
@@ -316,7 +316,7 @@ ev_document_misc_invert_pixbuf (GdkPixbuf *pixbuf)
 	guint   width, height, x, y, rowstride, n_channels;
 
 	n_channels = cdk_pixbuf_get_n_channels (pixbuf);
-	g_assert (cdk_pixbuf_get_colorspace (pixbuf) == GDK_COLORSPACE_RGB);
+	g_assert (cdk_pixbuf_get_colorspace (pixbuf) == CDK_COLORSPACE_RGB);
 	g_assert (cdk_pixbuf_get_bits_per_sample (pixbuf) == 8);
 
 	/* First grab a pointer to the raw pixel data. */

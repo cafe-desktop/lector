@@ -131,7 +131,7 @@ ev_application_load_session (EvApplication *application)
 	ev_application_open_uri_at_dest (application, uri,
 					 cdk_screen_get_default (),
 					 NULL, 0, NULL,
-					 GDK_CURRENT_TIME);
+					 CDK_CURRENT_TIME);
 	g_free (uri);
 	g_key_file_free (state_file);
 

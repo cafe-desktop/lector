@@ -361,7 +361,7 @@ set_drag_cursor (CtkWidget *widget)
   screen = ctk_widget_get_screen (widget);
 
   cursor = cdk_cursor_new_for_display (cdk_screen_get_display (screen),
-                                       GDK_HAND2);
+                                       CDK_HAND2);
   cdk_window_set_cursor (ctk_widget_get_window (widget), cursor);
   g_object_unref (cursor);
 }
@@ -434,14 +434,14 @@ editor_create_item (EggToolbarEditor *editor,
   ctk_event_box_set_visible_window (CTK_EVENT_BOX (event_box), FALSE);
   ctk_widget_show (event_box);
   ctk_drag_source_set (event_box,
-                       GDK_BUTTON1_MASK,
+                       CDK_BUTTON1_MASK,
                        source_drag_types, G_N_ELEMENTS (source_drag_types), action);
   g_signal_connect (event_box, "drag_data_get",
                     G_CALLBACK (drag_data_get_cb), editor);
   g_signal_connect_after (event_box, "realize",
                           G_CALLBACK (event_box_realize_cb), icon);
 
-  if (action == GDK_ACTION_MOVE)
+  if (action == CDK_ACTION_MOVE)
     {
       g_signal_connect (event_box, "drag_begin",
                         G_CALLBACK (drag_begin_cb), NULL);
@@ -585,7 +585,7 @@ update_editor_sheet (EggToolbarEditor *editor)
   ctk_widget_show (grid);
   ctk_drag_dest_set (grid, CTK_DEST_DEFAULT_ALL,
                      dest_drag_types, G_N_ELEMENTS (dest_drag_types),
-                     GDK_ACTION_MOVE | GDK_ACTION_COPY);
+                     CDK_ACTION_MOVE | CDK_ACTION_COPY);
 
   /* Build two lists of items (one for copying, one for moving). */
   items = egg_toolbars_model_get_name_avail (editor->priv->model);
@@ -601,13 +601,13 @@ update_editor_sheet (EggToolbarEditor *editor)
       flags = egg_toolbars_model_get_name_flags (editor->priv->model, name);
       if ((flags & EGG_TB_MODEL_NAME_INFINITE) == 0)
         {
-          item = editor_create_item_from_name (editor, name, GDK_ACTION_MOVE);
+          item = editor_create_item_from_name (editor, name, CDK_ACTION_MOVE);
           if (item != NULL)
             to_move = g_list_insert_sorted (to_move, item, compare_items);
         }
       else
         {
-          item = editor_create_item_from_name (editor, name, GDK_ACTION_COPY);
+          item = editor_create_item_from_name (editor, name, CDK_ACTION_COPY);
           if (item != NULL)
             to_copy = g_list_insert_sorted (to_copy, item, compare_items);
         }

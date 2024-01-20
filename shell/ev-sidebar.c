@@ -212,8 +212,8 @@ ev_sidebar_select_button_press_cb (CtkWidget      *widget,
 		ctk_toggle_button_set_active (CTK_TOGGLE_BUTTON (widget), TRUE);
 		ctk_menu_popup_at_widget (CTK_MENU (ev_sidebar->priv->menu),
 		                          widget,
-		                          GDK_GRAVITY_SOUTH_WEST,
-		                          GDK_GRAVITY_NORTH_WEST,
+		                          CDK_GRAVITY_SOUTH_WEST,
+		                          CDK_GRAVITY_NORTH_WEST,
 		                          (const GdkEvent*) event);
 
 		return TRUE;
@@ -229,15 +229,15 @@ ev_sidebar_select_button_key_press_cb (CtkWidget   *widget,
 {
 	EvSidebar *ev_sidebar = EV_SIDEBAR (user_data);
 
-	if (event->keyval == GDK_KEY_space ||
-	    event->keyval == GDK_KEY_KP_Space ||
-	    event->keyval == GDK_KEY_Return ||
-	    event->keyval == GDK_KEY_KP_Enter) {
+	if (event->keyval == CDK_KEY_space ||
+	    event->keyval == CDK_KEY_KP_Space ||
+	    event->keyval == CDK_KEY_Return ||
+	    event->keyval == CDK_KEY_KP_Enter) {
 		ctk_toggle_button_set_active (CTK_TOGGLE_BUTTON (widget), TRUE);
 		ctk_menu_popup_at_widget (CTK_MENU (ev_sidebar->priv->menu),
 		                          widget,
-		                          GDK_GRAVITY_SOUTH_WEST,
-		                          GDK_GRAVITY_NORTH_WEST,
+		                          CDK_GRAVITY_SOUTH_WEST,
+		                          CDK_GRAVITY_NORTH_WEST,
 		                          (const GdkEvent*) event);
 		return TRUE;
 	}

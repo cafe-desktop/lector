@@ -286,7 +286,7 @@ move_item_cb (CtkAction          *action,
   CtkTargetList *list = ctk_target_list_new (dest_drag_types, G_N_ELEMENTS (dest_drag_types));
 
   GdkEvent *realevent = ctk_get_current_event();
-  GdkEvent *event = cdk_event_new (GDK_MOTION_NOTIFY);
+  GdkEvent *event = cdk_event_new (CDK_MOTION_NOTIFY);
   event->motion.window = g_object_ref (realevent->any.window);
   event->motion.send_event = FALSE;
   event->motion.axes = NULL;
@@ -298,7 +298,7 @@ move_item_cb (CtkAction          *action,
 
   ctk_drag_begin_with_coordinates (toolitem,
                                    list,
-                                   GDK_ACTION_MOVE,
+                                   CDK_ACTION_MOVE,
                                    1,
                                    event,
                                    event->motion.x,
@@ -466,12 +466,12 @@ configure_item_cursor (CtkToolItem *item,
           screen = ctk_widget_get_screen (CTK_WIDGET (etoolbar));
 
           cursor = cdk_cursor_new_for_display (cdk_screen_get_display (screen),
-                                               GDK_HAND2);
+                                               CDK_HAND2);
           cdk_window_set_cursor (window, cursor);
           g_object_unref (cursor);
 
-          ctk_drag_source_set (widget, GDK_BUTTON1_MASK, dest_drag_types,
-                               G_N_ELEMENTS (dest_drag_types), GDK_ACTION_MOVE);
+          ctk_drag_source_set (widget, CDK_BUTTON1_MASK, dest_drag_types,
+                               G_N_ELEMENTS (dest_drag_types), CDK_ACTION_MOVE);
           if (CTK_IS_SEPARATOR_TOOL_ITEM (item))
             {
               pixbuf = new_separator_pixbuf ();
@@ -721,12 +721,12 @@ toolbar_drag_data_received_cb (CtkToolbar         *toolbar,
           gint tpos = get_toolbar_position (etoolbar, CTK_WIDGET (toolbar));
           egg_toolbars_model_add_item (etoolbar->priv->model, tpos, ipos, name);
           ctk_drag_finish (context, TRUE,
-                           cdk_drag_context_get_selected_action (context) == GDK_ACTION_MOVE, time);
+                           cdk_drag_context_get_selected_action (context) == CDK_ACTION_MOVE, time);
         }
       else
         {
           ctk_drag_finish (context, FALSE,
-                           cdk_drag_context_get_selected_action (context) == GDK_ACTION_MOVE, time);
+                           cdk_drag_context_get_selected_action (context) == CDK_ACTION_MOVE, time);
         }
     }
 
@@ -744,7 +744,7 @@ toolbar_drag_drop_cb (CtkToolbar         *toolbar,
   GdkAtom target;
 
   target = ctk_drag_dest_find_target (CTK_WIDGET (toolbar), context, NULL);
-  if (target != GDK_NONE)
+  if (target != CDK_NONE)
     {
       ctk_drag_get_data (CTK_WIDGET (toolbar), context, target, time);
       return TRUE;
@@ -762,7 +762,7 @@ toolbar_drag_motion_cb (CtkToolbar         *toolbar,
                         EggEditableToolbar *etoolbar)
 {
   GdkAtom target = ctk_drag_dest_find_target (CTK_WIDGET (toolbar), context, NULL);
-  if (target == GDK_NONE)
+  if (target == CDK_NONE)
     {
       cdk_drag_status (context, 0, time);
       return FALSE;
@@ -817,7 +817,7 @@ configure_drag_dest (EggEditableToolbar *etoolbar,
   /* Make every toolbar able to receive drag-drops. */
   ctk_drag_dest_set (CTK_WIDGET (toolbar), 0,
                      dest_drag_types, G_N_ELEMENTS (dest_drag_types),
-                     GDK_ACTION_MOVE | GDK_ACTION_COPY);
+                     CDK_ACTION_MOVE | CDK_ACTION_COPY);
 
   /* Add any specialist drag-drop abilities. */
   targets = ctk_drag_dest_get_target_list (CTK_WIDGET (toolbar));

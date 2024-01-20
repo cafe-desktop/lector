@@ -4622,10 +4622,10 @@ ev_window_state_event (CtkWidget           *widget,
 		CTK_WIDGET_CLASS (ev_window_parent_class)->window_state_event (widget, event);
 	}
 
-	if ((event->changed_mask & GDK_WINDOW_STATE_FULLSCREEN) == 0)
+	if ((event->changed_mask & CDK_WINDOW_STATE_FULLSCREEN) == 0)
 		return FALSE;
 
-	if (event->new_window_state & GDK_WINDOW_STATE_FULLSCREEN) {
+	if (event->new_window_state & CDK_WINDOW_STATE_FULLSCREEN) {
 		if (ev_document_model_get_fullscreen (window->priv->model) || EV_WINDOW_IS_PRESENTATION (window))
 			return FALSE;
 
@@ -6867,10 +6867,10 @@ sidebar_page_main_widget_update_cb (GObject *ev_sidebar_page,
 static gboolean
 window_state_event_cb (EvWindow *window, GdkEventWindowState *event, gpointer dummy)
 {
-	if (!(event->new_window_state & GDK_WINDOW_STATE_FULLSCREEN)) {
+	if (!(event->new_window_state & CDK_WINDOW_STATE_FULLSCREEN)) {
 		gboolean maximized;
 
-		maximized = event->new_window_state & GDK_WINDOW_STATE_MAXIMIZED;
+		maximized = event->new_window_state & CDK_WINDOW_STATE_MAXIMIZED;
 		if (window->priv->metadata && !ev_window_is_empty (window))
 			ev_metadata_set_boolean (window->priv->metadata, "window_maximized", maximized);
 	}
@@ -6889,7 +6889,7 @@ window_configure_event_cb (EvWindow *window, GdkEventConfigure *event, gpointer 
 
 	state = cdk_window_get_state (ctk_widget_get_window (CTK_WIDGET (window)));
 
-	if (!(state & GDK_WINDOW_STATE_FULLSCREEN)) {
+	if (!(state & CDK_WINDOW_STATE_FULLSCREEN)) {
 		if (window->priv->document) {
 			ev_document_get_max_page_size (window->priv->document,
 						       &document_width, &document_height);
@@ -7305,7 +7305,7 @@ ev_view_popup_cmd_copy_image (CtkAction *action, EvWindow *window)
 		return;
 
 	clipboard = ctk_widget_get_clipboard (CTK_WIDGET (window),
-					      GDK_SELECTION_CLIPBOARD);
+					      CDK_SELECTION_CLIPBOARD);
 	ev_document_doc_mutex_lock ();
 	pixbuf = ev_document_images_get_image (EV_DOCUMENT_IMAGES (window->priv->document),
 					       window->priv->image);
@@ -8198,7 +8198,7 @@ ev_window_init (EvWindow *ev_window)
 	ctk_drag_dest_set (CTK_WIDGET (ev_window),
 			   CTK_DEST_DEFAULT_ALL,
 			   NULL, 0,
-			   GDK_ACTION_COPY);
+			   CDK_ACTION_COPY);
 	ctk_drag_dest_add_uri_targets (CTK_WIDGET (ev_window));
 }
 

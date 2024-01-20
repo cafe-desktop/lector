@@ -80,9 +80,9 @@ static void
 send_focus_change (CtkWidget *widget,
 		   gboolean   in)
 {
-	GdkEvent *fevent = cdk_event_new (GDK_FOCUS_CHANGE);
+	GdkEvent *fevent = cdk_event_new (CDK_FOCUS_CHANGE);
 
-	fevent->focus_change.type = GDK_FOCUS_CHANGE;
+	fevent->focus_change.type = CDK_FOCUS_CHANGE;
 	fevent->focus_change.window = ctk_widget_get_window (widget);
 	fevent->focus_change.in = in;
 	if (fevent->focus_change.window)
@@ -226,11 +226,11 @@ ev_annotation_window_resize (EvAnnotationWindow *window,
 			     GdkEventButton     *event,
 			     CtkWidget          *ebox)
 {
-	if (event->type == GDK_BUTTON_PRESS && event->button == 1) {
+	if (event->type == CDK_BUTTON_PRESS && event->button == 1) {
 		ctk_window_begin_resize_drag (CTK_WINDOW (window),
 					      window->resize_sw == ebox ?
-					      GDK_WINDOW_EDGE_SOUTH_WEST :
-					      GDK_WINDOW_EDGE_SOUTH_EAST,
+					      CDK_WINDOW_EDGE_SOUTH_WEST :
+					      CDK_WINDOW_EDGE_SOUTH_EAST,
 					      event->button, event->x_root,
 					      event->y_root, event->time);
 		return TRUE;
@@ -254,8 +254,8 @@ ev_annotation_window_set_resize_cursor (CtkWidget          *widget,
 
 		cursor = cdk_cursor_new_for_display (display,
 						     widget == window->resize_sw ?
-						     GDK_BOTTOM_LEFT_CORNER :
-						     GDK_BOTTOM_RIGHT_CORNER);
+						     CDK_BOTTOM_LEFT_CORNER :
+						     CDK_BOTTOM_RIGHT_CORNER);
 		cdk_window_set_cursor (cdk_window, cursor);
 		g_object_unref (cursor);
 	} else {
@@ -286,7 +286,7 @@ ev_annotation_window_button_press_event (CtkWidget      *widget,
 {
 	EvAnnotationWindow *window = EV_ANNOTATION_WINDOW (widget);
 
-	if (event->type == GDK_BUTTON_PRESS && event->button == 1) {
+	if (event->type == CDK_BUTTON_PRESS && event->button == 1) {
 		window->in_move = TRUE;
 		window->x = event->x_root - event->x;
 		window->y = event->y_root - event->y;
@@ -325,7 +325,7 @@ ev_annotation_window_init (EvAnnotationWindow *window)
 	ctk_widget_show (icon);
 
 	header = ctk_event_box_new ();
-	ctk_widget_add_events (header, GDK_BUTTON_PRESS_MASK);
+	ctk_widget_add_events (header, CDK_BUTTON_PRESS_MASK);
 	g_signal_connect_swapped (header, "button-press-event",
 	                          G_CALLBACK (ev_annotation_window_button_press_event),
 	                          window);
@@ -375,7 +375,7 @@ ev_annotation_window_init (EvAnnotationWindow *window)
 	hbox = ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 0);
 
 	window->resize_sw = ctk_event_box_new ();
-	ctk_widget_add_events (window->resize_sw, GDK_BUTTON_PRESS_MASK);
+	ctk_widget_add_events (window->resize_sw, CDK_BUTTON_PRESS_MASK);
 	g_signal_connect_swapped (window->resize_sw, "button-press-event",
 				  G_CALLBACK (ev_annotation_window_resize),
 				  window);
@@ -392,7 +392,7 @@ ev_annotation_window_init (EvAnnotationWindow *window)
 	ctk_widget_show (window->resize_sw);
 
 	window->resize_se = ctk_event_box_new ();
-	ctk_widget_add_events (window->resize_se, GDK_BUTTON_PRESS_MASK);
+	ctk_widget_add_events (window->resize_se, CDK_BUTTON_PRESS_MASK);
 	g_signal_connect_swapped (window->resize_se, "button-press-event",
 				  G_CALLBACK (ev_annotation_window_resize),
 				  window);
@@ -415,8 +415,8 @@ ev_annotation_window_init (EvAnnotationWindow *window)
 	ctk_widget_show (vbox);
 
 	ctk_widget_add_events (CTK_WIDGET (window),
-			       GDK_BUTTON_PRESS_MASK |
-			       GDK_KEY_PRESS_MASK);
+			       CDK_BUTTON_PRESS_MASK |
+			       CDK_KEY_PRESS_MASK);
 
 	ctk_container_set_border_width (CTK_CONTAINER (window), 2);
 

@@ -340,7 +340,7 @@ egg_toolbars_model_get_data (EggToolbarsModel *model,
   char *data = NULL;
   GList *l;
 
-  if (type == GDK_NONE || type == cdk_atom_intern (EGG_TOOLBAR_ITEM_TYPE, FALSE))
+  if (type == CDK_NONE || type == cdk_atom_intern (EGG_TOOLBAR_ITEM_TYPE, FALSE))
     {
       g_return_val_if_fail (name != NULL, NULL);
       g_return_val_if_fail (*name != 0,   NULL);
@@ -370,7 +370,7 @@ egg_toolbars_model_get_name (EggToolbarsModel *model,
   char *name = NULL;
   GList *l;
 
-  if (type == GDK_NONE || type == cdk_atom_intern (EGG_TOOLBAR_ITEM_TYPE, FALSE))
+  if (type == CDK_NONE || type == cdk_atom_intern (EGG_TOOLBAR_ITEM_TYPE, FALSE))
     {
       g_return_val_if_fail (data, NULL);
       g_return_val_if_fail (*data, NULL);
@@ -510,7 +510,7 @@ parse_item_list (EggToolbarsModel *model,
             {
               xmlChar *type = xmlGetProp (child, (const xmlChar*) "type");
               xmlChar *data = xmlGetProp (child, (const xmlChar*) "name");
-              GdkAtom  atom = type ? cdk_atom_intern ((const char*) type, TRUE) : GDK_NONE;
+              GdkAtom  atom = type ? cdk_atom_intern ((const char*) type, TRUE) : CDK_NONE;
 
               /* If an old format, try to use it. */
               name = egg_toolbars_model_get_name (model, atom, (const char*) data, FALSE);

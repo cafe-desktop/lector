@@ -161,31 +161,31 @@ egg_find_bar_class_init (EggFindBarClass *klass)
 
   binding_set = ctk_binding_set_by_class (klass);
 
-  ctk_binding_entry_add_signal (binding_set, GDK_KEY_Escape, 0,
+  ctk_binding_entry_add_signal (binding_set, CDK_KEY_Escape, 0,
 				"close", 0);
 
-  ctk_binding_entry_add_signal (binding_set, GDK_KEY_Up, 0,
+  ctk_binding_entry_add_signal (binding_set, CDK_KEY_Up, 0,
                                 "scroll", 1,
                                 CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_STEP_BACKWARD);
-  ctk_binding_entry_add_signal (binding_set, GDK_KEY_Down, 0,
+  ctk_binding_entry_add_signal (binding_set, CDK_KEY_Down, 0,
                                 "scroll", 1,
                                 CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_STEP_FORWARD);
-  ctk_binding_entry_add_signal (binding_set, GDK_KEY_Page_Up, 0,
+  ctk_binding_entry_add_signal (binding_set, CDK_KEY_Page_Up, 0,
 				"scroll", 1,
 				CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_PAGE_BACKWARD);
-  ctk_binding_entry_add_signal (binding_set, GDK_KEY_KP_Page_Up, 0,
+  ctk_binding_entry_add_signal (binding_set, CDK_KEY_KP_Page_Up, 0,
 				"scroll", 1,
 				CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_PAGE_BACKWARD);
-  ctk_binding_entry_add_signal (binding_set, GDK_KEY_Page_Down, 0,
+  ctk_binding_entry_add_signal (binding_set, CDK_KEY_Page_Down, 0,
 				"scroll", 1,
 				CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_PAGE_FORWARD);
-  ctk_binding_entry_add_signal (binding_set, GDK_KEY_KP_Page_Down, 0,
+  ctk_binding_entry_add_signal (binding_set, CDK_KEY_KP_Page_Down, 0,
 				"scroll", 1,
 				CTK_TYPE_SCROLL_TYPE, CTK_SCROLL_PAGE_FORWARD);
 
-  ctk_binding_entry_add_signal (binding_set, GDK_KEY_Up, GDK_CONTROL_MASK,
+  ctk_binding_entry_add_signal (binding_set, CDK_KEY_Up, CDK_CONTROL_MASK,
                                 "previous", 0);
-  ctk_binding_entry_add_signal (binding_set, GDK_KEY_Down, GDK_CONTROL_MASK,
+  ctk_binding_entry_add_signal (binding_set, CDK_KEY_Down, CDK_CONTROL_MASK,
                                 "next", 0);
 }
 
