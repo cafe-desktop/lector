@@ -654,7 +654,7 @@ YELP_HELP_INIT
 # API documentation
 # *****************
 
-CTK_DOC_CHECK([1.13], [--flavour no-tmpl])
+GTK_DOC_CHECK([1.13], [--flavour no-tmpl])
 
 AC_SUBST([GLIB_PREFIX], [$($PKG_CONFIG --variable=prefix glib-2.0)])
 AC_SUBST([CTK_PREFIX], [$($PKG_CONFIG --variable=prefix ctk+-3.0)])
