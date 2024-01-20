@@ -29,7 +29,7 @@
 struct _EvImagePrivate {
 	gint       page;
 	gint       id;
-	GdkPixbuf *pixbuf;
+	CdkPixbuf *pixbuf;
 	gchar     *tmp_uri;
 };
 
@@ -88,7 +88,7 @@ ev_image_new (gint page,
 }
 
 EvImage *
-ev_image_new_from_pixbuf (GdkPixbuf *pixbuf)
+ev_image_new_from_pixbuf (CdkPixbuf *pixbuf)
 {
 	EvImage *image;
 
@@ -116,7 +116,7 @@ ev_image_get_id (EvImage *image)
 	return image->priv->id;
 }
 
-GdkPixbuf *
+CdkPixbuf *
 ev_image_get_pixbuf (EvImage *image)
 {
 	g_return_val_if_fail (EV_IS_IMAGE (image), NULL);
@@ -127,7 +127,7 @@ ev_image_get_pixbuf (EvImage *image)
 
 const gchar *
 ev_image_save_tmp (EvImage   *image,
-		   GdkPixbuf *pixbuf)
+		   CdkPixbuf *pixbuf)
 {
 	GError *error = NULL;
 	gchar  *filename = NULL;

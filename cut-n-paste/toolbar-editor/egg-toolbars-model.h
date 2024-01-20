@@ -98,7 +98,7 @@ typedef struct EggToolbarsItemType EggToolbarsItemType;
 
 struct EggToolbarsItemType
 {
-  GdkAtom type;
+  CdkAtom type;
 
   gboolean (* has_data) (EggToolbarsItemType *type,
                          const char          *name);
@@ -132,11 +132,11 @@ void              egg_toolbars_model_set_types      (EggToolbarsModel *model,
 
 /* Functions for converting between name and portable data. */
 char *            egg_toolbars_model_get_name       (EggToolbarsModel *model,
-                                                     GdkAtom           type,
+                                                     CdkAtom           type,
                                                      const char       *data,
                                                      gboolean          create);
 char *            egg_toolbars_model_get_data       (EggToolbarsModel *model,
-                                                     GdkAtom           type,
+                                                     CdkAtom           type,
                                                      const char       *name);
 
 /* Functions for retrieving what items are available for adding to the toolbars. */

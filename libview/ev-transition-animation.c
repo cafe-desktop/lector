@@ -184,7 +184,7 @@ paint_surface (cairo_t         *cr,
 	       gdouble          x_offset,
 	       gdouble          y_offset,
 	       gdouble          alpha,
-	       GdkRectangle     page_area)
+	       CdkRectangle     page_area)
 {
 	cairo_save (cr);
 
@@ -207,7 +207,7 @@ ev_transition_animation_split (cairo_t               *cr,
 			       EvTransitionAnimation *animation,
 			       EvTransitionEffect    *effect,
 			       gdouble                progress,
-			       GdkRectangle           page_area)
+			       CdkRectangle           page_area)
 {
 	EvTransitionAnimationPrivate *priv;
 	EvTransitionEffectAlignment alignment;
@@ -271,7 +271,7 @@ ev_transition_animation_blinds (cairo_t               *cr,
 				EvTransitionAnimation *animation,
 				EvTransitionEffect    *effect,
 				gdouble                progress,
-				GdkRectangle           page_area)
+				CdkRectangle           page_area)
 {
 	EvTransitionAnimationPrivate *priv;
 	EvTransitionEffectAlignment alignment;
@@ -315,7 +315,7 @@ ev_transition_animation_box (cairo_t               *cr,
 			     EvTransitionAnimation *animation,
 			     EvTransitionEffect    *effect,
 			     gdouble                progress,
-			     GdkRectangle           page_area)
+			     CdkRectangle           page_area)
 {
 	EvTransitionAnimationPrivate *priv;
 	EvTransitionEffectDirection direction;
@@ -359,7 +359,7 @@ ev_transition_animation_wipe (cairo_t               *cr,
 			      EvTransitionAnimation *animation,
 			      EvTransitionEffect    *effect,
 			      gdouble                progress,
-			      GdkRectangle           page_area)
+			      CdkRectangle           page_area)
 {
 	EvTransitionAnimationPrivate *priv;
 	gint width, height;
@@ -413,7 +413,7 @@ ev_transition_animation_dissolve (cairo_t               *cr,
 				  EvTransitionAnimation *animation,
 				  EvTransitionEffect    *effect,
 				  gdouble                progress,
-				  GdkRectangle           page_area)
+				  CdkRectangle           page_area)
 {
 	EvTransitionAnimationPrivate *priv;
 
@@ -428,7 +428,7 @@ ev_transition_animation_push (cairo_t               *cr,
 			      EvTransitionAnimation *animation,
 			      EvTransitionEffect    *effect,
 			      gdouble                progress,
-			      GdkRectangle           page_area)
+			      CdkRectangle           page_area)
 {
 	EvTransitionAnimationPrivate *priv;
 	gint width, height;
@@ -458,7 +458,7 @@ ev_transition_animation_cover (cairo_t               *cr,
 			       EvTransitionAnimation *animation,
 			       EvTransitionEffect    *effect,
 			       gdouble                progress,
-			       GdkRectangle           page_area)
+			       CdkRectangle           page_area)
 {
 	EvTransitionAnimationPrivate *priv;
 	gint width, height;
@@ -488,7 +488,7 @@ ev_transition_animation_uncover (cairo_t               *cr,
 				 EvTransitionAnimation *animation,
 				 EvTransitionEffect    *effect,
 				 gdouble                progress,
-				 GdkRectangle           page_area)
+				 CdkRectangle           page_area)
 {
 	EvTransitionAnimationPrivate *priv;
 	gint width, height;
@@ -518,7 +518,7 @@ ev_transition_animation_fade (cairo_t               *cr,
 			      EvTransitionAnimation *animation,
 			      EvTransitionEffect    *effect,
 			      gdouble                progress,
-			      GdkRectangle           page_area)
+			      CdkRectangle           page_area)
 {
 	EvTransitionAnimationPrivate *priv;
 
@@ -531,7 +531,7 @@ ev_transition_animation_fade (cairo_t               *cr,
 void
 ev_transition_animation_paint (EvTransitionAnimation *animation,
 			       cairo_t               *cr,
-			       GdkRectangle           page_area)
+			       CdkRectangle           page_area)
 {
 	EvTransitionAnimationPrivate *priv;
 	EvTransitionEffectType type;

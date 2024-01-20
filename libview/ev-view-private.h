@@ -40,13 +40,13 @@
 /* Information for middle clicking and moving around the doc */
 typedef struct {
         gboolean in_drag;
-	GdkPoint start;
+	CdkPoint start;
 	gdouble hadj;
 	gdouble vadj;
 	guint drag_timeout_id;
 	guint release_timeout_id;
-	GdkPoint buffer[DRAG_HISTORY];
-	GdkPoint momentum;
+	CdkPoint buffer[DRAG_HISTORY];
+	CdkPoint momentum;
 } DragInfo;
 
 /* Autoscrolling */
@@ -60,7 +60,7 @@ typedef struct {
 /* Information for handling selection */
 typedef struct {
 	gboolean in_drag;
-	GdkPoint start;
+	CdkPoint start;
 	GList *selections;
 	EvSelectionStyle style;
 } SelectionInfo;
@@ -68,7 +68,7 @@ typedef struct {
 /* Information for handling images DND */
 typedef struct {
 	gboolean in_drag;
-	GdkPoint start;
+	CdkPoint start;
 	EvImage *image;
 } ImageDNDInfo;
 
@@ -187,7 +187,7 @@ struct _EvView {
 	AutoScrollInfo scroll_info;
 
 	/* Selection */
-	GdkPoint motion;
+	CdkPoint motion;
 	guint selection_update_id;
 	guint selection_scroll_id;
 
@@ -268,33 +268,33 @@ void _get_page_size_for_scale_and_rotation (EvDocument *document,
 					    gint       *page_width,
 					    gint       *page_height);
 void _ev_view_transform_view_point_to_doc_point (EvView       *view,
-						 GdkPoint     *view_point,
-						 GdkRectangle *page_area,
+						 CdkPoint     *view_point,
+						 CdkRectangle *page_area,
 						 double       *doc_point_x,
 						 double       *doc_point_y);
 void _ev_view_transform_view_rect_to_doc_rect (EvView       *view,
-					       GdkRectangle *view_rect,
-					       GdkRectangle *page_area,
+					       CdkRectangle *view_rect,
+					       CdkRectangle *page_area,
 					       EvRectangle  *doc_rect);
 void _ev_view_transform_doc_point_to_view_point (EvView   *view,
 						 int       page,
 						 EvPoint  *doc_point,
-						 GdkPoint *view_point);
+						 CdkPoint *view_point);
 void _ev_view_transform_doc_rect_to_view_rect (EvView       *view,
 					       int           page,
 					       EvRectangle  *doc_rect,
-					       GdkRectangle *view_rect);
+					       CdkRectangle *view_rect);
 void _ev_view_get_selection_colors (EvView  *view,
-                                    GdkRGBA *bg_color,
-                                    GdkRGBA *fg_color);
+                                    CdkRGBA *bg_color,
+                                    CdkRGBA *fg_color);
 gint _ev_view_get_caret_cursor_offset_at_doc_point (EvView *view,
                                                     gint    page,
                                                     gdouble doc_x,
                                                     gdouble doc_y);
 void _ev_view_clear_selection (EvView   *view);
 void _ev_view_set_selection   (EvView   *view,
-                               GdkPoint *start_point,
-                               GdkPoint *end_point);
+                               CdkPoint *start_point,
+                               CdkPoint *end_point);
 void _ev_view_set_focused_element (EvView *view,
                                    EvMapping *element_mapping,
                                    gint page);

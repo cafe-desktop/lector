@@ -54,7 +54,7 @@ static const EvStockIcon stock_icons [] = {
 static gchar *ev_icons_path;
 
 static void
-ev_stock_icons_add_icons_path_for_screen (GdkScreen *screen)
+ev_stock_icons_add_icons_path_for_screen (CdkScreen *screen)
 {
 	CtkIconTheme *icon_theme;
 
@@ -122,7 +122,7 @@ ev_stock_icons_init (void)
 }
 
 void
-ev_stock_icons_set_screen (GdkScreen *screen)
+ev_stock_icons_set_screen (CdkScreen *screen)
 {
 	g_return_if_fail (CDK_IS_SCREEN (screen));
 

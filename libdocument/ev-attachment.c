@@ -336,14 +336,14 @@ ev_attachment_save (EvAttachment *attachment,
 
 static gboolean
 ev_attachment_launch_app (EvAttachment *attachment,
-			  GdkScreen    *screen,
+			  CdkScreen    *screen,
 			  guint32       timestamp,
 			  GError      **error)
 {
 	gboolean           result;
 	GList             *files = NULL;
-	GdkAppLaunchContext *context;
-	GdkDisplay          *display;
+	CdkAppLaunchContext *context;
+	CdkDisplay          *display;
 	GError            *ioerror = NULL;
 
 	g_assert (G_IS_FILE (attachment->priv->tmp_file));
@@ -382,7 +382,7 @@ ev_attachment_launch_app (EvAttachment *attachment,
 
 gboolean
 ev_attachment_open (EvAttachment *attachment,
-		    GdkScreen    *screen,
+		    CdkScreen    *screen,
 		    guint32       timestamp,
 		    GError      **error)
 {

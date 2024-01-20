@@ -78,7 +78,7 @@ static const gchar *userdir = NULL;
 
 static void _ev_application_open_uri_at_dest (EvApplication  *application,
 					      const gchar    *uri,
-					      GdkScreen      *screen,
+					      CdkScreen      *screen,
 					      EvLinkDest     *dest,
 					      EvWindowRunMode mode,
 					      const gchar    *search_string,
@@ -86,7 +86,7 @@ static void _ev_application_open_uri_at_dest (EvApplication  *application,
 static void ev_application_open_uri_in_window (EvApplication  *application,
 					       const char     *uri,
 					       EvWindow       *ev_window,
-					       GdkScreen      *screen,
+					       CdkScreen      *screen,
 					       EvLinkDest     *dest,
 					       EvWindowRunMode mode,
 					       const gchar    *search_string,
@@ -175,19 +175,19 @@ ev_application_init_session (EvApplication *application)
  * Search among all the open displays if any of them have the same name as the
  * passed name. If the display isn't found it tries the open it.
  *
- * Returns: a #GdkDisplay of the display with the passed name.
+ * Returns: a #CdkDisplay of the display with the passed name.
  */
-static GdkDisplay *
+static CdkDisplay *
 ev_display_open_if_needed (const gchar *name)
 {
 	GSList     *displays;
 	GSList     *l;
-	GdkDisplay *display = NULL;
+	CdkDisplay *display = NULL;
 
 	displays = cdk_display_manager_list_displays (cdk_display_manager_get ());
 
 	for (l = displays; l != NULL; l = l->next) {
-		const gchar *display_name = cdk_display_get_name ((GdkDisplay *) l->data);
+		const gchar *display_name = cdk_display_get_name ((CdkDisplay *) l->data);
 
 		if (g_ascii_strcasecmp (display_name, name) == 0) {
 			display = l->data;
@@ -202,7 +202,7 @@ ev_display_open_if_needed (const gchar *name)
 
 static void
 ev_spawn (const char     *uri,
-	  GdkScreen      *screen,
+	  CdkScreen      *screen,
 	  EvLinkDest     *dest,
 	  EvWindowRunMode mode,
 	  const gchar    *search_string,
@@ -211,7 +211,7 @@ ev_spawn (const char     *uri,
 	GString *cmd;
 	gchar *path, *cmdline;
 	GAppInfo *app;
-	GdkAppLaunchContext *ctx;
+	CdkAppLaunchContext *ctx;
 	GError  *error = NULL;
 
 	cmd = g_string_new (NULL);
@@ -287,7 +287,7 @@ ev_spawn (const char     *uri,
 
 static EvWindow *
 ev_application_get_empty_window (EvApplication *application,
-				 GdkScreen     *screen)
+				 CdkScreen     *screen)
 {
 	EvWindow *empty_window = NULL;
 	GList    *windows, *l;
@@ -315,7 +315,7 @@ ev_application_get_empty_window (EvApplication *application,
 #ifdef ENABLE_DBUS
 typedef struct {
 	gchar          *uri;
-	GdkScreen      *screen;
+	CdkScreen      *screen;
 	EvLinkDest     *dest;
 	EvWindowRunMode mode;
 	gchar          *search_string;
@@ -489,7 +489,7 @@ on_register_uri_cb (GObject      *source_object,
 static void
 ev_application_register_uri (EvApplication  *application,
 			     const gchar    *uri,
-                             GdkScreen      *screen,
+                             CdkScreen      *screen,
                              EvLinkDest     *dest,
                              EvWindowRunMode mode,
                              const gchar    *search_string,
@@ -581,13 +581,13 @@ static void
 ev_application_open_uri_in_window (EvApplication  *application,
 				   const char     *uri,
 				   EvWindow       *ev_window,
-				   GdkScreen      *screen,
+				   CdkScreen      *screen,
 				   EvLinkDest     *dest,
 				   EvWindowRunMode mode,
 				   const gchar    *search_string,
 				   guint           timestamp)
 {
-	GdkWindow *cdk_window;
+	CdkWindow *cdk_window;
 
 	if (uri == NULL)
 	        uri = application->uri;
@@ -616,7 +616,7 @@ ev_application_open_uri_in_window (EvApplication  *application,
 static void
 _ev_application_open_uri_at_dest (EvApplication  *application,
 				  const gchar    *uri,
-				  GdkScreen      *screen,
+				  CdkScreen      *screen,
 				  EvLinkDest     *dest,
 				  EvWindowRunMode mode,
 				  const gchar    *search_string,
@@ -646,7 +646,7 @@ _ev_application_open_uri_at_dest (EvApplication  *application,
 void
 ev_application_open_uri_at_dest (EvApplication  *application,
 				 const char     *uri,
-				 GdkScreen      *screen,
+				 CdkScreen      *screen,
 				 EvLinkDest     *dest,
 				 EvWindowRunMode mode,
 				 const gchar    *search_string,
@@ -681,11 +681,11 @@ ev_application_open_uri_at_dest (EvApplication  *application,
  */
 void
 ev_application_open_window (EvApplication *application,
-			    GdkScreen     *screen,
+			    CdkScreen     *screen,
 			    guint32        timestamp)
 {
 	CtkWidget *new_window = ev_window_new ();
-	GdkWindow *cdk_window;
+	CdkWindow *cdk_window;
 
 	if (screen) {
 		ev_stock_icons_set_screen (screen);
@@ -743,11 +743,11 @@ handle_reload_cb (EvLectorApplication   *object,
         GVariantIter     iter;
         const gchar     *key;
         GVariant        *value;
-        GdkDisplay      *display = NULL;
+        CdkDisplay      *display = NULL;
         EvLinkDest      *dest = NULL;
         EvWindowRunMode  mode = EV_WINDOW_MODE_NORMAL;
         const gchar     *search_string = NULL;
-        GdkScreen       *screen = NULL;
+        CdkScreen       *screen = NULL;
 
         g_variant_iter_init (&iter, args);
 
@@ -796,7 +796,7 @@ handle_reload_cb (EvLectorApplication   *object,
 void
 ev_application_open_uri_list (EvApplication *application,
 			      GSList        *uri_list,
-			      GdkScreen     *screen,
+			      CdkScreen     *screen,
 			      guint          timestamp)
 {
 	GSList *l;

@@ -39,7 +39,7 @@ typedef enum {
 	EV_VIEW_CURSOR_ADD
 } EvViewCursor;
 
-GdkCursor *ev_view_cursor_new (GdkDisplay  *display,
+CdkCursor *ev_view_cursor_new (CdkDisplay  *display,
 			       EvViewCursor cursor);
 
 G_END_DECLS

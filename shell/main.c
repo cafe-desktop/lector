@@ -158,7 +158,7 @@ get_label_from_filename (const gchar *filename)
 static void
 load_files (const char **files)
 {
-	GdkScreen       *screen = cdk_screen_get_default ();
+	CdkScreen       *screen = cdk_screen_get_default ();
 	EvWindowRunMode  mode = EV_WINDOW_MODE_NORMAL;
 	gint             i;
 	EvLinkDest      *global_dest = NULL;

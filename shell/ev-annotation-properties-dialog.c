@@ -131,7 +131,7 @@ ev_annotation_properties_dialog_init (EvAnnotationPropertiesDialog *annot_dialog
 	CtkWidget *grid;
 	CtkWidget *hbox;
 	gchar     *markup;
-	const GdkRGBA yellow = { 1., 1., 0., 1. };
+	const CdkRGBA yellow = { 1., 1., 0., 1. };
 
 	ctk_window_set_title (CTK_WINDOW (annot_dialog), _("Annotation Properties"));
 	ctk_window_set_destroy_with_parent (CTK_WINDOW (annot_dialog), TRUE);
@@ -253,7 +253,7 @@ ev_annotation_properties_dialog_new_with_annotation (EvAnnotation *annot)
 	const gchar                  *label;
 	gdouble                       opacity;
 	gboolean                      is_open;
-	GdkRGBA                       rgba;
+	CdkRGBA                       rgba;
 
 	dialog = (EvAnnotationPropertiesDialog *)ev_annotation_properties_dialog_new (ev_annotation_get_annotation_type (annot));
 	dialog->annot = g_object_ref (annot);
@@ -290,7 +290,7 @@ ev_annotation_properties_dialog_get_author (EvAnnotationPropertiesDialog *dialog
 
 void
 ev_annotation_properties_dialog_get_rgba (EvAnnotationPropertiesDialog *dialog,
-					  GdkRGBA                      *rgba)
+					  CdkRGBA                      *rgba)
 {
 	ctk_color_chooser_get_rgba (CTK_COLOR_CHOOSER (dialog->color), rgba);
 }

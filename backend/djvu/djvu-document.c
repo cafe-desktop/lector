@@ -494,13 +494,13 @@ djvu_document_thumbnails_get_dimensions (EvDocumentThumbnails *document,
 	}
 }
 
-static GdkPixbuf *
+static CdkPixbuf *
 djvu_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 					EvRenderContext      *rc,
 					gboolean 	      border)
 {
 	DjvuDocument *djvu_document = DJVU_DOCUMENT (document);
-	GdkPixbuf *pixbuf, *rotated_pixbuf;
+	CdkPixbuf *pixbuf, *rotated_pixbuf;
 	gdouble page_width, page_height;
 	gint thumb_width, thumb_height;
 	guchar *pixels;
@@ -531,7 +531,7 @@ djvu_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 	g_object_unref (pixbuf);
 
         if (border) {
-	      GdkPixbuf *tmp_pixbuf = rotated_pixbuf;
+	      CdkPixbuf *tmp_pixbuf = rotated_pixbuf;
 
 	      rotated_pixbuf = ev_document_misc_get_thumbnail_frame (-1, -1, tmp_pixbuf);
 	      g_object_unref (tmp_pixbuf);

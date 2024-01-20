@@ -415,8 +415,8 @@
   * libview: fix annotation window focus change after creation
   * libview: Fix focus on ev_annotation_window
   * libview: Don't change the font color of the annotation window
-  * shell: Use GdkRGBA for annotations
-  * libdocument: Add EvAnnotation API using GdkRGBA
+  * shell: Use CdkRGBA for annotations
+  * libdocument: Add EvAnnotation API using CdkRGBA
   * libdocument: Use the new deprecation macros
   * Add deprecation macros
   * fix runtime warnings caused by previous HDPI commit

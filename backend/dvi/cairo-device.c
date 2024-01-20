@@ -202,7 +202,7 @@ dvi_cairo_alloc_colors (void  *device_data,
 			int    density)
 {
 	double  frac;
-	GdkColor color, color_fg;
+	CdkColor color, color_fg;
 	int     i, n;
 	unsigned int alpha;
 

@@ -361,7 +361,7 @@ ev_sidebar_bookmarks_popup_menu_show (EvSidebarBookmarks *sidebar_bookmarks,
 
 static gboolean
 ev_sidebar_bookmarks_button_press (CtkWidget          *widget,
-                                   GdkEventButton     *event,
+                                   CdkEventButton     *event,
                                    EvSidebarBookmarks *sidebar_bookmarks)
 {
         if (event->button != 3)

@@ -275,14 +275,14 @@ dvi_document_thumbnails_get_dimensions (EvDocumentThumbnails *document,
 	}
 }
 
-static GdkPixbuf *
+static CdkPixbuf *
 dvi_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 				       EvRenderContext      *rc,
 				       gboolean 	     border)
 {
 	DviDocument *dvi_document = DVI_DOCUMENT (document);
-	GdkPixbuf *pixbuf;
-	GdkPixbuf *rotated_pixbuf;
+	CdkPixbuf *pixbuf;
+	CdkPixbuf *rotated_pixbuf;
 	cairo_surface_t *surface;
 	gint thumb_width, thumb_height;
 	gint proposed_width, proposed_height;
@@ -323,7 +323,7 @@ dvi_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 	g_object_unref (pixbuf);
 
 	if (border) {
-		GdkPixbuf *tmp_pixbuf = rotated_pixbuf;
+		CdkPixbuf *tmp_pixbuf = rotated_pixbuf;
 
 		rotated_pixbuf = ev_document_misc_get_thumbnail_frame (-1, -1, tmp_pixbuf);
 		g_object_unref (tmp_pixbuf);
@@ -552,7 +552,7 @@ dvi_document_do_color_special (DviContext *dvi, const char *prefix, const char *
 
 			mdvi_push_color (dvi, RGB2ULONG (rgb, rgb, rgb), 0xFFFFFFFF);
                 } else {
-                        GdkColor color;
+                        CdkColor color;
 
                         if (cdk_color_parse (tmp, &color)) {
 				guchar red, green, blue;

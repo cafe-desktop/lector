@@ -25,7 +25,7 @@
 
 static void ev_navigation_action_widget_toggled (CtkToggleToolButton *toggle);
 static gboolean ev_navigation_action_widget_button_press_event (CtkWidget *widget,
-        	        	        		        GdkEventButton    *event,
+        	        	        		        CdkEventButton    *event,
         	        	        		        gpointer data);
 
 G_DEFINE_TYPE (EvNavigationActionWidget, ev_navigation_action_widget, CTK_TYPE_TOGGLE_TOOL_BUTTON)
@@ -118,7 +118,7 @@ ev_navigation_action_widget_set_menu(EvNavigationActionWidget *button, CtkWidget
 
 static void
 popup_menu_under_arrow (EvNavigationActionWidget *button,
-                        GdkEventButton    *event)
+                        CdkEventButton    *event)
 {
 	g_signal_emit (button, signals[SHOW_MENU], 0);
 
@@ -126,7 +126,7 @@ popup_menu_under_arrow (EvNavigationActionWidget *button,
 		return;
 
 	ctk_menu_popup_at_pointer (button->menu,
-	                           (const GdkEvent*) event);
+	                           (const CdkEvent*) event);
 }
 
 static void
@@ -147,7 +147,7 @@ ev_navigation_action_widget_toggled (CtkToggleToolButton *toggle)
 
 static gboolean
 ev_navigation_action_widget_button_press_event (CtkWidget *widget,
-                	            		GdkEventButton    *event,
+                	            		CdkEventButton    *event,
                 	            		gpointer data)
 {
 	EvNavigationActionWidget *button = EV_NAVIGATION_ACTION_WIDGET (data);

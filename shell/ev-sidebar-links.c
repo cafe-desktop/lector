@@ -348,7 +348,7 @@ popup_menu_cb (CtkWidget *treeview, EvSidebarLinks *sidebar)
 
 static gboolean
 button_press_cb (CtkWidget *treeview,
-                 GdkEventButton *event,
+                 CdkEventButton *event,
                  EvSidebarLinks *sidebar)
 {
 	CtkTreePath *path = NULL;
@@ -362,7 +362,7 @@ button_press_cb (CtkWidget *treeview,
 			ctk_tree_view_set_cursor (CTK_TREE_VIEW (treeview),
 						  path, NULL, FALSE);
 			ctk_menu_popup_at_pointer (build_popup_menu (sidebar),
-			                           (const GdkEvent*) event);
+			                           (const CdkEvent*) event);
 			ctk_tree_path_free (path);
 
 			return TRUE;
