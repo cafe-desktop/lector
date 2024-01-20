@@ -360,9 +360,9 @@ set_drag_cursor (CtkWidget *widget)
 
   screen = ctk_widget_get_screen (widget);
 
-  cursor = gdk_cursor_new_for_display (gdk_screen_get_display (screen),
+  cursor = cdk_cursor_new_for_display (cdk_screen_get_display (screen),
                                        GDK_HAND2);
-  gdk_window_set_cursor (ctk_widget_get_window (widget), cursor);
+  cdk_window_set_cursor (ctk_widget_get_window (widget), cursor);
   g_object_unref (cursor);
 }
 

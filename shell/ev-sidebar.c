@@ -27,7 +27,7 @@
 #include <string.h>
 
 #include <ctk/ctk.h>
-#include <gdk/gdkkeysyms.h>
+#include <cdk/cdkkeysyms.h>
 
 #include "ev-sidebar.h"
 #include "ev-sidebar-page.h"

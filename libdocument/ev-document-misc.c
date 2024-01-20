@@ -25,7 +25,7 @@
 
 #include <glib.h>
 #include <ctk/ctk.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdkx.h>
 
 #include "ev-document-misc.h"
 
@@ -50,8 +50,8 @@ create_thumbnail_frame (int        width,
 		g_return_val_if_fail (GDK_IS_PIXBUF (source_pixbuf), NULL);
 
 	if (source_pixbuf) {
-		width_r = gdk_pixbuf_get_width (source_pixbuf);
-		height_r = gdk_pixbuf_get_height (source_pixbuf);
+		width_r = cdk_pixbuf_get_width (source_pixbuf);
+		height_r = cdk_pixbuf_get_height (source_pixbuf);
 	} else {
 		width_r = width;
 		height_r = height;
@@ -60,16 +60,16 @@ create_thumbnail_frame (int        width,
 	/* make sure no one is passing us garbage */
 	g_return_val_if_fail (width_r >= 0 && height_r >= 0, NULL);
 
-	retval = gdk_pixbuf_new (GDK_COLORSPACE_RGB,
+	retval = cdk_pixbuf_new (GDK_COLORSPACE_RGB,
 				 TRUE, 8,
 				 width_r + 4,
 				 height_r + 4);
 
 	/* make it black and fill in the middle */
-	data = gdk_pixbuf_get_pixels (retval);
-	rowstride = gdk_pixbuf_get_rowstride (retval);
+	data = cdk_pixbuf_get_pixels (retval);
+	rowstride = cdk_pixbuf_get_rowstride (retval);
 
-	gdk_pixbuf_fill (retval, 0x000000ff);
+	cdk_pixbuf_fill (retval, 0x000000ff);
 	if (fill_bg) {
 		for (i = 1; i < height_r + 1; i++)
 			memset (data + (rowstride * i) + 4, 0xffffffff, width_r * 4);
@@ -77,7 +77,7 @@ create_thumbnail_frame (int        width,
 
 	/* copy the source pixbuf */
 	if (source_pixbuf)
-		gdk_pixbuf_copy_area (source_pixbuf, 0, 0,
+		cdk_pixbuf_copy_area (source_pixbuf, 0, 0,
 				      width_r,
 				      height_r,
 				      retval,
@@ -169,7 +169,7 @@ ev_document_misc_paint_one_page (cairo_t      *cr,
         ctk_style_context_restore (context);
         shade_bg.alpha *= 0.5;
 
-	gdk_cairo_set_source_rgba (cr, highlight ? &fg : &shade_bg);
+	cdk_cairo_set_source_rgba (cr, highlight ? &fg : &shade_bg);
 	cairo_rectangle (cr,
 			 area->x,
 			 area->y,
@@ -207,12 +207,12 @@ ev_document_misc_surface_from_pixbuf (GdkPixbuf *pixbuf)
 
 	g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), NULL);
 
-	surface = cairo_image_surface_create (gdk_pixbuf_get_has_alpha (pixbuf) ?
+	surface = cairo_image_surface_create (cdk_pixbuf_get_has_alpha (pixbuf) ?
 					      CAIRO_FORMAT_ARGB32 : CAIRO_FORMAT_RGB24,
-					      gdk_pixbuf_get_width (pixbuf),
-					      gdk_pixbuf_get_height (pixbuf));
+					      cdk_pixbuf_get_width (pixbuf),
+					      cdk_pixbuf_get_height (pixbuf));
 	cr = cairo_create (surface);
-	gdk_cairo_set_source_pixbuf (cr, pixbuf, 0, 0);
+	cdk_cairo_set_source_pixbuf (cr, pixbuf, 0, 0);
 	cairo_paint (cr);
 	cairo_destroy (cr);
 
@@ -230,7 +230,7 @@ ev_document_misc_pixbuf_from_surface (cairo_surface_t *surface)
 {
 	g_return_val_if_fail (surface, NULL);
 
-    return gdk_pixbuf_get_from_surface (surface,
+    return cdk_pixbuf_get_from_surface (surface,
                                         0, 0,
                                         cairo_image_surface_get_width (surface),
                                         cairo_image_surface_get_height (surface));
@@ -315,18 +315,18 @@ ev_document_misc_invert_pixbuf (GdkPixbuf *pixbuf)
 	guchar *data, *p;
 	guint   width, height, x, y, rowstride, n_channels;
 
-	n_channels = gdk_pixbuf_get_n_channels (pixbuf);
-	g_assert (gdk_pixbuf_get_colorspace (pixbuf) == GDK_COLORSPACE_RGB);
-	g_assert (gdk_pixbuf_get_bits_per_sample (pixbuf) == 8);
+	n_channels = cdk_pixbuf_get_n_channels (pixbuf);
+	g_assert (cdk_pixbuf_get_colorspace (pixbuf) == GDK_COLORSPACE_RGB);
+	g_assert (cdk_pixbuf_get_bits_per_sample (pixbuf) == 8);
 
 	/* First grab a pointer to the raw pixel data. */
-	data = gdk_pixbuf_get_pixels (pixbuf);
+	data = cdk_pixbuf_get_pixels (pixbuf);
 
 	/* Find the number of bytes per row (could be padded). */
-	rowstride = gdk_pixbuf_get_rowstride (pixbuf);
+	rowstride = cdk_pixbuf_get_rowstride (pixbuf);
 
-	width = gdk_pixbuf_get_width (pixbuf);
-	height = gdk_pixbuf_get_height (pixbuf);
+	width = cdk_pixbuf_get_width (pixbuf);
+	height = cdk_pixbuf_get_height (pixbuf);
 	for (x = 0; x < width; x++) {
 		for (y = 0; y < height; y++) {
 			/* Calculate pixel's offset into the data array. */
@@ -346,14 +346,14 @@ ev_document_misc_get_monitor_dpi (GdkMonitor *monitor)
 	int s;
 	gdouble dp, di;
 
-	gdk_monitor_get_geometry (monitor, &geometry);
-	s = gdk_monitor_get_scale_factor (monitor);
+	cdk_monitor_get_geometry (monitor, &geometry);
+	s = cdk_monitor_get_scale_factor (monitor);
 
 	/*diagonal in pixels*/
 	dp = hypot (geometry.width * s, geometry.height * s);
 
 	/*diagonal in inches*/
-	di = hypot (gdk_monitor_get_width_mm(monitor), gdk_monitor_get_height_mm (monitor)) / 25.4;
+	di = hypot (cdk_monitor_get_width_mm(monitor), cdk_monitor_get_height_mm (monitor)) / 25.4;
 
 	return (dp / di);
 }
@@ -390,9 +390,9 @@ ev_document_misc_get_pointer_position (CtkWidget *widget,
         if (!ctk_widget_get_realized (widget))
                 return;
 
-        seat = gdk_display_get_default_seat (ctk_widget_get_display (widget));
-        device_pointer = gdk_seat_get_pointer (seat);
-        gdk_window_get_device_position (ctk_widget_get_window (widget),
+        seat = cdk_display_get_default_seat (ctk_widget_get_display (widget));
+        device_pointer = cdk_seat_get_pointer (seat);
+        cdk_window_get_device_position (ctk_widget_get_window (widget),
                                         device_pointer,
                                         x, y, NULL);
 

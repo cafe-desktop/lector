@@ -28,7 +28,7 @@
 #ifndef __EV_STOCK_ICONS_H__
 #define __EV_STOCK_ICONS_H__
 
-#include <gdk/gdk.h>
+#include <cdk/cdk.h>
 
 G_BEGIN_DECLS
 

@@ -20,7 +20,7 @@
 #include <config.h>
 #include <glib/gi18n-lib.h>
 #include <glib/gstdio.h>
-#include <gdk/gdk.h>
+#include <cdk/cdk.h>
 #include "ev-file-helpers.h"
 #include "ev-attachment.h"
 
@@ -351,10 +351,10 @@ ev_attachment_launch_app (EvAttachment *attachment,
 
 	files = g_list_prepend (files, attachment->priv->tmp_file);
 
-	display = screen ? gdk_screen_get_display (screen) : gdk_display_get_default ();
-	context = gdk_display_get_app_launch_context (display);
-	gdk_app_launch_context_set_screen (context, screen);
-	gdk_app_launch_context_set_timestamp (context, timestamp);
+	display = screen ? cdk_screen_get_display (screen) : cdk_display_get_default ();
+	context = cdk_display_get_app_launch_context (display);
+	cdk_app_launch_context_set_screen (context, screen);
+	cdk_app_launch_context_set_timestamp (context, timestamp);
 
 	result = g_app_info_launch (attachment->priv->app, files,
 							    G_APP_LAUNCH_CONTEXT (context),

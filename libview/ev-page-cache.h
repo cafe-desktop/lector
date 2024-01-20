@@ -25,7 +25,7 @@
 #define EV_PAGE_CACHE_H
 
 #include <glib-object.h>
-#include <gdk/gdk.h>
+#include <cdk/cdk.h>
 #include <lector-document.h>
 #include <lector-view.h>
 

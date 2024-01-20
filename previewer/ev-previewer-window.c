@@ -70,13 +70,13 @@ G_DEFINE_TYPE (EvPreviewerWindow, ev_previewer_window, CTK_TYPE_WINDOW)
 static gdouble
 get_monitor_dpi (EvPreviewerWindow *window)
 {
-	GdkWindow  *gdk_window;
+	GdkWindow  *cdk_window;
 	GdkMonitor *monitor;
 	GdkDisplay *display;
 
-	gdk_window = ctk_widget_get_window (CTK_WIDGET (window));
-	display = gdk_window_get_display (gdk_window);
-	monitor = gdk_display_get_monitor_at_window (display, gdk_window);
+	cdk_window = ctk_widget_get_window (CTK_WIDGET (window));
+	display = cdk_window_get_display (cdk_window);
+	monitor = cdk_display_get_monitor_at_window (display, cdk_window);
 
 	return ev_document_misc_get_monitor_dpi (monitor);
 }

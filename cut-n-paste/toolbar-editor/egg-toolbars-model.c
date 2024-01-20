@@ -28,7 +28,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <libxml/tree.h>
-#include <gdk/gdk.h>
+#include <cdk/cdk.h>
 
 static void egg_toolbars_model_finalize   (GObject               *object);
 
@@ -121,7 +121,7 @@ egg_toolbars_model_to_xml (EggToolbarsModel *model)
                       dnode = xmlNewTextChild (node, NULL, (const xmlChar*) "data", (const xmlChar*) tmp);
                       g_free (tmp);
 
-                      tmp = gdk_atom_name (type->type);
+                      tmp = cdk_atom_name (type->type);
                       xmlSetProp (dnode, (const xmlChar*) "type", (const xmlChar*) tmp);
                       g_free (tmp);
                     }
@@ -340,7 +340,7 @@ egg_toolbars_model_get_data (EggToolbarsModel *model,
   char *data = NULL;
   GList *l;
 
-  if (type == GDK_NONE || type == gdk_atom_intern (EGG_TOOLBAR_ITEM_TYPE, FALSE))
+  if (type == GDK_NONE || type == cdk_atom_intern (EGG_TOOLBAR_ITEM_TYPE, FALSE))
     {
       g_return_val_if_fail (name != NULL, NULL);
       g_return_val_if_fail (*name != 0,   NULL);
@@ -370,7 +370,7 @@ egg_toolbars_model_get_name (EggToolbarsModel *model,
   char *name = NULL;
   GList *l;
 
-  if (type == GDK_NONE || type == gdk_atom_intern (EGG_TOOLBAR_ITEM_TYPE, FALSE))
+  if (type == GDK_NONE || type == cdk_atom_intern (EGG_TOOLBAR_ITEM_TYPE, FALSE))
     {
       g_return_val_if_fail (data, NULL);
       g_return_val_if_fail (*data, NULL);
@@ -472,7 +472,7 @@ parse_data_list (EggToolbarsModel *model,
 
           if (type != NULL)
             {
-              GdkAtom atom = gdk_atom_intern ((const char*) type, TRUE);
+              GdkAtom atom = cdk_atom_intern ((const char*) type, TRUE);
               name = egg_toolbars_model_get_name (model, atom, (const char*) data, create);
             }
 
@@ -510,7 +510,7 @@ parse_item_list (EggToolbarsModel *model,
             {
               xmlChar *type = xmlGetProp (child, (const xmlChar*) "type");
               xmlChar *data = xmlGetProp (child, (const xmlChar*) "name");
-              GdkAtom  atom = type ? gdk_atom_intern ((const char*) type, TRUE) : GDK_NONE;
+              GdkAtom  atom = type ? cdk_atom_intern ((const char*) type, TRUE) : GDK_NONE;
 
               /* If an old format, try to use it. */
               name = egg_toolbars_model_get_name (model, atom, (const char*) data, FALSE);

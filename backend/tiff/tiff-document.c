@@ -385,18 +385,18 @@ tiff_document_render_pixbuf (EvDocument      *document,
 		return NULL;
 	}
 
-	pixbuf = gdk_pixbuf_new_from_data (pixels, GDK_COLORSPACE_RGB, TRUE, 8,
+	pixbuf = cdk_pixbuf_new_from_data (pixels, GDK_COLORSPACE_RGB, TRUE, 8,
 					   width, height, rowstride,
 					   (GdkPixbufDestroyNotify) g_free, NULL);
 	pop_handlers ();
 
-	scaled_pixbuf = gdk_pixbuf_scale_simple (pixbuf,
+	scaled_pixbuf = cdk_pixbuf_scale_simple (pixbuf,
 						 width * rc->scale,
 						 height * rc->scale * (x_res / y_res),
 						 GDK_INTERP_BILINEAR);
 	g_object_unref (pixbuf);
 
-	rotated_pixbuf = gdk_pixbuf_rotate_simple (scaled_pixbuf, 360 - rc->rotation);
+	rotated_pixbuf = cdk_pixbuf_rotate_simple (scaled_pixbuf, 360 - rc->rotation);
 	g_object_unref (scaled_pixbuf);
 
 	return rotated_pixbuf;

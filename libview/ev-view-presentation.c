@@ -23,8 +23,8 @@
 #include <stdlib.h>
 #include <glib/gi18n-lib.h>
 #include <ctk/ctk.h>
-#include <gdk/gdkx.h>
-#include <gdk/gdkkeysyms.h>
+#include <cdk/cdkx.h>
+#include <cdk/cdkkeysyms.h>
 
 #include "ev-view-presentation.h"
 #include "ev-jobs.h"
@@ -597,7 +597,7 @@ static void
 send_focus_change (CtkWidget *widget,
 		   gboolean   in)
 {
-	GdkEvent *fevent = gdk_event_new (GDK_FOCUS_CHANGE);
+	GdkEvent *fevent = cdk_event_new (GDK_FOCUS_CHANGE);
 
 	fevent->focus_change.type = GDK_FOCUS_CHANGE;
 	fevent->focus_change.window = ctk_widget_get_window (widget);
@@ -607,7 +607,7 @@ send_focus_change (CtkWidget *widget,
 
 	ctk_widget_send_focus_change (widget, fevent);
 
-	gdk_event_free (fevent);
+	cdk_event_free (fevent);
 }
 
 static void
@@ -757,7 +757,7 @@ monitor_get_dimesions (EvViewPresentation *pview,
 		       gint     *height)
 {
 	GdkDisplay  *display;
-	GdkWindow   *gdk_window;
+	GdkWindow   *cdk_window;
 	GdkMonitor  *monitor;
 	GdkRectangle geometry;
 
@@ -765,12 +765,12 @@ monitor_get_dimesions (EvViewPresentation *pview,
 	*height = 0;
 
 	display = ctk_widget_get_display (CTK_WIDGET (pview));
-	gdk_window = ctk_widget_get_window (CTK_WIDGET (pview));
+	cdk_window = ctk_widget_get_window (CTK_WIDGET (pview));
 
-	if (gdk_window) {
-		monitor = gdk_display_get_monitor_at_window (display,
-							     gdk_window);
-		gdk_monitor_get_workarea (monitor, &geometry);
+	if (cdk_window) {
+		monitor = cdk_display_get_monitor_at_window (display,
+							     cdk_window);
+		cdk_monitor_get_workarea (monitor, &geometry);
 		*width = geometry.width;
 		*height = geometry.height;
 	}
@@ -791,7 +791,7 @@ ev_view_presentation_goto_window_send_key_event (EvViewPresentation *pview,
 			 monitor_height + 1);
 	ctk_widget_show (pview->goto_window);
 
-	new_event = (GdkEventKey *) gdk_event_copy (event);
+	new_event = (GdkEventKey *) cdk_event_copy (event);
 	g_object_unref (new_event->window);
 	new_event->window = ctk_widget_get_window (pview->goto_window);
 	if (new_event->window)
@@ -799,7 +799,7 @@ ev_view_presentation_goto_window_send_key_event (EvViewPresentation *pview,
 	ctk_widget_realize (pview->goto_window);
 
 	ctk_widget_event (pview->goto_window, (GdkEvent *)new_event);
-	gdk_event_free ((GdkEvent *)new_event);
+	cdk_event_free ((GdkEvent *)new_event);
 	ctk_widget_hide (pview->goto_window);
 }
 
@@ -944,8 +944,8 @@ ev_view_presentation_set_cursor (EvViewPresentation *pview,
 
 	display = ctk_widget_get_display (widget);
 	cursor = ev_view_cursor_new (display, view_cursor);
-	gdk_window_set_cursor (ctk_widget_get_window (widget), cursor);
-	gdk_display_flush (display);
+	cdk_window_set_cursor (ctk_widget_get_window (widget), cursor);
+	cdk_display_flush (display);
 	if (cursor)
 		g_object_unref (cursor);
 }
@@ -1098,7 +1098,7 @@ ev_view_presentation_draw (CtkWidget *widget,
 	                       ctk_widget_get_allocated_width (widget),
 	                       ctk_widget_get_allocated_height (widget));
 
-	if (!gdk_cairo_get_clip_rectangle (cr, &clip_rect))
+	if (!cdk_cairo_get_clip_rectangle (cr, &clip_rect))
 		return FALSE;
 
 	switch (pview->state) {
@@ -1139,7 +1139,7 @@ ev_view_presentation_draw (CtkWidget *widget,
 	}
 
 	ev_view_presentation_get_page_area (pview, &page_area);
-	if (gdk_rectangle_intersect (&page_area, area, &overlap)) {
+	if (cdk_rectangle_intersect (&page_area, area, &overlap)) {
 		/* Try to fix rounding errors. See bug #438760 */
 		if (overlap.width == page_area.width)
 			overlap.width--;
@@ -1284,8 +1284,8 @@ ev_view_presentation_update_monitor_geometry (EvViewPresentation *pview)
 	GdkRectangle        monitor;
 	GdkMonitor          *monitor_num;
 
-	monitor_num = gdk_display_get_monitor_at_window (display, ctk_widget_get_window (CTK_WIDGET (pview)));
-	gdk_monitor_get_geometry (monitor_num, &monitor);
+	monitor_num = cdk_display_get_monitor_at_window (display, ctk_widget_get_window (CTK_WIDGET (pview)));
+	cdk_monitor_get_geometry (monitor_num, &monitor);
 	pview->monitor_width = monitor.width;
 	pview->monitor_height = monitor.height;
 }
@@ -1331,12 +1331,12 @@ ev_view_presentation_realize (CtkWidget *widget)
 		GDK_ENTER_NOTIFY_MASK |
 		GDK_LEAVE_NOTIFY_MASK;
 
-	window = gdk_window_new (ctk_widget_get_parent_window (widget),
+	window = cdk_window_new (ctk_widget_get_parent_window (widget),
 				 &attributes,
 				 GDK_WA_X | GDK_WA_Y |
 				 GDK_WA_VISUAL);
 
-	gdk_window_set_user_data (window, widget);
+	cdk_window_set_user_data (window, widget);
 	ctk_widget_set_window (widget, window);
 
 	g_idle_add ((GSourceFunc)init_presentation, widget);

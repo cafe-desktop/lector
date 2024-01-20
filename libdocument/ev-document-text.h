@@ -28,7 +28,7 @@
 
 #include <glib-object.h>
 #include <glib.h>
-#include <gdk/gdk.h>
+#include <cdk/cdk.h>
 
 #include "ev-document.h"
 

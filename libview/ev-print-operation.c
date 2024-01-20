@@ -884,8 +884,8 @@ export_print_done (EvPrintOperationExport *export)
 			app = g_app_info_create_from_commandline (cmd, NULL, 0, &error);
 
 			if (app != NULL) {
-				ctx = gdk_display_get_app_launch_context (ctk_widget_get_display (CTK_WIDGET (export->parent_window)));
-				gdk_app_launch_context_set_screen (ctx, ctk_window_get_screen (export->parent_window));
+				ctx = cdk_display_get_app_launch_context (ctk_widget_get_display (CTK_WIDGET (export->parent_window)));
+				cdk_app_launch_context_set_screen (ctx, ctk_window_get_screen (export->parent_window));
 
 				g_app_info_launch (app, NULL, G_APP_LAUNCH_CONTEXT (ctx), &error);
 

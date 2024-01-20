@@ -26,8 +26,8 @@
 
 #include <glib/gi18n-lib.h>
 #include <ctk/ctk.h>
-#include <gdk/gdkx.h>
-#include <gdk/gdkkeysyms.h>
+#include <cdk/cdkx.h>
+#include <cdk/cdkkeysyms.h>
 
 #include "ev-mapping-list.h"
 #include "ev-document-forms.h"
@@ -501,8 +501,8 @@ is_dual_page (EvView   *view,
 		CtkAllocation allocation;
 
 		window = ctk_widget_get_window (CTK_WIDGET (view));
-		display = gdk_window_get_display (window);
-		monitor = gdk_display_get_monitor_at_window (display, window);
+		display = cdk_window_get_display (window);
+		monitor = cdk_display_get_monitor_at_window (display, window);
 
 		scale = ev_document_misc_get_monitor_dpi (monitor) / 72.0;
 
@@ -715,7 +715,7 @@ view_update_range_and_current_page (EvView *view)
 
 			ev_view_get_page_extents (view, i, &page_area, &border);
 
-			if (gdk_rectangle_intersect (&current_area, &page_area, &unused)) {
+			if (cdk_rectangle_intersect (&current_area, &page_area, &unused)) {
 				area = unused.width * unused.height;
 
 				if (!found) {
@@ -2103,7 +2103,7 @@ _ev_view_set_focused_element (EvView *view,
 	}
 
 	if (region) {
-		gdk_window_invalidate_region (ctk_widget_get_window (CTK_WIDGET (view)),
+		cdk_window_invalidate_region (ctk_widget_get_window (CTK_WIDGET (view)),
 	                                      region, TRUE);
 		cairo_region_destroy (region);
 	}
@@ -2691,7 +2691,7 @@ ev_view_window_child_move_with_parent (EvView    *view,
 	gint               root_x, root_y;
 
 	child = ev_view_get_window_child (view, window);
-	gdk_window_get_origin (ctk_widget_get_window (CTK_WIDGET (view)),
+	cdk_window_get_origin (ctk_widget_get_window (CTK_WIDGET (view)),
 			       &root_x, &root_y);
 	if (root_x != child->parent_x || root_y != child->parent_y) {
 		gint dest_x, dest_y;
@@ -2719,7 +2719,7 @@ ev_view_window_child_put (EvView    *view,
 	EvViewWindowChild *child;
 	gint               root_x, root_y;
 
-	gdk_window_get_origin (ctk_widget_get_window (CTK_WIDGET (view)),
+	cdk_window_get_origin (ctk_widget_get_window (CTK_WIDGET (view)),
 			       &root_x, &root_y);
 
 	child = g_new0 (EvViewWindowChild, 1);
@@ -3415,7 +3415,7 @@ blink_cb (EvView *view)
 		blink_time *= CURSOR_ON_MULTIPLIER;
 	}
 
-	view->cursor_blink_timeout_id = gdk_threads_add_timeout (blink_time / CURSOR_DIVIDER, (GSourceFunc)blink_cb, view);
+	view->cursor_blink_timeout_id = cdk_threads_add_timeout (blink_time / CURSOR_DIVIDER, (GSourceFunc)blink_cb, view);
 
 	return FALSE;
 }
@@ -3426,7 +3426,7 @@ ev_view_check_cursor_blink (EvView *view)
 	if (cursor_should_blink (view))	{
 		if (view->cursor_blink_timeout_id == 0) {
 			show_cursor (view);
-			view->cursor_blink_timeout_id = gdk_threads_add_timeout (get_cursor_blink_time (view) * CURSOR_ON_MULTIPLIER / CURSOR_DIVIDER,
+			view->cursor_blink_timeout_id = cdk_threads_add_timeout (get_cursor_blink_time (view) * CURSOR_ON_MULTIPLIER / CURSOR_DIVIDER,
 										 (GSourceFunc)blink_cb, view);
 		}
 
@@ -3452,7 +3452,7 @@ ev_view_pend_cursor_blink (EvView *view)
 		g_source_remove (view->cursor_blink_timeout_id);
 
 	show_cursor (view);
-	view->cursor_blink_timeout_id = gdk_threads_add_timeout (get_cursor_blink_time (view) * CURSOR_PEND_MULTIPLIER / CURSOR_DIVIDER,
+	view->cursor_blink_timeout_id = cdk_threads_add_timeout (get_cursor_blink_time (view) * CURSOR_PEND_MULTIPLIER / CURSOR_DIVIDER,
 								 (GSourceFunc)blink_cb, view);
 }
 
@@ -3713,7 +3713,7 @@ ev_view_size_allocate (CtkWidget      *widget,
 	ctk_widget_set_allocation (widget, allocation);
 
 	if (ctk_widget_get_realized (widget))
-		gdk_window_move_resize (ctk_widget_get_window (widget),
+		cdk_window_move_resize (ctk_widget_get_window (widget),
 					allocation->x,
 					allocation->y,
 					allocation->width,
@@ -3762,7 +3762,7 @@ ev_view_size_allocate (CtkWidget      *widget,
 	}
 
 	if (view->window_children)
-		gdk_window_get_origin (ctk_widget_get_window (CTK_WIDGET (view)),
+		cdk_window_get_origin (ctk_widget_get_window (CTK_WIDGET (view)),
 				       &root_x, &root_y);
 
 	for (l = view->window_children; l && l->data; l = g_list_next (l)) {
@@ -3948,10 +3948,10 @@ ev_view_realize (CtkWidget *widget)
 
 	attributes_mask = GDK_WA_X | GDK_WA_Y | GDK_WA_VISUAL;
 
-	window = gdk_window_new (ctk_widget_get_parent_window (widget),
+	window = cdk_window_new (ctk_widget_get_parent_window (widget),
 				 &attributes, attributes_mask);
 	ctk_widget_set_window (widget, window);
-	gdk_window_set_user_data (window, widget);
+	cdk_window_set_user_data (window, widget);
 }
 
 static void
@@ -3971,7 +3971,7 @@ get_cursor_color (CtkStyleContext *context,
 		color->blue = style_color->blue / 65535.0;
 		color->alpha = 1;
 
-		gdk_color_free (style_color);
+		cdk_color_free (style_color);
 	} else {
 		ctk_style_context_save (context);
 		ctk_style_context_get_color (context, CTK_STATE_FLAG_NORMAL, color);
@@ -3993,7 +3993,7 @@ draw_caret_cursor (EvView  *view,
 	get_cursor_color (ctk_widget_get_style_context (CTK_WIDGET (view)), &cursor_color);
 
 	cairo_save (cr);
-	gdk_cairo_set_source_rgba (cr, &cursor_color);
+	cdk_cairo_set_source_rgba (cr, &cursor_color);
 	cairo_rectangle (cr, view_rect.x, view_rect.y, view_rect.width, view_rect.height);
 	cairo_fill (cr);
 	cairo_restore (cr);
@@ -4026,7 +4026,7 @@ draw_focus (EvView       *view,
 	if (!ev_view_get_focused_area (view, &rect))
 		return;
 
-	if (gdk_rectangle_intersect (&rect, clip, &intersect)) {
+	if (cdk_rectangle_intersect (&rect, clip, &intersect)) {
 		ctk_render_focus (ctk_widget_get_style_context (widget),
 	                          cr,
 	                          intersect.x,
@@ -4054,7 +4054,7 @@ ev_view_draw (CtkWidget      *widget,
 	if (view->document == NULL)
 		return FALSE;
 
-	if (!gdk_cairo_get_clip_rectangle (cr, &clip_rect))
+	if (!cdk_cairo_get_clip_rectangle (cr, &clip_rect))
 		return FALSE;
 
 	for (i = view->start_page; i >= 0 && i <= view->end_page; i++) {
@@ -4424,7 +4424,7 @@ position_caret_cursor_for_event (EvView         *view,
 
 		damage_region = cairo_region_create_rectangle (&prev_area);
 		cairo_region_union_rectangle (damage_region, &area);
-		gdk_window_invalidate_region (ctk_widget_get_window (CTK_WIDGET (view)),
+		cdk_window_invalidate_region (ctk_widget_get_window (CTK_WIDGET (view)),
 					      damage_region, TRUE);
 		cairo_region_destroy (damage_region);
 	}
@@ -4631,9 +4631,9 @@ ev_view_drag_motion (CtkWidget      *widget,
 		     guint           time)
 {
 	if (ctk_drag_get_source_widget (context) == widget)
-		gdk_drag_status (context, 0, time);
+		cdk_drag_status (context, 0, time);
 	else
-		gdk_drag_status (context, gdk_drag_context_get_suggested_action (context), time);
+		cdk_drag_status (context, cdk_drag_context_get_suggested_action (context), time);
 
 	return TRUE;
 }
@@ -5041,14 +5041,14 @@ ev_view_forward_key_event_to_focused_child (EvView      *view,
 		return FALSE;
 	}
 
-	new_event = (GdkEventKey *) gdk_event_copy ((GdkEvent *)event);
+	new_event = (GdkEventKey *) cdk_event_copy ((GdkEvent *)event);
 	g_object_unref (new_event->window);
 	new_event->window = ctk_widget_get_window (child_widget);
 	if (new_event->window)
 		g_object_ref (new_event->window);
 	ctk_widget_realize (child_widget);
 	handled = ctk_widget_event (child_widget, (GdkEvent *)new_event);
-	gdk_event_free ((GdkEvent *)new_event);
+	cdk_event_free ((GdkEvent *)new_event);
 
 	return handled;
 }
@@ -5512,7 +5512,7 @@ ev_view_move_cursor (EvView         *view,
 
 	g_signal_emit (view, signals[SIGNAL_CURSOR_MOVED], 0, view->cursor_page, view->cursor_offset);
 
-	gdk_window_invalidate_region (ctk_widget_get_window (CTK_WIDGET (view)),
+	cdk_window_invalidate_region (ctk_widget_get_window (CTK_WIDGET (view)),
 				      damage_region, TRUE);
 	cairo_region_destroy (damage_region);
 
@@ -5769,7 +5769,7 @@ draw_selection_region (cairo_t        *cr,
 	cairo_save (cr);
 	cairo_translate (cr, x, y);
 	cairo_scale (cr, scale_x, scale_y);
-	gdk_cairo_region (cr, region);
+	cdk_cairo_region (cr, region);
 	cairo_set_source_rgb (cr, color->red, color->green, color->blue);
 	cairo_set_operator (cr, CAIRO_OPERATOR_MULTIPLY);
 	cairo_set_antialias (cr, CAIRO_ANTIALIAS_NONE);
@@ -5793,7 +5793,7 @@ draw_one_page (EvView       *view,
 
 	g_assert (view->document);
 
-	if (! gdk_rectangle_intersect (page_area, expose_area, &overlap))
+	if (! cdk_rectangle_intersect (page_area, expose_area, &overlap))
 		return;
 
 	/* Render the document itself */
@@ -5820,7 +5820,7 @@ draw_one_page (EvView       *view,
 	ctk_render_frame (context, cr, page_area->x, page_area->y, page_area->width, page_area->height);
 	ctk_style_context_restore (context);
 
-	if (gdk_rectangle_intersect (&real_page_area, expose_area, &overlap)) {
+	if (cdk_rectangle_intersect (&real_page_area, expose_area, &overlap)) {
 		gint             width, height;
 		cairo_surface_t *page_surface = NULL;
 		cairo_surface_t *selection_surface = NULL;
@@ -6536,7 +6536,7 @@ job_finished_cb (EvPixbufCache  *pixbuf_cache,
 		 EvView         *view)
 {
 	if (region) {
-		gdk_window_invalidate_region (ctk_widget_get_window (CTK_WIDGET (view)), region, TRUE);
+		cdk_window_invalidate_region (ctk_widget_get_window (CTK_WIDGET (view)), region, TRUE);
 	} else {
 		ctk_widget_queue_draw (CTK_WIDGET (view));
 	}
@@ -6609,7 +6609,7 @@ on_adjustment_value_changed (CtkAdjustment *adjustment,
 	if (view->pending_resize) {
 		ctk_widget_queue_draw (widget);
 	} else {
-		gdk_window_scroll (ctk_widget_get_window (widget), dx, dy);
+		cdk_window_scroll (ctk_widget_get_window (widget), dx, dy);
 	}
 
 	ev_document_misc_get_pointer_position (widget, &x, &y);
@@ -7115,10 +7115,10 @@ zoom_for_size_automatic (GdkScreen *screen,
 	} else {
 		double actual_scale, resolution;
 
-		resolution = gdk_screen_get_resolution (screen);
+		resolution = cdk_screen_get_resolution (screen);
 		if (resolution == -1) {
-			GdkDisplay *display = gdk_screen_get_display (screen);
-			GdkMonitor *monitor = gdk_display_get_primary_monitor (display);
+			GdkDisplay *display = cdk_screen_get_display (screen);
+			GdkMonitor *monitor = cdk_display_get_primary_monitor (display);
 			resolution = ev_document_misc_get_monitor_dpi (monitor);
 		}
 		actual_scale = resolution / 72.0;
@@ -7552,7 +7552,7 @@ ev_view_highlight_forward_search (EvView       *view,
 
 /*** Selections ***/
 static gboolean
-gdk_rectangle_point_in (GdkRectangle *rectangle,
+cdk_rectangle_point_in (GdkRectangle *rectangle,
 			GdkPoint     *point)
 {
 	return rectangle->x <= point->x &&
@@ -7562,7 +7562,7 @@ gdk_rectangle_point_in (GdkRectangle *rectangle,
 }
 
 static inline gboolean
-gdk_point_equal (GdkPoint *a,
+cdk_point_equal (GdkPoint *a,
                  GdkPoint *b)
 {
 	return a->x == b->x && a->y == b->y;
@@ -7582,7 +7582,7 @@ get_selection_page_range (EvView          *view,
 
 	n_pages = ev_document_get_n_pages (view->document);
 
-	if (gdk_point_equal (start, stop)) {
+	if (cdk_point_equal (start, stop)) {
 		start_page = view->start_page;
 		end_page = view->end_page;
 	} else if (view->continuous) {
@@ -7607,8 +7607,8 @@ get_selection_page_range (EvView          *view,
 		page_area.y -= border.top;
 		page_area.width += border.left + border.right;
 		page_area.height += border.top + border.bottom;
-		if (gdk_rectangle_point_in (&page_area, start) ||
-		    gdk_rectangle_point_in (&page_area, stop)) {
+		if (cdk_rectangle_point_in (&page_area, start) ||
+		    cdk_rectangle_point_in (&page_area, stop)) {
 			if (first == -1)
 				first = i;
 			last = i;
@@ -7663,7 +7663,7 @@ compute_new_selection (EvView          *view,
 		page_area.width += border.left + border.right;
 		page_area.height += border.top + border.bottom;
 
-		if (gdk_rectangle_point_in (&page_area, start))
+		if (cdk_rectangle_point_in (&page_area, start))
 			point = start;
 		else
 			point = stop;
@@ -7816,7 +7816,7 @@ merge_selection_region (EvView *view,
 			}
 			cairo_region_destroy (region);
 
-			gdk_window_invalidate_region (ctk_widget_get_window (CTK_WIDGET (view)),
+			cdk_window_invalidate_region (ctk_widget_get_window (CTK_WIDGET (view)),
 						      damage_region, TRUE);
 			cairo_region_destroy (damage_region);
 		}
@@ -8065,8 +8065,8 @@ ev_view_set_cursor (EvView *view, EvViewCursor new_cursor)
 	widget = ctk_widget_get_toplevel (CTK_WIDGET (view));
 	display = ctk_widget_get_display (widget);
 	cursor = ev_view_cursor_new (display, new_cursor);
-	gdk_window_set_cursor (bin_window, cursor);
-	gdk_display_flush (display);
+	cdk_window_set_cursor (bin_window, cursor);
+	cdk_display_flush (display);
 	if (cursor)
 		g_object_unref (cursor);
 }
