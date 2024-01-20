@@ -47,7 +47,7 @@ ev_navigation_action_widget_init (EvNavigationActionWidget *action_widget)
 	 * button press event
 	 */
 
-	toggle_button = gtk_bin_get_child (GTK_BIN (action_widget));
+	toggle_button = ctk_bin_get_child (GTK_BIN (action_widget));
 
 	g_signal_connect (toggle_button, "button-press-event",
 			  G_CALLBACK (ev_navigation_action_widget_button_press_event),
@@ -76,7 +76,7 @@ static int
 menu_deactivate_cb (GtkMenuShell      *menu_shell,
 		    EvNavigationActionWidget *widget)
 {
-         gtk_toggle_tool_button_set_active (GTK_TOGGLE_TOOL_BUTTON (widget), FALSE);
+         ctk_toggle_tool_button_set_active (GTK_TOGGLE_TOOL_BUTTON (widget), FALSE);
 	 return TRUE;
 }
 
@@ -96,20 +96,20 @@ ev_navigation_action_widget_set_menu(EvNavigationActionWidget *button, GtkWidget
       if (button->menu == GTK_MENU (menu))
 		return;
 
-      if (button->menu && gtk_widget_get_visible (GTK_WIDGET (button->menu)))
-	        gtk_menu_shell_deactivate (GTK_MENU_SHELL (button->menu));
+      if (button->menu && ctk_widget_get_visible (GTK_WIDGET (button->menu)))
+	        ctk_menu_shell_deactivate (GTK_MENU_SHELL (button->menu));
 
       if (button->menu) {
     		g_signal_handlers_disconnect_by_func (button->menu,
 						menu_deactivate_cb,
 						button);
-		gtk_menu_detach (button->menu);
+		ctk_menu_detach (button->menu);
        }
 
        button->menu = GTK_MENU (menu);
 
        if (button->menu) {
-    		gtk_menu_attach_to_widget (button->menu, GTK_WIDGET (button),
+    		ctk_menu_attach_to_widget (button->menu, GTK_WIDGET (button),
             		                   menu_detacher);
 		g_signal_connect (button->menu, "deactivate",
 				  G_CALLBACK (menu_deactivate_cb), button);
@@ -125,7 +125,7 @@ popup_menu_under_arrow (EvNavigationActionWidget *button,
 	if (!button->menu)
 		return;
 
-	gtk_menu_popup_at_pointer (button->menu,
+	ctk_menu_popup_at_pointer (button->menu,
 	                           (const GdkEvent*) event);
 }
 
@@ -136,12 +136,12 @@ ev_navigation_action_widget_toggled (GtkToggleToolButton *toggle)
 	if (!button->menu)
     		return;
 
-	if (gtk_toggle_tool_button_get_active (GTK_TOGGLE_TOOL_BUTTON (button)) &&
-	    !gtk_widget_get_visible (GTK_WIDGET (button->menu))) {
+	if (ctk_toggle_tool_button_get_active (GTK_TOGGLE_TOOL_BUTTON (button)) &&
+	    !ctk_widget_get_visible (GTK_WIDGET (button->menu))) {
 		      /* we get here only when the menu is activated by a key
 		       * press, so that we can select the first menu item */
 		      popup_menu_under_arrow (button, NULL);
-		      gtk_menu_shell_select_first (GTK_MENU_SHELL (button->menu), FALSE);
+		      ctk_menu_shell_select_first (GTK_MENU_SHELL (button->menu), FALSE);
         }
 }
 
@@ -154,7 +154,7 @@ ev_navigation_action_widget_button_press_event (GtkWidget *widget,
 
 	if (event->button == 1) {
 	         popup_menu_under_arrow (button, event);
-	    	 gtk_toggle_tool_button_set_active (GTK_TOGGLE_TOOL_BUTTON (button), TRUE);
+	    	 ctk_toggle_tool_button_set_active (GTK_TOGGLE_TOOL_BUTTON (button), TRUE);
 	    	 return TRUE;
 	}
 	return FALSE;

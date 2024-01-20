@@ -20,7 +20,7 @@
 #ifndef __EGG_FIND_BAR_H__
 #define __EGG_FIND_BAR_H__
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 
@@ -53,10 +53,10 @@ struct _EggFindBarClass
   void (* scroll)   (EggFindBar *find_bar, GtkScrollType* scroll);
 
   /* Padding for future expansion */
-  void (*_gtk_reserved1) (void);
-  void (*_gtk_reserved2) (void);
-  void (*_gtk_reserved3) (void);
-  void (*_gtk_reserved4) (void);
+  void (*_ctk_reserved1) (void);
+  void (*_ctk_reserved2) (void);
+  void (*_ctk_reserved3) (void);
+  void (*_ctk_reserved4) (void);
 };
 
 GType                  egg_find_bar_get_type               (void) G_GNUC_CONST;

@@ -30,7 +30,7 @@
 
 #include <glib-object.h>
 #include <glib.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "ev-document.h"
 #include "ev-link.h"

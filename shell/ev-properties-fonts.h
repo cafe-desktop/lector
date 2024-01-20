@@ -23,7 +23,7 @@
 
 #include "ev-document.h"
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 

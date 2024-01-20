@@ -21,7 +21,7 @@
 #ifndef EV_BOOKMARK_ACTION_H
 #define EV_BOOKMARK_ACTION_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <glib-object.h>
 
 #include "ev-bookmarks.h"

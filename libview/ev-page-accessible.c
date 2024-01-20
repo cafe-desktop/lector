@@ -386,7 +386,7 @@ ev_page_accessible_get_view (EvPageAccessible *page_accessible)
 {
 	g_return_val_if_fail (EV_IS_PAGE_ACCESSIBLE (page_accessible), NULL);
 
-	return EV_VIEW (gtk_accessible_get_widget (GTK_ACCESSIBLE (page_accessible->priv->view_accessible)));
+	return EV_VIEW (ctk_accessible_get_widget (GTK_ACCESSIBLE (page_accessible->priv->view_accessible)));
 }
 
 /* ATs expect to be able to identify sentence boundaries based on content. Valid,
@@ -915,15 +915,15 @@ ev_page_accessible_get_character_extents (AtkText      *text,
 	view_rect.x -= view->scroll_x;
 	view_rect.y -= view->scroll_y;
 
-	toplevel = gtk_widget_get_toplevel (GTK_WIDGET (view));
-	gtk_widget_translate_coordinates (GTK_WIDGET (view), toplevel, 0, 0, &x_widget, &y_widget);
+	toplevel = ctk_widget_get_toplevel (GTK_WIDGET (view));
+	ctk_widget_translate_coordinates (GTK_WIDGET (view), toplevel, 0, 0, &x_widget, &y_widget);
 	view_rect.x += x_widget;
 	view_rect.y += y_widget;
 
 	if (coords == ATK_XY_SCREEN) {
 		gint x_window, y_window;
 
-		gdk_window_get_origin (gtk_widget_get_window (toplevel), &x_window, &y_window);
+		gdk_window_get_origin (ctk_widget_get_window (toplevel), &x_window, &y_window);
 		view_rect.x += x_window;
 		view_rect.y += y_window;
 	}
@@ -963,15 +963,15 @@ ev_page_accessible_get_offset_at_point (AtkText      *text,
 
 	view_point.x = x;
 	view_point.y = y;
-	toplevel = gtk_widget_get_toplevel (GTK_WIDGET (self));
-	gtk_widget_translate_coordinates (GTK_WIDGET (self), toplevel, 0, 0, &x_widget, &y_widget);
+	toplevel = ctk_widget_get_toplevel (GTK_WIDGET (self));
+	ctk_widget_translate_coordinates (GTK_WIDGET (self), toplevel, 0, 0, &x_widget, &y_widget);
 	view_point.x -= x_widget;
 	view_point.y -= y_widget;
 
 	if (coords == ATK_XY_SCREEN) {
 		gint x_window, y_window;
 
-		gdk_window_get_origin (gtk_widget_get_window (toplevel), &x_window, &y_window);
+		gdk_window_get_origin (ctk_widget_get_window (toplevel), &x_window, &y_window);
 		view_point.x -= x_window;
 		view_point.y -= y_window;
 	}

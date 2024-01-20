@@ -26,7 +26,7 @@
 #ifndef __EV_IMAGE_ACCESSIBLE_H__
 #define __EV_IMAGE_ACCESSIBLE_H__
 
-#include <gtk/gtk-a11y.h>
+#include <ctk/ctk-a11y.h>
 #include "ev-page-accessible.h"
 #include "ev-image.h"
 

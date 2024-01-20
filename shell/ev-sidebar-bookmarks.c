@@ -21,7 +21,7 @@
 #include "config.h"
 
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "ev-sidebar-bookmarks.h"
 
@@ -87,10 +87,10 @@ ev_sidebar_bookmarks_get_selected_page (EvSidebarBookmarks *sidebar_bookmarks,
         GtkTreeModel *model;
         GtkTreeIter   iter;
 
-        if (gtk_tree_selection_get_selected (selection, &model, &iter)) {
+        if (ctk_tree_selection_get_selected (selection, &model, &iter)) {
                 guint page;
 
-                gtk_tree_model_get (model, &iter,
+                ctk_tree_model_get (model, &iter,
                                     COLUMN_PAGE, &page,
                                     -1);
                 return page;
@@ -107,7 +107,7 @@ ev_bookmarks_popup_cmd_open_bookmark (GtkAction          *action,
         GtkTreeSelection          *selection;
         gint                       page;
 
-        selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (priv->tree_view));
+        selection = ctk_tree_view_get_selection (GTK_TREE_VIEW (priv->tree_view));
         page = ev_sidebar_bookmarks_get_selected_page (sidebar_bookmarks, selection);
         ev_document_model_set_page (priv->model, page);
 }
@@ -123,15 +123,15 @@ ev_bookmarks_popup_cmd_rename_bookmark (GtkAction          *action,
         GtkTreeIter                iter;
 
 
-        selection = gtk_tree_view_get_selection (tree_view);
-        if (gtk_tree_selection_get_selected (selection, &model, &iter)) {
+        selection = ctk_tree_view_get_selection (tree_view);
+        if (ctk_tree_selection_get_selected (selection, &model, &iter)) {
                 GtkTreePath *path;
 
-                path = gtk_tree_model_get_path (model, &iter);
-                gtk_tree_view_set_cursor (tree_view, path,
-                                          gtk_tree_view_get_column (tree_view, 0),
+                path = ctk_tree_model_get_path (model, &iter);
+                ctk_tree_view_set_cursor (tree_view, path,
+                                          ctk_tree_view_get_column (tree_view, 0),
                                           TRUE);
-                gtk_tree_path_free (path);
+                ctk_tree_path_free (path);
         }
 }
 
@@ -144,7 +144,7 @@ ev_bookmarks_popup_cmd_remove_bookmark (GtkAction          *action,
         gint                       page;
         EvBookmark                 bm;
 
-        selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (priv->tree_view));
+        selection = ctk_tree_view_get_selection (GTK_TREE_VIEW (priv->tree_view));
         page = ev_sidebar_bookmarks_get_selected_page (sidebar_bookmarks, selection);
         bm.page = page;
         bm.title = NULL;
@@ -179,8 +179,8 @@ ev_sidebar_bookmarks_update (EvSidebarBookmarks *sidebar_bookmarks)
         GList                     *items, *l;
         GtkTreeIter                iter;
 
-        model = GTK_LIST_STORE (gtk_tree_view_get_model (GTK_TREE_VIEW (priv->tree_view)));
-        gtk_list_store_clear (model);
+        model = GTK_LIST_STORE (ctk_tree_view_get_model (GTK_TREE_VIEW (priv->tree_view)));
+        ctk_list_store_clear (model);
 
         if (!priv->bookmarks) {
                 g_object_set (priv->tree_view, "has-tooltip", FALSE, NULL);
@@ -192,8 +192,8 @@ ev_sidebar_bookmarks_update (EvSidebarBookmarks *sidebar_bookmarks)
         for (l = items; l; l = g_list_next (l)) {
                 EvBookmark *bm = (EvBookmark *)l->data;
 
-                gtk_list_store_append (model, &iter);
-                gtk_list_store_set (model, &iter,
+                ctk_list_store_append (model, &iter);
+                ctk_list_store_set (model, &iter,
                                     COLUMN_MARKUP, bm->title,
                                     COLUMN_PAGE, bm->page,
                                     -1);
@@ -219,9 +219,9 @@ ev_sidebar_bookmarks_selection_changed (GtkTreeSelection   *selection,
         page = ev_sidebar_bookmarks_get_selected_page (sidebar_bookmarks, selection);
         if (page >= 0) {
                 ev_document_model_set_page (priv->model, page);
-                gtk_widget_set_sensitive (priv->del_button, TRUE);
+                ctk_widget_set_sensitive (priv->del_button, TRUE);
         } else {
-                gtk_widget_set_sensitive (priv->del_button, FALSE);
+                ctk_widget_set_sensitive (priv->del_button, FALSE);
         }
 }
 
@@ -244,7 +244,7 @@ ev_sidebar_bookmarks_del_clicked (GtkWidget          *button,
         gint                       page;
         EvBookmark                 bm;
 
-        selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (priv->tree_view));
+        selection = ctk_tree_view_get_selection (GTK_TREE_VIEW (priv->tree_view));
         page = ev_sidebar_bookmarks_get_selected_page (sidebar_bookmarks, selection);
         if (page < 0)
                 return;
@@ -261,7 +261,7 @@ ev_sidebar_bookmarks_bookmark_renamed (GtkCellRendererText *renderer,
                                        EvSidebarBookmarks  *sidebar_bookmarks)
 {
         EvSidebarBookmarksPrivate *priv = sidebar_bookmarks->priv;
-        GtkTreePath               *path = gtk_tree_path_new_from_string (path_string);
+        GtkTreePath               *path = ctk_tree_path_new_from_string (path_string);
         GtkTreeModel              *model;
         GtkTreeIter                iter;
         guint                      page;
@@ -270,12 +270,12 @@ ev_sidebar_bookmarks_bookmark_renamed (GtkCellRendererText *renderer,
         if (!new_text || new_text[0] == '\0')
                 return;
 
-        model = gtk_tree_view_get_model (GTK_TREE_VIEW (priv->tree_view));
-        gtk_tree_model_get_iter (model, &iter, path);
-        gtk_tree_model_get (model, &iter,
+        model = ctk_tree_view_get_model (GTK_TREE_VIEW (priv->tree_view));
+        ctk_tree_model_get_iter (model, &iter, path);
+        ctk_tree_model_get (model, &iter,
                             COLUMN_PAGE, &page,
                             -1);
-        gtk_tree_path_free (path);
+        ctk_tree_path_free (path);
 
         bm.page = page;
         bm.title = g_strdup (new_text);
@@ -299,26 +299,26 @@ ev_sidebar_bookmarks_query_tooltip (GtkWidget          *widget,
         gchar                     *page_label;
         gchar                     *text;
 
-        model = gtk_tree_view_get_model (GTK_TREE_VIEW (priv->tree_view));
-        if (!gtk_tree_view_get_tooltip_context (GTK_TREE_VIEW (priv->tree_view),
+        model = ctk_tree_view_get_model (GTK_TREE_VIEW (priv->tree_view));
+        if (!ctk_tree_view_get_tooltip_context (GTK_TREE_VIEW (priv->tree_view),
                                                 &x, &y, keyboard_tip,
                                                 &model, &path, &iter))
                 return FALSE;
 
-        gtk_tree_model_get (model, &iter,
+        ctk_tree_model_get (model, &iter,
                             COLUMN_PAGE, &page,
                             -1);
 
         document = ev_document_model_get_document (priv->model);
         page_label = ev_document_get_page_label (document, page);
         text = g_strdup_printf (_("Page %s"), page_label);
-        gtk_tooltip_set_text (tooltip, text);
+        ctk_tooltip_set_text (tooltip, text);
         g_free (text);
         g_free (page_label);
 
-        gtk_tree_view_set_tooltip_row (GTK_TREE_VIEW (priv->tree_view),
+        ctk_tree_view_set_tooltip_row (GTK_TREE_VIEW (priv->tree_view),
                                        tooltip, path);
-        gtk_tree_path_free (path);
+        ctk_tree_path_free (path);
 
         return TRUE;
 }
@@ -331,31 +331,31 @@ ev_sidebar_bookmarks_popup_menu_show (EvSidebarBookmarks *sidebar_bookmarks,
 {
         EvSidebarBookmarksPrivate *priv = sidebar_bookmarks->priv;
         GtkTreeView               *tree_view = GTK_TREE_VIEW (sidebar_bookmarks->priv->tree_view);
-        GtkTreeSelection          *selection = gtk_tree_view_get_selection (tree_view);
+        GtkTreeSelection          *selection = ctk_tree_view_get_selection (tree_view);
 
         if (keyboard_mode) {
-                if (!gtk_tree_selection_get_selected (selection, NULL, NULL))
+                if (!ctk_tree_selection_get_selected (selection, NULL, NULL))
                         return FALSE;
         } else {
                 GtkTreePath *path;
 
-                if (!gtk_tree_view_get_path_at_pos (tree_view, x, y, &path, NULL, NULL, NULL))
+                if (!ctk_tree_view_get_path_at_pos (tree_view, x, y, &path, NULL, NULL, NULL))
                         return FALSE;
 
                 g_signal_handlers_block_by_func (selection,
                                                  ev_sidebar_bookmarks_selection_changed,
                                                  sidebar_bookmarks);
-                gtk_tree_view_set_cursor (tree_view, path, NULL, FALSE);
+                ctk_tree_view_set_cursor (tree_view, path, NULL, FALSE);
                 g_signal_handlers_unblock_by_func (selection,
                                                    ev_sidebar_bookmarks_selection_changed,
                                                    sidebar_bookmarks);
-                gtk_tree_path_free (path);
+                ctk_tree_path_free (path);
         }
 
         if (!priv->popup)
-                priv->popup = gtk_ui_manager_get_widget (priv->ui_manager, "/BookmarksPopup");
+                priv->popup = ctk_ui_manager_get_widget (priv->ui_manager, "/BookmarksPopup");
 
-        gtk_menu_popup_at_pointer (GTK_MENU (priv->popup), NULL);
+        ctk_menu_popup_at_pointer (GTK_MENU (priv->popup), NULL);
         return TRUE;
 }
 
@@ -422,20 +422,20 @@ ev_sidebar_bookmarks_init (EvSidebarBookmarks *sidebar_bookmarks)
         sidebar_bookmarks->priv = ev_sidebar_bookmarks_get_instance_private (sidebar_bookmarks);
         priv = sidebar_bookmarks->priv;
 
-        gtk_orientable_set_orientation (GTK_ORIENTABLE (sidebar_bookmarks), GTK_ORIENTATION_VERTICAL);
-        gtk_box_set_spacing (GTK_BOX (sidebar_bookmarks), 6);
+        ctk_orientable_set_orientation (GTK_ORIENTABLE (sidebar_bookmarks), GTK_ORIENTATION_VERTICAL);
+        ctk_box_set_spacing (GTK_BOX (sidebar_bookmarks), 6);
 
-        swindow = gtk_scrolled_window_new (NULL, NULL);
-        gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (swindow),
+        swindow = ctk_scrolled_window_new (NULL, NULL);
+        ctk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (swindow),
                                         GTK_POLICY_AUTOMATIC,
                                         GTK_POLICY_AUTOMATIC);
-        gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow),
+        ctk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow),
                                              GTK_SHADOW_IN);
-        gtk_box_pack_start (GTK_BOX (sidebar_bookmarks), swindow, TRUE, TRUE, 0);
-        gtk_widget_show (swindow);
+        ctk_box_pack_start (GTK_BOX (sidebar_bookmarks), swindow, TRUE, TRUE, 0);
+        ctk_widget_show (swindow);
 
-        model = gtk_list_store_new (N_COLUMNS, G_TYPE_STRING, G_TYPE_UINT);
-        priv->tree_view = gtk_tree_view_new_with_model (GTK_TREE_MODEL (model));
+        model = ctk_list_store_new (N_COLUMNS, G_TYPE_STRING, G_TYPE_UINT);
+        priv->tree_view = ctk_tree_view_new_with_model (GTK_TREE_MODEL (model));
         g_object_unref (model);
         g_signal_connect (priv->tree_view, "query-tooltip",
                           G_CALLBACK (ev_sidebar_bookmarks_query_tooltip),
@@ -444,13 +444,13 @@ ev_sidebar_bookmarks_init (EvSidebarBookmarks *sidebar_bookmarks)
                           "button-press-event",
                           G_CALLBACK (ev_sidebar_bookmarks_button_press),
                           sidebar_bookmarks);
-        gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (priv->tree_view), FALSE);
-        selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (priv->tree_view));
+        ctk_tree_view_set_headers_visible (GTK_TREE_VIEW (priv->tree_view), FALSE);
+        selection = ctk_tree_view_get_selection (GTK_TREE_VIEW (priv->tree_view));
         g_signal_connect (selection, "changed",
                           G_CALLBACK (ev_sidebar_bookmarks_selection_changed),
                           sidebar_bookmarks);
 
-        renderer = gtk_cell_renderer_text_new ();
+        renderer = ctk_cell_renderer_text_new ();
         g_object_set (renderer,
                       "ellipsize", PANGO_ELLIPSIZE_END,
                       "editable", TRUE,
@@ -458,49 +458,49 @@ ev_sidebar_bookmarks_init (EvSidebarBookmarks *sidebar_bookmarks)
         g_signal_connect (renderer, "edited",
                           G_CALLBACK (ev_sidebar_bookmarks_bookmark_renamed),
                           sidebar_bookmarks);
-        gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (priv->tree_view),
+        ctk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (priv->tree_view),
                                                      0, NULL, renderer,
                                                      "markup", COLUMN_MARKUP,
                                                      NULL);
-        gtk_container_add (GTK_CONTAINER (swindow), priv->tree_view);
-        gtk_widget_show (priv->tree_view);
+        ctk_container_add (GTK_CONTAINER (swindow), priv->tree_view);
+        ctk_widget_show (priv->tree_view);
 
-        hbox = gtk_button_box_new (GTK_ORIENTATION_HORIZONTAL);
+        hbox = ctk_button_box_new (GTK_ORIENTATION_HORIZONTAL);
 
-        priv->add_button = gtk_button_new_with_mnemonic (_("_Add"));
-        gtk_button_set_image (GTK_BUTTON (priv->add_button), gtk_image_new_from_icon_name ("list-add", GTK_ICON_SIZE_BUTTON));
+        priv->add_button = ctk_button_new_with_mnemonic (_("_Add"));
+        ctk_button_set_image (GTK_BUTTON (priv->add_button), ctk_image_new_from_icon_name ("list-add", GTK_ICON_SIZE_BUTTON));
 
         g_signal_connect (priv->add_button, "clicked",
                           G_CALLBACK (ev_sidebar_bookmarks_add_clicked),
                           sidebar_bookmarks);
-        gtk_widget_set_sensitive (priv->add_button, FALSE);
-        gtk_box_pack_start (GTK_BOX (hbox), priv->add_button, TRUE, TRUE, 6);
-        gtk_widget_show (priv->add_button);
+        ctk_widget_set_sensitive (priv->add_button, FALSE);
+        ctk_box_pack_start (GTK_BOX (hbox), priv->add_button, TRUE, TRUE, 6);
+        ctk_widget_show (priv->add_button);
 
-        priv->del_button = gtk_button_new_with_mnemonic (_("_Remove"));
-        gtk_button_set_image (GTK_BUTTON (priv->del_button), gtk_image_new_from_icon_name ("list-remove", GTK_ICON_SIZE_BUTTON));
+        priv->del_button = ctk_button_new_with_mnemonic (_("_Remove"));
+        ctk_button_set_image (GTK_BUTTON (priv->del_button), ctk_image_new_from_icon_name ("list-remove", GTK_ICON_SIZE_BUTTON));
 
         g_signal_connect (priv->del_button, "clicked",
                           G_CALLBACK (ev_sidebar_bookmarks_del_clicked),
                           sidebar_bookmarks);
-        gtk_widget_set_sensitive (priv->del_button, FALSE);
-        gtk_box_pack_start (GTK_BOX (hbox), priv->del_button, TRUE, TRUE, 6);
-        gtk_widget_show (priv->del_button);
+        ctk_widget_set_sensitive (priv->del_button, FALSE);
+        ctk_box_pack_start (GTK_BOX (hbox), priv->del_button, TRUE, TRUE, 6);
+        ctk_widget_show (priv->del_button);
 
-        gtk_box_pack_end (GTK_BOX (sidebar_bookmarks), hbox, FALSE, TRUE, 0);
-        gtk_widget_show (hbox);
-        gtk_widget_show (GTK_WIDGET (sidebar_bookmarks));
+        ctk_box_pack_end (GTK_BOX (sidebar_bookmarks), hbox, FALSE, TRUE, 0);
+        ctk_widget_show (hbox);
+        ctk_widget_show (GTK_WIDGET (sidebar_bookmarks));
 
         /* Popup menu */
-        priv->action_group = gtk_action_group_new ("BookmarsPopupActions");
-        gtk_action_group_set_translation_domain (priv->action_group, NULL);
-        gtk_action_group_add_actions (priv->action_group, popup_entries,
+        priv->action_group = ctk_action_group_new ("BookmarsPopupActions");
+        ctk_action_group_set_translation_domain (priv->action_group, NULL);
+        ctk_action_group_add_actions (priv->action_group, popup_entries,
                                       G_N_ELEMENTS (popup_entries),
                                       sidebar_bookmarks);
-        priv->ui_manager = gtk_ui_manager_new ();
-        gtk_ui_manager_insert_action_group (priv->ui_manager,
+        priv->ui_manager = ctk_ui_manager_new ();
+        ctk_ui_manager_insert_action_group (priv->ui_manager,
                                             priv->action_group, 0);
-        gtk_ui_manager_add_ui_from_string (priv->ui_manager, popup_menu_ui, -1, NULL);
+        ctk_ui_manager_add_ui_from_string (priv->ui_manager, popup_menu_ui, -1, NULL);
 }
 
 static void
@@ -571,7 +571,7 @@ ev_sidebar_bookmarks_set_bookmarks (EvSidebarBookmarks *sidebar_bookmarks,
                           G_CALLBACK (ev_sidebar_bookmarks_changed),
                           sidebar_bookmarks);
 
-        gtk_widget_set_sensitive (priv->add_button, TRUE);
+        ctk_widget_set_sensitive (priv->add_button, TRUE);
         ev_sidebar_bookmarks_update (sidebar_bookmarks);
 }
 

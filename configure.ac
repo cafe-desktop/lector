@@ -64,7 +64,7 @@ CAFE_MAINTAINER_MODE_DEFINES
 CAFE_COMPILE_WARNINGS
 CAFE_CXX_WARNINGS
 
-dnl FIXME: remove this when required gtk+ >= 2.19.7
+dnl FIXME: remove this when required ctk+ >= 2.19.7
 DISABLE_DEPRECATED=
 AC_SUBST([DISABLE_DEPRECATED])
 
@@ -105,13 +105,13 @@ dnl Check dependencies
 
 AC_SEARCH_LIBS([hypot],[m])
 
-PKG_CHECK_MODULES(LIBDOCUMENT, gtk+-3.0 >= $GTK_REQUIRED gio-2.0 >= $GLIB_REQUIRED)
-PKG_CHECK_MODULES(LIBVIEW, gtk+-3.0 >= $GTK_REQUIRED gail-3.0 >= $GTK_REQUIRED gthread-2.0 gio-2.0 >= $GLIB_REQUIRED)
-PKG_CHECK_MODULES(BACKEND, cairo >= $CAIRO_REQUIRED gtk+-3.0 >= $GTK_REQUIRED)
-PKG_CHECK_MODULES(FRONTEND_CORE, gtk+-3.0 >= $GTK_REQUIRED gthread-2.0 gio-2.0 >= $GLIB_REQUIRED)
+PKG_CHECK_MODULES(LIBDOCUMENT, ctk+-3.0 >= $GTK_REQUIRED gio-2.0 >= $GLIB_REQUIRED)
+PKG_CHECK_MODULES(LIBVIEW, ctk+-3.0 >= $GTK_REQUIRED gail-3.0 >= $GTK_REQUIRED gthread-2.0 gio-2.0 >= $GLIB_REQUIRED)
+PKG_CHECK_MODULES(BACKEND, cairo >= $CAIRO_REQUIRED ctk+-3.0 >= $GTK_REQUIRED)
+PKG_CHECK_MODULES(FRONTEND_CORE, ctk+-3.0 >= $GTK_REQUIRED gthread-2.0 gio-2.0 >= $GLIB_REQUIRED)
 PKG_CHECK_MODULES(GMODULE, gmodule-2.0 >= $GLIB_REQUIRED)
 
-PKG_CHECK_MODULES([SHELL_CORE],[libxml-2.0 >= $LIBXML_REQUIRED gtk+-3.0 >= $GTK_REQUIRED gio-2.0 >= $GLIB_REQUIRED gthread-2.0 x11])
+PKG_CHECK_MODULES([SHELL_CORE],[libxml-2.0 >= $LIBXML_REQUIRED ctk+-3.0 >= $GTK_REQUIRED gio-2.0 >= $GLIB_REQUIRED gthread-2.0 x11])
 
 # ***************
 # Build utilities
@@ -165,7 +165,7 @@ fi
  # SM client
  # *********
 
-PKG_CHECK_MODULES([SMCLIENT],[gtk+-3.0 gthread-2.0 sm >= 1.0.0])
+PKG_CHECK_MODULES([SMCLIENT],[ctk+-3.0 gthread-2.0 sm >= 1.0.0])
 AC_SUBST([SMCLIENT_CFLAGS])
 AC_SUBST([SMCLIENT_LIBS])
 
@@ -178,17 +178,17 @@ AC_SUBST(BACKEND_LIBTOOL_FLAGS)
 # GKT+ Unix Printing
 # ******************
 
-AC_MSG_CHECKING([whether gtk+-unix-print support is requested])
-AC_ARG_WITH([gtk-unix-print],
-  [AS_HELP_STRING([--without-gtk-unix-print],
-                  [Disable the use of gtk-unix-print])],
-  [],[with_gtk_unix_print=yes])
+AC_MSG_CHECKING([whether ctk+-unix-print support is requested])
+AC_ARG_WITH([ctk-unix-print],
+  [AS_HELP_STRING([--without-ctk-unix-print],
+                  [Disable the use of ctk-unix-print])],
+  [],[with_ctk_unix_print=yes])
 
-AC_MSG_RESULT([$with_gtk_unix_print])
+AC_MSG_RESULT([$with_ctk_unix_print])
 
-if test "$with_gtk_unix_print" = "yes"; then
-   PKG_CHECK_MODULES(GTKUNIXPRINT, [gtk+-unix-print-3.0 >= $GTK_REQUIRED])
-   AC_DEFINE([GTKUNIXPRINT_ENABLED], [1], [Define if gtk+-unix-print is enabled.])
+if test "$with_ctk_unix_print" = "yes"; then
+   PKG_CHECK_MODULES(GTKUNIXPRINT, [ctk+-unix-print-3.0 >= $GTK_REQUIRED])
+   AC_DEFINE([GTKUNIXPRINT_ENABLED], [1], [Define if ctk+-unix-print is enabled.])
 fi
 
 # *********************
@@ -281,7 +281,7 @@ AC_ARG_ENABLE([caja],
   [enable_caja=yes])
 
 if test "$enable_caja" = "yes" ; then
-  PKG_CHECK_MODULES([CAJA],[gtk+-x11-3.0 $MM gthread-2.0 libcaja-extension >= 1.17.1],
+  PKG_CHECK_MODULES([CAJA],[ctk+-x11-3.0 $MM gthread-2.0 libcaja-extension >= 1.17.1],
                     [],[AC_MSG_ERROR([libcaja-extension not found; use --disable-caja to disable the caja extensions])])
   CAJA_EXTENSION_DIR=`$PKG_CONFIG --variable=extensiondir libcaja-extension`
   AC_SUBST([cajaextensiondir],[$CAJA_EXTENSION_DIR])
@@ -314,7 +314,7 @@ AC_ARG_ENABLE([previewer],
   [enable_previewer=yes])
 
 if test x$enable_previewer = "xyes" ; then
-  PKG_CHECK_MODULES([PREVIEWER],[gtk+-3.0 >= $GTK_REQUIRED gthread-2.0 gio-2.0 >= $GLIB_REQUIRED])
+  PKG_CHECK_MODULES([PREVIEWER],[ctk+-3.0 >= $GTK_REQUIRED gthread-2.0 gio-2.0 >= $GLIB_REQUIRED])
 fi
 
 AM_CONDITIONAL([ENABLE_PREVIEWER],[test "$enable_previewer" = "yes"])
@@ -598,7 +598,7 @@ AC_ARG_ENABLE(epub,
 
 have_webkit="no"
 if test "x$enable_epub" = "xyes"; then
-    PKG_CHECK_MODULES(EPUB, webkit2gtk-4.0 >= $WEBKIT_REQUIRED \
+    PKG_CHECK_MODULES(EPUB, webkit2ctk-4.0 >= $WEBKIT_REQUIRED \
        libxml-2.0 >= $LIBXML_REQUIRED zlib,have_webkit=yes,have_webkit=no)
 
     if test "x$have_webkit" = "xyes"; then
@@ -657,7 +657,7 @@ YELP_HELP_INIT
 GTK_DOC_CHECK([1.13], [--flavour no-tmpl])
 
 AC_SUBST([GLIB_PREFIX], [$($PKG_CONFIG --variable=prefix glib-2.0)])
-AC_SUBST([GTK_PREFIX], [$($PKG_CONFIG --variable=prefix gtk+-3.0)])
+AC_SUBST([GTK_PREFIX], [$($PKG_CONFIG --variable=prefix ctk+-3.0)])
 
 # ******************
 # Backends directory
@@ -758,13 +758,13 @@ AC_OUTPUT
 echo "
 Configure summary:
 
-    GTK+ Unix Print.....:    $with_gtk_unix_print
+    GTK+ Unix Print.....:    $with_ctk_unix_print
     Keyring Support.....:    $with_keyring
     DBUS Support........:    $enable_dbus
     Caja Plugin.........:    $enable_caja
     Thumbnailer.........:    $enable_thumbnailer
     Previewer...........:    $enable_previewer
-    Gtk-Doc Support.....:    $enable_gtk_doc
+    Gtk-Doc Support.....:    $enable_ctk_doc
     Debug mode..........:    $enable_debug
     GObj. Introspection.:    $enable_introspection
     Tests...............:    $enable_tests

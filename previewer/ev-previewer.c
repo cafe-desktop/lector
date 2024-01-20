@@ -20,7 +20,7 @@
 
 #include <config.h>
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <glib/gi18n.h>
 #include <lector-document.h>
 #include <lector-view.h>
@@ -108,7 +108,7 @@ main (gint argc, gchar **argv)
 	g_option_context_set_translation_domain (context, GETTEXT_PACKAGE);
 	g_option_context_add_main_entries (context, goption_options, GETTEXT_PACKAGE);
 
-	g_option_context_add_group (context, gtk_get_option_group (TRUE));
+	g_option_context_add_group (context, ctk_get_option_group (TRUE));
 
 	if (!g_option_context_parse (context, &argc, &argv, &error)) {
 		g_warning ("Error parsing command line arguments: %s", error->message);
@@ -139,21 +139,21 @@ main (gint argc, gchar **argv)
 	ev_stock_icons_init ();
 
 	g_set_application_name (_("CAFE Document Previewer"));
-	gtk_window_set_default_icon_name ("lector");
+	ctk_window_set_default_icon_name ("lector");
 
 	model = ev_document_model_new ();
 	window = ev_previewer_window_new (model);
 	ev_previewer_window_set_source_file (EV_PREVIEWER_WINDOW (window), filename);
 	ev_previewer_window_set_print_settings (EV_PREVIEWER_WINDOW (window), print_settings);
 	g_signal_connect (window, "delete-event",
-			  G_CALLBACK (gtk_main_quit), NULL);
+			  G_CALLBACK (ctk_main_quit), NULL);
 	g_signal_connect (window, "destroy",
-			  G_CALLBACK (gtk_main_quit), NULL);
-	gtk_widget_show (window);
+			  G_CALLBACK (ctk_main_quit), NULL);
+	ctk_widget_show (window);
 
 	ev_previewer_load_document (filename, model);
 
-	gtk_main ();
+	ctk_main ();
 
 	if (unlink_temp_file)
 		ev_previewer_unlink_tempfile (filename);

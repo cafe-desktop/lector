@@ -94,15 +94,15 @@ ev_sidebar_annotations_create_simple_model (const gchar *message)
 	gchar *markup;
 
 	/* Creates a fake model to indicate that we're loading */
-	retval = (GtkTreeModel *)gtk_list_store_new (N_COLUMNS,
+	retval = (GtkTreeModel *)ctk_list_store_new (N_COLUMNS,
 						     G_TYPE_STRING,
 						     GDK_TYPE_PIXBUF,
 						     G_TYPE_POINTER);
 
-	gtk_list_store_append (GTK_LIST_STORE (retval), &iter);
+	ctk_list_store_append (GTK_LIST_STORE (retval), &iter);
 	markup = g_strdup_printf ("<span size=\"larger\" style=\"italic\">%s</span>",
 				  message);
-	gtk_list_store_set (GTK_LIST_STORE (retval), &iter,
+	ctk_list_store_set (GTK_LIST_STORE (retval), &iter,
 			    COLUMN_MARKUP, markup,
 			    -1);
 	g_free (markup);
@@ -116,7 +116,7 @@ ev_sidebar_annotations_text_annot_button_toggled (GtkWidget  *button,
 {
 	EvAnnotationType annot_type;
 
-	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button))) {
+	if (!ctk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button))) {
 		g_signal_emit (sidebar_annots, signals[ANNOT_ADD_CANCELLED], 0, NULL);
 		return;
 	}
@@ -144,74 +144,74 @@ ev_sidebar_annotations_init (EvSidebarAnnotations *ev_annots)
 
 	ev_annots->priv = ev_sidebar_annotations_get_instance_private (ev_annots);
 
-	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_annots), GTK_ORIENTATION_VERTICAL);
+	ctk_orientable_set_orientation (GTK_ORIENTABLE (ev_annots), GTK_ORIENTATION_VERTICAL);
 
-	swindow = gtk_scrolled_window_new (NULL, NULL);
-	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (swindow),
+	swindow = ctk_scrolled_window_new (NULL, NULL);
+	ctk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (swindow),
 	                                GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-	gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow), GTK_SHADOW_IN);
-	gtk_box_pack_start (GTK_BOX (ev_annots), swindow, TRUE, TRUE, 0);
-	gtk_widget_show (swindow);
+	ctk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow), GTK_SHADOW_IN);
+	ctk_box_pack_start (GTK_BOX (ev_annots), swindow, TRUE, TRUE, 0);
+	ctk_widget_show (swindow);
 
 	/* Create tree view */
 	loading_model = ev_sidebar_annotations_create_simple_model (_("Loading…"));
-	ev_annots->priv->tree_view = gtk_tree_view_new_with_model (loading_model);
+	ev_annots->priv->tree_view = ctk_tree_view_new_with_model (loading_model);
 	g_object_unref (loading_model);
 
-	gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (ev_annots->priv->tree_view), FALSE);
-	selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (ev_annots->priv->tree_view));
-	gtk_tree_selection_set_mode (selection, GTK_SELECTION_NONE);
+	ctk_tree_view_set_headers_visible (GTK_TREE_VIEW (ev_annots->priv->tree_view), FALSE);
+	selection = ctk_tree_view_get_selection (GTK_TREE_VIEW (ev_annots->priv->tree_view));
+	ctk_tree_selection_set_mode (selection, GTK_SELECTION_NONE);
 
-	column = gtk_tree_view_column_new ();
+	column = ctk_tree_view_column_new ();
 
-	renderer = gtk_cell_renderer_pixbuf_new ();
-	gtk_tree_view_column_pack_start (column, renderer, FALSE);
-	gtk_tree_view_column_set_attributes (column, renderer,
+	renderer = ctk_cell_renderer_pixbuf_new ();
+	ctk_tree_view_column_pack_start (column, renderer, FALSE);
+	ctk_tree_view_column_set_attributes (column, renderer,
 					     "pixbuf", COLUMN_ICON,
 					     NULL);
 
-	renderer = gtk_cell_renderer_text_new ();
-	gtk_tree_view_column_pack_start (column, renderer, TRUE);
-	gtk_tree_view_column_set_attributes (column, renderer,
+	renderer = ctk_cell_renderer_text_new ();
+	ctk_tree_view_column_pack_start (column, renderer, TRUE);
+	ctk_tree_view_column_set_attributes (column, renderer,
 					     "markup", COLUMN_MARKUP,
 					     NULL);
-	gtk_tree_view_append_column (GTK_TREE_VIEW (ev_annots->priv->tree_view), column);
+	ctk_tree_view_append_column (GTK_TREE_VIEW (ev_annots->priv->tree_view), column);
 
-	gtk_container_add (GTK_CONTAINER (swindow), ev_annots->priv->tree_view);
-	gtk_widget_show (ev_annots->priv->tree_view);
+	ctk_container_add (GTK_CONTAINER (swindow), ev_annots->priv->tree_view);
+	ctk_widget_show (ev_annots->priv->tree_view);
 
-	hbox = gtk_button_box_new (GTK_ORIENTATION_HORIZONTAL);
-	gtk_widget_set_halign (hbox, GTK_ALIGN_START);
-	gtk_widget_set_margin_top (hbox, 6);
-	gtk_widget_show (hbox);
+	hbox = ctk_button_box_new (GTK_ORIENTATION_HORIZONTAL);
+	ctk_widget_set_halign (hbox, GTK_ALIGN_START);
+	ctk_widget_set_margin_top (hbox, 6);
+	ctk_widget_show (hbox);
 
-	ev_annots->priv->annot_text_item = gtk_toggle_button_new ();
-	gtk_widget_set_halign (ev_annots->priv->annot_text_item, GTK_ALIGN_START);
-	buttonarea = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-	gtk_box_set_spacing (GTK_BOX (buttonarea), 2);
-	gtk_widget_set_margin_start (buttonarea, 4);
-	gtk_widget_set_margin_end (buttonarea, 4);
-	gtk_container_add (GTK_CONTAINER (ev_annots->priv->annot_text_item), buttonarea);
-	gtk_widget_show (buttonarea);
+	ev_annots->priv->annot_text_item = ctk_toggle_button_new ();
+	ctk_widget_set_halign (ev_annots->priv->annot_text_item, GTK_ALIGN_START);
+	buttonarea = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+	ctk_box_set_spacing (GTK_BOX (buttonarea), 2);
+	ctk_widget_set_margin_start (buttonarea, 4);
+	ctk_widget_set_margin_end (buttonarea, 4);
+	ctk_container_add (GTK_CONTAINER (ev_annots->priv->annot_text_item), buttonarea);
+	ctk_widget_show (buttonarea);
 
-	image = gtk_image_new_from_icon_name ("list-add", GTK_ICON_SIZE_BUTTON);
-	gtk_widget_show (image);
-	gtk_box_pack_start (GTK_BOX (buttonarea), image, TRUE, TRUE, 0);
+	image = ctk_image_new_from_icon_name ("list-add", GTK_ICON_SIZE_BUTTON);
+	ctk_widget_show (image);
+	ctk_box_pack_start (GTK_BOX (buttonarea), image, TRUE, TRUE, 0);
 
-	label = gtk_label_new (_("Add"));
-	gtk_widget_show (label);
-	gtk_box_pack_start (GTK_BOX (buttonarea), label, TRUE, TRUE, 0);
+	label = ctk_label_new (_("Add"));
+	ctk_widget_show (label);
+	ctk_box_pack_start (GTK_BOX (buttonarea), label, TRUE, TRUE, 0);
 
-	gtk_box_pack_start (GTK_BOX (hbox), ev_annots->priv->annot_text_item, TRUE, TRUE, 6);
-	gtk_widget_set_tooltip_text (GTK_WIDGET (ev_annots->priv->annot_text_item),
+	ctk_box_pack_start (GTK_BOX (hbox), ev_annots->priv->annot_text_item, TRUE, TRUE, 6);
+	ctk_widget_set_tooltip_text (GTK_WIDGET (ev_annots->priv->annot_text_item),
 	                             _("Add text annotation"));
 	g_signal_connect (ev_annots->priv->annot_text_item, "toggled",
 	                  G_CALLBACK (ev_sidebar_annotations_text_annot_button_toggled),
 	                  ev_annots);
-	gtk_widget_show (GTK_WIDGET (ev_annots->priv->annot_text_item));
+	ctk_widget_show (GTK_WIDGET (ev_annots->priv->annot_text_item));
 
-	gtk_box_pack_end (GTK_BOX (ev_annots), hbox, FALSE, TRUE, 0);
-	gtk_widget_show (GTK_WIDGET (ev_annots));
+	ctk_box_pack_end (GTK_BOX (ev_annots), hbox, FALSE, TRUE, 0);
+	ctk_widget_show (GTK_WIDGET (ev_annots));
 }
 
 static void
@@ -290,7 +290,7 @@ ev_sidebar_annotations_annot_added (EvSidebarAnnotations *sidebar_annots,
 		g_signal_handlers_block_by_func (toggle_button,
 						 ev_sidebar_annotations_text_annot_button_toggled,
 						 sidebar_annots);
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (toggle_button), FALSE);
+		ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (toggle_button), FALSE);
 		g_signal_handlers_unblock_by_func (toggle_button,
 						   ev_sidebar_annotations_text_annot_button_toggled,
 						   sidebar_annots);
@@ -312,10 +312,10 @@ selection_changed_cb (GtkTreeSelection     *selection,
 	GtkTreeModel *model;
 	GtkTreeIter   iter;
 
-	if (gtk_tree_selection_get_selected (selection, &model, &iter)) {
+	if (ctk_tree_selection_get_selected (selection, &model, &iter)) {
 		EvMapping *mapping = NULL;
 
-		gtk_tree_model_get (model, &iter,
+		ctk_tree_model_get (model, &iter,
 				    COLUMN_ANNOT_MAPPING, &mapping,
 				    -1);
 		if (mapping)
@@ -340,7 +340,7 @@ job_finished_callback (EvJobAnnots          *job,
 		GtkTreeModel *list;
 
 		list = ev_sidebar_annotations_create_simple_model (_("Document contains no annotations"));
-		gtk_tree_view_set_model (GTK_TREE_VIEW (priv->tree_view), list);
+		ctk_tree_view_set_model (GTK_TREE_VIEW (priv->tree_view), list);
 		g_object_unref (list);
 
 		g_object_unref (job);
@@ -349,8 +349,8 @@ job_finished_callback (EvJobAnnots          *job,
 		return;
 	}
 
-	selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (priv->tree_view));
-	gtk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
+	selection = ctk_tree_view_get_selection (GTK_TREE_VIEW (priv->tree_view));
+	ctk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
 	if (priv->selection_changed_id == 0) {
 		priv->selection_changed_id =
 			g_signal_connect (selection, "changed",
@@ -358,7 +358,7 @@ job_finished_callback (EvJobAnnots          *job,
 					  sidebar_annots);
 	}
 
-	model = gtk_tree_store_new (N_COLUMNS,
+	model = ctk_tree_store_new (N_COLUMNS,
 				    G_TYPE_STRING,
 				    GDK_TYPE_PIXBUF,
 				    G_TYPE_POINTER);
@@ -373,8 +373,8 @@ job_finished_callback (EvJobAnnots          *job,
 		mapping_list = (EvMappingList *)l->data;
 		page_label = g_strdup_printf (_("Page %d"),
 					      ev_mapping_list_get_page (mapping_list) + 1);
-		gtk_tree_store_append (model, &iter, NULL);
-		gtk_tree_store_set (model, &iter,
+		ctk_tree_store_append (model, &iter, NULL);
+		ctk_tree_store_set (model, &iter,
 				    COLUMN_MARKUP, page_label,
 				    -1);
 		g_free (page_label);
@@ -401,11 +401,11 @@ job_finished_callback (EvJobAnnots          *job,
 				markup = g_strdup_printf ("<span weight=\"bold\">%s</span>", label);
 			}
 
-			icon_theme = gtk_icon_theme_get_default();
+			icon_theme = ctk_icon_theme_get_default();
 
 			if (EV_IS_ANNOTATION_TEXT (annot)) {
 				if (!text_icon) {
-					text_icon = gtk_icon_theme_load_icon (icon_theme,
+					text_icon = ctk_icon_theme_load_icon (icon_theme,
 					                                      "starred",
 					                                      GTK_ICON_SIZE_BUTTON,
 					                                      GTK_ICON_LOOKUP_FORCE_REGULAR,
@@ -414,7 +414,7 @@ job_finished_callback (EvJobAnnots          *job,
 				pixbuf = text_icon;
 			} else if (EV_IS_ANNOTATION_ATTACHMENT (annot)) {
 				if (!attachment_icon) {
-					attachment_icon = gtk_icon_theme_load_icon (icon_theme,
+					attachment_icon = ctk_icon_theme_load_icon (icon_theme,
 					                                            "mail-attachment",
 					                                            GTK_ICON_SIZE_BUTTON,
 					                                            GTK_ICON_LOOKUP_FORCE_REGULAR,
@@ -423,8 +423,8 @@ job_finished_callback (EvJobAnnots          *job,
 				pixbuf = attachment_icon;
 			}
 
-			gtk_tree_store_append (model, &child_iter, &iter);
-			gtk_tree_store_set (model, &child_iter,
+			ctk_tree_store_append (model, &child_iter, &iter);
+			ctk_tree_store_set (model, &child_iter,
 					    COLUMN_MARKUP, markup,
 					    COLUMN_ICON, pixbuf,
 					    COLUMN_ANNOT_MAPPING, ll->data,
@@ -434,10 +434,10 @@ job_finished_callback (EvJobAnnots          *job,
 		}
 
 		if (!found)
-			gtk_tree_store_remove (model, &iter);
+			ctk_tree_store_remove (model, &iter);
 	}
 
-	gtk_tree_view_set_model (GTK_TREE_VIEW (priv->tree_view),
+	ctk_tree_view_set_model (GTK_TREE_VIEW (priv->tree_view),
 				 GTK_TREE_MODEL (model));
 	g_object_unref (model);
 
@@ -487,7 +487,7 @@ ev_sidebar_annotations_document_changed_cb (EvDocumentModel      *model,
 	priv->document = g_object_ref (document);
 
 	enable_add = ev_document_annotations_can_add_annotation (EV_DOCUMENT_ANNOTATIONS (document));
-	gtk_widget_set_sensitive (priv->annot_text_item, enable_add);
+	ctk_widget_set_sensitive (priv->annot_text_item, enable_add);
 
 	ev_sidebar_annotations_load (sidebar_annots);
 }

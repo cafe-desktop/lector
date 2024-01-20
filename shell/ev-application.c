@@ -29,7 +29,7 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <gdk/gdkx.h>
 
 #include "eggsmclient.h"
@@ -292,7 +292,7 @@ ev_application_get_empty_window (EvApplication *application,
 	EvWindow *empty_window = NULL;
 	GList    *windows, *l;
 
-        windows = gtk_application_get_windows (GTK_APPLICATION (application));
+        windows = ctk_application_get_windows (GTK_APPLICATION (application));
 	for (l = windows; l != NULL; l = l->next) {
 		EvWindow *window;
 
@@ -302,7 +302,7 @@ ev_application_get_empty_window (EvApplication *application,
                 window = EV_WINDOW (l->data);
 
 		if (ev_window_is_empty (window) &&
-		    gtk_window_get_screen (GTK_WINDOW (window)) == screen) {
+		    ctk_window_get_screen (GTK_WINDOW (window)) == screen) {
 			empty_window = window;
 			break;
 		}
@@ -504,7 +504,7 @@ ev_application_register_uri (EvApplication  *application,
 		/* Already registered, reload */
 		GList *windows, *l;
 
-		windows = gtk_application_get_windows (GTK_APPLICATION (application));
+		windows = ctk_application_get_windows (GTK_APPLICATION (application));
 		for (l = windows; l != NULL; l = g_list_next (l)) {
                         if (!EV_IS_WINDOW (l->data))
                                 continue;
@@ -594,23 +594,23 @@ ev_application_open_uri_in_window (EvApplication  *application,
 
 	if (screen) {
 		ev_stock_icons_set_screen (screen);
-		gtk_window_set_screen (GTK_WINDOW (ev_window), screen);
+		ctk_window_set_screen (GTK_WINDOW (ev_window), screen);
 	}
 
 	/* We need to load uri before showing the window, so
 	   we can restore window size without flickering */
 	ev_window_open_uri (ev_window, uri, dest, mode, search_string);
 
-	if (!gtk_widget_get_realized (GTK_WIDGET (ev_window)))
-		gtk_widget_realize (GTK_WIDGET (ev_window));
+	if (!ctk_widget_get_realized (GTK_WIDGET (ev_window)))
+		ctk_widget_realize (GTK_WIDGET (ev_window));
 
-	gdk_window = gtk_widget_get_window (GTK_WIDGET (ev_window));
+	gdk_window = ctk_widget_get_window (GTK_WIDGET (ev_window));
 
 	if (timestamp <= 0)
 		timestamp = gdk_x11_get_server_time (gdk_window);
 	gdk_x11_window_set_user_time (gdk_window, timestamp);
 
-	gtk_window_present (GTK_WINDOW (ev_window));
+	ctk_window_present (GTK_WINDOW (ev_window));
 }
 
 static void
@@ -689,19 +689,19 @@ ev_application_open_window (EvApplication *application,
 
 	if (screen) {
 		ev_stock_icons_set_screen (screen);
-		gtk_window_set_screen (GTK_WINDOW (new_window), screen);
+		ctk_window_set_screen (GTK_WINDOW (new_window), screen);
 	}
 
-	if (!gtk_widget_get_realized (new_window))
-		gtk_widget_realize (new_window);
+	if (!ctk_widget_get_realized (new_window))
+		ctk_widget_realize (new_window);
 
-	gdk_window = gtk_widget_get_window (GTK_WIDGET (new_window));
+	gdk_window = ctk_widget_get_window (GTK_WIDGET (new_window));
 
 	if (timestamp <= 0)
 		timestamp = gdk_x11_get_server_time (gdk_window);
 	gdk_x11_window_set_user_time (gdk_window, timestamp);
 
-	gtk_window_present (GTK_WINDOW (new_window));
+	ctk_window_present (GTK_WINDOW (new_window));
 }
 
 #ifdef ENABLE_DBUS
@@ -715,7 +715,7 @@ handle_get_window_list_cb (EvLectorApplication    *object,
 
         paths = g_ptr_array_new ();
 
-        windows = gtk_application_get_windows (GTK_APPLICATION (application));
+        windows = ctk_application_get_windows (GTK_APPLICATION (application));
         for (l = windows; l; l = g_list_next (l)) {
                 if (!EV_IS_WINDOW (l->data))
                         continue;
@@ -772,7 +772,7 @@ handle_reload_cb (EvLectorApplication   *object,
         else
                 screen = gdk_screen_get_default ();
 
-        windows = gtk_application_get_windows (GTK_APPLICATION ((application)));
+        windows = ctk_application_get_windows (GTK_APPLICATION ((application)));
         for (l = windows; l != NULL; l = g_list_next (l)) {
                 if (!EV_IS_WINDOW (l->data))
                         continue;
@@ -835,7 +835,7 @@ static void ev_application_accel_map_save(EvApplication* application)
 		return;
 	}
 
-	gtk_accel_map_save_fd(fd);
+	ctk_accel_map_save_fd(fd);
 	close(fd);
 
 	if (g_rename(tmp_filename, accel_map_file) == -1)
@@ -860,7 +860,7 @@ static void ev_application_accel_map_load(EvApplication* application)
 		accel_map_file = g_build_filename(g_get_user_config_dir(), "lector", "accels", NULL);
 	}
 
-	gtk_accel_map_load(accel_map_file);
+	ctk_accel_map_load(accel_map_file);
 	g_free(accel_map_file);
 }
 
@@ -892,12 +892,12 @@ ev_application_activate (GApplication *gapplication)
         EvApplication *application = EV_APPLICATION (gapplication);
         GList *windows, *l;
 
-        windows = gtk_application_get_windows (GTK_APPLICATION (application));
+        windows = ctk_application_get_windows (GTK_APPLICATION (application));
         for (l = windows; l != NULL; l = l->next) {
                 if (!EV_IS_WINDOW (l->data))
                         continue;
 
-                gtk_window_present (GTK_WINDOW (l->data));
+                ctk_window_present (GTK_WINDOW (l->data));
         }
 }
 
@@ -999,7 +999,7 @@ ev_application_has_window (EvApplication *application)
 {
 	GList *l, *windows;
 
-	windows = gtk_application_get_windows (GTK_APPLICATION (application));
+	windows = ctk_application_get_windows (GTK_APPLICATION (application));
 	for (l = windows; l != NULL; l = l->next) {
 		if (!EV_IS_WINDOW (l->data))
                         continue;
@@ -1016,7 +1016,7 @@ ev_application_get_n_windows (EvApplication *application)
         GList *l, *windows;
         guint retval = 0;
 
-        windows = gtk_application_get_windows (GTK_APPLICATION (application));
+        windows = ctk_application_get_windows (GTK_APPLICATION (application));
         for (l = windows; l != NULL && !retval; l = l->next) {
                 if (!EV_IS_WINDOW (l->data))
                         continue;

@@ -23,8 +23,8 @@
   * remove 'synctex' internally, work with external library instead
   * remove -Wunused-but-set-variable warning
   * ephy-zoom-control.c:274:20: warning: variable ‘tool_item_class’ set but not used [-Wunused-but-set-
-  * build: require webkit2gtk-4.0 >= 2.6.0
-  * build: drop fallback check for webkit2gtk-3.0
+  * build: require webkit2ctk-4.0 >= 2.6.0
+  * build: drop fallback check for webkit2ctk-3.0
   * End the va_list before returning from _synctex_merge_strings
   * build: Use synctex system library if available
   * Remove synctex warning
@@ -108,7 +108,7 @@
   * [ci] Enable Clang Static Analyzer
   * help: update copyright
   * Add documenters to translation resource
-  * Use program-name and title in gtk_show_about_dialog call
+  * Use program-name and title in ctk_show_about_dialog call
   * Update copyright in about dialog
   * Use g_strjoin to build license text in about dialog
 
@@ -143,14 +143,14 @@
   * Update lector_start_window.png
   * moveable (older spelling) -> movable
   * Update Catalan screenshot
-  * presentation: avoid deprecated 'gtk_style_context_set_background'
+  * presentation: avoid deprecated 'ctk_style_context_set_background'
   * ev-sidebar-bookmarks: use NULL instead of uninitialized variable
-  * navigation-action-widget: replace deprecated gtk_menu_popup function
-  * shell: replace deprecated gtk_menu_popup function
-  * ev-sidebar-links: replace deprecated gtk_menu_popup function
-  * ev-sidebar-bookmarks: replace deprecated gtk_menu_popup function
-  * ev-sidebar: replace deprecated gtk_menu_popup function
-  * editable-toolbar: replace deprecated gtk_menu_popup function
+  * navigation-action-widget: replace deprecated ctk_menu_popup function
+  * shell: replace deprecated ctk_menu_popup function
+  * ev-sidebar-links: replace deprecated ctk_menu_popup function
+  * ev-sidebar-bookmarks: replace deprecated ctk_menu_popup function
+  * ev-sidebar: replace deprecated ctk_menu_popup function
+  * editable-toolbar: replace deprecated ctk_menu_popup function
   * libview: replace deprecated gdk_flush
   * disable StartPresentation action in fullscreen if document has no pages
   * disable ViewPresentation action if document has no pages
@@ -358,7 +358,7 @@
   * Rename Fit Page Width as Fit Width
   * Rename Best Fit mode as Fit Page
   * Move dual page with odd pages left to the view menu
-  * libview: drop deprecated usage of gtk_container_set_resize_mode
+  * libview: drop deprecated usage of ctk_container_set_resize_mode
 
 ### lector 1.19.2
 
@@ -384,13 +384,13 @@
   * libview: Handle activation link of a Form Field  if present
   * libdocument: Add activation_link to EvFormField struct
   * ev-properties-licence: don't use deprecated GtkAlignment
-  * libview: : avoid deprecated gtk_adjustment_changed
+  * libview: : avoid deprecated ctk_adjustment_changed
   * ev-job-find: mark two methods as skip
   * ev-jobs: have ev_job_failed_from_error shadow ev_job_failed
   * libview: add missing transfer and element-type annotations
   * ev-mapping-list: make a boxed type
   * libdocument: add missing transfer and element-type annotations
-  * gtk 3.22: avoid deprecated gdk_screen_get_monitor... functions:
+  * ctk 3.22: avoid deprecated gdk_screen_get_monitor... functions:
   * avoid gdk_screen_get_primary_monitor/gdk_screen_get_monitor_scale_factor
   * ev-document-misc.c: avoid deprecated gdk_screen_get_width/height_mm
   * dvi: Mitigate command injection attacks by quoting filename
@@ -431,7 +431,7 @@
   * ev-window: remove deprecated GtkToolbar-shadow-type
   * annotation-properties-dialog: don't use a headerbar
   * avoid deprecated gdk_display_get_screen and gdk_display_get_n_screens
-  * ev-window: don't use deprecated gtk_show_uri
+  * ev-window: don't use deprecated ctk_show_uri
   * Translations update
   * avoid deprecated gdk_screen_get_number
   * Restore Polish translation credits from GNOME
@@ -443,8 +443,8 @@
   * build: properly clean the generated .caja-extension file
   * build: require cairo >= 1.10.0 and drop some old code
   * shell: remove unused code from utils
-  * ev-view: avoid deprecated gtk_drag_begin
-  * egg-editable-toolbar: avoid deprecated gtk_drag_begin
+  * ev-view: avoid deprecated ctk_drag_begin
+  * egg-editable-toolbar: avoid deprecated ctk_drag_begin
   * message-area: replace some GtkStock deprecations
   * ev-sidebar: avoid deprecated GTK_STOCK_CLOSE icon
   * password-view: replace some GtkStock deprecations
@@ -456,7 +456,7 @@
   * NEWS: use consistent, project wide, markdown-like formatting to make
     generating release announcements easier
   * Build: require caja >= 1.17.1
-  * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-gtk
+  * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-ctk
     build option
   * [comics] add support for unarchiver (unar and lsar)
   * [libview] increase page cache size to reduce number of page reloads
@@ -554,7 +554,7 @@
 ### lector 1.10.1
 
   * Fix crash when pressing Esc with no document opened
-  * Gtk3: Add webkit2gtk-4.0 and prefer it over 3.0
+  * Gtk3: Add webkit2ctk-4.0 and prefer it over 3.0
   * Help fixes
 
 ### lector 1.10.0
@@ -590,10 +590,10 @@
   * presentation: Allow to change rotation in presentation mode
   * Rotate with CTRL+Left/Right in presentation mode too
   * Add .png extension when saving images using DnD
-  * Gtk3: Use gtk_paned_new() instead gtk_[h|v]paned_new()
+  * Gtk3: Use ctk_paned_new() instead ctk_[h|v]paned_new()
   * Gtk3: Add GtkStyleContect support
   * Gtk3: Don't use gdk_cursor_unref()
-  * Gtk3: Use gtk_widget_render_icon_pixbuf()
+  * Gtk3: Use ctk_widget_render_icon_pixbuf()
   * Gtk3: presentation: Make sure background window is black by default in presentation mode
   * Add epub support (part of GSoC 2014).
   * Use CafeAboutDialog from libcafe-desktop.

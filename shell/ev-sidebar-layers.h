@@ -21,7 +21,7 @@
 #ifndef __EV_SIDEBAR_LAYERS_H__
 #define __EV_SIDEBAR_LAYERS_H__
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <glib-object.h>
 
 G_BEGIN_DECLS

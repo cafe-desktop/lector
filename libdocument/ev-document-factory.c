@@ -27,7 +27,7 @@
 #include <gio/gio.h>
 #include <glib/gstdio.h>
 #include <glib/gi18n-lib.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "ev-backends-manager.h"
 #include "ev-document-factory.h"
@@ -314,7 +314,7 @@ file_filter_add_mime_types (EvTypeInfo *info, GtkFileFilter *filter)
 			gint    j = 0;
 
 			while ((mime_type = mime_types[j++]))
-				gtk_file_filter_add_mime_type (filter, mime_type);
+				ctk_file_filter_add_mime_type (filter, mime_type);
 
 			g_strfreev (mime_types);
 		}
@@ -325,7 +325,7 @@ file_filter_add_mime_types (EvTypeInfo *info, GtkFileFilter *filter)
 #endif /* ENABLE_PIXBUF */
 
 	while ((mime_type = info->mime_types[i++]))
-		gtk_file_filter_add_mime_type (filter, mime_type);
+		ctk_file_filter_add_mime_type (filter, mime_type);
 }
 
 /**
@@ -355,20 +355,20 @@ ev_document_factory_add_filters (GtkWidget *chooser, EvDocument *document)
 
 	all_types = ev_backends_manager_get_all_types_info ();
 
-	default_filter = document_filter = filter = gtk_file_filter_new ();
-	gtk_file_filter_set_name (filter, _("All Documents"));
+	default_filter = document_filter = filter = ctk_file_filter_new ();
+	ctk_file_filter_set_name (filter, _("All Documents"));
 	g_list_foreach (all_types, (GFunc)file_filter_add_mime_types, filter);
-	gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (chooser), filter);
+	ctk_file_chooser_add_filter (GTK_FILE_CHOOSER (chooser), filter);
 
 	if (document) {
 		EvTypeInfo *info;
 
 		info = ev_backends_manager_get_document_type_info (document);
-		default_filter = filter = gtk_file_filter_new ();
-		gtk_file_filter_set_name (filter, info->desc);
+		default_filter = filter = ctk_file_filter_new ();
+		ctk_file_filter_set_name (filter, info->desc);
 		file_filter_add_mime_types (info, filter);
 		g_free (info);
-		gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (chooser), filter);
+		ctk_file_chooser_add_filter (GTK_FILE_CHOOSER (chooser), filter);
 	} else {
 		GList *l;
 
@@ -377,21 +377,21 @@ ev_document_factory_add_filters (GtkWidget *chooser, EvDocument *document)
 
 			info = (EvTypeInfo *)l->data;
 
-			default_filter = filter = gtk_file_filter_new ();
-			gtk_file_filter_set_name (filter, info->desc);
+			default_filter = filter = ctk_file_filter_new ();
+			ctk_file_filter_set_name (filter, info->desc);
 			file_filter_add_mime_types (info, filter);
-			gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (chooser), filter);
+			ctk_file_chooser_add_filter (GTK_FILE_CHOOSER (chooser), filter);
 		}
 	}
 
 	g_list_foreach (all_types, (GFunc)g_free, NULL);
 	g_list_free (all_types);
 
-	filter = gtk_file_filter_new ();
-	gtk_file_filter_set_name (filter, _("All Files"));
-	gtk_file_filter_add_pattern (filter, "*");
-	gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (chooser), filter);
+	filter = ctk_file_filter_new ();
+	ctk_file_filter_set_name (filter, _("All Files"));
+	ctk_file_filter_add_pattern (filter, "*");
+	ctk_file_chooser_add_filter (GTK_FILE_CHOOSER (chooser), filter);
 
-	gtk_file_chooser_set_filter (GTK_FILE_CHOOSER (chooser),
+	ctk_file_chooser_set_filter (GTK_FILE_CHOOSER (chooser),
 				     document == NULL ? document_filter : default_filter);
 }

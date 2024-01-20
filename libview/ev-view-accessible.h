@@ -25,7 +25,7 @@
 #ifndef __EV_VIEW_ACCESSIBLE_H__
 #define __EV_VIEW_ACCESSIBLE_H__
 
-#include <gtk/gtk-a11y.h>
+#include <ctk/ctk-a11y.h>
 #include "ev-document-model.h"
 
 #define EV_TYPE_VIEW_ACCESSIBLE      (ev_view_accessible_get_type ())

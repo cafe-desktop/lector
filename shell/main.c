@@ -24,7 +24,7 @@
 
 #include <glib/gstdio.h>
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "ev-application.h"
 #include "ev-debug.h"
@@ -242,7 +242,7 @@ main (int argc, char *argv[])
 	g_option_context_set_translation_domain(context, GETTEXT_PACKAGE);
 	g_option_context_add_main_entries (context, goption_options, GETTEXT_PACKAGE);
 	g_option_context_add_group (context, egg_sm_client_get_option_group ());
-	g_option_context_add_group (context, gtk_get_option_group (TRUE));
+	g_option_context_add_group (context, ctk_get_option_group (TRUE));
 
 	if (!g_option_context_parse (context, &argc, &argv, &error)) {
 		g_printerr ("Cannot parse arguments: %s\n", error->message);

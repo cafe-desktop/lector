@@ -26,7 +26,7 @@
 #define __EV_JOBS_H__
 
 #include <gio/gio.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <cairo.h>
 
 #include <lector-document.h>

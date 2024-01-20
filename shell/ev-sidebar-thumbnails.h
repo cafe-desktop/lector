@@ -24,7 +24,7 @@
 #ifndef __EV_SIDEBAR_THUMBNAILS_H__
 #define __EV_SIDEBAR_THUMBNAILS_H__
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 

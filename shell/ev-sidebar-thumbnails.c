@@ -29,7 +29,7 @@
 #include <string.h>
 
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "ev-document-misc.h"
 #include "ev-document-thumbnails.h"
@@ -379,14 +379,14 @@ cancel_running_jobs (EvSidebarThumbnails *sidebar_thumbnails,
 
 	g_assert (start_page <= end_page);
 
-	path = gtk_tree_path_new_from_indices (start_page, -1);
-	for (result = gtk_tree_model_get_iter (GTK_TREE_MODEL (priv->list_store), &iter, path);
+	path = ctk_tree_path_new_from_indices (start_page, -1);
+	for (result = ctk_tree_model_get_iter (GTK_TREE_MODEL (priv->list_store), &iter, path);
 	     result && start_page <= end_page;
-	     result = gtk_tree_model_iter_next (GTK_TREE_MODEL (priv->list_store), &iter), start_page ++) {
+	     result = ctk_tree_model_iter_next (GTK_TREE_MODEL (priv->list_store), &iter), start_page ++) {
 		EvJobThumbnail *job;
 		gboolean thumbnail_set;
 
-		gtk_tree_model_get (GTK_TREE_MODEL (priv->list_store),
+		ctk_tree_model_get (GTK_TREE_MODEL (priv->list_store),
 				    &iter,
 				    COLUMN_JOB, &job,
 				    COLUMN_THUMBNAIL_SET, &thumbnail_set,
@@ -403,12 +403,12 @@ cancel_running_jobs (EvSidebarThumbnails *sidebar_thumbnails,
 			g_object_unref (job);
 		}
 
-		gtk_list_store_set (priv->list_store, &iter,
+		ctk_list_store_set (priv->list_store, &iter,
 				    COLUMN_JOB, NULL,
 				    COLUMN_THUMBNAIL_SET, FALSE,
 				    -1);
 	}
-	gtk_tree_path_free (path);
+	ctk_tree_path_free (path);
 }
 
 static gdouble
@@ -439,14 +439,14 @@ add_range (EvSidebarThumbnails *sidebar_thumbnails,
 
 	g_assert (start_page <= end_page);
 
-	path = gtk_tree_path_new_from_indices (start_page, -1);
-	for (result = gtk_tree_model_get_iter (GTK_TREE_MODEL (priv->list_store), &iter, path);
+	path = ctk_tree_path_new_from_indices (start_page, -1);
+	for (result = ctk_tree_model_get_iter (GTK_TREE_MODEL (priv->list_store), &iter, path);
 	     result && page <= end_page;
-	     result = gtk_tree_model_iter_next (GTK_TREE_MODEL (priv->list_store), &iter), page ++) {
+	     result = ctk_tree_model_iter_next (GTK_TREE_MODEL (priv->list_store), &iter), page ++) {
 		EvJob *job;
 		gboolean thumbnail_set;
 
-		gtk_tree_model_get (GTK_TREE_MODEL (priv->list_store), &iter,
+		ctk_tree_model_get (GTK_TREE_MODEL (priv->list_store), &iter,
 				    COLUMN_JOB, &job,
 				    COLUMN_THUMBNAIL_SET, &thumbnail_set,
 				    -1);
@@ -461,12 +461,12 @@ add_range (EvSidebarThumbnails *sidebar_thumbnails,
 			}
 
 			g_object_set_data_full (G_OBJECT (job), "tree_iter",
-						gtk_tree_iter_copy (&iter),
-						(GDestroyNotify) gtk_tree_iter_free);
+						ctk_tree_iter_copy (&iter),
+						(GDestroyNotify) ctk_tree_iter_free);
 			g_signal_connect (job, "finished",
 					  G_CALLBACK (thumbnail_job_completed_callback),
 					  sidebar_thumbnails);
-			gtk_list_store_set (priv->list_store, &iter,
+			ctk_list_store_set (priv->list_store, &iter,
 					    COLUMN_JOB, job,
 					    -1);
 
@@ -478,7 +478,7 @@ add_range (EvSidebarThumbnails *sidebar_thumbnails,
 			g_object_unref (job);
 		}
 	}
-	gtk_tree_path_free (path);
+	ctk_tree_path_free (path);
 }
 
 /* This modifies start */
@@ -530,36 +530,36 @@ adjustment_changed_cb (EvSidebarThumbnails *sidebar_thumbnails)
 	gint wy2;
 
 	/* Widget is not currently visible */
-	if (!gtk_widget_get_mapped (GTK_WIDGET (sidebar_thumbnails)))
+	if (!ctk_widget_get_mapped (GTK_WIDGET (sidebar_thumbnails)))
 		return;
 
-	page_size = gtk_adjustment_get_page_size (priv->vadjustment);
+	page_size = ctk_adjustment_get_page_size (priv->vadjustment);
 
 	if (page_size == 0)
 		return;
 
-	value = gtk_adjustment_get_value (priv->vadjustment);
+	value = ctk_adjustment_get_value (priv->vadjustment);
 
 	if (priv->tree_view) {
-		if (! gtk_widget_get_realized (priv->tree_view))
+		if (! ctk_widget_get_realized (priv->tree_view))
 			return;
 
-		gtk_tree_view_convert_tree_to_bin_window_coords (GTK_TREE_VIEW (priv->tree_view),
+		ctk_tree_view_convert_tree_to_bin_window_coords (GTK_TREE_VIEW (priv->tree_view),
 								 0, (int) value,
 								 NULL, &wy1);
-		gtk_tree_view_convert_tree_to_bin_window_coords (GTK_TREE_VIEW (priv->tree_view),
+		ctk_tree_view_convert_tree_to_bin_window_coords (GTK_TREE_VIEW (priv->tree_view),
 								 0, (int) (value + page_size),
 								 NULL, &wy2);
-		gtk_tree_view_get_path_at_pos (GTK_TREE_VIEW (priv->tree_view),
+		ctk_tree_view_get_path_at_pos (GTK_TREE_VIEW (priv->tree_view),
 					       1, wy1 + 1, &path,
 					       NULL, NULL, NULL);
-		gtk_tree_view_get_path_at_pos (GTK_TREE_VIEW (priv->tree_view),
+		ctk_tree_view_get_path_at_pos (GTK_TREE_VIEW (priv->tree_view),
 					       1, wy2 -1, &path2,
 					       NULL, NULL, NULL);
 	} else if (priv->icon_view) {
-		if (! gtk_widget_get_realized (priv->icon_view))
+		if (! ctk_widget_get_realized (priv->icon_view))
 			return;
-		if (! gtk_icon_view_get_visible_range (GTK_ICON_VIEW (priv->icon_view), &path, &path2))
+		if (! ctk_icon_view_get_visible_range (GTK_ICON_VIEW (priv->icon_view), &path, &path2))
 			return;
 	} else {
 		return;
@@ -567,12 +567,12 @@ adjustment_changed_cb (EvSidebarThumbnails *sidebar_thumbnails)
 
 	if (path && path2) {
 		update_visible_range (sidebar_thumbnails,
-				      gtk_tree_path_get_indices (path)[0],
-				      gtk_tree_path_get_indices (path2)[0]);
+				      ctk_tree_path_get_indices (path)[0],
+				      ctk_tree_path_get_indices (path2)[0]);
 	}
 
-	gtk_tree_path_free (path);
-	gtk_tree_path_free (path2);
+	ctk_tree_path_free (path);
+	ctk_tree_path_free (path2);
 }
 
 static void
@@ -604,8 +604,8 @@ ev_sidebar_thumbnails_fill_model (EvSidebarThumbnails *sidebar_thumbnails)
 		prev_width = width;
 		prev_height = height;
 
-		gtk_list_store_append (priv->list_store, &iter);
-		gtk_list_store_set (priv->list_store, &iter,
+		ctk_list_store_append (priv->list_store, &iter);
+		ctk_list_store_set (priv->list_store, &iter,
 				    COLUMN_PAGE_STRING, page_string,
 				    COLUMN_PIXBUF, loading_icon,
 				    COLUMN_THUMBNAIL_SET, FALSE,
@@ -624,13 +624,13 @@ ev_sidebar_tree_selection_changed (GtkTreeSelection *selection,
 	GtkTreeIter iter;
 	int page;
 
-	if (!gtk_tree_selection_get_selected (selection, NULL, &iter))
+	if (!ctk_tree_selection_get_selected (selection, NULL, &iter))
 		return;
 
-	path = gtk_tree_model_get_path (GTK_TREE_MODEL (priv->list_store),
+	path = ctk_tree_model_get_path (GTK_TREE_MODEL (priv->list_store),
 					&iter);
-	page = gtk_tree_path_get_indices (path)[0];
-	gtk_tree_path_free (path);
+	page = ctk_tree_path_get_indices (path)[0];
+	ctk_tree_path_free (path);
 
 	ev_document_model_set_page (priv->model, page);
 }
@@ -644,7 +644,7 @@ ev_sidebar_icon_selection_changed (GtkIconView         *icon_view,
 	GList *selected;
 	int page;
 
-	selected = gtk_icon_view_get_selected_items (icon_view);
+	selected = ctk_icon_view_get_selected_items (icon_view);
 	if (selected == NULL)
 		return;
 
@@ -652,9 +652,9 @@ ev_sidebar_icon_selection_changed (GtkIconView         *icon_view,
 	g_assert (selected->next == NULL);
 
 	path = selected->data;
-	page = gtk_tree_path_get_indices (path)[0];
+	page = ctk_tree_path_get_indices (path)[0];
 
-	gtk_tree_path_free (path);
+	ctk_tree_path_free (path);
 	g_list_free (selected);
 
 	ev_document_model_set_page (priv->model, page);
@@ -667,28 +667,28 @@ ev_sidebar_init_tree_view (EvSidebarThumbnails *ev_sidebar_thumbnails)
 	GtkTreeSelection *selection;
 	GtkCellRenderer *renderer;
 
-	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_sidebar_thumbnails), GTK_ORIENTATION_VERTICAL);
+	ctk_orientable_set_orientation (GTK_ORIENTABLE (ev_sidebar_thumbnails), GTK_ORIENTATION_VERTICAL);
 
 	priv = ev_sidebar_thumbnails->priv;
-	priv->tree_view = gtk_tree_view_new_with_model (GTK_TREE_MODEL (priv->list_store));
+	priv->tree_view = ctk_tree_view_new_with_model (GTK_TREE_MODEL (priv->list_store));
 
-	selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (priv->tree_view));
+	selection = ctk_tree_view_get_selection (GTK_TREE_VIEW (priv->tree_view));
 	g_signal_connect (selection, "changed",
 			  G_CALLBACK (ev_sidebar_tree_selection_changed), ev_sidebar_thumbnails);
-	gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (priv->tree_view), FALSE);
+	ctk_tree_view_set_headers_visible (GTK_TREE_VIEW (priv->tree_view), FALSE);
 	renderer = g_object_new (GTK_TYPE_CELL_RENDERER_PIXBUF,
 				 "xpad", 2,
 				 "ypad", 2,
 				 NULL);
-	gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (priv->tree_view), -1,
+	ctk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (priv->tree_view), -1,
 						     NULL, renderer,
 						     "pixbuf", 1,
 						     NULL);
-	gtk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (priv->tree_view), -1,
-						     NULL, gtk_cell_renderer_text_new (),
+	ctk_tree_view_insert_column_with_attributes (GTK_TREE_VIEW (priv->tree_view), -1,
+						     NULL, ctk_cell_renderer_text_new (),
 						     "markup", 0, NULL);
-	gtk_container_add (GTK_CONTAINER (priv->swindow), priv->tree_view);
-	gtk_widget_show (priv->tree_view);
+	ctk_container_add (GTK_CONTAINER (priv->swindow), priv->tree_view);
+	ctk_widget_show (priv->tree_view);
 }
 
 static void
@@ -698,14 +698,14 @@ ev_sidebar_init_icon_view (EvSidebarThumbnails *ev_sidebar_thumbnails)
 	GtkCellRenderer *renderer;
 
 	priv = ev_sidebar_thumbnails->priv;
-	priv->icon_view = gtk_icon_view_new_with_model (GTK_TREE_MODEL (priv->list_store));
+	priv->icon_view = ctk_icon_view_new_with_model (GTK_TREE_MODEL (priv->list_store));
 
 	renderer = g_object_new (GTK_TYPE_CELL_RENDERER_PIXBUF,
 				 "xalign", 0.5,
 				 "yalign", 1.0,
 				 NULL);
-	gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (priv->icon_view), renderer, FALSE);
-	gtk_cell_layout_set_attributes (GTK_CELL_LAYOUT (priv->icon_view),
+	ctk_cell_layout_pack_start (GTK_CELL_LAYOUT (priv->icon_view), renderer, FALSE);
+	ctk_cell_layout_set_attributes (GTK_CELL_LAYOUT (priv->icon_view),
 					renderer, "pixbuf", 1, NULL);
 
 	renderer = g_object_new (GTK_TYPE_CELL_RENDERER_TEXT,
@@ -716,15 +716,15 @@ ev_sidebar_init_icon_view (EvSidebarThumbnails *ev_sidebar_thumbnails)
 				 "width", THUMBNAIL_WIDTH,
 				 "wrap-width", THUMBNAIL_WIDTH,
 				 NULL);
-	gtk_cell_layout_pack_end (GTK_CELL_LAYOUT (priv->icon_view), renderer, FALSE);
-	gtk_cell_layout_set_attributes (GTK_CELL_LAYOUT (priv->icon_view),
+	ctk_cell_layout_pack_end (GTK_CELL_LAYOUT (priv->icon_view), renderer, FALSE);
+	ctk_cell_layout_set_attributes (GTK_CELL_LAYOUT (priv->icon_view),
 					renderer, "markup", 0, NULL);
 
 	g_signal_connect (priv->icon_view, "selection-changed",
 			  G_CALLBACK (ev_sidebar_icon_selection_changed), ev_sidebar_thumbnails);
 
-	gtk_container_add (GTK_CONTAINER (priv->swindow), priv->icon_view);
-	gtk_widget_show (priv->icon_view);
+	ctk_container_add (GTK_CONTAINER (priv->swindow), priv->icon_view);
+	ctk_widget_show (priv->icon_view);
 }
 
 static gboolean
@@ -759,7 +759,7 @@ ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 
 	priv = ev_sidebar_thumbnails->priv = ev_sidebar_thumbnails_get_instance_private (ev_sidebar_thumbnails);
 
-	priv->list_store = gtk_list_store_new (NUM_COLUMNS,
+	priv->list_store = ctk_list_store_new (NUM_COLUMNS,
 					       G_TYPE_STRING,
 					       GDK_TYPE_PIXBUF,
 					       G_TYPE_BOOLEAN,
@@ -770,16 +770,16 @@ ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 			  G_CALLBACK (ev_sidebar_thumbnails_row_changed),
 			  GUINT_TO_POINTER (signal_id));
 
-	priv->swindow = gtk_scrolled_window_new (NULL, NULL);
+	priv->swindow = ctk_scrolled_window_new (NULL, NULL);
 
 	/* We actually don't want GTK_POLICY_AUTOMATIC for horizontal scrollbar here
 	 * it's just a workaround for bug #449462 (GTK2 only)
 	 */
-	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (priv->swindow),
+	ctk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (priv->swindow),
 					GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-	gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (priv->swindow),
+	ctk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (priv->swindow),
 					     GTK_SHADOW_IN);
-	priv->vadjustment = gtk_scrolled_window_get_vadjustment (GTK_SCROLLED_WINDOW (priv->swindow));
+	priv->vadjustment = ctk_scrolled_window_get_vadjustment (GTK_SCROLLED_WINDOW (priv->swindow));
 	g_signal_connect_data (priv->vadjustment, "value-changed",
 			       G_CALLBACK (adjustment_changed_cb),
 			       ev_sidebar_thumbnails, NULL,
@@ -787,10 +787,10 @@ ev_sidebar_thumbnails_init (EvSidebarThumbnails *ev_sidebar_thumbnails)
 	g_signal_connect_swapped (priv->swindow, "size-allocate",
 				  G_CALLBACK (adjustment_changed_cb),
 				  ev_sidebar_thumbnails);
-	gtk_box_pack_start (GTK_BOX (ev_sidebar_thumbnails), priv->swindow, TRUE, TRUE, 0);
+	ctk_box_pack_start (GTK_BOX (ev_sidebar_thumbnails), priv->swindow, TRUE, TRUE, 0);
 
 	/* Put it all together */
-	gtk_widget_show_all (priv->swindow);
+	ctk_widget_show_all (priv->swindow);
 }
 
 static void
@@ -800,28 +800,28 @@ ev_sidebar_thumbnails_set_current_page (EvSidebarThumbnails *sidebar,
 	GtkTreeView *tree_view;
 	GtkTreePath *path;
 
-	path = gtk_tree_path_new_from_indices (page, -1);
+	path = ctk_tree_path_new_from_indices (page, -1);
 
 	if (sidebar->priv->tree_view) {
 		tree_view = GTK_TREE_VIEW (sidebar->priv->tree_view);
-		gtk_tree_view_set_cursor (tree_view, path, NULL, FALSE);
-		gtk_tree_view_scroll_to_cell (tree_view, path, NULL, FALSE, 0.0, 0.0);
+		ctk_tree_view_set_cursor (tree_view, path, NULL, FALSE);
+		ctk_tree_view_scroll_to_cell (tree_view, path, NULL, FALSE, 0.0, 0.0);
 	} else if (sidebar->priv->icon_view) {
 
 		g_signal_handlers_block_by_func
 			(sidebar->priv->icon_view,
 			 G_CALLBACK (ev_sidebar_icon_selection_changed), sidebar);
 
-		gtk_icon_view_select_path (GTK_ICON_VIEW (sidebar->priv->icon_view), path);
+		ctk_icon_view_select_path (GTK_ICON_VIEW (sidebar->priv->icon_view), path);
 
 		g_signal_handlers_unblock_by_func
 			(sidebar->priv->icon_view,
 			 G_CALLBACK (ev_sidebar_icon_selection_changed), sidebar);
 
-		gtk_icon_view_scroll_to_path (GTK_ICON_VIEW (sidebar->priv->icon_view), path, FALSE, 0.0, 0.0);
+		ctk_icon_view_scroll_to_path (GTK_ICON_VIEW (sidebar->priv->icon_view), path, FALSE, 0.0, 0.0);
 	}
 
-	gtk_tree_path_free (path);
+	ctk_tree_path_free (path);
 }
 
 static void
@@ -896,14 +896,14 @@ thumbnail_job_completed_callback (EvJobThumbnail      *job,
 	iter = (GtkTreeIter *) g_object_get_data (G_OBJECT (job), "tree_iter");
 	if (priv->inverted_colors && priv->document->iswebdocument == FALSE)
 		ev_document_misc_invert_pixbuf (job->thumbnail);
-	gtk_list_store_set (priv->list_store,
+	ctk_list_store_set (priv->list_store,
 			    iter,
 			    COLUMN_PIXBUF, job->thumbnail,
 			    COLUMN_THUMBNAIL_SET, TRUE,
 			    COLUMN_JOB, NULL,
 			    -1);
 
-	gtk_widget_queue_draw (priv->icon_view);
+	ctk_widget_queue_draw (priv->icon_view);
 }
 
 static void
@@ -936,7 +936,7 @@ ev_sidebar_thumbnails_document_changed_cb (EvDocumentModel     *model,
 	/* Create the view widget, and remove the old one, if needed */
 	if (ev_sidebar_thumbnails_use_icon_view (sidebar_thumbnails)) {
 		if (priv->tree_view) {
-			gtk_container_remove (GTK_CONTAINER (priv->swindow), priv->tree_view);
+			ctk_container_remove (GTK_CONTAINER (priv->swindow), priv->tree_view);
 			priv->tree_view = NULL;
 		}
 
@@ -944,11 +944,11 @@ ev_sidebar_thumbnails_document_changed_cb (EvDocumentModel     *model,
 			ev_sidebar_init_icon_view (sidebar_thumbnails);
 			g_object_notify (G_OBJECT (sidebar_thumbnails), "main_widget");
 		} else {
-			gtk_widget_queue_resize (priv->icon_view);
+			ctk_widget_queue_resize (priv->icon_view);
 		}
 	} else {
 		if (priv->icon_view) {
-			gtk_container_remove (GTK_CONTAINER (priv->swindow), priv->icon_view);
+			ctk_container_remove (GTK_CONTAINER (priv->swindow), priv->icon_view);
 			priv->icon_view = NULL;
 		}
 
@@ -1002,7 +1002,7 @@ ev_sidebar_thumbnails_clear_job (GtkTreeModel *model,
 {
 	EvJob *job;
 
-	gtk_tree_model_get (model, iter, COLUMN_JOB, &job, -1);
+	ctk_tree_model_get (model, iter, COLUMN_JOB, &job, -1);
 
 	if (job != NULL) {
 		ev_job_cancel (job);
@@ -1018,8 +1018,8 @@ ev_sidebar_thumbnails_clear_model (EvSidebarThumbnails *sidebar_thumbnails)
 {
 	EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
 
-	gtk_tree_model_foreach (GTK_TREE_MODEL (priv->list_store), ev_sidebar_thumbnails_clear_job, sidebar_thumbnails);
-	gtk_list_store_clear (priv->list_store);
+	ctk_tree_model_foreach (GTK_TREE_MODEL (priv->list_store), ev_sidebar_thumbnails_clear_job, sidebar_thumbnails);
+	ctk_list_store_clear (priv->list_store);
 }
 
 static gboolean

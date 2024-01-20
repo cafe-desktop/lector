@@ -36,7 +36,7 @@
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 /*For strcasestr(),strstr()*/
 #include <string.h>
@@ -254,10 +254,10 @@ epub_document_make_tree_entry(linknode* ListData,LinksCBStruct* UserData)
 
 	link = ev_link_new((gchar*)ListData->linktext,ev_action);
 
-	gtk_tree_store_append (GTK_TREE_STORE (UserData->model), &tree_iter,(UserData->parent));
+	ctk_tree_store_append (GTK_TREE_STORE (UserData->model), &tree_iter,(UserData->parent));
 	title_markup = g_strdup((gchar*)ListData->linktext);
 
-	gtk_tree_store_set (GTK_TREE_STORE (UserData->model), &tree_iter,
+	ctk_tree_store_set (GTK_TREE_STORE (UserData->model), &tree_iter,
 			    EV_DOCUMENT_LINKS_COLUMN_MARKUP, title_markup,
 			    EV_DOCUMENT_LINKS_COLUMN_LINK, link,
 			    EV_DOCUMENT_LINKS_COLUMN_EXPAND, expand,
@@ -283,7 +283,7 @@ epub_document_links_get_links_model(EvDocumentLinks *document_links)
 
     EpubDocument *epub_document = EPUB_DOCUMENT(document_links);
 
-    model = (GtkTreeModel*) gtk_tree_store_new (EV_DOCUMENT_LINKS_COLUMN_NUM_COLUMNS,
+    model = (GtkTreeModel*) ctk_tree_store_new (EV_DOCUMENT_LINKS_COLUMN_NUM_COLUMNS,
                                                 G_TYPE_STRING,
                                                 G_TYPE_OBJECT,
                                                 G_TYPE_BOOLEAN,
@@ -297,9 +297,9 @@ epub_document_links_get_links_model(EvDocumentLinks *document_links)
 
 	linkStruct.parent = &parent;
 
-	gtk_tree_store_append (GTK_TREE_STORE (model), &parent,NULL);
+	ctk_tree_store_append (GTK_TREE_STORE (model), &parent,NULL);
 
-	gtk_tree_store_set (GTK_TREE_STORE (model), &parent,
+	ctk_tree_store_set (GTK_TREE_STORE (model), &parent,
 			    EV_DOCUMENT_LINKS_COLUMN_MARKUP, epub_document->docTitle,
 			    EV_DOCUMENT_LINKS_COLUMN_LINK, link,
 			    EV_DOCUMENT_LINKS_COLUMN_EXPAND, TRUE,

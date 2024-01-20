@@ -24,7 +24,7 @@
 #include <string.h>
 
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "ev-properties-license.h"
 
@@ -49,24 +49,24 @@ get_license_text_widget (EvDocumentLicense *license)
 	GtkWidget *swindow, *textview;
 	GtkTextBuffer *buffer;
 
-	textview = gtk_text_view_new ();
-	gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW (textview), GTK_WRAP_WORD);
-	gtk_text_view_set_left_margin (GTK_TEXT_VIEW (textview), 8);
-	gtk_text_view_set_right_margin (GTK_TEXT_VIEW (textview), 8);
+	textview = ctk_text_view_new ();
+	ctk_text_view_set_wrap_mode (GTK_TEXT_VIEW (textview), GTK_WRAP_WORD);
+	ctk_text_view_set_left_margin (GTK_TEXT_VIEW (textview), 8);
+	ctk_text_view_set_right_margin (GTK_TEXT_VIEW (textview), 8);
 
-	buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (textview));
-	gtk_text_buffer_set_text (buffer, ev_document_license_get_text (license), -1);
+	buffer = ctk_text_view_get_buffer (GTK_TEXT_VIEW (textview));
+	ctk_text_buffer_set_text (buffer, ev_document_license_get_text (license), -1);
 
-	swindow = gtk_scrolled_window_new (NULL, NULL);
-	gtk_widget_set_hexpand (swindow, TRUE);
-	gtk_widget_set_margin_start (swindow, 12);
-	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (swindow),
+	swindow = ctk_scrolled_window_new (NULL, NULL);
+	ctk_widget_set_hexpand (swindow, TRUE);
+	ctk_widget_set_margin_start (swindow, 12);
+	ctk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (swindow),
 					GTK_POLICY_AUTOMATIC,
 					GTK_POLICY_AUTOMATIC);
-	gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow),
+	ctk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow),
 					     GTK_SHADOW_IN);
-	gtk_container_add (GTK_CONTAINER (swindow), textview);
-	gtk_widget_show (textview);
+	ctk_container_add (GTK_CONTAINER (swindow), textview);
+	ctk_widget_show (textview);
 
 	return swindow;
 }
@@ -78,8 +78,8 @@ get_license_uri_widget (const gchar *uri)
 	gchar     *checked_uri;
 	gchar     *markup;
 
-	label = gtk_label_new (NULL);
-	gtk_widget_set_margin_start (label, 12);
+	label = ctk_label_new (NULL);
+	ctk_widget_set_margin_start (label, 12);
 	g_object_set (G_OBJECT (label),
 		      "xalign", 0.0,
 		      "width_chars", 25,
@@ -90,11 +90,11 @@ get_license_uri_widget (const gchar *uri)
 	checked_uri = g_uri_parse_scheme (uri);
 	if (checked_uri) {
 		markup = g_markup_printf_escaped ("<a href=\"%s\">%s</a>", uri, uri);
-		gtk_label_set_markup (GTK_LABEL (label), markup);
+		ctk_label_set_markup (GTK_LABEL (label), markup);
 		g_free (markup);
 		g_free (checked_uri);
 	} else {
-		gtk_label_set_text (GTK_LABEL (label), uri);
+		ctk_label_set_text (GTK_LABEL (label), uri);
 	}
 
 	return label;
@@ -108,17 +108,17 @@ ev_properties_license_add_section (EvPropertiesLicense *properties,
 	GtkWidget *title;
 	gchar     *markup;
 
-	title = gtk_label_new (NULL);
-	gtk_label_set_xalign (GTK_LABEL (title), 0.0);
-	gtk_label_set_use_markup (GTK_LABEL (title), TRUE);
+	title = ctk_label_new (NULL);
+	ctk_label_set_xalign (GTK_LABEL (title), 0.0);
+	ctk_label_set_use_markup (GTK_LABEL (title), TRUE);
 	markup = g_strdup_printf ("<b>%s</b>", title_text);
-	gtk_label_set_markup (GTK_LABEL (title), markup);
+	ctk_label_set_markup (GTK_LABEL (title), markup);
 	g_free (markup);
-	gtk_box_pack_start (GTK_BOX (properties), title, FALSE, FALSE, 0);
-	gtk_widget_show (title);
+	ctk_box_pack_start (GTK_BOX (properties), title, FALSE, FALSE, 0);
+	ctk_widget_show (title);
 
-	gtk_box_pack_start (GTK_BOX (properties), contents, FALSE, TRUE, 0);
-	gtk_widget_show (contents);
+	ctk_box_pack_start (GTK_BOX (properties), contents, FALSE, TRUE, 0);
+	ctk_widget_show (contents);
 }
 
 void
@@ -151,9 +151,9 @@ ev_properties_license_set_license (EvPropertiesLicense *properties,
 static void
 ev_properties_license_init (EvPropertiesLicense *properties)
 {
-	gtk_orientable_set_orientation (GTK_ORIENTABLE (properties), GTK_ORIENTATION_VERTICAL);
-	gtk_box_set_spacing (GTK_BOX (properties), 12);
-	gtk_container_set_border_width (GTK_CONTAINER (properties), 12);
+	ctk_orientable_set_orientation (GTK_ORIENTABLE (properties), GTK_ORIENTATION_VERTICAL);
+	ctk_box_set_spacing (GTK_BOX (properties), 12);
+	ctk_container_set_border_width (GTK_CONTAINER (properties), 12);
 }
 
 GtkWidget *

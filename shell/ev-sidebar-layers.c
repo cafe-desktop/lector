@@ -110,7 +110,7 @@ ev_sidebar_layers_create_loading_model (void)
 	gchar        *markup;
 
 	/* Creates a fake model to indicate that we're loading */
-	retval = (GtkTreeModel *)gtk_list_store_new (EV_DOCUMENT_LAYERS_N_COLUMNS,
+	retval = (GtkTreeModel *)ctk_list_store_new (EV_DOCUMENT_LAYERS_N_COLUMNS,
 						     G_TYPE_STRING,
 						     G_TYPE_OBJECT,
 						     G_TYPE_BOOLEAN,
@@ -118,9 +118,9 @@ ev_sidebar_layers_create_loading_model (void)
 						     G_TYPE_BOOLEAN,
 						     G_TYPE_INT);
 
-	gtk_list_store_append (GTK_LIST_STORE (retval), &iter);
+	ctk_list_store_append (GTK_LIST_STORE (retval), &iter);
 	markup = g_strdup_printf ("<span size=\"larger\" style=\"italic\">%s</span>", _("Loading…"));
-	gtk_list_store_set (GTK_LIST_STORE (retval), &iter,
+	ctk_list_store_set (GTK_LIST_STORE (retval), &iter,
 			    EV_DOCUMENT_LAYERS_COLUMN_TITLE, markup,
 			    EV_DOCUMENT_LAYERS_COLUMN_VISIBLE, FALSE,
 			    EV_DOCUMENT_LAYERS_COLUMN_ENABLED, TRUE,
@@ -139,13 +139,13 @@ update_kids (GtkTreeModel *model,
 	     GtkTreeIter  *iter,
 	     GtkTreeIter  *parent)
 {
-	if (gtk_tree_store_is_ancestor (GTK_TREE_STORE (model), parent, iter)) {
+	if (ctk_tree_store_is_ancestor (GTK_TREE_STORE (model), parent, iter)) {
 		gboolean visible;
 
-		gtk_tree_model_get (model, parent,
+		ctk_tree_model_get (model, parent,
 				    EV_DOCUMENT_LAYERS_COLUMN_VISIBLE, &visible,
 				    -1);
-		gtk_tree_store_set (GTK_TREE_STORE (model), iter,
+		ctk_tree_store_set (GTK_TREE_STORE (model), iter,
 				    EV_DOCUMENT_LAYERS_COLUMN_ENABLED, visible,
 				    -1);
 	}
@@ -161,12 +161,12 @@ clear_rb_group (GtkTreeModel *model,
 {
 	gint group;
 
-	gtk_tree_model_get (model, iter,
+	ctk_tree_model_get (model, iter,
 			    EV_DOCUMENT_LAYERS_COLUMN_RBGROUP, &group,
 			    -1);
 
 	if (group == *rb_group) {
-		gtk_tree_store_set (GTK_TREE_STORE (model), iter,
+		ctk_tree_store_set (GTK_TREE_STORE (model), iter,
 				    EV_DOCUMENT_LAYERS_COLUMN_VISIBLE, FALSE,
 				    -1);
 	}
@@ -185,11 +185,11 @@ ev_sidebar_layers_visibility_changed (GtkCellRendererToggle *cell,
 	gboolean      visible;
 	EvLayer      *layer;
 
-	model = gtk_tree_view_get_model (ev_layers->priv->tree_view);
+	model = ctk_tree_view_get_model (ev_layers->priv->tree_view);
 
-	path = gtk_tree_path_new_from_string (path_str);
-	gtk_tree_model_get_iter (model, &iter, path);
-	gtk_tree_model_get (model, &iter,
+	path = ctk_tree_path_new_from_string (path_str);
+	ctk_tree_model_get_iter (model, &iter, path);
+	ctk_tree_model_get (model, &iter,
 			    EV_DOCUMENT_LAYERS_COLUMN_VISIBLE, &visible,
 			    EV_DOCUMENT_LAYERS_COLUMN_LAYER, &layer,
 			    -1);
@@ -203,7 +203,7 @@ ev_sidebar_layers_visibility_changed (GtkCellRendererToggle *cell,
 
 		rb_group = ev_layer_get_rb_group (layer);
 		if (rb_group) {
-			gtk_tree_model_foreach (model,
+			ctk_tree_model_foreach (model,
 						(GtkTreeModelForeachFunc)clear_rb_group,
 						&rb_group);
 		}
@@ -212,17 +212,17 @@ ev_sidebar_layers_visibility_changed (GtkCellRendererToggle *cell,
 					       layer);
 	}
 
-	gtk_tree_store_set (GTK_TREE_STORE (model), &iter,
+	ctk_tree_store_set (GTK_TREE_STORE (model), &iter,
 			    EV_DOCUMENT_LAYERS_COLUMN_VISIBLE, visible,
 			    -1);
 
 	if (ev_layer_is_parent (layer)) {
-		gtk_tree_model_foreach (model,
+		ctk_tree_model_foreach (model,
 					(GtkTreeModelForeachFunc)update_kids,
 					&iter);
 	}
 
-	gtk_tree_path_free (path);
+	ctk_tree_path_free (path);
 
 	g_signal_emit (ev_layers, signals[LAYERS_VISIBILITY_CHANGED], 0);
 }
@@ -234,17 +234,17 @@ ev_sidebar_layers_create_tree_view (EvSidebarLayers *ev_layers)
 	GtkTreeViewColumn *column;
 	GtkCellRenderer   *renderer;
 
-	tree_view = GTK_TREE_VIEW (gtk_tree_view_new ());
-	gtk_tree_view_set_headers_visible (tree_view, FALSE);
-	gtk_tree_selection_set_mode (gtk_tree_view_get_selection (tree_view),
+	tree_view = GTK_TREE_VIEW (ctk_tree_view_new ());
+	ctk_tree_view_set_headers_visible (tree_view, FALSE);
+	ctk_tree_selection_set_mode (ctk_tree_view_get_selection (tree_view),
 				     GTK_SELECTION_NONE);
 
 
-	column = gtk_tree_view_column_new ();
+	column = ctk_tree_view_column_new ();
 
-	renderer = gtk_cell_renderer_toggle_new ();
-	gtk_tree_view_column_pack_start (column, renderer, FALSE);
-	gtk_tree_view_column_set_attributes (column, renderer,
+	renderer = ctk_cell_renderer_toggle_new ();
+	ctk_tree_view_column_pack_start (column, renderer, FALSE);
+	ctk_tree_view_column_set_attributes (column, renderer,
 					     "active", EV_DOCUMENT_LAYERS_COLUMN_VISIBLE,
 					     "activatable", EV_DOCUMENT_LAYERS_COLUMN_ENABLED,
 					     "visible", EV_DOCUMENT_LAYERS_COLUMN_SHOWTOGGLE,
@@ -258,15 +258,15 @@ ev_sidebar_layers_create_tree_view (EvSidebarLayers *ev_layers)
 			  G_CALLBACK (ev_sidebar_layers_visibility_changed),
 			  (gpointer)ev_layers);
 
-	renderer = gtk_cell_renderer_text_new ();
-	gtk_tree_view_column_pack_start (column, renderer, TRUE);
-	gtk_tree_view_column_set_attributes (column, renderer,
+	renderer = ctk_cell_renderer_text_new ();
+	ctk_tree_view_column_pack_start (column, renderer, TRUE);
+	ctk_tree_view_column_set_attributes (column, renderer,
 					     "markup", EV_DOCUMENT_LAYERS_COLUMN_TITLE,
 					     "sensitive", EV_DOCUMENT_LAYERS_COLUMN_ENABLED,
 					     NULL);
 	g_object_set (G_OBJECT (renderer), "ellipsize", PANGO_ELLIPSIZE_END, NULL);
 
-	gtk_tree_view_append_column (tree_view, column);
+	ctk_tree_view_append_column (tree_view, column);
 
 	return tree_view;
 }
@@ -279,27 +279,27 @@ ev_sidebar_layers_init (EvSidebarLayers *ev_layers)
 
 	ev_layers->priv = ev_sidebar_layers_get_instance_private (ev_layers);
 
-	gtk_orientable_set_orientation (GTK_ORIENTABLE (ev_layers), GTK_ORIENTATION_VERTICAL);
-	swindow = gtk_scrolled_window_new (NULL, NULL);
-	gtk_widget_set_vexpand (swindow, TRUE);
-	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (swindow),
+	ctk_orientable_set_orientation (GTK_ORIENTABLE (ev_layers), GTK_ORIENTATION_VERTICAL);
+	swindow = ctk_scrolled_window_new (NULL, NULL);
+	ctk_widget_set_vexpand (swindow, TRUE);
+	ctk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (swindow),
 					GTK_POLICY_NEVER,
 					GTK_POLICY_AUTOMATIC);
-	gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow),
+	ctk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (swindow),
 					     GTK_SHADOW_IN);
 	/* Data Model */
 	model = ev_sidebar_layers_create_loading_model ();
 
 	/* Layers list */
 	ev_layers->priv->tree_view = ev_sidebar_layers_create_tree_view (ev_layers);
-	gtk_tree_view_set_model (ev_layers->priv->tree_view, model);
+	ctk_tree_view_set_model (ev_layers->priv->tree_view, model);
 	g_object_unref (model);
 
-	gtk_container_add (GTK_CONTAINER (swindow),
+	ctk_container_add (GTK_CONTAINER (swindow),
 			   GTK_WIDGET (ev_layers->priv->tree_view));
 
-	gtk_container_add (GTK_CONTAINER (ev_layers), swindow);
-	gtk_widget_show_all (GTK_WIDGET (ev_layers));
+	ctk_container_add (GTK_CONTAINER (ev_layers), swindow);
+	ctk_widget_show_all (GTK_WIDGET (ev_layers));
 }
 
 static void
@@ -338,7 +338,7 @@ update_layers_state (GtkTreeModel     *model,
 	GtkTreeIter child_iter;
 
 	do {
-		gtk_tree_model_get (model, iter,
+		ctk_tree_model_get (model, iter,
 				    EV_DOCUMENT_LAYERS_COLUMN_VISIBLE, &visible,
 				    EV_DOCUMENT_LAYERS_COLUMN_LAYER, &layer,
 				    -1);
@@ -347,15 +347,15 @@ update_layers_state (GtkTreeModel     *model,
 
 			layer_visible = ev_document_layers_layer_is_visible (document_layers, layer);
 			if (layer_visible != visible) {
-				gtk_tree_store_set (GTK_TREE_STORE (model), iter,
+				ctk_tree_store_set (GTK_TREE_STORE (model), iter,
 						    EV_DOCUMENT_LAYERS_COLUMN_VISIBLE, layer_visible,
 						    -1);
 			}
 		}
 
-		if (gtk_tree_model_iter_children (model, &child_iter, iter))
+		if (ctk_tree_model_iter_children (model, &child_iter, iter))
 			update_layers_state (model, &child_iter, document_layers);
-	} while (gtk_tree_model_iter_next (model, iter));
+	} while (ctk_tree_model_iter_next (model, iter));
 }
 
 void
@@ -366,8 +366,8 @@ ev_sidebar_layers_update_layers_state (EvSidebarLayers *sidebar_layers)
 	EvDocumentLayers *document_layers;
 
 	document_layers = EV_DOCUMENT_LAYERS (sidebar_layers->priv->document);
-	model = gtk_tree_view_get_model (GTK_TREE_VIEW (sidebar_layers->priv->tree_view));
-	if (gtk_tree_model_get_iter_first (model, &iter))
+	model = ctk_tree_view_get_model (GTK_TREE_VIEW (sidebar_layers->priv->tree_view));
+	if (ctk_tree_model_get_iter_first (model, &iter))
 		update_layers_state (model, &iter, document_layers);
 }
 
@@ -379,7 +379,7 @@ job_finished_callback (EvJobLayers     *job,
 
 	priv = sidebar_layers->priv;
 
-	gtk_tree_view_set_model (GTK_TREE_VIEW (priv->tree_view), job->model);
+	ctk_tree_view_set_model (GTK_TREE_VIEW (priv->tree_view), job->model);
 
 	g_object_unref (job);
 	priv->job = NULL;
@@ -397,7 +397,7 @@ ev_sidebar_layers_document_changed_cb (EvDocumentModel *model,
 		return;
 
 	if (priv->document) {
-		gtk_tree_view_set_model (GTK_TREE_VIEW (priv->tree_view), NULL);
+		ctk_tree_view_set_model (GTK_TREE_VIEW (priv->tree_view), NULL);
 		g_object_unref (priv->document);
 	}
 

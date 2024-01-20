@@ -195,16 +195,16 @@ build_tree (const DjvuDocument *djvu_document,
 			/* FIXME: component file identifiers */
 		} else if (ev_action) {
 			ev_link = ev_link_new (utf8_title ? utf8_title : title, ev_action);
-			gtk_tree_store_append (GTK_TREE_STORE (model), &tree_iter, parent);
-			gtk_tree_store_set (GTK_TREE_STORE (model), &tree_iter,
+			ctk_tree_store_append (GTK_TREE_STORE (model), &tree_iter, parent);
+			ctk_tree_store_set (GTK_TREE_STORE (model), &tree_iter,
 					    EV_DOCUMENT_LINKS_COLUMN_MARKUP, title_markup,
 					    EV_DOCUMENT_LINKS_COLUMN_LINK, ev_link,
 					    EV_DOCUMENT_LINKS_COLUMN_EXPAND, FALSE,
 					    -1);
 			g_object_unref (ev_link);
 		} else {
-			gtk_tree_store_append (GTK_TREE_STORE (model), &tree_iter, parent);
-			gtk_tree_store_set (GTK_TREE_STORE (model), &tree_iter,
+			ctk_tree_store_append (GTK_TREE_STORE (model), &tree_iter, parent);
+			ctk_tree_store_set (GTK_TREE_STORE (model), &tree_iter,
 					    EV_DOCUMENT_LINKS_COLUMN_MARKUP, title_markup,
 					    EV_DOCUMENT_LINKS_COLUMN_EXPAND, FALSE,
 					    -1);
@@ -442,7 +442,7 @@ djvu_links_get_links_model (EvDocumentLinks *document_links)
 		djvu_handle_events (djvu_document, TRUE, NULL);
 
 	if (outline) {
-		model = (GtkTreeModel *) gtk_tree_store_new (EV_DOCUMENT_LINKS_COLUMN_NUM_COLUMNS,
+		model = (GtkTreeModel *) ctk_tree_store_new (EV_DOCUMENT_LINKS_COLUMN_NUM_COLUMNS,
 							     G_TYPE_STRING,
 							     G_TYPE_OBJECT,
 							     G_TYPE_BOOLEAN,

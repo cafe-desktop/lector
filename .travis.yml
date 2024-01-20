@@ -76,7 +76,7 @@ requires:
     - cafe-common
     - poppler-glib
     - texlive-bin
-    - webkit2gtk
+    - webkit2ctk
     - which
     - yelp-tools
 
@@ -94,7 +94,7 @@ requires:
     - libgail-3-dev
     - libgirepository1.0-dev
     - libglib2.0-dev
-    - libgtk-3-dev
+    - libctk-3-dev
     - libgxps-dev
     - libkpathsea-dev
     - libsynctex-dev
@@ -103,7 +103,7 @@ requires:
     - libsm-dev
     - libspectre-dev
     - libtiff-dev
-    - libwebkit2gtk-4.0-dev
+    - libwebkit2ctk-4.0-dev
     - libx11-dev
     - libxml2-dev
     - lsb-release
@@ -126,7 +126,7 @@ requires:
     - gcc-c++
     - git
     - gobject-introspection-devel
-    - gtk3-devel
+    - ctk3-devel
     - libXt-devel
     - libglade2-devel
     - libgxps-devel
@@ -139,7 +139,7 @@ requires:
     - poppler-glib-devel
     - redhat-rpm-config
     - texlive-lib-devel
-    - webkitgtk4-devel
+    - webkitctk4-devel
     - yelp-tools
 
   ubuntu:
@@ -153,7 +153,7 @@ requires:
     - libgail-3-dev
     - libgirepository1.0-dev
     - libglib2.0-dev
-    - libgtk-3-dev
+    - libctk-3-dev
     - libgxps-dev
     - libkpathsea-dev
     - libsynctex-dev
@@ -162,7 +162,7 @@ requires:
     - libsm-dev
     - libspectre-dev
     - libtiff-dev
-    - libwebkit2gtk-4.0-dev
+    - libwebkit2ctk-4.0-dev
     - libx11-dev
     - libxml2-dev
     - lsb-release

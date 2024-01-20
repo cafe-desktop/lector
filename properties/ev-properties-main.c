@@ -32,7 +32,7 @@
 #include <string.h>
 
 #include <glib/gi18n-lib.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include <libcaja-extension/caja-extension-types.h>
 #include <libcaja-extension/caja-property-page-provider.h>
@@ -113,11 +113,11 @@ ev_properties_get_pages (CajaPropertyPageProvider *provider,
 		goto end;
 	}
 
-	label = gtk_label_new (_("Document"));
+	label = ctk_label_new (_("Document"));
 	page = ev_properties_view_new (uri);
 	ev_properties_view_set_info (EV_PROPERTIES_VIEW (page),
 				     ev_document_get_info (document));
-	gtk_widget_show (page);
+	ctk_widget_show (page);
 	property_page = caja_property_page_new ("document-properties",
 			label, page);
 	g_object_unref (document);

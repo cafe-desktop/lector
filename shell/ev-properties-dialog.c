@@ -23,7 +23,7 @@
 #endif
 
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "ev-document-fonts.h"
 #include "ev-properties-dialog.h"
@@ -57,25 +57,25 @@ ev_properties_dialog_init (EvPropertiesDialog *properties)
 {
 	GtkBox *content_area;
 
-	content_area = GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (properties)));
+	content_area = GTK_BOX (ctk_dialog_get_content_area (GTK_DIALOG (properties)));
 
-	gtk_window_set_title (GTK_WINDOW (properties), _("Properties"));
-	gtk_window_set_destroy_with_parent (GTK_WINDOW (properties), TRUE);
-	gtk_container_set_border_width (GTK_CONTAINER (properties), 5);
-	gtk_box_set_spacing (content_area, 2);
+	ctk_window_set_title (GTK_WINDOW (properties), _("Properties"));
+	ctk_window_set_destroy_with_parent (GTK_WINDOW (properties), TRUE);
+	ctk_container_set_border_width (GTK_CONTAINER (properties), 5);
+	ctk_box_set_spacing (content_area, 2);
 
-	gtk_dialog_add_button (GTK_DIALOG (properties), "gtk-close",
+	ctk_dialog_add_button (GTK_DIALOG (properties), "ctk-close",
 			       GTK_RESPONSE_CANCEL);
-	gtk_dialog_set_default_response (GTK_DIALOG (properties),
+	ctk_dialog_set_default_response (GTK_DIALOG (properties),
 			                 GTK_RESPONSE_CANCEL);
 
-	properties->notebook = gtk_notebook_new ();
-	gtk_container_set_border_width (GTK_CONTAINER (properties->notebook), 5);
-	gtk_box_pack_start (content_area, properties->notebook, TRUE, TRUE, 0);
-	gtk_widget_show (properties->notebook);
+	properties->notebook = ctk_notebook_new ();
+	ctk_container_set_border_width (GTK_CONTAINER (properties->notebook), 5);
+	ctk_box_pack_start (content_area, properties->notebook, TRUE, TRUE, 0);
+	ctk_widget_show (properties->notebook);
 
 	g_signal_connect (properties, "response",
-			  G_CALLBACK (gtk_widget_destroy), NULL);
+			  G_CALLBACK (ctk_widget_destroy), NULL);
 }
 
 void
@@ -91,21 +91,21 @@ ev_properties_dialog_set_document (EvPropertiesDialog *properties,
 	info = ev_document_get_info (document);
 
 	if (properties->general_page == NULL) {
-		label = gtk_label_new (_("General"));
+		label = ctk_label_new (_("General"));
 		properties->general_page = ev_properties_view_new (uri);
-		gtk_notebook_append_page (GTK_NOTEBOOK (properties->notebook),
+		ctk_notebook_append_page (GTK_NOTEBOOK (properties->notebook),
 					  properties->general_page, label);
-		gtk_widget_show (properties->general_page);
+		ctk_widget_show (properties->general_page);
 	}
 	ev_properties_view_set_info (EV_PROPERTIES_VIEW (properties->general_page), info);
 
 	if (EV_IS_DOCUMENT_FONTS (document)) {
 		if (properties->fonts_page == NULL) {
-			label = gtk_label_new (_("Fonts"));
+			label = ctk_label_new (_("Fonts"));
 			properties->fonts_page = ev_properties_fonts_new ();
-			gtk_notebook_append_page (GTK_NOTEBOOK (properties->notebook),
+			ctk_notebook_append_page (GTK_NOTEBOOK (properties->notebook),
 						  properties->fonts_page, label);
-			gtk_widget_show (properties->fonts_page);
+			ctk_widget_show (properties->fonts_page);
 		}
 
 		ev_properties_fonts_set_document
@@ -114,11 +114,11 @@ ev_properties_dialog_set_document (EvPropertiesDialog *properties,
 
 	if (info->fields_mask & EV_DOCUMENT_INFO_LICENSE && info->license) {
 		if (properties->license_page == NULL) {
-			label = gtk_label_new (_("Document License"));
+			label = ctk_label_new (_("Document License"));
 			properties->license_page = ev_properties_license_new ();
-			gtk_notebook_append_page (GTK_NOTEBOOK (properties->notebook),
+			ctk_notebook_append_page (GTK_NOTEBOOK (properties->notebook),
 						  properties->license_page, label);
-			gtk_widget_show (properties->license_page);
+			ctk_widget_show (properties->license_page);
 		}
 
 		ev_properties_license_set_license

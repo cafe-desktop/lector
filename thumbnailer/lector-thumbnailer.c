@@ -194,7 +194,7 @@ lector_thumbnail_pngenc_get_async (struct AsyncData *data)
 						     data->size);
 	ev_document_doc_mutex_unlock ();
 
-	g_idle_add ((GSourceFunc)gtk_main_quit, NULL);
+	g_idle_add ((GSourceFunc)ctk_main_quit, NULL);
 
 	return NULL;
 }
@@ -284,7 +284,7 @@ main (int argc, char *argv[])
 	if (EV_IS_ASYNC_RENDERER (document)) {
 		struct AsyncData data;
 
-		gtk_init (&argc, &argv);
+		ctk_init (&argc, &argv);
 
 		data.document = document;
 		data.output = output;
@@ -294,7 +294,7 @@ main (int argc, char *argv[])
 				(GThreadFunc) lector_thumbnail_pngenc_get_async,
 				&data);
 
-		gtk_main ();
+		ctk_main ();
 
 		g_object_unref (document);
 		ev_shutdown ();

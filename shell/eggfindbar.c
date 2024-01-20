@@ -21,7 +21,7 @@
 #include <string.h>
 
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <gdk/gdkkeysyms.h>
 
 #include "eggfindbar.h"
@@ -159,33 +159,33 @@ egg_find_bar_class_init (EggFindBarClass *klass)
                                                          FALSE,
                                                          G_PARAM_READWRITE));
 
-  binding_set = gtk_binding_set_by_class (klass);
+  binding_set = ctk_binding_set_by_class (klass);
 
-  gtk_binding_entry_add_signal (binding_set, GDK_KEY_Escape, 0,
+  ctk_binding_entry_add_signal (binding_set, GDK_KEY_Escape, 0,
 				"close", 0);
 
-  gtk_binding_entry_add_signal (binding_set, GDK_KEY_Up, 0,
+  ctk_binding_entry_add_signal (binding_set, GDK_KEY_Up, 0,
                                 "scroll", 1,
                                 GTK_TYPE_SCROLL_TYPE, GTK_SCROLL_STEP_BACKWARD);
-  gtk_binding_entry_add_signal (binding_set, GDK_KEY_Down, 0,
+  ctk_binding_entry_add_signal (binding_set, GDK_KEY_Down, 0,
                                 "scroll", 1,
                                 GTK_TYPE_SCROLL_TYPE, GTK_SCROLL_STEP_FORWARD);
-  gtk_binding_entry_add_signal (binding_set, GDK_KEY_Page_Up, 0,
+  ctk_binding_entry_add_signal (binding_set, GDK_KEY_Page_Up, 0,
 				"scroll", 1,
 				GTK_TYPE_SCROLL_TYPE, GTK_SCROLL_PAGE_BACKWARD);
-  gtk_binding_entry_add_signal (binding_set, GDK_KEY_KP_Page_Up, 0,
+  ctk_binding_entry_add_signal (binding_set, GDK_KEY_KP_Page_Up, 0,
 				"scroll", 1,
 				GTK_TYPE_SCROLL_TYPE, GTK_SCROLL_PAGE_BACKWARD);
-  gtk_binding_entry_add_signal (binding_set, GDK_KEY_Page_Down, 0,
+  ctk_binding_entry_add_signal (binding_set, GDK_KEY_Page_Down, 0,
 				"scroll", 1,
 				GTK_TYPE_SCROLL_TYPE, GTK_SCROLL_PAGE_FORWARD);
-  gtk_binding_entry_add_signal (binding_set, GDK_KEY_KP_Page_Down, 0,
+  ctk_binding_entry_add_signal (binding_set, GDK_KEY_KP_Page_Down, 0,
 				"scroll", 1,
 				GTK_TYPE_SCROLL_TYPE, GTK_SCROLL_PAGE_FORWARD);
 
-  gtk_binding_entry_add_signal (binding_set, GDK_KEY_Up, GDK_CONTROL_MASK,
+  ctk_binding_entry_add_signal (binding_set, GDK_KEY_Up, GDK_CONTROL_MASK,
                                 "previous", 0);
-  gtk_binding_entry_add_signal (binding_set, GDK_KEY_Down, GDK_CONTROL_MASK,
+  ctk_binding_entry_add_signal (binding_set, GDK_KEY_Down, GDK_CONTROL_MASK,
                                 "next", 0);
 }
 
@@ -226,7 +226,7 @@ case_sensitive_toggled_callback (GtkToggleToolButton  *button,
   EggFindBar *find_bar = EGG_FIND_BAR (data);
 
   egg_find_bar_set_case_sensitive (find_bar,
-                                   gtk_toggle_tool_button_get_active (button));
+                                   ctk_toggle_tool_button_get_active (button));
 }
 
 static void
@@ -249,7 +249,7 @@ entry_changed_callback (GtkEntry *entry,
   /* paranoid strdup because set_search_string() sets
    * the entry text
    */
-  text = g_strdup (gtk_entry_get_text (entry));
+  text = g_strdup (ctk_entry_get_text (entry));
 
   egg_find_bar_set_search_string (find_bar, text);
 
@@ -265,7 +265,7 @@ set_focus_cb (GtkWidget *window,
 
   while (widget != NULL && widget != wbar)
     {
-      widget = gtk_widget_get_parent (widget);
+      widget = ctk_widget_get_parent (widget);
     }
 
   /* if widget == bar, the new focus widget is in the bar, so we
@@ -292,64 +292,64 @@ egg_find_bar_init (EggFindBar *find_bar)
   find_bar->priv = priv;
   priv->search_string = NULL;
 
-  gtk_toolbar_set_style (GTK_TOOLBAR (find_bar), GTK_TOOLBAR_BOTH_HORIZ);
+  ctk_toolbar_set_style (GTK_TOOLBAR (find_bar), GTK_TOOLBAR_BOTH_HORIZ);
 
   /* Find: |_____| */
-  item = gtk_tool_item_new ();
-  box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
+  item = ctk_tool_item_new ();
+  box = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
 
-  label = gtk_label_new_with_mnemonic (_("Find:"));
-  gtk_widget_set_halign (label, GTK_ALIGN_START);
-  gtk_widget_set_hexpand (label, TRUE);
-  gtk_widget_set_margin_start (label, 2);
-  gtk_widget_set_margin_top (label, 4);
-  gtk_widget_set_margin_bottom (label, 4);
-  gtk_widget_show (label);
+  label = ctk_label_new_with_mnemonic (_("Find:"));
+  ctk_widget_set_halign (label, GTK_ALIGN_START);
+  ctk_widget_set_hexpand (label, TRUE);
+  ctk_widget_set_margin_start (label, 2);
+  ctk_widget_set_margin_top (label, 4);
+  ctk_widget_set_margin_bottom (label, 4);
+  ctk_widget_show (label);
 
-  priv->find_entry = gtk_entry_new ();
-  gtk_entry_set_width_chars (GTK_ENTRY (priv->find_entry), 32);
-  gtk_entry_set_max_length (GTK_ENTRY (priv->find_entry), 512);
-  gtk_widget_set_halign (priv->find_entry, GTK_ALIGN_START);
-  gtk_widget_set_hexpand (priv->find_entry, TRUE);
-  gtk_widget_set_margin_end (priv->find_entry, 2);
-  gtk_widget_set_margin_top (priv->find_entry, 4);
-  gtk_widget_set_margin_bottom (priv->find_entry, 4);
-  gtk_label_set_mnemonic_widget (GTK_LABEL (label), priv->find_entry);
-  gtk_widget_show (priv->find_entry);
+  priv->find_entry = ctk_entry_new ();
+  ctk_entry_set_width_chars (GTK_ENTRY (priv->find_entry), 32);
+  ctk_entry_set_max_length (GTK_ENTRY (priv->find_entry), 512);
+  ctk_widget_set_halign (priv->find_entry, GTK_ALIGN_START);
+  ctk_widget_set_hexpand (priv->find_entry, TRUE);
+  ctk_widget_set_margin_end (priv->find_entry, 2);
+  ctk_widget_set_margin_top (priv->find_entry, 4);
+  ctk_widget_set_margin_bottom (priv->find_entry, 4);
+  ctk_label_set_mnemonic_widget (GTK_LABEL (label), priv->find_entry);
+  ctk_widget_show (priv->find_entry);
 
   /* Prev */
-  arrow = gtk_image_new_from_icon_name ("pan-start-symbolic", GTK_ICON_SIZE_BUTTON);
-  priv->previous_button = gtk_tool_button_new (arrow, Q_("Find Pre_vious"));
-  gtk_tool_button_set_use_underline (GTK_TOOL_BUTTON (priv->previous_button), TRUE);
-  gtk_tool_item_set_is_important (priv->previous_button, TRUE);
-  gtk_widget_set_tooltip_text (GTK_WIDGET (priv->previous_button),
+  arrow = ctk_image_new_from_icon_name ("pan-start-symbolic", GTK_ICON_SIZE_BUTTON);
+  priv->previous_button = ctk_tool_button_new (arrow, Q_("Find Pre_vious"));
+  ctk_tool_button_set_use_underline (GTK_TOOL_BUTTON (priv->previous_button), TRUE);
+  ctk_tool_item_set_is_important (priv->previous_button, TRUE);
+  ctk_widget_set_tooltip_text (GTK_WIDGET (priv->previous_button),
 			       _("Find previous occurrence of the search string"));
 
   /* Next */
-  arrow = gtk_image_new_from_icon_name ("pan-end-symbolic", GTK_ICON_SIZE_BUTTON);
-  priv->next_button = gtk_tool_button_new (arrow, Q_("Find Ne_xt"));
-  gtk_tool_button_set_use_underline (GTK_TOOL_BUTTON (priv->next_button), TRUE);
-  gtk_tool_item_set_is_important (priv->next_button, TRUE);
-  gtk_widget_set_tooltip_text (GTK_WIDGET (priv->next_button),
+  arrow = ctk_image_new_from_icon_name ("pan-end-symbolic", GTK_ICON_SIZE_BUTTON);
+  priv->next_button = ctk_tool_button_new (arrow, Q_("Find Ne_xt"));
+  ctk_tool_button_set_use_underline (GTK_TOOL_BUTTON (priv->next_button), TRUE);
+  ctk_tool_item_set_is_important (priv->next_button, TRUE);
+  ctk_widget_set_tooltip_text (GTK_WIDGET (priv->next_button),
 			       _("Find next occurrence of the search string"));
 
   /* Separator*/
-  priv->status_separator = gtk_separator_tool_item_new();
+  priv->status_separator = ctk_separator_tool_item_new();
 
   /* Case button */
-  priv->case_button = gtk_toggle_tool_button_new ();
+  priv->case_button = ctk_toggle_tool_button_new ();
   g_object_set (G_OBJECT (priv->case_button), "label", _("Case Sensitive"), NULL);
-  gtk_tool_item_set_is_important (priv->case_button, TRUE);
-  gtk_widget_set_tooltip_text (GTK_WIDGET (priv->case_button),
+  ctk_tool_item_set_is_important (priv->case_button, TRUE);
+  ctk_widget_set_tooltip_text (GTK_WIDGET (priv->case_button),
 			       _("Toggle case sensitive search"));
 
   /* Status */
-  priv->status_item = gtk_tool_item_new();
-  gtk_tool_item_set_expand (priv->status_item, TRUE);
-  priv->status_label = gtk_label_new (NULL);
-  gtk_label_set_ellipsize (GTK_LABEL (priv->status_label),
+  priv->status_item = ctk_tool_item_new();
+  ctk_tool_item_set_expand (priv->status_item, TRUE);
+  priv->status_label = ctk_label_new (NULL);
+  ctk_label_set_ellipsize (GTK_LABEL (priv->status_label),
                            PANGO_ELLIPSIZE_END);
-  gtk_label_set_xalign (GTK_LABEL (priv->status_label), 0.0);
+  ctk_label_set_xalign (GTK_LABEL (priv->status_label), 0.0);
 
   g_signal_connect (priv->find_entry, "changed",
                     G_CALLBACK (entry_changed_callback),
@@ -367,24 +367,24 @@ egg_find_bar_init (EggFindBar *find_bar)
                     G_CALLBACK (case_sensitive_toggled_callback),
                     find_bar);
 
-  gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
-  gtk_box_pack_start (GTK_BOX (box), priv->find_entry, TRUE, TRUE, 0);
-  gtk_container_add (GTK_CONTAINER (item), box);
-  gtk_toolbar_insert (GTK_TOOLBAR (find_bar), item, -1);
-  gtk_toolbar_insert (GTK_TOOLBAR (find_bar), priv->previous_button, -1);
-  gtk_toolbar_insert (GTK_TOOLBAR (find_bar), priv->next_button, -1);
-  gtk_toolbar_insert (GTK_TOOLBAR (find_bar), priv->case_button, -1);
-  gtk_toolbar_insert (GTK_TOOLBAR (find_bar), priv->status_separator, -1);
-  gtk_container_add  (GTK_CONTAINER (priv->status_item), priv->status_label);
-  gtk_toolbar_insert (GTK_TOOLBAR (find_bar), priv->status_item, -1);
+  ctk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
+  ctk_box_pack_start (GTK_BOX (box), priv->find_entry, TRUE, TRUE, 0);
+  ctk_container_add (GTK_CONTAINER (item), box);
+  ctk_toolbar_insert (GTK_TOOLBAR (find_bar), item, -1);
+  ctk_toolbar_insert (GTK_TOOLBAR (find_bar), priv->previous_button, -1);
+  ctk_toolbar_insert (GTK_TOOLBAR (find_bar), priv->next_button, -1);
+  ctk_toolbar_insert (GTK_TOOLBAR (find_bar), priv->case_button, -1);
+  ctk_toolbar_insert (GTK_TOOLBAR (find_bar), priv->status_separator, -1);
+  ctk_container_add  (GTK_CONTAINER (priv->status_item), priv->status_label);
+  ctk_toolbar_insert (GTK_TOOLBAR (find_bar), priv->status_item, -1);
 
   /* don't show status separator/label until they are set */
 
-  gtk_widget_show_all (GTK_WIDGET (item));
-  gtk_widget_show_all (GTK_WIDGET (priv->next_button));
-  gtk_widget_show_all (GTK_WIDGET (priv->previous_button));
-  gtk_widget_show_all (GTK_WIDGET (priv->case_button));
-  gtk_widget_show (priv->status_label);
+  ctk_widget_show_all (GTK_WIDGET (item));
+  ctk_widget_show_all (GTK_WIDGET (priv->next_button));
+  ctk_widget_show_all (GTK_WIDGET (priv->previous_button));
+  ctk_widget_show_all (GTK_WIDGET (priv->case_button));
+  ctk_widget_show (priv->status_label);
 }
 
 static void
@@ -455,7 +455,7 @@ egg_find_bar_show (GtkWidget *widget)
     {
       GtkWidget *toplevel;
 
-      toplevel = gtk_widget_get_toplevel (widget);
+      toplevel = ctk_widget_get_toplevel (widget);
 
       priv->set_focus_handler =
 	g_signal_connect (toplevel, "set-focus",
@@ -473,7 +473,7 @@ egg_find_bar_hide (GtkWidget *widget)
     {
       GtkWidget *toplevel;
 
-      toplevel = gtk_widget_get_toplevel (widget);
+      toplevel = ctk_widget_get_toplevel (widget);
 
       g_signal_handlers_disconnect_by_func
 	(toplevel, (void (*)) G_CALLBACK (set_focus_cb), bar);
@@ -489,7 +489,7 @@ egg_find_bar_grab_focus (GtkWidget *widget)
   EggFindBar *find_bar = EGG_FIND_BAR (widget);
   EggFindBarPrivate *priv = find_bar->priv;
 
-  gtk_widget_grab_focus (priv->find_entry);
+  ctk_widget_grab_focus (priv->find_entry);
 }
 
 /**
@@ -555,15 +555,15 @@ egg_find_bar_set_search_string  (EggFindBar *find_bar,
           priv->search_string = g_strdup (search_string);
           g_free (old);
 
-          gtk_entry_set_text (GTK_ENTRY (priv->find_entry),
+          ctk_entry_set_text (GTK_ENTRY (priv->find_entry),
                               priv->search_string ?
                               priv->search_string :
                               "");
 
           not_empty = (search_string == NULL) ? FALSE : TRUE;
 
-          gtk_widget_set_sensitive (GTK_WIDGET (find_bar->priv->next_button), not_empty);
-          gtk_widget_set_sensitive (GTK_WIDGET (find_bar->priv->previous_button), not_empty);
+          ctk_widget_set_sensitive (GTK_WIDGET (find_bar->priv->next_button), not_empty);
+          ctk_widget_set_sensitive (GTK_WIDGET (find_bar->priv->previous_button), not_empty);
 
           g_object_notify (G_OBJECT (find_bar),
                            "search_string");
@@ -620,7 +620,7 @@ egg_find_bar_set_case_sensitive (EggFindBar *find_bar,
     {
       priv->case_sensitive = case_sensitive;
 
-      gtk_toggle_tool_button_set_active (GTK_TOGGLE_TOOL_BUTTON (priv->case_button),
+      ctk_toggle_tool_button_set_active (GTK_TOGGLE_TOOL_BUTTON (priv->case_button),
                                          priv->case_sensitive);
 
       g_object_notify (G_OBJECT (find_bar),
@@ -671,7 +671,7 @@ egg_find_bar_set_status_text (EggFindBar *find_bar,
 
   priv = (EggFindBarPrivate *)find_bar->priv;
 
-  gtk_label_set_text (GTK_LABEL (priv->status_label), text);
+  ctk_label_set_text (GTK_LABEL (priv->status_label), text);
   g_object_set (priv->status_separator, "visible", text != NULL && *text != '\0', NULL);
   g_object_set (priv->status_item, "visible", text != NULL && *text !='\0', NULL);
 }

@@ -20,7 +20,7 @@
 #include <config.h>
 
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "ev-open-recent-action.h"
 
@@ -40,7 +40,7 @@ recent_chooser_item_activated (GtkRecentChooser *chooser,
 {
 	gchar *uri;
 
-	uri = gtk_recent_chooser_get_current_uri (chooser);
+	uri = ctk_recent_chooser_get_current_uri (chooser);
 	g_signal_emit (action, action_signals[ITEM_ACTIVATED], 0, uri);
 	g_free (uri);
 }
@@ -52,22 +52,22 @@ ev_open_recent_action_create_tool_item (GtkAction *action)
 	GtkWidget       *toolbar_recent_menu;
 	GtkRecentFilter *filter;
 
-	toolbar_recent_menu = gtk_recent_chooser_menu_new_for_manager (gtk_recent_manager_get_default ());
-	gtk_recent_chooser_set_local_only (GTK_RECENT_CHOOSER (toolbar_recent_menu), FALSE);
-	gtk_recent_chooser_set_sort_type (GTK_RECENT_CHOOSER (toolbar_recent_menu), GTK_RECENT_SORT_MRU);
-	gtk_recent_chooser_set_limit (GTK_RECENT_CHOOSER (toolbar_recent_menu), 5);
+	toolbar_recent_menu = ctk_recent_chooser_menu_new_for_manager (ctk_recent_manager_get_default ());
+	ctk_recent_chooser_set_local_only (GTK_RECENT_CHOOSER (toolbar_recent_menu), FALSE);
+	ctk_recent_chooser_set_sort_type (GTK_RECENT_CHOOSER (toolbar_recent_menu), GTK_RECENT_SORT_MRU);
+	ctk_recent_chooser_set_limit (GTK_RECENT_CHOOSER (toolbar_recent_menu), 5);
 	g_signal_connect (toolbar_recent_menu, "item_activated",
 			  G_CALLBACK (recent_chooser_item_activated),
 			  action);
 
-	filter = gtk_recent_filter_new ();
-	gtk_recent_filter_add_application (filter, g_get_application_name ());
-	gtk_recent_chooser_set_filter (GTK_RECENT_CHOOSER (toolbar_recent_menu), filter);
+	filter = ctk_recent_filter_new ();
+	ctk_recent_filter_add_application (filter, g_get_application_name ());
+	ctk_recent_chooser_set_filter (GTK_RECENT_CHOOSER (toolbar_recent_menu), filter);
 
-	tool_item = GTK_WIDGET (gtk_menu_tool_button_new_from_stock ("gtk-open"));
-	gtk_menu_tool_button_set_arrow_tooltip_text (GTK_MENU_TOOL_BUTTON (tool_item),
+	tool_item = GTK_WIDGET (ctk_menu_tool_button_new_from_stock ("ctk-open"));
+	ctk_menu_tool_button_set_arrow_tooltip_text (GTK_MENU_TOOL_BUTTON (tool_item),
 						     _("Open a recently used document"));
-	gtk_menu_tool_button_set_menu (GTK_MENU_TOOL_BUTTON (tool_item),
+	ctk_menu_tool_button_set_menu (GTK_MENU_TOOL_BUTTON (tool_item),
 				       GTK_WIDGET (toolbar_recent_menu));
 	return tool_item;
 }

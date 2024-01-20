@@ -24,7 +24,7 @@
 #define EV_WINDOW_H
 
 #include <glib.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "ev-link.h"
 

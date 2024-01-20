@@ -27,7 +27,7 @@
 #ifndef __EV_WEB_VIEW_H__
 #define __EV_WEB_VIEW_H__
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include <lector-document.h>
 #include "ev-jobs.h"

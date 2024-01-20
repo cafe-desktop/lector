@@ -24,7 +24,7 @@
 #ifndef EV_MESSAGE_AREA_H
 #define EV_MESSAGE_AREA_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 

@@ -24,7 +24,7 @@
 #ifndef __EV_SIDEBAR_H__
 #define __EV_SIDEBAR_H__
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "ev-document-model.h"
 

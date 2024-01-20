@@ -22,7 +22,7 @@
 #define __EV_UTILS_H__
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 
