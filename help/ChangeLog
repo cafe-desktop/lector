@@ -164,7 +164,7 @@
 	* reference/lector.types:
 	* reference/version.xml.in:
 	
-	Added ctk-doc based documentation for Lector.
+	Added gtk-doc based documentation for Lector.
 	Still in initial state but I hope it will
 	grow.
 

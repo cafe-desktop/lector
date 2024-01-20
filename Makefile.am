@@ -63,13 +63,13 @@ MAINTAINERCLEANFILES =       \
     $(srcdir)/mkinstalldirs  \
     $(srcdir)/omf.make       \
     $(srcdir)/xmldocs.make   \
-    $(srcdir)/ctk-doc.make   \
+    $(srcdir)/gtk-doc.make   \
     $(srcdir)/po/Makefile.in.in \
     `find "$(srcdir)" -type f -name Makefile.in -print`
 
 DISTCHECK_CONFIGURE_FLAGS =   \
     --disable-schemas-compile \
-    --enable-ctk-doc          \
+    --enable-gtk-doc          \
     --disable-caja            \
     --disable-tests           \
     --disable-silent-rules    \
