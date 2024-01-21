@@ -34,8 +34,8 @@
 #include <glib/gi18n-lib.h>
 #include <ctk/ctk.h>
 
-#include <libcaja-extension/caja-extension-types.h>
-#include <libcaja-extension/caja-property-page-provider.h>
+#include <libbaul-extension/baul-extension-types.h>
+#include <libbaul-extension/baul-property-page-provider.h>
 
 #include <lector-document.h>
 #include "ev-properties-view.h"
@@ -100,8 +100,8 @@ ev_properties_get_pages (CajaPropertyPageProvider *provider,
 	file = files->data;
 
 	/* okay, make the page */
-	uri = caja_file_info_get_uri (file);
-	mime_type = caja_file_info_get_mime_type (file);
+	uri = baul_file_info_get_uri (file);
+	mime_type = baul_file_info_get_mime_type (file);
 
 	document = ev_backends_manager_get_document (mime_type);
 	if (!document)
@@ -118,7 +118,7 @@ ev_properties_get_pages (CajaPropertyPageProvider *provider,
 	ev_properties_view_set_info (EV_PROPERTIES_VIEW (page),
 				     ev_document_get_info (document));
 	ctk_widget_show (page);
-	property_page = caja_property_page_new ("document-properties",
+	property_page = baul_property_page_new ("document-properties",
 			label, page);
 	g_object_unref (document);
 
@@ -133,7 +133,7 @@ end:
 
 /* --- extension interface --- */
 void
-caja_module_initialize (GTypeModule *module)
+baul_module_initialize (GTypeModule *module)
 {
 	ev_properties_plugin_register_type (module);
 	ev_properties_view_register_type (module);
@@ -142,13 +142,13 @@ caja_module_initialize (GTypeModule *module)
 }
 
 void
-caja_module_shutdown (void)
+baul_module_shutdown (void)
 {
         ev_shutdown ();
 }
 
 void
-caja_module_list_types (const GType **types,
+baul_module_list_types (const GType **types,
                             int          *num_types)
 {
 	static GType type_list[1];

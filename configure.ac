@@ -274,24 +274,24 @@ AC_SUBST([EV_DAEMON_CFLAGS])
 AC_SUBST([EV_DAEMON_LIBS])
 
 # Check for Caja property page build
-AC_ARG_ENABLE([caja],
-  [AS_HELP_STRING([--disable-caja],
-                  [Disable build of caja extensions])],
+AC_ARG_ENABLE([baul],
+  [AS_HELP_STRING([--disable-baul],
+                  [Disable build of baul extensions])],
   [],
-  [enable_caja=yes])
+  [enable_baul=yes])
 
-if test "$enable_caja" = "yes" ; then
-  PKG_CHECK_MODULES([CAJA],[ctk+-x11-3.0 $MM gthread-2.0 libcaja-extension >= 1.17.1],
-                    [],[AC_MSG_ERROR([libcaja-extension not found; use --disable-caja to disable the caja extensions])])
-  CAJA_EXTENSION_DIR=`$PKG_CONFIG --variable=extensiondir libcaja-extension`
-  AC_SUBST([cajaextensiondir],[$CAJA_EXTENSION_DIR])
+if test "$enable_baul" = "yes" ; then
+  PKG_CHECK_MODULES([CAJA],[ctk+-x11-3.0 $MM gthread-2.0 libbaul-extension >= 1.17.1],
+                    [],[AC_MSG_ERROR([libbaul-extension not found; use --disable-baul to disable the baul extensions])])
+  CAJA_EXTENSION_DIR=`$PKG_CONFIG --variable=extensiondir libbaul-extension`
+  AC_SUBST([baulextensiondir],[$CAJA_EXTENSION_DIR])
   AC_SUBST(CAJA_CFLAGS)
   AC_SUBST(CAJA_LIBS)
 
-  AC_DEFINE([HAVE_CAJA],[1], [defined if you build the caja plugin])
+  AC_DEFINE([HAVE_CAJA],[1], [defined if you build the baul plugin])
 fi
 
-AM_CONDITIONAL([ENABLE_CAJA],[test "$enable_caja" = "yes"])
+AM_CONDITIONAL([ENABLE_CAJA],[test "$enable_baul" = "yes"])
 
 # Check for thumbnailer build
 
@@ -743,7 +743,7 @@ libview/Makefile
 Makefile
 po/Makefile.in
 previewer/Makefile
-properties/liblector-properties-page.caja-extension.desktop.in
+properties/liblector-properties-page.baul-extension.desktop.in
 properties/Makefile
 shell/Makefile
 test/Makefile
@@ -761,7 +761,7 @@ Configure summary:
     CTK+ Unix Print.....:    $with_ctk_unix_print
     Keyring Support.....:    $with_keyring
     DBUS Support........:    $enable_dbus
-    Caja Plugin.........:    $enable_caja
+    Caja Plugin.........:    $enable_baul
     Thumbnailer.........:    $enable_thumbnailer
     Previewer...........:    $enable_previewer
     Gtk-Doc Support.....:    $enable_gtk_doc

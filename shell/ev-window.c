@@ -387,7 +387,7 @@ static void    zoom_control_changed_cb                 (EphyZoomAction *action,
                                                          float           zoom,
                                                          EvWindow       *ev_window);
 
-static gchar *caja_sendto = NULL;
+static gchar *baul_sendto = NULL;
 
 G_DEFINE_TYPE_WITH_PRIVATE (EvWindow, ev_window, CTK_TYPE_APPLICATION_WINDOW)
 
@@ -3297,7 +3297,7 @@ ev_window_cmd_send_to (CtkAction *action,
 
 	uri = ev_window->priv->local_uri ? ev_window->priv->local_uri : ev_window->priv->uri;
 	unescaped_uri = g_uri_unescape_string (uri, NULL);
-	command = g_strdup_printf ("%s \"%s\"", caja_sendto, unescaped_uri);
+	command = g_strdup_printf ("%s \"%s\"", baul_sendto, unescaped_uri);
 	g_free (unescaped_uri);
 	app_info = g_app_info_create_from_commandline (command, NULL, 0, &error);
 	if (app_info) {
@@ -6376,7 +6376,7 @@ ev_window_class_init (EvWindowClass *ev_window_class)
 	widget_class->window_state_event = ev_window_state_event;
 	widget_class->drag_data_received = ev_window_drag_data_received;
 
-	caja_sendto = g_find_program_in_path ("caja-sendto");
+	baul_sendto = g_find_program_in_path ("baul-sendto");
 }
 
 /* Normal items */
@@ -6776,7 +6776,7 @@ set_action_properties (CtkActionGroup *action_group)
 	action = ctk_action_group_get_action (action_group, "FileSendTo");
 	/*translators: this is the label for toolbar button*/
 	g_object_set (action, "short_label", _("Send To"), NULL);
-	ctk_action_set_visible (action, caja_sendto != NULL);
+	ctk_action_set_visible (action, baul_sendto != NULL);
 
 	action = ctk_action_group_get_action (action_group, "GoPreviousPage");
 	g_object_set (action, "is-important", TRUE, NULL);

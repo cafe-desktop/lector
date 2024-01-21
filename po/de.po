@@ -511,7 +511,7 @@ msgstr "Mehrseitige Dokumente anzeigen"
 #. Translators: Do NOT translate or transliterate this text (this is an icon
 #. file name)!
 #: data/lector.desktop.in.in:12
-#: properties/liblector-properties-page.caja-extension.desktop.in:4
+#: properties/liblector-properties-page.baul-extension.desktop.in:4
 msgid "lector"
 msgstr ""
 
@@ -756,11 +756,11 @@ msgstr "%s, Hochformat (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, Querformat (%s)"
 
-#: properties/liblector-properties-page.caja-extension.desktop.in:5
+#: properties/liblector-properties-page.baul-extension.desktop.in:5
 msgid "Lector properties"
 msgstr "Lector-Eigenschaften"
 
-#: properties/liblector-properties-page.caja-extension.desktop.in:6
+#: properties/liblector-properties-page.baul-extension.desktop.in:6
 msgid "Shows details for Lector documents"
 msgstr "Details für Lector-Dokumente anzeigen"
 
