@@ -2851,8 +2851,8 @@ compare_recent_items (CtkRecentInfo *a, CtkRecentInfo *b)
 	if (has_ev_a && has_ev_b) {
 		time_t time_a, time_b;
 
-		time_a = ctk_recent_info_get_modified (a);
-		time_b = ctk_recent_info_get_modified (b);
+		time_a = g_date_time_to_unix (ctk_recent_info_get_modified (a));
+		time_b = g_date_time_to_unix (ctk_recent_info_get_modified (b));
 
 		return (time_b - time_a);
 	} else if (has_ev_a) {
