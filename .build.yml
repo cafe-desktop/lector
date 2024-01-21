@@ -16,7 +16,6 @@ requires:
     - git
     - gobject-introspection
     - gtk-doc-tools
-    - libcaja-extension-dev
     - libdjvulibre-dev
     - libgirepository1.0-dev
     - libglib2.0-dev
@@ -40,10 +39,28 @@ requires:
     #required for cafe-common
     - autoconf
 
+    #required for baul
+    - gla11y
+    - intltool
+    - iso-codes
+    - libdconf-dev
+    - libexempi-dev
+    - libexif-dev
+    - libglib2.0-doc
+    - libnotify-dev
+    - libpango1.0-dev
+    - libselinux1-dev
+    - libstartup-notification0-dev
+    - python3-lxml
+    - quilt
+    - shared-mime-info
+
 before_scripts:
   - ./html-cppcheck
   - ./debrepo-install 'libctk-3-dev libcail-3-dev'
   - ./install-from-git https://github.com/cafe-desktop/cafe-common master
+  - ./install-from-git https://github.com/cafe-desktop/cafe-desktop master
+  - ./install-from-git https://github.com/cafe-desktop/baul master
 
 build_scripts:
   - ./before-build
