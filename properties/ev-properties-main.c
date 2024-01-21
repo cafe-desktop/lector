@@ -71,7 +71,7 @@ ev_properties_plugin_register_type (GTypeModule *module)
 			&info, 0);
 	g_type_module_add_interface (module,
 			epp_type,
-			CAJA_TYPE_PROPERTY_PAGE_PROVIDER,
+			BAUL_TYPE_PROPERTY_PAGE_PROVIDER,
 			&property_page_provider_iface_info);
 }
 

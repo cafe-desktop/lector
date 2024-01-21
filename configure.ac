@@ -281,17 +281,17 @@ AC_ARG_ENABLE([baul],
   [enable_baul=yes])
 
 if test "$enable_baul" = "yes" ; then
-  PKG_CHECK_MODULES([CAJA],[ctk+-x11-3.0 $MM gthread-2.0 libbaul-extension >= 1.17.1],
+  PKG_CHECK_MODULES([BAUL],[ctk+-x11-3.0 $MM gthread-2.0 libbaul-extension >= 1.17.1],
                     [],[AC_MSG_ERROR([libbaul-extension not found; use --disable-baul to disable the baul extensions])])
-  CAJA_EXTENSION_DIR=`$PKG_CONFIG --variable=extensiondir libbaul-extension`
-  AC_SUBST([baulextensiondir],[$CAJA_EXTENSION_DIR])
-  AC_SUBST(CAJA_CFLAGS)
-  AC_SUBST(CAJA_LIBS)
+  BAUL_EXTENSION_DIR=`$PKG_CONFIG --variable=extensiondir libbaul-extension`
+  AC_SUBST([baulextensiondir],[$BAUL_EXTENSION_DIR])
+  AC_SUBST(BAUL_CFLAGS)
+  AC_SUBST(BAUL_LIBS)
 
-  AC_DEFINE([HAVE_CAJA],[1], [defined if you build the baul plugin])
+  AC_DEFINE([HAVE_BAUL],[1], [defined if you build the baul plugin])
 fi
 
-AM_CONDITIONAL([ENABLE_CAJA],[test "$enable_baul" = "yes"])
+AM_CONDITIONAL([ENABLE_BAUL],[test "$enable_baul" = "yes"])
 
 # Check for thumbnailer build
 

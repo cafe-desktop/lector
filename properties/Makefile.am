@@ -4,7 +4,7 @@ AM_CPPFLAGS=					\
 	-I$(top_srcdir)				\
 	-I$(top_builddir)			\
 	$(FRONTEND_CFLAGS)			\
-	$(CAJA_CFLAGS)			\
+	$(BAUL_CFLAGS)			\
 	$(DISABLE_DEPRECATED)			\
 	$(WARN_CFLAGS)
 
@@ -14,7 +14,7 @@ libevproperties_la_SOURCES=			\
 	ev-properties-view.c			\
 	ev-properties-view.h
 
-if ENABLE_CAJA
+if ENABLE_BAUL
 
 baulextension_LTLIBRARIES = liblector-properties-page.la
 
@@ -26,7 +26,7 @@ liblector_properties_page_la_LIBADD = 		\
 	libevproperties.la			\
 	$(top_builddir)/libdocument/liblectordocument.la	\
 	$(FRONTEND_LIBS)			\
-	$(CAJA_LIBS)
+	$(BAUL_LIBS)
 
 liblector_properties_page_la_LDFLAGS = -module -avoid-version -no-undefined
 
@@ -40,6 +40,6 @@ EXTRA_DIST = $(extension_in_files)
 
 CLEANFILES = $(extension_DATA)
 
-endif # ENABLE_CAJA
+endif # ENABLE_BAUL
 
 -include $(top_srcdir)/git.mk
