@@ -273,7 +273,7 @@ EV_DAEMON_CFLAGS="$EV_DAEMON_CFLAGS $DEBUG_FLAGS"
 AC_SUBST([EV_DAEMON_CFLAGS])
 AC_SUBST([EV_DAEMON_LIBS])
 
-# Check for Caja property page build
+# Check for Baul property page build
 AC_ARG_ENABLE([baul],
   [AS_HELP_STRING([--disable-baul],
                   [Disable build of baul extensions])],
@@ -761,7 +761,7 @@ Configure summary:
     CTK+ Unix Print.....:    $with_ctk_unix_print
     Keyring Support.....:    $with_keyring
     DBUS Support........:    $enable_dbus
-    Caja Plugin.........:    $enable_baul
+    Baul Plugin.........:    $enable_baul
     Thumbnailer.........:    $enable_thumbnailer
     Previewer...........:    $enable_previewer
     Gtk-Doc Support.....:    $enable_gtk_doc

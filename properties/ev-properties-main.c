@@ -42,9 +42,9 @@
 
 static GType epp_type = 0;
 static void property_page_provider_iface_init
-	(CajaPropertyPageProviderIface *iface);
+	(BaulPropertyPageProviderIface *iface);
 static GList *ev_properties_get_pages
-	(CajaPropertyPageProvider *provider, GList *files);
+	(BaulPropertyPageProvider *provider, GList *files);
 
 static void
 ev_properties_plugin_register_type (GTypeModule *module)
@@ -76,23 +76,23 @@ ev_properties_plugin_register_type (GTypeModule *module)
 }
 
 static void
-property_page_provider_iface_init (CajaPropertyPageProviderIface *iface)
+property_page_provider_iface_init (BaulPropertyPageProviderIface *iface)
 {
 	iface->get_pages = ev_properties_get_pages;
 }
 
 static GList *
-ev_properties_get_pages (CajaPropertyPageProvider *provider,
+ev_properties_get_pages (BaulPropertyPageProvider *provider,
 			 GList *files)
 {
 	GError *error = NULL;
 	EvDocument *document;
 	GList *pages = NULL;
-	CajaFileInfo *file;
+	BaulFileInfo *file;
 	gchar *uri = NULL;
 	gchar *mime_type = NULL;
 	CtkWidget *page, *label;
-	CajaPropertyPage *property_page;
+	BaulPropertyPage *property_page;
 
 	/* only add properties page if a single file is selected */
 	if (files == NULL || files->next != NULL)

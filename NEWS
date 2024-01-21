@@ -409,7 +409,7 @@
   * sidebar-thumbnails: preload one extra visible range while scrolling
   * sidebar-thumbnails: keep thumbnails already rendered
   * sidebar-thumbnails: fix clunky scrolling
-  * update copyright year in Caja extension
+  * update copyright year in Baul extension
   * annotations-sidebar: Clean up the styling
   * ev-annotation-window: Fix setting the color of the window border
   * libview: fix annotation window focus change after creation
@@ -518,7 +518,7 @@
 ### lector 1.14.0
 
   * Drop CafeConf migration script
-  * Update copyrights, mention CAFE team in Caja extension
+  * Update copyrights, mention CAFE team in Baul extension
   * Use org.gnome.SessionManager DBus name to inhibit screensaver
   * CTK+3: add lector-window style class to top level
   * CTK+3: add css name EggToolbarEditor for 3.20
