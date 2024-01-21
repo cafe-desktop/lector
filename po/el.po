@@ -514,7 +514,7 @@ msgstr "Προβολή εγγράφων πολλαπλών σελίδων"
 #. Translators: Do NOT translate or transliterate this text (this is an icon
 #. file name)!
 #: data/lector.desktop.in.in:12
-#: properties/liblector-properties-page.caja-extension.desktop.in:4
+#: properties/liblector-properties-page.baul-extension.desktop.in:4
 msgid "lector"
 msgstr ""
 
@@ -759,11 +759,11 @@ msgstr "%s, Κάθετο (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, Ορισζόντιο (%s)"
 
-#: properties/liblector-properties-page.caja-extension.desktop.in:5
+#: properties/liblector-properties-page.baul-extension.desktop.in:5
 msgid "Lector properties"
 msgstr "Προτιμήσεις Lector"
 
-#: properties/liblector-properties-page.caja-extension.desktop.in:6
+#: properties/liblector-properties-page.baul-extension.desktop.in:6
 msgid "Shows details for Lector documents"
 msgstr "Εμφάνιση λεπτομερειών για τα έγγραφα του Lector"
 

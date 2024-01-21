@@ -65,7 +65,7 @@ requires:
   archlinux:
     # Useful URL: https://git.archlinux.org/svntogit/community.git/tree/lector
     - clang
-    - caja
+    - baul
     - djvulibre
     - gcc
     - git
@@ -89,7 +89,7 @@ requires:
     - cppcheck
     - git
     - gobject-introspection
-    - libcaja-extension-dev
+    - libbaul-extension-dev
     - libdjvulibre-dev
     - libgail-3-dev
     - libgirepository1.0-dev
@@ -116,7 +116,7 @@ requires:
   fedora:
     # Useful URL: https://src.fedoraproject.org/cgit/rpms/lector.git
     - cairo-gobject-devel
-    - caja-devel
+    - baul-devel
     - clang
     - clang-analyzer
     - cppcheck-htmlreport
@@ -148,7 +148,7 @@ requires:
     - clang-tools
     - git
     - gobject-introspection
-    - libcaja-extension-dev
+    - libbaul-extension-dev
     - libdjvulibre-dev
     - libgail-3-dev
     - libgirepository1.0-dev

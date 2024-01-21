@@ -440,7 +440,7 @@
 
   * Translations update
   * update copyright year to 2017
-  * build: properly clean the generated .caja-extension file
+  * build: properly clean the generated .baul-extension file
   * build: require cairo >= 1.10.0 and drop some old code
   * shell: remove unused code from utils
   * ev-view: avoid deprecated ctk_drag_begin
@@ -455,7 +455,7 @@
 
   * NEWS: use consistent, project wide, markdown-like formatting to make
     generating release announcements easier
-  * Build: require caja >= 1.17.1
+  * Build: require baul >= 1.17.1
   * Move to CTK+3 (require CTK+ >= 3.14), drop CTK+2 code and --with-ctk
     build option
   * [comics] add support for unarchiver (unar and lsar)
@@ -490,7 +490,7 @@
   * Split dual mode option into dual mode with odd and even pages
     on the left
   * Add Ctrl+Up/Down keybindings for previous/next search result
-  * Add caja-sendto support for sending current document by email,
+  * Add baul-sendto support for sending current document by email,
     to removable device, etc.
   * Improve named destinations support with --named-dest command line
     argument and dbus support
@@ -561,7 +561,7 @@
 
   * Fix some crashes
   * comics backend: add support for bsdtar
-  * Add ini file for caja extension
+  * Add ini file for baul extension
   * Add appdata file
   * Many fixed memory leaks from monsta
   * sidebar-thumbnails: connect to job finished signal before scheduling the job

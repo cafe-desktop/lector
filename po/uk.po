@@ -504,7 +504,7 @@ msgstr "Перегляд багатосторінкових документів
 #. Translators: Do NOT translate or transliterate this text (this is an icon
 #. file name)!
 #: data/lector.desktop.in.in:12
-#: properties/liblector-properties-page.caja-extension.desktop.in:4
+#: properties/liblector-properties-page.baul-extension.desktop.in:4
 msgid "lector"
 msgstr "lector"
 
@@ -743,11 +743,11 @@ msgstr "%s, книжкова (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, альбомна (%s)"
 
-#: properties/liblector-properties-page.caja-extension.desktop.in:5
+#: properties/liblector-properties-page.baul-extension.desktop.in:5
 msgid "Lector properties"
 msgstr "Властивості Lector"
 
-#: properties/liblector-properties-page.caja-extension.desktop.in:6
+#: properties/liblector-properties-page.baul-extension.desktop.in:6
 msgid "Shows details for Lector documents"
 msgstr "Показує деталі для документів Lector"
 

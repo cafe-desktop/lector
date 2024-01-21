@@ -70,7 +70,7 @@ MAINTAINERCLEANFILES =       \
 DISTCHECK_CONFIGURE_FLAGS =   \
     --disable-schemas-compile \
     --enable-gtk-doc          \
-    --disable-caja            \
+    --disable-baul            \
     --disable-tests           \
     --disable-silent-rules    \
     CFLAGS='-Wno-deprecated-declarations'

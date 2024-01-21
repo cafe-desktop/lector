@@ -709,11 +709,11 @@ msgstr ""
 msgid "%s, Landscape (%s)"
 msgstr ""
 
-#: ../properties/liblector-properties-page.caja-extension.in.h:1
+#: ../properties/liblector-properties-page.baul-extension.in.h:1
 msgid "Lector properties"
 msgstr ""
 
-#: ../properties/liblector-properties-page.caja-extension.in.h:2
+#: ../properties/liblector-properties-page.baul-extension.in.h:2
 msgid "Shows details for Lector documents"
 msgstr ""
 

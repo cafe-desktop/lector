@@ -16,7 +16,7 @@ libevproperties_la_SOURCES=			\
 
 if ENABLE_CAJA
 
-cajaextension_LTLIBRARIES = liblector-properties-page.la
+baulextension_LTLIBRARIES = liblector-properties-page.la
 
 liblector_properties_page_la_CFLAGS = -I$(top_srcdir)
 liblector_properties_page_la_SOURCES = 	\
@@ -30,9 +30,9 @@ liblector_properties_page_la_LIBADD = 		\
 
 liblector_properties_page_la_LDFLAGS = -module -avoid-version -no-undefined
 
-extensiondir = $(datadir)/caja/extensions
-extension_in_files = liblector-properties-page.caja-extension.desktop.in
-extension_DATA = $(extension_in_files:.caja-extension.desktop.in=.caja-extension)
+extensiondir = $(datadir)/baul/extensions
+extension_in_files = liblector-properties-page.baul-extension.desktop.in
+extension_DATA = $(extension_in_files:.baul-extension.desktop.in=.baul-extension)
 $(extension_DATA): $(extension_in_files)
 	$(AM_V_GEN) $(MSGFMT) --desktop --keyword=Description --template $< -d $(top_srcdir)/po -o $@
 

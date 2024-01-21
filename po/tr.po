@@ -505,7 +505,7 @@ msgstr "Çok sayfalı belgeleri göster"
 #. Translators: Do NOT translate or transliterate this text (this is an icon
 #. file name)!
 #: data/lector.desktop.in.in:12
-#: properties/liblector-properties-page.caja-extension.desktop.in:4
+#: properties/liblector-properties-page.baul-extension.desktop.in:4
 msgid "lector"
 msgstr ""
 
@@ -746,11 +746,11 @@ msgstr "%s, Düşey (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, Yatay (%s)"
 
-#: properties/liblector-properties-page.caja-extension.desktop.in:5
+#: properties/liblector-properties-page.baul-extension.desktop.in:5
 msgid "Lector properties"
 msgstr "Lector özellikleri"
 
-#: properties/liblector-properties-page.caja-extension.desktop.in:6
+#: properties/liblector-properties-page.baul-extension.desktop.in:6
 msgid "Shows details for Lector documents"
 msgstr "Lector belgeleri için ayrıntıları gösterir"
 
