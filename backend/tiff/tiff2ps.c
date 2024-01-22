@@ -163,8 +163,8 @@ static void PSHead(TIFF2PSContext*, TIFF*, uint32, uint32,
 static void PSTail(TIFF2PSContext*);
 
 #if defined( EXP_ASCII85ENCODER )
-static int Ascii85EncodeBlock(TIFF2PSContext*, uint8 * ascii85_p,
-			      unsigned f_eod, const uint8 * raw_p, int raw_l);
+static int Ascii85EncodeBlock(TIFF2PSContext*, uint8_t * ascii85_p,
+			      unsigned f_eod, const uint8_t * raw_p, int raw_l);
 #endif
 
 #define IMAGEOP(ctx) ((ctx)->useImagemask && ((ctx)->bitspersample == 1)) ? "imagemask" : "image"
@@ -1096,7 +1096,7 @@ PS_Lvl2page(TIFF2PSContext* ctx, TIFF* tif, uint32 w, uint32 h)
 
 #if defined( EXP_ASCII85ENCODER )
 	int			ascii85_l;	/* Length, in bytes, of ascii85_p[] data */
-	uint8		*	ascii85_p = 0;	/* Holds ASCII85 encoded data */
+	uint8_t		*	ascii85_p = 0;	/* Holds ASCII85 encoded data */
 #endif
 
 	PS_Lvl2colorspace(ctx, tif);
@@ -1537,7 +1537,7 @@ PSDataBW(TIFF2PSContext* ctx, TIFF* tif, uint32 w, uint32 h)
 
 #if defined( EXP_ASCII85ENCODER )
 	int	ascii85_l;		/* Length, in bytes, of ascii85_p[] data */
-	uint8	*ascii85_p = 0;		/* Holds ASCII85 encoded data */
+	uint8_t	*ascii85_p = 0;		/* Holds ASCII85 encoded data */
 #endif
 
 	(void) w; (void) h;
@@ -1765,8 +1765,8 @@ Ascii85Flush(TIFF2PSContext* ctx)
 *
 *****************************************************************************/
 
-int Ascii85EncodeBlock( TIFF2PSContext *ctx, uint8 * ascii85_p,
-			unsigned f_eod, const uint8 * raw_p, int raw_l )
+int Ascii85EncodeBlock( TIFF2PSContext *ctx, uint8_t * ascii85_p,
+			unsigned f_eod, const uint8_t * raw_p, int raw_l )
 
 {
     char                        ascii85[5];     /* Encoded 5 tuple */
