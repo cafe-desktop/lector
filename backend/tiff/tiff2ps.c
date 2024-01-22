@@ -125,7 +125,7 @@ struct _TIFF2PSContext
 	double splitOverlap;	/* amount for split pages to overlag */
 	int rotate;		/* rotate image by 180 degrees */
 	int useImagemask;	/* Use imagemask instead of image operator */
-	uint16 res_unit;	/* Resolution units: 2 - inches, 3 - cm */
+	uint16_t res_unit;	/* Resolution units: 2 - inches, 3 - cm */
 	int npages;		/* number of pages processed */
 
 	tsize_t tf_bytesperrow;
@@ -139,12 +139,12 @@ struct _TIFF2PSContext
 	unsigned char ascii85buf[10];
 	int ascii85count;
 	int ascii85breaklen;
-	uint16 samplesperpixel;
-	uint16 bitspersample;
-	uint16 planarconfiguration;
-	uint16 photometric;
-	uint16 compression;
-	uint16 extrasamples;
+	uint16_t samplesperpixel;
+	uint16_t bitspersample;
+	uint16_t planarconfiguration;
+	uint16_t photometric;
+	uint16_t compression;
+	uint16_t extrasamples;
 	int alpha;
 };
 
@@ -355,7 +355,7 @@ setupPageState(TIFF2PSContext *ctx, TIFF* tif, uint32* pw, uint32* ph,
 static int
 isCCITTCompression(TIFF* tif)
 {
-    uint16 compress;
+    uint16_t compress;
     TIFFGetField(tif, TIFFTAG_COMPRESSION, &compress);
     return (compress == COMPRESSION_CCITTFAX3 ||
 	    compress == COMPRESSION_CCITTFAX4 ||
@@ -460,7 +460,7 @@ tiff2ps_process_page(TIFF2PSContext* ctx, TIFF* tif, double pw, double ph,
 	double scale = 1.0;
 	double left_offset = lm * PS_UNIT_SIZE;
 	double bottom_offset = bm * PS_UNIT_SIZE;
-	uint16* sampleinfo;
+	uint16_t* sampleinfo;
 	int split;
 	/* buffers for locale-insitive number formatting */
 	gchar buf[2][G_ASCII_DTOSTR_BUF_SIZE];
@@ -668,7 +668,7 @@ PSTail(TIFF2PSContext *ctx)
 
 static int
 checkcmap(TIFF2PSContext* ctx, TIFF* tif, int n,
-	  uint16* r, uint16* g, uint16* b)
+	  uint16_t* r, uint16_t* g, uint16_t* b)
 {
 	(void) tif;
 	while (n-- > 0)
@@ -681,7 +681,7 @@ checkcmap(TIFF2PSContext* ctx, TIFF* tif, int n,
 static void
 PS_Lvl2colorspace(TIFF2PSContext* ctx, TIFF* tif)
 {
-	uint16 *rmap, *gmap, *bmap;
+	uint16_t *rmap, *gmap, *bmap;
 	int i, num_colors;
 	const char * colorspace_p;
 
@@ -763,7 +763,7 @@ PS_Lvl2ImageDict(TIFF2PSContext* ctx, TIFF* tif, uint32 w, uint32 h)
 {
 	int use_rawdata;
 	uint32 tile_width, tile_height;
-	uint16 predictor, minsamplevalue, maxsamplevalue;
+	uint16_t predictor, minsamplevalue, maxsamplevalue;
 	int repeat_count;
 	char im_h[64], im_x[64], im_y[64];
 
@@ -1033,7 +1033,7 @@ PS_Lvl2ImageDict(TIFF2PSContext* ctx, TIFF* tif, uint32 w, uint32 h)
 	}
 	if (ctx->planarconfiguration == PLANARCONFIG_SEPARATE &&
 	    ctx->samplesperpixel > 1) {
-		uint16 i;
+		uint16_t i;
 
 		/*
 		 * NOTE: This code does not work yet...
@@ -1088,7 +1088,7 @@ PS_Lvl2ImageDict(TIFF2PSContext* ctx, TIFF* tif, uint32 w, uint32 h)
 static int
 PS_Lvl2page(TIFF2PSContext* ctx, TIFF* tif, uint32 w, uint32 h)
 {
-	uint16 fillorder;
+	uint16_t fillorder;
 	int use_rawdata, tiled_image, breaklen = MAXLINE;
 	uint32 chunk_no, num_chunks, *bc;
 	unsigned char *buf_data, *cp;
@@ -1457,7 +1457,7 @@ PSDataColorSeparate(TIFF2PSContext* ctx, TIFF* tif, uint32 w, uint32 h, int nc)
 void
 PSDataPalette(TIFF2PSContext* ctx, TIFF* tif, uint32 w, uint32 h)
 {
-	uint16 *rmap, *gmap, *bmap;
+	uint16_t *rmap, *gmap, *bmap;
 	uint32 row;
 	int breaklen = MAXLINE, cc, nc;
 	unsigned char *tf_buf;
@@ -1665,7 +1665,7 @@ Ascii85Encode(unsigned char* raw, char *buf)
 	word = (((raw[0]<<8)+raw[1])<<16) + (raw[2]<<8) + raw[3];
 	if (word != 0L) {
 		uint32 q;
-		uint16 w1;
+		uint16_t w1;
 
 		q = word / (85L*85*85*85);	/* actually only a byte */
 		buf[0] = (char) (q + '!');
@@ -1676,7 +1676,7 @@ Ascii85Encode(unsigned char* raw, char *buf)
 		word -= q * (85L*85*85); q = word / (85*85);
 		buf[2] = (char) (q + '!');
 
-		w1 = (uint16) (word - q*(85L*85));
+		w1 = (uint16_t) (word - q*(85L*85));
 		buf[3] = (char) ((w1 / 85) + '!');
 		buf[4] = (char) ((w1 % 85) + '!');
 		buf[5] = '\0';
