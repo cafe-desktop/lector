@@ -284,7 +284,7 @@ tiff_document_render (EvDocument      *document,
 
 	if (!TIFFReadRGBAImageOriented (tiff_document->tiff,
 					width, height,
-					(uint32 *)pixels,
+					(uint32_t *)pixels,
 					orientation, 0)) {
 		g_warning ("Failed to read TIFF image.");
 		g_free (pixels);
@@ -379,7 +379,7 @@ tiff_document_render_pixbuf (EvDocument      *document,
 
 	if (!TIFFReadRGBAImageOriented (tiff_document->tiff,
 					width, height,
-					(uint32 *)pixels,
+					(uint32_t *)pixels,
 					ORIENTATION_TOPLEFT, 0)) {
 		g_free (pixels);
 		return NULL;
