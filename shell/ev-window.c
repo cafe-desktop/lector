@@ -5338,6 +5338,7 @@ ev_window_cmd_help_about (CtkAction *action, EvWindow *ev_window)
 {
 	const char *documenters[] = {
 		N_("CAFE Documentation Team"),
+		N_("MATE Documentation Team"),
 		N_("GNOME Documentation Team"),
 		NULL
 	};
@@ -5398,7 +5399,8 @@ ev_window_cmd_help_about (CtkAction *action, EvWindow *ev_window)
 		"version", VERSION,
 		"title", _("About Lector Document Viewer"),
 		"copyright", _("Copyright \xc2\xa9 1996–2009 The Evince authors\n"
-		               "Copyright \xc2\xa9 2012–2020 The CAFE developers"),
+		               "Copyright \xc2\xa9 2012–2020 The MATE developers\n"
+		               "Copyright \xc2\xa9 2024 Pablo Barciela"),
 		"license", license_trans,
 		"website", "https://cafe-desktop.org/",
 		"comments", comments,
