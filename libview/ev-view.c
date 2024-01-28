@@ -7279,7 +7279,7 @@ ev_view_zoom_for_size_single_page (EvView *view,
 
 	get_doc_page_size (view, view->current_page, &doc_width, &doc_height);
 
-	/* Get an approxicafe border */
+	/* Get an approximate border */
 	compute_border (view, &border);
 
 	width -= (border.left + border.right + 2 * view->spacing);
