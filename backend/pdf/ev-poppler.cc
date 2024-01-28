@@ -513,11 +513,11 @@ pdf_document_get_license_from_metadata (xmlDocPtr          doc,
 
 	license = ev_document_license_new ();
 
-	/* b) Marked False => Public Domain, no copyrighted caferial and no
+	/* b) Marked False => Public Domain, no copyrighted material and no
 	 * license needed */
 	if (g_strrstr ((char *) marked, "False") != NULL) {
 		license->text = g_strdup (_("This work is in the Public Domain"));
-	/* c) Marked True => Copyrighted caferial */
+	/* c) Marked True => Copyrighted material */
 	} else {
 		/* Checking usage terms as defined by the XMP Rights Management
 		 * Schema. This field is recomended to be checked by Creative
