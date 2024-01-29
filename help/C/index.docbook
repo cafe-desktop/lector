@@ -2,9 +2,9 @@
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
 "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
   <!ENTITY legal SYSTEM "legal.xml">
-  <!ENTITY appversion "1.10.1">
-  <!ENTITY manrevision "1.2">
-  <!ENTITY date "July 2015">
+  <!ENTITY appversion "1.25.0">
+  <!ENTITY manrevision "1.3">
+  <!ENTITY date "January 2024">
   <!ENTITY app "<application>Lector Document Viewer</application>">
   <!ENTITY appname "Lector Document Viewer">
 ]>
@@ -30,8 +30,12 @@
       </para>
     </abstract>
     <copyright>
-      <year>2020</year>
+      <year>2024</year>
       <holder>CAFE Documentation Project</holder>
+    </copyright>
+    <copyright>
+      <year>2020</year>
+      <holder>MATE Documentation Project</holder>
     </copyright>
     <copyright>
       <year>2005</year>
@@ -52,6 +56,9 @@
     <publisher> 
       <publishername> CAFE Documentation Project </publishername> 
     </publisher>
+    <publisher> 
+      <publishername> MATE Documentation Project </publishername> 
+    </publisher>
     <publisher>
       <publishername> GNOME Documentation Project </publishername>
     </publisher> 
@@ -66,6 +73,11 @@
         <firstname>CAFE Documentation Project</firstname>
         <surname></surname>
         <affiliation><orgname>CAFE Desktop</orgname></affiliation>
+      </author>
+      <author>
+        <firstname>MATE Documentation Project</firstname>
+        <surname></surname>
+        <affiliation><orgname>MATE Desktop</orgname></affiliation>
       </author>
       <author>
         <firstname>Sun</firstname>
@@ -98,10 +110,18 @@
     <revhistory>
       <revision> 
         <revnumber>&appname; Manual V&manrevision;</revnumber>
-	<date>July 2015</date>
+	<date>2024-01-29</date>
         <revdescription>
           <para role="author">CAFE Documentation Team</para>
           <para role="publisher">CAFE Documentation Project</para>
+        </revdescription>
+      </revision>
+      <revision> 
+        <revnumber>&appname; Manual V1.2</revnumber>
+	<date>2015-07-10</date>
+        <revdescription>
+          <para role="author">MATE Documentation Team</para>
+          <para role="publisher">MATE Documentation Project</para>
         </revdescription>
       </revision>
       <revision>
