@@ -250,33 +250,30 @@ ev_annotation_class_init (EvAnnotationClass *klass)
 							      "Last modified date as string",
 							      NULL,
 							      G_PARAM_READWRITE));
-    /**
-     * EvAnnotation:color:
-     *
-     * The colour of the annotation as a #CdkColor.
-     *
-     * Deprecated: 1.2.1: Use #EvAnnotation:rgba instead.
-     */
+	/**
+	* EvAnnotation:color:
+	*
+	* The colour of the annotation as a #CdkColor.
+	*/
 	g_object_class_install_property (g_object_class,
 					 PROP_ANNOT_COLOR,
 					 g_param_spec_pointer ("color",
 							       "Color",
 							       "The annotation color",
 							       G_PARAM_READWRITE));
-
-    /**
-     * EvAnnotation:rgba:
-     *
-     * The colour of the annotation as a #CdkRGBA.
-     *
-     * Since: 1.2.1
-     */
-    g_object_class_install_property (g_object_class,
-                                     PROP_ANNOT_COLOR,
-                                     g_param_spec_boxed ("rgba", NULL, NULL,
-                                                         CDK_TYPE_RGBA,
-                                                         G_PARAM_READWRITE |
-                                                         G_PARAM_STATIC_STRINGS));
+	/**
+	* EvAnnotation:rgba:
+	*
+	* The colour of the annotation as a #CdkRGBA.
+	*
+	* Since: 1.2.1
+	*/
+	g_object_class_install_property (g_object_class,
+					 PROP_ANNOT_COLOR,
+					 g_param_spec_boxed ("rgba", NULL, NULL,
+							     CDK_TYPE_RGBA,
+							     G_PARAM_READWRITE |
+							     G_PARAM_STATIC_STRINGS));
 }
 
 EvAnnotationType
@@ -521,8 +518,6 @@ ev_annotation_set_modified_from_time (EvAnnotation *annot,
  * @color: (out): a #CdkColor to be filled with the Annotation color.
  *
  * Get the color of @annot.
- *
- * Deprecated: 1.2.1: Use ev_annotation_get_rgba() instead.
  */
 void
 ev_annotation_get_color (EvAnnotation *annot,
@@ -551,8 +546,6 @@ ev_annotation_get_color (EvAnnotation *annot,
  * notify::color signal on @annot.
  *
  * Returns: %TRUE  when the color has been changed, %FALSE otherwise.
- *
- * Deprecated: 1.2.1: Use ev_annotation_set_rgba() instead.
  */
 gboolean
 ev_annotation_set_color (EvAnnotation   *annot,
