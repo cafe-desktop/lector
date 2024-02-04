@@ -755,8 +755,6 @@ EV_CHECK_VERSION
 <FILE>ev-document-misc</FILE>
 <TITLE>EvDocumentMisc</TITLE>
 ev_document_misc_get_thumbnail_frame
-ev_document_misc_get_page_border_size
-ev_document_misc_paint_one_page
 ev_document_misc_surface_from_pixbuf
 ev_document_misc_pixbuf_from_surface
 ev_document_misc_surface_rotate_and_scale
