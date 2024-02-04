@@ -518,7 +518,6 @@ ev_document_model_set_page_layout (EvDocumentModel *model,
 
 	g_object_notify (G_OBJECT (model), "page-layout");
 
-	/* set deprecated property as well */
 	_ev_document_model_set_dual_page_internal (model, layout == EV_PAGE_LAYOUT_DUAL);
 }
 
