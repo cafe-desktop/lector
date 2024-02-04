@@ -45,7 +45,6 @@ GType		ev_view_get_type	    (void) G_GNUC_CONST;
 CtkWidget*	ev_view_new		    (void);
 void		ev_view_set_model	    (EvView          *view,
 					     EvDocumentModel *model);
-EV_DEPRECATED
 void 		ev_view_set_loading         (EvView 	     *view,
 					     gboolean         loading);
 gboolean        ev_view_is_loading          (EvView          *view);
@@ -89,7 +88,6 @@ void           ev_view_hide_cursor        (EvView         *view);
 void           ev_view_show_cursor        (EvView         *view);
 
 /* Navigation */
-EV_DEPRECATED_FOR(g_signal_emit_by_name)
 void	       ev_view_scroll             (EvView         *view,
 	                                   CtkScrollType   scroll,
 					   gboolean        horizontal);
