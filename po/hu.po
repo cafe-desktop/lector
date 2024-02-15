@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Wolfgang Ulbrich <cafe@raveit.de>, 2018
+# Wolfgang Ulbrich <mate@raveit.de>, 2018
 # Márton Fazekas <zseliakiraly@gmail.com>, 2018
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
 # István Szőllősi <szollosi.istv4n@gmail.com>, 2018
@@ -1432,9 +1432,9 @@ msgstr ""
 #: shell/ev-window.c:5455
 msgid "translator-credits"
 msgstr ""
-"Dvornik László<dvornik at cafe dot hu>\n"
-"Kelemen Gábor<kelemeng at cafe dot hu>\n"
-"Tímár András<timar at cafe dot hu>\n"
+"Dvornik László<dvornik at mate dot hu>\n"
+"Kelemen Gábor<kelemeng at mate dot hu>\n"
+"Tímár András<timar at mate dot hu>\n"
 "Kalman „KAMI” Szalai<kami911 at gmail dot com>\n"
 "Falu<info at falu dot me>\n"
 "Rezső Páder<rezso at rezso dot net>\n"

@@ -1386,7 +1386,7 @@ msgstr ""
 #: shell/ev-window.c:5455
 msgid "translator-credits"
 msgstr ""
-"Francisco Javier F. Serrador <serrador@cvs.cafe.org>\n"
+"Francisco Javier F. Serrador <serrador@cvs.mate.org>\n"
 "Jorge González González <jorge.gonzalez.gonzalez@hispalinux.es>"
 
 #: shell/ev-window.c:5749

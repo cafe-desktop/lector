@@ -10,7 +10,7 @@
 # Kiril Kirilov <cybercop_montana@abv.bg>, 2018
 # Georgi Georgiev <georgiev_1994@abv.bg>, 2018
 # Tony Ivanov <duskull88@fastmail.fm>, 2018
-# Wolfgang Ulbrich <cafe@raveit.de>, 2018
+# Wolfgang Ulbrich <mate@raveit.de>, 2018
 # Борислав Георгиев <crazyroler@gmail.com>, 2018
 # Любомир Василев, 2019
 # 

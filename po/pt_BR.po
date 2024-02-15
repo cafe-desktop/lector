@@ -13,7 +13,7 @@
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
 # Matheus Macabu <mkbu95@gmail.com>, 2018
 # Marcus Vinícius Marques, 2018
-# Wolfgang Ulbrich <cafe@raveit.de>, 2018
+# Wolfgang Ulbrich <mate@raveit.de>, 2018
 # Gilberto José Souza Coutinho <gilberto.jsc@gmail.com>, 2018
 # Carlos Eduardo Serpa de Sousa <cess@cin.ufpe.br>, 2018
 # 18ab4449a00621534598e84a949423ea, 2018

@@ -11,7 +11,7 @@
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
 # Дмитрий Михирев, 2018
 # AlexL <loginov.alex.valer@gmail.com>, 2018
-# Wolfgang Ulbrich <cafe@raveit.de>, 2018
+# Wolfgang Ulbrich <mate@raveit.de>, 2018
 # Cyber Tailor <cybertailor@gmail.com>, 2018
 # monsta <monsta@inbox.ru>, 2018
 # Yaroslav Shevchenko <yvshevchenko@gmail.com>, 2018

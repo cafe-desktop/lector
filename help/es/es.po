@@ -1,6 +1,6 @@
 # Translators:
 # elio <micta2003@hotmail.com>, 2018
-# Wolfgang Ulbrich <cafe@raveit.de>, 2018
+# Wolfgang Ulbrich <mate@raveit.de>, 2018
 # Isabel Ortuño <isabel.ortuno1@gmail.com>, 2018
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
 # Emiliano Fascetti, 2018

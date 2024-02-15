@@ -1,6 +1,6 @@
 # Translators:
 # AlexL <loginov.alex.valer@gmail.com>, 2018
-# Wolfgang Ulbrich <cafe@raveit.de>, 2018
+# Wolfgang Ulbrich <mate@raveit.de>, 2018
 # Dmitriy Kulikov <kulikov@dima.perm.ru>, 2018
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
 # monsta <monsta@inbox.ru>, 2018

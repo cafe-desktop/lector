@@ -5,7 +5,7 @@
 # 
 # Translators:
 # rogue_spectre <rogue-spectre@laposte.net>, 2018
-# Wolfgang Ulbrich <cafe@raveit.de>, 2018
+# Wolfgang Ulbrich <mate@raveit.de>, 2018
 # Nicolas Roelandt (Personnel), 2018
 # jeremy shields <jeremy.shields@orange.fr>, 2018
 # Laurent Napias <tamplan+transifex@free.fr>, 2018

@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Wolfgang Ulbrich <cafe@raveit.de>, 2018
+# Wolfgang Ulbrich <mate@raveit.de>, 2018
 # André Rivero Castillo <hab130@gmail.com>, 2018
 # cf1cb53ced613cbf2ac17294c88cdcaa, 2018
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019

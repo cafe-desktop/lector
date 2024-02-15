@@ -43,7 +43,7 @@
 
 	* it.po: Updated Italian translation by Milo Casagrande.
 
-2008-08-29  Mario Blättermann  <mariobl@svn.cafe.org>
+2008-08-29  Mario Blättermann  <mariobl@svn.mate.org>
 
 	* de/de.po: Updated german translation
 
@@ -67,7 +67,7 @@
 	* de/figures/lector_start_window.png: Added German translation by
 	Mario Blättermann <mario.blaettermann@t-online.de>.
 
-2008-04-07  Jorge Gonzalez  <jorgegonz@svn.cafe.org>
+2008-04-07  Jorge Gonzalez  <jorgegonz@svn.mate.org>
 
 	* es/es.po: Updated Spanish translation.
 
@@ -76,12 +76,12 @@
 	* C/lector.xml: Added Shortcuts section. Patch by Niels Giesen.
 	* fr/fr.po: Updated Franch translation.
 
-2008-03-04  Jorge Gonzalez  <jorgegonz@svn.cafe.org>
+2008-03-04  Jorge Gonzalez  <jorgegonz@svn.mate.org>
 
 	* es/es.po: Updated Spanish translation.
 	* es/figures/*.png: Updated Spanish screenshot.
 
-2008-03-03  Leonardo Ferreira Fontenelle  <leonardof@svn.cafe.org>
+2008-03-03  Leonardo Ferreira Fontenelle  <leonardof@svn.mate.org>
 
 	* pt_BR/pt_BR.po: Minor fix in Brazilian Portuguese translation to
 	match the GUI.
@@ -90,7 +90,7 @@
 
 	* Makefile.am: Add zh_CN to DOC_LINGUAS.
 
-2008-02-12  Jorge Gonzalez  <jorgegonz@svn.cafe.org>
+2008-02-12  Jorge Gonzalez  <jorgegonz@svn.mate.org>
 
 	* es/es.po: Updated Spanish translation.
 
@@ -110,7 +110,7 @@
 	* it/figures/lector_start_window.png: Updated to new CAFE
 	default theme.
 
-2007-08-22  Satoru SATOH <ss@cafe.gr.jp>
+2007-08-22  Satoru SATOH <ss@mate.gr.jp>
 
 	* ja/ja.po: Added Japanese help translation.
 	* ja/figures/lector_start_window.png: Added lector screenshot.
@@ -189,7 +189,7 @@
 
 	* es/es.po: Updated Spanish translation.
 
-2006-11-10  Wouter Bolsterlee  <wbolster@cvs.cafe.org>
+2006-11-10  Wouter Bolsterlee  <wbolster@cvs.mate.org>
 
 	* C/lector.xml: Fixed build error with newer
 	cafe-doc-utils.
@@ -202,7 +202,7 @@
 
 	* C/lector.xml: Update dialog name and corrected use of 'File' to 'Document'. Patch from Steve Willoughby. Fixes #371042
 
-2006-10-20  Wouter Bolsterlee  <wbolster@cvs.cafe.org>
+2006-10-20  Wouter Bolsterlee  <wbolster@cvs.mate.org>
 
 	* nl/nl.po: Dutch translation updated by Wouter
 	Bolsterlee.
@@ -279,7 +279,7 @@
 	Added Bulgarian translation by
 	Rostislav Raykov <zbrox@i-space.org>
 
-2006-01-28  Francisco Javier F. Serrador  <serrador@cvs.cafe.org>
+2006-01-28  Francisco Javier F. Serrador  <serrador@cvs.mate.org>
 
 	* es/es.po: Updated Spanish translation.
 
@@ -324,7 +324,7 @@ Thu Aug 25 02:32:54 2005  Jonathan Blandford  <jrb@redhat.com>
 	* el.po: Updated Greek translation
 	by ta_panta_rei (fix typos)
 
-2005-08-11  Francisco Javier F. Serrador  <serrador@cvs.cafe.org>
+2005-08-11  Francisco Javier F. Serrador  <serrador@cvs.mate.org>
 
 	* es/es.po: Some corrections
 
@@ -333,15 +333,15 @@ Thu Aug 25 02:32:54 2005  Jonathan Blandford  <jrb@redhat.com>
 	by Stylianos Papanastasiou <stelios@dcs.gla.ac.uk>
 	* Makefile.am (DOC_LINGUAS): Added "el".
 
-2005-08-03  Francisco Javier F. Serrador  <serrador@cvs.cafe.org>
+2005-08-03  Francisco Javier F. Serrador  <serrador@cvs.mate.org>
 
 	* es/es.po: Correct mispelling reported by Tommi Vainikainen.
 
-2005-07-27  Francisco Javier F. Serrador  <serrador@cvs.cafe.org>
+2005-07-27  Francisco Javier F. Serrador  <serrador@cvs.mate.org>
 
 	* es/es.po: Updated Spanish translation.
 
-2005-07-24  Francisco Javier F. Serrador  <serrador@cvs.cafe.org>
+2005-07-24  Francisco Javier F. Serrador  <serrador@cvs.mate.org>
 
 	* es/es.po: Added partial Spanish translation.
 

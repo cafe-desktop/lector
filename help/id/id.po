@@ -1,5 +1,5 @@
 # Translators:
-# Wolfgang Ulbrich <cafe@raveit.de>, 2018
+# Wolfgang Ulbrich <mate@raveit.de>, 2018
 # Febrian Setianto (Feber) <febrian.setianto@gmail.com>, 2018
 # Kukuh Syafaat <syafaatkukuh@gmail.com>, 2018
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018

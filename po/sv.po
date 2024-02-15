@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Wolfgang Ulbrich <cafe@raveit.de>, 2018
+# Wolfgang Ulbrich <mate@raveit.de>, 2018
 # Hilding Kåstad <hilding.kastad@gmail.com>, 2018
 # Kristoffer Grundström <hamnisdude@gmail.com>, 2018
 # 6a42dd6e7ca9a813693714b0d9aa1ad8, 2018

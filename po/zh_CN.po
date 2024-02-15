@@ -7,7 +7,7 @@
 # Cravix <dr.neemous@gmail.com>, 2018
 # 玉堂白鹤 <yjwork@qq.com>, 2018
 # 775405984, 2018
-# Wolfgang Ulbrich <cafe@raveit.de>, 2018
+# Wolfgang Ulbrich <mate@raveit.de>, 2018
 # Wylmer Wang, 2018
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
 # Dianjin Wang <1132321739qq@gmail.com>, 2018

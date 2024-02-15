@@ -5,7 +5,7 @@
 # 
 # Translators:
 # Egoitz Rodriguez <egoitzro@gmail.com>, 2018
-# Wolfgang Ulbrich <cafe@raveit.de>, 2018
+# Wolfgang Ulbrich <mate@raveit.de>, 2018
 # Aritz Jorge Sánchez <aritz.jorge@protonmail.com>, 2018
 # Asier Iturralde Sarasola <asier.iturralde@gmail.com>, 2019
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019

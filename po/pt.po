@@ -9,7 +9,7 @@
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
 # alfalb_mansil, 2018
 # 370d6bb09451526e081e1849e906bc65, 2018
-# Wolfgang Ulbrich <cafe@raveit.de>, 2018
+# Wolfgang Ulbrich <mate@raveit.de>, 2018
 # ogalho Carlos Dias Martins <ogalho@gmail.com>, 2018
 # Luis Filipe Teixeira <lufilte@gmail.com>, 2018
 # Manuela Silva <manuelarodsilva@gmail.com>, 2018

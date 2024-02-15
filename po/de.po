@@ -9,7 +9,7 @@
 # Moritz Bruder <muesli4@gmail.com>, 2018
 # Joachim Braun <joachim.braun@mail.ru>, 2018
 # Robert Orzanna <robert@orzanna.de>, 2018
-# Wolfgang Ulbrich <cafe@raveit.de>, 2018
+# Wolfgang Ulbrich <mate@raveit.de>, 2018
 # nautilusx, 2018
 # Tobias Bannert <tobannert@gmail.com>, 2019
 # Christian Spaan, 2019

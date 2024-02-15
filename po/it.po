@@ -5,7 +5,7 @@
 # 
 # Translators:
 # lc_ <luca.caroppo@bluewin.ch>, 2018
-# Wolfgang Ulbrich <cafe@raveit.de>, 2018
+# Wolfgang Ulbrich <mate@raveit.de>, 2018
 # Stefano Karapetsas <stefano@karapetsas.com>, 2018
 # LuKePicci <luca.piccirillo@gmail.com>, 2018
 # Davide Quattrocchi <davide.quattrocchi@outlook.com>, 2018
