@@ -1888,6 +1888,3 @@ msgstr "RENTETAN"
 #: shell/main.c:76
 msgid "[FILE…]"
 msgstr "[FAIL…]"
-
-#~ msgid "lector"
-#~ msgstr "lector"

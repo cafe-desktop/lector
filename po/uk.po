@@ -1904,6 +1904,3 @@ msgstr "РЯДОК"
 #: shell/main.c:76
 msgid "[FILE…]"
 msgstr "[ФАЙЛ…]"
-
-#~ msgid "lector"
-#~ msgstr "lector"

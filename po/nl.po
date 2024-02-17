@@ -1922,13 +1922,3 @@ msgstr "REEKS"
 #: shell/main.c:76
 msgid "[FILE…]"
 msgstr "[BESTAND…]"
-
-#~ msgid "lector"
-#~ msgstr "lector"
-
-#~ msgid ""
-#~ "Copyright © 1996–2009 The Evince authors\n"
-#~ "Copyright © 2012–2020 The CAFE developers"
-#~ msgstr ""
-#~ "Auteursrecht © 1996–2009 De makers van Evince\n"
-#~ "Auteursrecht © 2012-2020 CAFE-ontwikkelaars"

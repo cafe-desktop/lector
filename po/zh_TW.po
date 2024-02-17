@@ -1866,13 +1866,3 @@ msgstr "字串"
 #: shell/main.c:76
 msgid "[FILE…]"
 msgstr "[檔案…]"
-
-#~ msgid "lector"
-#~ msgstr "lector"
-
-#~ msgid ""
-#~ "Copyright © 1996–2009 The Evince authors\n"
-#~ "Copyright © 2012–2020 The CAFE developers"
-#~ msgstr ""
-#~ "Copyright © 1996–2009 Evince 作者\n"
-#~ "Copyright © 2012–2020 CAFE 開發者"

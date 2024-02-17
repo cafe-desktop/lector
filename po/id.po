@@ -1877,6 +1877,3 @@ msgstr "STRING"
 #: shell/main.c:76
 msgid "[FILE…]"
 msgstr "[BERKAS…]"
-
-#~ msgid "lector"
-#~ msgstr "lector"
