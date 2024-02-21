@@ -1,0 +1,204 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cppcheck - HTML report - lector (cppcheck 2.13.0-2+b1)</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+    <script>
+      function getStyle(el, styleProp) {
+        var y;
+
+        if (el.currentStyle) {
+          y = el.currentStyle[styleProp];
+        } else if (window.getComputedStyle) {
+          y = document.defaultView.getComputedStyle(el, null).getPropertyValue(styleProp);
+        }
+
+        return y;
+      }
+
+      function toggle() {
+        var el = this.expandable_content;
+        var mark = this.expandable_marker;
+
+        if (el.style.display === "block") {
+          el.style.display = "none";
+          mark.textContent = "[+]";
+        } else {
+          el.style.display = "block";
+          mark.textContent = "[-]";
+        }
+      }
+
+      function initExpandables() {
+        var elements = document.querySelectorAll(".expandable");
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          var el = elements[i];
+          var clickable = el.querySelector("span");
+          var marker = clickable.querySelector(".marker");
+          var content = el.querySelector(".content");
+          var width = clickable.clientWidth - parseInt(getStyle(content, "padding-left")) - parseInt(getStyle(content, "padding-right"));
+          content.style.width = width + "px";
+          clickable.expandable_content = content;
+          clickable.expandable_marker = marker;
+          clickable.addEventListener("click", toggle);
+        }
+      }
+
+      function toggleDisplay(cb) {
+        var elements = document.querySelectorAll("." + cb.id);
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          elements[i].classList.toggle("id-filtered", !cb.checked);
+        }
+
+        updateFileRows();
+      }
+
+      function toggleSeverity(cb) {
+        cb.parentElement.classList.toggle("unchecked", !cb.checked);
+        var elements = document.querySelectorAll(".sev_" + cb.id);
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          elements[i].classList.toggle("severity-filtered", !cb.checked);
+        }
+
+        updateFileRows();
+      }
+
+      function toggleTool(cb) {
+        cb.parentElement.classList.toggle("unchecked", !cb.checked);
+
+        var elements;
+        if (cb.id == "clang-tidy")
+            elements = document.querySelectorAll("[class^=clang-tidy-]");
+        else
+            elements = document.querySelectorAll(".issue:not([class^=clang-tidy-])");
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          elements[i].classList.toggle("tool-filtered", !cb.checked);
+        }
+
+        updateFileRows();
+      }
+
+      function toggleAll() {
+        var elements = document.querySelectorAll(".idToggle");
+
+        // starting from 1 since 0 is the "toggle all" input
+        for (var i = 1, len = elements.length; i < len; i++) {
+          var changed = elements[i].checked != elements[0].checked;
+          if (changed) {
+            elements[i].checked = elements[0].checked;
+            toggleDisplay(elements[i]);
+          }
+        }
+      }
+
+      function filterFile(filter) {
+        var elements = document.querySelectorAll(".fileEntry");
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          var visible = elements[i].querySelector("tr").querySelector("td").textContent.toLowerCase().includes(filter.toLowerCase());
+          elements[i].classList.toggle("text-filtered", !visible);
+        }
+      }
+
+      function filterText(text) {
+        filter = text.toLowerCase();
+        var elements = document.querySelectorAll(".issue");
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          var visible = false;
+          var fields = elements[i].querySelectorAll("td");
+          for (var n = 0, num = fields.length; n < num; n++) {
+            if (fields[n].textContent.toLowerCase().includes(filter)) {
+              visible = true;
+              break;
+            }
+          }
+          elements[i].classList.toggle("text-filtered", !visible);
+        }
+
+        updateFileRows();
+      }
+
+      function updateFileRows(element) {
+        var elements = document.querySelectorAll(".fileEntry");
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          var visible = elements[i].querySelector(".issue:not(.id-filtered):not(.severity-filtered):not(.tool-filtered):not(.text-filtered)");
+          elements[i].classList.toggle("file-filtered", !visible);
+        }
+      }
+
+      window.addEventListener("load", initExpandables);
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+    <div id="header" class="header">
+      <h1>Cppcheck report - lector (cppcheck 2.13.0-2+b1): Statistics</h1>
+
+    </div>
+
+    <div id="menu_index">
+     <p><a href="index.html">Back to summary</a> </p>
+
+    </div>
+    <div id="content_index">
+<p><span class="statHeader">Top 10 files for error severity, total findings: 66</span><br>
+&#160;&#160;&#160;1&#160;<a href="112.html">  shell/ev-window.c</a><br>
+&#160;&#160;&#160;1&#160;<a href="111.html">  shell/ev-sidebar.c</a><br>
+&#160;&#160;&#160;1&#160;<a href="110.html">  shell/ev-sidebar-thumbnails.c</a><br>
+&#160;&#160;&#160;1&#160;<a href="109.html">  shell/ev-sidebar-links.c</a><br>
+&#160;&#160;&#160;1&#160;<a href="108.html">  shell/ev-sidebar-layers.c</a><br>
+&#160;&#160;&#160;1&#160;<a href="107.html">  shell/ev-sidebar-bookmarks.c</a><br>
+&#160;&#160;&#160;1&#160;<a href="106.html">  shell/ev-sidebar-attachments.c</a><br>
+&#160;&#160;&#160;1&#160;<a href="105.html">  shell/ev-sidebar-annotations.c</a><br>
+&#160;&#160;&#160;1&#160;<a href="104.html">  shell/ev-properties-license.c</a><br>
+&#160;&#160;&#160;1&#160;<a href="103.html">  shell/ev-properties-fonts.c</a><br>
+</p>
+<p><span class="statHeader">Top 10 files for warning severity, total findings: 2</span><br>
+&#160;&#160;&#160;1&#160;<a href="56.html">  libdocument/ev-document-misc.c</a><br>
+&#160;&#160;&#160;1&#160;<a href="34.html">  backend/epub/minizip/unzip.c</a><br>
+</p>
+<p><span class="statHeader">Top 10 files for style severity, total findings: 160</span><br>
+&#160;&#160;&#160;47&#160;<a href="35.html">  backend/pdf/ev-poppler.cc</a><br>
+&#160;&#160;&#160;21&#160;<a href="43.html">  cut-n-paste/toolbar-editor/egg-editable-toolbar.c</a><br>
+&#160;&#160;&#160;19&#160;<a href="32.html">  backend/epub/epub-document.c</a><br>
+&#160;&#160;&#160;16&#160;<a href="34.html">  backend/epub/minizip/unzip.c</a><br>
+&#160;&#160;&#160;15&#160;<a href="40.html">  cut-n-paste/smclient/eggdesktopfile.c</a><br>
+&#160;&#160;&#160;11&#160;<a href="0.html">  backend/comics/comics-document.c</a><br>
+&#160;&#160;&#160;4&#160;&#160;<a href="3.html">  backend/djvu/djvu-text-page.c</a><br>
+&#160;&#160;&#160;3&#160;&#160;<a href="44.html">  cut-n-paste/toolbar-editor/egg-toolbar-editor.c</a><br>
+&#160;&#160;&#160;3&#160;&#160;<a href="36.html">  backend/pixbuf/pixbuf-document.c</a><br>
+&#160;&#160;&#160;3&#160;&#160;<a href="2.html">  backend/djvu/djvu-links.c</a><br>
+</p>
+<p><span class="statHeader">Top 10 files for information severity, total findings: 25</span><br>
+&#160;&#160;&#160;1&#160;<a href="53.html">  libdocument/ev-debug.c</a><br>
+&#160;&#160;&#160;1&#160;<a href="31.html">  backend/dvi/mdvi-lib/vf.c</a><br>
+&#160;&#160;&#160;1&#160;<a href="30.html">  backend/dvi/mdvi-lib/util.c</a><br>
+&#160;&#160;&#160;1&#160;<a href="29.html">  backend/dvi/mdvi-lib/tt.c</a><br>
+&#160;&#160;&#160;1&#160;<a href="28.html">  backend/dvi/mdvi-lib/tfmfile.c</a><br>
+&#160;&#160;&#160;1&#160;<a href="27.html">  backend/dvi/mdvi-lib/tfm.c</a><br>
+&#160;&#160;&#160;1&#160;<a href="26.html">  backend/dvi/mdvi-lib/t1.c</a><br>
+&#160;&#160;&#160;1&#160;<a href="25.html">  backend/dvi/mdvi-lib/special.c</a><br>
+&#160;&#160;&#160;1&#160;<a href="24.html">  backend/dvi/mdvi-lib/sp-epsf.c</a><br>
+&#160;&#160;&#160;1&#160;<a href="23.html">  backend/dvi/mdvi-lib/setup.c</a><br>
+</p>
+
+    </div>
+    <div id="footer" class="footer">
+      <p>
+        Created by Cppcheck 2.13.0 (<a href="https://cppcheck.sourceforge.io">Sourceforge</a>, <a href="irc://irc.freenode.net/cppcheck">IRC</a>)
+      </p>
+    </div>
+    </div>
+  </body>
+</html>
