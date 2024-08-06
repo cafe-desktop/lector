@@ -1,0 +1,689 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cppcheck - HTML report - lector (cppcheck 2.13.0-2+b1)</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+    <script>
+      function getStyle(el, styleProp) {
+        var y;
+
+        if (el.currentStyle) {
+          y = el.currentStyle[styleProp];
+        } else if (window.getComputedStyle) {
+          y = document.defaultView.getComputedStyle(el, null).getPropertyValue(styleProp);
+        }
+
+        return y;
+      }
+
+      function toggle() {
+        var el = this.expandable_content;
+        var mark = this.expandable_marker;
+
+        if (el.style.display === "block") {
+          el.style.display = "none";
+          mark.textContent = "[+]";
+        } else {
+          el.style.display = "block";
+          mark.textContent = "[-]";
+        }
+      }
+
+      function initExpandables() {
+        var elements = document.querySelectorAll(".expandable");
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          var el = elements[i];
+          var clickable = el.querySelector("span");
+          var marker = clickable.querySelector(".marker");
+          var content = el.querySelector(".content");
+          var width = clickable.clientWidth - parseInt(getStyle(content, "padding-left")) - parseInt(getStyle(content, "padding-right"));
+          content.style.width = width + "px";
+          clickable.expandable_content = content;
+          clickable.expandable_marker = marker;
+          clickable.addEventListener("click", toggle);
+        }
+      }
+
+      function toggleDisplay(cb) {
+        var elements = document.querySelectorAll("." + cb.id);
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          elements[i].classList.toggle("id-filtered", !cb.checked);
+        }
+
+        updateFileRows();
+      }
+
+      function toggleSeverity(cb) {
+        cb.parentElement.classList.toggle("unchecked", !cb.checked);
+        var elements = document.querySelectorAll(".sev_" + cb.id);
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          elements[i].classList.toggle("severity-filtered", !cb.checked);
+        }
+
+        updateFileRows();
+      }
+
+      function toggleTool(cb) {
+        cb.parentElement.classList.toggle("unchecked", !cb.checked);
+
+        var elements;
+        if (cb.id == "clang-tidy")
+            elements = document.querySelectorAll("[class^=clang-tidy-]");
+        else
+            elements = document.querySelectorAll(".issue:not([class^=clang-tidy-])");
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          elements[i].classList.toggle("tool-filtered", !cb.checked);
+        }
+
+        updateFileRows();
+      }
+
+      function toggleAll() {
+        var elements = document.querySelectorAll(".idToggle");
+
+        // starting from 1 since 0 is the "toggle all" input
+        for (var i = 1, len = elements.length; i < len; i++) {
+          var changed = elements[i].checked != elements[0].checked;
+          if (changed) {
+            elements[i].checked = elements[0].checked;
+            toggleDisplay(elements[i]);
+          }
+        }
+      }
+
+      function filterFile(filter) {
+        var elements = document.querySelectorAll(".fileEntry");
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          var visible = elements[i].querySelector("tr").querySelector("td").textContent.toLowerCase().includes(filter.toLowerCase());
+          elements[i].classList.toggle("text-filtered", !visible);
+        }
+      }
+
+      function filterText(text) {
+        filter = text.toLowerCase();
+        var elements = document.querySelectorAll(".issue");
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          var visible = false;
+          var fields = elements[i].querySelectorAll("td");
+          for (var n = 0, num = fields.length; n < num; n++) {
+            if (fields[n].textContent.toLowerCase().includes(filter)) {
+              visible = true;
+              break;
+            }
+          }
+          elements[i].classList.toggle("text-filtered", !visible);
+        }
+
+        updateFileRows();
+      }
+
+      function updateFileRows(element) {
+        var elements = document.querySelectorAll(".fileEntry");
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+          var visible = elements[i].querySelector(".issue:not(.id-filtered):not(.severity-filtered):not(.tool-filtered):not(.text-filtered)");
+          elements[i].classList.toggle("file-filtered", !visible);
+        }
+      }
+
+      window.addEventListener("load", initExpandables);
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+    <div id="header" class="header">
+      <h1>Cppcheck report - lector (cppcheck 2.13.0-2+b1)</h1>
+      <div id="filters">
+
+        <label class="checkBtn"><input type="checkbox" onclick="toggleSeverity(this)" id="error"checked/>error</label>
+        <label class="checkBtn"><input type="checkbox" onclick="toggleSeverity(this)" id="warning"checked/>warning</label>
+        <label class="checkBtn disabled"><input type="checkbox" onclick="toggleSeverity(this)" id="portability"disabled/>portability</label>
+        <label class="checkBtn disabled"><input type="checkbox" onclick="toggleSeverity(this)" id="performance"disabled/>performance</label>
+        <label class="checkBtn"><input type="checkbox" onclick="toggleSeverity(this)" id="style"checked/>style</label>
+        <label class="checkBtn"><input type="checkbox" onclick="toggleSeverity(this)" id="information"checked/>information</label>
+        | 
+        <label class="checkBtn"><input type="checkbox" onclick="toggleTool(this)" id="cppcheck"checked/>cppcheck</label>
+        <label class="checkBtn disabled"><input type="checkbox" onclick="toggleTool(this)" id="clang-tidy"disabled/>clang-tidy</label>
+        | 
+        <label class="severityHeader">File: <input type="text" oninput="filterFile(this.value)"/></label>
+        <label class="severityHeader">Filter: <input type="text" oninput="filterText(this.value)"/></label>
+      </div>
+
+    </div>
+
+    <div id="menu_index">
+     <p><a href="index.html">Defect summary</a> </p>
+
+       <label><input type="checkbox" class="idToggle" onclick="toggleAll()" checked> Toggle all</label>
+       <table>
+           <tr><th>Show</th><th>#</th><th>Defect ID</th></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="unknownMacro" name="unknownMacro" checked></td><td>61</td><td>unknownMacro</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="variableScope" name="variableScope" checked></td><td>46</td><td>variableScope</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="constVariablePointer" name="constVariablePointer" checked></td><td>31</td><td>constVariablePointer</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="cstyleCast" name="cstyleCast" checked></td><td>28</td><td>cstyleCast</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="noValidConfiguration" name="noValidConfiguration" checked></td><td>25</td><td>noValidConfiguration</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="constParameterPointer" name="constParameterPointer" checked></td><td>19</td><td>constParameterPointer</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="constParameterCallback" name="constParameterCallback" checked></td><td>13</td><td>constParameterCallback</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="unreadVariable" name="unreadVariable" checked></td><td>13</td><td>unreadVariable</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="preprocessorErrorDirective" name="preprocessorErrorDirective" checked></td><td>5</td><td>preprocessorErrorDirective</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="shadowVariable" name="shadowVariable" checked></td><td>3</td><td>shadowVariable</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="knownConditionTrueFalse" name="knownConditionTrueFalse" checked></td><td>2</td><td>knownConditionTrueFalse</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="unusedVariable" name="unusedVariable" checked></td><td>2</td><td>unusedVariable</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="checkersReport" name="checkersReport" checked></td><td>1</td><td>checkersReport</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="memsetValueOutOfRange" name="memsetValueOutOfRange" checked></td><td>1</td><td>memsetValueOutOfRange</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="redundantAssignment" name="redundantAssignment" checked></td><td>1</td><td>redundantAssignment</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="uninitvar" name="uninitvar" checked></td><td>1</td><td>uninitvar</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="unsignedLessThanZero" name="unsignedLessThanZero" checked></td><td>1</td><td>unsignedLessThanZero</td></tr>
+            <tr><td><input type="checkbox" class="idToggle" onclick="toggleDisplay(this)" id="unusedStructMember" name="unusedStructMember" checked></td><td>1</td><td>unusedStructMember</td></tr>
+           <tr><td></td><td>254</td><td>total</td></tr>
+       </table>
+       <p><a href="stats.html">Statistics</a></p>
+    </div>
+    <div id="content_index">
+
+       <table class="summaryTable">
+       <tr><th>Line</th><th>Id</th><th>CWE</th><th>Severity</th><th>Message</th></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="113.html"></a></td></tr>
+         <tr class="checkersReport sev_information issue"><td></td><td>checkersReport</td><td></td><td>information</td><td>Active checkers: There was critical errors (use --checkers-report=&lt;filename&gt; to see details)</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="0.html">backend/comics/comics-document.c</a></td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="0.html#line-246">246</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;quoted_file_aux&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="0.html#line-658">658</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;loader&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="0.html#line-659">659</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;argv&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="0.html#line-666">666</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;filename&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="0.html#line-733">733</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;loader&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="0.html#line-735">735</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;argv&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="0.html#line-742">742</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;filename&apos; can be reduced.</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="0.html#line-820">820</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;scale&apos; can be declared as pointer to const</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="0.html#line-836">836</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;content_dir&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="0.html#line-837">837</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;filename&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="0.html#line-838">838</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;filename_with_path&apos; can be reduced.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="1.html">backend/djvu/djvu-document.c</a></td></tr>
+         <tr class="constParameterCallback sev_style issue"><td><a href="1.html#line-448">448</a></td><td>constParameterCallback</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;points&apos; can be declared as pointer to const. However it seems that &apos;djvu_selection_get_selected_text&apos; is a callback function, if &apos;points&apos; is declared with const you might also need to cast function pointer(s).</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="2.html">backend/djvu/djvu-links.c</a></td></tr>
+         <tr class="constParameterPointer sev_style issue"><td><a href="2.html#line-232">232</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;page_info&apos; can be declared as pointer to const</td></tr>
+         <tr class="constParameterPointer sev_style issue"><td><a href="2.html#line-297">297</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;djvu_document&apos; can be declared as pointer to const</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="2.html#line-372">372</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;ev_link_mapping&apos; can be reduced.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="3.html">backend/djvu/djvu-text-page.c</a></td></tr>
+         <tr class="constParameterPointer sev_style issue"><td><a href="3.html#line-104">104</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;rect&apos; can be declared as pointer to const</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="3.html#line-183">183</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;link&apos; can be declared as pointer to const</td></tr>
+         <tr class="constParameterPointer sev_style issue"><td><a href="3.html#line-206">206</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;source&apos; can be declared as pointer to const</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="3.html#line-381">381</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;result&apos; can be reduced.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="4.html">backend/dvi/cairo-device.c</a></td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="4.html#line-204">204</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;frac&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="4.html#line-207">207</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;alpha&apos; can be reduced.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="5.html">backend/dvi/dvi-document.c</a></td></tr>
+         <tr class="constParameterCallback sev_style issue"><td><a href="5.html#line-261">261</a></td><td>constParameterCallback</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;rc&apos; can be declared as pointer to const. However it seems that &apos;dvi_document_thumbnails_get_dimensions&apos; is a callback function, if &apos;rc&apos; is declared with const you might also need to cast function pointer(s).</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="6.html">backend/dvi/fonts.c</a></td></tr>
+         <tr class="unusedStructMember sev_style issue"><td><a href="6.html#line-24">24</a></td><td>unusedStructMember</td><td><a href="https://cwe.mitre.org/data/definitions/563.html">563</a></td><td>style</td><td>struct member &apos;fontinfo::desc&apos; is never used.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="6.html#line-46">46</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;type&apos; can be reduced.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="8.html">backend/dvi/mdvi-lib/afmparse.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="8.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="9.html">backend/dvi/mdvi-lib/bitmap.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="9.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="10.html">backend/dvi/mdvi-lib/color.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="10.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="11.html">backend/dvi/mdvi-lib/common.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="11.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="12.html">backend/dvi/mdvi-lib/dviread.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="12.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="13.html">backend/dvi/mdvi-lib/files.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="13.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="14.html">backend/dvi/mdvi-lib/font.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="14.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="15.html">backend/dvi/mdvi-lib/fontmap.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="15.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="16.html">backend/dvi/mdvi-lib/fontsrch.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="16.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="17.html">backend/dvi/mdvi-lib/gf.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="17.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="18.html">backend/dvi/mdvi-lib/hash.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="18.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="19.html">backend/dvi/mdvi-lib/list.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="19.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="20.html">backend/dvi/mdvi-lib/pagesel.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="20.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="21.html">backend/dvi/mdvi-lib/paper.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="21.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="22.html">backend/dvi/mdvi-lib/pk.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="22.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="23.html">backend/dvi/mdvi-lib/setup.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="23.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="24.html">backend/dvi/mdvi-lib/sp-epsf.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="24.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="25.html">backend/dvi/mdvi-lib/special.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="25.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="7.html">backend/dvi/mdvi-lib/sysdeps.h</a></td></tr>
+         <tr class="preprocessorErrorDirective sev_error issue"><td><a href="7.html#line-56">56</a></td><td>preprocessorErrorDirective</td><td></td><td>error</td><td class="error">#error No appropriate 32bit native type found. Fix sysdeps.h</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="26.html">backend/dvi/mdvi-lib/t1.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="26.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="27.html">backend/dvi/mdvi-lib/tfm.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="27.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="28.html">backend/dvi/mdvi-lib/tfmfile.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="28.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="29.html">backend/dvi/mdvi-lib/tt.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="29.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="30.html">backend/dvi/mdvi-lib/util.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="30.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="31.html">backend/dvi/mdvi-lib/vf.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="31.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="32.html">backend/epub/epub-document.c</a></td></tr>
+         <tr class="constParameterCallback sev_style issue"><td><a href="32.html#line-106">106</a></td><td>constParameterCallback</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;rc&apos; can be declared as pointer to const. However it seems that &apos;epub_document_thumbnails_get_dimensions&apos; is a callback function, if &apos;rc&apos; is declared with const you might also need to cast function pointer(s).</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="32.html#line-383">383</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;content_dir&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="32.html#line-384">384</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;filename&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="32.html#line-385">385</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;filename_with_path&apos; can be reduced.</td></tr>
+         <tr class="unusedVariable sev_style issue"><td><a href="32.html#line-502">502</a></td><td>unusedVariable</td><td><a href="https://cwe.mitre.org/data/definitions/563.html">563</a></td><td>style</td><td>Unused variable: children</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="32.html#line-622">622</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;typecount&apos; can be reduced.</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="32.html#line-888">888</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;documentfolder&apos; can be declared as pointer to const</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="32.html#line-936">936</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;res&apos; can be declared as pointer to const</td></tr>
+         <tr class="unreadVariable sev_style issue"><td><a href="32.html#line-937">937</a></td><td>unreadVariable</td><td><a href="https://cwe.mitre.org/data/definitions/563.html">563</a></td><td>style</td><td>Variable &apos;res&apos; is assigned a value that is never used.</td></tr>
+         <tr class="constParameterPointer sev_style issue"><td><a href="32.html#line-1147">1147</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;containeruri&apos; can be declared as pointer to const</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="32.html#line-1208">1208</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;navdirend&apos; can be declared as pointer to const</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="32.html#line-1333">1333</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;archive_dir&apos; can be declared as pointer to const</td></tr>
+         <tr class="unreadVariable sev_style issue"><td><a href="32.html#line-1333">1333</a></td><td>unreadVariable</td><td><a href="https://cwe.mitre.org/data/definitions/563.html">563</a></td><td>style</td><td>Variable &apos;archive_dir&apos; is assigned a value that is never used.</td></tr>
+         <tr class="unreadVariable sev_style issue"><td><a href="32.html#line-1510">1510</a></td><td>unreadVariable</td><td><a href="https://cwe.mitre.org/data/definitions/563.html">563</a></td><td>style</td><td>Variable &apos;href&apos; is assigned a value that is never used.</td></tr>
+         <tr class="unreadVariable sev_style issue"><td><a href="32.html#line-1511">1511</a></td><td>unreadVariable</td><td><a href="https://cwe.mitre.org/data/definitions/563.html">563</a></td><td>style</td><td>Variable &apos;rel&apos; is assigned a value that is never used.</td></tr>
+         <tr class="unreadVariable sev_style issue"><td><a href="32.html#line-1512">1512</a></td><td>unreadVariable</td><td><a href="https://cwe.mitre.org/data/definitions/563.html">563</a></td><td>style</td><td>Variable &apos;class&apos; is assigned a value that is never used.</td></tr>
+         <tr class="constParameterPointer sev_style issue"><td><a href="32.html#line-1581">1581</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;containeruri&apos; can be declared as pointer to const</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="32.html#line-1599">1599</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;pagedata&apos; can be declared as pointer to const</td></tr>
+         <tr class="unreadVariable sev_style issue"><td><a href="32.html#line-1660">1660</a></td><td>unreadVariable</td><td><a href="https://cwe.mitre.org/data/definitions/563.html">563</a></td><td>style</td><td>Variable &apos;backenddir&apos; is assigned a value that is never used.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="33.html">backend/epub/minizip/ioapi.c</a></td></tr>
+         <tr class="redundantAssignment sev_style issue"><td><a href="33.html#line-79">79</a></td><td>redundantAssignment</td><td><a href="https://cwe.mitre.org/data/definitions/563.html">563</a></td><td>style</td><td>Variable &apos;p_filefunc64_32-&gt;zfile_func64.zerror_file&apos; is reassigned a value before the old one has been used.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="34.html">backend/epub/minizip/unzip.c</a></td></tr>
+         <tr class="constParameterPointer sev_style issue"><td><a href="34.html#line-585">585</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;pzlib_filefunc64_32_def&apos; can be declared as pointer to const</td></tr>
+         <tr class="knownConditionTrueFalse sev_style issue"><td><a href="34.html#line-603">603</a></td><td>knownConditionTrueFalse</td><td><a href="https://cwe.mitre.org/data/definitions/570.html">570</a></td><td>style</td><td>Condition &apos;unz_copyright[0]!=&apos; &apos;&apos; is always false</td></tr>
+         <tr class="uninitvar sev_warning issue"><td><a href="34.html#line-611">611</a></td><td>uninitvar</td><td><a href="https://cwe.mitre.org/data/definitions/457.html">457</a></td><td>warning</td><td class="warning">Uninitialized variable: *pzlib_filefunc64_32_def.zopen32_file</td></tr>
+         <tr class="constParameterPointer sev_style issue"><td><a href="34.html#line-766">766</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;pzlib_filefunc32_def&apos; can be declared as pointer to const</td></tr>
+         <tr class="constParameterPointer sev_style issue"><td><a href="34.html#line-779">779</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;pzlib_filefunc_def&apos; can be declared as pointer to const</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="34.html#line-830">830</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;s&apos; can be declared as pointer to const</td></tr>
+         <tr class="shadowVariable sev_style issue"><td><a href="34.html#line-1041">1041</a></td><td>shadowVariable</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Local variable &apos;uL&apos; shadows outer variable</td></tr>
+         <tr class="unreadVariable sev_style issue"><td><a href="34.html#line-1094">1094</a></td><td>unreadVariable</td><td><a href="https://cwe.mitre.org/data/definitions/563.html">563</a></td><td>style</td><td>Variable &apos;lSeek&apos; is assigned a value that is never used.</td></tr>
+         <tr class="unreadVariable sev_style issue"><td><a href="34.html#line-1102">1102</a></td><td>unreadVariable</td><td><a href="https://cwe.mitre.org/data/definitions/563.html">563</a></td><td>style</td><td>Variable &apos;lSeek&apos; is assigned a value that is never used.</td></tr>
+         <tr class="unreadVariable sev_style issue"><td><a href="34.html#line-1105">1105</a></td><td>unreadVariable</td><td><a href="https://cwe.mitre.org/data/definitions/563.html">563</a></td><td>style</td><td>Variable &apos;lSeek&apos; is assigned a value that is never used.</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="34.html#line-1310">1310</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;s&apos; can be declared as pointer to const</td></tr>
+         <tr class="constParameterPointer sev_style issue"><td><a href="34.html#line-1362">1362</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;file_pos&apos; can be declared as pointer to const</td></tr>
+         <tr class="unreadVariable sev_style issue"><td><a href="34.html#line-1538">1538</a></td><td>unreadVariable</td><td><a href="https://cwe.mitre.org/data/definitions/563.html">563</a></td><td>style</td><td>Variable &apos;err&apos; is assigned a value that is never used.</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="34.html#line-1661">1661</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;pfile_in_zip_read_info&apos; can be declared as pointer to const</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="34.html#line-1908">1908</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;pfile_in_zip_read_info&apos; can be declared as pointer to const</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="34.html#line-1927">1927</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;pfile_in_zip_read_info&apos; can be declared as pointer to const</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="34.html#line-2081">2081</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;s&apos; can be declared as pointer to const</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="35.html">backend/pdf/ev-poppler.cc</a></td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="35.html#line-413">413</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;i&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="35.html#line-482">482</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;language_string&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="35.html#line-483">483</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;aux&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="35.html#line-484">484</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;tags&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="35.html#line-485">485</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;tag&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="35.html#line-486">486</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;i&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="35.html#line-486">486</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;j&apos; can be reduced.</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-518">518</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-541">541</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-556">556</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-569">569</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-581">581</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-1135">1135</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="35.html#line-1135">1135</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;action_layer&apos; can be declared as pointer to const</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-1138">1138</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="unsignedLessThanZero sev_style issue"><td><a href="35.html#line-1210">1210</a></td><td>unsignedLessThanZero</td><td><a href="https://cwe.mitre.org/data/definitions/570.html">570</a></td><td>style</td><td>Checking if unsigned expression &apos;strlen(ev_link_get_title(link))&apos; is less than zero.</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-1251">1251</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-1283">1283</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-1365">1365</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-1544">1544</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="35.html#line-1544">1544</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;rect&apos; can be declared as pointer to const</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="35.html#line-1805">1805</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;ctx&apos; can be declared as pointer to const</td></tr>
+         <tr class="unreadVariable sev_style issue"><td><a href="35.html#line-1805">1805</a></td><td>unreadVariable</td><td><a href="https://cwe.mitre.org/data/definitions/563.html">563</a></td><td>style</td><td>Variable &apos;ctx&apos; is assigned a value that is never used.</td></tr>
+         <tr class="constParameterCallback sev_style issue"><td><a href="35.html#line-1875">1875</a></td><td>constParameterCallback</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;text&apos; can be declared as pointer to const. However it seems that &apos;pdf_selection_render_selection&apos; is a callback function, if &apos;text&apos; is declared with const you might also need to cast function pointer(s).</td></tr>
+         <tr class="constParameterCallback sev_style issue"><td><a href="35.html#line-1876">1876</a></td><td>constParameterCallback</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;base&apos; can be declared as pointer to const. However it seems that &apos;pdf_selection_render_selection&apos; is a callback function, if &apos;base&apos; is declared with const you might also need to cast function pointer(s).</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-1913">1913</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-1914">1914</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-1931">1931</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-1947">1947</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-2003">2003</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-2021">2021</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-2284">2284</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-2665">2665</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-2783">2783</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-2797">2797</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="35.html#line-2859">2859</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;annot_mapping&apos; can be reduced.</td></tr>
+         <tr class="unusedVariable sev_style issue"><td><a href="35.html#line-2860">2860</a></td><td>unusedVariable</td><td><a href="https://cwe.mitre.org/data/definitions/563.html">563</a></td><td>style</td><td>Unused variable: list</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-2870">2870</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="constParameterCallback sev_style issue"><td><a href="35.html#line-2885">2885</a></td><td>constParameterCallback</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;rect&apos; can be declared as pointer to const. However it seems that &apos;pdf_document_annotations_add_annotation&apos; is a callback function, if &apos;rect&apos; is declared with const you might also need to cast function pointer(s).</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-2964">2964</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="unreadVariable sev_style issue"><td><a href="35.html#line-2978">2978</a></td><td>unreadVariable</td><td><a href="https://cwe.mitre.org/data/definitions/563.html">563</a></td><td>style</td><td>Variable &apos;list&apos; is assigned a value that is never used.</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-3069">3069</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-3075">3075</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-3099">3099</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="35.html#line-3129">3129</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;ev_attachment&apos; can be reduced.</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-3134">3134</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+         <tr class="cstyleCast sev_style issue"><td><a href="35.html#line-3255">3255</a></td><td>cstyleCast</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>C-style pointer casting</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="36.html">backend/pixbuf/pixbuf-document.c</a></td></tr>
+         <tr class="constParameterCallback sev_style issue"><td><a href="36.html#line-109">109</a></td><td>constParameterCallback</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;rc&apos; can be declared as pointer to const. However it seems that &apos;pixbuf_document_render&apos; is a callback function, if &apos;rc&apos; is declared with const you might also need to cast function pointer(s).</td></tr>
+         <tr class="constParameterCallback sev_style issue"><td><a href="36.html#line-158">158</a></td><td>constParameterCallback</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;rc&apos; can be declared as pointer to const. However it seems that &apos;pixbuf_document_thumbnails_get_thumbnail&apos; is a callback function, if &apos;rc&apos; is declared with const you might also need to cast function pointer(s).</td></tr>
+         <tr class="constParameterCallback sev_style issue"><td><a href="36.html#line-180">180</a></td><td>constParameterCallback</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;rc&apos; can be declared as pointer to const. However it seems that &apos;pixbuf_document_thumbnails_get_dimensions&apos; is a callback function, if &apos;rc&apos; is declared with const you might also need to cast function pointer(s).</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="37.html">backend/tiff/tiff-document.c</a></td></tr>
+         <tr class="constParameterCallback sev_style issue"><td><a href="37.html#line-499">499</a></td><td>constParameterCallback</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;fc&apos; can be declared as pointer to const. However it seems that &apos;tiff_document_file_exporter_begin&apos; is a callback function, if &apos;fc&apos; is declared with const you might also need to cast function pointer(s).</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="38.html">backend/tiff/tiff2ps.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="38.html#line-300">300</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_GNUC_PRINTF is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="39.html">backend/xps/xps-document.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="39.html#line-49">49</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If EV_BACKEND_REGISTER_WITH_CODE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="40.html">cut-n-paste/smclient/eggdesktopfile.c</a></td></tr>
+         <tr class="constParameterPointer sev_style issue"><td><a href="40.html#line-329">329</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;desktop_file&apos; can be declared as pointer to const</td></tr>
+         <tr class="constParameterPointer sev_style issue"><td><a href="40.html#line-343">343</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;desktop_file&apos; can be declared as pointer to const</td></tr>
+         <tr class="constParameterPointer sev_style issue"><td><a href="40.html#line-357">357</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;desktop_file&apos; can be declared as pointer to const</td></tr>
+         <tr class="constParameterPointer sev_style issue"><td><a href="40.html#line-378">378</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;desktop_file&apos; can be declared as pointer to const</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="40.html#line-482">482</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;try_exec&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="40.html#line-482">482</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;found_program&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="40.html#line-483">483</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;only_show_in&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="40.html#line-483">483</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;not_show_in&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="40.html#line-485">485</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;i&apos; can be reduced.</td></tr>
+         <tr class="constParameterPointer sev_style issue"><td><a href="40.html#line-560">560</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;desktop_file&apos; can be declared as pointer to const</td></tr>
+         <tr class="constParameterPointer sev_style issue"><td><a href="40.html#line-579">579</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;desktop_file&apos; can be declared as pointer to const</td></tr>
+         <tr class="constParameterPointer sev_style issue"><td><a href="40.html#line-595">595</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;desktop_file&apos; can be declared as pointer to const</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="40.html#line-607">607</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;p&apos; can be reduced.</td></tr>
+         <tr class="constParameterPointer sev_style issue"><td><a href="40.html#line-634">634</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;desktop_file&apos; can be declared as pointer to const</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="40.html#line-642">642</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;doc&apos; can be declared as pointer to const</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="41.html">cut-n-paste/smclient/eggsmclient-xsmp.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="41.html#line-173">173</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="42.html">cut-n-paste/smclient/eggsmclient.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="42.html#line-47">47</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="43.html">cut-n-paste/toolbar-editor/egg-editable-toolbar.c</a></td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="43.html#line-226">226</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;action&apos; can be reduced.</td></tr>
+         <tr class="constParameterCallback sev_style issue"><td><a href="43.html#line-377">377</a></td><td>constParameterCallback</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;event&apos; can be declared as pointer to const. However it seems that &apos;edit_mode_button_press_event_cb&apos; is a callback function, if &apos;event&apos; is declared with const you might also need to cast function pointer(s).</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="43.html#line-417">417</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;name&apos; can be declared as pointer to const</td></tr>
+         <tr class="constParameterPointer sev_style issue"><td><a href="43.html#line-435">435</a></td><td>constParameterPointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;etoolbar&apos; can be declared as pointer to const</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="43.html#line-454">454</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;priv&apos; can be declared as pointer to const</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="43.html#line-484">484</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;name&apos; can be declared as pointer to const</td></tr>
+         <tr class="shadowVariable sev_style issue"><td><a href="43.html#line-498">498</a></td><td>shadowVariable</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Local variable &apos;screen&apos; shadows outer variable</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="43.html#line-813">813</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;type&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="43.html#line-840">840</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;flags&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="43.html#line-885">885</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;string&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="43.html#line-892">892</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;toolbar_name&apos; can be reduced.</td></tr>
+         <tr class="shadowVariable sev_style issue"><td><a href="43.html#line-925">925</a></td><td>shadowVariable</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Local variable &apos;action&apos; shadows outer variable</td></tr>
+         <tr class="knownConditionTrueFalse sev_style issue"><td><a href="43.html#line-1156">1156</a></td><td>knownConditionTrueFalse</td><td><a href="https://cwe.mitre.org/data/definitions/571.html">571</a></td><td>style</td><td>Condition &apos;toolbar&apos; is always true</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="43.html#line-1269">1269</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;n_items&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="43.html#line-1414">1414</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;children&apos; can be reduced.</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="43.html#line-1498">1498</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;toolitem&apos; can be declared as pointer to const</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="43.html#line-1526">1526</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;l&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="43.html#line-1526">1526</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;n_items&apos; can be reduced.</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="43.html#line-1710">1710</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;priv&apos; can be declared as pointer to const</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="43.html#line-1735">1735</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;priv&apos; can be declared as pointer to const</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="43.html#line-1756">1756</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;priv&apos; can be declared as pointer to const</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="44.html">cut-n-paste/toolbar-editor/egg-toolbar-editor.c</a></td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="44.html#line-81">81</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;key1&apos; can be declared as pointer to const</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="44.html#line-83">83</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;key2&apos; can be declared as pointer to const</td></tr>
+         <tr class="unreadVariable sev_style issue"><td><a href="44.html#line-619">619</a></td><td>unreadVariable</td><td><a href="https://cwe.mitre.org/data/definitions/563.html">563</a></td><td>style</td><td>Variable &apos;y&apos; is assigned a value that is never used.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="45.html">cut-n-paste/toolbar-editor/egg-toolbars-model.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="45.html#line-65">65</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="46.html">cut-n-paste/zoom-control/ephy-zoom-action.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="46.html#line-57">57</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="47.html">cut-n-paste/zoom-control/ephy-zoom-control.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="47.html#line-62">62</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="48.html">cut-n-paste/zoom-control/ephy-zoom.c</a></td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="48.html#line-31">31</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;current&apos; can be reduced.</td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="48.html#line-31">31</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;mean&apos; can be reduced.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="49.html">libdocument/ev-annotation.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="49.html#line-104">104</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_ABSTRACT_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="50.html">libdocument/ev-async-renderer.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="50.html#line-34">34</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_INTERFACE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="51.html">libdocument/ev-attachment.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="51.html#line-51">51</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="53.html">libdocument/ev-debug.c</a></td></tr>
+         <tr class="noValidConfiguration sev_information issue"><td><a href="53.html#line-0">0</a></td><td>noValidConfiguration</td><td></td><td>information</td><td>This file is not analyzed. Cppcheck failed to extract a valid configuration. Use -v for more details.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="52.html">libdocument/ev-debug.h</a></td></tr>
+         <tr class="preprocessorErrorDirective sev_error issue"><td><a href="52.html#line-36">36</a></td><td>preprocessorErrorDirective</td><td></td><td>error</td><td class="error">#error &quot;This is a private header.&quot;</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="54.html">libdocument/ev-document-annotations.c</a></td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="54.html#line-72">72</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;iface&apos; can be declared as pointer to const</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="54.html#line-90">90</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;iface&apos; can be declared as pointer to const</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="55.html">libdocument/ev-document-factory.c</a></td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="55.html#line-92">92</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;p&apos; can be declared as pointer to const</td></tr>
+         <tr class="constParameterCallback sev_style issue"><td><a href="55.html#line-302">302</a></td><td>constParameterCallback</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;info&apos; can be declared as pointer to const. However it seems that &apos;file_filter_add_mime_types&apos; is a callback function, if &apos;info&apos; is declared with const you might also need to cast function pointer(s).</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="56.html">libdocument/ev-document-misc.c</a></td></tr>
+         <tr class="variableScope sev_style issue"><td><a href="56.html#line-46">46</a></td><td>variableScope</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>The scope of the variable &apos;i&apos; can be reduced.</td></tr>
+         <tr class="memsetValueOutOfRange sev_warning issue"><td><a href="56.html#line-75">75</a></td><td>memsetValueOutOfRange</td><td><a href="https://cwe.mitre.org/data/definitions/686.html">686</a></td><td>warning</td><td class="warning">The 2nd memset() argument &apos;0xffffffff&apos; doesn&apos;t fit into an &apos;unsigned char&apos;.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="57.html">libdocument/ev-document.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="57.html#line-73">73</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_ABSTRACT_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="58.html">libdocument/ev-form-field.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="58.html#line-26">26</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="59.html">libdocument/ev-image.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="59.html#line-36">36</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="60.html">libdocument/ev-layer.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="60.html#line-29">29</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="61.html">libdocument/ev-link-action.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="61.html#line-60">60</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="62.html">libdocument/ev-link-dest.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="62.html#line-69">69</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="63.html">libdocument/ev-link.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="63.html#line-44">44</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="64.html">libdocument/ev-mapping-list.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="64.html#line-30">30</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_BOXED_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="65.html">libdocument/ev-module.h</a></td></tr>
+         <tr class="preprocessorErrorDirective sev_error issue"><td><a href="65.html#line-42">42</a></td><td>preprocessorErrorDirective</td><td></td><td>error</td><td class="error">#error &quot;This is a private header.&quot;</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="66.html">libdocument/ev-transition-effect.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="66.html#line-52">52</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="67.html">libmisc/ev-page-action-widget.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="67.html#line-53">53</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="68.html">libview/ev-annotation-window.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="68.html#line-76">76</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="69.html">libview/ev-document-model.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="69.html#line-82">82</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="70.html">libview/ev-form-field-accessible.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="70.html#line-35">35</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_CODE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="71.html">libview/ev-image-accessible.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="71.html#line-36">36</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_CODE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="72.html">libview/ev-jobs.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="72.html#line-72">72</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_ABSTRACT_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="73.html">libview/ev-link-accessible.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="73.html#line-56">56</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="74.html">libview/ev-page-accessible.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="74.html#line-51">51</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_CODE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="75.html">libview/ev-page-cache.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="75.html#line-85">85</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="76.html">libview/ev-pixbuf-cache.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="76.html#line-106">106</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="77.html">libview/ev-print-operation.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="77.html#line-88">88</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_ABSTRACT_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="78.html">libview/ev-timeline.h</a></td></tr>
+         <tr class="preprocessorErrorDirective sev_error issue"><td><a href="78.html#line-23">23</a></td><td>preprocessorErrorDirective</td><td></td><td>error</td><td class="error">#error &quot;This is a private header.&quot;</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="79.html">libview/ev-transition-animation.h</a></td></tr>
+         <tr class="preprocessorErrorDirective sev_error issue"><td><a href="79.html#line-23">23</a></td><td>preprocessorErrorDirective</td><td></td><td>error</td><td class="error">#error &quot;This is a private header.&quot;</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="80.html">libview/ev-view-accessible.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="80.html#line-70">70</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_CODE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="81.html">libview/ev-view-presentation.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="81.html#line-117">117</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="82.html">libview/ev-view.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="82.html#line-289">289</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_CODE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="83.html">previewer/ev-previewer-window.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="83.html#line-68">68</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="84.html">properties/ev-properties-view.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="84.html#line-89">89</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="85.html">shell/eggfindbar.c</a></td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="85.html#line-264">264</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;wbar&apos; can be declared as pointer to const</td></tr>
+         <tr class="constVariablePointer sev_style issue"><td><a href="85.html#line-645">645</a></td><td>constVariablePointer</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Variable &apos;priv&apos; can be declared as pointer to const</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="86.html">shell/ev-annotation-properties-dialog.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="86.html#line-53">53</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="87.html">shell/ev-application.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="87.html#line-66">66</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="88.html">shell/ev-bookmark-action.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="88.html#line-40">40</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="89.html">shell/ev-bookmarks.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="89.html#line-50">50</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="90.html">shell/ev-daemon.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="90.html#line-72">72</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="91.html">shell/ev-file-monitor.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="91.html#line-47">47</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="92.html">shell/ev-history.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="92.html#line-41">41</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="93.html">shell/ev-loading-message.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="93.html#line-37">37</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="94.html">shell/ev-media-player-keys.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="94.html#line-59">59</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="95.html">shell/ev-message-area.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="95.html#line-53">53</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="96.html">shell/ev-metadata.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="96.html#line-38">38</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="97.html">shell/ev-navigation-action-widget.c</a></td></tr>
+         <tr class="constParameterCallback sev_style issue"><td><a href="97.html#line-85">85</a></td><td>constParameterCallback</td><td><a href="https://cwe.mitre.org/data/definitions/398.html">398</a></td><td>style</td><td>Parameter &apos;menu&apos; can be declared as pointer to const. However it seems that &apos;menu_detacher&apos; is a callback function, if &apos;menu&apos; is declared with const you might also need to cast function pointer(s).</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="98.html">shell/ev-navigation-action.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="98.html#line-43">43</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="99.html">shell/ev-open-recent-action.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="99.html#line-35">35</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="100.html">shell/ev-password-view.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="100.html#line-51">51</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="101.html">shell/ev-progress-message-area.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="101.html#line-47">47</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="102.html">shell/ev-properties-dialog.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="102.html#line-48">48</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="103.html">shell/ev-properties-fonts.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="103.html#line-50">50</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="104.html">shell/ev-properties-license.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="104.html#line-39">39</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="105.html">shell/ev-sidebar-annotations.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="105.html#line-67">67</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_EXTENDED is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="106.html">shell/ev-sidebar-attachments.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="106.html#line-73">73</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_EXTENDED is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="107.html">shell/ev-sidebar-bookmarks.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="107.html#line-65">65</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_EXTENDED is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="108.html">shell/ev-sidebar-layers.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="108.html#line-55">55</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_EXTENDED is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="109.html">shell/ev-sidebar-links.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="109.html#line-83">83</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_EXTENDED is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="110.html">shell/ev-sidebar-thumbnails.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="110.html#line-102">102</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_EXTENDED is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="111.html">shell/ev-sidebar.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="111.html#line-61">61</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      <tbody class="fileEntry">
+       <tr><td colspan="5"><a href="112.html">shell/ev-window.c</a></td></tr>
+         <tr class="unknownMacro sev_error issue"><td><a href="112.html#line-392">392</a></td><td>unknownMacro</td><td></td><td>error</td><td class="error">There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it.</td></tr>
+      </tbody>
+       </table>
+    </div>
+    <div id="footer" class="footer">
+      <p>
+        Created by Cppcheck 2.13.0 (<a href="https://cppcheck.sourceforge.io">Sourceforge</a>, <a href="irc://irc.freenode.net/cppcheck">IRC</a>)
+      </p>
+    </div>
+    </div>
+  </body>
+</html>
