@@ -56,16 +56,17 @@ requires:
     - shared-mime-info
 
 before_scripts:
-  - ./html-cppcheck
-  - ./debrepo-install 'libctk-3-dev libcail-3-dev'
-  - ./install-from-git https://github.com/cafe-desktop/cafe-common master
-  - ./install-from-git https://github.com/cafe-desktop/cafe-desktop master
-  - ./install-from-git https://github.com/cafe-desktop/baul master
+  #- ./html-cppcheck
+  - ./debrepo-install #'libctk-3-dev libcail-3-dev'
+#  - ./install-from-git https://github.com/cafe-desktop/cafe-common master
+#  - ./install-from-git https://github.com/cafe-desktop/cafe-desktop master
+#  - ./install-from-git https://github.com/cafe-desktop/baul master
 
 build_scripts:
-  - ./before-build
-  - ./make-scanbuild '--enable-compile-warnings=maximum --enable-cxx-warnings=maximum'
-  - ./after-build
+#  - ./before-build
+#  - ./make-scanbuild '--enable-compile-warnings=maximum --enable-cxx-warnings=maximum'
+#  - ./after-build
+  - ./build-debs
 
 after_scripts:
   - if [ -f "gen-index" ]; then ./gen-index -l 20 -i https://github.com/${OWNER_NAME}/lector/raw/master/data/icons/16x16/apps/lector.png; fi
