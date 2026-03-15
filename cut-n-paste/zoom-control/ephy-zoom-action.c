@@ -57,15 +57,17 @@ static guint signals[LAST_SIGNAL] = { 0 };
 G_DEFINE_TYPE_WITH_PRIVATE (EphyZoomAction, ephy_zoom_action, CTK_TYPE_ACTION)
 
 static void
-zoom_to_level_cb (EphyZoomControl *control,
-		  float zoom,
-		  EphyZoomAction *action)
+zoom_to_level_cb (EphyZoomControl *control G_GNUC_UNUSED,
+		  float            zoom,
+		  EphyZoomAction  *action)
 {
 	g_signal_emit (action, signals[ZOOM_TO_LEVEL_SIGNAL], 0, zoom);
 }
 
 static void
-sync_zoom_cb (CtkAction *action, GParamSpec *pspec, CtkWidget *proxy)
+sync_zoom_cb (CtkAction  *action,
+	      GParamSpec *pspec G_GNUC_UNUSED,
+	      CtkWidget  *proxy)
 {
 	EphyZoomAction *zoom_action = EPHY_ZOOM_ACTION (action);
 
@@ -73,7 +75,9 @@ sync_zoom_cb (CtkAction *action, GParamSpec *pspec, CtkWidget *proxy)
 }
 
 static void
-sync_min_zoom_cb (CtkAction *action, GParamSpec *pspec, CtkWidget *proxy)
+sync_min_zoom_cb (CtkAction  *action,
+		  GParamSpec *pspec G_GNUC_UNUSED,
+		  CtkWidget  *proxy)
 {
 	EphyZoomAction *zoom_action = EPHY_ZOOM_ACTION (action);
 
@@ -81,7 +85,9 @@ sync_min_zoom_cb (CtkAction *action, GParamSpec *pspec, CtkWidget *proxy)
 }
 
 static void
-sync_max_zoom_cb (CtkAction *action, GParamSpec *pspec, CtkWidget *proxy)
+sync_max_zoom_cb (CtkAction  *action,
+		  GParamSpec *pspec G_GNUC_UNUSED,
+		  CtkWidget  *proxy)
 {
 	EphyZoomAction *zoom_action = EPHY_ZOOM_ACTION (action);
 
@@ -169,10 +175,10 @@ create_menu_item (CtkAction *action)
 }
 
 static void
-ephy_zoom_action_set_property (GObject *object,
-			       guint prop_id,
+ephy_zoom_action_set_property (GObject      *object,
+			       guint         prop_id,
 			       const GValue *value,
-			       GParamSpec *pspec)
+			       GParamSpec   *pspec G_GNUC_UNUSED)
 {
 	EphyZoomAction *action;
 
@@ -193,10 +199,10 @@ ephy_zoom_action_set_property (GObject *object,
 }
 
 static void
-ephy_zoom_action_get_property (GObject *object,
-			       guint prop_id,
-			       GValue *value,
-			       GParamSpec *pspec)
+ephy_zoom_action_get_property (GObject    *object,
+			       guint       prop_id,
+			       GValue     *value,
+			       GParamSpec *pspec G_GNUC_UNUSED)
 {
 	EphyZoomAction *action;
 
