@@ -29,7 +29,7 @@ struct _EvLayerPrivate {
 G_DEFINE_TYPE_WITH_PRIVATE (EvLayer, ev_layer, G_TYPE_OBJECT)
 
 static void
-ev_layer_class_init (EvLayerClass *klass)
+ev_layer_class_init (EvLayerClass *klass G_GNUC_UNUSED)
 {
 }
 
