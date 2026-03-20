@@ -26,7 +26,7 @@
 G_DEFINE_INTERFACE (EvDocumentPrint, ev_document_print, 0)
 
 static void
-ev_document_print_default_init (EvDocumentPrintInterface *klass)
+ev_document_print_default_init (EvDocumentPrintInterface *klass G_GNUC_UNUSED)
 {
 }
 
