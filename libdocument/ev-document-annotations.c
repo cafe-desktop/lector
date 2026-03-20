@@ -24,7 +24,7 @@
 G_DEFINE_INTERFACE (EvDocumentAnnotations, ev_document_annotations, 0)
 
 static void
-ev_document_annotations_default_init (EvDocumentAnnotationsInterface *klass)
+ev_document_annotations_default_init (EvDocumentAnnotationsInterface *klass G_GNUC_UNUSED)
 {
 }
 
