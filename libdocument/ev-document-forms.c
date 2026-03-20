@@ -24,7 +24,7 @@
 G_DEFINE_INTERFACE (EvDocumentForms, ev_document_forms, 0)
 
 static void
-ev_document_forms_default_init (EvDocumentFormsInterface *klass)
+ev_document_forms_default_init (EvDocumentFormsInterface *klass G_GNUC_UNUSED)
 {
 }
 
