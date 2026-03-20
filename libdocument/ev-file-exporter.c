@@ -27,7 +27,7 @@
 G_DEFINE_INTERFACE (EvFileExporter, ev_file_exporter, 0)
 
 static void
-ev_file_exporter_default_init (EvFileExporterInterface *klass)
+ev_file_exporter_default_init (EvFileExporterInterface *klass G_GNUC_UNUSED)
 {
 }
 
