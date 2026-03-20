@@ -54,7 +54,7 @@ EV_BACKEND_REGISTER_WITH_CODE (PSDocument, ps_document,
 
 /* PSDocument */
 static void
-ps_document_init (PSDocument *ps_document)
+ps_document_init (PSDocument *ps_document G_GNUC_UNUSED)
 {
 }
 
@@ -188,7 +188,7 @@ get_page_rotation (SpectrePage *page)
 }
 
 static void
-ps_document_get_page_size (EvDocument *document,
+ps_document_get_page_size (EvDocument *document G_GNUC_UNUSED,
 			   EvPage     *page,
 			   double     *width,
 			   double     *height)
@@ -221,7 +221,7 @@ ps_document_get_page_size (EvDocument *document,
 }
 
 static char *
-ps_document_get_page_label (EvDocument *document,
+ps_document_get_page_label (EvDocument *document G_GNUC_UNUSED,
 			    EvPage     *page)
 {
         const gchar *label = spectre_page_get_label ((SpectrePage *)page->backend_page);
@@ -274,7 +274,7 @@ ps_document_get_info (EvDocument *document)
 }
 
 static gboolean
-ps_document_get_backend_info (EvDocument            *document,
+ps_document_get_backend_info (EvDocument            *document G_GNUC_UNUSED,
 			      EvDocumentBackendInfo *info)
 {
 	info->name = "libspectre";
@@ -284,7 +284,7 @@ ps_document_get_backend_info (EvDocument            *document,
 }
 
 static cairo_surface_t *
-ps_document_render (EvDocument      *document,
+ps_document_render (EvDocument      *document G_GNUC_UNUSED,
 		    EvRenderContext *rc)
 {
 	SpectrePage          *ps_page;
@@ -467,7 +467,7 @@ ps_document_file_exporter_end (EvFileExporter *exporter)
 }
 
 static EvFileExporterCapabilities
-ps_document_file_exporter_get_capabilities (EvFileExporter *exporter)
+ps_document_file_exporter_get_capabilities (EvFileExporter *exporter G_GNUC_UNUSED)
 {
 	return  EV_FILE_EXPORTER_CAN_PAGE_SET |
 		EV_FILE_EXPORTER_CAN_COPIES |
