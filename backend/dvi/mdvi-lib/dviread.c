@@ -130,41 +130,73 @@ static const DviCommand dvi_commands[] = {
 
 static int	mdvi_run_macro(DviContext *dvi, Uchar *macro, size_t len);
 
-static void dummy_draw_glyph(DviContext *dvi, DviFontChar *ch, int x, int y)
+static void
+dummy_draw_glyph (DviContext  *dvi G_GNUC_UNUSED,
+		  DviFontChar *ch G_GNUC_UNUSED,
+		  int          x G_GNUC_UNUSED,
+		  int          y G_GNUC_UNUSED)
 {
 }
 
-static void dummy_draw_rule(DviContext *dvi, int x, int y, Uint w, Uint h, int f)
+static void
+dummy_draw_rule (DviContext *dvi G_GNUC_UNUSED,
+		 int         x G_GNUC_UNUSED,
+		 int         y G_GNUC_UNUSED,
+		 Uint        w G_GNUC_UNUSED,
+		 Uint        h G_GNUC_UNUSED,
+		 int         f G_GNUC_UNUSED)
 {
 }
 
-static int dummy_alloc_colors(void *a, Ulong *b, int c, Ulong d, Ulong e, double f, int g)
+static int
+dummy_alloc_colors (void  *a G_GNUC_UNUSED,
+		    Ulong *b G_GNUC_UNUSED,
+		    int    c G_GNUC_UNUSED,
+		    Ulong  d G_GNUC_UNUSED,
+		    Ulong  e G_GNUC_UNUSED,
+		    double f G_GNUC_UNUSED,
+		    int    g G_GNUC_UNUSED)
 {
 	return -1;
 }
 
-static void *dummy_create_image(void *a, Uint b, Uint c, Uint d)
+static void *
+dummy_create_image (void *a G_GNUC_UNUSED,
+		    Uint  b G_GNUC_UNUSED,
+		    Uint  c G_GNUC_UNUSED,
+		    Uint  d G_GNUC_UNUSED)
 {
 	return NULL;
 }
 
-static void dummy_free_image(void *a)
+static void
+dummy_free_image (void *a G_GNUC_UNUSED)
 {
 }
 
-static void dummy_dev_destroy(void *a)
+static void
+dummy_dev_destroy (void *a G_GNUC_UNUSED)
 {
 }
 
-static void dummy_dev_putpixel(void *a, int x, int y, Ulong c)
+static void
+dummy_dev_putpixel (void *a G_GNUC_UNUSED,
+		    int   x G_GNUC_UNUSED,
+		    int   y G_GNUC_UNUSED,
+		    Ulong c G_GNUC_UNUSED)
 {
 }
 
-static void dummy_dev_refresh(DviContext *a, void *b)
+static void
+dummy_dev_refresh (DviContext *a G_GNUC_UNUSED,
+		   void       *b G_GNUC_UNUSED)
 {
 }
 
-static void dummy_dev_set_color(void *a, Ulong b, Ulong c)
+static void
+dummy_dev_set_color (void *a G_GNUC_UNUSED,
+		     Ulong b G_GNUC_UNUSED,
+		     Ulong c G_GNUC_UNUSED)
 {
 }
 
@@ -357,7 +389,9 @@ static int sort_down(const void *p1, const void *p2)
 {
 	return ((long *)p2)[1] - ((long *)p1)[1];
 }
-static int sort_random(const void *p1, const void *p2)
+static int
+sort_random (const void *p1 G_GNUC_UNUSED,
+	     const void *p2 G_GNUC_UNUSED)
 {
 	return (rand() % 1) ? -1 : 1;
 }
@@ -1327,13 +1361,13 @@ int	set_rule(DviContext *dvi, int opcode)
 	return 0;
 }
 
-int	no_op(DviContext *dvi, int opcode)
+int	no_op(DviContext *dvi, int opcode G_GNUC_UNUSED)
 {
 	SHOWCMD((dvi, "noop", -1, ""));
 	return 0;
 }
 
-int	push(DviContext *dvi, int opcode)
+int	push(DviContext *dvi, int opcode G_GNUC_UNUSED)
 {
 	if(dvi->stacktop == dvi->stacksize) {
 		if(!dvi->depth)
@@ -1352,7 +1386,7 @@ int	push(DviContext *dvi, int opcode)
 	return 0;
 }
 
-int	pop(DviContext *dvi, int opcode)
+int	pop(DviContext *dvi, int opcode G_GNUC_UNUSED)
 {
 	if(dvi->stacktop == 0) {
 		dvierr(dvi, _("stack underflow\n"));
