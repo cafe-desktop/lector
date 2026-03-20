@@ -24,7 +24,7 @@
 G_DEFINE_INTERFACE (EvDocumentImages, ev_document_images, 0)
 
 static void
-ev_document_images_default_init (EvDocumentImagesInterface *klass)
+ev_document_images_default_init (EvDocumentImagesInterface *klass G_GNUC_UNUSED)
 {
 }
 
