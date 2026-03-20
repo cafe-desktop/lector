@@ -26,7 +26,7 @@
 G_DEFINE_INTERFACE (EvDocumentLayers, ev_document_layers, 0)
 
 static void
-ev_document_layers_default_init (EvDocumentLayersInterface *klass)
+ev_document_layers_default_init (EvDocumentLayersInterface *klass G_GNUC_UNUSED)
 {
 }
 
