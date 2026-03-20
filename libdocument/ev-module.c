@@ -149,7 +149,7 @@ ev_module_get_object_type (EvModule *module)
 }
 
 static void
-ev_module_init (EvModule *module)
+ev_module_init (EvModule *module G_GNUC_UNUSED)
 {
 }
 
