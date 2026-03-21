@@ -800,8 +800,11 @@ static int do_sample(BmUnit *data, int stride, int step, int w, int h)
 	return n;
 }
 
-void	mdvi_shrink_box(DviContext *dvi, DviFont *font,
-	DviFontChar *pk, DviGlyph *dest)
+void
+mdvi_shrink_box (DviContext  *dvi,
+		 DviFont     *font G_GNUC_UNUSED,
+		 DviFontChar *pk,
+		 DviGlyph    *dest)
 {
 	int	x, y, z;
 	DviGlyph *glyph;
@@ -829,8 +832,11 @@ void	mdvi_shrink_box(DviContext *dvi, DviFont *font,
 		dest->w, dest->h, dest->x, dest->y));
 }
 
-void	mdvi_shrink_glyph(DviContext *dvi, DviFont *font,
-	DviFontChar *pk, DviGlyph *dest)
+void
+mdvi_shrink_glyph (DviContext  *dvi,
+		   DviFont     *font G_GNUC_UNUSED,
+		   DviFontChar *pk,
+		   DviGlyph    *dest)
 {
 	int	rows_left, rows, init_cols;
 	int	cols_left, cols;
