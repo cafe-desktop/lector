@@ -57,7 +57,7 @@ G_DEFINE_TYPE (EvHyperlink, ev_hyperlink, ATK_TYPE_HYPERLINK)
 
 static gchar *
 ev_hyperlink_get_uri (AtkHyperlink *atk_hyperlink,
-                      gint          i)
+		      gint          i G_GNUC_UNUSED)
 {
         EvHyperlink             *hyperlink = EV_HYPERLINK (atk_hyperlink);
         EvLinkAccessiblePrivate *impl_priv;
@@ -73,20 +73,20 @@ ev_hyperlink_get_uri (AtkHyperlink *atk_hyperlink,
 }
 
 static gint
-ev_hyperlink_get_n_anchors (AtkHyperlink *atk_hyperlink)
+ev_hyperlink_get_n_anchors (AtkHyperlink *atk_hyperlink G_GNUC_UNUSED)
 {
         return 1;
 }
 
 static gboolean
-ev_hyperlink_is_valid (AtkHyperlink *atk_hyperlink)
+ev_hyperlink_is_valid (AtkHyperlink *atk_hyperlink G_GNUC_UNUSED)
 {
         return TRUE;
 }
 
 static AtkObject *
 ev_hyperlink_get_object (AtkHyperlink *atk_hyperlink,
-                         gint          i)
+			 gint          i G_GNUC_UNUSED)
 {
         EvHyperlink *hyperlink = EV_HYPERLINK (atk_hyperlink);
 
@@ -198,7 +198,7 @@ ev_hyperlink_class_init (EvHyperlinkClass *klass)
 }
 
 static void
-ev_hyperlink_init (EvHyperlink *link)
+ev_hyperlink_init (EvHyperlink *link G_GNUC_UNUSED)
 {
 }
 
@@ -328,7 +328,7 @@ ev_link_accessible_hyperlink_impl_iface_init (AtkHyperlinkImplIface *iface)
 
 static gboolean
 ev_link_accessible_action_do_action (AtkAction *atk_action,
-				     gint      i)
+				     gint       i G_GNUC_UNUSED)
 {
 	EvLinkAccessiblePrivate *priv = EV_LINK_ACCESSIBLE (atk_action)->priv;
 	EvView *view;
@@ -343,22 +343,22 @@ ev_link_accessible_action_do_action (AtkAction *atk_action,
 }
 
 static gint
-ev_link_accessible_action_get_n_actions (AtkAction *atk_action)
+ev_link_accessible_action_get_n_actions (AtkAction *atk_action G_GNUC_UNUSED)
 {
 	return 1;
 }
 
 static const gchar *
-ev_link_accessible_action_get_description (AtkAction *atk_action,
-					   gint      i)
+ev_link_accessible_action_get_description (AtkAction *atk_action G_GNUC_UNUSED,
+					   gint       i G_GNUC_UNUSED)
 {
 	/* TODO */
 	return NULL;
 }
 
 static const gchar *
-ev_link_accessible_action_get_name (AtkAction *atk_action,
-				    gint      i)
+ev_link_accessible_action_get_name (AtkAction *atk_action G_GNUC_UNUSED,
+				    gint       i)
 {
 	return i == 0 ? "activate" : NULL;
 }
