@@ -77,14 +77,14 @@ ev_image_accessible_component_iface_init (AtkComponentIface *iface)
 }
 
 static const gchar *
-ev_image_accessible_get_image_description (AtkImage *image)
+ev_image_accessible_get_image_description (AtkImage *image G_GNUC_UNUSED)
 {
 	/* This will be obtainable for tagged PDFs */
 	return NULL;
 }
 
 static const gchar *
-ev_image_accessible_get_image_locale (AtkImage *atk_image)
+ev_image_accessible_get_image_locale (AtkImage *atk_image G_GNUC_UNUSED)
 {
 	/* This will be obtainable for tagged PDFs */
 	return NULL;
@@ -106,7 +106,7 @@ static void
 ev_image_accessible_get_image_position (AtkImage     *atk_image,
 					gint         *x,
 					gint         *y,
-					AtkCoordType  coord_type)
+					AtkCoordType  coord_type G_GNUC_UNUSED)
 {
 	EvRectangle atk_rect;
 
