@@ -156,7 +156,7 @@ ev_annotation_window_set_opacity (EvAnnotationWindow *window,
 
 static void
 ev_annotation_window_label_changed (EvAnnotationMarkup *annot,
-				    GParamSpec         *pspec,
+				    GParamSpec         *pspec G_GNUC_UNUSED,
 				    EvAnnotationWindow *window)
 {
 	const gchar *label = ev_annotation_markup_get_label (annot);
@@ -167,7 +167,7 @@ ev_annotation_window_label_changed (EvAnnotationMarkup *annot,
 
 static void
 ev_annotation_window_color_changed (EvAnnotation       *annot,
-				    GParamSpec         *pspec,
+				    GParamSpec         *pspec G_GNUC_UNUSED,
 				    EvAnnotationWindow *window)
 {
 	CdkRGBA rgba;
@@ -178,8 +178,8 @@ ev_annotation_window_color_changed (EvAnnotation       *annot,
 
 static void
 ev_annotation_window_opacity_changed (EvAnnotation       *annot,
-                                      GParamSpec         *pspec,
-                                      EvAnnotationWindow *window)
+				      GParamSpec         *pspec G_GNUC_UNUSED,
+				      EvAnnotationWindow *window)
 {
 	gdouble opacity;
 
@@ -265,7 +265,7 @@ ev_annotation_window_set_resize_cursor (CtkWidget          *widget,
 
 static void
 text_view_state_flags_changed (CtkWidget     *widget,
-                               CtkStateFlags  previous_flags)
+			       CtkStateFlags  previous_flags G_GNUC_UNUSED)
 {
 	CtkStateFlags current_flags = ctk_widget_get_state_flags (widget);
 
@@ -512,7 +512,7 @@ ev_annotation_window_configure_event (CtkWidget         *widget,
 
 static gboolean
 ev_annotation_window_focus_in_event (CtkWidget     *widget,
-				     CdkEventFocus *event)
+				     CdkEventFocus *event G_GNUC_UNUSED)
 {
 	EvAnnotationWindow *window = EV_ANNOTATION_WINDOW (widget);
 
@@ -534,7 +534,7 @@ ev_annotation_window_focus_in_event (CtkWidget     *widget,
 
 static gboolean
 ev_annotation_window_focus_out_event (CtkWidget     *widget,
-				      CdkEventFocus *event)
+				      CdkEventFocus *event G_GNUC_UNUSED)
 {
 	EvAnnotationWindow *window = EV_ANNOTATION_WINDOW (widget);
 
