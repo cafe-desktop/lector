@@ -2171,7 +2171,7 @@ ev_view_forms_remove_widgets (EvView *view)
 }
 
 static void
-ev_view_form_field_destroy (CtkWidget *widget,
+ev_view_form_field_destroy (CtkWidget *widget G_GNUC_UNUSED,
 			    EvView    *view)
 {
 	g_idle_add ((GSourceFunc)ev_view_forms_remove_widgets, view);
@@ -2300,7 +2300,7 @@ ev_view_form_field_text_changed (CtkWidget   *widget,
 
 static gboolean
 ev_view_form_field_text_focus_out (CtkWidget     *widget,
-				   CdkEventFocus *event,
+				   CdkEventFocus *event G_GNUC_UNUSED,
 				   EvView        *view)
 {
 	ev_view_form_field_text_save (view, widget);
@@ -2842,7 +2842,7 @@ annotation_window_moved (EvAnnotationWindow *window,
 
 static void
 ev_view_annotation_save_contents (EvView       *view,
-				  GParamSpec   *pspec,
+				  GParamSpec   *pspec G_GNUC_UNUSED,
 				  EvAnnotation *annot)
 {
 	if (!view->document)
@@ -3016,8 +3016,8 @@ ev_view_annotation_show_popup_window (EvView    *view,
 static void
 ev_view_handle_annotation (EvView       *view,
 			   EvAnnotation *annot,
-			   gdouble       x,
-			   gdouble       y,
+			   gdouble       x G_GNUC_UNUSED,
+			   gdouble       y G_GNUC_UNUSED,
 			   guint32       timestamp)
 {
 	if (EV_IS_ANNOTATION_MARKUP (annot)) {
@@ -4204,7 +4204,7 @@ static gboolean
 ev_view_query_tooltip (CtkWidget  *widget,
 		       gint        x,
 		       gint        y,
-		       gboolean    keyboard_tip,
+		       gboolean    keyboard_tip G_GNUC_UNUSED,
 		       CtkTooltip *tooltip)
 {
 	EvView       *view = EV_VIEW (widget);
@@ -4569,10 +4569,10 @@ ev_view_remove_all (EvView *view)
 /*** Drag and Drop ***/
 static void
 ev_view_drag_data_get (CtkWidget        *widget,
-		       CdkDragContext   *context,
+		       CdkDragContext   *context G_GNUC_UNUSED,
 		       CtkSelectionData *selection_data,
 		       guint             info,
-		       guint             time)
+		       guint             time G_GNUC_UNUSED)
 {
 	EvView *view = EV_VIEW (widget);
 
@@ -4626,8 +4626,8 @@ ev_view_drag_data_get (CtkWidget        *widget,
 static gboolean
 ev_view_drag_motion (CtkWidget      *widget,
 		     CdkDragContext *context,
-		     gint            x,
-		     gint            y,
+		     gint            x G_GNUC_UNUSED,
+		     gint            y G_GNUC_UNUSED,
 		     guint           time)
 {
 	if (ctk_drag_get_source_widget (context) == widget)
@@ -5558,7 +5558,7 @@ ev_view_key_press_event (CtkWidget   *widget,
 
 static gint
 ev_view_focus_in (CtkWidget     *widget,
-		  CdkEventFocus *event)
+		  CdkEventFocus *event G_GNUC_UNUSED)
 {
 	EvView *view = EV_VIEW (widget);
 
@@ -5573,7 +5573,7 @@ ev_view_focus_in (CtkWidget     *widget,
 
 static gint
 ev_view_focus_out (CtkWidget     *widget,
-		   CdkEventFocus *event)
+		   CdkEventFocus *event G_GNUC_UNUSED)
 {
 	EvView *view = EV_VIEW (widget);
 
@@ -5587,7 +5587,8 @@ ev_view_focus_out (CtkWidget     *widget,
 }
 
 static gboolean
-ev_view_leave_notify_event (CtkWidget *widget, CdkEventCrossing   *event)
+ev_view_leave_notify_event (CtkWidget        *widget,
+			    CdkEventCrossing *event G_GNUC_UNUSED)
 {
 	EvView *view = EV_VIEW (widget);
 
@@ -6075,7 +6076,7 @@ ev_view_remove (CtkContainer *container,
 
 static void
 ev_view_forall (CtkContainer *container,
-		gboolean      include_internals,
+		gboolean      include_internals G_GNUC_UNUSED,
 		CtkCallback   callback,
 		gpointer      callback_data)
 {
@@ -6141,7 +6142,7 @@ pan_gesture_end_cb (CtkGesture       *gesture,
 
 static void
 ev_view_hierarchy_changed (CtkWidget *widget,
-			   CtkWidget *previous_toplevel)
+			   CtkWidget *previous_toplevel G_GNUC_UNUSED)
 {
 	CtkWidget *parent = ctk_widget_get_parent (widget);
 	EvView *view = EV_VIEW (widget);
@@ -6164,7 +6165,7 @@ ev_view_hierarchy_changed (CtkWidget *widget,
 
 static void
 ev_view_parent_set (CtkWidget *widget,
-		    CtkWidget *previous_parent)
+		    CtkWidget *previous_parent G_GNUC_UNUSED)
 {
 	CtkWidget *parent;
 
@@ -6413,15 +6414,15 @@ ev_view_class_init (EvViewClass *class)
 
 static void
 on_notify_scale_factor (EvView     *view,
-			GParamSpec *pspec)
+			GParamSpec *pspec G_GNUC_UNUSED)
 {
 	if (view->document)
 		view_update_range_and_current_page (view);
 }
 
 static void
-zoom_gesture_begin_cb (CtkGesture       *gesture,
-		       CdkEventSequence *sequence,
+zoom_gesture_begin_cb (CtkGesture       *gesture G_GNUC_UNUSED,
+		       CdkEventSequence *sequence G_GNUC_UNUSED,
 		       EvView           *view)
 {
 	view->prev_zoom_gesture_scale = 1;
@@ -6531,7 +6532,7 @@ ev_view_change_page (EvView *view,
 }
 
 static void
-job_finished_cb (EvPixbufCache  *pixbuf_cache,
+job_finished_cb (EvPixbufCache  *pixbuf_cache G_GNUC_UNUSED,
 		 cairo_region_t *region,
 		 EvView         *view)
 {
@@ -6543,8 +6544,8 @@ job_finished_cb (EvPixbufCache  *pixbuf_cache,
 }
 
 static void
-ev_view_page_changed_cb (EvDocumentModel *model,
-			 gint             old_page,
+ev_view_page_changed_cb (EvDocumentModel *model G_GNUC_UNUSED,
+			 gint             old_page G_GNUC_UNUSED,
 			 gint             new_page,
 			 EvView          *view)
 {
@@ -6561,7 +6562,7 @@ ev_view_page_changed_cb (EvDocumentModel *model,
 }
 
 static void
-on_adjustment_value_changed (CtkAdjustment *adjustment,
+on_adjustment_value_changed (CtkAdjustment *adjustment G_GNUC_UNUSED,
 			     EvView        *view)
 {
 	CtkWidget *widget = CTK_WIDGET (view);
@@ -6779,7 +6780,7 @@ ev_view_autoscroll_stop (EvView *view)
 
 static void
 ev_view_document_changed_cb (EvDocumentModel *model,
-			     GParamSpec      *pspec,
+			     GParamSpec      *pspec G_GNUC_UNUSED,
 			     EvView          *view)
 {
 	EvDocument *document = ev_document_model_get_document (model);
@@ -6818,7 +6819,7 @@ ev_view_document_changed_cb (EvDocumentModel *model,
 
 static void
 ev_view_rotation_changed_cb (EvDocumentModel *model,
-			     GParamSpec      *pspec,
+			     GParamSpec      *pspec G_GNUC_UNUSED,
 			     EvView          *view)
 {
 	gint rotation = ev_document_model_get_rotation (model);
@@ -6840,7 +6841,7 @@ ev_view_rotation_changed_cb (EvDocumentModel *model,
 
 static void
 ev_view_inverted_colors_changed_cb (EvDocumentModel *model,
-				    GParamSpec      *pspec,
+				    GParamSpec      *pspec G_GNUC_UNUSED,
 				    EvView          *view)
 {
 	if (view->pixbuf_cache) {
@@ -6854,7 +6855,7 @@ ev_view_inverted_colors_changed_cb (EvDocumentModel *model,
 
 static void
 ev_view_sizing_mode_changed_cb (EvDocumentModel *model,
-				GParamSpec      *pspec,
+				GParamSpec      *pspec G_GNUC_UNUSED,
 				EvView          *view)
 {
 	EvSizingMode mode = ev_document_model_get_sizing_mode (model);
@@ -6866,7 +6867,7 @@ ev_view_sizing_mode_changed_cb (EvDocumentModel *model,
 
 static void
 ev_view_page_layout_changed_cb (EvDocumentModel *model,
-				GParamSpec      *pspec,
+				GParamSpec      *pspec G_GNUC_UNUSED,
 				EvView          *view)
 {
 	EvPageLayout layout = ev_document_model_get_page_layout (model);
@@ -6884,7 +6885,7 @@ ev_view_page_layout_changed_cb (EvDocumentModel *model,
 #define EPSILON 0.0000001
 static void
 ev_view_scale_changed_cb (EvDocumentModel *model,
-			  GParamSpec      *pspec,
+			  GParamSpec      *pspec G_GNUC_UNUSED,
 			  EvView          *view)
 {
 	gdouble scale = ev_document_model_get_scale (model);
@@ -6901,7 +6902,7 @@ ev_view_scale_changed_cb (EvDocumentModel *model,
 
 static void
 ev_view_continuous_changed_cb (EvDocumentModel *model,
-			       GParamSpec      *pspec,
+			       GParamSpec      *pspec G_GNUC_UNUSED,
 			       EvView          *view)
 {
 	gboolean continuous = ev_document_model_get_continuous (model);
@@ -6913,7 +6914,7 @@ ev_view_continuous_changed_cb (EvDocumentModel *model,
 
 static void
 ev_view_dual_odd_left_changed_cb (EvDocumentModel *model,
-				  GParamSpec      *pspec,
+				  GParamSpec      *pspec G_GNUC_UNUSED,
 				  EvView          *view)
 {
 	view->dual_even_left = !ev_document_model_get_dual_page_odd_pages_left (model);
@@ -6923,7 +6924,7 @@ ev_view_dual_odd_left_changed_cb (EvDocumentModel *model,
 
 static void
 ev_view_fullscreen_changed_cb (EvDocumentModel *model,
-			       GParamSpec      *pspec,
+			       GParamSpec      *pspec G_GNUC_UNUSED,
 			       EvView          *view)
 {
 	gboolean fullscreen = ev_document_model_get_fullscreen (model);
@@ -7064,17 +7065,17 @@ ev_view_zoom_reset (EvView *view)
 
 static double
 zoom_for_size_fit_width (gdouble doc_width,
-			 gdouble doc_height,
+			 gdouble doc_height G_GNUC_UNUSED,
 			 int     target_width,
-			 int     target_height)
+			 int     target_height G_GNUC_UNUSED)
 {
 	return (double)target_width / doc_width;
 }
 
 static double
-zoom_for_size_fit_height (gdouble doc_width,
+zoom_for_size_fit_height (gdouble doc_width G_GNUC_UNUSED,
 			  gdouble doc_height,
-			  int     target_width,
+			  int     target_width G_GNUC_UNUSED,
 			  int     target_height)
 {
 	return (double)target_height / doc_height;
@@ -7570,11 +7571,11 @@ cdk_point_equal (CdkPoint *a,
 
 static gboolean
 get_selection_page_range (EvView          *view,
-                          EvSelectionStyle style,
-                          CdkPoint        *start,
-                          CdkPoint        *stop,
-                          gint            *first_page,
-                          gint            *last_page)
+			  EvSelectionStyle style G_GNUC_UNUSED,
+			  CdkPoint        *start,
+			  CdkPoint        *stop,
+			  gint            *first_page,
+			  gint            *last_page)
 {
 	gint start_page, end_page;
 	gint first, last;
@@ -7960,9 +7961,9 @@ ev_view_copy (EvView *ev_view)
 }
 
 static void
-ev_view_primary_get_cb (CtkClipboard     *clipboard,
+ev_view_primary_get_cb (CtkClipboard     *clipboard G_GNUC_UNUSED,
 			CtkSelectionData *selection_data,
-			guint             info,
+			guint             info G_GNUC_UNUSED,
 			gpointer          data)
 {
 	EvView *ev_view = EV_VIEW (data);
@@ -7984,7 +7985,7 @@ ev_view_primary_get_cb (CtkClipboard     *clipboard,
 }
 
 static void
-ev_view_primary_clear_cb (CtkClipboard *clipboard,
+ev_view_primary_clear_cb (CtkClipboard *clipboard G_GNUC_UNUSED,
 			  gpointer      data)
 {
 	EvView *view = EV_VIEW (data);
