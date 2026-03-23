@@ -144,7 +144,7 @@ dvi_document_get_n_pages (EvDocument *document)
 
 static void
 dvi_document_get_page_size (EvDocument *document,
-			    EvPage     *page,
+			    EvPage     *page G_GNUC_UNUSED,
 			    double     *width,
 			    double     *height)
 {
@@ -230,7 +230,7 @@ dvi_document_finalize (GObject *object)
 }
 
 static gboolean
-dvi_document_support_synctex (EvDocument *document)
+dvi_document_support_synctex (EvDocument *document G_GNUC_UNUSED)
 {
 	return TRUE;
 }
@@ -401,7 +401,7 @@ dvi_document_file_exporter_end (EvFileExporter *exporter)
 }
 
 static EvFileExporterCapabilities
-dvi_document_file_exporter_get_capabilities (EvFileExporter *exporter)
+dvi_document_file_exporter_get_capabilities (EvFileExporter *exporter G_GNUC_UNUSED)
 {
 	return  EV_FILE_EXPORTER_CAN_PAGE_SET |
 		EV_FILE_EXPORTER_CAN_COPIES |
@@ -491,7 +491,9 @@ parse_color (const gchar *ptr,
 }
 
 static void
-dvi_document_do_color_special (DviContext *dvi, const char *prefix, const char *arg)
+dvi_document_do_color_special (DviContext *dvi,
+			       const char *prefix G_GNUC_UNUSED,
+			       const char *arg)
 {
         if (strncmp (arg, "pop", 3) == 0) {
                 mdvi_pop_color (dvi);
