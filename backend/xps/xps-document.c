@@ -58,7 +58,7 @@ EV_BACKEND_REGISTER_WITH_CODE (XPSDocument, xps_document,
 
 /* XPSDocument */
 static void
-xps_document_init (XPSDocument *ps_document)
+xps_document_init (XPSDocument *ps_document G_GNUC_UNUSED)
 {
 }
 
@@ -157,7 +157,7 @@ xps_document_get_page (EvDocument *document,
 }
 
 static void
-xps_document_get_page_size (EvDocument *document,
+xps_document_get_page_size (EvDocument *document G_GNUC_UNUSED,
 			    EvPage     *page,
 			    double     *width,
 			    double     *height)
@@ -191,7 +191,7 @@ xps_document_get_info (EvDocument *document)
 }
 
 static gboolean
-xps_document_get_backend_info (EvDocument            *document,
+xps_document_get_backend_info (EvDocument            *document G_GNUC_UNUSED,
 			       EvDocumentBackendInfo *info)
 {
 	info->name = "libgxps";
@@ -201,7 +201,7 @@ xps_document_get_backend_info (EvDocument            *document,
 }
 
 static cairo_surface_t *
-xps_document_render (EvDocument      *document,
+xps_document_render (EvDocument      *document G_GNUC_UNUSED,
 		     EvRenderContext *rc)
 {
 	GXPSPage        *xps_page;
@@ -486,7 +486,7 @@ xps_document_document_links_iface_init (EvDocumentLinksInterface *iface)
 
 /* EvDocumentPrint */
 static void
-xps_document_print_print_page (EvDocumentPrint *document,
+xps_document_print_print_page (EvDocumentPrint *document G_GNUC_UNUSED,
 			       EvPage          *page,
 			       cairo_t         *cr)
 {
