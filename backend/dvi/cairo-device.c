@@ -193,13 +193,13 @@ dvi_cairo_draw_ps (DviContext *dvi,
 #endif /* HAVE_SPECTRE */
 
 static int
-dvi_cairo_alloc_colors (void  *device_data,
+dvi_cairo_alloc_colors (void  *device_data G_GNUC_UNUSED,
 			Ulong *pixels,
 			int    npixels,
 			Ulong  fg,
-			Ulong  bg,
+			Ulong  bg G_GNUC_UNUSED,
 			double gamma,
-			int    density)
+			int    density G_GNUC_UNUSED)
 {
 	double  frac;
 	CdkColor color, color_fg;
@@ -228,10 +228,10 @@ dvi_cairo_alloc_colors (void  *device_data,
 }
 
 static void *
-dvi_cairo_create_image (void *device_data,
+dvi_cairo_create_image (void *device_data G_GNUC_UNUSED,
 			Uint  width,
 			Uint  height,
-			Uint  bpp)
+			Uint  bpp G_GNUC_UNUSED)
 {
 	return cairo_image_surface_create (CAIRO_FORMAT_ARGB32, width, height);
 }
