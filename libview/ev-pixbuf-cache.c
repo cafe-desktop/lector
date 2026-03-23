@@ -910,9 +910,9 @@ ev_pixbuf_cache_get_surface (EvPixbufCache *pixbuf_cache,
 }
 
 static gboolean
-new_selection_surface_needed (EvPixbufCache *pixbuf_cache,
+new_selection_surface_needed (EvPixbufCache *pixbuf_cache G_GNUC_UNUSED,
 			      CacheJobInfo  *job_info,
-			      gint           page,
+			      gint           page G_GNUC_UNUSED,
 			      gfloat         scale)
 {
 	if (job_info->selection)
@@ -921,10 +921,10 @@ new_selection_surface_needed (EvPixbufCache *pixbuf_cache,
 }
 
 static gboolean
-new_selection_region_needed (EvPixbufCache *pixbuf_cache,
-                             CacheJobInfo  *job_info,
-                             gint           page,
-                             gfloat         scale)
+new_selection_region_needed (EvPixbufCache *pixbuf_cache G_GNUC_UNUSED,
+			     CacheJobInfo  *job_info,
+			     gint           page G_GNUC_UNUSED,
+			     gfloat         scale)
 {
 	if (job_info->selection_region)
 		return job_info->selection_region_scale != scale;
