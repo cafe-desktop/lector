@@ -879,7 +879,7 @@ ev_page_accessible_get_run_attributes (AtkText *text,
 }
 
 static AtkAttributeSet*
-ev_page_accessible_get_default_attributes (AtkText *text)
+ev_page_accessible_get_default_attributes (AtkText *text G_GNUC_UNUSED)
 {
 	/* No default attributes */
 	return NULL;
@@ -994,7 +994,7 @@ ev_page_accessible_get_offset_at_point (AtkText      *text,
  */
 static gboolean
 ev_page_accessible_remove_selection (AtkText *text,
-				     gint     selection_num)
+				     gint     selection_num G_GNUC_UNUSED)
 {
 	EvPageAccessible *self = EV_PAGE_ACCESSIBLE (text);
 	EvView *view = ev_page_accessible_get_view (self);
@@ -1009,7 +1009,7 @@ ev_page_accessible_remove_selection (AtkText *text,
 
 static gboolean
 ev_page_accessible_set_selection (AtkText *text,
-				  gint	   selection_num,
+				  gint     selection_num G_GNUC_UNUSED,
 				  gint     start_pos,
 				  gint     end_pos)
 {
