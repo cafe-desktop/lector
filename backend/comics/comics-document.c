@@ -719,7 +719,7 @@ comics_document_get_page_size (EvDocument *document,
 }
 
 static void
-get_page_size_area_prepared_cb (GdkPixbufLoader *loader,
+get_page_size_area_prepared_cb (GdkPixbufLoader *loader G_GNUC_UNUSED,
 				gpointer         data)
 {
 	gboolean *got_size = data;
