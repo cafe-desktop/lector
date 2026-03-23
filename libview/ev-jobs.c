@@ -322,10 +322,10 @@ ev_job_links_dispose (GObject *object)
 }
 
 static gboolean
-fill_page_labels (CtkTreeModel   *tree_model,
-		  CtkTreePath    *path,
-		  CtkTreeIter    *iter,
-		  EvJob          *job)
+fill_page_labels (CtkTreeModel *tree_model,
+		  CtkTreePath  *path G_GNUC_UNUSED,
+		  CtkTreeIter  *iter,
+		  EvJob        *job)
 {
 	EvDocumentLinks *document_links;
 	EvLink          *link;
