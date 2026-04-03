@@ -278,13 +278,13 @@ ev_view_presentation_transition_animation_finish (EvViewPresentation *pview)
 
 static void
 ev_view_presentation_transition_animation_frame (EvViewPresentation *pview,
-						 gdouble             progress)
+						 gdouble             progress G_GNUC_UNUSED)
 {
 	ctk_widget_queue_draw (CTK_WIDGET (pview));
 }
 
 static cairo_surface_t *
-get_surface_from_job (EvViewPresentation *pview,
+get_surface_from_job (EvViewPresentation *pview G_GNUC_UNUSED,
 		      EvJob              *job)
 {
 	cairo_surface_t *surface;
@@ -620,8 +620,8 @@ ev_view_presentation_goto_window_hide (EvViewPresentation *pview)
 }
 
 static gboolean
-ev_view_presentation_goto_window_delete_event (CtkWidget          *widget,
-					       CdkEventAny        *event,
+ev_view_presentation_goto_window_delete_event (CtkWidget          *widget G_GNUC_UNUSED,
+					       CdkEventAny        *event G_GNUC_UNUSED,
 					       EvViewPresentation *pview)
 {
 	ev_view_presentation_goto_window_hide (pview);
@@ -630,7 +630,7 @@ ev_view_presentation_goto_window_delete_event (CtkWidget          *widget,
 }
 
 static gboolean
-ev_view_presentation_goto_window_key_press_event (CtkWidget          *widget,
+ev_view_presentation_goto_window_key_press_event (CtkWidget          *widget G_GNUC_UNUSED,
 						  CdkEventKey        *event,
 						  EvViewPresentation *pview)
 {
@@ -656,8 +656,8 @@ ev_view_presentation_goto_window_key_press_event (CtkWidget          *widget,
 }
 
 static gboolean
-ev_view_presentation_goto_window_button_press_event (CtkWidget          *widget,
-						     CdkEventButton     *event,
+ev_view_presentation_goto_window_button_press_event (CtkWidget          *widget G_GNUC_UNUSED,
+						     CdkEventButton     *event G_GNUC_UNUSED,
 						     EvViewPresentation *pview)
 {
 	ev_view_presentation_goto_window_hide (pview);
@@ -805,7 +805,7 @@ ev_view_presentation_goto_window_send_key_event (EvViewPresentation *pview,
 
 /* Links */
 static gboolean
-ev_view_presentation_link_is_supported (EvViewPresentation *pview,
+ev_view_presentation_link_is_supported (EvViewPresentation *pview G_GNUC_UNUSED,
 					EvLink             *link)
 {
 	EvLinkAction *action;
@@ -1036,7 +1036,7 @@ ev_view_presentation_dispose (GObject *object)
 }
 
 static void
-ev_view_presentation_get_preferred_width (CtkWidget *widget,
+ev_view_presentation_get_preferred_width (CtkWidget *widget G_GNUC_UNUSED,
 					  gint      *minimum,
 					  gint      *natural)
 {
@@ -1044,7 +1044,7 @@ ev_view_presentation_get_preferred_width (CtkWidget *widget,
 }
 
 static void
-ev_view_presentation_get_preferred_height (CtkWidget *widget,
+ev_view_presentation_get_preferred_height (CtkWidget *widget G_GNUC_UNUSED,
 					   gint      *minimum,
 					   gint      *natural)
 {
@@ -1255,7 +1255,7 @@ ev_view_presentation_button_release_event (CtkWidget      *widget,
 
 static gint
 ev_view_presentation_focus_out (CtkWidget     *widget,
-				CdkEventFocus *event)
+				CdkEventFocus *event G_GNUC_UNUSED)
 {
 	EvViewPresentation *pview = EV_VIEW_PRESENTATION (widget);
 
