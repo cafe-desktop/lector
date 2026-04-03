@@ -73,7 +73,7 @@ ev_navigation_action_widget_class_init (EvNavigationActionWidgetClass *klass)
 }
 
 static int
-menu_deactivate_cb (CtkMenuShell      *menu_shell,
+menu_deactivate_cb (CtkMenuShell             *menu_shell G_GNUC_UNUSED,
 		    EvNavigationActionWidget *widget)
 {
          ctk_toggle_tool_button_set_active (CTK_TOGGLE_TOOL_BUTTON (widget), FALSE);
@@ -146,9 +146,9 @@ ev_navigation_action_widget_toggled (CtkToggleToolButton *toggle)
 }
 
 static gboolean
-ev_navigation_action_widget_button_press_event (CtkWidget *widget,
-                	            		CdkEventButton    *event,
-                	            		gpointer data)
+ev_navigation_action_widget_button_press_event (CtkWidget      *widget G_GNUC_UNUSED,
+						CdkEventButton *event,
+						gpointer        data)
 {
 	EvNavigationActionWidget *button = EV_NAVIGATION_ACTION_WIDGET (data);
 
