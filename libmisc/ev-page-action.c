@@ -53,7 +53,7 @@ enum {
 };
 
 static CtkWidget *
-create_tool_item (CtkAction *action)
+create_tool_item (CtkAction *action G_GNUC_UNUSED)
 {
 	CtkWidget *proxy;
 
@@ -63,13 +63,17 @@ create_tool_item (CtkAction *action)
 }
 
 static void
-update_model (EvPageAction *page, GParamSpec *pspec, EvPageActionWidget *proxy)
+update_model (EvPageAction       *page,
+	      GParamSpec         *pspec G_GNUC_UNUSED,
+	      EvPageActionWidget *proxy)
 {
 	ev_page_action_widget_update_links_model (proxy, page->priv->model);
 }
 
 static void
-activate_link_cb (EvPageActionWidget *proxy, EvLink *link, EvPageAction *action)
+activate_link_cb (EvPageActionWidget *proxy G_GNUC_UNUSED,
+		  EvLink             *link,
+		  EvPageAction       *action)
 {
 	g_signal_emit (action, signals[ACTIVATE_LINK], 0, link);
 }
