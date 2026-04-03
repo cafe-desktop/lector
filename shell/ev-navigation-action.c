@@ -169,7 +169,7 @@ connect_proxy (CtkAction *action, CtkWidget *proxy)
 }
 
 static CtkWidget *
-create_tool_item (CtkAction *action)
+create_tool_item (CtkAction *action G_GNUC_UNUSED)
 {
 	EvNavigationActionWidget *proxy;
 
