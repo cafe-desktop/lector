@@ -252,7 +252,7 @@ ev_view_accessible_action_do_action (AtkAction *action,
 }
 
 static gint
-ev_view_accessible_action_get_n_actions (AtkAction *action)
+ev_view_accessible_action_get_n_actions (AtkAction *action G_GNUC_UNUSED)
 {
 	return LAST_ACTION;
 }
@@ -273,7 +273,7 @@ ev_view_accessible_action_get_description (AtkAction *action,
 }
 
 static const gchar *
-ev_view_accessible_action_get_name (AtkAction *action,
+ev_view_accessible_action_get_name (AtkAction *action G_GNUC_UNUSED,
 				    gint       i)
 {
 	if (i < 0 || i >= LAST_ACTION)
@@ -311,10 +311,10 @@ ev_view_accessible_action_iface_init (AtkActionIface * iface)
 }
 
 static void
-ev_view_accessible_cursor_moved (EvView *view,
-                                 gint page,
-                                 gint offset,
-                                 EvViewAccessible *accessible)
+ev_view_accessible_cursor_moved (EvView           *view G_GNUC_UNUSED,
+				 gint              page,
+				 gint              offset,
+				 EvViewAccessible *accessible)
 {
 	EvViewAccessiblePrivate* priv = accessible->priv;
 	EvPageAccessible *page_accessible = NULL;
@@ -350,10 +350,10 @@ ev_view_accessible_selection_changed (EvView *view,
 }
 
 static void
-page_changed_cb (EvDocumentModel  *model,
-                 gint              old_page,
-                 gint              new_page,
-                 EvViewAccessible *accessible)
+page_changed_cb (EvDocumentModel  *model G_GNUC_UNUSED,
+		 gint              old_page G_GNUC_UNUSED,
+		 gint              new_page,
+		 EvViewAccessible *accessible)
 {
 	EvView *view;
 
@@ -389,8 +389,8 @@ initialize_children (EvViewAccessible *self)
 
 static void
 document_changed_cb (EvDocumentModel  *model,
-                     GParamSpec       *pspec,
-                     EvViewAccessible *accessible)
+		     GParamSpec       *pspec G_GNUC_UNUSED,
+		     EvViewAccessible *accessible)
 {
 	EvDocument *document = ev_document_model_get_document (model);
 
