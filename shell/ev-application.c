@@ -139,7 +139,7 @@ ev_application_load_session (EvApplication *application)
 }
 
 static void
-smclient_save_state_cb (EggSMClient   *client,
+smclient_save_state_cb (EggSMClient   *client G_GNUC_UNUSED,
 			GKeyFile      *state_file,
 			EvApplication *application)
 {
@@ -150,8 +150,8 @@ smclient_save_state_cb (EggSMClient   *client,
 }
 
 static void
-smclient_quit_cb (EggSMClient  *client,
-                  GApplication *application)
+smclient_quit_cb (EggSMClient  *client G_GNUC_UNUSED,
+		  GApplication *application)
 {
         g_application_quit (application);
 }
@@ -340,7 +340,7 @@ ev_register_doc_data_free (EvRegisterDocData *data)
 static void
 on_reload_cb (GObject      *source_object,
 	      GAsyncResult *res,
-	      gpointer      user_data)
+	      gpointer      user_data G_GNUC_UNUSED)
 {
 	GDBusConnection *connection = G_DBUS_CONNECTION (source_object);
 	GVariant        *value;
@@ -680,7 +680,7 @@ ev_application_open_uri_at_dest (EvApplication  *application,
  * Creates a new window
  */
 void
-ev_application_open_window (EvApplication *application,
+ev_application_open_window (EvApplication *application G_GNUC_UNUSED,
 			    CdkScreen     *screen,
 			    guint32        timestamp)
 {
@@ -808,7 +808,7 @@ ev_application_open_uri_list (EvApplication *application,
 	}
 }
 
-static void ev_application_accel_map_save(EvApplication* application)
+static void ev_application_accel_map_save (EvApplication* application G_GNUC_UNUSED)
 {
 	gchar* accel_map_file;
 	gchar* tmp_filename;
@@ -847,7 +847,7 @@ static void ev_application_accel_map_save(EvApplication* application)
 	g_free(tmp_filename);
 }
 
-static void ev_application_accel_map_load(EvApplication* application)
+static void ev_application_accel_map_load (EvApplication* application G_GNUC_UNUSED)
 {
 	gchar* accel_map_file;
 
