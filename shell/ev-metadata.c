@@ -162,7 +162,7 @@ ev_metadata_get_string (EvMetadata  *metadata,
 static void
 metadata_set_callback (GObject      *file,
 		       GAsyncResult *result,
-		       EvMetadata   *metadata)
+		       EvMetadata   *metadata G_GNUC_UNUSED)
 {
 	GError *error = NULL;
 
