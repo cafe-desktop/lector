@@ -202,8 +202,8 @@ egg_find_bar_emit_previous (EggFindBar *find_bar)
 }
 
 static void
-next_clicked_callback (CtkButton *button,
-                       void      *data)
+next_clicked_callback (CtkButton *button G_GNUC_UNUSED,
+		       void      *data)
 {
   EggFindBar *find_bar = EGG_FIND_BAR (data);
 
@@ -211,8 +211,8 @@ next_clicked_callback (CtkButton *button,
 }
 
 static void
-previous_clicked_callback (CtkButton *button,
-                           void      *data)
+previous_clicked_callback (CtkButton *button G_GNUC_UNUSED,
+			   void      *data)
 {
   EggFindBar *find_bar = EGG_FIND_BAR (data);
 
@@ -230,8 +230,8 @@ case_sensitive_toggled_callback (CtkToggleToolButton  *button,
 }
 
 static void
-entry_activate_callback (CtkEntry *entry,
-                          void     *data)
+entry_activate_callback (CtkEntry *entry G_GNUC_UNUSED,
+			 void     *data)
 {
   EggFindBar *find_bar = EGG_FIND_BAR (data);
 
@@ -257,7 +257,7 @@ entry_changed_callback (CtkEntry *entry,
 }
 
 static void
-set_focus_cb (CtkWidget *window,
+set_focus_cb (CtkWidget *window G_GNUC_UNUSED,
 	      CtkWidget *widget,
 	      EggFindBar *bar)
 {
