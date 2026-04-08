@@ -50,10 +50,10 @@ static const char **file_arguments = NULL;
 
 
 static gboolean
-option_version_cb (const gchar *option_name,
-                   const gchar *value,
-                   gpointer     data,
-                   GError     **error)
+option_version_cb (const gchar *option_name G_GNUC_UNUSED,
+		   const gchar *value G_GNUC_UNUSED,
+		   gpointer     data G_GNUC_UNUSED,
+		   GError     **error G_GNUC_UNUSED)
 {
   g_print ("%s %s\n", _("CAFE Document Viewer"), VERSION);
 
