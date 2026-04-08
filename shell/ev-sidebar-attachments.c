@@ -149,7 +149,7 @@ ev_sidebar_attachments_icon_cache_get (EvSidebarAttachments *ev_attachbar,
 
 static gboolean
 icon_cache_update_icon (gchar                *key,
-			GdkPixbuf            *value,
+			GdkPixbuf            *value G_GNUC_UNUSED,
 			EvSidebarAttachments *ev_attachbar)
 {
 	GdkPixbuf *pixbuf = NULL;
@@ -315,7 +315,7 @@ ev_sidebar_attachments_button_press (EvSidebarAttachments *ev_attachbar,
 
 static void
 ev_sidebar_attachments_update_icons (EvSidebarAttachments *ev_attachbar,
-				     gpointer              user_data)
+				     gpointer              user_data G_GNUC_UNUSED)
 {
 	CtkTreeIter iter;
 	gboolean    valid;
@@ -386,11 +386,11 @@ ev_sidebar_attachments_screen_changed (CtkWidget *widget,
 }
 
 static void
-ev_sidebar_attachments_drag_data_get (CtkWidget        *widget,
-				      CdkDragContext   *drag_context,
+ev_sidebar_attachments_drag_data_get (CtkWidget        *widget G_GNUC_UNUSED,
+				      CdkDragContext   *drag_context G_GNUC_UNUSED,
 				      CtkSelectionData *data,
-				      guint             info,
-				      guint             time,
+				      guint             info G_GNUC_UNUSED,
+				      guint             time G_GNUC_UNUSED,
 				      gpointer          user_data)
 {
 	EvSidebarAttachments *ev_attachbar = EV_SIDEBAR_ATTACHMENTS (user_data);
@@ -634,7 +634,7 @@ job_finished_callback (EvJobAttachments     *job,
 
 static void
 ev_sidebar_attachments_document_changed_cb (EvDocumentModel      *model,
-					    GParamSpec           *pspec,
+					    GParamSpec           *pspec G_GNUC_UNUSED,
 					    EvSidebarAttachments *ev_attachbar)
 {
 	EvDocument *document = ev_document_model_get_document (model);
@@ -680,15 +680,15 @@ ev_sidebar_attachments_set_model (EvSidebarPage   *page,
 }
 
 static gboolean
-ev_sidebar_attachments_support_document (EvSidebarPage   *sidebar_page,
-					 EvDocument      *document)
+ev_sidebar_attachments_support_document (EvSidebarPage *sidebar_page G_GNUC_UNUSED,
+					 EvDocument    *document)
 {
 	return (EV_IS_DOCUMENT_ATTACHMENTS (document) &&
 		ev_document_attachments_has_attachments (EV_DOCUMENT_ATTACHMENTS (document)));
 }
 
 static const gchar*
-ev_sidebar_attachments_get_label (EvSidebarPage *sidebar_page)
+ev_sidebar_attachments_get_label (EvSidebarPage *sidebar_page G_GNUC_UNUSED)
 {
 	return _("Attachments");
 }
