@@ -737,9 +737,9 @@ ev_sidebar_thumbnails_use_icon_view (EvSidebarThumbnails *sidebar_thumbnails)
 
 static void
 ev_sidebar_thumbnails_row_changed (CtkTreeModel *model,
-                                   CtkTreePath  *path,
-                                   CtkTreeIter  *iter,
-                                   gpointer      data)
+				   CtkTreePath  *path G_GNUC_UNUSED,
+				   CtkTreeIter  *iter G_GNUC_UNUSED,
+				   gpointer      data)
 {
 	guint signal_id;
 
@@ -826,7 +826,7 @@ ev_sidebar_thumbnails_set_current_page (EvSidebarThumbnails *sidebar,
 
 static void
 page_changed_cb (EvSidebarThumbnails *sidebar,
-		 gint                 old_page,
+		 gint                 old_page G_GNUC_UNUSED,
 		 gint                 new_page)
 {
 	ev_sidebar_thumbnails_set_current_page (sidebar, new_page);
@@ -866,7 +866,7 @@ ev_sidebar_thumbnails_reload (EvSidebarThumbnails *sidebar_thumbnails)
 
 static void
 ev_sidebar_thumbnails_rotation_changed_cb (EvDocumentModel     *model,
-					   GParamSpec          *pspec,
+					   GParamSpec          *pspec G_GNUC_UNUSED,
 					   EvSidebarThumbnails *sidebar_thumbnails)
 {
 	gint rotation = ev_document_model_get_rotation (model);
@@ -877,7 +877,7 @@ ev_sidebar_thumbnails_rotation_changed_cb (EvDocumentModel     *model,
 
 static void
 ev_sidebar_thumbnails_inverted_colors_changed_cb (EvDocumentModel     *model,
-						  GParamSpec          *pspec,
+						  GParamSpec          *pspec G_GNUC_UNUSED,
 						  EvSidebarThumbnails *sidebar_thumbnails)
 {
 	gboolean inverted_colors = ev_document_model_get_inverted_colors (model);
@@ -908,7 +908,7 @@ thumbnail_job_completed_callback (EvJobThumbnail      *job,
 
 static void
 ev_sidebar_thumbnails_document_changed_cb (EvDocumentModel     *model,
-					   GParamSpec          *pspec,
+					   GParamSpec          *pspec G_GNUC_UNUSED,
 					   EvSidebarThumbnails *sidebar_thumbnails)
 {
 	EvDocument *document = ev_document_model_get_document (model);
@@ -996,9 +996,9 @@ ev_sidebar_thumbnails_set_model (EvSidebarPage   *sidebar_page,
 
 static gboolean
 ev_sidebar_thumbnails_clear_job (CtkTreeModel *model,
-			         CtkTreePath *path,
-			         CtkTreeIter *iter,
-				 gpointer data)
+				 CtkTreePath  *path G_GNUC_UNUSED,
+				 CtkTreeIter  *iter,
+				 gpointer      data)
 {
 	EvJob *job;
 
@@ -1023,14 +1023,14 @@ ev_sidebar_thumbnails_clear_model (EvSidebarThumbnails *sidebar_thumbnails)
 }
 
 static gboolean
-ev_sidebar_thumbnails_support_document (EvSidebarPage   *sidebar_page,
-				        EvDocument *document)
+ev_sidebar_thumbnails_support_document (EvSidebarPage   *sidebar_page G_GNUC_UNUSED,
+				        EvDocument      *document)
 {
 	return (EV_IS_DOCUMENT_THUMBNAILS (document));
 }
 
 static const gchar*
-ev_sidebar_thumbnails_get_label (EvSidebarPage *sidebar_page)
+ev_sidebar_thumbnails_get_label (EvSidebarPage *sidebar_page G_GNUC_UNUSED)
 {
 	return _("Thumbnails");
 }
