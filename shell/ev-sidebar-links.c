@@ -264,7 +264,8 @@ create_loading_model (void)
 }
 
 static void
-print_section_cb (CtkWidget *menuitem, EvSidebarLinks *sidebar)
+print_section_cb (CtkWidget      *menuitem G_GNUC_UNUSED,
+		  EvSidebarLinks *sidebar)
 {
 	CtkWidget *window;
 	CtkTreeSelection *selection;
@@ -338,7 +339,8 @@ build_popup_menu (EvSidebarLinks *sidebar)
 }
 
 static void
-popup_menu_cb (CtkWidget *treeview, EvSidebarLinks *sidebar)
+popup_menu_cb (CtkWidget      *treeview G_GNUC_UNUSED,
+	       EvSidebarLinks *sidebar)
 {
 	CtkMenu *menu = build_popup_menu (sidebar);
 
@@ -547,7 +549,7 @@ ev_sidebar_links_set_current_page (EvSidebarLinks *sidebar_links,
 
 static void
 update_page_callback (EvSidebarLinks *sidebar_links,
-		      gint            old_page,
+		      gint            old_page G_GNUC_UNUSED,
 		      gint            new_page)
 {
 	ev_sidebar_links_set_current_page (sidebar_links, new_page);
@@ -556,8 +558,8 @@ update_page_callback (EvSidebarLinks *sidebar_links,
 static void
 row_activated_callback (CtkTreeView       *treeview,
 			CtkTreePath       *arg1,
-			CtkTreeViewColumn *arg2,
-			gpointer           user_data)
+			CtkTreeViewColumn *arg2 G_GNUC_UNUSED,
+			gpointer           user_data G_GNUC_UNUSED)
 {
 	if (ctk_tree_view_row_expanded (CTK_TREE_VIEW (treeview), arg1)) {
 		ctk_tree_view_collapse_row (CTK_TREE_VIEW (treeview), arg1);
@@ -648,7 +650,7 @@ job_finished_callback (EvJobLinks     *job,
 
 static void
 ev_sidebar_links_document_changed_cb (EvDocumentModel *model,
-				      GParamSpec      *pspec,
+				      GParamSpec      *pspec G_GNUC_UNUSED,
 				      EvSidebarLinks  *sidebar_links)
 {
 	EvDocument *document = ev_document_model_get_document (model);
@@ -700,15 +702,15 @@ ev_sidebar_links_set_model (EvSidebarPage   *sidebar_page,
 }
 
 static gboolean
-ev_sidebar_links_support_document (EvSidebarPage  *sidebar_page,
-				   EvDocument *document)
+ev_sidebar_links_support_document (EvSidebarPage  *sidebar_page G_GNUC_UNUSED,
+				   EvDocument     *document)
 {
 	return (EV_IS_DOCUMENT_LINKS (document) &&
 		    ev_document_links_has_document_links (EV_DOCUMENT_LINKS (document)));
 }
 
 static const gchar*
-ev_sidebar_links_get_label (EvSidebarPage *sidebar_page)
+ev_sidebar_links_get_label (EvSidebarPage *sidebar_page G_GNUC_UNUSED)
 {
     return _("Index");
 }
