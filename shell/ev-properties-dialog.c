@@ -48,7 +48,7 @@ struct _EvPropertiesDialogClass {
 G_DEFINE_TYPE (EvPropertiesDialog, ev_properties_dialog, CTK_TYPE_DIALOG)
 
 static void
-ev_properties_dialog_class_init (EvPropertiesDialogClass *properties_class)
+ev_properties_dialog_class_init (EvPropertiesDialogClass *properties_class G_GNUC_UNUSED)
 {
 }
 

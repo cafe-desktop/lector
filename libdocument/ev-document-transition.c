@@ -24,7 +24,7 @@
 G_DEFINE_INTERFACE (EvDocumentTransition, ev_document_transition, 0)
 
 static void
-ev_document_transition_default_init (EvDocumentTransitionInterface *klass)
+ev_document_transition_default_init (EvDocumentTransitionInterface *klass G_GNUC_UNUSED)
 {
 }
 

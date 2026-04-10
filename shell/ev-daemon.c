@@ -132,18 +132,18 @@ spawn_lector (const gchar *uri)
 }
 
 static void
-name_appeared_cb (GDBusConnection *connection,
-                  const gchar     *name,
-                  const gchar     *name_owner,
-                  gpointer         user_data)
+name_appeared_cb (GDBusConnection *connection G_GNUC_UNUSED,
+		  const gchar     *name,
+		  const gchar     *name_owner,
+		  gpointer         user_data G_GNUC_UNUSED)
 {
         LOG ("Watch name'%s' appeared with owner '%s'", name, name_owner);
 }
 
 static void
-name_vanished_cb (GDBusConnection *connection,
-                  const gchar     *name,
-                  gpointer         user_data)
+name_vanished_cb (GDBusConnection *connection G_GNUC_UNUSED,
+		  const gchar     *name,
+		  gpointer         user_data)
 {
         EvDaemonApplication *application = EV_DAEMON_APPLICATION (user_data);
 	GList *l;
@@ -193,9 +193,9 @@ process_pending_invocations (EvDaemonApplication *application,
 static void
 document_loaded_cb (GDBusConnection *connection,
 		    const gchar     *sender_name,
-		    const gchar     *object_path,
-		    const gchar     *interface_name,
-		    const gchar     *signal_name,
+		    const gchar     *object_path G_GNUC_UNUSED,
+		    const gchar     *interface_name G_GNUC_UNUSED,
+		    const gchar     *signal_name G_GNUC_UNUSED,
 		    GVariant        *parameters,
 		    gpointer         user_data)
 {
@@ -453,7 +453,8 @@ ev_daemon_application_class_init (EvDaemonApplicationClass *klass)
 /* ------------------------------------------------------------------------- */
 
 gint
-main (gint argc, gchar **argv)
+main (gint    argc G_GNUC_UNUSED,
+      gchar **argv G_GNUC_UNUSED)
 {
         GApplication *application;
         const GApplicationFlags flags = G_APPLICATION_IS_SERVICE;

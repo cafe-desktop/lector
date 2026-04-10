@@ -444,7 +444,7 @@ djvu_text_copy (DjvuDocument *djvu_document,
 static gchar *
 djvu_selection_get_selected_text (EvSelection     *selection,
 				  EvPage          *page,
-				  EvSelectionStyle style,
+				  EvSelectionStyle style G_GNUC_UNUSED,
 				  EvRectangle     *points)
 {
       	DjvuDocument *djvu_document = DJVU_DOCUMENT (selection);
@@ -595,7 +595,7 @@ djvu_document_file_exporter_end (EvFileExporter *exporter)
 }
 
 static EvFileExporterCapabilities
-djvu_document_file_exporter_get_capabilities (EvFileExporter *exporter)
+djvu_document_file_exporter_get_capabilities (EvFileExporter *exporter G_GNUC_UNUSED)
 {
 	return  EV_FILE_EXPORTER_CAN_PAGE_SET |
 		EV_FILE_EXPORTER_CAN_COPIES |

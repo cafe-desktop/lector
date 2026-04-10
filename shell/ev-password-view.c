@@ -90,7 +90,7 @@ ev_password_view_class_init (EvPasswordViewClass *class)
 }
 
 static void
-ev_password_view_clicked_cb (CtkWidget      *button,
+ev_password_view_clicked_cb (CtkWidget      *button G_GNUC_UNUSED,
 			     EvPasswordView *password_view)
 {
 	ev_password_view_ask_password (password_view);
@@ -221,7 +221,7 @@ ev_password_dialog_entry_changed_cb (CtkEditable *editable,
 }
 
 static void
-ev_password_dialog_entry_activated_cb (CtkEntry  *entry,
+ev_password_dialog_entry_activated_cb (CtkEntry  *entry G_GNUC_UNUSED,
 				       CtkDialog *dialog)
 {
 	ctk_dialog_response (CTK_DIALOG (dialog), CTK_RESPONSE_OK);

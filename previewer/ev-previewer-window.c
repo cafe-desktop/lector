@@ -102,28 +102,28 @@ ev_previewer_window_error_dialog_run (EvPreviewerWindow *window,
 #endif
 
 static void
-ev_previewer_window_close (CtkAction         *action,
+ev_previewer_window_close (CtkAction         *action G_GNUC_UNUSED,
 			   EvPreviewerWindow *window)
 {
 	ctk_widget_destroy (CTK_WIDGET (window));
 }
 
 static void
-ev_previewer_window_previous_page (CtkAction         *action,
+ev_previewer_window_previous_page (CtkAction         *action G_GNUC_UNUSED,
 				   EvPreviewerWindow *window)
 {
 	ev_view_previous_page (window->view);
 }
 
 static void
-ev_previewer_window_next_page (CtkAction         *action,
+ev_previewer_window_next_page (CtkAction         *action G_GNUC_UNUSED,
 			       EvPreviewerWindow *window)
 {
 	ev_view_next_page (window->view);
 }
 
 static void
-ev_previewer_window_zoom_in (CtkAction         *action,
+ev_previewer_window_zoom_in (CtkAction         *action G_GNUC_UNUSED,
 			     EvPreviewerWindow *window)
 {
 	ev_document_model_set_sizing_mode (window->model, EV_SIZING_FREE);
@@ -131,7 +131,7 @@ ev_previewer_window_zoom_in (CtkAction         *action,
 }
 
 static void
-ev_previewer_window_zoom_out (CtkAction         *action,
+ev_previewer_window_zoom_out (CtkAction         *action G_GNUC_UNUSED,
 			      EvPreviewerWindow *window)
 {
 	ev_document_model_set_sizing_mode (window->model, EV_SIZING_FREE);
@@ -139,8 +139,8 @@ ev_previewer_window_zoom_out (CtkAction         *action,
 }
 
 static void
-ev_previewer_window_zoom_reset (CtkAction         *action,
-			      EvPreviewerWindow *window)
+ev_previewer_window_zoom_reset (CtkAction         *action G_GNUC_UNUSED,
+				EvPreviewerWindow *window)
 {
 	ev_document_model_set_sizing_mode (window->model, EV_SIZING_FREE);
 	ev_view_zoom_reset (window->view);
@@ -165,7 +165,7 @@ ev_previewer_window_zoom_fit_width (CtkToggleAction   *action,
 }
 
 static void
-ev_previewer_window_action_page_activated (CtkAction         *action,
+ev_previewer_window_action_page_activated (CtkAction         *action G_GNUC_UNUSED,
 					   EvLink            *link,
 					   EvPreviewerWindow *window)
 {
@@ -174,7 +174,7 @@ ev_previewer_window_action_page_activated (CtkAction         *action,
 }
 
 static void
-ev_previewer_window_focus_page_selector (CtkAction         *action,
+ev_previewer_window_focus_page_selector (CtkAction         *action G_GNUC_UNUSED,
 					 EvPreviewerWindow *window)
 {
 	CtkAction *page_action;
@@ -262,7 +262,7 @@ ev_previewer_window_enumerate_printers (CtkPrinter        *printer,
 }
 
 static void
-ev_previewer_window_print (CtkAction         *action,
+ev_previewer_window_print (CtkAction         *action G_GNUC_UNUSED,
 			   EvPreviewerWindow *window)
 {
 	if (!window->print_settings)
@@ -341,7 +341,7 @@ static const CtkToggleActionEntry toggle_action_entries[] = {
 };
 
 static gboolean
-view_focus_changed (CtkWidget         *widget,
+view_focus_changed (CtkWidget         *widget G_GNUC_UNUSED,
 		    CdkEventFocus     *event,
 		    EvPreviewerWindow *window)
 {
@@ -353,7 +353,7 @@ view_focus_changed (CtkWidget         *widget,
 
 static void
 view_sizing_mode_changed (EvDocumentModel   *model,
-			  GParamSpec        *pspec,
+			  GParamSpec        *pspec G_GNUC_UNUSED,
 			  EvPreviewerWindow *window)
 {
 	EvSizingMode sizing_mode = ev_document_model_get_sizing_mode (model);
@@ -382,7 +382,7 @@ view_sizing_mode_changed (EvDocumentModel   *model,
 
 static void
 ev_previewer_window_set_document (EvPreviewerWindow *window,
-				  GParamSpec        *pspec,
+				  GParamSpec        *pspec G_GNUC_UNUSED,
 				  EvDocumentModel   *model)
 {
 	EvDocument *document = ev_document_model_get_document (model);

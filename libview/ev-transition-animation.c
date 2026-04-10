@@ -46,7 +46,7 @@ G_DEFINE_TYPE_WITH_PRIVATE (EvTransitionAnimation, ev_transition_animation, EV_T
 
 
 static void
-ev_transition_animation_init (EvTransitionAnimation *animation)
+ev_transition_animation_init (EvTransitionAnimation *animation G_GNUC_UNUSED)
 {
 }
 
@@ -411,7 +411,7 @@ ev_transition_animation_wipe (cairo_t               *cr,
 static void
 ev_transition_animation_dissolve (cairo_t               *cr,
 				  EvTransitionAnimation *animation,
-				  EvTransitionEffect    *effect,
+				  EvTransitionEffect    *effect G_GNUC_UNUSED,
 				  gdouble                progress,
 				  CdkRectangle           page_area)
 {
@@ -516,7 +516,7 @@ ev_transition_animation_uncover (cairo_t               *cr,
 static void
 ev_transition_animation_fade (cairo_t               *cr,
 			      EvTransitionAnimation *animation,
-			      EvTransitionEffect    *effect,
+			      EvTransitionEffect    *effect G_GNUC_UNUSED,
 			      gdouble                progress,
 			      CdkRectangle           page_area)
 {

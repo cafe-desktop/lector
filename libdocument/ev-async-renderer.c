@@ -34,7 +34,7 @@ static guint signals[LAST_SIGNAL] = { 0 };
 G_DEFINE_INTERFACE (EvAsyncRenderer, ev_async_renderer, 0)
 
 static void
-ev_async_renderer_default_init (EvAsyncRendererInterface *klass)
+ev_async_renderer_default_init (EvAsyncRendererInterface *klass G_GNUC_UNUSED)
 {
 	static gboolean initialized = FALSE;
 

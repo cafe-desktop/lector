@@ -25,7 +25,7 @@
 G_DEFINE_INTERFACE (EvSelection, ev_selection, 0)
 
 static void
-ev_selection_default_init (EvSelectionInterface *klass)
+ev_selection_default_init (EvSelectionInterface *klass G_GNUC_UNUSED)
 {
 }
 

@@ -22,7 +22,7 @@
 
 G_DEFINE_TYPE (EvRenderContext, ev_render_context, G_TYPE_OBJECT);
 
-static void ev_render_context_init (EvRenderContext *rc) { /* Do Nothing */ }
+static void ev_render_context_init (EvRenderContext *rc G_GNUC_UNUSED) { /* Do Nothing */ }
 
 static void
 ev_render_context_dispose (GObject *object)

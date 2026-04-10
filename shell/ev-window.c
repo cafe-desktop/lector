@@ -809,8 +809,8 @@ ev_window_set_message_area (EvWindow  *window,
 }
 
 static void
-ev_window_message_area_response_cb (EvMessageArea *area,
-				    gint           response_id,
+ev_window_message_area_response_cb (EvMessageArea *area G_GNUC_UNUSED,
+				    gint           response_id G_GNUC_UNUSED,
 				    EvWindow      *window)
 {
 	ev_window_set_message_area (window, NULL);
@@ -915,7 +915,7 @@ typedef struct _PageTitleData {
 
 static gboolean
 ev_window_find_page_title (CtkTreeModel  *tree_model,
-			   CtkTreePath   *path,
+			   CtkTreePath   *path G_GNUC_UNUSED,
 			   CtkTreeIter   *iter,
 			   PageTitleData *data)
 {
@@ -1016,7 +1016,9 @@ ev_window_add_history (EvWindow *window, gint page, EvLink *link)
 }
 
 static void
-view_handle_link_cb (EvView *view, EvLink *link, EvWindow *window)
+view_handle_link_cb (EvView   *view G_GNUC_UNUSED,
+		     EvLink   *link,
+		     EvWindow *window)
 {
 	int current_page = ev_document_model_get_page (window->priv->model);
 
@@ -1033,17 +1035,17 @@ view_selection_changed_cb (EvView   *view,
 }
 
 static void
-view_layers_changed_cb (EvView   *view,
+view_layers_changed_cb (EvView   *view G_GNUC_UNUSED,
 			EvWindow *window)
 {
 	ev_sidebar_layers_update_layers_state (EV_SIDEBAR_LAYERS (window->priv->sidebar_layers));
 }
 
 static void
-view_caret_cursor_moved_cb (EvView   *view,
-                            guint     page,
-                            guint     offset,
-                            EvWindow *window)
+view_caret_cursor_moved_cb (EvView   *view G_GNUC_UNUSED,
+			    guint     page,
+			    guint     offset,
+			    EvWindow *window)
 {
 	GVariant *position;
 	gchar    *caret_position;
@@ -1061,7 +1063,7 @@ view_caret_cursor_moved_cb (EvView   *view,
 
 static void
 view_is_loading_changed_cb (EvView     *view,
-			    GParamSpec *spec,
+			    GParamSpec *spec G_GNUC_UNUSED,
 			    EvWindow   *window)
 {
 	if (ev_view_is_loading (view))
@@ -1074,7 +1076,7 @@ static void
 ev_window_page_changed_cb (EvWindow        *ev_window,
 			   gint             old_page,
 			   gint             new_page,
-			   EvDocumentModel *model)
+			   EvDocumentModel *model G_GNUC_UNUSED)
 {
 	ev_window_update_actions (ev_window);
 
@@ -1513,7 +1515,7 @@ setup_view_from_metadata (EvWindow *window)
 
 static void
 page_cache_size_changed (GSettings *settings,
-			 gchar     *key,
+			 gchar     *key G_GNUC_UNUSED,
 			 EvWindow  *ev_window)
 {
 	guint page_cache_mb;
@@ -1633,17 +1635,17 @@ ev_window_setup_toolbar_flags (EvWindow *ev_window)
 }
 
 static void
-override_restrictions_changed (GSettings *settings,
-			       gchar     *key,
+override_restrictions_changed (GSettings *settings G_GNUC_UNUSED,
+			       gchar     *key G_GNUC_UNUSED,
 			       EvWindow  *ev_window)
 {
 	ev_window_setup_action_sensitivity (ev_window);
 }
 
 static void
-lockdown_changed (GSettings *settings,
-		  gchar       *key,
-		  EvWindow    *ev_window)
+lockdown_changed (GSettings *settings G_GNUC_UNUSED,
+		  gchar     *key G_GNUC_UNUSED,
+		  EvWindow  *ev_window)
 {
 	ev_window_setup_action_sensitivity (ev_window);
 }
@@ -1670,9 +1672,9 @@ ev_window_ensure_settings (EvWindow *ev_window)
 }
 
 static void
-interface_changed (GSettings *settings,
-		   gchar       *key,
-		   EvWindow    *ev_window)
+interface_changed (GSettings *settings G_GNUC_UNUSED,
+		   gchar     *key G_GNUC_UNUSED,
+		   EvWindow  *ev_window)
 {
 	ev_window_setup_toolbar_flags (ev_window);
 }
@@ -1817,7 +1819,7 @@ ev_window_set_document (EvWindow *ev_window, EvDocument *document)
 
 static void
 ev_window_document_changed (EvWindow *ev_window,
-			    gpointer  user_data)
+			    gpointer  user_data G_GNUC_UNUSED)
 {
 	if (ev_window->priv->settings &&
 	    g_settings_get_boolean (ev_window->priv->settings, GS_AUTO_RELOAD))
@@ -2115,7 +2117,7 @@ ev_window_reset_progress_cancellable (EvWindow *ev_window)
 }
 
 static void
-ev_window_progress_response_cb (EvProgressMessageArea *area,
+ev_window_progress_response_cb (EvProgressMessageArea *area G_GNUC_UNUSED,
 				gint                   response,
 				EvWindow              *ev_window)
 {
@@ -2760,7 +2762,8 @@ file_open_dialog_response_cb (CtkWidget *chooser,
 }
 
 static void
-ev_window_cmd_file_open (CtkAction *action, EvWindow *window)
+ev_window_cmd_file_open (CtkAction *action G_GNUC_UNUSED,
+			 EvWindow  *window)
 {
 	CtkWidget   *chooser;
 
@@ -2801,7 +2804,8 @@ ev_window_open_copy_at_dest (EvWindow   *window,
 }
 
 static void
-ev_window_cmd_file_open_copy (CtkAction *action, EvWindow *window)
+ev_window_cmd_file_open_copy (CtkAction *action G_GNUC_UNUSED,
+			      EvWindow  *window)
 {
 	ev_window_open_copy_at_dest (window, NULL);
 }
@@ -2824,7 +2828,7 @@ ev_window_cmd_recent_file_activate (CtkAction *action,
 }
 
 static void
-ev_window_open_recent_action_item_activated (EvOpenRecentAction *action,
+ev_window_open_recent_action_item_activated (EvOpenRecentAction *action G_GNUC_UNUSED,
 					     const gchar        *uri,
 					     EvWindow           *window)
 {
@@ -2907,10 +2911,10 @@ ev_window_get_recent_file_label (gint index, const gchar *filename)
 }
 
 static void
-ev_window_recent_action_connect_proxy_cb (CtkActionGroup *action_group,
-                                          CtkAction *action,
-                                          CtkWidget *proxy,
-                                          gpointer data)
+ev_window_recent_action_connect_proxy_cb (CtkActionGroup *action_group G_GNUC_UNUSED,
+					  CtkAction      *action G_GNUC_UNUSED,
+					  CtkWidget      *proxy,
+					  gpointer        data G_GNUC_UNUSED)
 {
         CtkLabel *label;
 
@@ -3231,7 +3235,8 @@ file_save_dialog_response_cb (CtkWidget *fc,
 }
 
 static void
-ev_window_cmd_save_as (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_save_as (CtkAction *action G_GNUC_UNUSED,
+		       EvWindow  *ev_window)
 {
 	CtkWidget *fc;
 	gchar *base_name, *dir_name, *var_tmp_dir, *tmp_dir;
@@ -3285,8 +3290,8 @@ ev_window_cmd_save_as (CtkAction *action, EvWindow *ev_window)
 	ctk_widget_show (fc);
 }
 
- static void
-ev_window_cmd_send_to (CtkAction *action,
+static void
+ev_window_cmd_send_to (CtkAction *action G_GNUC_UNUSED,
 		       EvWindow  *ev_window)
 {
 	GAppInfo   *app_info;
@@ -3800,13 +3805,15 @@ ev_window_print (EvWindow *window)
 }
 
 static void
-ev_window_cmd_file_print (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_file_print (CtkAction *action G_GNUC_UNUSED,
+			  EvWindow  *ev_window)
 {
 	ev_window_print (ev_window);
 }
 
 static void
-ev_window_cmd_file_properties (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_file_properties (CtkAction *action G_GNUC_UNUSED,
+			       EvWindow  *ev_window)
 {
 	if (ev_window->priv->properties == NULL) {
 		ev_window->priv->properties = ev_properties_dialog_new ();
@@ -4024,14 +4031,16 @@ ev_window_close (EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_file_close_window (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_file_close_window (CtkAction *action G_GNUC_UNUSED,
+				 EvWindow  *ev_window)
 {
 	if (ev_window_close (ev_window))
 		ctk_widget_destroy (CTK_WIDGET (ev_window));
 }
 
 static void
-ev_window_cmd_focus_page_selector (CtkAction *act, EvWindow *window)
+ev_window_cmd_focus_page_selector (CtkAction *act G_GNUC_UNUSED,
+				   EvWindow  *window)
 {
 	CtkAction *action;
 
@@ -4045,7 +4054,8 @@ ev_window_cmd_focus_page_selector (CtkAction *act, EvWindow *window)
 }
 
 static void
-ev_window_cmd_scroll_forward (CtkAction *action, EvWindow *window)
+ev_window_cmd_scroll_forward (CtkAction *action G_GNUC_UNUSED,
+			      EvWindow  *window)
 {
 	/* If the webview is occupying the window */
 	if (window->priv->document && window->priv->document->iswebdocument == TRUE)
@@ -4055,7 +4065,8 @@ ev_window_cmd_scroll_forward (CtkAction *action, EvWindow *window)
 }
 
 static void
-ev_window_cmd_scroll_backward (CtkAction *action, EvWindow *window)
+ev_window_cmd_scroll_backward (CtkAction *action G_GNUC_UNUSED,
+			       EvWindow  *window)
 {
 	/* If the webview is occupying the window */
 	if (window->priv->document && window->priv->document->iswebdocument == TRUE)
@@ -4108,7 +4119,8 @@ ev_window_cmd_view_fit_page (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_fit_page (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_fit_page (CtkAction *action G_GNUC_UNUSED,
+			EvWindow  *ev_window)
 {
 	ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_FIT_PAGE);
 }
@@ -4127,13 +4139,15 @@ ev_window_cmd_view_fit_width (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_fit_width (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_fit_width (CtkAction *action G_GNUC_UNUSED,
+			 EvWindow  *ev_window)
 {
 	ev_document_model_set_sizing_mode (ev_window->priv->model, EV_SIZING_FIT_WIDTH);
 }
 
 static void
-ev_window_cmd_edit_select_all (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_edit_select_all (CtkAction *action G_GNUC_UNUSED,
+			       EvWindow  *ev_window)
 {
 	g_return_if_fail (EV_IS_WINDOW (ev_window));
 
@@ -4155,7 +4169,8 @@ ev_window_cmd_edit_select_all (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_edit_find (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_edit_find (CtkAction *action G_GNUC_UNUSED,
+			 EvWindow  *ev_window)
 {
 	if (ev_window->priv->document == NULL || !EV_IS_DOCUMENT_FIND (ev_window->priv->document)) {
 		g_error ("Find action should be insensitive since document doesn't support find");
@@ -4171,7 +4186,8 @@ ev_window_cmd_edit_find (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_edit_find_next (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_edit_find_next (CtkAction *action G_GNUC_UNUSED,
+			      EvWindow  *ev_window)
 {
 	if (EV_WINDOW_IS_PRESENTATION (ev_window))
 		return;
@@ -4190,7 +4206,8 @@ ev_window_cmd_edit_find_next (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_edit_find_previous (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_edit_find_previous (CtkAction *action G_GNUC_UNUSED,
+				  EvWindow  *ev_window)
 {
 	if (EV_WINDOW_IS_PRESENTATION (ev_window))
 		return;
@@ -4209,7 +4226,8 @@ ev_window_cmd_edit_find_previous (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_edit_copy (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_edit_copy (CtkAction *action G_GNUC_UNUSED,
+			 EvWindow  *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
 #if ENABLE_EPUB
@@ -4224,7 +4242,7 @@ ev_window_cmd_edit_copy (CtkAction *action, EvWindow *ev_window)
 
 static void
 ev_window_sidebar_position_change_cb (GObject    *object,
-				      GParamSpec *pspec,
+				      GParamSpec *pspec G_GNUC_UNUSED,
 				      EvWindow   *ev_window)
 {
 	if (ev_window->priv->metadata && !ev_window_is_empty (ev_window))
@@ -4682,7 +4700,8 @@ ev_window_set_page_mode (EvWindow         *window,
 
 
 static void
-ev_window_cmd_edit_rotate_left (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_edit_rotate_left (CtkAction *action G_GNUC_UNUSED,
+				EvWindow  *ev_window)
 {
 	gint rotation;
 
@@ -4698,7 +4717,8 @@ ev_window_cmd_edit_rotate_left (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_edit_rotate_right (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_edit_rotate_right (CtkAction *action G_GNUC_UNUSED,
+				 EvWindow  *ev_window)
 {
 	gint rotation;
 
@@ -4714,7 +4734,8 @@ ev_window_cmd_edit_rotate_right (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_view_inverted_colors (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_view_inverted_colors (CtkAction *action G_GNUC_UNUSED,
+				    EvWindow  *ev_window)
 {
 	gboolean inverted_colors = ev_document_model_get_inverted_colors (ev_window->priv->model);
 
@@ -4723,7 +4744,7 @@ ev_window_cmd_view_inverted_colors (CtkAction *action, EvWindow *ev_window)
 
 static void
 ev_window_cmd_edit_toolbar_cb (CtkDialog *dialog,
-			       gint       response,
+			       gint       response G_GNUC_UNUSED,
 			       EvWindow  *ev_window)
 {
 	EggEditableToolbar *toolbar;
@@ -4742,7 +4763,8 @@ ev_window_cmd_edit_toolbar_cb (CtkDialog *dialog,
 }
 
 static void
-ev_window_cmd_edit_toolbar (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_edit_toolbar (CtkAction *action G_GNUC_UNUSED,
+			    EvWindow  *ev_window)
 {
 	CtkWidget          *dialog;
 	CtkWidget          *editor;
@@ -4779,7 +4801,8 @@ ev_window_cmd_edit_toolbar (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_edit_save_settings (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_edit_save_settings (CtkAction *action G_GNUC_UNUSED,
+				  EvWindow  *ev_window)
 {
 	EvWindowPrivate *priv = ev_window->priv;
 	EvDocumentModel *model = priv->model;
@@ -4816,7 +4839,8 @@ ev_window_cmd_edit_save_settings (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_view_zoom_in (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_view_zoom_in (CtkAction *action G_GNUC_UNUSED,
+			    EvWindow  *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
 
@@ -4833,7 +4857,8 @@ ev_window_cmd_view_zoom_in (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_view_zoom_out (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_view_zoom_out (CtkAction *action G_GNUC_UNUSED,
+			     EvWindow  *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
 
@@ -4850,7 +4875,8 @@ ev_window_cmd_view_zoom_out (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_view_zoom_reset (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_view_zoom_reset (CtkAction *action G_GNUC_UNUSED,
+			       EvWindow  *ev_window)
 {
 	g_return_if_fail (EV_IS_WINDOW (ev_window));
 
@@ -4867,7 +4893,8 @@ ev_window_cmd_view_zoom_reset (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_go_previous_page (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_go_previous_page (CtkAction *action G_GNUC_UNUSED,
+				EvWindow  *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
 #if ENABLE_EPUB
@@ -4882,7 +4909,8 @@ ev_window_cmd_go_previous_page (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_go_next_page (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_go_next_page (CtkAction *action G_GNUC_UNUSED,
+			    EvWindow  *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
 #if ENABLE_EPUB
@@ -4896,7 +4924,8 @@ ev_window_cmd_go_next_page (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_go_first_page (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_go_first_page (CtkAction *action G_GNUC_UNUSED,
+			     EvWindow  *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
 
@@ -4904,7 +4933,8 @@ ev_window_cmd_go_first_page (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_go_last_page (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_go_last_page (CtkAction *action G_GNUC_UNUSED,
+			    EvWindow  *ev_window)
 {
         g_return_if_fail (EV_IS_WINDOW (ev_window));
 
@@ -4913,7 +4943,8 @@ ev_window_cmd_go_last_page (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_go_forward (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_go_forward (CtkAction *action G_GNUC_UNUSED,
+			  EvWindow  *ev_window)
 {
 	int n_pages, current_page;
 
@@ -4928,7 +4959,8 @@ ev_window_cmd_go_forward (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_go_backward (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_go_backward (CtkAction *action G_GNUC_UNUSED,
+			   EvWindow  *ev_window)
 {
 	int current_page;
 
@@ -5014,7 +5046,7 @@ ev_window_setup_bookmarks (EvWindow *window)
 }
 
 static void
-ev_window_cmd_bookmarks_add (CtkAction *action,
+ev_window_cmd_bookmarks_add (CtkAction *action G_GNUC_UNUSED,
 			     EvWindow  *window)
 {
 	EvBookmark bm;
@@ -5032,13 +5064,15 @@ ev_window_cmd_bookmarks_add (CtkAction *action,
 }
 
 static void
-ev_window_cmd_view_reload (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_view_reload (CtkAction *action G_GNUC_UNUSED,
+			   EvWindow  *ev_window)
 {
 	ev_window_reload_document (ev_window, NULL);
 }
 
 static void
-ev_window_cmd_view_expand_window (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_view_expand_window (CtkAction *action G_GNUC_UNUSED,
+				  EvWindow  *ev_window)
 {
 	g_return_if_fail (EV_IS_WINDOW (ev_window));
 
@@ -5046,7 +5080,8 @@ ev_window_cmd_view_expand_window (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_view_autoscroll (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_view_autoscroll (CtkAction *action G_GNUC_UNUSED,
+			       EvWindow  *ev_window)
 {
 	EvDocument* document = ev_window->priv->document;
 	if (document->iswebdocument == TRUE ) {
@@ -5059,7 +5094,8 @@ ev_window_cmd_view_autoscroll (CtkAction *action, EvWindow *ev_window)
 #define EV_HELP "help:lector"
 
 static void
-ev_window_cmd_help_contents (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_help_contents (CtkAction *action G_GNUC_UNUSED,
+			     EvWindow  *ev_window)
 {
 	GError  *error = NULL;
 
@@ -5076,19 +5112,22 @@ ev_window_cmd_help_contents (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_cmd_leave_fullscreen (CtkAction *action, EvWindow *window)
+ev_window_cmd_leave_fullscreen (CtkAction *action G_GNUC_UNUSED,
+				EvWindow  *window)
 {
 	ev_window_stop_fullscreen (window, TRUE);
 }
 
 static void
-ev_window_cmd_start_presentation (CtkAction *action, EvWindow *window)
+ev_window_cmd_start_presentation (CtkAction *action G_GNUC_UNUSED,
+				  EvWindow  *window)
 {
 	ev_window_run_presentation (window);
 }
 
 static void
-ev_window_cmd_escape (CtkAction *action, EvWindow *window)
+ev_window_cmd_escape (CtkAction *action G_GNUC_UNUSED,
+		      EvWindow  *window)
 {
 	CtkWidget *widget;
 
@@ -5147,7 +5186,7 @@ save_sizing_mode (EvWindow *window)
 
 static void
 ev_window_document_changed_cb (EvDocumentModel *model,
-			       GParamSpec      *pspec,
+			       GParamSpec      *pspec G_GNUC_UNUSED,
 			       EvWindow        *ev_window)
 {
 	ev_window_set_document (ev_window,
@@ -5156,7 +5195,7 @@ ev_window_document_changed_cb (EvDocumentModel *model,
 
 static void
 ev_window_sizing_mode_changed_cb (EvDocumentModel *model,
-				  GParamSpec      *pspec,
+				  GParamSpec      *pspec G_GNUC_UNUSED,
 		 		  EvWindow        *ev_window)
 {
 	EvSizingMode sizing_mode = ev_document_model_get_sizing_mode (model);
@@ -5173,7 +5212,9 @@ ev_window_sizing_mode_changed_cb (EvDocumentModel *model,
 }
 
 static void
-ev_window_zoom_changed_cb (EvDocumentModel *model, GParamSpec *pspec, EvWindow *ev_window)
+ev_window_zoom_changed_cb (EvDocumentModel *model,
+			   GParamSpec      *pspec G_GNUC_UNUSED,
+			   EvWindow        *ev_window)
 {
         ev_window_update_actions (ev_window);
 
@@ -5205,7 +5246,7 @@ ev_window_update_continuous_action (EvWindow *window)
 
 static void
 ev_window_continuous_changed_cb (EvDocumentModel *model,
-				 GParamSpec      *pspec,
+				 GParamSpec      *pspec G_GNUC_UNUSED,
 				 EvWindow        *ev_window)
 {
 	ev_window_update_continuous_action (ev_window);
@@ -5217,7 +5258,7 @@ ev_window_continuous_changed_cb (EvDocumentModel *model,
 
 static void
 ev_window_rotation_changed_cb (EvDocumentModel *model,
-			       GParamSpec      *pspec,
+			       GParamSpec      *pspec G_GNUC_UNUSED,
 			       EvWindow        *window)
 {
 	gint rotation = ev_document_model_get_rotation (model);
@@ -5246,8 +5287,8 @@ ev_window_update_inverted_colors_action (EvWindow *window)
 
 static void
 ev_window_inverted_colors_changed_cb (EvDocumentModel *model,
-			              GParamSpec      *pspec,
-			              EvWindow        *window)
+				      GParamSpec      *pspec G_GNUC_UNUSED,
+				      EvWindow        *window)
 {
 	gboolean inverted_colors = ev_document_model_get_inverted_colors (model);
 
@@ -5276,7 +5317,7 @@ ev_window_update_dual_page_action (EvWindow *window)
 
 static void
 ev_window_dual_mode_changed_cb (EvDocumentModel *model,
-				GParamSpec      *pspec,
+				GParamSpec      *pspec G_GNUC_UNUSED,
 				EvWindow        *ev_window)
 {
 	ev_window_update_dual_page_action (ev_window);
@@ -5302,7 +5343,7 @@ ev_window_update_dual_page_odd_pages_left_action (EvWindow *window)
 
 static void
 ev_window_dual_mode_odd_pages_left_changed_cb (EvDocumentModel *model,
-					       GParamSpec      *pspec,
+					       GParamSpec      *pspec G_GNUC_UNUSED,
 					       EvWindow        *ev_window)
 {
 	ev_window_update_dual_page_odd_pages_left_action (ev_window);
@@ -5334,7 +5375,8 @@ build_comments_string (EvDocument *document)
 #define EMAILIFY(string) (g_strdelimit ((string), "%", '@'))
 
 static void
-ev_window_cmd_help_about (CtkAction *action, EvWindow *ev_window)
+ev_window_cmd_help_about (CtkAction *action G_GNUC_UNUSED,
+			  EvWindow  *ev_window)
 {
 	const char *documenters[] = {
 		N_("CAFE Documentation Team"),
@@ -5440,8 +5482,8 @@ ev_window_view_sidebar_cb (CtkAction *action, EvWindow *ev_window)
 }
 
 static void
-ev_window_sidebar_current_page_changed_cb (EvSidebar  *ev_sidebar,
-					   GParamSpec *pspec,
+ev_window_sidebar_current_page_changed_cb (EvSidebar  *ev_sidebar G_GNUC_UNUSED,
+					   GParamSpec *pspec G_GNUC_UNUSED,
 					   EvWindow   *ev_window)
 {
 	if (ev_window->priv->metadata && !ev_window_is_empty (ev_window)) {
@@ -5453,7 +5495,7 @@ ev_window_sidebar_current_page_changed_cb (EvSidebar  *ev_sidebar,
 
 static void
 ev_window_sidebar_visibility_changed_cb (EvSidebar  *ev_sidebar,
-					 GParamSpec *pspec,
+					 GParamSpec *pspec G_GNUC_UNUSED,
 					 EvWindow   *ev_window)
 {
 	CtkAction *action;
@@ -5607,7 +5649,7 @@ view_menu_annot_popup (EvWindow     *ev_window,
 }
 
 static gboolean
-view_menu_popup_cb (EvView   *view,
+view_menu_popup_cb (EvView   *view G_GNUC_UNUSED,
 		    GList    *items,
 		    EvWindow *ev_window)
 {
@@ -5642,9 +5684,9 @@ view_menu_popup_cb (EvView   *view,
 }
 
 static gboolean
-attachment_bar_menu_popup_cb (EvSidebarAttachments *attachbar,
-			      GList           *attach_list,
-			      EvWindow        *ev_window)
+attachment_bar_menu_popup_cb (EvSidebarAttachments *attachbar G_GNUC_UNUSED,
+			      GList                *attach_list,
+			      EvWindow             *ev_window)
 {
 	CtkWidget *popup;
 
@@ -5704,7 +5746,7 @@ ev_window_update_find_status_message (EvWindow *ev_window)
 }
 
 static void
-ev_window_find_job_finished_cb (EvJobFind *job,
+ev_window_find_job_finished_cb (EvJobFind *job G_GNUC_UNUSED,
 				EvWindow  *ev_window)
 {
 	ev_window_update_find_status_message (ev_window);
@@ -5750,7 +5792,7 @@ ev_window_clear_find_job (EvWindow *ev_window)
 }
 
 static void
-find_bar_previous_cb (EggFindBar *find_bar,
+find_bar_previous_cb (EggFindBar *find_bar G_GNUC_UNUSED,
 		      EvWindow   *ev_window)
 {
 #if ENABLE_EPUB
@@ -5764,7 +5806,7 @@ find_bar_previous_cb (EggFindBar *find_bar,
 }
 
 static void
-find_bar_next_cb (EggFindBar *find_bar,
+find_bar_next_cb (EggFindBar *find_bar G_GNUC_UNUSED,
 		  EvWindow   *ev_window)
 {
 #if ENABLE_EPUB
@@ -5778,7 +5820,7 @@ find_bar_next_cb (EggFindBar *find_bar,
 }
 
 static void
-find_bar_close_cb (EggFindBar *find_bar,
+find_bar_close_cb (EggFindBar *find_bar G_GNUC_UNUSED,
 		   EvWindow   *ev_window)
 {
 #if ENABLE_EPUB
@@ -5832,9 +5874,9 @@ ev_window_search_start (EvWindow *ev_window)
 }
 
 static void
-find_bar_search_changed_cb (EggFindBar *find_bar,
-			    GParamSpec *param,
-			    EvWindow *ev_window)
+find_bar_search_changed_cb (EggFindBar *find_bar G_GNUC_UNUSED,
+			    GParamSpec *param G_GNUC_UNUSED,
+			    EvWindow   *ev_window)
 {
 	/* Either the string or case sensitivity could have changed. */
 #if ENABLE_EPUB
@@ -5851,7 +5893,7 @@ find_bar_search_changed_cb (EggFindBar *find_bar,
 
 static void
 find_bar_visibility_changed_cb (EggFindBar *find_bar,
-				GParamSpec *param,
+				GParamSpec *param G_GNUC_UNUSED,
 				EvWindow   *ev_window)
 {
 	gboolean visible;
@@ -5879,7 +5921,7 @@ find_bar_visibility_changed_cb (EggFindBar *find_bar,
 }
 
 static void
-zoom_control_changed_cb (EphyZoomAction *action,
+zoom_control_changed_cb (EphyZoomAction *action G_GNUC_UNUSED,
 			 float           zoom,
 			 EvWindow       *ev_window)
 {
@@ -5960,10 +6002,10 @@ zoom_control_changed_cb (EphyZoomAction *action,
 static void
 ev_window_drag_data_received (CtkWidget        *widget,
 			      CdkDragContext   *context,
-			      gint              x,
-			      gint              y,
+			      gint              x G_GNUC_UNUSED,
+			      gint              y G_GNUC_UNUSED,
 			      CtkSelectionData *selection_data,
-			      guint             info,
+			      guint             info G_GNUC_UNUSED,
 			      guint             time)
 
 {
@@ -6009,9 +6051,9 @@ ev_window_set_caret_navigation_enabled (EvWindow *window,
 }
 
 static void
-ev_window_caret_navigation_message_area_response_cb (EvMessageArea *area,
-                                                     gint           response_id,
-                                                     EvWindow      *window)
+ev_window_caret_navigation_message_area_response_cb (EvMessageArea *area G_GNUC_UNUSED,
+						     gint           response_id,
+						     EvWindow      *window)
 {
 	/* Turn the caret navigation mode on */
 	if (response_id == CTK_RESPONSE_YES)
@@ -6029,8 +6071,8 @@ ev_window_caret_navigation_message_area_response_cb (EvMessageArea *area,
 }
 
 static void
-ev_window_cmd_view_toggle_caret_navigation (CtkAction *action,
-                                            EvWindow *window)
+ev_window_cmd_view_toggle_caret_navigation (CtkAction *action G_GNUC_UNUSED,
+					    EvWindow  *window)
 {
 	CtkWidget *message_area;
 	CtkWidget *box;
@@ -6359,7 +6401,7 @@ ev_window_key_press_event (CtkWidget   *widget,
 
 static gboolean
 ev_window_delete_event (CtkWidget   *widget,
-			CdkEventAny *event)
+			CdkEventAny *event G_GNUC_UNUSED)
 {
 	return !ev_window_close (EV_WINDOW (widget));
 }
@@ -6604,7 +6646,9 @@ static const CtkActionEntry attachment_popup_entries [] = {
 };
 
 static void
-sidebar_links_link_activated_cb (EvSidebarLinks *sidebar_links, EvLink *link, EvWindow *window)
+sidebar_links_link_activated_cb (EvSidebarLinks *sidebar_links G_GNUC_UNUSED,
+				 EvLink         *link,
+				 EvWindow       *window)
 {
 	if (window->priv->document && window->priv->document->iswebdocument == FALSE ) {
 		ev_view_handle_link (EV_VIEW (window->priv->view), link);
@@ -6617,7 +6661,9 @@ sidebar_links_link_activated_cb (EvSidebarLinks *sidebar_links, EvLink *link, Ev
 }
 
 static void
-activate_link_cb (EvPageAction *page_action, EvLink *link, EvWindow *window)
+activate_link_cb (EvPageAction *page_action G_GNUC_UNUSED,
+		  EvLink       *link,
+		  EvWindow     *window)
 {
 	if (window->priv->view) {
 		ev_view_handle_link (EV_VIEW (window->priv->view), link);
@@ -6632,7 +6678,9 @@ activate_link_cb (EvPageAction *page_action, EvLink *link, EvWindow *window)
 }
 
 static void
-navigation_action_activate_link_cb (EvNavigationAction *action, EvLink *link, EvWindow *window)
+navigation_action_activate_link_cb (EvNavigationAction *action G_GNUC_UNUSED,
+				    EvLink             *link,
+				    EvWindow           *window)
 {
 #if ENABLE_EPUB
 	if (window->priv->document && window->priv->document->iswebdocument == TRUE )  {
@@ -6646,7 +6694,7 @@ navigation_action_activate_link_cb (EvNavigationAction *action, EvLink *link, Ev
 }
 
 static void
-sidebar_layers_visibility_changed (EvSidebarLayers *layers,
+sidebar_layers_visibility_changed (EvSidebarLayers *layers G_GNUC_UNUSED,
 				   EvWindow        *window)
 {
 	if (window->priv->document && window->priv->document->iswebdocument == FALSE ) {
@@ -6661,7 +6709,7 @@ sidebar_layers_visibility_changed (EvSidebarLayers *layers,
 }
 
 static void
-sidebar_annots_annot_activated_cb (EvSidebarAnnotations *sidebar_annots,
+sidebar_annots_annot_activated_cb (EvSidebarAnnotations *sidebar_annots G_GNUC_UNUSED,
 				   EvMapping            *annot_mapping,
 				   EvWindow             *window)
 {
@@ -6670,7 +6718,7 @@ sidebar_annots_annot_activated_cb (EvSidebarAnnotations *sidebar_annots,
 }
 
 static void
-sidebar_annots_begin_annot_add (EvSidebarAnnotations *sidebar_annots,
+sidebar_annots_begin_annot_add (EvSidebarAnnotations *sidebar_annots G_GNUC_UNUSED,
 				EvAnnotationType      annot_type,
 				EvWindow             *window)
 {
@@ -6679,7 +6727,7 @@ sidebar_annots_begin_annot_add (EvSidebarAnnotations *sidebar_annots,
 }
 
 static void
-view_annot_added (EvView       *view,
+view_annot_added (EvView       *view G_GNUC_UNUSED,
 		  EvAnnotation *annot,
 		  EvWindow     *window)
 {
@@ -6688,15 +6736,15 @@ view_annot_added (EvView       *view,
 }
 
 static void
-view_annot_removed (EvView       *view,
-                    EvAnnotation *annot,
-                    EvWindow     *window)
+view_annot_removed (EvView       *view G_GNUC_UNUSED,
+		    EvAnnotation *annot G_GNUC_UNUSED,
+		    EvWindow     *window)
 {
 	ev_sidebar_annotations_annot_removed (EV_SIDEBAR_ANNOTATIONS (window->priv->sidebar_annots));
 }
 
 static void
-sidebar_annots_annot_add_cancelled (EvSidebarAnnotations *sidebar_annots,
+sidebar_annots_annot_add_cancelled (EvSidebarAnnotations *sidebar_annots G_GNUC_UNUSED,
 				    EvWindow             *window)
 {
 	if (window->priv->document && window->priv->document->iswebdocument == TRUE ) return;
@@ -6704,7 +6752,7 @@ sidebar_annots_annot_add_cancelled (EvSidebarAnnotations *sidebar_annots,
 }
 
 static void
-sidebar_bookmarks_add_bookmark (EvSidebarBookmarks *sidebar_bookmarks,
+sidebar_bookmarks_add_bookmark (EvSidebarBookmarks *sidebar_bookmarks G_GNUC_UNUSED,
 				EvWindow           *window)
 {
 	ev_window_cmd_bookmarks_add (NULL, window);
@@ -6816,7 +6864,7 @@ set_action_properties (CtkActionGroup *action_group)
 
 static void
 sidebar_widget_model_set (EvSidebarLinks *ev_sidebar_links,
-			  GParamSpec     *pspec,
+			  GParamSpec     *pspec G_GNUC_UNUSED,
 			  EvWindow       *ev_window)
 {
 	CtkTreeModel *model;
@@ -6832,7 +6880,9 @@ sidebar_widget_model_set (EvSidebarLinks *ev_sidebar_links,
 }
 
 static gboolean
-view_actions_focus_in_cb (CtkWidget *widget, CdkEventFocus *event, EvWindow *window)
+view_actions_focus_in_cb (CtkWidget     *widget G_GNUC_UNUSED,
+			  CdkEventFocus *event G_GNUC_UNUSED,
+			  EvWindow      *window)
 {
 #ifdef ENABLE_DBUS
 	GObject *keys;
@@ -6850,9 +6900,9 @@ view_actions_focus_in_cb (CtkWidget *widget, CdkEventFocus *event, EvWindow *win
 }
 
 static void
-sidebar_page_main_widget_update_cb (GObject *ev_sidebar_page,
-				    GParamSpec         *pspec,
-				    EvWindow           *ev_window)
+sidebar_page_main_widget_update_cb (GObject    *ev_sidebar_page,
+				    GParamSpec *pspec G_GNUC_UNUSED,
+				    EvWindow   *ev_window)
 {
 	CtkWidget *widget;
 
@@ -6867,7 +6917,9 @@ sidebar_page_main_widget_update_cb (GObject *ev_sidebar_page,
 }
 
 static gboolean
-window_state_event_cb (EvWindow *window, CdkEventWindowState *event, gpointer dummy)
+window_state_event_cb (EvWindow            *window,
+		       CdkEventWindowState *event,
+		       gpointer             dummy G_GNUC_UNUSED)
 {
 	if (!(event->new_window_state & CDK_WINDOW_STATE_FULLSCREEN)) {
 		gboolean maximized;
@@ -6881,7 +6933,9 @@ window_state_event_cb (EvWindow *window, CdkEventWindowState *event, gpointer du
 }
 
 static gboolean
-window_configure_event_cb (EvWindow *window, CdkEventConfigure *event, gpointer dummy)
+window_configure_event_cb (EvWindow          *window,
+			   CdkEventConfigure *event,
+			   gpointer           dummy G_GNUC_UNUSED)
 {
 	CdkWindowState state;
 	gdouble document_width, document_height;
@@ -7104,14 +7158,16 @@ view_external_link_cb (EvWindow *window, EvLinkAction *action)
 }
 
 static void
-ev_view_popup_cmd_open_link (CtkAction *action, EvWindow *window)
+ev_view_popup_cmd_open_link (CtkAction *action G_GNUC_UNUSED,
+			     EvWindow  *window)
 {
 	if (window->priv->document && window->priv->document->iswebdocument == TRUE ) return;
 	ev_view_handle_link (EV_VIEW (window->priv->view), window->priv->link);
 }
 
 static void
-ev_view_popup_cmd_open_link_new_window (CtkAction *action, EvWindow *window)
+ev_view_popup_cmd_open_link_new_window (CtkAction *action G_GNUC_UNUSED,
+					EvWindow  *window)
 {
 	EvLinkAction *ev_action = NULL;
 	EvLinkDest   *dest;
@@ -7128,7 +7184,8 @@ ev_view_popup_cmd_open_link_new_window (CtkAction *action, EvWindow *window)
 }
 
 static void
-ev_view_popup_cmd_copy_link_address (CtkAction *action, EvWindow *window)
+ev_view_popup_cmd_copy_link_address (CtkAction *action G_GNUC_UNUSED,
+				     EvWindow  *window)
 {
 	EvLinkAction *ev_action;
 	if (window->priv->document && window->priv->document->iswebdocument == TRUE ) return;
@@ -7265,7 +7322,8 @@ image_save_dialog_response_cb (CtkWidget *fc,
 }
 
 static void
-ev_view_popup_cmd_save_image_as (CtkAction *action, EvWindow *window)
+ev_view_popup_cmd_save_image_as (CtkAction *action G_GNUC_UNUSED,
+				 EvWindow  *window)
 {
 	CtkWidget *fc;
 
@@ -7298,7 +7356,8 @@ ev_view_popup_cmd_save_image_as (CtkAction *action, EvWindow *window)
 }
 
 static void
-ev_view_popup_cmd_copy_image (CtkAction *action, EvWindow *window)
+ev_view_popup_cmd_copy_image (CtkAction *action G_GNUC_UNUSED,
+			      EvWindow  *window)
 {
 	CtkClipboard *clipboard;
 	GdkPixbuf    *pixbuf;
@@ -7318,7 +7377,7 @@ ev_view_popup_cmd_copy_image (CtkAction *action, EvWindow *window)
 }
 
 static void
-ev_view_popup_cmd_annot_properties (CtkAction *action,
+ev_view_popup_cmd_annot_properties (CtkAction *action G_GNUC_UNUSED,
 				    EvWindow  *window)
 {
 	if (window->priv->document && window->priv->document->iswebdocument == TRUE ) return;
@@ -7382,15 +7441,16 @@ ev_view_popup_cmd_annot_properties (CtkAction *action,
 }
 
 static void
-ev_view_popup_cmd_remove_annotation (CtkAction *action,
-                                     EvWindow  *window)
+ev_view_popup_cmd_remove_annotation (CtkAction *action G_GNUC_UNUSED,
+				     EvWindow  *window)
 {
         ev_view_remove_annotation (EV_VIEW (window->priv->view),
                                    window->priv->annot);
 }
 
 static void
-ev_attachment_popup_cmd_open_attachment (CtkAction *action, EvWindow *window)
+ev_attachment_popup_cmd_open_attachment (CtkAction *action G_GNUC_UNUSED,
+					 EvWindow  *window)
 {
 	GList     *l;
 	CdkScreen *screen;
@@ -7499,7 +7559,8 @@ attachment_save_dialog_response_cb (CtkWidget *fc,
 }
 
 static void
-ev_attachment_popup_cmd_save_attachment_as (CtkAction *action, EvWindow *window)
+ev_attachment_popup_cmd_save_attachment_as (CtkAction *action G_GNUC_UNUSED,
+					    EvWindow  *window)
 {
 	CtkWidget    *fc;
 	EvAttachment *attachment = NULL;
@@ -7541,7 +7602,7 @@ ev_attachment_popup_cmd_save_attachment_as (CtkAction *action, EvWindow *window)
 static void
 ev_window_media_player_key_pressed (EvWindow    *window,
 				    const gchar *key,
-				    gpointer     user_data)
+				    gpointer     user_data G_GNUC_UNUSED)
 {
 	if (!ctk_window_is_active (CTK_WINDOW (window)))
 		return;

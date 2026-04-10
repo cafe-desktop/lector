@@ -83,14 +83,14 @@ ev_document_error_quark (void)
 }
 
 static EvPage *
-ev_document_impl_get_page (EvDocument *document,
+ev_document_impl_get_page (EvDocument *document G_GNUC_UNUSED,
 			   gint        index)
 {
 	return ev_page_new (index);
 }
 
 static EvDocumentInfo *
-ev_document_impl_get_info (EvDocument *document)
+ev_document_impl_get_info (EvDocument *document G_GNUC_UNUSED)
 {
 	return g_new0 (EvDocumentInfo, 1);
 }

@@ -1018,7 +1018,7 @@ ev_annotation_text_class_init (EvAnnotationTextClass *klass)
 }
 
 static void
-ev_annotation_text_markup_iface_init (EvAnnotationMarkupInterface *iface)
+ev_annotation_text_markup_iface_init (EvAnnotationMarkupInterface *iface G_GNUC_UNUSED)
 {
 }
 
@@ -1164,7 +1164,7 @@ ev_annotation_attachment_class_init (EvAnnotationAttachmentClass *klass)
 }
 
 static void
-ev_annotation_attachment_markup_iface_init (EvAnnotationMarkupInterface *iface)
+ev_annotation_attachment_markup_iface_init (EvAnnotationMarkupInterface *iface G_GNUC_UNUSED)
 {
 }
 

@@ -123,7 +123,7 @@ ev_print_operation_set_property (GObject      *object,
 }
 
 static void
-ev_print_operation_init (EvPrintOperation *op)
+ev_print_operation_init (EvPrintOperation *op G_GNUC_UNUSED)
 {
 }
 
@@ -442,7 +442,7 @@ ev_print_queue_init (void)
 }
 
 static void
-remove_document_queue (gpointer data,
+remove_document_queue (gpointer data G_GNUC_UNUSED,
 		       GObject *document)
 {
 	if (print_queue)
@@ -943,7 +943,7 @@ export_print_page_idle_finished (EvPrintOperationExport *export)
 }
 
 static void
-export_job_finished (EvJobExport            *job,
+export_job_finished (EvJobExport            *job G_GNUC_UNUSED,
 		     EvPrintOperationExport *export)
 {
 	EvPrintOperation *op = EV_PRINT_OPERATION (export);
@@ -967,7 +967,7 @@ export_job_finished (EvJobExport            *job,
 }
 
 static void
-export_job_cancelled (EvJobExport            *job,
+export_job_cancelled (EvJobExport            *job G_GNUC_UNUSED,
 		      EvPrintOperationExport *export)
 {
 	export_cancel (export);
@@ -1670,7 +1670,7 @@ ev_print_operation_print_get_embed_page_setup (EvPrintOperation *op)
 
 static void
 ev_print_operation_print_begin_print (EvPrintOperationPrint *print,
-				      CtkPrintContext       *context)
+				      CtkPrintContext       *context G_GNUC_UNUSED)
 {
 	EvPrintOperation *op = EV_PRINT_OPERATION (print);
 	gint              n_pages;
@@ -1730,8 +1730,8 @@ draw_page_finish_idle (EvPrintOperationPrint *print)
 }
 
 static void
-print_job_cancelled (EvJobPrint            *job,
-                     EvPrintOperationPrint *print)
+print_job_cancelled (EvJobPrint            *job G_GNUC_UNUSED,
+		     EvPrintOperationPrint *print)
 {
         /* Finish the current page, so that draw-page
          * is emitted again and it will cancel the
@@ -1746,7 +1746,7 @@ print_job_cancelled (EvJobPrint            *job,
 
 static void
 ev_print_operation_print_request_page_setup (EvPrintOperationPrint *print,
-					     CtkPrintContext       *context,
+					     CtkPrintContext       *context G_GNUC_UNUSED,
 					     gint                   page_nr,
 					     CtkPageSetup          *setup)
 {
@@ -1876,7 +1876,7 @@ ev_print_operation_print_draw_page (EvPrintOperationPrint *print,
 
 static GObject *
 ev_print_operation_print_create_custom_widget (EvPrintOperationPrint *print,
-					       CtkPrintContext       *context)
+					       CtkPrintContext       *context G_GNUC_UNUSED)
 {
 	CtkPrintSettings *settings;
 	CtkWidget        *label;
@@ -1940,7 +1940,7 @@ ev_print_operation_print_create_custom_widget (EvPrintOperationPrint *print,
 
 static void
 ev_print_operation_print_custom_widget_apply (EvPrintOperationPrint *print,
-					      CtkPrintContext       *context)
+					      CtkPrintContext       *context G_GNUC_UNUSED)
 {
 	CtkPrintSettings *settings;
 

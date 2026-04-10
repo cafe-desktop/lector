@@ -386,7 +386,7 @@ ev_properties_view_init (EvPropertiesView *properties)
 }
 
 void
-ev_properties_view_register_type (GTypeModule *module)
+ev_properties_view_register_type (GTypeModule *module G_GNUC_UNUSED)
 {
 	ev_properties_view_get_type ();
 }

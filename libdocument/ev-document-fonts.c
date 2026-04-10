@@ -28,7 +28,7 @@
 G_DEFINE_INTERFACE (EvDocumentFonts, ev_document_fonts, 0)
 
 static void
-ev_document_fonts_default_init (EvDocumentFontsInterface *klass)
+ev_document_fonts_default_init (EvDocumentFontsInterface *klass G_GNUC_UNUSED)
 {
 }
 

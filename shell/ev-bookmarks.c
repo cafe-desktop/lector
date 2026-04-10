@@ -91,7 +91,7 @@ ev_bookmarks_finalize (GObject *object)
 }
 
 static void
-ev_bookmarks_init (EvBookmarks *bookmarks)
+ev_bookmarks_init (EvBookmarks *bookmarks G_GNUC_UNUSED)
 {
 }
 

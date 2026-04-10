@@ -472,7 +472,7 @@ ev_sidebar_annotations_load (EvSidebarAnnotations *sidebar_annots)
 
 static void
 ev_sidebar_annotations_document_changed_cb (EvDocumentModel      *model,
-					    GParamSpec           *pspec,
+					    GParamSpec           *pspec G_GNUC_UNUSED,
 					    EvSidebarAnnotations *sidebar_annots)
 {
 	EvDocument *document = ev_document_model_get_document (model);
@@ -503,14 +503,14 @@ ev_sidebar_annotations_set_model (EvSidebarPage   *sidebar_page,
 }
 
 static gboolean
-ev_sidebar_annotations_support_document (EvSidebarPage *sidebar_page,
+ev_sidebar_annotations_support_document (EvSidebarPage *sidebar_page G_GNUC_UNUSED,
 					 EvDocument    *document)
 {
 	return (EV_IS_DOCUMENT_ANNOTATIONS (document));
 }
 
 static const gchar *
-ev_sidebar_annotations_get_label (EvSidebarPage *sidebar_page)
+ev_sidebar_annotations_get_label (EvSidebarPage *sidebar_page G_GNUC_UNUSED)
 {
 	return _("Annotations");
 }

@@ -82,8 +82,8 @@ property_page_provider_iface_init (BaulPropertyPageProviderIface *iface)
 }
 
 static GList *
-ev_properties_get_pages (BaulPropertyPageProvider *provider,
-			 GList *files)
+ev_properties_get_pages (BaulPropertyPageProvider *provider G_GNUC_UNUSED,
+			 GList                    *files)
 {
 	GError *error = NULL;
 	EvDocument *document;

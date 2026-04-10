@@ -24,7 +24,7 @@
 G_DEFINE_TYPE (EvPage, ev_page, G_TYPE_OBJECT)
 
 static void
-ev_page_init (EvPage *page)
+ev_page_init (EvPage *page G_GNUC_UNUSED)
 {
 }
 

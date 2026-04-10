@@ -135,7 +135,7 @@ ev_sidebar_layers_create_loading_model (void)
 
 static gboolean
 update_kids (CtkTreeModel *model,
-	     CtkTreePath  *path,
+	     CtkTreePath  *path G_GNUC_UNUSED,
 	     CtkTreeIter  *iter,
 	     CtkTreeIter  *parent)
 {
@@ -155,7 +155,7 @@ update_kids (CtkTreeModel *model,
 
 static gboolean
 clear_rb_group (CtkTreeModel *model,
-		CtkTreePath  *path,
+		CtkTreePath  *path G_GNUC_UNUSED,
 		CtkTreeIter  *iter,
 		gint         *rb_group)
 {
@@ -175,7 +175,7 @@ clear_rb_group (CtkTreeModel *model,
 }
 
 static void
-ev_sidebar_layers_visibility_changed (CtkCellRendererToggle *cell,
+ev_sidebar_layers_visibility_changed (CtkCellRendererToggle *cell G_GNUC_UNUSED,
 				      gchar                 *path_str,
 				      EvSidebarLayers       *ev_layers)
 {
@@ -387,7 +387,7 @@ job_finished_callback (EvJobLayers     *job,
 
 static void
 ev_sidebar_layers_document_changed_cb (EvDocumentModel *model,
-				       GParamSpec      *pspec,
+				       GParamSpec      *pspec G_GNUC_UNUSED,
 				       EvSidebarLayers *sidebar_layers)
 {
 	EvDocument *document = ev_document_model_get_document (model);
@@ -428,7 +428,7 @@ ev_sidebar_layers_set_model (EvSidebarPage   *sidebar_page,
 }
 
 static gboolean
-ev_sidebar_layers_support_document (EvSidebarPage *sidebar_page,
+ev_sidebar_layers_support_document (EvSidebarPage *sidebar_page G_GNUC_UNUSED,
 				    EvDocument    *document)
 {
 	return (EV_IS_DOCUMENT_LAYERS (document) &&
@@ -436,7 +436,7 @@ ev_sidebar_layers_support_document (EvSidebarPage *sidebar_page,
 }
 
 static const gchar*
-ev_sidebar_layers_get_label (EvSidebarPage *sidebar_page)
+ev_sidebar_layers_get_label (EvSidebarPage *sidebar_page G_GNUC_UNUSED)
 {
 	return _("Layers");
 }
