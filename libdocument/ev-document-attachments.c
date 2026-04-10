@@ -26,7 +26,7 @@
 G_DEFINE_INTERFACE (EvDocumentAttachments, ev_document_attachments, 0)
 
 static void
-ev_document_attachments_default_init (EvDocumentAttachmentsInterface *klass)
+ev_document_attachments_default_init (EvDocumentAttachmentsInterface *klass G_GNUC_UNUSED)
 {
 }
 

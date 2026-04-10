@@ -28,7 +28,7 @@
 G_DEFINE_INTERFACE (EvDocumentLinks, ev_document_links, 0)
 
 static void
-ev_document_links_default_init (EvDocumentLinksInterface *klass)
+ev_document_links_default_init (EvDocumentLinksInterface *klass G_GNUC_UNUSED)
 {
 }
 

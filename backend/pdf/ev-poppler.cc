@@ -312,7 +312,7 @@ pdf_document_get_page (EvDocument *document,
 }
 
 static void
-pdf_document_get_page_size (EvDocument *document,
+pdf_document_get_page_size (EvDocument *document G_GNUC_UNUSED,
 			    EvPage     *page,
 			    double     *width,
 			    double     *height)
@@ -323,7 +323,7 @@ pdf_document_get_page_size (EvDocument *document,
 }
 
 static char *
-pdf_document_get_page_label (EvDocument *document,
+pdf_document_get_page_label (EvDocument *document G_GNUC_UNUSED,
 			     EvPage     *page)
 {
 	char *label = NULL;
@@ -376,7 +376,7 @@ pdf_page_render (PopplerPage     *page,
 }
 
 static cairo_surface_t *
-pdf_document_render (EvDocument      *document,
+pdf_document_render (EvDocument      *document G_GNUC_UNUSED,
 		     EvRenderContext *rc)
 {
 	PopplerPage *poppler_page;
@@ -403,7 +403,7 @@ pdf_document_render (EvDocument      *document,
 /* reference:
 http://www.pdfa.org/lib/exe/fetch.php?id=pdfa%3Aen%3Atechdoc&cache=cache&media=pdfa:techdoc:tn0001_pdfa-1_and_namespaces_2008-03-18.pdf */
 static char *
-pdf_document_get_format_from_metadata (xmlDocPtr          doc,
+pdf_document_get_format_from_metadata (xmlDocPtr          doc G_GNUC_UNUSED,
 				       xmlXPathContextPtr xpathCtx)
 {
 	xmlXPathObjectPtr xpathObj;
@@ -474,7 +474,7 @@ pdf_document_get_format_from_metadata (xmlDocPtr          doc,
 }
 
 static EvDocumentLicense *
-pdf_document_get_license_from_metadata (xmlDocPtr          doc,
+pdf_document_get_license_from_metadata (xmlDocPtr          doc G_GNUC_UNUSED,
 					xmlXPathContextPtr xpathCtx)
 {
 	xmlXPathObjectPtr xpathObj;
@@ -783,7 +783,8 @@ pdf_document_get_info (EvDocument *document)
 }
 
 static gboolean
-pdf_document_get_backend_info (EvDocument *document, EvDocumentBackendInfo *info)
+pdf_document_get_backend_info (EvDocument            *document G_GNUC_UNUSED,
+			       EvDocumentBackendInfo *info)
 {
 	PopplerBackend backend;
 
@@ -806,7 +807,7 @@ pdf_document_get_backend_info (EvDocument *document, EvDocumentBackendInfo *info
 }
 
 static gboolean
-pdf_document_support_synctex (EvDocument *document)
+pdf_document_support_synctex (EvDocument *document G_GNUC_UNUSED)
 {
 	return TRUE;
 }
@@ -833,7 +834,7 @@ pdf_document_class_init (PdfDocumentClass *klass)
 
 /* EvDocumentSecurity */
 static gboolean
-pdf_document_has_document_security (EvDocumentSecurity *document_security)
+pdf_document_has_document_security (EvDocumentSecurity *document_security G_GNUC_UNUSED)
 {
 	/* FIXME: do we really need to have this? */
 	return FALSE;
@@ -1347,7 +1348,7 @@ pdf_document_document_links_iface_init (EvDocumentLinksInterface *iface)
 }
 
 static EvMappingList *
-pdf_document_images_get_image_mapping (EvDocumentImages *document_images,
+pdf_document_images_get_image_mapping (EvDocumentImages *document_images G_GNUC_UNUSED,
 				       EvPage           *page)
 {
 	GList *retval = NULL;
@@ -1485,7 +1486,7 @@ pdf_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document_thumbnails
 }
 
 static void
-pdf_document_thumbnails_get_dimensions (EvDocumentThumbnails *document_thumbnails,
+pdf_document_thumbnails_get_dimensions (EvDocumentThumbnails *document_thumbnails G_GNUC_UNUSED,
 					EvRenderContext      *rc,
 					gint                 *width,
 					gint                 *height)
@@ -1516,7 +1517,7 @@ pdf_document_document_thumbnails_iface_init (EvDocumentThumbnailsInterface *ifac
 
 
 static GList *
-pdf_document_find_find_text (EvDocumentFind *document_find,
+pdf_document_find_find_text (EvDocumentFind *document_find G_GNUC_UNUSED,
 			     EvPage         *page,
 			     const gchar    *text,
 			     gboolean        case_sensitive)
@@ -1821,7 +1822,7 @@ pdf_document_file_exporter_end (EvFileExporter *exporter)
 }
 
 static EvFileExporterCapabilities
-pdf_document_file_exporter_get_capabilities (EvFileExporter *exporter)
+pdf_document_file_exporter_get_capabilities (EvFileExporter *exporter G_GNUC_UNUSED)
 {
 	return  (EvFileExporterCapabilities) (
 		EV_FILE_EXPORTER_CAN_PAGE_SET |
@@ -1852,7 +1853,7 @@ pdf_document_file_exporter_iface_init (EvFileExporterInterface *iface)
 
 /* EvDocumentPrint */
 static void
-pdf_document_print_print_page (EvDocumentPrint *document,
+pdf_document_print_print_page (EvDocumentPrint *document G_GNUC_UNUSED,
 			       EvPage          *page,
 			       cairo_t         *cr)
 {
@@ -1866,7 +1867,7 @@ pdf_document_document_print_iface_init (EvDocumentPrintInterface *iface)
 }
 
 static void
-pdf_selection_render_selection (EvSelection      *selection,
+pdf_selection_render_selection (EvSelection      *selection G_GNUC_UNUSED,
 				EvRenderContext  *rc,
 				cairo_surface_t **surface,
 				EvRectangle      *points,
@@ -1919,7 +1920,7 @@ pdf_selection_render_selection (EvSelection      *selection,
 }
 
 static gchar *
-pdf_selection_get_selected_text (EvSelection     *selection,
+pdf_selection_get_selected_text (EvSelection     *selection G_GNUC_UNUSED,
 				 EvPage          *page,
 				 EvSelectionStyle style,
 				 EvRectangle     *points)
@@ -1932,7 +1933,7 @@ pdf_selection_get_selected_text (EvSelection     *selection,
 }
 
 static cairo_region_t *
-pdf_selection_get_selection_region (EvSelection     *selection,
+pdf_selection_get_selection_region (EvSelection     *selection G_GNUC_UNUSED,
 				    EvRenderContext *rc,
 				    EvSelectionStyle style,
 				    EvRectangle     *points)
@@ -1960,7 +1961,7 @@ pdf_selection_iface_init (EvSelectionInterface *iface)
 
 /* EvDocumentText */
 static cairo_region_t *
-pdf_document_text_get_text_mapping (EvDocumentText *document_text,
+pdf_document_text_get_text_mapping (EvDocumentText *document_text G_GNUC_UNUSED,
 				    EvPage         *page)
 {
 	PopplerPage *poppler_page;
@@ -1983,8 +1984,8 @@ pdf_document_text_get_text_mapping (EvDocumentText *document_text,
 }
 
 static gchar *
-pdf_document_text_get_text (EvDocumentText  *selection,
-			    EvPage          *page)
+pdf_document_text_get_text (EvDocumentText *selection G_GNUC_UNUSED,
+			    EvPage         *page)
 {
 	g_return_val_if_fail (POPPLER_IS_PAGE (page->backend_page), NULL);
 
@@ -1992,7 +1993,7 @@ pdf_document_text_get_text (EvDocumentText  *selection,
 }
 
 static gboolean
-pdf_document_text_get_text_layout (EvDocumentText  *selection,
+pdf_document_text_get_text_layout (EvDocumentText  *selection G_GNUC_UNUSED,
 				   EvPage          *page,
 				   EvRectangle    **areas,
 				   guint           *n_areas)
@@ -2004,8 +2005,8 @@ pdf_document_text_get_text_layout (EvDocumentText  *selection,
 }
 
 static PangoAttrList *
-pdf_document_text_get_text_attrs (EvDocumentText *document_text,
-                                  EvPage         *page)
+pdf_document_text_get_text_attrs (EvDocumentText *document_text G_GNUC_UNUSED,
+				  EvPage         *page)
 {
 	GList         *backend_attrs_list,  *l;
 	PangoAttrList *attrs_list;
@@ -2317,7 +2318,7 @@ pdf_document_forms_document_is_modified (EvDocumentForms *document)
 }
 
 static gchar *
-pdf_document_forms_form_field_text_get_text (EvDocumentForms *document,
+pdf_document_forms_form_field_text_get_text (EvDocumentForms *document G_GNUC_UNUSED,
 					     EvFormField     *field)
 	
 {
@@ -2364,7 +2365,7 @@ pdf_document_forms_form_field_button_set_state (EvDocumentForms *document,
 }
 
 static gboolean
-pdf_document_forms_form_field_button_get_state (EvDocumentForms *document, 
+pdf_document_forms_form_field_button_get_state (EvDocumentForms *document G_GNUC_UNUSED,
 						EvFormField     *field)
 {
 	PopplerFormField *poppler_field;
@@ -2380,7 +2381,7 @@ pdf_document_forms_form_field_button_get_state (EvDocumentForms *document,
 }
 
 static gchar *
-pdf_document_forms_form_field_choice_get_item (EvDocumentForms *document, 
+pdf_document_forms_form_field_choice_get_item (EvDocumentForms *document G_GNUC_UNUSED,
 					       EvFormField     *field,
 					       gint             index)
 {
@@ -2397,7 +2398,7 @@ pdf_document_forms_form_field_choice_get_item (EvDocumentForms *document,
 }
 
 static int
-pdf_document_forms_form_field_choice_get_n_items (EvDocumentForms *document, 
+pdf_document_forms_form_field_choice_get_n_items (EvDocumentForms *document G_GNUC_UNUSED,
 						  EvFormField     *field)
 {
 	PopplerFormField *poppler_field;
@@ -2413,7 +2414,7 @@ pdf_document_forms_form_field_choice_get_n_items (EvDocumentForms *document,
 }
 
 static gboolean
-pdf_document_forms_form_field_choice_is_item_selected (EvDocumentForms *document, 
+pdf_document_forms_form_field_choice_is_item_selected (EvDocumentForms *document G_GNUC_UNUSED,
 						       EvFormField     *field,
 						       gint             index)
 {
@@ -2489,7 +2490,7 @@ pdf_document_forms_form_field_choice_set_text (EvDocumentForms *document,
 }
 
 static gchar *
-pdf_document_forms_form_field_choice_get_text (EvDocumentForms *document,
+pdf_document_forms_form_field_choice_get_text (EvDocumentForms *document G_GNUC_UNUSED,
 					       EvFormField     *field)
 {
 	PopplerFormField *poppler_field;
@@ -3061,10 +3062,10 @@ struct SaveToBufferData {
 };
 
 static gboolean
-attachment_save_to_buffer_callback (const gchar  *buf,
-				    gsize         count,
-				    gpointer      user_data,
-				    GError      **error)
+attachment_save_to_buffer_callback (const gchar *buf,
+				    gsize        count,
+				    gpointer     user_data,
+				    GError     **error G_GNUC_UNUSED)
 {
 	struct SaveToBufferData *sdata = (SaveToBufferData *)user_data;
 	gchar *new_buffer;
@@ -3266,7 +3267,7 @@ pdf_document_layers_get_layers (EvDocumentLayers *document)
 }
 
 static void
-pdf_document_layers_show_layer (EvDocumentLayers *document,
+pdf_document_layers_show_layer (EvDocumentLayers *document G_GNUC_UNUSED,
 				EvLayer          *layer)
 {
 	PopplerLayer *poppler_layer;
@@ -3276,7 +3277,7 @@ pdf_document_layers_show_layer (EvDocumentLayers *document,
 }
 
 static void
-pdf_document_layers_hide_layer (EvDocumentLayers *document,
+pdf_document_layers_hide_layer (EvDocumentLayers *document G_GNUC_UNUSED,
 				EvLayer          *layer)
 {
 	PopplerLayer *poppler_layer;
@@ -3286,7 +3287,7 @@ pdf_document_layers_hide_layer (EvDocumentLayers *document,
 }
 
 static gboolean
-pdf_document_layers_layer_is_visible (EvDocumentLayers *document,
+pdf_document_layers_layer_is_visible (EvDocumentLayers *document G_GNUC_UNUSED,
 				      EvLayer          *layer)
 {
 	PopplerLayer *poppler_layer;

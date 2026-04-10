@@ -118,9 +118,9 @@ ev_file_monitor_timeout_stop (EvFileMonitor *ev_monitor)
 }
 
 static void
-ev_file_monitor_changed_cb (GFileMonitor     *monitor,
-			    GFile            *file,
-			    GFile            *other_file,
+ev_file_monitor_changed_cb (GFileMonitor     *monitor G_GNUC_UNUSED,
+			    GFile            *file G_GNUC_UNUSED,
+			    GFile            *other_file G_GNUC_UNUSED,
 			    GFileMonitorEvent event_type,
 			    EvFileMonitor    *ev_monitor)
 {

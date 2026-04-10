@@ -81,8 +81,8 @@ static const gchar popup_menu_ui[] =
         "</popup>\n";
 
 static gint
-ev_sidebar_bookmarks_get_selected_page (EvSidebarBookmarks *sidebar_bookmarks,
-                                        CtkTreeSelection   *selection)
+ev_sidebar_bookmarks_get_selected_page (EvSidebarBookmarks *sidebar_bookmarks G_GNUC_UNUSED,
+					CtkTreeSelection   *selection)
 {
         CtkTreeModel *model;
         CtkTreeIter   iter;
@@ -100,8 +100,8 @@ ev_sidebar_bookmarks_get_selected_page (EvSidebarBookmarks *sidebar_bookmarks,
 }
 
 static void
-ev_bookmarks_popup_cmd_open_bookmark (CtkAction          *action,
-                                      EvSidebarBookmarks *sidebar_bookmarks)
+ev_bookmarks_popup_cmd_open_bookmark (CtkAction          *action G_GNUC_UNUSED,
+				      EvSidebarBookmarks *sidebar_bookmarks)
 {
         EvSidebarBookmarksPrivate *priv = sidebar_bookmarks->priv;
         CtkTreeSelection          *selection;
@@ -113,8 +113,8 @@ ev_bookmarks_popup_cmd_open_bookmark (CtkAction          *action,
 }
 
 static void
-ev_bookmarks_popup_cmd_rename_bookmark (CtkAction          *action,
-                                        EvSidebarBookmarks *sidebar_bookmarks)
+ev_bookmarks_popup_cmd_rename_bookmark (CtkAction          *action G_GNUC_UNUSED,
+					EvSidebarBookmarks *sidebar_bookmarks)
 {
         EvSidebarBookmarksPrivate *priv = sidebar_bookmarks->priv;
         CtkTreeView               *tree_view = CTK_TREE_VIEW (priv->tree_view);
@@ -136,8 +136,8 @@ ev_bookmarks_popup_cmd_rename_bookmark (CtkAction          *action,
 }
 
 static void
-ev_bookmarks_popup_cmd_remove_bookmark (CtkAction          *action,
-                                        EvSidebarBookmarks *sidebar_bookmarks)
+ev_bookmarks_popup_cmd_remove_bookmark (CtkAction          *action G_GNUC_UNUSED,
+					EvSidebarBookmarks *sidebar_bookmarks)
 {
         EvSidebarBookmarksPrivate *priv = sidebar_bookmarks->priv;
         CtkTreeSelection          *selection;
@@ -203,8 +203,8 @@ ev_sidebar_bookmarks_update (EvSidebarBookmarks *sidebar_bookmarks)
 }
 
 static void
-ev_sidebar_bookmarks_changed (EvBookmarks        *bookmarks,
-                              EvSidebarBookmarks *sidebar_bookmarks)
+ev_sidebar_bookmarks_changed (EvBookmarks        *bookmarks G_GNUC_UNUSED,
+			      EvSidebarBookmarks *sidebar_bookmarks)
 {
         ev_sidebar_bookmarks_update (sidebar_bookmarks);
 }
@@ -226,8 +226,8 @@ ev_sidebar_bookmarks_selection_changed (CtkTreeSelection   *selection,
 }
 
 static void
-ev_sidebar_bookmarks_add_clicked (CtkWidget          *button,
-                                  EvSidebarBookmarks *sidebar_bookmarks)
+ev_sidebar_bookmarks_add_clicked (CtkWidget          *button G_GNUC_UNUSED,
+				  EvSidebarBookmarks *sidebar_bookmarks)
 {
         /* Let the window add the bookmark since
          * since we don't know the page title
@@ -236,8 +236,8 @@ ev_sidebar_bookmarks_add_clicked (CtkWidget          *button,
 }
 
 static void
-ev_sidebar_bookmarks_del_clicked (CtkWidget          *button,
-                                  EvSidebarBookmarks *sidebar_bookmarks)
+ev_sidebar_bookmarks_del_clicked (CtkWidget          *button G_GNUC_UNUSED,
+				  EvSidebarBookmarks *sidebar_bookmarks)
 {
         EvSidebarBookmarksPrivate *priv = sidebar_bookmarks->priv;
         CtkTreeSelection          *selection;
@@ -255,10 +255,10 @@ ev_sidebar_bookmarks_del_clicked (CtkWidget          *button,
 }
 
 static void
-ev_sidebar_bookmarks_bookmark_renamed (CtkCellRendererText *renderer,
-                                       const gchar         *path_string,
-                                       const gchar         *new_text,
-                                       EvSidebarBookmarks  *sidebar_bookmarks)
+ev_sidebar_bookmarks_bookmark_renamed (CtkCellRendererText *renderer G_GNUC_UNUSED,
+				       const gchar         *path_string,
+				       const gchar         *new_text,
+				       EvSidebarBookmarks  *sidebar_bookmarks)
 {
         EvSidebarBookmarksPrivate *priv = sidebar_bookmarks->priv;
         CtkTreePath               *path = ctk_tree_path_new_from_string (path_string);
@@ -283,12 +283,12 @@ ev_sidebar_bookmarks_bookmark_renamed (CtkCellRendererText *renderer,
 }
 
 static gboolean
-ev_sidebar_bookmarks_query_tooltip (CtkWidget          *widget,
-                                    gint                x,
-                                    gint                y,
-                                    gboolean            keyboard_tip,
-                                    CtkTooltip         *tooltip,
-                                    EvSidebarBookmarks *sidebar_bookmarks)
+ev_sidebar_bookmarks_query_tooltip (CtkWidget          *widget G_GNUC_UNUSED,
+				    gint                x,
+				    gint                y,
+				    gboolean            keyboard_tip,
+				    CtkTooltip         *tooltip,
+				    EvSidebarBookmarks *sidebar_bookmarks)
 {
         EvSidebarBookmarksPrivate *priv = sidebar_bookmarks->priv;
         CtkTreeModel              *model;
@@ -360,9 +360,9 @@ ev_sidebar_bookmarks_popup_menu_show (EvSidebarBookmarks *sidebar_bookmarks,
 }
 
 static gboolean
-ev_sidebar_bookmarks_button_press (CtkWidget          *widget,
-                                   CdkEventButton     *event,
-                                   EvSidebarBookmarks *sidebar_bookmarks)
+ev_sidebar_bookmarks_button_press (CtkWidget          *widget G_GNUC_UNUSED,
+				   CdkEventButton     *event,
+				   EvSidebarBookmarks *sidebar_bookmarks)
 {
         if (event->button != 3)
                 return FALSE;
@@ -592,14 +592,14 @@ ev_sidebar_bookmarks_set_model (EvSidebarPage   *sidebar_page,
 }
 
 static gboolean
-ev_sidebar_bookmarks_support_document (EvSidebarPage *sidebar_page,
-                                       EvDocument    *document)
+ev_sidebar_bookmarks_support_document (EvSidebarPage *sidebar_page G_GNUC_UNUSED,
+				       EvDocument    *document G_GNUC_UNUSED)
 {
         return TRUE;
 }
 
 static const gchar *
-ev_sidebar_bookmarks_get_label (EvSidebarPage *sidebar_page)
+ev_sidebar_bookmarks_get_label (EvSidebarPage *sidebar_page G_GNUC_UNUSED)
 {
         return _("Bookmarks");
 }

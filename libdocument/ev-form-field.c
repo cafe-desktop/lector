@@ -71,7 +71,7 @@ ev_form_field_text_finalize (GObject *object)
 }
 
 static void
-ev_form_field_text_init (EvFormFieldText *field_text)
+ev_form_field_text_init (EvFormFieldText *field_text G_GNUC_UNUSED)
 {
 }
 
@@ -84,12 +84,12 @@ ev_form_field_text_class_init (EvFormFieldTextClass *klass)
 }
 
 static void
-ev_form_field_button_init (EvFormFieldButton *field_button)
+ev_form_field_button_init (EvFormFieldButton *field_button G_GNUC_UNUSED)
 {
 }
 
 static void
-ev_form_field_button_class_init (EvFormFieldButtonClass *klass)
+ev_form_field_button_class_init (EvFormFieldButtonClass *klass G_GNUC_UNUSED)
 {
 }
 
@@ -112,7 +112,7 @@ ev_form_field_choice_finalize (GObject *object)
 }
 
 static void
-ev_form_field_choice_init (EvFormFieldChoice *field_choice)
+ev_form_field_choice_init (EvFormFieldChoice *field_choice G_GNUC_UNUSED)
 {
 }
 
@@ -125,12 +125,12 @@ ev_form_field_choice_class_init (EvFormFieldChoiceClass *klass)
 }
 
 static void
-ev_form_field_signature_init (EvFormFieldSignature *field_signature)
+ev_form_field_signature_init (EvFormFieldSignature *field_signature G_GNUC_UNUSED)
 {
 }
 
 static void
-ev_form_field_signature_class_init (EvFormFieldSignatureClass *klass)
+ev_form_field_signature_class_init (EvFormFieldSignatureClass *klass G_GNUC_UNUSED)
 {
 }
 

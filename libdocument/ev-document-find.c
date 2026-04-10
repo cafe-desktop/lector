@@ -25,7 +25,7 @@
 G_DEFINE_INTERFACE (EvDocumentFind, ev_document_find, 0)
 
 static void
-ev_document_find_default_init (EvDocumentFindInterface *klass)
+ev_document_find_default_init (EvDocumentFindInterface *klass G_GNUC_UNUSED)
 {
 }
 

@@ -73,7 +73,7 @@ ev_open_recent_action_create_tool_item (CtkAction *action)
 }
 
 static void
-ev_open_recent_action_init (EvOpenRecentAction *action)
+ev_open_recent_action_init (EvOpenRecentAction *action G_GNUC_UNUSED)
 {
 }
 

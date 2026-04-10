@@ -26,7 +26,7 @@
 G_DEFINE_INTERFACE (EvDocumentText, ev_document_text, 0)
 
 static void
-ev_document_text_default_init (EvDocumentTextInterface *klass)
+ev_document_text_default_init (EvDocumentTextInterface *klass G_GNUC_UNUSED)
 {
 }
 

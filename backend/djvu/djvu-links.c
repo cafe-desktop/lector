@@ -61,7 +61,9 @@ static gboolean number_from_string_10(const gchar *str, guint64 *number)
 }
 
 static guint64
-get_djvu_link_page (const DjvuDocument *djvu_document, const gchar *link_name, int base_page)
+get_djvu_link_page (const DjvuDocument *djvu_document G_GNUC_UNUSED,
+		    const gchar        *link_name,
+		    int                 base_page)
 {
 	guint64 page_num = 0;
 

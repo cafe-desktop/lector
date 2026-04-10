@@ -404,7 +404,7 @@ tiff_document_render_pixbuf (EvDocument      *document,
 
 static gchar *
 tiff_document_get_page_label (EvDocument *document,
-			      EvPage     *page)
+			      EvPage     *page G_GNUC_UNUSED)
 {
 	TiffDocument *tiff_document = TIFF_DOCUMENT (document);
 	static gchar *label;
@@ -527,7 +527,7 @@ tiff_document_file_exporter_end (EvFileExporter *exporter)
 }
 
 static EvFileExporterCapabilities
-tiff_document_file_exporter_get_capabilities (EvFileExporter *exporter)
+tiff_document_file_exporter_get_capabilities (EvFileExporter *exporter G_GNUC_UNUSED)
 {
 	return  EV_FILE_EXPORTER_CAN_PAGE_SET |
 		EV_FILE_EXPORTER_CAN_COPIES |

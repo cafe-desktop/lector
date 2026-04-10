@@ -77,7 +77,9 @@ combo_changed_cb (CtkComboBox *combo, EphyZoomControl *control)
 }
 
 static void
-sync_zoom_cb (EphyZoomControl *control, GParamSpec *pspec, gpointer data)
+sync_zoom_cb (EphyZoomControl *control,
+	      GParamSpec      *pspec G_GNUC_UNUSED,
+	      gpointer         data G_GNUC_UNUSED)
 {
 	EphyZoomControlPrivate *p = control->priv;
 	guint index;
@@ -90,7 +92,9 @@ sync_zoom_cb (EphyZoomControl *control, GParamSpec *pspec, gpointer data)
 }
 
 static void
-sync_zoom_max_min_cb (EphyZoomControl *control, GParamSpec *pspec, gpointer data)
+sync_zoom_max_min_cb (EphyZoomControl *control,
+		      GParamSpec      *pspec G_GNUC_UNUSED,
+		      gpointer         data G_GNUC_UNUSED)
 {
 	EphyZoomControlPrivate *p = control->priv;
 	CtkListStore *model = (CtkListStore *)ctk_combo_box_get_model (p->combo);
@@ -130,7 +134,7 @@ sync_zoom_max_min_cb (EphyZoomControl *control, GParamSpec *pspec, gpointer data
 static gboolean
 row_is_separator (CtkTreeModel *model,
 		  CtkTreeIter  *iter,
-		  gpointer      data)
+		  gpointer      data G_GNUC_UNUSED)
 {
 	gboolean is_sep;
 	ctk_tree_model_get (model, iter, COL_IS_SEP, &is_sep, -1);
@@ -216,10 +220,10 @@ ephy_zoom_control_init (EphyZoomControl *control)
 }
 
 static void
-ephy_zoom_control_set_property (GObject *object,
-				guint prop_id,
+ephy_zoom_control_set_property (GObject      *object,
+				guint         prop_id,
 				const GValue *value,
-				GParamSpec *pspec)
+				GParamSpec   *pspec G_GNUC_UNUSED)
 {
 	EphyZoomControl *control;
 	EphyZoomControlPrivate *p;
@@ -242,10 +246,10 @@ ephy_zoom_control_set_property (GObject *object,
 }
 
 static void
-ephy_zoom_control_get_property (GObject *object,
-				guint prop_id,
-				GValue *value,
-				GParamSpec *pspec)
+ephy_zoom_control_get_property (GObject    *object,
+				guint       prop_id,
+				GValue     *value,
+				GParamSpec *pspec G_GNUC_UNUSED)
 {
 	EphyZoomControl *control;
 	EphyZoomControlPrivate *p;

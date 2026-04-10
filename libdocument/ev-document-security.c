@@ -28,7 +28,7 @@
 G_DEFINE_INTERFACE (EvDocumentSecurity, ev_document_security, 0)
 
 static void
-ev_document_security_default_init (EvDocumentSecurityInterface *klass)
+ev_document_security_default_init (EvDocumentSecurityInterface *klass G_GNUC_UNUSED)
 {
 }
 

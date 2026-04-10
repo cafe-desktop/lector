@@ -174,8 +174,8 @@ find_action (EggEditableToolbar *etoolbar,
 
 static void
 drag_data_delete_cb (CtkWidget          *widget,
-                     CdkDragContext     *context,
-                     EggEditableToolbar *etoolbar)
+		     CdkDragContext     *context G_GNUC_UNUSED,
+		     EggEditableToolbar *etoolbar)
 {
   int pos, toolbar_pos;
   CtkWidget *parent;
@@ -195,8 +195,8 @@ drag_data_delete_cb (CtkWidget          *widget,
 
 static void
 drag_begin_cb (CtkWidget          *widget,
-               CdkDragContext     *context,
-               EggEditableToolbar *etoolbar)
+	       CdkDragContext     *context G_GNUC_UNUSED,
+	       EggEditableToolbar *etoolbar)
 {
   CtkAction *action;
   gint flags;
@@ -220,8 +220,8 @@ drag_begin_cb (CtkWidget          *widget,
 
 static void
 drag_end_cb (CtkWidget          *widget,
-             CdkDragContext     *context,
-             EggEditableToolbar *etoolbar)
+	     CdkDragContext     *context G_GNUC_UNUSED,
+	     EggEditableToolbar *etoolbar)
 {
   CtkAction *action;
   gint flags;
@@ -248,11 +248,11 @@ drag_end_cb (CtkWidget          *widget,
 
 static void
 drag_data_get_cb (CtkWidget          *widget,
-                  CdkDragContext     *context,
-                  CtkSelectionData   *selection_data,
-                  guint               info,
-                  guint32             time,
-                  EggEditableToolbar *etoolbar)
+		  CdkDragContext     *context G_GNUC_UNUSED,
+		  CtkSelectionData   *selection_data,
+		  guint               info G_GNUC_UNUSED,
+		  guint32             time G_GNUC_UNUSED,
+		  EggEditableToolbar *etoolbar)
 {
   EggToolbarsModel *model;
   const char *name;
@@ -279,8 +279,8 @@ drag_data_get_cb (CtkWidget          *widget,
 }
 
 static void
-move_item_cb (CtkAction          *action,
-              EggEditableToolbar *etoolbar)
+move_item_cb (CtkAction          *action G_GNUC_UNUSED,
+	      EggEditableToolbar *etoolbar)
 {
   CtkWidget *toolitem = ctk_widget_get_ancestor (egg_editable_toolbar_get_selected (etoolbar), CTK_TYPE_TOOL_ITEM);
   CtkTargetList *list = ctk_target_list_new (dest_drag_types, G_N_ELEMENTS (dest_drag_types));
@@ -308,8 +308,8 @@ move_item_cb (CtkAction          *action,
 }
 
 static void
-remove_item_cb (CtkAction          *action,
-                EggEditableToolbar *etoolbar)
+remove_item_cb (CtkAction          *action G_GNUC_UNUSED,
+		EggEditableToolbar *etoolbar)
 {
   CtkWidget *toolitem = ctk_widget_get_ancestor (egg_editable_toolbar_get_selected (etoolbar), CTK_TYPE_TOOL_ITEM);
   CtkWidget *parent = ctk_widget_get_parent (toolitem);
@@ -329,8 +329,8 @@ remove_item_cb (CtkAction          *action,
 }
 
 static void
-remove_toolbar_cb (CtkAction          *action,
-                   EggEditableToolbar *etoolbar)
+remove_toolbar_cb (CtkAction          *action G_GNUC_UNUSED,
+		   EggEditableToolbar *etoolbar)
 {
   CtkWidget *selected = egg_editable_toolbar_get_selected (etoolbar);
   CtkWidget *toolbar = ctk_widget_get_ancestor (selected, CTK_TYPE_TOOLBAR);
@@ -341,8 +341,8 @@ remove_toolbar_cb (CtkAction          *action,
 }
 
 static void
-popup_context_deactivate (CtkMenuShell *menu,
-                          EggEditableToolbar *etoolbar)
+popup_context_deactivate (CtkMenuShell       *menu G_GNUC_UNUSED,
+			  EggEditableToolbar *etoolbar)
 {
   egg_editable_toolbar_set_selected (etoolbar, NULL);
   g_object_notify (G_OBJECT (etoolbar), "selected");
@@ -350,10 +350,10 @@ popup_context_deactivate (CtkMenuShell *menu,
 
 static void
 popup_context_menu_cb (CtkWidget          *toolbar,
-                       gint               x,
-                       gint               y,
-                       gint               button_number,
-                       EggEditableToolbar *etoolbar)
+		       gint                x G_GNUC_UNUSED,
+		       gint                y G_GNUC_UNUSED,
+		       gint                button_number G_GNUC_UNUSED,
+		       EggEditableToolbar *etoolbar)
 {
   if (etoolbar->priv->popup_path != NULL)
     {
@@ -373,9 +373,9 @@ popup_context_menu_cb (CtkWidget          *toolbar,
 }
 
 static gboolean
-edit_mode_button_press_event_cb (CtkWidget *widget,
-                                 CdkEventButton *event,
-                                 EggEditableToolbar *etoolbar)
+edit_mode_button_press_event_cb (CtkWidget          *widget G_GNUC_UNUSED,
+				 CdkEventButton     *event,
+				 EggEditableToolbar *etoolbar G_GNUC_UNUSED)
 {
   if (event->button == 1)
     {
@@ -585,9 +585,9 @@ connect_widget_signals (CtkWidget *proxy, EggEditableToolbar *etoolbar)
 }
 
 static void
-action_sensitive_cb (CtkAction   *action,
-                     GParamSpec  *pspec,
-                     CtkToolItem *item)
+action_sensitive_cb (CtkAction   *action G_GNUC_UNUSED,
+		     GParamSpec  *pspec G_GNUC_UNUSED,
+		     CtkToolItem *item)
 {
   EggEditableToolbar *etoolbar;
 
@@ -655,13 +655,13 @@ create_item_from_position (EggEditableToolbar *etoolbar,
 
 static void
 toolbar_drag_data_received_cb (CtkToolbar         *toolbar,
-                               CdkDragContext     *context,
-                               gint                x,
-                               gint                y,
-                               CtkSelectionData   *selection_data,
-                               guint               info,
-                               guint               time,
-                               EggEditableToolbar *etoolbar)
+			       CdkDragContext     *context,
+			       gint                x,
+			       gint                y,
+			       CtkSelectionData   *selection_data,
+			       guint               info G_GNUC_UNUSED,
+			       guint               time,
+			       EggEditableToolbar *etoolbar)
 {
   /* This function can be called for two reasons
    *
@@ -735,11 +735,11 @@ toolbar_drag_data_received_cb (CtkToolbar         *toolbar,
 
 static gboolean
 toolbar_drag_drop_cb (CtkToolbar         *toolbar,
-                      CdkDragContext     *context,
-                      gint                x,
-                      gint                y,
-                      guint               time,
-                      EggEditableToolbar *etoolbar)
+		      CdkDragContext     *context,
+		      gint                x G_GNUC_UNUSED,
+		      gint                y G_GNUC_UNUSED,
+		      guint               time,
+		      EggEditableToolbar *etoolbar G_GNUC_UNUSED)
 {
   CdkAtom target;
 
@@ -792,9 +792,9 @@ toolbar_drag_motion_cb (CtkToolbar         *toolbar,
 
 static void
 toolbar_drag_leave_cb (CtkToolbar         *toolbar,
-                       CdkDragContext     *context,
-                       guint               time,
-                       EggEditableToolbar *etoolbar)
+		       CdkDragContext     *context G_GNUC_UNUSED,
+		       guint               time G_GNUC_UNUSED,
+		       EggEditableToolbar *etoolbar)
 {
   ctk_toolbar_set_drop_highlight_item (toolbar, NULL, 0);
 
@@ -1189,9 +1189,9 @@ toolbar_added_cb (EggToolbarsModel   *model,
 }
 
 static void
-toolbar_removed_cb (EggToolbarsModel   *model,
-                    int                 position,
-                    EggEditableToolbar *etoolbar)
+toolbar_removed_cb (EggToolbarsModel   *model G_GNUC_UNUSED,
+		    int                 position,
+		    EggEditableToolbar *etoolbar)
 {
   CtkWidget *dock;
 
@@ -1209,10 +1209,10 @@ toolbar_removed_cb (EggToolbarsModel   *model,
 }
 
 static void
-item_added_cb (EggToolbarsModel   *model,
-               int                 tpos,
-               int                 ipos,
-               EggEditableToolbar *etoolbar)
+item_added_cb (EggToolbarsModel   *model G_GNUC_UNUSED,
+	       int                 tpos,
+	       int                 ipos,
+	       EggEditableToolbar *etoolbar)
 {
   CtkWidget *dock;
   CtkWidget *toolbar;
@@ -1238,10 +1238,10 @@ item_added_cb (EggToolbarsModel   *model,
 }
 
 static void
-item_removed_cb (EggToolbarsModel   *model,
-                 int                 toolbar_position,
-                 int                 position,
-                 EggEditableToolbar *etoolbar)
+item_removed_cb (EggToolbarsModel   *model G_GNUC_UNUSED,
+		 int                 toolbar_position,
+		 int                 position,
+		 EggEditableToolbar *etoolbar)
 {
   EggEditableToolbarPrivate *priv = etoolbar->priv;
 
@@ -1851,9 +1851,9 @@ update_separator_image (CtkImage *image)
 }
 
 static gboolean
-style_set_cb (CtkWidget *widget,
-              CtkStyle *previous_style,
-              CtkImage *image)
+style_set_cb (CtkWidget *widget G_GNUC_UNUSED,
+	      CtkStyle  *previous_style G_GNUC_UNUSED,
+	      CtkImage  *image)
 {
 
   update_separator_image (image);

@@ -93,8 +93,8 @@ ev_page_action_widget_set_current_page (EvPageActionWidget *action_widget,
 }
 
 static void
-page_changed_cb (EvDocumentModel    *model,
-		 gint                old_page,
+page_changed_cb (EvDocumentModel    *model G_GNUC_UNUSED,
+		 gint                old_page G_GNUC_UNUSED,
 		 gint                new_page,
 		 EvPageActionWidget *action_widget)
 {
@@ -192,7 +192,7 @@ ev_page_action_widget_init (EvPageActionWidget *action_widget)
 
 static void
 ev_page_action_widget_document_changed_cb (EvDocumentModel    *model,
-					   GParamSpec         *pspec,
+					   GParamSpec         *pspec G_GNUC_UNUSED,
 					   EvPageActionWidget *action_widget)
 {
 	EvDocument *document = ev_document_model_get_document (model);
@@ -280,7 +280,7 @@ ev_page_action_widget_class_init (EvPageActionWidgetClass *class)
 }
 
 static gboolean
-match_selected_cb (CtkEntryCompletion *completion,
+match_selected_cb (CtkEntryCompletion *completion G_GNUC_UNUSED,
 		   CtkTreeModel       *filter_model,
 		   CtkTreeIter        *filter_iter,
 		   EvPageActionWidget *proxy)
@@ -307,7 +307,7 @@ match_selected_cb (CtkEntryCompletion *completion,
 
 
 static void
-display_completion_text (CtkCellLayout      *cell_layout,
+display_completion_text (CtkCellLayout      *cell_layout G_GNUC_UNUSED,
 			 CtkCellRenderer    *renderer,
 			 CtkTreeModel       *filter_model,
 			 CtkTreeIter        *filter_iter,
@@ -388,7 +388,7 @@ match_completion (CtkEntryCompletion *completion,
 
 static gboolean
 build_new_tree_cb (CtkTreeModel *model,
-		   CtkTreePath  *path,
+		   CtkTreePath  *path G_GNUC_UNUSED,
 		   CtkTreeIter  *iter,
 		   gpointer      data)
 {

@@ -177,7 +177,7 @@ ev_page_cache_finalize (GObject *object)
 }
 
 static void
-ev_page_cache_init (EvPageCache *cache)
+ev_page_cache_init (EvPageCache *cache G_GNUC_UNUSED)
 {
 }
 
@@ -312,7 +312,7 @@ job_page_data_finished_cb (EvJob       *job,
 }
 
 static void
-job_page_data_cancelled_cb (EvJob           *job,
+job_page_data_cancelled_cb (EvJob           *job G_GNUC_UNUSED,
 			    EvPageCacheData *data)
 {
 	g_object_unref (data->job);

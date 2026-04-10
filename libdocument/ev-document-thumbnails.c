@@ -25,7 +25,7 @@
 G_DEFINE_INTERFACE (EvDocumentThumbnails, ev_document_thumbnails, 0)
 
 static void
-ev_document_thumbnails_default_init (EvDocumentThumbnailsInterface *klass)
+ev_document_thumbnails_default_init (EvDocumentThumbnailsInterface *klass G_GNUC_UNUSED)
 {
 }
 

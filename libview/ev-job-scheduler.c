@@ -83,7 +83,7 @@ ev_job_queue_get_next_unlocked (void)
 }
 
 static gpointer
-ev_job_scheduler_init (gpointer data)
+ev_job_scheduler_init (gpointer data G_GNUC_UNUSED)
 {
 	g_thread_new ("EvJobScheduler", ev_job_thread_proxy, NULL);
 
@@ -146,7 +146,7 @@ ev_scheduler_job_destroy (EvSchedulerJob *job)
 
 static void
 ev_scheduler_thread_job_cancelled (EvSchedulerJob *job,
-				   GCancellable   *cancellable)
+				   GCancellable   *cancellable G_GNUC_UNUSED)
 {
 	GList   *list;
 
@@ -200,7 +200,7 @@ ev_job_idle (EvJob *job)
 }
 
 static gpointer
-ev_job_thread_proxy (gpointer data)
+ev_job_thread_proxy (gpointer data G_GNUC_UNUSED)
 {
 	while (TRUE) {
 		EvSchedulerJob *job;

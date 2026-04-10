@@ -246,7 +246,7 @@ ev_sidebar_select_button_key_press_cb (CtkWidget   *widget,
 }
 
 static void
-ev_sidebar_close_clicked_cb (CtkWidget *widget,
+ev_sidebar_close_clicked_cb (CtkWidget *widget G_GNUC_UNUSED,
 			     gpointer   user_data)
 {
 	EvSidebar *ev_sidebar = EV_SIDEBAR (user_data);
@@ -255,7 +255,7 @@ ev_sidebar_close_clicked_cb (CtkWidget *widget,
 }
 
 static void
-ev_sidebar_menu_deactivate_cb (CtkWidget *widget,
+ev_sidebar_menu_deactivate_cb (CtkWidget *widget G_GNUC_UNUSED,
 			       gpointer   user_data)
 {
 	CtkWidget *menu_button;
@@ -267,7 +267,7 @@ ev_sidebar_menu_deactivate_cb (CtkWidget *widget,
 
 static void
 ev_sidebar_menu_detach_cb (CtkWidget *widget,
-			   CtkMenu   *menu)
+			   CtkMenu   *menu G_GNUC_UNUSED)
 {
 	EvSidebar *ev_sidebar = EV_SIDEBAR (widget);
 
@@ -275,7 +275,7 @@ ev_sidebar_menu_detach_cb (CtkWidget *widget,
 }
 
 static void
-ev_sidebar_menu_item_activate_cb (CtkWidget *widget,
+ev_sidebar_menu_item_activate_cb (CtkWidget *widget G_GNUC_UNUSED,
 				  gpointer   user_data)
 {
 	EvSidebar *ev_sidebar = EV_SIDEBAR (user_data);
@@ -461,7 +461,7 @@ ev_sidebar_add_page (EvSidebar   *ev_sidebar,
 
 static void
 ev_sidebar_document_changed_cb (EvDocumentModel *model,
-				GParamSpec      *pspec,
+				GParamSpec      *pspec G_GNUC_UNUSED,
 				EvSidebar       *sidebar)
 {
 	EvSidebarPrivate *priv = sidebar->priv;

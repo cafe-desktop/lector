@@ -127,7 +127,7 @@ ev_media_player_keys_release_keys (EvMediaPlayerKeys *keys)
 }
 
 static void
-media_player_key_pressed_cb (GDBusProxy *proxy,
+media_player_key_pressed_cb (GDBusProxy *proxy G_GNUC_UNUSED,
 			     gchar      *sender_name,
 			     gchar      *signal_name,
 			     GVariant   *parameters,
@@ -152,8 +152,8 @@ media_player_key_pressed_cb (GDBusProxy *proxy,
 }
 
 static void
-mediakeys_name_owner_changed (GObject    *object,
-			      GParamSpec *pspec,
+mediakeys_name_owner_changed (GObject    *object G_GNUC_UNUSED,
+			      GParamSpec *pspec G_GNUC_UNUSED,
 			      gpointer    user_data)
 {
 	EvMediaPlayerKeys *keys = EV_MEDIA_PLAYER_KEYS (user_data);
@@ -162,7 +162,7 @@ mediakeys_name_owner_changed (GObject    *object,
 }
 
 static void
-mediakeys_service_appeared_cb (GObject      *source_object,
+mediakeys_service_appeared_cb (GObject      *source_object G_GNUC_UNUSED,
 			       GAsyncResult *res,
 			       gpointer      user_data)
 {

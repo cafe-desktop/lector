@@ -120,18 +120,18 @@ egg_toolbar_editor_set_ui_manager (EggToolbarEditor *t,
 }
 
 static void
-item_added_or_removed_cb (EggToolbarsModel   *model,
-                          int                 tpos,
-                          int                 ipos,
-                          EggToolbarEditor   *editor)
+item_added_or_removed_cb (EggToolbarsModel *model G_GNUC_UNUSED,
+			  int               tpos G_GNUC_UNUSED,
+			  int               ipos G_GNUC_UNUSED,
+			  EggToolbarEditor *editor)
 {
   update_editor_sheet (editor);
 }
 
 static void
-toolbar_removed_cb (EggToolbarsModel   *model,
-                    int                 position,
-                    EggToolbarEditor   *editor)
+toolbar_removed_cb (EggToolbarsModel *model G_GNUC_UNUSED,
+		    int               position G_GNUC_UNUSED,
+		    EggToolbarEditor *editor)
 {
   update_editor_sheet (editor);
 }
@@ -196,9 +196,9 @@ egg_toolbar_editor_set_model (EggToolbarEditor *t,
 
 static void
 egg_toolbar_editor_set_property (GObject      *object,
-                                 guint         prop_id,
-                                 const GValue *value,
-                                 GParamSpec   *pspec)
+				 guint         prop_id,
+				 const GValue *value,
+				 GParamSpec   *pspec G_GNUC_UNUSED)
 {
   EggToolbarEditor *t = EGG_TOOLBAR_EDITOR (object);
 
@@ -215,9 +215,9 @@ egg_toolbar_editor_set_property (GObject      *object,
 
 static void
 egg_toolbar_editor_get_property (GObject    *object,
-                                 guint       prop_id,
-                                 GValue     *value,
-                                 GParamSpec *pspec)
+				 guint       prop_id,
+				 GValue     *value,
+				 GParamSpec *pspec G_GNUC_UNUSED)
 {
   EggToolbarEditor *t = EGG_TOOLBAR_EDITOR (object);
 
@@ -295,26 +295,26 @@ egg_toolbar_editor_new (CtkUIManager *manager,
 }
 
 static void
-drag_begin_cb (CtkWidget          *widget,
-               CdkDragContext     *context)
+drag_begin_cb (CtkWidget      *widget,
+	       CdkDragContext *context G_GNUC_UNUSED)
 {
   ctk_widget_hide (widget);
 }
 
 static void
-drag_end_cb (CtkWidget          *widget,
-             CdkDragContext     *context)
+drag_end_cb (CtkWidget      *widget,
+	     CdkDragContext *context G_GNUC_UNUSED)
 {
   ctk_widget_show (widget);
 }
 
 static void
-drag_data_get_cb (CtkWidget          *widget,
-                  CdkDragContext     *context,
-                  CtkSelectionData   *selection_data,
-                  guint               info,
-                  guint32             time,
-                  EggToolbarEditor   *editor)
+drag_data_get_cb (CtkWidget        *widget,
+		  CdkDragContext   *context G_GNUC_UNUSED,
+		  CtkSelectionData *selection_data,
+		  guint             info G_GNUC_UNUSED,
+		  guint32           time G_GNUC_UNUSED,
+		  EggToolbarEditor *editor G_GNUC_UNUSED)
 {
   const char *target;
 

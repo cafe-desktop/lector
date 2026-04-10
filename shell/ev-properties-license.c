@@ -39,7 +39,7 @@ struct _EvPropertiesLicenseClass {
 G_DEFINE_TYPE (EvPropertiesLicense, ev_properties_license, CTK_TYPE_BOX)
 
 static void
-ev_properties_license_class_init (EvPropertiesLicenseClass *properties_license_class)
+ev_properties_license_class_init (EvPropertiesLicenseClass *properties_license_class G_GNUC_UNUSED)
 {
 }
 

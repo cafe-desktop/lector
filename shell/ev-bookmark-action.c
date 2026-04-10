@@ -40,7 +40,7 @@ struct _EvBookmarkActionClass {
 G_DEFINE_TYPE (EvBookmarkAction, ev_bookmark_action, CTK_TYPE_ACTION)
 
 static void
-ev_bookmark_action_init (EvBookmarkAction *action)
+ev_bookmark_action_init (EvBookmarkAction *action G_GNUC_UNUSED)
 {
 }
 

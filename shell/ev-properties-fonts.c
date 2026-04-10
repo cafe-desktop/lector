@@ -76,8 +76,11 @@ ev_properties_fonts_class_init (EvPropertiesFontsClass *properties_class)
 }
 
 static void
-font_cell_data_func (CtkTreeViewColumn *col, CtkCellRenderer *renderer,
-		     CtkTreeModel *model, CtkTreeIter *iter, gpointer user_data)
+font_cell_data_func (CtkTreeViewColumn *col G_GNUC_UNUSED,
+		     CtkCellRenderer   *renderer,
+		     CtkTreeModel      *model,
+		     CtkTreeIter       *iter,
+		     gpointer           user_data G_GNUC_UNUSED)
 {
 	char *name;
 	char *details;
@@ -179,7 +182,9 @@ job_fonts_finished_cb (EvJob *job, EvPropertiesFonts *properties)
 }
 
 static void
-job_fonts_updated_cb (EvJobFonts *job, gdouble progress, EvPropertiesFonts *properties)
+job_fonts_updated_cb (EvJobFonts        *job G_GNUC_UNUSED,
+		      gdouble            progress,
+		      EvPropertiesFonts *properties)
 {
 	CtkTreeModel *model;
 	EvDocumentFonts *document_fonts = EV_DOCUMENT_FONTS (properties->document);
