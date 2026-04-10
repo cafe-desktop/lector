@@ -325,7 +325,7 @@ static BITMAP *get_char(FILE *p, int w, int h, int flags)
 
 /* supports any number of characters in a font */
 static int
-pk_load_font (DviParams *unused G_GNUC_UNUSED,
+pk_load_font (DviParams *unused GNUC_UNUSED,
 	      DviFont   *font)
 {
 	int	i;
@@ -544,7 +544,7 @@ error:
 }
 
 static int
-pk_font_get_glyph (DviParams *params G_GNUC_UNUSED,
+pk_font_get_glyph (DviParams *params GNUC_UNUSED,
 		   DviFont   *font,
 		   int        code)
 {

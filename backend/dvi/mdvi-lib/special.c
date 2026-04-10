@@ -91,7 +91,7 @@ static DviSpecial *find_special_prefix(const char *prefix)
 int
 mdvi_register_special (const char       *label,
 		       const char       *prefix,
-		       const char       *regex G_GNUC_UNUSED,
+		       const char       *regex GNUC_UNUSED,
 		       DviSpecialHandler handler,
 		       int               replace)
 {
@@ -238,7 +238,7 @@ void	mdvi_flush_specials(void)
 
 void
 sp_layer (DviContext *dvi,
-	  const char *prefix G_GNUC_UNUSED,
+	  const char *prefix GNUC_UNUSED,
 	  const char *arg)
 {
 	if(STREQ("push", arg))

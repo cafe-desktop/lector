@@ -349,7 +349,7 @@ DviFont	*mdvi_add_font(const char *name, Int32 sum,
 	return font;
 }
 
-int	mdvi_font_retry(DviParams *params G_GNUC_UNUSED, DviFont *font)
+int	mdvi_font_retry(DviParams *params GNUC_UNUSED, DviFont *font)
 {
 	/* try the search again */
 	char	*filename;

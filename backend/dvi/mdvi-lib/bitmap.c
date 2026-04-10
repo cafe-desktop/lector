@@ -802,7 +802,7 @@ static int do_sample(BmUnit *data, int stride, int step, int w, int h)
 
 void
 mdvi_shrink_box (DviContext  *dvi,
-		 DviFont     *font G_GNUC_UNUSED,
+		 DviFont     *font GNUC_UNUSED,
 		 DviFontChar *pk,
 		 DviGlyph    *dest)
 {
@@ -834,7 +834,7 @@ mdvi_shrink_box (DviContext  *dvi,
 
 void
 mdvi_shrink_glyph (DviContext  *dvi,
-		   DviFont     *font G_GNUC_UNUSED,
+		   DviFont     *font GNUC_UNUSED,
 		   DviFontChar *pk,
 		   DviGlyph    *dest)
 {

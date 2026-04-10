@@ -56,7 +56,7 @@ void	epsf_special __PROTO((DviContext *dvi, char *prefix, char *arg));
 static char *
 parse_epsf_special (EpsfBox *box,
 		    char   **ret,
-		    char    *prefix G_GNUC_UNUSED,
+		    char    *prefix GNUC_UNUSED,
 		    char    *arg)
 {
 	static struct {

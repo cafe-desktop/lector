@@ -193,7 +193,7 @@ static int tfm_load_font(DviParams *params, DviFont *font)
 }
 
 static int
-tfm_font_get_glyph (DviParams *params G_GNUC_UNUSED,
+tfm_font_get_glyph (DviParams *params GNUC_UNUSED,
 		    DviFont   *font,
 		    int        code)
 {

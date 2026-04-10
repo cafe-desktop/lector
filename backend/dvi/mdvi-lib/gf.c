@@ -233,7 +233,7 @@ error:
 }
 
 static int
-gf_load_font (DviParams *unused G_GNUC_UNUSED,
+gf_load_font (DviParams *unused GNUC_UNUSED,
 	      DviFont   *font)
 {
 	int	i;
@@ -373,7 +373,7 @@ error:
 }
 
 static int
-gf_font_get_glyph (DviParams *params G_GNUC_UNUSED,
+gf_font_get_glyph (DviParams *params GNUC_UNUSED,
 		   DviFont   *font,
 		   int        code)
 {
