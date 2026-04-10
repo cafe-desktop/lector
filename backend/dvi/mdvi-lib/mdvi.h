@@ -68,6 +68,9 @@ typedef enum {
 #include "hash.h"
 #include "paper.h"
 
+#define GNUC_UNUSED \
+  __attribute__ ((__unused__))
+
 /*
  * information about a page:
  *   pagenum[0] = offset to BOP

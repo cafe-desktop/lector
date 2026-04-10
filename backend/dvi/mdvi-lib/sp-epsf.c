@@ -53,8 +53,11 @@ typedef struct {
 void	epsf_special __PROTO((DviContext *dvi, char *prefix, char *arg));
 
 /* Note: the given strings are modified in place */
-static char *parse_epsf_special(EpsfBox *box, char **ret,
-	char *prefix, char *arg)
+static char *
+parse_epsf_special (EpsfBox *box,
+		    char   **ret,
+		    char    *prefix GNUC_UNUSED,
+		    char    *arg)
 {
 	static struct {
 		char *name;
