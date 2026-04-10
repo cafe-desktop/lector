@@ -88,8 +88,12 @@ static DviSpecial *find_special_prefix(const char *prefix)
 	return sp;
 }
 
-int	mdvi_register_special(const char *label, const char *prefix,
-	const char *regex, DviSpecialHandler handler, int replace)
+int
+mdvi_register_special (const char       *label,
+		       const char       *prefix,
+		       const char       *regex GNUC_UNUSED,
+		       DviSpecialHandler handler,
+		       int               replace)
 {
 	DviSpecial *sp;
 	int	newsp = 0;
@@ -232,7 +236,10 @@ void	mdvi_flush_specials(void)
 
 /* some builtin specials */
 
-void	sp_layer(DviContext *dvi, const char *prefix, const char *arg)
+void
+sp_layer (DviContext *dvi,
+	  const char *prefix GNUC_UNUSED,
+	  const char *arg)
 {
 	if(STREQ("push", arg))
 		dvi->curr_layer++;

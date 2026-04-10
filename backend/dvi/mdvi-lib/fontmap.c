@@ -226,7 +226,9 @@ static void destroy_encoding(DviEncoding *enc)
 }
 
 /* this is used for the `enctable_file' hash table */
-static void file_hash_free(DviHashKey key, void *data)
+static void
+file_hash_free (DviHashKey key,
+		void      *data GNUC_UNUSED)
 {
 	mdvi_free(key);
 }
