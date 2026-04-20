@@ -1,3 +1,11 @@
+### lector 2.0.0
+
+  * ci: some improvements
+  * add G_GNUC_UNUSED and GNUC_UNUSED in unused parameters
+  * avoid deprecated GTimeVal
+  * update translations
+
+
 ### lector 1.25.0
 
   * initial release: atril 1.24.0 fork

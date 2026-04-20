@@ -2,8 +2,8 @@
 # Versioning
 # *****************************************************************************
 
-m4_define([ev_major_version], [1])
-m4_define([ev_minor_version], [25])
+m4_define([ev_major_version], [2])
+m4_define([ev_minor_version], [0])
 m4_define([ev_micro_version], [0])
 m4_define([ev_extra_version], [])
 m4_define([ev_version], [ev_major_version.ev_minor_version.ev_micro_version()ev_extra_version])
