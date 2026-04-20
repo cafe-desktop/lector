@@ -9,9 +9,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: lector 1.25.0\n"
+"Project-Id-Version: lector 2.0.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2024-02-17 13:13+0100\n"
+"POT-Creation-Date: 2026-04-20 08:48+0200\n"
 "PO-Revision-Date: 2018-03-11 14:35+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2019\n"
 "Language-Team: Marathi (https://www.transifex.com/cafe/teams/13566/mr/)\n"
@@ -74,7 +74,7 @@ msgstr "“%s” नष्ट करतेवेळी त्रुटी आढ
 msgid "Error %s"
 msgstr "त्रुटी %s"
 
-#: backend/comics/comicsdocument.lector-backend.desktop.in:4
+#: backend/comics/comicsdocument.lector-backend.desktop.in:3
 msgid "Comic Books"
 msgstr "चित्राक्षर पुस्तक"
 
@@ -90,7 +90,7 @@ msgstr ""
 "दस्तऐवज अनेक फाइलचे समायोजन आहे. एक किंवा त्यापेक्षा जास्त फाइल करीता प्रवेश प्राप्त होऊ "
 "शकत नाही."
 
-#: backend/djvu/djvudocument.lector-backend.desktop.in:4
+#: backend/djvu/djvudocument.lector-backend.desktop.in:3
 msgid "DjVu Documents"
 msgstr "DjVu दस्तऐवज"
 
@@ -98,7 +98,7 @@ msgstr "DjVu दस्तऐवज"
 msgid "DVI document has incorrect format"
 msgstr "DVI दस्तऐवजाची रचना चुक आहे"
 
-#: backend/dvi/dvidocument.lector-backend.desktop.in:4
+#: backend/dvi/dvidocument.lector-backend.desktop.in:3
 msgid "DVI Documents"
 msgstr "DVI दस्तऐवज"
 
@@ -158,7 +158,7 @@ msgstr ""
 msgid "Could not set up document tree for loading, some files missing"
 msgstr ""
 
-#: backend/epub/epubdocument.lector-backend.desktop.in:4
+#: backend/epub/epubdocument.lector-backend.desktop.in:3
 msgid "epub Documents"
 msgstr ""
 
@@ -174,59 +174,59 @@ msgstr "होय"
 msgid "No"
 msgstr "नाही"
 
-#: backend/pdf/ev-poppler.cc:907
+#: backend/pdf/ev-poppler.cc:908
 msgid "Type 1"
 msgstr "प्रकार १"
 
-#: backend/pdf/ev-poppler.cc:909
+#: backend/pdf/ev-poppler.cc:910
 msgid "Type 1C"
 msgstr "प्रकार १C"
 
-#: backend/pdf/ev-poppler.cc:911
+#: backend/pdf/ev-poppler.cc:912
 msgid "Type 3"
 msgstr "प्रकार ३"
 
-#: backend/pdf/ev-poppler.cc:913
+#: backend/pdf/ev-poppler.cc:914
 msgid "TrueType"
 msgstr "TrueType"
 
-#: backend/pdf/ev-poppler.cc:915
+#: backend/pdf/ev-poppler.cc:916
 msgid "Type 1 (CID)"
 msgstr "प्रकार १ (CID)"
 
-#: backend/pdf/ev-poppler.cc:917
+#: backend/pdf/ev-poppler.cc:918
 msgid "Type 1C (CID)"
 msgstr "प्रकार १C (CID)"
 
-#: backend/pdf/ev-poppler.cc:919
+#: backend/pdf/ev-poppler.cc:920
 msgid "TrueType (CID)"
 msgstr "TrueType (CID)"
 
-#: backend/pdf/ev-poppler.cc:921
+#: backend/pdf/ev-poppler.cc:922
 msgid "Unknown font type"
 msgstr "अपरिचीत फॉंटचा प्रकार"
 
-#: backend/pdf/ev-poppler.cc:947
+#: backend/pdf/ev-poppler.cc:948
 msgid "No name"
 msgstr "नाव नाही"
 
-#: backend/pdf/ev-poppler.cc:955
+#: backend/pdf/ev-poppler.cc:956
 msgid "Embedded subset"
 msgstr "एंबेडेड उपसमूह"
 
-#: backend/pdf/ev-poppler.cc:957
+#: backend/pdf/ev-poppler.cc:958
 msgid "Embedded"
 msgstr "एंबेडेड"
 
-#: backend/pdf/ev-poppler.cc:959
+#: backend/pdf/ev-poppler.cc:960
 msgid "Not embedded"
 msgstr "एंबेडेड नसलेले"
 
-#: backend/pdf/pdfdocument.lector-backend.desktop.in:5
+#: backend/pdf/pdfdocument.lector-backend.desktop.in:4
 msgid "PDF Documents"
 msgstr "PDF दस्तऐवज"
 
-#: backend/pixbuf/pixbufdocument.lector-backend.desktop.in:4
+#: backend/pixbuf/pixbufdocument.lector-backend.desktop.in:3
 msgid "Images"
 msgstr "प्रतिमा"
 
@@ -240,7 +240,7 @@ msgstr "“%s” दस्तऐवज वाचण्यास असमर्�
 msgid "Failed to save document “%s”"
 msgstr "“%s” दस्तऐवज संचयीत करण्यास अपयशी"
 
-#: backend/ps/psdocument.lector-backend.desktop.in:5
+#: backend/ps/psdocument.lector-backend.desktop.in:4
 msgid "PostScript Documents"
 msgstr "पोस्टस्क्रिप्ट दस्तऐवज"
 
@@ -248,11 +248,11 @@ msgstr "पोस्टस्क्रिप्ट दस्तऐवज"
 msgid "Invalid document"
 msgstr "अवैध दस्तऐवज"
 
-#: backend/tiff/tiffdocument.lector-backend.desktop.in:4
+#: backend/tiff/tiffdocument.lector-backend.desktop.in:3
 msgid "Tiff Documents"
 msgstr ""
 
-#: backend/xps/xpsdocument.lector-backend.desktop.in:5
+#: backend/xps/xpsdocument.lector-backend.desktop.in:4
 msgid "XPS Documents"
 msgstr ""
 
@@ -289,7 +289,7 @@ msgstr "सर्व फाईल्स"
 msgid "Failed to create a temporary file: %s"
 msgstr "तात्पुरती फ़ाइल:%s निर्माण करण्यास असफल"
 
-#: libdocument/ev-file-helpers.c:309
+#: libdocument/ev-file-helpers.c:224
 #, c-format
 msgid "Failed to create a temporary directory: %s"
 msgstr "तात्पुरती निर्देशिका:%s निर्माण करण्यास असफल"
@@ -387,15 +387,15 @@ msgstr "निवडलेली साधनपट्टिका काढू�
 msgid "Separator"
 msgstr "विभाजक"
 
-#: cut-n-paste/zoom-control/ephy-zoom.h:49 shell/ev-window.c:6807
+#: cut-n-paste/zoom-control/ephy-zoom.h:49 shell/ev-window.c:6855
 msgid "Fit Page"
 msgstr ""
 
-#: cut-n-paste/zoom-control/ephy-zoom.h:50 shell/ev-window.c:6811
+#: cut-n-paste/zoom-control/ephy-zoom.h:50 shell/ev-window.c:6859
 msgid "Fit Width"
 msgstr "रुंदीत बसवा"
 
-#: cut-n-paste/zoom-control/ephy-zoom.h:51 shell/ev-window.c:6450
+#: cut-n-paste/zoom-control/ephy-zoom.h:51 shell/ev-window.c:6492
 msgid "Expand Window to Fit"
 msgstr "खिडकी पूर्ण भरण्याकरिता मोठी करा"
 
@@ -455,8 +455,8 @@ msgstr "3200%"
 msgid "6400%"
 msgstr "6400%"
 
-#: data/lector.appdata.xml.in:7 data/lector.desktop.in.in:3
-#: shell/ev-window.c:5398
+#: data/lector.appdata.xml.in:7 data/lector.desktop.in.in:2
+#: shell/ev-window.c:5440
 msgid "Lector Document Viewer"
 msgstr "Lector दस्तऐवज दर्शक"
 
@@ -480,17 +480,17 @@ msgid ""
 "home page."
 msgstr ""
 
-#: data/lector.desktop.in.in:4 shell/ev-window.c:5327
+#: data/lector.desktop.in.in:3 shell/ev-window.c:5368
 #: shell/ev-window-title.c:157
 msgid "Document Viewer"
 msgstr "दस्तऐवज दर्शक"
 
-#: data/lector.desktop.in.in:5
+#: data/lector.desktop.in.in:4
 msgid "View multi-page documents"
 msgstr "अनेक पानाचे दस्तऐवज बघा"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/lector.desktop.in.in:20
+#: data/lector.desktop.in.in:19
 msgid "CAFE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 msgstr ""
 
@@ -546,7 +546,7 @@ msgstr "संयोजना फाइलची छपाई करत आह�
 msgid "CAFE Document Previewer"
 msgstr "CAFE दस्तऐवज पूर्वदर्शक"
 
-#: previewer/ev-previewer-window.c:96 shell/ev-window.c:3626
+#: previewer/ev-previewer-window.c:96 shell/ev-window.c:3631
 msgid "Failed to print document"
 msgstr "दस्तऐवज मुद्रित करण्यात अशमर्थ"
 
@@ -555,43 +555,43 @@ msgstr "दस्तऐवज मुद्रित करण्यात अश
 msgid "The selected printer '%s' could not be found"
 msgstr "नीवडलेले छपाईयंत्र '%s' आढळले नाही"
 
-#: previewer/ev-previewer-window.c:280 shell/ev-window.c:6411
+#: previewer/ev-previewer-window.c:280 shell/ev-window.c:6453
 msgid "_Close"
 msgstr "बंद करा (_C)"
 
-#: previewer/ev-previewer-window.c:283 shell/ev-window.c:6457
+#: previewer/ev-previewer-window.c:283 shell/ev-window.c:6499
 msgid "_Previous Page"
 msgstr "मागील पान(_P)"
 
-#: previewer/ev-previewer-window.c:284 shell/ev-window.c:6458
+#: previewer/ev-previewer-window.c:284 shell/ev-window.c:6500
 msgid "Go to the previous page"
 msgstr "मागील पानावर जा"
 
-#: previewer/ev-previewer-window.c:286 shell/ev-window.c:6460
+#: previewer/ev-previewer-window.c:286 shell/ev-window.c:6502
 msgid "_Next Page"
 msgstr "पुढील पान(_N)"
 
-#: previewer/ev-previewer-window.c:287 shell/ev-window.c:6461
+#: previewer/ev-previewer-window.c:287 shell/ev-window.c:6503
 msgid "Go to the next page"
 msgstr "पुढील पानावर जा"
 
-#: previewer/ev-previewer-window.c:289 shell/ev-window.c:6437
+#: previewer/ev-previewer-window.c:289 shell/ev-window.c:6479
 msgid "Zoom _In"
 msgstr "आतील बाजूनी विशालीकरण (_I)"
 
-#: previewer/ev-previewer-window.c:290 shell/ev-window.c:6438
+#: previewer/ev-previewer-window.c:290 shell/ev-window.c:6480
 msgid "Enlarge the document"
 msgstr "दस्तऐवज मोठे करा"
 
-#: previewer/ev-previewer-window.c:292 shell/ev-window.c:6440
+#: previewer/ev-previewer-window.c:292 shell/ev-window.c:6482
 msgid "Zoom _Out"
 msgstr "लहानात लहान करा (_O)"
 
-#: previewer/ev-previewer-window.c:293 shell/ev-window.c:6441
+#: previewer/ev-previewer-window.c:293 shell/ev-window.c:6483
 msgid "Shrink the document"
 msgstr "दस्तऐवज आखूड करा"
 
-#: previewer/ev-previewer-window.c:296 shell/ev-window.c:6444
+#: previewer/ev-previewer-window.c:296 shell/ev-window.c:6486
 msgid "Reset zoom to 100%"
 msgstr ""
 
@@ -599,31 +599,31 @@ msgstr ""
 msgid "Print"
 msgstr "मुद्रण"
 
-#: previewer/ev-previewer-window.c:301 shell/ev-window.c:6407
+#: previewer/ev-previewer-window.c:301 shell/ev-window.c:6449
 msgid "Print this document"
 msgstr "हा दस्तऐवज मुद्रित करा"
 
-#: previewer/ev-previewer-window.c:335 shell/ev-window.c:6563
+#: previewer/ev-previewer-window.c:335 shell/ev-window.c:6605
 msgid "Fit Pa_ge"
 msgstr ""
 
-#: previewer/ev-previewer-window.c:336 shell/ev-window.c:6564
+#: previewer/ev-previewer-window.c:336 shell/ev-window.c:6606
 msgid "Make the current document fill the window"
 msgstr "चालु दस्तऐवज पटल भरेल असे करा"
 
-#: previewer/ev-previewer-window.c:338 shell/ev-window.c:6566
+#: previewer/ev-previewer-window.c:338 shell/ev-window.c:6608
 msgid "Fit _Width"
 msgstr ""
 
-#: previewer/ev-previewer-window.c:339 shell/ev-window.c:6567
+#: previewer/ev-previewer-window.c:339 shell/ev-window.c:6609
 msgid "Make the current document fill the window width"
 msgstr "चालु दस्तऐवज खिडकीची रुंदी भरेल असे करा"
 
-#: previewer/ev-previewer-window.c:537 shell/ev-window.c:6720
+#: previewer/ev-previewer-window.c:537 shell/ev-window.c:6768
 msgid "Page"
 msgstr "पान"
 
-#: previewer/ev-previewer-window.c:538 shell/ev-window.c:6721
+#: previewer/ev-previewer-window.c:538 shell/ev-window.c:6769
 msgid "Select Page"
 msgstr "पान निवडा"
 
@@ -716,11 +716,11 @@ msgstr "%s, उभे (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, आडवे (%s)"
 
-#: properties/liblector-properties-page.baul-extension.desktop.in:5
+#: properties/liblector-properties-page.baul-extension.desktop.in:4
 msgid "Lector properties"
 msgstr ""
 
-#: properties/liblector-properties-page.baul-extension.desktop.in:6
+#: properties/liblector-properties-page.baul-extension.desktop.in:5
 msgid "Shows details for Lector documents"
 msgstr ""
 
@@ -1068,11 +1068,11 @@ msgstr "फॉंट्स"
 msgid "Document License"
 msgstr "दस्तऐवज परवाना"
 
-#: shell/ev-properties-fonts.c:136
+#: shell/ev-properties-fonts.c:139
 msgid "Font"
 msgstr "फॉंट"
 
-#: shell/ev-properties-fonts.c:163
+#: shell/ev-properties-fonts.c:166
 #, c-format
 msgid "Gathering font information… %3d%%"
 msgstr "फॉंटची माहिती गोळा केली जातेय... %3d%%"
@@ -1127,7 +1127,7 @@ msgid "_Remove Bookmark"
 msgstr ""
 
 #: shell/ev-sidebar-bookmarks.c:314 shell/ev-window.c:1006
-#: shell/ev-window.c:5027
+#: shell/ev-window.c:5059
 #, c-format
 msgid "Page %s"
 msgstr "पान %s"
@@ -1148,11 +1148,11 @@ msgstr "वाचनखुणा"
 msgid "Layers"
 msgstr "स्तर"
 
-#: shell/ev-sidebar-links.c:331
+#: shell/ev-sidebar-links.c:332
 msgid "Print…"
 msgstr "छपाई करा..."
 
-#: shell/ev-sidebar-links.c:713
+#: shell/ev-sidebar-links.c:715
 msgid "Index"
 msgstr "निर्देशिका"
 
@@ -1165,143 +1165,143 @@ msgstr "छोट्या प्रतीमा"
 msgid "Page %s — %s"
 msgstr "पान %s — %s"
 
-#: shell/ev-window.c:1163
+#: shell/ev-window.c:1165
 msgid ""
 "Cannot enter presentation mode with ePub documents, use fullscreen mode "
 "instead."
 msgstr ""
 
-#: shell/ev-window.c:1767
+#: shell/ev-window.c:1769
 msgid "The document contains no pages"
 msgstr "दस्तऐवजात पान नाही"
 
-#: shell/ev-window.c:1770
+#: shell/ev-window.c:1772
 msgid "The document contains only empty pages"
 msgstr "दस्तऐवजात फक्त रिकामे पान आढळले"
 
-#: shell/ev-window.c:1809
+#: shell/ev-window.c:1811
 msgid "Presentation mode is not supported for ePub documents."
 msgstr ""
 
-#: shell/ev-window.c:2003 shell/ev-window.c:2171
+#: shell/ev-window.c:2005 shell/ev-window.c:2173
 msgid "Unable to open document"
 msgstr "दस्तऐवज उघडण्यास अशक्य"
 
-#: shell/ev-window.c:2140
+#: shell/ev-window.c:2142
 #, c-format
 msgid "Loading document from “%s”"
 msgstr "“%s” पासून दस्तऐवज लोड करत आहे"
 
-#: shell/ev-window.c:2282 shell/ev-window.c:2573
+#: shell/ev-window.c:2284 shell/ev-window.c:2575
 #, c-format
 msgid "Downloading document (%d%%)"
 msgstr "दस्तऐवज  (%d%%) डाऊनलोड करत आहे"
 
-#: shell/ev-window.c:2315
+#: shell/ev-window.c:2317
 msgid "Failed to load remote file."
 msgstr "दूरस्थ फ़ाइल %s दाखल करण्यास अपयशी"
 
-#: shell/ev-window.c:2517
+#: shell/ev-window.c:2519
 #, c-format
 msgid "Reloading document from %s"
 msgstr "%s पासून दस्तऐवज पुन्ह दाखल करत आहे"
 
-#: shell/ev-window.c:2549
+#: shell/ev-window.c:2551
 msgid "Failed to reload document."
 msgstr "दस्तऐवज पुन्हदाखल करण्यास अशक्य."
 
-#: shell/ev-window.c:2767
+#: shell/ev-window.c:2770
 msgid "Open Document"
 msgstr "दस्तऐवज उघडा"
 
-#: shell/ev-window.c:3040
+#: shell/ev-window.c:3044
 #, c-format
 msgid "Saving document to %s"
 msgstr "दस्तऐवज %s करीता साठवत आहे"
 
-#: shell/ev-window.c:3043
+#: shell/ev-window.c:3047
 #, c-format
 msgid "Saving attachment to %s"
 msgstr "%s शी जुळवणी साठवत आहे"
 
-#: shell/ev-window.c:3046
+#: shell/ev-window.c:3050
 #, c-format
 msgid "Saving image to %s"
 msgstr "प्रतिमा %s करीता साठवत आहे"
 
-#: shell/ev-window.c:3090 shell/ev-window.c:3190
+#: shell/ev-window.c:3094 shell/ev-window.c:3194
 #, c-format
 msgid "The file could not be saved as “%s”."
 msgstr "फाइल “%s” नुरूप साठवा."
 
-#: shell/ev-window.c:3121
+#: shell/ev-window.c:3125
 #, c-format
 msgid "Uploading document (%d%%)"
 msgstr "दस्तऐवज (%d%%) अपलोड करत आहे"
 
-#: shell/ev-window.c:3125
+#: shell/ev-window.c:3129
 #, c-format
 msgid "Uploading attachment (%d%%)"
 msgstr "जुळवणी (%d%%) अपलोड करत आहे"
 
-#: shell/ev-window.c:3129
+#: shell/ev-window.c:3133
 #, c-format
 msgid "Uploading image (%d%%)"
 msgstr "प्रतिमा (%d%%) करत आहे"
 
-#: shell/ev-window.c:3242
+#: shell/ev-window.c:3247
 msgid "Save As…"
 msgstr "असे संचयीत करा"
 
-#: shell/ev-window.c:3320
+#: shell/ev-window.c:3325
 msgid "Could not send current document"
 msgstr ""
 
-#: shell/ev-window.c:3570
+#: shell/ev-window.c:3575
 #, c-format
 msgid "%d pending job in queue"
 msgid_plural "%d pending jobs in queue"
 msgstr[0] ""
 msgstr[1] ""
 
-#: shell/ev-window.c:3683
+#: shell/ev-window.c:3688
 #, c-format
 msgid "Printing job “%s”"
 msgstr "कार्य “%s” ची छपाई करा"
 
-#: shell/ev-window.c:3860
+#: shell/ev-window.c:3867
 msgid ""
 "Document contains form fields that have been filled out. If you don't save a "
 "copy, changes will be permanently lost."
 msgstr ""
 "दस्तऐवजात भरलेली फाॅर्म फील्ड्स आहेत. दस्तऐवज सुरक्षित केला नाही, तर सर्व बदल नष्ट होतील."
 
-#: shell/ev-window.c:3864
+#: shell/ev-window.c:3871
 msgid ""
 "Document contains new or modified annotations. If you don't save a copy, "
 "changes will be permanently lost."
 msgstr ""
 "दस्तऐवजात नवीन टिप्पण्या आहेत. दस्तऐवज सुरक्षित नाही केला, तर सर्व बदल नष्ट होतील."
 
-#: shell/ev-window.c:3871
+#: shell/ev-window.c:3878
 #, c-format
 msgid "Save a copy of document “%s” before closing?"
 msgstr "\"%s\" दस्तऐवजाची एक प्रत साठवा?"
 
-#: shell/ev-window.c:3890
+#: shell/ev-window.c:3897
 msgid "Close _without Saving"
 msgstr "सुरक्षित न करता बंद करा(_w)"
 
-#: shell/ev-window.c:3894 shell/ev-window.c:6400
+#: shell/ev-window.c:3901 shell/ev-window.c:6442
 msgid "_Save As…"
 msgstr ""
 
-#: shell/ev-window.c:3963
+#: shell/ev-window.c:3970
 #, c-format
 msgid "Wait until print job “%s” finishes before closing?"
 msgstr "छपाई कार्य “%s” पूर्णपणे बंद होण्यापूर्वी समाप्त होईपर्यंत थांबायचे?"
 
-#: shell/ev-window.c:3969
+#: shell/ev-window.c:3976
 #, c-format
 msgid "There is %d print job active. Wait until print finishes before closing?"
 msgid_plural ""
@@ -1309,35 +1309,35 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: shell/ev-window.c:3984
+#: shell/ev-window.c:3991
 msgid "If you close the window, pending print jobs will not be printed."
 msgstr "खिडकी बंद केल्यास, उर्वरीत छपाई कार्य छपाईकृत होणार नाही."
 
-#: shell/ev-window.c:3988
+#: shell/ev-window.c:3995
 msgid "Cancel _print and Close"
 msgstr "छपाई व बंद करा रद्द करा (_p)"
 
-#: shell/ev-window.c:3992
+#: shell/ev-window.c:3999
 msgid "Close _after Printing"
 msgstr "छपाई नंतर बंद करा (_a)"
 
-#: shell/ev-window.c:4373
+#: shell/ev-window.c:4391
 msgid "Running in presentation mode"
 msgstr "प्रस्तुतीकरण पध्दतीत कार्यरत आहे"
 
-#: shell/ev-window.c:4438
+#: shell/ev-window.c:4456
 msgid "Presentation mode is not supported for ePub documents"
 msgstr ""
 
-#: shell/ev-window.c:4752
+#: shell/ev-window.c:4774
 msgid "Toolbar Editor"
 msgstr "साधनपट्टी संपादक"
 
-#: shell/ev-window.c:5073
+#: shell/ev-window.c:5109
 msgid "There was an error displaying help"
 msgstr "मदत दर्शवितेवेळी त्रुटी आढळली"
 
-#: shell/ev-window.c:5323
+#: shell/ev-window.c:5364
 #, c-format
 msgid ""
 "Document Viewer\n"
@@ -1345,19 +1345,19 @@ msgid ""
 "and SyncTeX %s"
 msgstr ""
 
-#: shell/ev-window.c:5340
+#: shell/ev-window.c:5382
 msgid "CAFE Documentation Team"
 msgstr ""
 
-#: shell/ev-window.c:5341
+#: shell/ev-window.c:5383
 msgid "MATE Documentation Team"
 msgstr ""
 
-#: shell/ev-window.c:5342
+#: shell/ev-window.c:5384
 msgid "GNOME Documentation Team"
 msgstr ""
 
-#: shell/ev-window.c:5347
+#: shell/ev-window.c:5389
 msgid ""
 "Lector is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -1365,7 +1365,7 @@ msgid ""
 "version."
 msgstr ""
 
-#: shell/ev-window.c:5351
+#: shell/ev-window.c:5393
 msgid ""
 "Lector is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -1373,416 +1373,416 @@ msgid ""
 "details."
 msgstr ""
 
-#: shell/ev-window.c:5355
+#: shell/ev-window.c:5397
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "Lector; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA"
 msgstr ""
 
-#: shell/ev-window.c:5400
+#: shell/ev-window.c:5442
 msgid "About Lector Document Viewer"
 msgstr ""
 
-#: shell/ev-window.c:5401
+#: shell/ev-window.c:5443
 msgid ""
 "Copyright © 1996–2009 The Evince authors\n"
 "Copyright © 2012–2020 The MATE developers\n"
 "Copyright © 2024 Pablo Barciela"
 msgstr ""
 
-#: shell/ev-window.c:5409
+#: shell/ev-window.c:5451
 msgid "translator-credits"
 msgstr "भाषांतराचे श्रेय Vaibhav Dalvi<vaibhav.dlv@gmail.com> 2014"
 
-#: shell/ev-window.c:5687
+#: shell/ev-window.c:5729
 #, c-format
 msgid "%d found on this page"
 msgid_plural "%d found on this page"
 msgstr[0] ""
 msgstr[1] ""
 
-#: shell/ev-window.c:5692
+#: shell/ev-window.c:5734
 msgid "Not found"
 msgstr "आढळले नाही"
 
-#: shell/ev-window.c:5698
+#: shell/ev-window.c:5740
 #, c-format
 msgid "%3d%% remaining to search"
 msgstr "%3d%% शोधायचे उरलेत"
 
-#: shell/ev-window.c:6053
+#: shell/ev-window.c:6095
 msgid "Enable caret navigation?"
 msgstr ""
 
-#: shell/ev-window.c:6055
+#: shell/ev-window.c:6097
 msgid "_Enable"
 msgstr ""
 
-#: shell/ev-window.c:6058
+#: shell/ev-window.c:6100
 msgid ""
 "Pressing F7 turns the caret navigation on or off. This feature places a "
 "movable cursor in text pages, allowing you to move around and select text "
 "with your keyboard. Do you want to enable the caret navigation?"
 msgstr ""
 
-#: shell/ev-window.c:6063
+#: shell/ev-window.c:6105
 msgid "Don't show this message again"
 msgstr ""
 
-#: shell/ev-window.c:6386
+#: shell/ev-window.c:6428
 msgid "_File"
 msgstr "फाइल (_F)"
 
-#: shell/ev-window.c:6387
+#: shell/ev-window.c:6429
 msgid "_Edit"
 msgstr "संपादन (_E)"
 
-#: shell/ev-window.c:6388
+#: shell/ev-window.c:6430
 msgid "_View"
 msgstr "दृश्य(_V)"
 
-#: shell/ev-window.c:6389
+#: shell/ev-window.c:6431
 msgid "_Go"
 msgstr "जा (_G)"
 
-#: shell/ev-window.c:6390
+#: shell/ev-window.c:6432
 msgid "_Bookmarks"
 msgstr "पुस्तकखुण (_B)"
 
-#: shell/ev-window.c:6391
+#: shell/ev-window.c:6433
 msgid "_Help"
 msgstr "मदत(_H)"
 
-#: shell/ev-window.c:6394 shell/ev-window.c:6760
+#: shell/ev-window.c:6436 shell/ev-window.c:6808
 msgid "_Open…"
 msgstr "उघडा (_O)..."
 
-#: shell/ev-window.c:6395 shell/ev-window.c:6761
+#: shell/ev-window.c:6437 shell/ev-window.c:6809
 msgid "Open an existing document"
 msgstr "अस्तित्वात असलेले दस्तऐवज उघडा"
 
-#: shell/ev-window.c:6397
+#: shell/ev-window.c:6439
 msgid "Op_en a Copy"
 msgstr "प्रत उघडा (_e)"
 
-#: shell/ev-window.c:6398
+#: shell/ev-window.c:6440
 msgid "Open a copy of the current document in a new window"
 msgstr "सद्याचे दस्तऐवजाची प्रत नविन चौकटीत उघडा"
 
-#: shell/ev-window.c:6401
+#: shell/ev-window.c:6443
 msgid "Save a copy of the current document"
 msgstr "सध्याच्या दस्तऐवजाची एक प्रत साठवा"
 
-#: shell/ev-window.c:6403
+#: shell/ev-window.c:6445
 msgid "Send _To..."
 msgstr ""
 
-#: shell/ev-window.c:6404
+#: shell/ev-window.c:6446
 msgid "Send current document by mail, instant message..."
 msgstr ""
 
-#: shell/ev-window.c:6406
+#: shell/ev-window.c:6448
 msgid "_Print…"
 msgstr "छपाई करा (_P)..."
 
-#: shell/ev-window.c:6409
+#: shell/ev-window.c:6451
 msgid "P_roperties"
 msgstr "गुणधर्म (_r)"
 
-#: shell/ev-window.c:6415
+#: shell/ev-window.c:6457
 msgid "_Copy"
 msgstr "प्रत बनवा (_C)"
 
-#: shell/ev-window.c:6417
+#: shell/ev-window.c:6459
 msgid "Select _All"
 msgstr "सर्व निवडा(_A)"
 
-#: shell/ev-window.c:6419
+#: shell/ev-window.c:6461
 msgid "_Find…"
 msgstr "शोधा (_F):"
 
-#: shell/ev-window.c:6420
+#: shell/ev-window.c:6462
 msgid "Find a word or phrase in the document"
 msgstr "एखादा शब्द अथवा वाक्य दस्तऐवजात शोधा"
 
-#: shell/ev-window.c:6422
+#: shell/ev-window.c:6464
 msgid "Find Ne_xt"
 msgstr "पुढिल शोधा(_x)"
 
-#: shell/ev-window.c:6424
+#: shell/ev-window.c:6466
 msgid "Find Pre_vious"
 msgstr "मागील शोधा(_v)"
 
-#: shell/ev-window.c:6426
+#: shell/ev-window.c:6468
 msgid "T_oolbar"
 msgstr "साधनपट्टी(_o)"
 
-#: shell/ev-window.c:6428
+#: shell/ev-window.c:6470
 msgid "Rotate _Left"
 msgstr "डावीकडे फिरवा(_L)"
 
-#: shell/ev-window.c:6430
+#: shell/ev-window.c:6472
 msgid "Rotate _Right"
 msgstr "उजवीकडे फिरवा(_R)"
 
-#: shell/ev-window.c:6432
+#: shell/ev-window.c:6474
 msgid "Save Current Settings as _Default"
 msgstr "सध्याची संयोजना मुलभूत निश्चित करा (_D)"
 
-#: shell/ev-window.c:6443
+#: shell/ev-window.c:6485
 msgid "_Reset Zoom"
 msgstr ""
 
-#: shell/ev-window.c:6446
+#: shell/ev-window.c:6488
 msgid "_Reload"
 msgstr "पुन्हा दाखल करा (_R)"
 
-#: shell/ev-window.c:6447
+#: shell/ev-window.c:6489
 msgid "Reload the document"
 msgstr "दस्तऐवज पुन्हा वाचा"
 
-#: shell/ev-window.c:6449
+#: shell/ev-window.c:6491
 msgid "_Expand Window to Fit"
 msgstr "खिडकी पूर्ण भरण्याकरिता मोठी करा (_E)"
 
-#: shell/ev-window.c:6453
+#: shell/ev-window.c:6495
 msgid "Auto_scroll"
 msgstr "आपोआप हलवा (_s)"
 
-#: shell/ev-window.c:6463
+#: shell/ev-window.c:6505
 msgid "_First Page"
 msgstr "पहीले पान(_F)"
 
-#: shell/ev-window.c:6464
+#: shell/ev-window.c:6506
 msgid "Go to the first page"
 msgstr "पहील्या पानावर जा"
 
-#: shell/ev-window.c:6466
+#: shell/ev-window.c:6508
 msgid "_Last Page"
 msgstr "शेवटले पान(_L)"
 
-#: shell/ev-window.c:6467
+#: shell/ev-window.c:6509
 msgid "Go to the last page"
 msgstr "शेवटल्या पानावर जा"
 
-#: shell/ev-window.c:6471
+#: shell/ev-window.c:6513
 msgid "_Add Bookmark"
 msgstr "पुस्तकखुण जोडा (_A)"
 
-#: shell/ev-window.c:6472
+#: shell/ev-window.c:6514
 msgid "Add a bookmark for the current page"
 msgstr ""
 
-#: shell/ev-window.c:6476
+#: shell/ev-window.c:6518
 msgid "_Contents"
 msgstr "विषयसूची (_C)"
 
-#: shell/ev-window.c:6479
+#: shell/ev-window.c:6521
 msgid "_About"
 msgstr "विषयी (_A)"
 
-#: shell/ev-window.c:6483
+#: shell/ev-window.c:6525
 msgid "Leave Fullscreen"
 msgstr "फुलस्क्रीन सोडा"
 
-#: shell/ev-window.c:6484
+#: shell/ev-window.c:6526
 msgid "Leave fullscreen mode"
 msgstr "पुर्णपडदा पध्दती सोडा"
 
-#: shell/ev-window.c:6486
+#: shell/ev-window.c:6528
 msgid "Start Presentation"
 msgstr "प्रस्तुतीकरण सुरू करा"
 
-#: shell/ev-window.c:6487
+#: shell/ev-window.c:6529
 msgid "Start a presentation"
 msgstr "प्रस्तुतीकरण सुरू करा"
 
-#: shell/ev-window.c:6542
+#: shell/ev-window.c:6584
 msgid "_Toolbar"
 msgstr "साधनपट्टी (_T)"
 
-#: shell/ev-window.c:6543
+#: shell/ev-window.c:6585
 msgid "Show or hide the toolbar"
 msgstr "साधनपट्टी दाखवा अथवा लपवा"
 
-#: shell/ev-window.c:6545
+#: shell/ev-window.c:6587
 msgid "Side _Pane"
 msgstr "बाजुची फळी(_P)"
 
-#: shell/ev-window.c:6546
+#: shell/ev-window.c:6588
 msgid "Show or hide the side pane"
 msgstr "बाजुची फळी दाखवा अथवा लपवा"
 
-#: shell/ev-window.c:6548
+#: shell/ev-window.c:6590
 msgid "_Continuous"
 msgstr "सतत (_C)"
 
-#: shell/ev-window.c:6549
+#: shell/ev-window.c:6591
 msgid "Show the entire document"
 msgstr "संपूर्ण दस्तऐवज दाखवा"
 
-#: shell/ev-window.c:6551
+#: shell/ev-window.c:6593
 msgid "_Dual"
 msgstr "दुहेरी(_D)"
 
-#: shell/ev-window.c:6552
+#: shell/ev-window.c:6594
 msgid "Show two pages at once"
 msgstr "दोन पाने एकदम दाखवा"
 
-#: shell/ev-window.c:6554
+#: shell/ev-window.c:6596
 msgid "_Odd pages left"
 msgstr ""
 
-#: shell/ev-window.c:6555
+#: shell/ev-window.c:6597
 msgid "Show odd pages on the left in dual mode"
 msgstr ""
 
-#: shell/ev-window.c:6557
+#: shell/ev-window.c:6599
 msgid "_Fullscreen"
 msgstr "पुर्णपटल(_F)"
 
-#: shell/ev-window.c:6558
+#: shell/ev-window.c:6600
 msgid "Expand the window to fill the screen"
 msgstr "पटल पूर्णपणे व्यापण्याकरीता खिडकीचे प्रसरण करा"
 
-#: shell/ev-window.c:6560
+#: shell/ev-window.c:6602
 msgid "Pre_sentation"
 msgstr "प्रस्तुतीकरण (_s)"
 
-#: shell/ev-window.c:6561
+#: shell/ev-window.c:6603
 msgid "Run document as a presentation"
 msgstr "दस्तऐवज प्रस्तुतीकरण म्हणुन चालवा"
 
-#: shell/ev-window.c:6569
+#: shell/ev-window.c:6611
 msgid "Inverted _Colors"
 msgstr ""
 
-#: shell/ev-window.c:6570
+#: shell/ev-window.c:6612
 msgid "Show page contents with the colors inverted"
 msgstr "पानाचा मजकूर रंग उलटे करून दाखवा "
 
-#: shell/ev-window.c:6572
+#: shell/ev-window.c:6614
 msgid "Caret _Navigation"
 msgstr ""
 
-#: shell/ev-window.c:6573
+#: shell/ev-window.c:6615
 msgid "Activate or disable caret-navigation"
 msgstr ""
 
-#: shell/ev-window.c:6581
+#: shell/ev-window.c:6623
 msgid "_Open Link"
 msgstr "दुवा उघडा(_O)"
 
-#: shell/ev-window.c:6583
+#: shell/ev-window.c:6625
 msgid "_Go To"
 msgstr "इथे जा(_G)"
 
-#: shell/ev-window.c:6585
+#: shell/ev-window.c:6627
 msgid "Open in New _Window"
 msgstr "नविन चैकटीत उघडा (_W)"
 
-#: shell/ev-window.c:6587
+#: shell/ev-window.c:6629
 msgid "_Copy Link Address"
 msgstr "लिंक पत्ताचे प्रत बनवा (_C)"
 
-#: shell/ev-window.c:6589
+#: shell/ev-window.c:6631
 msgid "_Save Image As…"
 msgstr "प्रतिमा संचयीत करा (_S)..."
 
-#: shell/ev-window.c:6591
+#: shell/ev-window.c:6633
 msgid "Copy _Image"
 msgstr "प्रतिमा उघडा (_I)"
 
-#: shell/ev-window.c:6593
+#: shell/ev-window.c:6635
 msgid "Annotation Properties…"
 msgstr "टिप्पणी गुणधर्म..."
 
-#: shell/ev-window.c:6595
+#: shell/ev-window.c:6637
 msgid "Remove Annot…"
 msgstr ""
 
-#: shell/ev-window.c:6600
+#: shell/ev-window.c:6642
 msgid "_Open Attachment"
 msgstr "जोडणी उघडा(_O)"
 
-#: shell/ev-window.c:6602
+#: shell/ev-window.c:6644
 msgid "_Save Attachment As…"
 msgstr "जोडणी संचयीत करा(_S)..."
 
-#: shell/ev-window.c:6734
+#: shell/ev-window.c:6782
 msgid "Zoom"
 msgstr "मोठे/लहान करा"
 
-#: shell/ev-window.c:6736
+#: shell/ev-window.c:6784
 msgid "Adjust the zoom level"
 msgstr "झूम स्थिती सुस्थीत करा"
 
-#: shell/ev-window.c:6746
+#: shell/ev-window.c:6794
 msgid "Navigation"
 msgstr "संचार"
 
-#: shell/ev-window.c:6748
+#: shell/ev-window.c:6796
 msgid "Back"
 msgstr "मागे"
 
-#: shell/ev-window.c:6751
+#: shell/ev-window.c:6799
 msgid "Move across visited pages"
 msgstr "भेट दिलेले पानांशी संचार करा"
 
-#: shell/ev-window.c:6780
+#: shell/ev-window.c:6828
 msgid "Send To"
 msgstr ""
 
-#: shell/ev-window.c:6786
+#: shell/ev-window.c:6834
 msgid "Previous"
 msgstr "मागील"
 
-#: shell/ev-window.c:6791
+#: shell/ev-window.c:6839
 msgid "Next"
 msgstr "पुढिल"
 
-#: shell/ev-window.c:6795
+#: shell/ev-window.c:6843
 msgid "Zoom In"
 msgstr "मोठे करा"
 
-#: shell/ev-window.c:6799
+#: shell/ev-window.c:6847
 msgid "Zoom Out"
 msgstr "लहान करा"
 
-#: shell/ev-window.c:6803
+#: shell/ev-window.c:6851
 msgid "Reset Zoom"
 msgstr ""
 
-#: shell/ev-window.c:6944 shell/ev-window.c:6960
+#: shell/ev-window.c:6998 shell/ev-window.c:7014
 msgid "Unable to launch external application."
 msgstr "बाहेरील अनुप्रयोग प्रक्षेपीत करणे अशक्य."
 
-#: shell/ev-window.c:7017
+#: shell/ev-window.c:7071
 msgid "Unable to open external link"
 msgstr "बाहेरील जोडणी उघडण्यास अपयशी"
 
-#: shell/ev-window.c:7211
+#: shell/ev-window.c:7268
 msgid "Couldn't find appropriate format to save image"
 msgstr "प्रतिमा संचयीत करण्याकरीता योग्य प्रकार आढळला नाही"
 
-#: shell/ev-window.c:7243
+#: shell/ev-window.c:7300
 msgid "The image could not be saved."
 msgstr "प्रतिमा संचयीत करु शकत नाही."
 
-#: shell/ev-window.c:7275
+#: shell/ev-window.c:7333
 msgid "Save Image"
 msgstr "प्रतिमा संचयीत करा"
 
-#: shell/ev-window.c:7413
+#: shell/ev-window.c:7473
 msgid "Unable to open attachment"
 msgstr "जोडणी उघडण्यास असमर्थ"
 
-#: shell/ev-window.c:7469
+#: shell/ev-window.c:7529
 msgid "The attachment could not be saved."
 msgstr "जोडणी सुरक्षीत करु शकत नाही."
 
-#: shell/ev-window.c:7514
+#: shell/ev-window.c:7575
 msgid "Save Attachment"
 msgstr "जोडणी संचयीत करा"
 

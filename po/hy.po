@@ -10,9 +10,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: lector 1.25.0\n"
+"Project-Id-Version: lector 2.0.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2024-02-17 13:13+0100\n"
+"POT-Creation-Date: 2026-04-20 08:48+0200\n"
 "PO-Revision-Date: 2018-03-11 14:35+0000\n"
 "Last-Translator: Siranush <ss.m.95@mail.ru>, 2019\n"
 "Language-Team: Armenian (https://www.transifex.com/cafe/teams/13566/hy/)\n"
@@ -77,7 +77,7 @@ msgstr "Ոչնչացման ընթացքում սխալ կար “%s”."
 msgid "Error %s"
 msgstr "Սխալ %s"
 
-#: backend/comics/comicsdocument.lector-backend.desktop.in:4
+#: backend/comics/comicsdocument.lector-backend.desktop.in:3
 msgid "Comic Books"
 msgstr "Կոմիկական Գրքեր"
 
@@ -93,7 +93,7 @@ msgstr ""
 "Փաստաթուղթը բաղկացած է մի քանի ֆայլերից։ Այդ Ֆայլերից մեկը կամ ավելին չեն "
 "կարող ներթափանցվել:"
 
-#: backend/djvu/djvudocument.lector-backend.desktop.in:4
+#: backend/djvu/djvudocument.lector-backend.desktop.in:3
 msgid "DjVu Documents"
 msgstr "DjVu Փաստաթղթեր"
 
@@ -101,7 +101,7 @@ msgstr "DjVu Փաստաթղթեր"
 msgid "DVI document has incorrect format"
 msgstr "DVI փաստաթուղթը ունի սխալ ձևաչափ"
 
-#: backend/dvi/dvidocument.lector-backend.desktop.in:4
+#: backend/dvi/dvidocument.lector-backend.desktop.in:3
 msgid "DVI Documents"
 msgstr "DVI Փաստաթղթեր"
 
@@ -162,7 +162,7 @@ msgid "Could not set up document tree for loading, some files missing"
 msgstr ""
 "Չհաջողվեց ստեղծվել  փաստաթղթային ծառ բեռնման համառ, որոշ ֆայլեր բացակայում են"
 
-#: backend/epub/epubdocument.lector-backend.desktop.in:4
+#: backend/epub/epubdocument.lector-backend.desktop.in:3
 msgid "epub Documents"
 msgstr "epub Փաստաթղթեր"
 
@@ -178,59 +178,59 @@ msgstr "Այո"
 msgid "No"
 msgstr "Ոչ"
 
-#: backend/pdf/ev-poppler.cc:907
+#: backend/pdf/ev-poppler.cc:908
 msgid "Type 1"
 msgstr "Տիպ 1"
 
-#: backend/pdf/ev-poppler.cc:909
+#: backend/pdf/ev-poppler.cc:910
 msgid "Type 1C"
 msgstr "Տիպ 1C"
 
-#: backend/pdf/ev-poppler.cc:911
+#: backend/pdf/ev-poppler.cc:912
 msgid "Type 3"
 msgstr "Տիպ 3"
 
-#: backend/pdf/ev-poppler.cc:913
+#: backend/pdf/ev-poppler.cc:914
 msgid "TrueType"
 msgstr "ՃիշտՏիպ"
 
-#: backend/pdf/ev-poppler.cc:915
+#: backend/pdf/ev-poppler.cc:916
 msgid "Type 1 (CID)"
 msgstr "Տիպ  1 (CID)"
 
-#: backend/pdf/ev-poppler.cc:917
+#: backend/pdf/ev-poppler.cc:918
 msgid "Type 1C (CID)"
 msgstr "Տիպ 1C (CID)"
 
-#: backend/pdf/ev-poppler.cc:919
+#: backend/pdf/ev-poppler.cc:920
 msgid "TrueType (CID)"
 msgstr "ՃիշտՏիպ (CID)"
 
-#: backend/pdf/ev-poppler.cc:921
+#: backend/pdf/ev-poppler.cc:922
 msgid "Unknown font type"
 msgstr "Տառատեսակի անհայտ տիպ"
 
-#: backend/pdf/ev-poppler.cc:947
+#: backend/pdf/ev-poppler.cc:948
 msgid "No name"
 msgstr "Անանուն"
 
-#: backend/pdf/ev-poppler.cc:955
+#: backend/pdf/ev-poppler.cc:956
 msgid "Embedded subset"
 msgstr "Ներդրված ենթաբազմություն"
 
-#: backend/pdf/ev-poppler.cc:957
+#: backend/pdf/ev-poppler.cc:958
 msgid "Embedded"
 msgstr "Ներդրված"
 
-#: backend/pdf/ev-poppler.cc:959
+#: backend/pdf/ev-poppler.cc:960
 msgid "Not embedded"
 msgstr "Չներդրված"
 
-#: backend/pdf/pdfdocument.lector-backend.desktop.in:5
+#: backend/pdf/pdfdocument.lector-backend.desktop.in:4
 msgid "PDF Documents"
 msgstr "PDF Փաստաթղթեր"
 
-#: backend/pixbuf/pixbufdocument.lector-backend.desktop.in:4
+#: backend/pixbuf/pixbufdocument.lector-backend.desktop.in:3
 msgid "Images"
 msgstr "Նկարներ"
 
@@ -244,7 +244,7 @@ msgstr "Ձախողվել է բեռնել փաստաթուղթը “%s”"
 msgid "Failed to save document “%s”"
 msgstr "Ձախողվել է պահպանել փաստաթուղթը “%s”"
 
-#: backend/ps/psdocument.lector-backend.desktop.in:5
+#: backend/ps/psdocument.lector-backend.desktop.in:4
 msgid "PostScript Documents"
 msgstr "Ետգրության Փաստաթղթեր"
 
@@ -252,11 +252,11 @@ msgstr "Ետգրության Փաստաթղթեր"
 msgid "Invalid document"
 msgstr "Անվավեր փաստաթուղթ"
 
-#: backend/tiff/tiffdocument.lector-backend.desktop.in:4
+#: backend/tiff/tiffdocument.lector-backend.desktop.in:3
 msgid "Tiff Documents"
 msgstr ""
 
-#: backend/xps/xpsdocument.lector-backend.desktop.in:5
+#: backend/xps/xpsdocument.lector-backend.desktop.in:4
 msgid "XPS Documents"
 msgstr ""
 
@@ -293,7 +293,7 @@ msgstr "Բոլոր Ֆայլերը"
 msgid "Failed to create a temporary file: %s"
 msgstr "Ձախողվել է ստեղծել ժամանակավոր ֆայլ: %s"
 
-#: libdocument/ev-file-helpers.c:309
+#: libdocument/ev-file-helpers.c:224
 #, c-format
 msgid "Failed to create a temporary directory: %s"
 msgstr "Ձախողվել է ստեղծել ժամանակավոր տեղեկատու: %s"
@@ -393,15 +393,15 @@ msgstr "Հեռացնել ընտրված գործիքների վահանակը"
 msgid "Separator"
 msgstr "Բաժանարար"
 
-#: cut-n-paste/zoom-control/ephy-zoom.h:49 shell/ev-window.c:6807
+#: cut-n-paste/zoom-control/ephy-zoom.h:49 shell/ev-window.c:6855
 msgid "Fit Page"
 msgstr ""
 
-#: cut-n-paste/zoom-control/ephy-zoom.h:50 shell/ev-window.c:6811
+#: cut-n-paste/zoom-control/ephy-zoom.h:50 shell/ev-window.c:6859
 msgid "Fit Width"
 msgstr "Համապատասխանեցնել Լայնությունը"
 
-#: cut-n-paste/zoom-control/ephy-zoom.h:51 shell/ev-window.c:6450
+#: cut-n-paste/zoom-control/ephy-zoom.h:51 shell/ev-window.c:6492
 msgid "Expand Window to Fit"
 msgstr "Համապատասխան Ընդլայնեք պատուհանը"
 
@@ -461,8 +461,8 @@ msgstr "3200%"
 msgid "6400%"
 msgstr "6400%"
 
-#: data/lector.appdata.xml.in:7 data/lector.desktop.in.in:3
-#: shell/ev-window.c:5398
+#: data/lector.appdata.xml.in:7 data/lector.desktop.in.in:2
+#: shell/ev-window.c:5440
 msgid "Lector Document Viewer"
 msgstr "Lector Փաստաթղթի Դիտող"
 
@@ -486,17 +486,17 @@ msgid ""
 "home page."
 msgstr ""
 
-#: data/lector.desktop.in.in:4 shell/ev-window.c:5327
+#: data/lector.desktop.in.in:3 shell/ev-window.c:5368
 #: shell/ev-window-title.c:157
 msgid "Document Viewer"
 msgstr "Փաստաթուղթ Դիտող"
 
-#: data/lector.desktop.in.in:5
+#: data/lector.desktop.in.in:4
 msgid "View multi-page documents"
 msgstr "Դիտել բազմաէջ փաստաթղթեր"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/lector.desktop.in.in:20
+#: data/lector.desktop.in.in:19
 msgid "CAFE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 msgstr ""
 
@@ -554,7 +554,7 @@ msgstr "Տպել ֆայլի պարամետրերը"
 msgid "CAFE Document Previewer"
 msgstr "CAFE Փաստաթղթի  նախադիտակ"
 
-#: previewer/ev-previewer-window.c:96 shell/ev-window.c:3626
+#: previewer/ev-previewer-window.c:96 shell/ev-window.c:3631
 msgid "Failed to print document"
 msgstr "Ձախողվել է տպել փաստաթուղթը"
 
@@ -563,43 +563,43 @@ msgstr "Ձախողվել է տպել փաստաթուղթը"
 msgid "The selected printer '%s' could not be found"
 msgstr "Ընտրված տպիչը '%s' չի կարող գտնվել"
 
-#: previewer/ev-previewer-window.c:280 shell/ev-window.c:6411
+#: previewer/ev-previewer-window.c:280 shell/ev-window.c:6453
 msgid "_Close"
 msgstr "_Փակել"
 
-#: previewer/ev-previewer-window.c:283 shell/ev-window.c:6457
+#: previewer/ev-previewer-window.c:283 shell/ev-window.c:6499
 msgid "_Previous Page"
 msgstr "_Նախորդ էջ"
 
-#: previewer/ev-previewer-window.c:284 shell/ev-window.c:6458
+#: previewer/ev-previewer-window.c:284 shell/ev-window.c:6500
 msgid "Go to the previous page"
 msgstr "Գնալ դեպի նախորդ էջ"
 
-#: previewer/ev-previewer-window.c:286 shell/ev-window.c:6460
+#: previewer/ev-previewer-window.c:286 shell/ev-window.c:6502
 msgid "_Next Page"
 msgstr "_Հաջորդ էջ"
 
-#: previewer/ev-previewer-window.c:287 shell/ev-window.c:6461
+#: previewer/ev-previewer-window.c:287 shell/ev-window.c:6503
 msgid "Go to the next page"
 msgstr "Գնալ դեպի հաջորդ էջ"
 
-#: previewer/ev-previewer-window.c:289 shell/ev-window.c:6437
+#: previewer/ev-previewer-window.c:289 shell/ev-window.c:6479
 msgid "Zoom _In"
 msgstr "Մեծացնել մասշտաբը"
 
-#: previewer/ev-previewer-window.c:290 shell/ev-window.c:6438
+#: previewer/ev-previewer-window.c:290 shell/ev-window.c:6480
 msgid "Enlarge the document"
 msgstr "Ընդլայնել փաստաթուղթը"
 
-#: previewer/ev-previewer-window.c:292 shell/ev-window.c:6440
+#: previewer/ev-previewer-window.c:292 shell/ev-window.c:6482
 msgid "Zoom _Out"
 msgstr "Փոքրացնել _Մասշտաբը"
 
-#: previewer/ev-previewer-window.c:293 shell/ev-window.c:6441
+#: previewer/ev-previewer-window.c:293 shell/ev-window.c:6483
 msgid "Shrink the document"
 msgstr "Սեղմել փաստաթուղթը"
 
-#: previewer/ev-previewer-window.c:296 shell/ev-window.c:6444
+#: previewer/ev-previewer-window.c:296 shell/ev-window.c:6486
 msgid "Reset zoom to 100%"
 msgstr ""
 
@@ -607,31 +607,31 @@ msgstr ""
 msgid "Print"
 msgstr "Տպել"
 
-#: previewer/ev-previewer-window.c:301 shell/ev-window.c:6407
+#: previewer/ev-previewer-window.c:301 shell/ev-window.c:6449
 msgid "Print this document"
 msgstr "Տպել այս փաստաթուղթը"
 
-#: previewer/ev-previewer-window.c:335 shell/ev-window.c:6563
+#: previewer/ev-previewer-window.c:335 shell/ev-window.c:6605
 msgid "Fit Pa_ge"
 msgstr ""
 
-#: previewer/ev-previewer-window.c:336 shell/ev-window.c:6564
+#: previewer/ev-previewer-window.c:336 shell/ev-window.c:6606
 msgid "Make the current document fill the window"
 msgstr "Կատարել ընթացիկ փաստաթղթի պատուհանի լրացում"
 
-#: previewer/ev-previewer-window.c:338 shell/ev-window.c:6566
+#: previewer/ev-previewer-window.c:338 shell/ev-window.c:6608
 msgid "Fit _Width"
 msgstr ""
 
-#: previewer/ev-previewer-window.c:339 shell/ev-window.c:6567
+#: previewer/ev-previewer-window.c:339 shell/ev-window.c:6609
 msgid "Make the current document fill the window width"
 msgstr "Կատարել ընթացիկ փաստաթղթի պատուհանի լայնության լրացում"
 
-#: previewer/ev-previewer-window.c:537 shell/ev-window.c:6720
+#: previewer/ev-previewer-window.c:537 shell/ev-window.c:6768
 msgid "Page"
 msgstr "Էջ"
 
-#: previewer/ev-previewer-window.c:538 shell/ev-window.c:6721
+#: previewer/ev-previewer-window.c:538 shell/ev-window.c:6769
 msgid "Select Page"
 msgstr "Ընտրել էջը"
 
@@ -724,11 +724,11 @@ msgstr "%s, Դիմանկար (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, Բնապատկեր (%s)"
 
-#: properties/liblector-properties-page.baul-extension.desktop.in:5
+#: properties/liblector-properties-page.baul-extension.desktop.in:4
 msgid "Lector properties"
 msgstr "Lector Հատկություններ"
 
-#: properties/liblector-properties-page.baul-extension.desktop.in:6
+#: properties/liblector-properties-page.baul-extension.desktop.in:5
 msgid "Shows details for Lector documents"
 msgstr "Ցույց է տալիս մանրամասներ Lector փաստաթղթերի համար"
 
@@ -1084,11 +1084,11 @@ msgstr "Տառատեսակներ"
 msgid "Document License"
 msgstr "Փաստաթղթի արտոնագիր "
 
-#: shell/ev-properties-fonts.c:136
+#: shell/ev-properties-fonts.c:139
 msgid "Font"
 msgstr "Տառատեսակ"
 
-#: shell/ev-properties-fonts.c:163
+#: shell/ev-properties-fonts.c:166
 #, c-format
 msgid "Gathering font information… %3d%%"
 msgstr "Հավաքել տառատեսակի տեղեկատվություն… %3d%%"
@@ -1143,7 +1143,7 @@ msgid "_Remove Bookmark"
 msgstr "_Հեռացնել էջանիշը"
 
 #: shell/ev-sidebar-bookmarks.c:314 shell/ev-window.c:1006
-#: shell/ev-window.c:5027
+#: shell/ev-window.c:5059
 #, c-format
 msgid "Page %s"
 msgstr "Էջ  %s"
@@ -1164,11 +1164,11 @@ msgstr "Էջանշաններ"
 msgid "Layers"
 msgstr "Շերտերը"
 
-#: shell/ev-sidebar-links.c:331
+#: shell/ev-sidebar-links.c:332
 msgid "Print…"
 msgstr "Տպել..."
 
-#: shell/ev-sidebar-links.c:713
+#: shell/ev-sidebar-links.c:715
 msgid "Index"
 msgstr "Ինդեքս"
 
@@ -1181,111 +1181,111 @@ msgstr "Մատնապատկերներ"
 msgid "Page %s — %s"
 msgstr "Էջ %s — %s"
 
-#: shell/ev-window.c:1163
+#: shell/ev-window.c:1165
 msgid ""
 "Cannot enter presentation mode with ePub documents, use fullscreen mode "
 "instead."
 msgstr ""
 
-#: shell/ev-window.c:1767
+#: shell/ev-window.c:1769
 msgid "The document contains no pages"
 msgstr "Փաստաթուղթը չի պարունակում էջերը"
 
-#: shell/ev-window.c:1770
+#: shell/ev-window.c:1772
 msgid "The document contains only empty pages"
 msgstr "Փաստաթղթում պարունակում է միայն դատարկ էջեր"
 
-#: shell/ev-window.c:1809
+#: shell/ev-window.c:1811
 msgid "Presentation mode is not supported for ePub documents."
 msgstr "Ներկայացնամ ռեժիմը չի ապահովվում ePub փաստաթղթեր."
 
-#: shell/ev-window.c:2003 shell/ev-window.c:2171
+#: shell/ev-window.c:2005 shell/ev-window.c:2173
 msgid "Unable to open document"
 msgstr "Անհնար է բացել փաստաթուղթը"
 
-#: shell/ev-window.c:2140
+#: shell/ev-window.c:2142
 #, c-format
 msgid "Loading document from “%s”"
 msgstr "Բեռնել փաստաթուղթը սկսած %s"
 
-#: shell/ev-window.c:2282 shell/ev-window.c:2573
+#: shell/ev-window.c:2284 shell/ev-window.c:2575
 #, c-format
 msgid "Downloading document (%d%%)"
 msgstr "Փաստաթղթի ներբեռնում (%d%%)"
 
-#: shell/ev-window.c:2315
+#: shell/ev-window.c:2317
 msgid "Failed to load remote file."
 msgstr "Ձախողվեց բեռնել հեռավոր ֆայլը."
 
-#: shell/ev-window.c:2517
+#: shell/ev-window.c:2519
 #, c-format
 msgid "Reloading document from %s"
 msgstr "Վերբեռնել փաստաթուղթը սկսած %s"
 
-#: shell/ev-window.c:2549
+#: shell/ev-window.c:2551
 msgid "Failed to reload document."
 msgstr "Ձախողվել է վերբեռնել փաստաթուղթը."
 
-#: shell/ev-window.c:2767
+#: shell/ev-window.c:2770
 msgid "Open Document"
 msgstr "Բացել Փաստաթուղթը"
 
-#: shell/ev-window.c:3040
+#: shell/ev-window.c:3044
 #, c-format
 msgid "Saving document to %s"
 msgstr "Պահպանել փաստաթուղթը դեպի %s"
 
-#: shell/ev-window.c:3043
+#: shell/ev-window.c:3047
 #, c-format
 msgid "Saving attachment to %s"
 msgstr "Պահպանել հավելվածը դեպի %s"
 
-#: shell/ev-window.c:3046
+#: shell/ev-window.c:3050
 #, c-format
 msgid "Saving image to %s"
 msgstr "Պահպանել պատկերը դեպի %s"
 
-#: shell/ev-window.c:3090 shell/ev-window.c:3190
+#: shell/ev-window.c:3094 shell/ev-window.c:3194
 #, c-format
 msgid "The file could not be saved as “%s”."
 msgstr "Ֆայլը չի կարող պահպանվել “%s”."
 
-#: shell/ev-window.c:3121
+#: shell/ev-window.c:3125
 #, c-format
 msgid "Uploading document (%d%%)"
 msgstr "Վերբեռնվում է փաստաթուղթը (%d%%)"
 
-#: shell/ev-window.c:3125
+#: shell/ev-window.c:3129
 #, c-format
 msgid "Uploading attachment (%d%%)"
 msgstr "Վերբեռնվում է հավելվածը (%d%%)"
 
-#: shell/ev-window.c:3129
+#: shell/ev-window.c:3133
 #, c-format
 msgid "Uploading image (%d%%)"
 msgstr "Վերբեռնվում է պատկերը (%d%%)"
 
-#: shell/ev-window.c:3242
+#: shell/ev-window.c:3247
 msgid "Save As…"
 msgstr "Պահել որպես…"
 
-#: shell/ev-window.c:3320
+#: shell/ev-window.c:3325
 msgid "Could not send current document"
 msgstr ""
 
-#: shell/ev-window.c:3570
+#: shell/ev-window.c:3575
 #, c-format
 msgid "%d pending job in queue"
 msgid_plural "%d pending jobs in queue"
 msgstr[0] ""
 msgstr[1] ""
 
-#: shell/ev-window.c:3683
+#: shell/ev-window.c:3688
 #, c-format
 msgid "Printing job “%s”"
 msgstr "Տպագրվող աշխատանք “%s”"
 
-#: shell/ev-window.c:3860
+#: shell/ev-window.c:3867
 msgid ""
 "Document contains form fields that have been filled out. If you don't save a "
 "copy, changes will be permanently lost."
@@ -1293,7 +1293,7 @@ msgstr ""
 "Փաստաթուղթը պարունակում ձեավոր դաշտեր, որոնք լրացվում են։ Եթե դուք չպահպանեք "
 "պատճենը, փոփոխությունը ընդմիշտ կկորցնեք։"
 
-#: shell/ev-window.c:3864
+#: shell/ev-window.c:3871
 msgid ""
 "Document contains new or modified annotations. If you don't save a copy, "
 "changes will be permanently lost."
@@ -1301,25 +1301,25 @@ msgstr ""
 "Փաստաթուղթը պարունակում է նոր կամ փոփոխված անոտացիաներ։ Եթե դուք չպահպանեք "
 "պատճենը, փոփոխությունը  ընդմիշտ կկորցնեք։"
 
-#: shell/ev-window.c:3871
+#: shell/ev-window.c:3878
 #, c-format
 msgid "Save a copy of document “%s” before closing?"
 msgstr "Պահպանե՞լ փաստաթղթի պատճենը “%s” փակելուց առաջ"
 
-#: shell/ev-window.c:3890
+#: shell/ev-window.c:3897
 msgid "Close _without Saving"
 msgstr "Փակել _առանց Պահպանելու"
 
-#: shell/ev-window.c:3894 shell/ev-window.c:6400
+#: shell/ev-window.c:3901 shell/ev-window.c:6442
 msgid "_Save As…"
 msgstr ""
 
-#: shell/ev-window.c:3963
+#: shell/ev-window.c:3970
 #, c-format
 msgid "Wait until print job “%s” finishes before closing?"
 msgstr "Փակելուց առաջ սպասե՞ք մինչև ավարտվի “%s” աշխատանքի ատպագրությունը։"
 
-#: shell/ev-window.c:3969
+#: shell/ev-window.c:3976
 #, c-format
 msgid "There is %d print job active. Wait until print finishes before closing?"
 msgid_plural ""
@@ -1327,35 +1327,35 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: shell/ev-window.c:3984
+#: shell/ev-window.c:3991
 msgid "If you close the window, pending print jobs will not be printed."
 msgstr "եթե դու փակեես պատուհանը, ապա տպատառ առաջադրանքները չեն տպվելու։"
 
-#: shell/ev-window.c:3988
+#: shell/ev-window.c:3995
 msgid "Cancel _print and Close"
 msgstr "Չեղարկել  _տպելը և փակել"
 
-#: shell/ev-window.c:3992
+#: shell/ev-window.c:3999
 msgid "Close _after Printing"
 msgstr "Փակել տպելուց _հետո"
 
-#: shell/ev-window.c:4373
+#: shell/ev-window.c:4391
 msgid "Running in presentation mode"
 msgstr "Ներկայացնամ ռեժիմի ընթացք"
 
-#: shell/ev-window.c:4438
+#: shell/ev-window.c:4456
 msgid "Presentation mode is not supported for ePub documents"
 msgstr "Ներկայացման ռեժիմը չի ապահովվում ePub փաստաթղթի համար"
 
-#: shell/ev-window.c:4752
+#: shell/ev-window.c:4774
 msgid "Toolbar Editor"
 msgstr "Գործիքադարակի խմբագիր"
 
-#: shell/ev-window.c:5073
+#: shell/ev-window.c:5109
 msgid "There was an error displaying help"
 msgstr "Ձեռնարկի ցուցադրման ժամանակ սխալ է կատարվել"
 
-#: shell/ev-window.c:5323
+#: shell/ev-window.c:5364
 #, c-format
 msgid ""
 "Document Viewer\n"
@@ -1363,19 +1363,19 @@ msgid ""
 "and SyncTeX %s"
 msgstr ""
 
-#: shell/ev-window.c:5340
+#: shell/ev-window.c:5382
 msgid "CAFE Documentation Team"
 msgstr ""
 
-#: shell/ev-window.c:5341
+#: shell/ev-window.c:5383
 msgid "MATE Documentation Team"
 msgstr ""
 
-#: shell/ev-window.c:5342
+#: shell/ev-window.c:5384
 msgid "GNOME Documentation Team"
 msgstr ""
 
-#: shell/ev-window.c:5347
+#: shell/ev-window.c:5389
 msgid ""
 "Lector is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -1383,7 +1383,7 @@ msgid ""
 "version."
 msgstr ""
 
-#: shell/ev-window.c:5351
+#: shell/ev-window.c:5393
 msgid ""
 "Lector is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -1391,416 +1391,416 @@ msgid ""
 "details."
 msgstr ""
 
-#: shell/ev-window.c:5355
+#: shell/ev-window.c:5397
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "Lector; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA"
 msgstr ""
 
-#: shell/ev-window.c:5400
+#: shell/ev-window.c:5442
 msgid "About Lector Document Viewer"
 msgstr ""
 
-#: shell/ev-window.c:5401
+#: shell/ev-window.c:5443
 msgid ""
 "Copyright © 1996–2009 The Evince authors\n"
 "Copyright © 2012–2020 The MATE developers\n"
 "Copyright © 2024 Pablo Barciela"
 msgstr ""
 
-#: shell/ev-window.c:5409
+#: shell/ev-window.c:5451
 msgid "translator-credits"
 msgstr "թարգմանչի կրեդիտներ"
 
-#: shell/ev-window.c:5687
+#: shell/ev-window.c:5729
 #, c-format
 msgid "%d found on this page"
 msgid_plural "%d found on this page"
 msgstr[0] ""
 msgstr[1] ""
 
-#: shell/ev-window.c:5692
+#: shell/ev-window.c:5734
 msgid "Not found"
 msgstr "Չի գտնվել"
 
-#: shell/ev-window.c:5698
+#: shell/ev-window.c:5740
 #, c-format
 msgid "%3d%% remaining to search"
 msgstr "%3d%% որոնել մնացածները"
 
-#: shell/ev-window.c:6053
+#: shell/ev-window.c:6095
 msgid "Enable caret navigation?"
 msgstr ""
 
-#: shell/ev-window.c:6055
+#: shell/ev-window.c:6097
 msgid "_Enable"
 msgstr ""
 
-#: shell/ev-window.c:6058
+#: shell/ev-window.c:6100
 msgid ""
 "Pressing F7 turns the caret navigation on or off. This feature places a "
 "movable cursor in text pages, allowing you to move around and select text "
 "with your keyboard. Do you want to enable the caret navigation?"
 msgstr ""
 
-#: shell/ev-window.c:6063
+#: shell/ev-window.c:6105
 msgid "Don't show this message again"
 msgstr ""
 
-#: shell/ev-window.c:6386
+#: shell/ev-window.c:6428
 msgid "_File"
 msgstr "_Ֆայլ"
 
-#: shell/ev-window.c:6387
+#: shell/ev-window.c:6429
 msgid "_Edit"
 msgstr "_Խմբագրել"
 
-#: shell/ev-window.c:6388
+#: shell/ev-window.c:6430
 msgid "_View"
 msgstr "_Դիտել"
 
-#: shell/ev-window.c:6389
+#: shell/ev-window.c:6431
 msgid "_Go"
 msgstr "_Գնալ"
 
-#: shell/ev-window.c:6390
+#: shell/ev-window.c:6432
 msgid "_Bookmarks"
 msgstr "_Էջանշաններ"
 
-#: shell/ev-window.c:6391
+#: shell/ev-window.c:6433
 msgid "_Help"
 msgstr "_Օգնություն"
 
-#: shell/ev-window.c:6394 shell/ev-window.c:6760
+#: shell/ev-window.c:6436 shell/ev-window.c:6808
 msgid "_Open…"
 msgstr "_Բացել․․․"
 
-#: shell/ev-window.c:6395 shell/ev-window.c:6761
+#: shell/ev-window.c:6437 shell/ev-window.c:6809
 msgid "Open an existing document"
 msgstr "Բացել գոյություն ունեցող փաստաթուղթ"
 
-#: shell/ev-window.c:6397
+#: shell/ev-window.c:6439
 msgid "Op_en a Copy"
 msgstr "Բա_ցել պատճենը"
 
-#: shell/ev-window.c:6398
+#: shell/ev-window.c:6440
 msgid "Open a copy of the current document in a new window"
 msgstr "Բացել ընթացիկ փաստաթղթի պատճենը նոր պատուհանում"
 
-#: shell/ev-window.c:6401
+#: shell/ev-window.c:6443
 msgid "Save a copy of the current document"
 msgstr "Պահպանել ընթացիկ փաստաթղթի պատճենը"
 
-#: shell/ev-window.c:6403
+#: shell/ev-window.c:6445
 msgid "Send _To..."
 msgstr "Ուղարկել դ_եպի:"
 
-#: shell/ev-window.c:6404
+#: shell/ev-window.c:6446
 msgid "Send current document by mail, instant message..."
 msgstr ""
 
-#: shell/ev-window.c:6406
+#: shell/ev-window.c:6448
 msgid "_Print…"
 msgstr "_Տպել…"
 
-#: shell/ev-window.c:6409
+#: shell/ev-window.c:6451
 msgid "P_roperties"
 msgstr "Հ_ատկություններ"
 
-#: shell/ev-window.c:6415
+#: shell/ev-window.c:6457
 msgid "_Copy"
 msgstr "_Պատճեն"
 
-#: shell/ev-window.c:6417
+#: shell/ev-window.c:6459
 msgid "Select _All"
 msgstr "Ընտրել _Ամբողջը"
 
-#: shell/ev-window.c:6419
+#: shell/ev-window.c:6461
 msgid "_Find…"
 msgstr "_Գտնել"
 
-#: shell/ev-window.c:6420
+#: shell/ev-window.c:6462
 msgid "Find a word or phrase in the document"
 msgstr "Գտնել բառը կամ արտահայտությունը փաստաթղթում"
 
-#: shell/ev-window.c:6422
+#: shell/ev-window.c:6464
 msgid "Find Ne_xt"
 msgstr "Գտնել Հա_ջորդը"
 
-#: shell/ev-window.c:6424
+#: shell/ev-window.c:6466
 msgid "Find Pre_vious"
 msgstr "Գտնել Նախ_որդը"
 
-#: shell/ev-window.c:6426
+#: shell/ev-window.c:6468
 msgid "T_oolbar"
 msgstr "Գ_ործիքադարակ"
 
-#: shell/ev-window.c:6428
+#: shell/ev-window.c:6470
 msgid "Rotate _Left"
 msgstr "Պտտել _Ձախ"
 
-#: shell/ev-window.c:6430
+#: shell/ev-window.c:6472
 msgid "Rotate _Right"
 msgstr "Պտտել  _Աջ"
 
-#: shell/ev-window.c:6432
+#: shell/ev-window.c:6474
 msgid "Save Current Settings as _Default"
 msgstr "Պահպանել Ընթացիկ պարամետրերը որպես _Հիմնական"
 
-#: shell/ev-window.c:6443
+#: shell/ev-window.c:6485
 msgid "_Reset Zoom"
 msgstr ""
 
-#: shell/ev-window.c:6446
+#: shell/ev-window.c:6488
 msgid "_Reload"
 msgstr "_Վերբեռնում"
 
-#: shell/ev-window.c:6447
+#: shell/ev-window.c:6489
 msgid "Reload the document"
 msgstr "Վերբեռնել փաստաթուղթը"
 
-#: shell/ev-window.c:6449
+#: shell/ev-window.c:6491
 msgid "_Expand Window to Fit"
 msgstr "Համապատասխան Ընդլայնեք Պատուհանը"
 
-#: shell/ev-window.c:6453
+#: shell/ev-window.c:6495
 msgid "Auto_scroll"
 msgstr "Ինքնա֊պտտել"
 
-#: shell/ev-window.c:6463
+#: shell/ev-window.c:6505
 msgid "_First Page"
 msgstr "_Առաջին Էջ"
 
-#: shell/ev-window.c:6464
+#: shell/ev-window.c:6506
 msgid "Go to the first page"
 msgstr "Գնալ առաջին էջը"
 
-#: shell/ev-window.c:6466
+#: shell/ev-window.c:6508
 msgid "_Last Page"
 msgstr "_Վերջին Էջ"
 
-#: shell/ev-window.c:6467
+#: shell/ev-window.c:6509
 msgid "Go to the last page"
 msgstr "Գնալ վերջին էջը"
 
-#: shell/ev-window.c:6471
+#: shell/ev-window.c:6513
 msgid "_Add Bookmark"
 msgstr "_Ավելացնել Էջանշան"
 
-#: shell/ev-window.c:6472
+#: shell/ev-window.c:6514
 msgid "Add a bookmark for the current page"
 msgstr "Ընթացիկ էջը ավելացնել էջանիշերի մեջ"
 
-#: shell/ev-window.c:6476
+#: shell/ev-window.c:6518
 msgid "_Contents"
 msgstr "_Բովանդակություն"
 
-#: shell/ev-window.c:6479
+#: shell/ev-window.c:6521
 msgid "_About"
 msgstr "_Մասին"
 
-#: shell/ev-window.c:6483
+#: shell/ev-window.c:6525
 msgid "Leave Fullscreen"
 msgstr "Թողնել ամբողջ էկրանով"
 
-#: shell/ev-window.c:6484
+#: shell/ev-window.c:6526
 msgid "Leave fullscreen mode"
 msgstr "Թողնել ամբողջ էկրանի ռեժիմը"
 
-#: shell/ev-window.c:6486
+#: shell/ev-window.c:6528
 msgid "Start Presentation"
 msgstr "Սսկել Ներկայացում"
 
-#: shell/ev-window.c:6487
+#: shell/ev-window.c:6529
 msgid "Start a presentation"
 msgstr "Սսկել ներկայացումը"
 
-#: shell/ev-window.c:6542
+#: shell/ev-window.c:6584
 msgid "_Toolbar"
 msgstr "_Գործիքների վահանակ"
 
-#: shell/ev-window.c:6543
+#: shell/ev-window.c:6585
 msgid "Show or hide the toolbar"
 msgstr "Ցույց տալ կամ թաքցնել գործիքադարակը"
 
-#: shell/ev-window.c:6545
+#: shell/ev-window.c:6587
 msgid "Side _Pane"
 msgstr "Կողմնակի _Վահանակ"
 
-#: shell/ev-window.c:6546
+#: shell/ev-window.c:6588
 msgid "Show or hide the side pane"
 msgstr "Ցույց տալ կամ թաքցնել կողմնակի պատուհանը"
 
-#: shell/ev-window.c:6548
+#: shell/ev-window.c:6590
 msgid "_Continuous"
 msgstr "_Շարունակական"
 
-#: shell/ev-window.c:6549
+#: shell/ev-window.c:6591
 msgid "Show the entire document"
 msgstr "Ցույց տալ ամբողջ փաստաթուղթը"
 
-#: shell/ev-window.c:6551
+#: shell/ev-window.c:6593
 msgid "_Dual"
 msgstr "_Երկակի"
 
-#: shell/ev-window.c:6552
+#: shell/ev-window.c:6594
 msgid "Show two pages at once"
 msgstr "Երկու էջերը  ցույց տալ միանգամից"
 
-#: shell/ev-window.c:6554
+#: shell/ev-window.c:6596
 msgid "_Odd pages left"
 msgstr ""
 
-#: shell/ev-window.c:6555
+#: shell/ev-window.c:6597
 msgid "Show odd pages on the left in dual mode"
 msgstr ""
 
-#: shell/ev-window.c:6557
+#: shell/ev-window.c:6599
 msgid "_Fullscreen"
 msgstr "_Ամբողջ էկրանով"
 
-#: shell/ev-window.c:6558
+#: shell/ev-window.c:6600
 msgid "Expand the window to fill the screen"
 msgstr "Ընդարձակել պատուհանը ամբողջ էկրանին"
 
-#: shell/ev-window.c:6560
+#: shell/ev-window.c:6602
 msgid "Pre_sentation"
 msgstr "Ներ_կայացում"
 
-#: shell/ev-window.c:6561
+#: shell/ev-window.c:6603
 msgid "Run document as a presentation"
 msgstr "Աշխատեցնել փաստաթուղթը որպես ներկայացում"
 
-#: shell/ev-window.c:6569
+#: shell/ev-window.c:6611
 msgid "Inverted _Colors"
 msgstr ""
 
-#: shell/ev-window.c:6570
+#: shell/ev-window.c:6612
 msgid "Show page contents with the colors inverted"
 msgstr "Ցույց տալ էջի բովանդակությունը շրջված գույներով"
 
-#: shell/ev-window.c:6572
+#: shell/ev-window.c:6614
 msgid "Caret _Navigation"
 msgstr ""
 
-#: shell/ev-window.c:6573
+#: shell/ev-window.c:6615
 msgid "Activate or disable caret-navigation"
 msgstr ""
 
-#: shell/ev-window.c:6581
+#: shell/ev-window.c:6623
 msgid "_Open Link"
 msgstr "_Բացել Հղումը"
 
-#: shell/ev-window.c:6583
+#: shell/ev-window.c:6625
 msgid "_Go To"
 msgstr "_Գնալ դեպի"
 
-#: shell/ev-window.c:6585
+#: shell/ev-window.c:6627
 msgid "Open in New _Window"
 msgstr "Բացել Նոր _Պատուհան"
 
-#: shell/ev-window.c:6587
+#: shell/ev-window.c:6629
 msgid "_Copy Link Address"
 msgstr "_Պատճենել Հղման Հասցեն"
 
-#: shell/ev-window.c:6589
+#: shell/ev-window.c:6631
 msgid "_Save Image As…"
 msgstr "_Պահպանել պատկերը որպես…"
 
-#: shell/ev-window.c:6591
+#: shell/ev-window.c:6633
 msgid "Copy _Image"
 msgstr "Պատճենել  _պատկերը"
 
-#: shell/ev-window.c:6593
+#: shell/ev-window.c:6635
 msgid "Annotation Properties…"
 msgstr "Ծանոթագրության Հատկություններ…"
 
-#: shell/ev-window.c:6595
+#: shell/ev-window.c:6637
 msgid "Remove Annot…"
 msgstr ""
 
-#: shell/ev-window.c:6600
+#: shell/ev-window.c:6642
 msgid "_Open Attachment"
 msgstr "_Բացել հավելվածները"
 
-#: shell/ev-window.c:6602
+#: shell/ev-window.c:6644
 msgid "_Save Attachment As…"
 msgstr "_Պահապանել Հավելվածը Որպես…"
 
-#: shell/ev-window.c:6734
+#: shell/ev-window.c:6782
 msgid "Zoom"
 msgstr "Պատկերման մասշտաբ"
 
-#: shell/ev-window.c:6736
+#: shell/ev-window.c:6784
 msgid "Adjust the zoom level"
 msgstr "Կարգավորել  մասշտաբի  մակարդակը"
 
-#: shell/ev-window.c:6746
+#: shell/ev-window.c:6794
 msgid "Navigation"
 msgstr "Նավիգացիա"
 
-#: shell/ev-window.c:6748
+#: shell/ev-window.c:6796
 msgid "Back"
 msgstr "Ետ"
 
-#: shell/ev-window.c:6751
+#: shell/ev-window.c:6799
 msgid "Move across visited pages"
 msgstr "Տեղափոխել այցելած էջերը մյուս կողմում"
 
-#: shell/ev-window.c:6780
+#: shell/ev-window.c:6828
 msgid "Send To"
 msgstr "Ուղարկել դեպի"
 
-#: shell/ev-window.c:6786
+#: shell/ev-window.c:6834
 msgid "Previous"
 msgstr "Նախորդ"
 
-#: shell/ev-window.c:6791
+#: shell/ev-window.c:6839
 msgid "Next"
 msgstr "Հաջորդ"
 
-#: shell/ev-window.c:6795
+#: shell/ev-window.c:6843
 msgid "Zoom In"
 msgstr "Մեծացնել"
 
-#: shell/ev-window.c:6799
+#: shell/ev-window.c:6847
 msgid "Zoom Out"
 msgstr "Փոքրացնել"
 
-#: shell/ev-window.c:6803
+#: shell/ev-window.c:6851
 msgid "Reset Zoom"
 msgstr ""
 
-#: shell/ev-window.c:6944 shell/ev-window.c:6960
+#: shell/ev-window.c:6998 shell/ev-window.c:7014
 msgid "Unable to launch external application."
 msgstr "Անհնար է գործարկել արտաքին դիմումը."
 
-#: shell/ev-window.c:7017
+#: shell/ev-window.c:7071
 msgid "Unable to open external link"
 msgstr "Անհնար է բացել արտաքին հղումը"
 
-#: shell/ev-window.c:7211
+#: shell/ev-window.c:7268
 msgid "Couldn't find appropriate format to save image"
 msgstr "Հնարավոր չէ գտնել համապատասխան ձևաչափ պատկերը պահպանելու համար"
 
-#: shell/ev-window.c:7243
+#: shell/ev-window.c:7300
 msgid "The image could not be saved."
 msgstr "Պատկերը չի կարող պահպանվել․"
 
-#: shell/ev-window.c:7275
+#: shell/ev-window.c:7333
 msgid "Save Image"
 msgstr "Պահպանել պատկերը"
 
-#: shell/ev-window.c:7413
+#: shell/ev-window.c:7473
 msgid "Unable to open attachment"
 msgstr "Անհնար է բացել հավելվածը"
 
-#: shell/ev-window.c:7469
+#: shell/ev-window.c:7529
 msgid "The attachment could not be saved."
 msgstr "Հավելված չի կարող պահպանվել․"
 
-#: shell/ev-window.c:7514
+#: shell/ev-window.c:7575
 msgid "Save Attachment"
 msgstr "Պահապանել հավելվածը"
 

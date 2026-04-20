@@ -12,9 +12,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: lector 1.25.0\n"
+"Project-Id-Version: lector 2.0.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2024-02-17 13:13+0100\n"
+"POT-Creation-Date: 2026-04-20 08:48+0200\n"
 "PO-Revision-Date: 2018-03-11 14:35+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2019\n"
 "Language-Team: Basque (https://www.transifex.com/cafe/teams/13566/eu/)\n"
@@ -78,7 +78,7 @@ msgstr "Errorea gertatu da '%s' ezabatzean."
 msgid "Error %s"
 msgstr "Errorea: %s"
 
-#: backend/comics/comicsdocument.lector-backend.desktop.in:4
+#: backend/comics/comicsdocument.lector-backend.desktop.in:3
 msgid "Comic Books"
 msgstr "Komikiak"
 
@@ -94,7 +94,7 @@ msgstr ""
 "Dokumentua hainbat fitxategirekin osatua dago. Fitxategi bat edo gehiago "
 "ezin da atzitu."
 
-#: backend/djvu/djvudocument.lector-backend.desktop.in:4
+#: backend/djvu/djvudocument.lector-backend.desktop.in:3
 msgid "DjVu Documents"
 msgstr "DjVu dokumentuak"
 
@@ -102,7 +102,7 @@ msgstr "DjVu dokumentuak"
 msgid "DVI document has incorrect format"
 msgstr "DVI dokumentuak okerreko formatua du"
 
-#: backend/dvi/dvidocument.lector-backend.desktop.in:4
+#: backend/dvi/dvidocument.lector-backend.desktop.in:3
 msgid "DVI Documents"
 msgstr "DVI dokumentuak"
 
@@ -164,7 +164,7 @@ msgstr ""
 "Ezin izan da dokumentu-zuhaitza konfiguratu kargatzeko, fitxategiak falta "
 "dira"
 
-#: backend/epub/epubdocument.lector-backend.desktop.in:4
+#: backend/epub/epubdocument.lector-backend.desktop.in:3
 msgid "epub Documents"
 msgstr "epub dokumentuak"
 
@@ -180,59 +180,59 @@ msgstr "Bai"
 msgid "No"
 msgstr "Ez"
 
-#: backend/pdf/ev-poppler.cc:907
+#: backend/pdf/ev-poppler.cc:908
 msgid "Type 1"
 msgstr "1 mota"
 
-#: backend/pdf/ev-poppler.cc:909
+#: backend/pdf/ev-poppler.cc:910
 msgid "Type 1C"
 msgstr "1C mota"
 
-#: backend/pdf/ev-poppler.cc:911
+#: backend/pdf/ev-poppler.cc:912
 msgid "Type 3"
 msgstr "3 mota"
 
-#: backend/pdf/ev-poppler.cc:913
+#: backend/pdf/ev-poppler.cc:914
 msgid "TrueType"
 msgstr "TrueType"
 
-#: backend/pdf/ev-poppler.cc:915
+#: backend/pdf/ev-poppler.cc:916
 msgid "Type 1 (CID)"
 msgstr "1 mota (CID)"
 
-#: backend/pdf/ev-poppler.cc:917
+#: backend/pdf/ev-poppler.cc:918
 msgid "Type 1C (CID)"
 msgstr "1C mota (CID)"
 
-#: backend/pdf/ev-poppler.cc:919
+#: backend/pdf/ev-poppler.cc:920
 msgid "TrueType (CID)"
 msgstr "TrueType (CID)"
 
-#: backend/pdf/ev-poppler.cc:921
+#: backend/pdf/ev-poppler.cc:922
 msgid "Unknown font type"
 msgstr "Letra-tipo mota ezezaguna"
 
-#: backend/pdf/ev-poppler.cc:947
+#: backend/pdf/ev-poppler.cc:948
 msgid "No name"
 msgstr "Izenik gabe"
 
-#: backend/pdf/ev-poppler.cc:955
+#: backend/pdf/ev-poppler.cc:956
 msgid "Embedded subset"
 msgstr "Kapsulatutako azpimultzoa"
 
-#: backend/pdf/ev-poppler.cc:957
+#: backend/pdf/ev-poppler.cc:958
 msgid "Embedded"
 msgstr "Kapsulatua"
 
-#: backend/pdf/ev-poppler.cc:959
+#: backend/pdf/ev-poppler.cc:960
 msgid "Not embedded"
 msgstr "Kapsulatu gabea"
 
-#: backend/pdf/pdfdocument.lector-backend.desktop.in:5
+#: backend/pdf/pdfdocument.lector-backend.desktop.in:4
 msgid "PDF Documents"
 msgstr "PDF dokumentuak"
 
-#: backend/pixbuf/pixbufdocument.lector-backend.desktop.in:4
+#: backend/pixbuf/pixbufdocument.lector-backend.desktop.in:3
 msgid "Images"
 msgstr "Irudiak"
 
@@ -246,7 +246,7 @@ msgstr "Huts egin du '%s' dokumentua kargatzean"
 msgid "Failed to save document “%s”"
 msgstr "Huts egin du '%s' dokumentua gordetzean"
 
-#: backend/ps/psdocument.lector-backend.desktop.in:5
+#: backend/ps/psdocument.lector-backend.desktop.in:4
 msgid "PostScript Documents"
 msgstr "PostScript dokumentuak"
 
@@ -254,11 +254,11 @@ msgstr "PostScript dokumentuak"
 msgid "Invalid document"
 msgstr "Dokumentu baliogabea"
 
-#: backend/tiff/tiffdocument.lector-backend.desktop.in:4
+#: backend/tiff/tiffdocument.lector-backend.desktop.in:3
 msgid "Tiff Documents"
 msgstr ""
 
-#: backend/xps/xpsdocument.lector-backend.desktop.in:5
+#: backend/xps/xpsdocument.lector-backend.desktop.in:4
 msgid "XPS Documents"
 msgstr ""
 
@@ -295,7 +295,7 @@ msgstr "Fitxategi guztiak"
 msgid "Failed to create a temporary file: %s"
 msgstr "Huts egin du aldi baterako fitxategia sortzean: %s"
 
-#: libdocument/ev-file-helpers.c:309
+#: libdocument/ev-file-helpers.c:224
 #, c-format
 msgid "Failed to create a temporary directory: %s"
 msgstr "Huts egin du aldi baterako direktorioa sortzean: %s"
@@ -393,15 +393,15 @@ msgstr "Kendu hautatutako tresna-barra"
 msgid "Separator"
 msgstr "Bereizlea"
 
-#: cut-n-paste/zoom-control/ephy-zoom.h:49 shell/ev-window.c:6807
+#: cut-n-paste/zoom-control/ephy-zoom.h:49 shell/ev-window.c:6855
 msgid "Fit Page"
 msgstr "Doitu orria"
 
-#: cut-n-paste/zoom-control/ephy-zoom.h:50 shell/ev-window.c:6811
+#: cut-n-paste/zoom-control/ephy-zoom.h:50 shell/ev-window.c:6859
 msgid "Fit Width"
 msgstr "Doitu zabalera"
 
-#: cut-n-paste/zoom-control/ephy-zoom.h:51 shell/ev-window.c:6450
+#: cut-n-paste/zoom-control/ephy-zoom.h:51 shell/ev-window.c:6492
 msgid "Expand Window to Fit"
 msgstr "Zabal Ezazu Leihoa Moldatzera"
 
@@ -461,8 +461,8 @@ msgstr "%3200"
 msgid "6400%"
 msgstr "%6400"
 
-#: data/lector.appdata.xml.in:7 data/lector.desktop.in.in:3
-#: shell/ev-window.c:5398
+#: data/lector.appdata.xml.in:7 data/lector.desktop.in.in:2
+#: shell/ev-window.c:5440
 msgid "Lector Document Viewer"
 msgstr "Lector dokumentu ikustailea"
 
@@ -486,17 +486,17 @@ msgid ""
 "home page."
 msgstr ""
 
-#: data/lector.desktop.in.in:4 shell/ev-window.c:5327
+#: data/lector.desktop.in.in:3 shell/ev-window.c:5368
 #: shell/ev-window-title.c:157
 msgid "Document Viewer"
 msgstr "Dokumentu ikustailea"
 
-#: data/lector.desktop.in.in:5
+#: data/lector.desktop.in.in:4
 msgid "View multi-page documents"
 msgstr "Ikusi orrialde anitzeko dokumentuak"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/lector.desktop.in.in:20
+#: data/lector.desktop.in.in:19
 msgid "CAFE;document;viewer;pdf;dvi;ps;xps;tiff;pixbuf;djvu;comics;"
 msgstr ""
 
@@ -560,7 +560,7 @@ msgstr "Inprimatu ezarpenen fitxategia"
 msgid "CAFE Document Previewer"
 msgstr "CAFEko dokumentu aurre-ikustailea"
 
-#: previewer/ev-previewer-window.c:96 shell/ev-window.c:3626
+#: previewer/ev-previewer-window.c:96 shell/ev-window.c:3631
 msgid "Failed to print document"
 msgstr "Huts egin du dokumentua inprimatzean"
 
@@ -569,43 +569,43 @@ msgstr "Huts egin du dokumentua inprimatzean"
 msgid "The selected printer '%s' could not be found"
 msgstr "Ezin izan da hautatutako '%s' inprimagailua aurkitu"
 
-#: previewer/ev-previewer-window.c:280 shell/ev-window.c:6411
+#: previewer/ev-previewer-window.c:280 shell/ev-window.c:6453
 msgid "_Close"
 msgstr "_Itxi"
 
-#: previewer/ev-previewer-window.c:283 shell/ev-window.c:6457
+#: previewer/ev-previewer-window.c:283 shell/ev-window.c:6499
 msgid "_Previous Page"
 msgstr "_Aurreko orrialdea"
 
-#: previewer/ev-previewer-window.c:284 shell/ev-window.c:6458
+#: previewer/ev-previewer-window.c:284 shell/ev-window.c:6500
 msgid "Go to the previous page"
 msgstr "Joan aurreko orrialdera"
 
-#: previewer/ev-previewer-window.c:286 shell/ev-window.c:6460
+#: previewer/ev-previewer-window.c:286 shell/ev-window.c:6502
 msgid "_Next Page"
 msgstr "_Hurrengo orrialdea"
 
-#: previewer/ev-previewer-window.c:287 shell/ev-window.c:6461
+#: previewer/ev-previewer-window.c:287 shell/ev-window.c:6503
 msgid "Go to the next page"
 msgstr "Joan hurrengo orrialdera"
 
-#: previewer/ev-previewer-window.c:289 shell/ev-window.c:6437
+#: previewer/ev-previewer-window.c:289 shell/ev-window.c:6479
 msgid "Zoom _In"
 msgstr "_Zooma handiagotu"
 
-#: previewer/ev-previewer-window.c:290 shell/ev-window.c:6438
+#: previewer/ev-previewer-window.c:290 shell/ev-window.c:6480
 msgid "Enlarge the document"
 msgstr "Handiagotu dokumentua"
 
-#: previewer/ev-previewer-window.c:292 shell/ev-window.c:6440
+#: previewer/ev-previewer-window.c:292 shell/ev-window.c:6482
 msgid "Zoom _Out"
 msgstr "_Txikiagotu"
 
-#: previewer/ev-previewer-window.c:293 shell/ev-window.c:6441
+#: previewer/ev-previewer-window.c:293 shell/ev-window.c:6483
 msgid "Shrink the document"
 msgstr "Uzkurtu dokumentua"
 
-#: previewer/ev-previewer-window.c:296 shell/ev-window.c:6444
+#: previewer/ev-previewer-window.c:296 shell/ev-window.c:6486
 msgid "Reset zoom to 100%"
 msgstr ""
 
@@ -613,31 +613,31 @@ msgstr ""
 msgid "Print"
 msgstr "Inprimatu"
 
-#: previewer/ev-previewer-window.c:301 shell/ev-window.c:6407
+#: previewer/ev-previewer-window.c:301 shell/ev-window.c:6449
 msgid "Print this document"
 msgstr "Inprimatu dokumentu hau"
 
-#: previewer/ev-previewer-window.c:335 shell/ev-window.c:6563
+#: previewer/ev-previewer-window.c:335 shell/ev-window.c:6605
 msgid "Fit Pa_ge"
 msgstr "Doitu _orria"
 
-#: previewer/ev-previewer-window.c:336 shell/ev-window.c:6564
+#: previewer/ev-previewer-window.c:336 shell/ev-window.c:6606
 msgid "Make the current document fill the window"
 msgstr "Uneko dokumentuak leiho guztia betetzen du"
 
-#: previewer/ev-previewer-window.c:338 shell/ev-window.c:6566
+#: previewer/ev-previewer-window.c:338 shell/ev-window.c:6608
 msgid "Fit _Width"
 msgstr "Doitu _zabalera"
 
-#: previewer/ev-previewer-window.c:339 shell/ev-window.c:6567
+#: previewer/ev-previewer-window.c:339 shell/ev-window.c:6609
 msgid "Make the current document fill the window width"
 msgstr "Uneko dokumentuak leihoaren zabalera guztia betetzen du"
 
-#: previewer/ev-previewer-window.c:537 shell/ev-window.c:6720
+#: previewer/ev-previewer-window.c:537 shell/ev-window.c:6768
 msgid "Page"
 msgstr "Orrialdea"
 
-#: previewer/ev-previewer-window.c:538 shell/ev-window.c:6721
+#: previewer/ev-previewer-window.c:538 shell/ev-window.c:6769
 msgid "Select Page"
 msgstr "Hautatu orrialdea"
 
@@ -730,11 +730,11 @@ msgstr "%s, bertikala (%s)"
 msgid "%s, Landscape (%s)"
 msgstr "%s, horizontala (%s)"
 
-#: properties/liblector-properties-page.baul-extension.desktop.in:5
+#: properties/liblector-properties-page.baul-extension.desktop.in:4
 msgid "Lector properties"
 msgstr "Lector propietateak"
 
-#: properties/liblector-properties-page.baul-extension.desktop.in:6
+#: properties/liblector-properties-page.baul-extension.desktop.in:5
 msgid "Shows details for Lector documents"
 msgstr "Erakutsi Lector dokumentuen xehetasunak"
 
@@ -1087,11 +1087,11 @@ msgstr "Letra-tipoak"
 msgid "Document License"
 msgstr "Dokumentuaren lizentzia"
 
-#: shell/ev-properties-fonts.c:136
+#: shell/ev-properties-fonts.c:139
 msgid "Font"
 msgstr "Letra-tipoa"
 
-#: shell/ev-properties-fonts.c:163
+#: shell/ev-properties-fonts.c:166
 #, c-format
 msgid "Gathering font information… %3d%%"
 msgstr "Letra-tipoaren informazioa biltzen... %%%3d"
@@ -1146,7 +1146,7 @@ msgid "_Remove Bookmark"
 msgstr "_Kendu laster-marka"
 
 #: shell/ev-sidebar-bookmarks.c:314 shell/ev-window.c:1006
-#: shell/ev-window.c:5027
+#: shell/ev-window.c:5059
 #, c-format
 msgid "Page %s"
 msgstr "%s orrialdea"
@@ -1167,11 +1167,11 @@ msgstr "Laster-markak"
 msgid "Layers"
 msgstr "Geruzak"
 
-#: shell/ev-sidebar-links.c:331
+#: shell/ev-sidebar-links.c:332
 msgid "Print…"
 msgstr "Inprimatu..."
 
-#: shell/ev-sidebar-links.c:713
+#: shell/ev-sidebar-links.c:715
 msgid "Index"
 msgstr "Indizea"
 
@@ -1184,7 +1184,7 @@ msgstr "Koadro txikiak"
 msgid "Page %s — %s"
 msgstr "%s — %s orrialdea"
 
-#: shell/ev-window.c:1163
+#: shell/ev-window.c:1165
 msgid ""
 "Cannot enter presentation mode with ePub documents, use fullscreen mode "
 "instead."
@@ -1192,105 +1192,105 @@ msgstr ""
 "Ezin da aurkezpen modua erabili ePub dokumentuetan, erabili pantaila osoko "
 "modua."
 
-#: shell/ev-window.c:1767
+#: shell/ev-window.c:1769
 msgid "The document contains no pages"
 msgstr "Dokumentuak ez du orrialderik"
 
-#: shell/ev-window.c:1770
+#: shell/ev-window.c:1772
 msgid "The document contains only empty pages"
 msgstr "Dokumentuak orrialde hutsak soilik ditu"
 
-#: shell/ev-window.c:1809
+#: shell/ev-window.c:1811
 msgid "Presentation mode is not supported for ePub documents."
 msgstr "Aurkezpen-modua ez dute mantentzen ePub-dokumentuetarako."
 
-#: shell/ev-window.c:2003 shell/ev-window.c:2171
+#: shell/ev-window.c:2005 shell/ev-window.c:2173
 msgid "Unable to open document"
 msgstr "Ezin da dokumentua ireki"
 
-#: shell/ev-window.c:2140
+#: shell/ev-window.c:2142
 #, c-format
 msgid "Loading document from “%s”"
 msgstr "%s(e)tik dokumentua kargatzen"
 
-#: shell/ev-window.c:2282 shell/ev-window.c:2573
+#: shell/ev-window.c:2284 shell/ev-window.c:2575
 #, c-format
 msgid "Downloading document (%d%%)"
 msgstr "Dokumentua deskargatzen (%% %d)"
 
-#: shell/ev-window.c:2315
+#: shell/ev-window.c:2317
 msgid "Failed to load remote file."
 msgstr "Huts egin du urruneko fitxategia kargatzean."
 
-#: shell/ev-window.c:2517
+#: shell/ev-window.c:2519
 #, c-format
 msgid "Reloading document from %s"
 msgstr "%s(e)ndik dokumentua birkargatzen"
 
-#: shell/ev-window.c:2549
+#: shell/ev-window.c:2551
 msgid "Failed to reload document."
 msgstr "Huts egin du dokumentua birkargatzean."
 
-#: shell/ev-window.c:2767
+#: shell/ev-window.c:2770
 msgid "Open Document"
 msgstr "Ireki dokumentua"
 
-#: shell/ev-window.c:3040
+#: shell/ev-window.c:3044
 #, c-format
 msgid "Saving document to %s"
 msgstr "Dokumentua %s(e)n gordetzen"
 
-#: shell/ev-window.c:3043
+#: shell/ev-window.c:3047
 #, c-format
 msgid "Saving attachment to %s"
 msgstr "Eranskina %s(e)n gordetzen"
 
-#: shell/ev-window.c:3046
+#: shell/ev-window.c:3050
 #, c-format
 msgid "Saving image to %s"
 msgstr "Irudia %s(e)n gordetzen"
 
-#: shell/ev-window.c:3090 shell/ev-window.c:3190
+#: shell/ev-window.c:3094 shell/ev-window.c:3194
 #, c-format
 msgid "The file could not be saved as “%s”."
 msgstr "Fitxategia ezin izan da '%s' bezala gorde."
 
-#: shell/ev-window.c:3121
+#: shell/ev-window.c:3125
 #, c-format
 msgid "Uploading document (%d%%)"
 msgstr "Dokumentua igotzen (%% %d)"
 
-#: shell/ev-window.c:3125
+#: shell/ev-window.c:3129
 #, c-format
 msgid "Uploading attachment (%d%%)"
 msgstr "Eranskina igotzen (%% %d)"
 
-#: shell/ev-window.c:3129
+#: shell/ev-window.c:3133
 #, c-format
 msgid "Uploading image (%d%%)"
 msgstr "Irudia igotzen (%% %d)"
 
-#: shell/ev-window.c:3242
+#: shell/ev-window.c:3247
 msgid "Save As…"
 msgstr "Gorde honela..."
 
-#: shell/ev-window.c:3320
+#: shell/ev-window.c:3325
 msgid "Could not send current document"
 msgstr "Ezin izan da uneko dokumentua bidali"
 
-#: shell/ev-window.c:3570
+#: shell/ev-window.c:3575
 #, c-format
 msgid "%d pending job in queue"
 msgid_plural "%d pending jobs in queue"
 msgstr[0] ""
 msgstr[1] ""
 
-#: shell/ev-window.c:3683
+#: shell/ev-window.c:3688
 #, c-format
 msgid "Printing job “%s”"
 msgstr "'%s' lana inprimatzen"
 
-#: shell/ev-window.c:3860
+#: shell/ev-window.c:3867
 msgid ""
 "Document contains form fields that have been filled out. If you don't save a "
 "copy, changes will be permanently lost."
@@ -1298,7 +1298,7 @@ msgstr ""
 "Dokumentuak bete beharreko inprimaki-eremuak ditu. Ez baduzu kopia bat "
 "gordetzen, aldaketak betirako galduko dira."
 
-#: shell/ev-window.c:3864
+#: shell/ev-window.c:3871
 msgid ""
 "Document contains new or modified annotations. If you don't save a copy, "
 "changes will be permanently lost."
@@ -1306,25 +1306,25 @@ msgstr ""
 "Dokumentuak oharpen berriak edo aldatutakoak ditu. Ez baduzu kopia bat "
 "gordetzen, aldaketak betirako galduko dira."
 
-#: shell/ev-window.c:3871
+#: shell/ev-window.c:3878
 #, c-format
 msgid "Save a copy of document “%s” before closing?"
 msgstr "Gorde '%s' dokumentuaren kopia itxi aurretik?"
 
-#: shell/ev-window.c:3890
+#: shell/ev-window.c:3897
 msgid "Close _without Saving"
 msgstr "Itxi gorde _gabe"
 
-#: shell/ev-window.c:3894 shell/ev-window.c:6400
+#: shell/ev-window.c:3901 shell/ev-window.c:6442
 msgid "_Save As…"
 msgstr ""
 
-#: shell/ev-window.c:3963
+#: shell/ev-window.c:3970
 #, c-format
 msgid "Wait until print job “%s” finishes before closing?"
 msgstr "Itxi aurretik '%s' lana inprimatu arte zai egon?"
 
-#: shell/ev-window.c:3969
+#: shell/ev-window.c:3976
 #, c-format
 msgid "There is %d print job active. Wait until print finishes before closing?"
 msgid_plural ""
@@ -1332,35 +1332,35 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: shell/ev-window.c:3984
+#: shell/ev-window.c:3991
 msgid "If you close the window, pending print jobs will not be printed."
 msgstr "Leihoa ixten baduzu, falta diren inprimatze-lanak ez dira inprimatuko."
 
-#: shell/ev-window.c:3988
+#: shell/ev-window.c:3995
 msgid "Cancel _print and Close"
 msgstr "_Utzi inprimatzea eta irten"
 
-#: shell/ev-window.c:3992
+#: shell/ev-window.c:3999
 msgid "Close _after Printing"
 msgstr "Itxi inprimatu _ondoren"
 
-#: shell/ev-window.c:4373
+#: shell/ev-window.c:4391
 msgid "Running in presentation mode"
 msgstr "Exekutatu aurkezpen moduan"
 
-#: shell/ev-window.c:4438
+#: shell/ev-window.c:4456
 msgid "Presentation mode is not supported for ePub documents"
 msgstr "Aurkezpen-modua|moda ez dute mantentzen ePub-dokumentuetarako."
 
-#: shell/ev-window.c:4752
+#: shell/ev-window.c:4774
 msgid "Toolbar Editor"
 msgstr "Tresna-barraren editorea"
 
-#: shell/ev-window.c:5073
+#: shell/ev-window.c:5109
 msgid "There was an error displaying help"
 msgstr "Errorea gertatu da laguntza bistaratzean"
 
-#: shell/ev-window.c:5323
+#: shell/ev-window.c:5364
 #, c-format
 msgid ""
 "Document Viewer\n"
@@ -1368,19 +1368,19 @@ msgid ""
 "and SyncTeX %s"
 msgstr ""
 
-#: shell/ev-window.c:5340
+#: shell/ev-window.c:5382
 msgid "CAFE Documentation Team"
 msgstr ""
 
-#: shell/ev-window.c:5341
+#: shell/ev-window.c:5383
 msgid "MATE Documentation Team"
 msgstr ""
 
-#: shell/ev-window.c:5342
+#: shell/ev-window.c:5384
 msgid "GNOME Documentation Team"
 msgstr ""
 
-#: shell/ev-window.c:5347
+#: shell/ev-window.c:5389
 msgid ""
 "Lector is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -1388,7 +1388,7 @@ msgid ""
 "version."
 msgstr ""
 
-#: shell/ev-window.c:5351
+#: shell/ev-window.c:5393
 msgid ""
 "Lector is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -1396,418 +1396,418 @@ msgid ""
 "details."
 msgstr ""
 
-#: shell/ev-window.c:5355
+#: shell/ev-window.c:5397
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "Lector; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301  USA"
 msgstr ""
 
-#: shell/ev-window.c:5400
+#: shell/ev-window.c:5442
 msgid "About Lector Document Viewer"
 msgstr ""
 
-#: shell/ev-window.c:5401
+#: shell/ev-window.c:5443
 msgid ""
 "Copyright © 1996–2009 The Evince authors\n"
 "Copyright © 2012–2020 The MATE developers\n"
 "Copyright © 2024 Pablo Barciela"
 msgstr ""
 
-#: shell/ev-window.c:5409
+#: shell/ev-window.c:5451
 msgid "translator-credits"
 msgstr ""
 "Asier Iturralde Sarasola <asier.iturralde@gmail.com>\n"
 "Aritz Jorge Sánchez"
 
-#: shell/ev-window.c:5687
+#: shell/ev-window.c:5729
 #, c-format
 msgid "%d found on this page"
 msgid_plural "%d found on this page"
 msgstr[0] ""
 msgstr[1] ""
 
-#: shell/ev-window.c:5692
+#: shell/ev-window.c:5734
 msgid "Not found"
 msgstr "Ez da aurkitu"
 
-#: shell/ev-window.c:5698
+#: shell/ev-window.c:5740
 #, c-format
 msgid "%3d%% remaining to search"
 msgstr "%%%3d falta dira bilatzeko"
 
-#: shell/ev-window.c:6053
+#: shell/ev-window.c:6095
 msgid "Enable caret navigation?"
 msgstr "Teklatu bidezko nabigazioa gaitu?"
 
-#: shell/ev-window.c:6055
+#: shell/ev-window.c:6097
 msgid "_Enable"
 msgstr "_Gaitu"
 
-#: shell/ev-window.c:6058
+#: shell/ev-window.c:6100
 msgid ""
 "Pressing F7 turns the caret navigation on or off. This feature places a "
 "movable cursor in text pages, allowing you to move around and select text "
 "with your keyboard. Do you want to enable the caret navigation?"
 msgstr ""
 
-#: shell/ev-window.c:6063
+#: shell/ev-window.c:6105
 msgid "Don't show this message again"
 msgstr "Ez erakutsi mezu hau berriro"
 
-#: shell/ev-window.c:6386
+#: shell/ev-window.c:6428
 msgid "_File"
 msgstr "_Fitxategia"
 
-#: shell/ev-window.c:6387
+#: shell/ev-window.c:6429
 msgid "_Edit"
 msgstr "_Editatu"
 
-#: shell/ev-window.c:6388
+#: shell/ev-window.c:6430
 msgid "_View"
 msgstr "_Ikusi"
 
-#: shell/ev-window.c:6389
+#: shell/ev-window.c:6431
 msgid "_Go"
 msgstr "_Joan"
 
-#: shell/ev-window.c:6390
+#: shell/ev-window.c:6432
 msgid "_Bookmarks"
 msgstr "_Laster-markak"
 
-#: shell/ev-window.c:6391
+#: shell/ev-window.c:6433
 msgid "_Help"
 msgstr "_Laguntza"
 
-#: shell/ev-window.c:6394 shell/ev-window.c:6760
+#: shell/ev-window.c:6436 shell/ev-window.c:6808
 msgid "_Open…"
 msgstr "_Ireki..."
 
-#: shell/ev-window.c:6395 shell/ev-window.c:6761
+#: shell/ev-window.c:6437 shell/ev-window.c:6809
 msgid "Open an existing document"
 msgstr "Ireki existitzen den dokumentua"
 
-#: shell/ev-window.c:6397
+#: shell/ev-window.c:6439
 msgid "Op_en a Copy"
 msgstr "Ireki _kopia bat"
 
-#: shell/ev-window.c:6398
+#: shell/ev-window.c:6440
 msgid "Open a copy of the current document in a new window"
 msgstr "Ireki uneko dokumentuaren kopia leiho berrian"
 
-#: shell/ev-window.c:6401
+#: shell/ev-window.c:6443
 msgid "Save a copy of the current document"
 msgstr "Gorde uneko dokumentuaren kopia"
 
-#: shell/ev-window.c:6403
+#: shell/ev-window.c:6445
 msgid "Send _To..."
 msgstr "Bidali _honi..."
 
-#: shell/ev-window.c:6404
+#: shell/ev-window.c:6446
 msgid "Send current document by mail, instant message..."
 msgstr "Bidali uneko dokumentua posta elektronikoz, berehalako mezularitzaz..."
 
-#: shell/ev-window.c:6406
+#: shell/ev-window.c:6448
 msgid "_Print…"
 msgstr "_Inprimatu..."
 
-#: shell/ev-window.c:6409
+#: shell/ev-window.c:6451
 msgid "P_roperties"
 msgstr "_Propietateak"
 
-#: shell/ev-window.c:6415
+#: shell/ev-window.c:6457
 msgid "_Copy"
 msgstr "_Kopiatu"
 
-#: shell/ev-window.c:6417
+#: shell/ev-window.c:6459
 msgid "Select _All"
 msgstr "Hautatu _dena"
 
-#: shell/ev-window.c:6419
+#: shell/ev-window.c:6461
 msgid "_Find…"
 msgstr "_Bilatu..."
 
-#: shell/ev-window.c:6420
+#: shell/ev-window.c:6462
 msgid "Find a word or phrase in the document"
 msgstr "Bilatu hitz bat edo esaldi bat dokumentuan"
 
-#: shell/ev-window.c:6422
+#: shell/ev-window.c:6464
 msgid "Find Ne_xt"
 msgstr "Bilatu _hurrengoa"
 
-#: shell/ev-window.c:6424
+#: shell/ev-window.c:6466
 msgid "Find Pre_vious"
 msgstr "Bilatu _aurrekoa"
 
-#: shell/ev-window.c:6426
+#: shell/ev-window.c:6468
 msgid "T_oolbar"
 msgstr "_Tresna-barra"
 
-#: shell/ev-window.c:6428
+#: shell/ev-window.c:6470
 msgid "Rotate _Left"
 msgstr "Biratu _ezkerrera"
 
-#: shell/ev-window.c:6430
+#: shell/ev-window.c:6472
 msgid "Rotate _Right"
 msgstr "Biratu _eskuinera"
 
-#: shell/ev-window.c:6432
+#: shell/ev-window.c:6474
 msgid "Save Current Settings as _Default"
 msgstr "Gorde uneko ezarpenak _lehenetsi gisa"
 
-#: shell/ev-window.c:6443
+#: shell/ev-window.c:6485
 msgid "_Reset Zoom"
 msgstr ""
 
-#: shell/ev-window.c:6446
+#: shell/ev-window.c:6488
 msgid "_Reload"
 msgstr "_Birkargatu"
 
-#: shell/ev-window.c:6447
+#: shell/ev-window.c:6489
 msgid "Reload the document"
 msgstr "Birkargatu dokumentua"
 
-#: shell/ev-window.c:6449
+#: shell/ev-window.c:6491
 msgid "_Expand Window to Fit"
 msgstr "_Zabal Ezazu Leihoa Moldatzera"
 
-#: shell/ev-window.c:6453
+#: shell/ev-window.c:6495
 msgid "Auto_scroll"
 msgstr "Korritze automatikoa"
 
-#: shell/ev-window.c:6463
+#: shell/ev-window.c:6505
 msgid "_First Page"
 msgstr "_Aurreneko orrialdea"
 
-#: shell/ev-window.c:6464
+#: shell/ev-window.c:6506
 msgid "Go to the first page"
 msgstr "Joan aurreneko orrialdera"
 
-#: shell/ev-window.c:6466
+#: shell/ev-window.c:6508
 msgid "_Last Page"
 msgstr "_Azken orrialdea"
 
-#: shell/ev-window.c:6467
+#: shell/ev-window.c:6509
 msgid "Go to the last page"
 msgstr "Joan azkeneko orrialdera"
 
-#: shell/ev-window.c:6471
+#: shell/ev-window.c:6513
 msgid "_Add Bookmark"
 msgstr "_Gehitu laster-marka"
 
-#: shell/ev-window.c:6472
+#: shell/ev-window.c:6514
 msgid "Add a bookmark for the current page"
 msgstr "Gehitu laster-marka uneko orriari"
 
-#: shell/ev-window.c:6476
+#: shell/ev-window.c:6518
 msgid "_Contents"
 msgstr "_Edukia"
 
-#: shell/ev-window.c:6479
+#: shell/ev-window.c:6521
 msgid "_About"
 msgstr "Honi _buruz"
 
-#: shell/ev-window.c:6483
+#: shell/ev-window.c:6525
 msgid "Leave Fullscreen"
 msgstr "Irten pantaila osotik"
 
-#: shell/ev-window.c:6484
+#: shell/ev-window.c:6526
 msgid "Leave fullscreen mode"
 msgstr "Irten pantaila osoko modutik"
 
-#: shell/ev-window.c:6486
+#: shell/ev-window.c:6528
 msgid "Start Presentation"
 msgstr "Abiarazi aurkezpena"
 
-#: shell/ev-window.c:6487
+#: shell/ev-window.c:6529
 msgid "Start a presentation"
 msgstr "Abiatu aurkezpen bat"
 
-#: shell/ev-window.c:6542
+#: shell/ev-window.c:6584
 msgid "_Toolbar"
 msgstr "_Tresna-barra"
 
-#: shell/ev-window.c:6543
+#: shell/ev-window.c:6585
 msgid "Show or hide the toolbar"
 msgstr "Erakutsi edo ezkutatu tresna-barra"
 
-#: shell/ev-window.c:6545
+#: shell/ev-window.c:6587
 msgid "Side _Pane"
 msgstr "Alboko p_anela"
 
-#: shell/ev-window.c:6546
+#: shell/ev-window.c:6588
 msgid "Show or hide the side pane"
 msgstr "Erakutsi edo ezkutatu alboko panela"
 
-#: shell/ev-window.c:6548
+#: shell/ev-window.c:6590
 msgid "_Continuous"
 msgstr "_Etengabea"
 
-#: shell/ev-window.c:6549
+#: shell/ev-window.c:6591
 msgid "Show the entire document"
 msgstr "Erakutsi dokumentu osoa"
 
-#: shell/ev-window.c:6551
+#: shell/ev-window.c:6593
 msgid "_Dual"
 msgstr "_Duala"
 
-#: shell/ev-window.c:6552
+#: shell/ev-window.c:6594
 msgid "Show two pages at once"
 msgstr "Erakutsi bi orrialde batera"
 
-#: shell/ev-window.c:6554
+#: shell/ev-window.c:6596
 msgid "_Odd pages left"
 msgstr "Orri _bakoitiak ezkerrean"
 
-#: shell/ev-window.c:6555
+#: shell/ev-window.c:6597
 msgid "Show odd pages on the left in dual mode"
 msgstr "Erakutsi orri bakoitiak ezkerrean modu dualean"
 
-#: shell/ev-window.c:6557
+#: shell/ev-window.c:6599
 msgid "_Fullscreen"
 msgstr "_Pantaila osoa"
 
-#: shell/ev-window.c:6558
+#: shell/ev-window.c:6600
 msgid "Expand the window to fill the screen"
 msgstr "Zabaldu leihoa pantaila guztia bete arte"
 
-#: shell/ev-window.c:6560
+#: shell/ev-window.c:6602
 msgid "Pre_sentation"
 msgstr "_Aurkezpena"
 
-#: shell/ev-window.c:6561
+#: shell/ev-window.c:6603
 msgid "Run document as a presentation"
 msgstr "Abiatu dokumentua aurkezpen gisa"
 
-#: shell/ev-window.c:6569
+#: shell/ev-window.c:6611
 msgid "Inverted _Colors"
 msgstr ""
 
-#: shell/ev-window.c:6570
+#: shell/ev-window.c:6612
 msgid "Show page contents with the colors inverted"
 msgstr "Erakutsi orrialdearen edukia alderantzikatutako koloreekin"
 
-#: shell/ev-window.c:6572
+#: shell/ev-window.c:6614
 msgid "Caret _Navigation"
 msgstr "Teklatu bidezko _nabigazioa"
 
-#: shell/ev-window.c:6573
+#: shell/ev-window.c:6615
 msgid "Activate or disable caret-navigation"
 msgstr "Aktibatu edo desgaitu teklatu bidezko nabigazioa"
 
-#: shell/ev-window.c:6581
+#: shell/ev-window.c:6623
 msgid "_Open Link"
 msgstr "_Ireki esteka"
 
-#: shell/ev-window.c:6583
+#: shell/ev-window.c:6625
 msgid "_Go To"
 msgstr "J_oan"
 
-#: shell/ev-window.c:6585
+#: shell/ev-window.c:6627
 msgid "Open in New _Window"
 msgstr "Ireki leiho _berrian"
 
-#: shell/ev-window.c:6587
+#: shell/ev-window.c:6629
 msgid "_Copy Link Address"
 msgstr "_Kopiatu estekaren helbidea"
 
-#: shell/ev-window.c:6589
+#: shell/ev-window.c:6631
 msgid "_Save Image As…"
 msgstr "_Gorde irudia honela..."
 
-#: shell/ev-window.c:6591
+#: shell/ev-window.c:6633
 msgid "Copy _Image"
 msgstr "Kopiatu _irudia"
 
-#: shell/ev-window.c:6593
+#: shell/ev-window.c:6635
 msgid "Annotation Properties…"
 msgstr "Oharpenaren propietateak..."
 
-#: shell/ev-window.c:6595
+#: shell/ev-window.c:6637
 msgid "Remove Annot…"
 msgstr "Kendu oharpena..."
 
-#: shell/ev-window.c:6600
+#: shell/ev-window.c:6642
 msgid "_Open Attachment"
 msgstr "_Ireki eranskina"
 
-#: shell/ev-window.c:6602
+#: shell/ev-window.c:6644
 msgid "_Save Attachment As…"
 msgstr "_Gorde eranskina honela..."
 
-#: shell/ev-window.c:6734
+#: shell/ev-window.c:6782
 msgid "Zoom"
 msgstr "Zooma"
 
-#: shell/ev-window.c:6736
+#: shell/ev-window.c:6784
 msgid "Adjust the zoom level"
 msgstr "Doitu zoom-aren maila"
 
-#: shell/ev-window.c:6746
+#: shell/ev-window.c:6794
 msgid "Navigation"
 msgstr "Nabigazioa"
 
-#: shell/ev-window.c:6748
+#: shell/ev-window.c:6796
 msgid "Back"
 msgstr "Atzera"
 
-#: shell/ev-window.c:6751
+#: shell/ev-window.c:6799
 msgid "Move across visited pages"
 msgstr "Joan bisitatutako orrialdeetara"
 
-#: shell/ev-window.c:6780
+#: shell/ev-window.c:6828
 msgid "Send To"
 msgstr "Bidali honi"
 
-#: shell/ev-window.c:6786
+#: shell/ev-window.c:6834
 msgid "Previous"
 msgstr "Aurrekoa"
 
-#: shell/ev-window.c:6791
+#: shell/ev-window.c:6839
 msgid "Next"
 msgstr "Hurrengoa"
 
-#: shell/ev-window.c:6795
+#: shell/ev-window.c:6843
 msgid "Zoom In"
 msgstr "Zooma handiagotu"
 
-#: shell/ev-window.c:6799
+#: shell/ev-window.c:6847
 msgid "Zoom Out"
 msgstr "Zooma txikiagotu"
 
-#: shell/ev-window.c:6803
+#: shell/ev-window.c:6851
 msgid "Reset Zoom"
 msgstr ""
 
-#: shell/ev-window.c:6944 shell/ev-window.c:6960
+#: shell/ev-window.c:6998 shell/ev-window.c:7014
 msgid "Unable to launch external application."
 msgstr "Ezin da kanpoko aplikazioa abiarazi."
 
-#: shell/ev-window.c:7017
+#: shell/ev-window.c:7071
 msgid "Unable to open external link"
 msgstr "Ezin da kanpoko esteka ireki"
 
-#: shell/ev-window.c:7211
+#: shell/ev-window.c:7268
 msgid "Couldn't find appropriate format to save image"
 msgstr "Ezin izan da formatu egokirik aurkitu irudia gordetzeko"
 
-#: shell/ev-window.c:7243
+#: shell/ev-window.c:7300
 msgid "The image could not be saved."
 msgstr "Irudia ezin izan da gorde."
 
-#: shell/ev-window.c:7275
+#: shell/ev-window.c:7333
 msgid "Save Image"
 msgstr "Gorde irudia"
 
-#: shell/ev-window.c:7413
+#: shell/ev-window.c:7473
 msgid "Unable to open attachment"
 msgstr "Ezin da eranskina ireki"
 
-#: shell/ev-window.c:7469
+#: shell/ev-window.c:7529
 msgid "The attachment could not be saved."
 msgstr "Eranskina ezin izan da gorde."
 
-#: shell/ev-window.c:7514
+#: shell/ev-window.c:7575
 msgid "Save Attachment"
 msgstr "Gorde eranskina"
 
