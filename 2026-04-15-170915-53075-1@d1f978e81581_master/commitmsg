@@ -1,0 +1,6 @@
+ev-file-helpers: avoid deprecated GTimeVal
+
+g_mkdtemp instead _ev_g_mkdtemp
+
+based in atril commit:
+https://github.com/mate-desktop/atril/commit/b8f1d0c2d0ebb7adaecc9fcaceef111a3737ebff
