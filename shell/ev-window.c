@@ -5442,7 +5442,7 @@ ev_window_cmd_help_about (CtkAction *action G_GNUC_UNUSED,
 		"title", _("About Lector Document Viewer"),
 		"copyright", _("Copyright \xc2\xa9 1996–2009 The Evince authors\n"
 		               "Copyright \xc2\xa9 2012–2020 The MATE developers\n"
-		               "Copyright \xc2\xa9 2024 Pablo Barciela"),
+		               "Copyright \xc2\xa9 2024-2026 Pablo Barciela"),
 		"license", license_trans,
 		"website", "https://cafe-desktop.org/",
 		"comments", comments,
