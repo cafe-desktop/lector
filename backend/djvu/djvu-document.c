@@ -513,7 +513,7 @@ djvu_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 	thumb_width = (gint) (page_width * rc->scale);
 	thumb_height = (gint) (page_height * rc->scale);
 
-	pixbuf = cdk_pixbuf_new (GDK_COLORSPACE_RGB, FALSE, 8,
+	pixbuf = cdk_pixbuf_new (CDK_COLORSPACE_RGB, FALSE, 8,
 				 thumb_width, thumb_height);
 	cdk_pixbuf_fill (pixbuf, 0xffffffff);
 	pixels = cdk_pixbuf_get_pixels (pixbuf);

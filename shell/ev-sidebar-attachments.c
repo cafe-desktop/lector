@@ -85,7 +85,7 @@ ev_sidebar_attachments_icon_cache_add (EvSidebarAttachments *ev_attachbar,
 				       const GdkPixbuf      *pixbuf)
 {
 	g_assert (mime_type != NULL);
-	g_assert (GDK_IS_PIXBUF (pixbuf));
+	g_assert (CDK_IS_PIXBUF (pixbuf));
 
 	g_hash_table_insert (ev_attachbar->priv->icon_cache,
 			     (gpointer)g_strdup (mime_type),
@@ -133,13 +133,13 @@ ev_sidebar_attachments_icon_cache_get (EvSidebarAttachments *ev_attachbar,
 	pixbuf = g_hash_table_lookup (ev_attachbar->priv->icon_cache,
 				      mime_type);
 
-	if (GDK_IS_PIXBUF (pixbuf))
+	if (CDK_IS_PIXBUF (pixbuf))
 		return pixbuf;
 
 	pixbuf = icon_theme_get_pixbuf_from_mime_type (ev_attachbar->priv->icon_theme,
 						       mime_type);
 
-	if (GDK_IS_PIXBUF (pixbuf))
+	if (CDK_IS_PIXBUF (pixbuf))
 		ev_sidebar_attachments_icon_cache_add (ev_attachbar,
 						       mime_type,
 						       pixbuf);
@@ -542,7 +542,7 @@ ev_sidebar_attachments_init (EvSidebarAttachments *ev_attachbar)
 					     CTK_SHADOW_IN);
 	/* Data Model */
 	ev_attachbar->priv->model = ctk_list_store_new (N_COLS,
-							GDK_TYPE_PIXBUF,
+							CDK_TYPE_PIXBUF,
 							G_TYPE_STRING,
 							G_TYPE_STRING,
 							EV_TYPE_ATTACHMENT);
