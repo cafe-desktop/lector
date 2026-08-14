@@ -1456,13 +1456,13 @@ pdf_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document_thumbnails
 
 	if (pixbuf != NULL) {
 		int thumb_width = (rc->rotation == 90 || rc->rotation == 270) ?
-			gdk_pixbuf_get_height (pixbuf) :
-			gdk_pixbuf_get_width (pixbuf);
+			cdk_pixbuf_get_height (pixbuf) :
+			cdk_pixbuf_get_width (pixbuf);
 
 		if (thumb_width == width) {
 			GdkPixbuf *rotated_pixbuf;
 
-			rotated_pixbuf = gdk_pixbuf_rotate_simple (pixbuf,
+			rotated_pixbuf = cdk_pixbuf_rotate_simple (pixbuf,
 								   (GdkPixbufRotation) (360 - rc->rotation));
 			g_object_unref (pixbuf);
 			pixbuf = rotated_pixbuf;
