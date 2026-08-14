@@ -29,18 +29,18 @@
 
 #include "ev-document-misc.h"
 
-/* Returns a new GdkPixbuf that is suitable for placing in the thumbnail view.
+/* Returns a new CdkPixbuf that is suitable for placing in the thumbnail view.
  * It is four pixels wider and taller than the source.  If source_pixbuf is not
  * NULL, then it will fill the return pixbuf with the contents of
  * source_pixbuf.
  */
-static GdkPixbuf *
+static CdkPixbuf *
 create_thumbnail_frame (int        width,
 			int        height,
-			GdkPixbuf *source_pixbuf,
+			CdkPixbuf *source_pixbuf,
 			gboolean   fill_bg)
 {
-	GdkPixbuf *retval;
+	CdkPixbuf *retval;
 	guchar *data;
 	gint rowstride;
 	int i;
@@ -100,14 +100,14 @@ create_thumbnail_frame (int        width,
  * ev_document_misc_get_thumbnail_frame:
  * @width: the desired width
  * @height: the desired height
- * @source_pixbuf: a #GdkPixbuf
+ * @source_pixbuf: a #CdkPixbuf
  *
- * Returns: (transfer full): a #GdkPixbuf
+ * Returns: (transfer full): a #CdkPixbuf
  */
-GdkPixbuf *
+CdkPixbuf *
 ev_document_misc_get_thumbnail_frame (int        width,
 				      int        height,
-				      GdkPixbuf *source_pixbuf)
+				      CdkPixbuf *source_pixbuf)
 {
 	return create_thumbnail_frame (width, height, source_pixbuf, TRUE);
 }
@@ -118,9 +118,9 @@ ev_document_misc_get_thumbnail_frame (int        width,
  * @height: the desired height
  * @inverted_colors: whether to invert colors
  *
- * Returns: (transfer full): a #GdkPixbuf
+ * Returns: (transfer full): a #CdkPixbuf
  */
-GdkPixbuf *
+CdkPixbuf *
 ev_document_misc_get_loading_thumbnail (int      width,
 					int      height,
 					gboolean inverted_colors)
@@ -129,7 +129,7 @@ ev_document_misc_get_loading_thumbnail (int      width,
 }
 
 cairo_surface_t *
-ev_document_misc_surface_from_pixbuf (GdkPixbuf *pixbuf)
+ev_document_misc_surface_from_pixbuf (CdkPixbuf *pixbuf)
 {
 	cairo_surface_t *surface;
 	cairo_t         *cr;
@@ -152,9 +152,9 @@ ev_document_misc_surface_from_pixbuf (GdkPixbuf *pixbuf)
  * ev_document_misc_pixbuf_from_surface:
  * @surface: a #cairo_surface_t
  *
- * Returns: (transfer full): a #GdkPixbuf
+ * Returns: (transfer full): a #CdkPixbuf
  */
-GdkPixbuf *
+CdkPixbuf *
 ev_document_misc_pixbuf_from_surface (cairo_surface_t *surface)
 {
 	g_return_val_if_fail (surface, NULL);
@@ -239,7 +239,7 @@ ev_document_misc_invert_surface (cairo_surface_t *surface) {
 }
 
 void
-ev_document_misc_invert_pixbuf (GdkPixbuf *pixbuf)
+ev_document_misc_invert_pixbuf (CdkPixbuf *pixbuf)
 {
 	guchar *data, *p;
 	guint   width, height, x, y, rowstride, n_channels;

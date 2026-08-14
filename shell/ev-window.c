@@ -7199,7 +7199,7 @@ ev_view_popup_cmd_copy_link_address (CtkAction *action G_GNUC_UNUSED,
 
 static GFile *
 create_file_from_uri_for_format (const gchar     *uri,
-				 GdkPixbufFormat *format)
+				 CdkPixbufFormat *format)
 {
 	GFile  *target_file;
 	gchar **extensions;
@@ -7230,11 +7230,11 @@ image_save_dialog_response_cb (CtkWidget *fc,
 	GFile           *target_file;
 	gboolean         is_native;
 	GError          *error = NULL;
-	GdkPixbuf       *pixbuf;
+	CdkPixbuf       *pixbuf;
 	gchar           *uri;
 	gchar           *filename;
 	gchar           *file_format;
-	GdkPixbufFormat *format;
+	CdkPixbufFormat *format;
 	CtkFileFilter   *filter;
 
 	if (response_id != CTK_RESPONSE_OK) {
@@ -7360,7 +7360,7 @@ ev_view_popup_cmd_copy_image (CtkAction *action G_GNUC_UNUSED,
 			      EvWindow  *window)
 {
 	CtkClipboard *clipboard;
-	GdkPixbuf    *pixbuf;
+	CdkPixbuf    *pixbuf;
 
 	if (!window->priv->image)
 		return;
