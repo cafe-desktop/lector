@@ -33,21 +33,21 @@
 
 G_BEGIN_DECLS
 
-GdkPixbuf *ev_document_misc_get_thumbnail_frame  (int           width,
+CdkPixbuf *ev_document_misc_get_thumbnail_frame  (int           width,
 						  int           height,
-						  GdkPixbuf    *source_pixbuf);
-GdkPixbuf *ev_document_misc_get_loading_thumbnail (int      width,
+						  CdkPixbuf    *source_pixbuf);
+CdkPixbuf *ev_document_misc_get_loading_thumbnail (int      width,
 						   int      height,
 						   gboolean inverted_colors);
 
-cairo_surface_t *ev_document_misc_surface_from_pixbuf (GdkPixbuf *pixbuf);
-GdkPixbuf       *ev_document_misc_pixbuf_from_surface (cairo_surface_t *surface);
+cairo_surface_t *ev_document_misc_surface_from_pixbuf (CdkPixbuf *pixbuf);
+CdkPixbuf       *ev_document_misc_pixbuf_from_surface (cairo_surface_t *surface);
 cairo_surface_t *ev_document_misc_surface_rotate_and_scale (cairo_surface_t *surface,
 							    gint             dest_width,
 							    gint             dest_height,
 							    gint             dest_rotation);
 void             ev_document_misc_invert_surface (cairo_surface_t *surface);
-void             ev_document_misc_invert_pixbuf  (GdkPixbuf       *pixbuf);
+void             ev_document_misc_invert_pixbuf  (CdkPixbuf       *pixbuf);
 
 gdouble          ev_document_misc_get_monitor_dpi (CdkMonitor *monitor);
 

@@ -53,13 +53,13 @@ struct _EvImageClass {
 GType        ev_image_get_type         (void) G_GNUC_CONST;
 EvImage     *ev_image_new              (gint             page,
 					gint             img_id);
-EvImage     *ev_image_new_from_pixbuf  (GdkPixbuf       *pixbuf);
+EvImage     *ev_image_new_from_pixbuf  (CdkPixbuf       *pixbuf);
 
 gint         ev_image_get_id           (EvImage         *image);
 gint         ev_image_get_page         (EvImage         *image);
-GdkPixbuf   *ev_image_get_pixbuf       (EvImage         *image);
+CdkPixbuf   *ev_image_get_pixbuf       (EvImage         *image);
 const gchar *ev_image_save_tmp         (EvImage         *image,
-					GdkPixbuf       *pixbuf);
+					CdkPixbuf       *pixbuf);
 const gchar *ev_image_get_tmp_uri      (EvImage         *image);
 
 

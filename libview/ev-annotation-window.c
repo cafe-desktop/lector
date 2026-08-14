@@ -309,7 +309,7 @@ ev_annotation_window_init (EvAnnotationWindow *window)
 	CtkWidget *swindow;
 	CtkWidget *header;
 	CtkIconTheme *icon_theme;
-	GdkPixbuf *pixbuf;
+	CdkPixbuf *pixbuf;
 
 	icon_theme = ctk_icon_theme_get_default ();
 

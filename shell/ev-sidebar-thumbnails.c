@@ -343,13 +343,13 @@ ev_sidebar_thumbnails_new (void)
 	return ev_sidebar_thumbnails;
 }
 
-static GdkPixbuf *
+static CdkPixbuf *
 ev_sidebar_thumbnails_get_loading_icon (EvSidebarThumbnails *sidebar_thumbnails,
 					gint                 width,
 					gint                 height)
 {
 	EvSidebarThumbnailsPrivate *priv = sidebar_thumbnails->priv;
-	GdkPixbuf *icon;
+	CdkPixbuf *icon;
 	gchar     *key;
 
 	key = g_strdup_printf ("%dx%d", width, height);
@@ -587,7 +587,7 @@ ev_sidebar_thumbnails_fill_model (EvSidebarThumbnails *sidebar_thumbnails)
 	for (i = 0; i < sidebar_thumbnails->priv->n_pages; i++) {
 		gchar     *page_label;
 		gchar     *page_string;
-		GdkPixbuf *loading_icon = NULL;
+		CdkPixbuf *loading_icon = NULL;
 		gint       width, height;
 
 		page_label = ev_document_get_page_label (priv->document, i);
