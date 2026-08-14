@@ -64,7 +64,7 @@ pixbuf_document_load (EvDocument  *document,
 	if (!filename)
 		return FALSE;
 
-	pixbuf = gdk_pixbuf_new_from_file (filename, error);
+	pixbuf = cdk_pixbuf_new_from_file (filename, error);
 
 	if (!pixbuf)
 		return FALSE;
@@ -100,8 +100,8 @@ pixbuf_document_get_page_size (EvDocument   *document,
 {
 	PixbufDocument *pixbuf_document = PIXBUF_DOCUMENT (document);
 
-	*width = gdk_pixbuf_get_width (pixbuf_document->pixbuf);
-	*height = gdk_pixbuf_get_height (pixbuf_document->pixbuf);
+	*width = cdk_pixbuf_get_width (pixbuf_document->pixbuf);
+	*height = cdk_pixbuf_get_height (pixbuf_document->pixbuf);
 }
 
 static cairo_surface_t *
@@ -112,13 +112,13 @@ pixbuf_document_render (EvDocument      *document,
 	GdkPixbuf *scaled_pixbuf, *rotated_pixbuf;
 	cairo_surface_t *surface;
 
-	scaled_pixbuf = gdk_pixbuf_scale_simple (
+	scaled_pixbuf = cdk_pixbuf_scale_simple (
 		pixbuf_document->pixbuf,
-		(gdk_pixbuf_get_width (pixbuf_document->pixbuf) * rc->scale) + 0.5,
-		(gdk_pixbuf_get_height (pixbuf_document->pixbuf) * rc->scale) + 0.5,
+		(cdk_pixbuf_get_width (pixbuf_document->pixbuf) * rc->scale) + 0.5,
+		(cdk_pixbuf_get_height (pixbuf_document->pixbuf) * rc->scale) + 0.5,
 		GDK_INTERP_BILINEAR);
 
-        rotated_pixbuf = gdk_pixbuf_rotate_simple (scaled_pixbuf, 360 - rc->rotation);
+        rotated_pixbuf = cdk_pixbuf_rotate_simple (scaled_pixbuf, 360 - rc->rotation);
         g_object_unref (scaled_pixbuf);
 
 	surface = ev_document_misc_surface_from_pixbuf (rotated_pixbuf);
@@ -162,14 +162,14 @@ pixbuf_document_thumbnails_get_thumbnail (EvDocumentThumbnails *document,
 	GdkPixbuf *pixbuf, *rotated_pixbuf;
 	gint width, height;
 
-	width = (gint) (gdk_pixbuf_get_width (pixbuf_document->pixbuf) * rc->scale);
-	height = (gint) (gdk_pixbuf_get_height (pixbuf_document->pixbuf) * rc->scale);
+	width = (gint) (cdk_pixbuf_get_width (pixbuf_document->pixbuf) * rc->scale);
+	height = (gint) (cdk_pixbuf_get_height (pixbuf_document->pixbuf) * rc->scale);
 
-	pixbuf = gdk_pixbuf_scale_simple (pixbuf_document->pixbuf,
+	pixbuf = cdk_pixbuf_scale_simple (pixbuf_document->pixbuf,
 					  width, height,
 					  GDK_INTERP_BILINEAR);
 
-	rotated_pixbuf = gdk_pixbuf_rotate_simple (pixbuf, 360 - rc->rotation);
+	rotated_pixbuf = cdk_pixbuf_rotate_simple (pixbuf, 360 - rc->rotation);
         g_object_unref (pixbuf);
 
         return rotated_pixbuf;
@@ -182,8 +182,8 @@ pixbuf_document_thumbnails_get_dimensions (EvDocumentThumbnails *document,
 					   gint                 *height)
 {
 	PixbufDocument *pixbuf_document = PIXBUF_DOCUMENT (document);
-	gint p_width = gdk_pixbuf_get_width (pixbuf_document->pixbuf);
-	gint p_height = gdk_pixbuf_get_height (pixbuf_document->pixbuf);
+	gint p_width = cdk_pixbuf_get_width (pixbuf_document->pixbuf);
+	gint p_height = cdk_pixbuf_get_height (pixbuf_document->pixbuf);
 
 	if (rc->rotation == 90 || rc->rotation == 270) {
 		*width = (gint) (p_height * rc->scale);
