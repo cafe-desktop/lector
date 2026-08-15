@@ -3,69 +3,12 @@
 ##########################################################
 requires:
   debian:
-    # Useful URL: https://github.com/cafe-desktop/debian-packages
-    # cafe B-D: libbaul-extension-dev libcail-3-dev libctk-3-dev cafe-common
-    - aptitude
-    - autoconf-archive
-    - autopoint
-    - clang
-    - clang-tools
-    - cppcheck
-    - expect #required for unbuffer
-    - gettext
-    - git
-    - gobject-introspection
-    - gtk-doc-tools
-    - libdjvulibre-dev
-    - libgirepository1.0-dev
-    - libglib2.0-dev
-    - libgxps-dev
-    - libkpathsea-dev
-    - libsynctex-dev
-    - libtool
-    - libpoppler-glib-dev
-    - libsecret-1-dev
-    - libsm-dev
-    - libspectre-dev
-    - libtiff-dev
-    - libx11-dev
-    - libxml2-dev
-    - lsb-release
-    - make
-    - xsltproc
-    - yelp-tools
-    - zlib1g-dev
-
-    #required for cafe-common
-    - autoconf
-
-    #required for baul
-    - gla11y
-    - intltool
-    - iso-codes
-    - libdconf-dev
-    - libexempi-dev
-    - libexif-dev
-    - libglib2.0-doc
-    - libnotify-dev
-    - libpango1.0-dev
-    - libselinux1-dev
-    - libstartup-notification0-dev
-    - python3-lxml
-    - quilt
-    - shared-mime-info
 
 before_scripts:
-  - ./html-cppcheck
-  - ./debrepo-install 'libctk-3-dev libcail-3-dev'
-  - ./install-from-git https://github.com/cafe-desktop/cafe-common master
-  - ./install-from-git https://github.com/cafe-desktop/cafe-desktop master
-  - ./install-from-git https://github.com/cafe-desktop/baul master
+  - ./debrepo-install
 
 build_scripts:
-  - ./before-build
-  - ./make-scanbuild '--enable-compile-warnings=maximum --enable-cxx-warnings=maximum'
-  - ./after-build
+  - ./build-debs https://github.com/cafe-desktop/debian-packages devel lector
 
 after_scripts:
   - if [ -f "gen-index" ]; then ./gen-index -l 20 -i https://github.com/${OWNER_NAME}/lector/raw/master/data/icons/16x16/apps/lector.png; fi
